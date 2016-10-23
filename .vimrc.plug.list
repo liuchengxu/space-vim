@@ -1,0 +1,44 @@
+" Plugins list {
+
+    filetype off                  " required
+
+    " set the runtime path to include Vundle and initialize
+    set rtp+=~/.vim/bundle/Vundle.vim
+    call vundle#begin()
+    Plugin 'VundleVim/Vundle.vim'
+
+    Plugin 'godlygeek/tabular'
+    Plugin 'plasticboy/vim-markdown'
+    Plugin 'honza/vim-snippets'
+    Plugin 'SirVer/ultisnips'
+    Plugin 'tpope/vim-fugitive'
+    Plugin 'bronson/vim-trailing-whitespace'
+    Plugin 'Raimondi/delimitMate'
+    Plugin 'scrooloose/nerdcommenter'
+    Plugin 'sjl/vitality.vim'
+    Plugin 'tpope/vim-surround'
+    Plugin 'nathanaelkane/vim-indent-guides'
+    Plugin 'easymotion/vim-easymotion'
+    Plugin 'scrooloose/nerdtree'
+    Plugin 'majutsushi/tagbar'
+    Plugin 'ctrlpvim/ctrlp.vim'
+    Plugin 'Shougo/unite.vim'
+    Plugin 'tsukkee/unite-help'
+    Plugin 'ujihisa/unite-colorscheme'
+    Plugin 'ujihisa/unite-locate'
+    Plugin 'osyo-manga/unite-filetype'
+    Plugin 'osyo-manga/unite-quickfix'
+    Plugin 'osyo-manga/unite-fold'
+    Plugin 'dracula/vim'
+    Plugin 'luochen1990/rainbow'
+    Plugin 'flazz/vim-colorschemes'
+    Plugin 'vim-airline/vim-airline'
+    Plugin 'vim-airline/vim-airline-themes'
+    Plugin 'mhinz/vim-startify'
+    Plugin 'sheerun/vim-polyglot'
+    Plugin 'scrooloose/syntastic'
+    Plugin 'Valloric/YouCompleteMe'
+
+    call vundle#end()            " required
+
+" }
