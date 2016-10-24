@@ -18,7 +18,7 @@
 
 " }
 
-" Plugins list {
+" Plugins List {
     if filereadable(expand("~/.vimrc.plug.list"))
         source ~/.vimrc.plug.list
     endif
@@ -37,13 +37,13 @@
     set encoding=utf-8
     set termencoding=utf-8
     set langmenu=zh-CN.UTF-8
+    set fileencoding=utf-8
     set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 
     syntax enable      " turn on syntax highlighting
     syntax on          " 自动语法高亮
 
     filetype on
-    filetype plugin on
     filetype plugin indent on
 
     set autoread
@@ -119,21 +119,21 @@
     set smartcase    " ...unless we type a capital
 
     set viminfo+=!
-    set listchars=tab:→\ ,eol:↵,trail:·,extends:↷,precedes:↶
     set backspace=indent,eol,start
     set linespace=0
     set number                      " 显示行号
     set relativenumber              " 启用相对行号
     set showmatch                   " 显示括号匹配情况
     set matchtime=5                 " 显示括号匹配时
+    set listchars=tab:→\ ,eol:↵,trail:·,extends:↷,precedes:↶
 
 " }
 
 " Formatting {
 
+    set cindent
     set autoindent
     set smartindent
-    set cindent
     set expandtab
     set tabstop=4
     set shiftwidth=4
@@ -152,6 +152,16 @@
         nmap <leader>Q  :qa!<CR>
         nmap <leader>d  <C-d>
         nmap <leader>u  <C-u>
+        "insert mode shortcut
+        inoremap <C-h> <Left>
+        inoremap <C-j> <Down>
+        inoremap <C-k> <Up>
+        inoremap <C-l> <Right>
+        inoremap <C-d> <DELETE>
+        imap jj <Esc>
+        imap jk <Esc>
+        imap kk <Esc>
+        imap ;; <Esc>
         " Remap H to the start of line
         nnoremap H ^
         " Remap L to the end of line
@@ -181,11 +191,24 @@
         nmap <Leader>he :set list!<CR>  " 显示不可见字符
     " }
 
-    " File {
+    " File & Fold {
         nmap <Leader>fs :w<CR>
         nmap <Leader>fv :e ~/.vimrc<CR>
         nmap <Leader>fc :e ~/.vimrc.plug.conf<CR>
         nmap <Leader>fl :e ~/.vimrc.plug.list<CR>
+        nmap <Leader>fR :source $MYVIMRC<CR>
+
+        " Code folding options
+        nmap <Leader>f0 :set foldlevel=0<CR>
+        nmap <Leader>f1 :set foldlevel=1<CR>
+        nmap <Leader>f2 :set foldlevel=2<CR>
+        nmap <Leader>f3 :set foldlevel=3<CR>
+        nmap <Leader>f4 :set foldlevel=4<CR>
+        nmap <Leader>f5 :set foldlevel=5<CR>
+        nmap <Leader>f6 :set foldlevel=6<CR>
+        nmap <Leader>f7 :set foldlevel=7<CR>
+        nmap <Leader>f8 :set foldlevel=8<CR>
+        nmap <Leader>f9 :set foldlevel=9<CR>
     " }
 
     " Window {
@@ -201,6 +224,7 @@
         nmap <Leader>w- <C-W>s
         nmap <Leader>wv <C-W>v
         nmap <Leader>w\| <C-W>v
+        nmap <Leader>w2 <C-W>v
     " }
 
     " Buffer {
@@ -209,8 +233,8 @@
         nnoremap <Leader>bn :bnext<CR>
         nnoremap <Leader>bf :bfirst<CR>
         nnoremap <Leader>bl :blast<CR>
-        nnoremap <Leader>bd :bd<CR>    " buffer delete
-        nnoremap <Leader>bk :bw<CR>    " buffer kill
+        nnoremap <Leader>bd :bd<CR>
+        nnoremap <Leader>bk :bw<CR>
         nnoremap <Leader>1 :b1<CR>
         nnoremap <Leader>2 :b2<CR>
         nnoremap <Leader>3 :b3<CR>
@@ -222,7 +246,7 @@
         nnoremap <Leader>9 :b9<CR>
     " }
 
-    " autocmd {
+    " Autocmd {
     if has("autocmd")
         " 打开自动定位到最后编辑的位置, 需要确认 .viminfo 当前用户可写
         autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -255,11 +279,28 @@
     endif
     " }
 
+    " F keys {
+        " mac
+        nnoremap <F8> :w<cr>:!dot -Teps -o %<.eps % && open %<.eps<CR><CR>
+        " ubuntu
+        " nnoremap <F8> :w<cr>:!dot -Teps -o %<.eps % && evince %<.eps<CR><CR>
+    " }
+
+" }
+
+" Plugins Configuration {
+    if filereadable(expand("~/.vimrc.plug.conf"))
+        source ~/.vimrc.plug.conf
+    endif
+" }
+
+" Functions {
+
     " 默认情况下F1为打开vim的内置帮助
     " F5分配给编译运行功能
-    nnoremap <F5> :call CompileRunGcc()<CR>
-    nnoremap <Leader>cC :call CompileRunGcc()<CR>
-    function! CompileRunGcc()
+    nnoremap <F5> :call CompileAndRun()<CR>
+    nnoremap <silent><Leader>cC :call CompileAndRun()<CR>
+    function! CompileAndRun()
         exec "w"
         if &filetype == 'c'
             exec "!gcc % -o %<"
@@ -295,32 +336,42 @@
         endif
     endfunction
 
-    " mac
-    nnoremap <F8> :w<cr>:!dot -Teps -o %<.eps % && open %<.eps<CR><CR>
-    " ubuntu
-    " nnoremap <F8> :w<cr>:!dot -Teps -o %<.eps % && evince %<.eps<CR><CR>
+    " GUI 环境下最大化开关
+    let s:lines=&lines
+    let s:columns=&columns
+    function! FullScreenEnter()
+        set lines=999 columns=999
+        set fullscreen
+    endfunction
 
+    function! FullScreenLeave()
+        let &lines=s:lines
+        let &columns=s:columns
+        set nofullscreen
+    endfunction
+
+    function! FullScreenToggle()
+        if &fullscreen
+            call FullScreenLeave()
+        else
+            call FullScreenEnter()
+        endif
+    endfunction
 " }
 
-" Plugins Configuration {
-    if filereadable(expand("~/.vimrc.plug.conf"))
-        source ~/.vimrc.plug.conf
-    endif
-" }
-
-" Instead of .gvimrc {
+" GUI Settings {
 
     if has("gui_running")
+        " 解决菜单栏乱码
+        set langmenu=zh_CN
+        let $LANG = 'zh_CN.UTF-8'
+        source $VIMRUNTIME/delmenu.vim
+        source $VIMRUNTIME/menu.vim
+        " 去除响铃
+        set noerrorbells
+        set novisualbell
         " windows GUI界面乱码设置
-        if has('win32') && has("gui_running")
-            set encoding=utf-8
-            set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
-            set fileencoding=utf-8 " 新建文件使用的编码
-            " 解决win菜单乱码
-            set langmenu=zh_CN
-            let $LANG = 'zh_CN.UTF-8'
-            source $VIMRUNTIME/delmenu.vim
-            source $VIMRUNTIME/menu.vim
+        if WINDOWS() && has("gui_running")
             "处理consle输出乱码
             language messages zh_CN.utf-8
             " Set extra options when running in GUI mode
@@ -337,6 +388,14 @@
             " set guioptions+=e   " 这两个设置会使得airline上方的buffer无法显示
             set linespace=2
             set noimd
+        elseif OSX() && has("gui_running")
+            " set guifont=Cousine\ for\ Powerline:h13
+            set guifont=Roboto\ Mono\ Light\ for\ Powerline:h13
+            set shortmess+=c
+            set guioptions-=r       " 隐藏右侧滚动条
+            set guioptions-=L
+            set lines=100 columns=90
+            nnoremap <Leader>wm :call FullScreenToggle()<CR>
         endif
     endif
 

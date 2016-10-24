@@ -148,4 +148,4 @@ sync_repo       "$HOME/.vim/bundle/Vundle.vim" \
 
 setup_vundle
 
-msg             "\nThanks for installing $app_name."
+msg             "\nThanks for installing $app_name. And don't forget to compile YouCompleteMe."
