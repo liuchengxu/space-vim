@@ -11,7 +11,7 @@ Thanks for their outstanding works.
 
 ## Installation
 
-You need to statisfy some prerequisites to make all the plugins work, especially vim complied with certain features,such as python, and some other tools used by related plugins.
+You need to statisfy some prerequisites to make all the plugins work, especially vim complied with certain features,such as python, and some other tools used by related plugins. [Here is a recommended list](doc/tutorial_cn.md#prerequisites).
 
 It is easy to install space-vim with curl or wget.
 
@@ -31,7 +31,7 @@ It is easy to install space-vim with curl or wget.
 
 If you are just starting to use vim, refer to [中文指南](doc/tutorial_cn.md) for some tips.
 
-If if you have been familiar with vim , refer to the `vimrc` related files directly.
+If you have been a vimer for a while, refer to the `vimrc` related files directly.
 
 ## Updating to the latest version
 
