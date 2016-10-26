@@ -14,7 +14,8 @@
 
    - [vim-easymotion](#vim-easymotion)
 
-   - [unite.vim](#unite.vim)
+    
+   - [unite.vim](#unitevim)
 
  [Customization](#customization)
 
