@@ -55,7 +55,7 @@ let mapleader="\<Space>"
 假如我们打开了 NERDTree, 那么如何从 NERDTree 中跳回到 buffer 区进行编辑呢？执行窗口操作 `<Leader> w l` 即可跳到左边的 "窗口".
 要知道我第一次进入 NERDTree,不知道怎么回到 buffer 时，没办法只能退出 vim 再重新打开文件.
 
-intro
+![intro](img/basical_conceptions.png)
 
 下面是一些使用频率较高的快捷键, 经常使用熟练以后,很多操作已经成为一种下意识地行为.
 
