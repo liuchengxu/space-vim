@@ -1,6 +1,6 @@
 !/usr/bin/env bash
 
-# This install file is based on spf13-vim's bootstrap.sh.
+# This setup file is based on spf13-vim's bootstrap.sh.
 # Thanks for spf13-vim.
 
 app_name='space-vim'

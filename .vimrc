@@ -228,7 +228,7 @@
     " }
 
     " Buffer {
-        nnoremap <Leader>bb :bnext<CR>
+        nnoremap <Leader>bb :buffers<CR>
         nnoremap <Leader>bp :bprevious<CR>
         nnoremap <Leader>bn :bnext<CR>
         nnoremap <Leader>bf :bfirst<CR>
@@ -319,20 +319,27 @@
     endfunction
 
     " 切换行号显示模式
-    nnoremap <silent><Leader>tl :call ToggleRelativeAbsoluteNumber()<CR>
-    function! ToggleRelativeAbsoluteNumber()
-        if !&number && !&relativenumber
-            set number
-            set norelativenumber
-        elseif &number && !&relativenumber
-            set nonumber
-            set relativenumber
-        elseif !&number && &relativenumber
-            set number
-            set relativenumber
-        elseif &number && &relativenumber
+    nnoremap <Leader>tn :call ToggleLineNumber()<CR>
+    function! ToggleLineNumber()
+        if &number
             set nonumber
             set norelativenumber
+        else
+            set number
+            set relativenumber
+        endif
+    endfunction
+    nnoremap <Leader>tr :call ToggleRelativeLineNumber()<CR>
+    function! ToggleRelativeLineNumber()
+        if &number
+            if &relativenumber
+                set norelativenumber
+            else
+                set relativenumber
+            endif
+        else
+            set number
+            set relativenumber
         endif
     endfunction
 
@@ -367,6 +374,8 @@
         let $LANG = 'zh_CN.UTF-8'
         source $VIMRUNTIME/delmenu.vim
         source $VIMRUNTIME/menu.vim
+        set guioptions-=r       " 隐藏右侧滚动条
+        set guioptions-=L       " 隐藏左侧滚动条
         " 去除响铃
         set noerrorbells
         set novisualbell
@@ -381,8 +390,6 @@
                 set guifont=Monaco\ 12,Monospace\ 12
             endif
             set guioptions-=T
-            set guioptions-=r
-            set guioptions-=L
             set guitablabel=%M\ %t
             " set showtabline=1
             " set guioptions+=e   " 这两个设置会使得airline上方的buffer无法显示
@@ -392,8 +399,6 @@
             " set guifont=Cousine\ for\ Powerline:h13
             set guifont=Roboto\ Mono\ Light\ for\ Powerline:h13
             set shortmess+=c
-            set guioptions-=r       " 隐藏右侧滚动条
-            set guioptions-=L
             set lines=100 columns=90
             nnoremap <Leader>wm :call FullScreenToggle()<CR>
         endif

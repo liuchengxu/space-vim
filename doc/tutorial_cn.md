@@ -27,24 +27,24 @@ space-vim 的键位绑定启发自 spacemacs,这也是为什么叫做 space-vim.
 
 ### 键位绑定
 
-space-vim的前缀键设置为空格键, 来源于spacemacs.
-而spacemacs除了外观漂亮,社区驱动等等优点，使用空格键作为evil的前缀键可能也是其中一个成功的卖点，因为可以减轻手指负担，毕竟“触手可及”.
+space-vim 的前缀键设置为空格键, 来源于 spacemacs.
+spacemacs 除了外观漂亮,社区驱动等等优点，使用空格键作为 evil 的前缀键可能也是其中一个成功的卖点，因为可以减轻手指负担，毕竟“触手可及”.
 
 ```
 let mapleader="\<Space>"
 ```
 
-另外从现代键盘设计的角度看,空格键理应受到优待, 毕竟一个人在 “VIP” 区占了好几个位.即使HHKB这样的神器，也有空格键的一席之地。
+另外从现代键盘设计的角度看,空格键理应受到优待, 毕竟一个人在 “VIP” 区占了好几个位.即使 HHKB 这样的神器，也有空格键的一席之地。
 
 ![hhkb](img/hhkb.jpg)
 
-此外,关于vim自身的键位设定，开始时能会觉得很奇怪为什么会这样，因为以前的键盘长这样:
+此外,关于 vim 自身的键位设定，开始时能会觉得很奇怪为什么会这样，因为以前的键盘长这样:
 
 ![ancient_keyboard](img/ancient_keyboard.png)
 
 ![ADM-3A](img/ADM-3A.png)
 
-看到这个,也就应该能够理解为什么vim使用hjkl作为方向键，因为那个时候的键盘就长成这样.
+看到这个,也就应该能够理解为什么 vim 使用 hjkl 作为方向键，因为那个时候的键盘就长成这样.
 
 ### 快捷键
 
@@ -63,21 +63,23 @@ intro
 
 此部分无需插件支持,大都是一些常用命令的快捷键映射或是默认的一些功能键，下面表格中的快捷键按使用频率排序.
 
-Key Binding  | Description
-:---:        | :---:
-`<Leader> q` | 退出 (quit)
-`<Leader> Q` | 不保存直接退出
-`<Leader> d` | 向下 (down) 移动半屏
-`<Leader> u` | 向上 (up) 移动半屏
-`u`          | 撤消, undo
-`U`          | 重做, redo
-`H`          | 光标跳转到行首
-`L`          | 光标跳转到行尾
-`Y`          | 从光标处复制到行尾
-`<F5>`       | 编译运行c, cpp, python等文件
-`%`          | 光标停留在括号处,%跳转到对应匹配的括号
-`Ctrl + c`   | 复制
-`Ctrl + v`   | 粘贴
+Key Binding    | Description
+:---:          | :---:
+`<Leader> q`   | 退出 (quit)
+`<Leader> Q`   | 不保存直接退出
+`<Leader> d`   | 向下 (down) 移动半屏
+`<Leader> u`   | 向上 (up) 移动半屏
+`<Leader> t n` | 显示/隐藏 行号(line number)
+`<Leader> t r` | 显示/隐藏 相对(relative)行号
+`u`            | 撤消, undo
+`U`            | 重做, redo
+`H`            | 光标跳转到行首
+`L`            | 光标跳转到行尾
+`Y`            | 从光标处复制到行尾
+`<F5>`         | 编译运行c, cpp, python等文件
+`%`            | 光标停留在括号处,%跳转到对应匹配的括号
+`Ctrl + c`     | 复制
+`Ctrl + v`     | 粘贴
 
 ### Buffer
 
@@ -89,7 +91,7 @@ Key Binding  | Description
 Key Binding       | Description
 :---:             | :---:
 `<Leader> [1-9]`  | 切换至对应编号[1-9]对应缓冲区
-`<Leader> b b	` | 切换缓冲区 (buffer)
+`<Leader> b b	` | 显示缓冲区 (buffer)
 `<Leader> b p	` | 上一个 (previous) 缓冲区
 `<Leader> b n	` | 下一个 (next) 缓冲区
 `<Leader> b d	` | 删除 (delete) 当前缓冲区
@@ -113,6 +115,7 @@ Key Binding        | Description
 `<Leader> f v	`  | 打开 .vimrc
 `<Leader> f l	`  | 打开 .vimrc.plug.list
 `<Leader> f c`     | 打开 .vimrc.plug.conf
+`<Leader> f R`     | 重新加载vimrc
 `<Leader> f [1-9]` | 设置折叠层次,f 0相当于全部折叠, f 9相当于取消折叠全部展开.
 
 ### Window
@@ -127,15 +130,14 @@ Key Binding       | Description
 `<Leader> w k	` | 移动至上方窗口
 `<Leader> w h	` | 移动至左边窗口
 `<Leader> w l	` | 移动至右边窗口
-`<Leader> w v`    | 竖直分割窗口
+`<Leader> w v`    | 竖直分割窗口, 等同于 `<Leader> w |`
 `<Leader> w 2`    | 将窗口分割为两列,等同于`<Leader> w v`
-`<Leader> w s`    | 水平分割窗口
+`<Leader> w s`    | 水平分割窗口, 等同于 `<Leader> w -`
 `<Leader> w d	` | 关闭 (cancel) 当前窗口
 `<Leader> w q	` | 退出 (quit) 当前窗口,若是最后一个窗口则退出vim
 `<Leader> w w	` | 在所有窗口中循环移动
 `<Leader> w r`    | 向右或向下方交换 (replace) 窗口
-
-GUI环境下,`<Leader> w m` 为窗口最大化切换开关.
+`<Leader> w m`    | GUI环境下为窗口最大化切换开关.
 
 ## Plugins
 
@@ -147,13 +149,13 @@ GUI环境下,`<Leader> w m` 为窗口最大化切换开关.
 
 Key Binding    | Description
 :---:          | :---:
-`<F8>`         | NERDTree
-`<F9>`         | Tarbar
-`<F10>`        | IndentLine
+`<F4>`         | NERDTree (NERD >> 4个字母)
+`<F6>`         | Tagbar (Tagbar >> 6个字母)
 `<Leader> ?`   | 查看快捷键绑定
 `<Leader> ;;`  | 智能注释
-`<Leader> b h` | vim起始页（buffer home）
-`<Leader> f r` | 查看最近文件 (file opend recently)
+`<Leader> b h` | vim起始页（**b**uffer **h**ome）(等同于 `<Leader> f r`)
+`<Leader> f r` | 查看最近文件 (**f**ile opened **r**ecently)
+`<Leader> x d` | 去除行尾多余空格 (te**x**t **d**elete trailing whitespaces)
 
 ### [vim-airline](https://github.com/vim-airline/vim-airline)
 
@@ -206,6 +208,7 @@ unite.vim的前缀键为 `localleader`, 这里设置为 `,`.
 ```
 let maplocalleader=","
 ```
+
 ⌘ 指该操作存在对应的快捷键
 
 [menu] 指 unite.vim 的前缀键,这里也即 `,`.
@@ -217,7 +220,7 @@ Key Binding | Description
 [menu] f    | 文件 (file) 与 折叠 (fold)
 [menu] p    | 插件 (plugin), 比如syntastic相关功能
 [menu] t    | 功能开关(toggle)
-[menu] v    | 二级菜单: vim相关
+[menu] v    | vim相关
 
 unite.vim 这部分配置需要很多心思打磨,有待完善.
 
@@ -232,7 +235,7 @@ YouCompleteMe配置稍显复杂,其实也不复杂，关键在于需要安装一
 let g:ycm_path_to_python_interpreter='/absolute/path/to/python'
 ```
 
-## Customization
+##Customization
 
 vimrc Related      | Description
 :---:              | :---:

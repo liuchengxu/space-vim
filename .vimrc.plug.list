@@ -5,8 +5,8 @@
     " set the runtime path to include Vundle and initialize
     set rtp+=~/.vim/bundle/Vundle.vim
     call vundle#begin()
-    Plugin 'VundleVim/Vundle.vim'
 
+    Plugin 'VundleVim/Vundle.vim'
     Plugin 'godlygeek/tabular'
     Plugin 'plasticboy/vim-markdown'
     Plugin 'honza/vim-snippets'
