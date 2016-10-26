@@ -7,6 +7,8 @@ Thanks for their outstanding works.
 
 ![screenshot](doc/img/screenshot.png)
 
+![ubuntu](doc/img/ubuntu.png)
+
 ## [中文指南](doc/tutorial_cn.md)
 
 ## Installation

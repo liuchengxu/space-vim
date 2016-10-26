@@ -395,8 +395,6 @@
         set noerrorbells
         set novisualbell
         set t_vb=
-        " GUI 最大化快捷键
-        nnoremap <Leader>wm :call FullScreenToggle()<CR>
         " windows GUI界面乱码设置
         if WINDOWS() && has("gui_running")
             "处理consle输出乱码
@@ -416,6 +414,8 @@
             " set guifont=Cousine\ for\ Powerline:h13
             set guifont=Roboto\ Mono\ Light\ for\ Powerline:h13
             set lines=100 columns=90
+            " GUI 最大化快捷键
+            nnoremap <Leader>wm :call FullScreenToggle()<CR>
         endif
     endif
 
