@@ -60,7 +60,7 @@
 
     set nobackup
     set noswapfile
-    set nowb
+    set nowritebackup
 
     set report=0
 
@@ -90,8 +90,8 @@
 
     set cursorline      " Highlight current line
     set cursorcolumn    " Highlight current column
-    hi CursorLine ctermbg=240
-    hi CursorColumn ctermbg=240
+    highlight CursorLine ctermbg=240
+    highlight CursorColumn ctermbg=240
     set laststatus=2    " Always show status line, required for airline
 
     set backspace=2
@@ -144,31 +144,34 @@
     " Better defaults {
         let mapleader="\<Space>"
         let maplocalleader=","
-        map <Leader>sa ggVG
+        " open shell in vim
         map <leader>' :shell<CR>
+        " quit
         nmap <leader>q  :q<CR>
         nmap <leader>Q  :qa!<CR>
+        " move half page faster
         nmap <leader>d  <C-d>
         nmap <leader>u  <C-u>
-        "insert mode shortcut
+        " insert mode shortcut
         inoremap <C-h> <Left>
         inoremap <C-j> <Down>
         inoremap <C-k> <Up>
         inoremap <C-l> <Right>
-        inoremap <C-d> <DELETE>
+        inoremap <C-d> <Delete>
+        " quit insert mode
         imap jj <Esc>
         imap jk <Esc>
         imap kk <Esc>
         imap ;; <Esc>
-        " Remap H to the start of line
+        " move to the start of line
         nnoremap H ^
-        " Remap L to the end of line
+        " move to the end of line
         nnoremap L $
-        " Redo
+        " redo
         nnoremap U <C-r>
-        " Yank to the end of line
+        " yank to the end of line
         nnoremap Y y$
-        " Auto indent pasted text, 自动缩进粘贴文本
+        " auto indent pasted text, 自动缩进粘贴文本
         nnoremap p p=`]<C-o>
         " 调整缩进后自动选中，方便再次操作
         vnoremap < <gv
@@ -179,6 +182,8 @@
         " 当遇到没有行号的行时，gj/gk 命令会使光标按虚拟行移动，而当遇到有行号的行时，光标则按物理行移动。
         noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
         noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
+        " 全选
+        map <Leader>sa ggVG
         " 映射全选加复制 Ctrl+a
         map <C-a> ggVGY
         map! <C-a> <Esc>ggVGY
@@ -205,7 +210,7 @@
         nmap <Leader>fl :e ~/.vimrc.plug.list<CR>
         nmap <Leader>fR :source $MYVIMRC<CR>
 
-        " Code folding options
+        " code folding options
         nmap <Leader>f0 :set foldlevel=0<CR>
         nmap <Leader>f1 :set foldlevel=1<CR>
         nmap <Leader>f2 :set foldlevel=2<CR>
@@ -385,6 +390,7 @@
         set guioptions-=L       " 隐藏左侧滚动条
         set guioptions-=T
         set guioptions-=e
+        set shortmess+=c
         " No annoying sound on errors
         set noerrorbells
         set novisualbell
@@ -409,7 +415,6 @@
         elseif OSX() && has("gui_running")
             " set guifont=Cousine\ for\ Powerline:h13
             set guifont=Roboto\ Mono\ Light\ for\ Powerline:h13
-            set shortmess+=c
             set lines=100 columns=90
         endif
     endif

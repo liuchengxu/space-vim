@@ -4,34 +4,36 @@
 
 [General](#general)
 
-   - [Buffer](#buffer)
+  - [Buffer](#buffer)
+    
+  - [File & Fold](#file)
 
-   - [File & Fold](#file)
-
-   - [Window](#window)
+  - [Window](#window)
 
 [Plugins](#plugins)
 
-   - [vim-airline](#vim-airline)
-   
-   - [vim-colorschemes](vim-colorschemes)
-   
-   - [vim-easymotion](#vim-easymotion)
+  - [vim-airline](#vim-airline)
 
-   - [unite.vim](#unitevim)
-   
-   - [youcomplete](#youcompleteme)
+  - [vim-colorschemes](vim-colorschemes)
+
+  - [vim-easymotion](#vim-easymotion)
+
+  - [unite.vim](#unitevim)
+
+  - [youcomplete](#youcompleteme)
 
 [Customization](#customization)
 
 ## Guideline
 
+首先关于 vim , emacs 与 IDE 之间的争论这里并不讨论，也不想评论。 因为我不排斥这其中的任何一个，这些工具我也都在使用，各有所长，自己觉着用地方便就好。
+
 对 vim 稍微有点了解以后，你会发现配置 vim 在思路上其实很简单，无非是一个 `.vimrc` 文件外加安装各种 vim 插件.不过从一个新手开始的话还是挺折腾的.毕竟，默认情况下连 `.vimrc` 这个文件都没有，需要自行创建。
 
-其实现在已经有很多有名气的 vim 配置，但还是自己 “孕育” 而成的才能知根知底，做到 “心中有剑” 而不仅是 “手中有剑”。我建议您在初期的时候可以玩一下那些一流的成品配置， 我也是这么做的，我玩过看过 github 上有名的很多配置。不过在有了一定基础后，还是自己打造一个属于自己的配置更称心如意。希望 space-vim 能对您有所助益。
+其实现在已经有很多有名气的 vim 配置，但还是自己 “孕育” 而成的才能知根知底，追求 “心中有剑” 而不仅是 “手中有剑”。我建议您在初期的时候可以玩一下那些一流的成品配置， 我也是这么做的，我玩过看过 github 上很多有名的配置。不过在有了一定基础后，还是自己打造一个属于自己的配置更称心如意。希望 space-vim 能对您有所助益。
 
 
-space-vim 的键位绑定启发自 spacemacs，这也是为什么叫做 space-vim.我同时使用 spacemacs 与 vim, 在桌面环境时倾向于 spacemacs, 终端环境时倾向于 vim.
+space-vim 的键位绑定启发自 spacemacs，这也是为什么叫做 space-vim.我同时使用 spacemacs 与 vim, 在桌面环境时倾向于 spacemacs, 终端环境时倾向于 vim. 有了 vim 的基础， 也帮助我能够快速上手 spacemacs.
 
 ### 键位绑定
 
@@ -55,7 +57,7 @@ let mapleader="\<Space>"
 
 ### Prerequisites
 
-在安装 vim  时, 因为不太熟悉可能会走一条捷径， 经常一个安装命令就搞定, 比如 `sudo apt install vim`。不过后期可能会因为缺少某些功能而发生一些问题。 因此， 在前期安装 vim 时最好就将这些问题搞定, 比如编译支持 python 的vim, 因为 后面的插件 YouCompleteMe 需要这一特性. 
+在安装 vim 时, 因为不太熟悉可能会走一条捷径， 经常一个安装命令就搞定, 比如 `sudo apt install vim`。不过后期可能会因为缺少某些功能而发生一些问题。 因此， 在前期安装 vim 时最好就将这些问题搞定, 比如编译支持 python 的vim, 因为 后面的插件 YouCompleteMe 需要这一特性.
 
 mac 下使用 brew 安装的话非常方便， 可以使用 `brew info vim` 看有哪些安装选项，并在安装时指定编译选项：
 
@@ -67,7 +69,9 @@ brew install vim --with-lua --with-python3 --with-override-system-vi
 另外，有些插件用到的一些工具也要安装, 下面给出 mac 下的一些安装途径， 其他平台下可对应查找安装途径:
 
 ```
-# tools used by some plugins
+# tools used by some plugins, you need install them to make all the plugins work
+# you can install them with brew painlessly as followed,
+# if you use linux or windows, install them on your own, it is not too difficult.
 
 #### syntastic
 npm install jsl jshint
@@ -83,12 +87,12 @@ brew install cmake
 
 ### 快捷键
 
-要想使用 vim 提高效率，记住一些快捷键是必然的.而这种事情都是熟能生巧，一些常用操作用多了自然也就记住了.
+要想使用 vim 提高效率，记住一些快捷键是必然的. 而这种事情都是熟能生巧，一些常用操作用多了自然也就记住了.
 
 介绍具体的快捷键之前，先来了解一下一些基本概念，比如 buffer, 比如 window, 否则即使知道快捷键是什么也不知道该怎么用.如下图中的红色边框区域都是 window , `<Leader> w` 都是 window 相关操作的快捷键.
 
 比如我们打开了 NERDTree， 那么如何从 NERDTree 中跳回到 buffer 区进行编辑呢？执行窗口操作 `<Leader> w l` 即可跳到左边的 "窗口".
-要知道我第一次进入 NERDTree，不知道怎么回到 buffer 时，没办法只能退出 vim 再重新打开文件.
+要知道我第一次进入 NERDTree，不知道怎么回到 buffer 时，没办法只能退出 vim 再重新打开文件 -_|.
 
 ![intro](img/basical_conceptions.png)
 
@@ -104,32 +108,32 @@ key Binding    | Description
 `<Leader> Q`   | 不保存直接退出
 `<Leader> d`   | 向下 (down) 移动半屏
 `<Leader> u`   | 向上 (up) 移动半屏
-`<Leader> t n` | 显示/隐藏 行号(line number)
-`<Leader> t r` | 显示/隐藏 相对(relative)行号
 `u`            | 撤消， undo
 `U`            | 重做， redo
 `H`            | 光标跳转到行首
 `L`            | 光标跳转到行尾
 `Y`            | 从光标处复制到行尾
-`<F5>`         | 编译运行c， cpp, python等文件
-`%`            | 光标停留在括号处，%跳转到对应匹配的括号
 `Ctrl + c`     | 复制
 `Ctrl + v`     | 粘贴
+`<F5>`         | 编译运行c， cpp, python等文件
+`%`            | 光标停留在括号处，%跳转到对应匹配的括号
+`<Leader> t n` | 显示/隐藏 行号(line number)
+`<Leader> t r` | 显示/隐藏 相对(relative)行号
 
 插入模式 (insert mode) 的一些快捷键：
 
-key Binding    | Description
-:---:          | :---:
-`Ctrl j`   |  向下移动
-`Ctrl k`   |  向上移动
-`Ctrl h`   |  向左移动
-`Ctrl l`   |  向右移动
-`jj` | <ESC>
-`jk` | <ESC>
-`kk` | <ESC>
-`;;` | <ESC>
+key Binding | Description
+:---:       | :---:
+`Ctrl j`    | 向下移动
+`Ctrl k`    | 向上移动
+`Ctrl h`    | 向左移动
+`Ctrl l`    | 向右移动
+`jj`        | `<ESC>`
+`jk`        | `<ESC>`
+`kk`        | `<ESC>`
+`;;`        | `<ESC>`
 
-<ESC> 可能是使用非常多的一个键， 如果将 `jj`, `jk` 几个快速退出插入模式的快捷键熟记于心，应当会减轻不少 "切换" 的压力。
+`<ESC>` 可能是使用非常多的一个键， 如果将 `jj`, `jk` 几个快速退出插入模式的快捷键熟记于心，应当会减轻不少 "切换" 的压力。
 
 ### Buffer
 
@@ -141,11 +145,13 @@ key Binding    | Description
 key Binding       | Description
 :---:             | :---:
 `<Leader> [1-9]`  | 切换至对应编号[1-9]对应缓冲区
-`<Leader> b b	` | 显示缓冲区 (buffer)
 `<Leader> b p	` | 上一个 (previous) 缓冲区
 `<Leader> b n	` | 下一个 (next) 缓冲区
 `<Leader> b d	` | 删除 (delete) 当前缓冲区
 `<Leader> b k`    | 杀掉 (kill) 缓冲区
+`<Leader> b b	` | 显示缓冲区 (buffer)
+
+
 
 两个删除缓冲区命令的区别：
 
@@ -162,11 +168,12 @@ key Binding       | Description
 key Binding        | Description
 :---:              | :---:
 `<Leader> f s`     | 保存（save）文件
+`<Leader> f [1-9]` | 设置折叠 (fold) 层次，`f 0` 相当于全部折叠, `f 9` 相当于取消折叠全部展开
 `<Leader> f v	`  | 打开 .vimrc
 `<Leader> f l	`  | 打开 .vimrc.plug.list
 `<Leader> f c`     | 打开 .vimrc.plug.conf
 `<Leader> f R`     | 重新加载vimrc
-`<Leader> f [1-9]` | 设置折叠 (fold) 层次，`f 0` 相当于全部折叠, `f 9` 相当于取消折叠全部展开.
+
 
 ### Window
 
@@ -183,20 +190,21 @@ key Binding       | Description
 `<Leader> w v`    | 竖直分割窗口， 等同于 `<Leader> w |`
 `<Leader> w 2`    | 将窗口分割为两列，等同于`<Leader> w v`
 `<Leader> w s`    | 水平分割窗口， 等同于 `<Leader> w -`
+`<Leader> w m`    | GUI环境下为窗口最大化切换开关
 `<Leader> w d	` | 关闭 (cancel) 当前窗口
 `<Leader> w q	` | 退出 (quit) 当前窗口，若是最后一个窗口则退出vim
 `<Leader> w w	` | 在所有窗口中循环移动
 `<Leader> w r`    | 向右或向下方交换 (replace) 窗口
-`<Leader> w m`    | GUI环境下为窗口最大化切换开关.
+
 
 ## Plugins
 
-插件并不是越多越好，每个插件我们常用的大多只是其中一小部分功能而已.插件装多了，vim 一样会慢. vim 也不是配置地功能越强大越好, 选择合适且真正用到的功能，在这些地方用的舒心即可。
+插件并不是越多越好，每个插件我们常用的大多只是其中一小部分功能而已. 插件装多了，vim 一样会慢. 当然也不是配置地功能越强大越好, 选择合适且真正用得到的功能，在这些地方用的舒心即可。
 
-有些插件“即装即用”，基本不用配置, 或是"一次配置，终身使用". 有些则稍麻烦一些，不仅是在配置上需要注意，使用上也可能会有一些学习成本，需要有一点耐心才能看到效果.
+有些插件 “即装即用”，基本不用配置, 或是 "一次配置，终身使用". 有些则稍麻烦一些，不仅是在配置上需要注意，使用上也可能会有一些学习成本，需要有一点耐心才能看到它带来的效果.
 
 
-我不使用 vim 的标签页(tab)功能，所以关于 `<Leader> t` 的快捷键都不涉及 tab 操作.
+我不使用 vim 的标签页 (tab) 功能，所以关于 `<Leader> t` 的快捷键都不涉及 tab 操作.
 
 key Binding    | Description
 :---:          | :---:
@@ -210,7 +218,7 @@ key Binding    | Description
 
 ### [vim-airline](https://github.com/vim-airline/vim-airline)
 
-vim-airline 最好搭配[powerline fonts](https://github.com/powerline/fonts)字体， space-vim 默认不使用. 不过推荐安装:
+vim-airline 最好搭配 [powerline fonts](https://github.com/powerline/fonts) 字体， space-vim 默认不使用. 不过推荐安装:
 
 ```
 git clone https://github.com/powerline/fonts.git ~/.fonts
@@ -225,10 +233,12 @@ let g:airline_powerline_fonts=1
 
 设置 terminal 字体：
 
-终端环境下 vim 的字体服从于 terminal 的字体设置，GUI 环境下可直接在配置文件中进行设置. 因此安装完成后需要在 terminal 的字体设置中将原有字体改为带有 for powerline 样式的字体，否则会出现状态栏乱码.
+终端环境下 vim 的字体服从于 terminal 的字体设置，GUI 环境下可直接在配置文件中进行设置. 因此安装完成后需要在 terminal 的字体设置中将原有字体改为带有 for powerline 样式的字体，否则会出现状态栏乱码. 比如 iterm2 中字体设置：
+
+![powerline_setting](img/iterm2_powerline_setting.png)
 
 ### [vim-colorschemes](https://github.com/flazz/vim-colorschemes)
-这个插件集成了很多 vim 的主题，可以自行挑一个在自己机器上显示效果不错的。 比如 atom:
+这个插件集成了很多 vim 的主题，可以自行挑一个在自己机器上显示效果不错的。 比如想修改为 atom:
 
 ```
 echo "color atom" >> ~/.vimrc.local
