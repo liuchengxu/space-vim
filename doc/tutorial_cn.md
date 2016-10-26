@@ -82,6 +82,21 @@ key Binding    | Description
 `Ctrl + c`     | 复制
 `Ctrl + v`     | 粘贴
 
+插入模式 (insert mode) 的一些快捷键：
+
+key Binding    | Description
+:---:          | :---:
+`Ctrl j`   |  向下移动
+`Ctrl k`   |  向上移动
+`Ctrl h`   |  向左移动
+`Ctrl l`   |  向右移动
+`jj` | <ESC>
+`jk` | <ESC>
+`kk` | <ESC>
+`;;` | <ESC>
+
+<ESC> 可能是使用非常多的一个键， 如果将 `jj`, `jk` 几个快速退出插入模式的快捷键熟记于心，应当会减轻不少手指的压力。
+
 ### Buffer
 
 缓冲区操作， `<Leader> b`.
@@ -117,7 +132,7 @@ key Binding        | Description
 `<Leader> f l	`  | 打开 .vimrc.plug.list
 `<Leader> f c`     | 打开 .vimrc.plug.conf
 `<Leader> f R`     | 重新加载vimrc
-`<Leader> f [1-9]` | 设置折叠层次，f 0相当于全部折叠, f 9相当于取消折叠全部展开.
+`<Leader> f [1-9]` | 设置折叠 (fold) 层次，`f 0` 相当于全部折叠, `f 9` 相当于取消折叠全部展开.
 
 ### Window
 
@@ -264,7 +279,7 @@ vimrc Related      | Description
 
 - 如果想要卸载 space-vim 默认安装的插件， 打开 `~/.vimrc.plug.list` 注释掉对应行即可.
 
-    如果想要安装另外的插件，将插件信息写入到 `~/.vimrc.plug.local` , 比如添加多光标操作这个插件:
+    如果想要安装另外的插件，将插件信息写入到 `~/.vimrc.plug.local` , 比如添加多光标操作[vim-multiple-cursors](https://github.com/terryma/vim-multiple-cursors)这个插件:
 
     ```
     Plugin 'terryma/vim-multiple-cursors'
