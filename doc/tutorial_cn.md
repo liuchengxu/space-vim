@@ -47,6 +47,31 @@ let mapleader="\<Space>"
 
 看到这个，也就应该能够理解为什么 vim 使用 hjkl 作为方向键，因为物理条件就是这样.
 
+### Prerequisites
+
+在安装 vim  时, 因为不太熟悉可能会走一条捷径， 经常一个安装命令就搞定, 比如 `sudo apt install vim`。不过后期可能会因为缺少某些功能而发生一些问题。 因此， 在前期安装 vim 时最好就将这些问题搞定, 比如编译支持 python 的vim, 因为 后面的插件 YouCompleteMe 需要这一特性. 
+
+mac 下使用 brew 安装的话非常方便， 可以使用 `brew info vim` 看有哪些安装选项，并在安装时指定编译选项：
+
+```
+brew install vim --with-lua --with-python3 --with-override-system-vi
+```
+其他平台下，网络上有很多指引，这里不再赘述。
+
+另外，有些插件用到的一些工具也要安装:
+
+```
+# tools used by some plugins
+#### syntastic
+brew install flake8
+npm install jsl jshint
+brew install tidy-html5 shellcheck the_silver_searcher
+#### tagbar
+brew install ctags
+#### youcompleteme
+brew install cmake
+```
+
 ### 快捷键
 
 要想使用 vim 提高效率，记住一些快捷键是必然的.而这种事情都是熟能生巧，一些常用操作用多了自然也就记住了.
@@ -95,7 +120,7 @@ key Binding    | Description
 `kk` | <ESC>
 `;;` | <ESC>
 
-<ESC> 可能是使用非常多的一个键， 如果将 `jj`, `jk` 几个快速退出插入模式的快捷键熟记于心，应当会减轻不少手指的压力。
+<ESC> 可能是使用非常多的一个键， 如果将 `jj`, `jk` 几个快速退出插入模式的快捷键熟记于心，应当会减轻不少 "切换" 的压力。
 
 ### Buffer
 
@@ -257,7 +282,7 @@ YouCompleteMe 配置稍显复杂，其实也不复杂，关键在于需要安装
 let g:ycm_path_to_python_interpreter='/absolute/path/to/python'
 ```
 
-##Customization
+## Customization
 
 vimrc Related      | Description
 :---:              | :---:
