@@ -92,9 +92,7 @@
     set cursorcolumn    " Highlight current column
     hi CursorLine ctermbg=240
     hi CursorColumn ctermbg=240
-    if has('statusline')
-        set laststatus=2    " 显示状态栏,airline必需,required for airline
-    endif
+    set laststatus=2    " Always show status line, required for airline
 
     set backspace=2
 
@@ -124,7 +122,7 @@
     set number                      " 显示行号
     set relativenumber              " 启用相对行号
     set showmatch                   " 显示括号匹配情况
-    set matchtime=5                 " 显示括号匹配时
+    set matchtime=5                 " 显示括号匹配时间
     set listchars=tab:→\ ,eol:↵,trail:·,extends:↷,precedes:↶
 
 " }
@@ -166,7 +164,9 @@
         nnoremap H ^
         " Remap L to the end of line
         nnoremap L $
+        " Redo
         nnoremap U <C-r>
+        " Yank to the end of line
         nnoremap Y y$
         " Auto indent pasted text, 自动缩进粘贴文本
         nnoremap p p=`]<C-o>
@@ -189,6 +189,13 @@
         map <Leader>sc :nohl<CR>       " 搜索完成后去掉搜索结果高亮
         " Show hidden chars hidden emerge
         nmap <Leader>he :set list!<CR>  " 显示不可见字符
+        " Toggle paste mode on and off
+        nnoremap <Leader>tp :setlocal paste!<CR>
+        " Pressing ss will toggle and untoggle spell checking
+        map <Leader>ss :setlocal spell!<CR>
+        " :W sudo saves the file
+        " (useful for handling the permission-denied error)
+        command! W w !sudo tee % > /dev/null
     " }
 
     " File & Fold {
@@ -370,15 +377,20 @@
 
     if has("gui_running")
         " 解决菜单栏乱码
-        set langmenu=zh_CN
         let $LANG = 'zh_CN.UTF-8'
+        set langmenu=zh_CN
         source $VIMRUNTIME/delmenu.vim
         source $VIMRUNTIME/menu.vim
         set guioptions-=r       " 隐藏右侧滚动条
         set guioptions-=L       " 隐藏左侧滚动条
-        " 去除响铃
+        set guioptions-=T
+        set guioptions-=e
+        " No annoying sound on errors
         set noerrorbells
         set novisualbell
+        set t_vb=
+        " GUI 最大化快捷键
+        nnoremap <Leader>wm :call FullScreenToggle()<CR>
         " windows GUI界面乱码设置
         if WINDOWS() && has("gui_running")
             "处理consle输出乱码
@@ -389,7 +401,6 @@
             if has("gui_gtk2")   "GTK2
                 set guifont=Monaco\ 12,Monospace\ 12
             endif
-            set guioptions-=T
             set guitablabel=%M\ %t
             " set showtabline=1
             " set guioptions+=e   " 这两个设置会使得airline上方的buffer无法显示
@@ -400,8 +411,19 @@
             set guifont=Roboto\ Mono\ Light\ for\ Powerline:h13
             set shortmess+=c
             set lines=100 columns=90
-            nnoremap <Leader>wm :call FullScreenToggle()<CR>
         endif
     endif
 
+" }
+
+" Use local vimrc if exists {
+    if filereadable(expand("~/.vimrc.local"))
+        source ~/.vimrc.local
+    endif
+" }
+
+" Use local gvimrc if exists {
+    if filereadable(expand("~/.gvimrc.local"))
+        source ~/.gvimrc.local
+    endif
 " }

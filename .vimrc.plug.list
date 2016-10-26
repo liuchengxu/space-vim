@@ -39,6 +39,10 @@
     Plugin 'scrooloose/syntastic'
     Plugin 'Valloric/YouCompleteMe'
 
+    if filereadable(expand("~/.vimrc.plug.local"))
+        source ~/.vimrc.plug.local
+    endif
+
     call vundle#end()            " required
 
 " }
