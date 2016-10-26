@@ -1,23 +1,28 @@
 **Table of Contents**
 
- [Guideline](#guideline)
+[Guideline](#guideline)
 
- [General](#general)
+[General](#general)
 
    - [Buffer](#buffer)
 
-   - [File](#file)
+   - [File & Fold](#file)
 
    - [Window](#window)
 
- [Plugins](#plugins)
+[Plugins](#plugins)
 
+   - [vim-airline](#vim-airline)
+   
+   - [vim-colorschemes](vim-colorschemes)
+   
    - [vim-easymotion](#vim-easymotion)
 
-    
    - [unite.vim](#unitevim)
+   
+   - [youcomplete](#youcompleteme)
 
- [Customization](#customization)
+[Customization](#customization)
 
 ## Guideline
 
@@ -59,16 +64,19 @@ brew install vim --with-lua --with-python3 --with-override-system-vi
 ```
 其他平台下，网络上有很多指引，这里不再赘述。
 
-另外，有些插件用到的一些工具也要安装:
+另外，有些插件用到的一些工具也要安装, 下面给出 mac 下的一些安装途径， 其他平台下可对应查找安装途径:
 
 ```
 # tools used by some plugins
+
 #### syntastic
-brew install flake8
 npm install jsl jshint
+brew install flake8
 brew install tidy-html5 shellcheck the_silver_searcher
+
 #### tagbar
 brew install ctags
+
 #### youcompleteme
 brew install cmake
 ```
