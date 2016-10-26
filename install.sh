@@ -1,4 +1,4 @@
-!/usr/bin/env bash
+#!/usr/bin/env bash
 
 # This setup file is based on spf13-vim's bootstrap.sh.
 # Thanks for spf13-vim.
