@@ -5,7 +5,11 @@ space-vim is a vim distribution inspired by [spacemacs](https://github.com/syl20
 And it also learns much from other first-class vim configurations, such as [spf13-vim](https://github.com/spf13/spf13-vim).
 Thanks for their outstanding works.
 
+macOS:
+
 ![screenshot](doc/img/screenshot.png)
+
+ubuntu:
 
 ![ubuntu](doc/img/ubuntu.png)
 
