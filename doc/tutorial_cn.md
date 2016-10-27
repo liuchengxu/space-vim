@@ -1,41 +1,46 @@
 **Table of Contents**
 
-[Guideline](#guideline)
+- [Guideline](#guideline)
 
-[General](#general)
+- [General](#general)
 
-  - [Buffer](#buffer)
-    
-  - [File & Fold](#file)
+    - [Buffer](#buffer)
 
-  - [Window](#window)
+    - [File & Fold](#file)
 
-[Plugins](#plugins)
+    - [Window](#window)
 
-  - [vim-airline](#vim-airline)
+- [Plugins](#plugins)
 
-  - [vim-colorschemes](vim-colorschemes)
+    - [vim-airline](#vim-airline)
 
-  - [vim-easymotion](#vim-easymotion)
+    - [vim-colorschemes](#vim-colorschemes)
 
-  - [unite.vim](#unitevim)
+    - [tabular](#tabular)
 
-  - [youcomplete](#youcompleteme)
+    - [vim-easymotion](#vim-easymotion)
 
-[Customization](#customization)
+    - [unite.vim](#unitevim)
+
+    - [syntastic](#syntastic)
+
+    - [youcomplete](#youcompleteme)
+
+- [Customization](#customization)
 
 ## Guideline
 
-首先关于 vim , emacs 与 IDE 之间的争论这里并不讨论，也不想评论。 因为我不排斥这其中的任何一个，这些工具我也都在使用，各有所长，自己觉着用地方便就好。
+首先关于 vim , emacs 与 IDE 之间的争论这里并不讨论，也不想评论。 因为我不排斥这其中的任何一个，这些工具我也都在使用，各有所长，自己用着方便就好。
 
 对 vim 稍微有点了解以后，你会发现配置 vim 在思路上其实很简单，无非是一个 `.vimrc` 文件外加安装各种 vim 插件.不过从一个新手开始的话还是挺折腾的.毕竟，默认情况下连 `.vimrc` 这个文件都没有，需要自行创建。
 
-其实现在已经有很多有名气的 vim 配置，但还是自己 “孕育” 而成的才能知根知底，追求 “心中有剑” 而不仅是 “手中有剑”。我建议您在初期的时候可以玩一下那些一流的成品配置， 我也是这么做的，我玩过看过 github 上很多有名的配置。不过在有了一定基础后，还是自己打造一个属于自己的配置更称心如意。希望 space-vim 能对您有所助益。
+其实现在已经有很多有名气的 vim 配置，但还是自己 “孕育” 而成的才能知根知底，追求 “心中有剑” 而不仅是 “手中有剑”。我建议您在初期的时候可以玩一下那些一流的成品配置， 我也是这么做的，我玩过看过 github 上很多有名的配置, 也 ”steal“ 了很多东西。
+不过在有了一定基础后，还是自己打造一个属于自己的配置更称心如意。希望 space-vim 能对您有所助益。
 
 
-space-vim 的键位绑定启发自 spacemacs，这也是为什么叫做 space-vim.我同时使用 spacemacs 与 vim, 在桌面环境时倾向于 spacemacs, 终端环境时倾向于 vim. 有了 vim 的基础， 也帮助我能够快速上手 spacemacs.
+space-vim 的键位绑定启发自 spacemacs，这也是为什么叫做 space-vim. 我同时使用 spacemacs 与 vim, 在桌面环境时倾向于 spacemacs, 终端环境时倾向于 vim. 有了 vim 的基础， 也帮助我能够快速上手 spacemacs.
 
-### 键位绑定
+### 键位设定
 
 space-vim 的前缀键设置为空格键， 来源于 spacemacs. spacemacs 除了外观漂亮，社区驱动等等优点，使用空格键作为 evil 的前缀键可能也是其中一个成功的卖点，因为可以减轻手指负担，毕竟“触手可及”.
 
@@ -57,7 +62,7 @@ let mapleader="\<Space>"
 
 ### Prerequisites
 
-在安装 vim 时, 因为不太熟悉可能会走一条捷径， 经常一个安装命令就搞定, 比如 `sudo apt install vim`。不过后期可能会因为缺少某些功能而发生一些问题。 因此， 在前期安装 vim 时最好就将这些问题搞定, 比如编译支持 python 的vim, 因为 后面的插件 YouCompleteMe 需要这一特性.
+在安装 vim 时, 因为不太熟悉可能会走一条捷径， 贪图一个简单的安装命令就搞定, 比如 `sudo apt install vim`。不过后期可能会因为缺少某些功能而发生一些问题。 因此， 在前期安装 vim 时最好就将这些问题搞定, 比如编译支持 python 的vim, 因为 后面的插件 YouCompleteMe 需要这一特性.
 
 mac 下使用 brew 安装的话非常方便， 可以使用 `brew info vim` 看有哪些安装选项，并在安装时指定编译选项：
 
@@ -102,7 +107,7 @@ brew install cmake
 
 这部分大都是一些常用命令的快捷键映射或是默认的一些功能键，下面表格中的快捷键按使用频率排序.
 
-key Binding    | Description
+Key Binding    | Description
 :---:          | :---:
 `<Leader> q`   | 退出 (quit)
 `<Leader> Q`   | 不保存直接退出
@@ -117,12 +122,14 @@ key Binding    | Description
 `Ctrl + v`     | 粘贴
 `<F5>`         | 编译运行c， cpp, python等文件
 `%`            | 光标停留在括号处，%跳转到对应匹配的括号
+`<Leader> '`   | 在 vim 中打开shell
+`<Leader> t p` | 粘贴模式开关 (toggle pastemode)
 `<Leader> t n` | 显示/隐藏 行号(line number)
 `<Leader> t r` | 显示/隐藏 相对(relative)行号
 
 插入模式 (insert mode) 的一些快捷键：
 
-key Binding | Description
+Key Binding | Description
 :---:       | :---:
 `Ctrl j`    | 向下移动
 `Ctrl k`    | 向上移动
@@ -142,7 +149,7 @@ key Binding | Description
 我最常用的是 `<Leader> [1-9]`， 直接前缀键加上对应的 buffer 编号即可跳转到该 buffer.
 在 `spacemacs` 中， `<Leader> [1-9]` 是跳转到对应的 window. 因为 emacs 中 window 是有编号的,而 vim 中 window 没有编号, buffer 有编号.
 
-key Binding       | Description
+Key Binding       | Description
 :---:             | :---:
 `<Leader> [1-9]`  | 切换至对应编号[1-9]对应缓冲区
 `<Leader> b p	` | 上一个 (previous) 缓冲区
@@ -150,8 +157,6 @@ key Binding       | Description
 `<Leader> b d	` | 删除 (delete) 当前缓冲区
 `<Leader> b k`    | 杀掉 (kill) 缓冲区
 `<Leader> b b	` | 显示缓冲区 (buffer)
-
-
 
 两个删除缓冲区命令的区别：
 
@@ -165,7 +170,7 @@ key Binding       | Description
 
 打开文件时，可能有些人不太喜欢全部折叠起来，`<Leader> f 9` 即可全部展开.
 
-key Binding        | Description
+Key Binding        | Description
 :---:              | :---:
 `<Leader> f s`     | 保存（save）文件
 `<Leader> f [1-9]` | 设置折叠 (fold) 层次，`f 0` 相当于全部折叠, `f 9` 相当于取消折叠全部展开
@@ -181,7 +186,7 @@ key Binding        | Description
 
 关于分割窗口的功能，我常常使用 [tmux](https://tmux.github.io) 来实现，因为它也非常值得学习.
 
-key Binding       | Description
+Key Binding       | Description
 :---:             | :---:
 `<Leader> w j	` | 移动至下方窗口
 `<Leader> w k	` | 移动至上方窗口
@@ -206,7 +211,7 @@ key Binding       | Description
 
 我不使用 vim 的标签页 (tab) 功能，所以关于 `<Leader> t` 的快捷键都不涉及 tab 操作.
 
-key Binding    | Description
+Key Binding    | Description
 :---:          | :---:
 `<F4>`         | NERDTree (NERD -> 4个字母)
 `<F6>`         | Tagbar (Tagbar -> 6个字母)
@@ -238,18 +243,29 @@ let g:airline_powerline_fonts=1
 ![powerline_setting](img/iterm2_powerline_setting.png)
 
 ### [vim-colorschemes](https://github.com/flazz/vim-colorschemes)
-这个插件集成了很多 vim 的主题，可以自行挑一个在自己机器上显示效果不错的。 比如想修改为 atom:
+
+一个多漂亮的主题用的久了，总会没感觉，这个插件集成了很多 vim 的主题，可以自行挑一个在自己机器上显示效果不错的。 比如想修改为 atom:
 
 ```
 echo "color atom" >> ~/.vimrc.local
 ```
+
+### [tabular](https://github.com/godlygeek/tabular)
+
+Key Binding | Description
+:---:       | :---:
+`<Leader> a |` | 按 `|` 对齐
+`<Leader> a :` | 按 `:` 对齐
+`<Leader> a =` | 按 `=` 对齐
+
+可能 `<Leader> a |` 是我用的比较多的一个，因为经常在 markdown 中对齐表格。
 
 
 ### [vim-easymotion](https://github.com/easymotion/vim-easymotion)
 
 easymotion 默认的前缀键为 `<Leader><Leader>`.
 
-key Binding | 	Description
+Key Binding | 	Description
 :---:|:---:
 `<Leader><Leader> w`	|单词 (word) 向前快速移动
 `<Leader><Leader> b`	|单词向后 (backward) 快速移动
@@ -258,18 +274,18 @@ key Binding | 	Description
 `<Leader><Leader> s`	|搜索字符 (search) 跳转，双向
 `<Leader><Leader> f`	|向前 (forward) 查找字符
 
-为了与spacemacs相一致，我还添加了这几个快捷键:
+为了与 spacemacs 相一致，我还添加了这几个快捷键:
 
-key Binding | 	Description
+Key Binding | 	Description
 :---:|:---:
 `<Leader> j w`	| 单词跳转 (jump to word)
 `<Leader> j l`	| 行间跳转 (jump to line)
 
 ### [unite.vim](https://github.com/Shougo/unite.vim)
 
-unite.vim 可以为 vim 提供一个命令UI，可以将一些不常用或不太好设置的快捷键放到里面.
+unite.vim 可以为 vim 提供一个命令 UI，可以将一些不常用或不太好设置的快捷键放到里面.
 
-unite.vim的前缀键为 `localleader`， 这里设置为 `,`.
+unite.vim 的前缀键为 `localleader`， 这里设置为 `,`.
 
 ```
 let maplocalleader="，"
@@ -279,7 +295,7 @@ let maplocalleader="，"
 
 [menu] 指 unite.vim 的前缀键，这里也即 `,`.
 
-key Binding | Description
+Key Binding | Description
 :----:      | :----:
 [menu] m    | 查看所有可选菜单（menu）
 [menu] x    | 文本 (text)
@@ -290,6 +306,16 @@ key Binding | Description
 
 unite.vim 这部分配置需要很多心思打磨，有待完善.
 
+### [syntastic](https://github.com/scrooloose/syntastic)
+
+在前部分介绍安装事项时，提到要安装一些额外使用的工具，有很多就是 syntastic 这个插件所需要的：
+
+```
+let g:jyntastic_python_checkers=['pyflakes']           " 使用pyflakes 比pylint快, 需要pip安装pyflakes，
+let g:syntastic_javascript_checkers=['jsl', 'jshint']  " npm install jsl jshint
+let g:syntastic_html_checkers=['tidy', 'jshint']       " brew install tidy-html5
+```
+有更多需要的话也可以自行查阅 syntastic 文档。
 
 ### [YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
 
@@ -311,7 +337,7 @@ vimrc Related      | Description
 
 运行 `sh ~/.space-vim/uninstall.sh` 即可卸载 space-vim.
 
-如果想要修改配置，当然可以选择在我的配置文件上直接修改，但是如果只是些微调，还是建议您采取以下方式:
+如果想要修改配置，当然可以选择在我的配置文件上直接修改. 但是如果只是些微调，还是建议您采取以下方式:
 
 - 将配置信息写入到 `~/.vimrc.local` ， 比如想要修改主题:
 
@@ -321,7 +347,7 @@ vimrc Related      | Description
 
     然后， `<Leader> f R` 使得配置生效.
 
-- 如果想要卸载 space-vim 默认安装的插件， 打开 `~/.vimrc.plug.list` 注释掉对应行即可.
+- 如果想要卸载 space-vim 默认安装的插件， 打开 `~/.vimrc.plug.list` 注释掉对应行, 执行 `:PluginClean` 即可.
 
     如果想要安装另外的插件，将插件信息写入到 `~/.vimrc.plug.local` , 比如添加多光标操作[vim-multiple-cursors](https://github.com/terryma/vim-multiple-cursors)这个插件:
 
