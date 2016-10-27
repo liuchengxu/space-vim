@@ -1,9 +1,16 @@
 # space-vim
 
-[space-vim](https://github.com/liuchengxu/space-vim) is a vim distribution inspired by [spacemacs](https://github.com/syl20bnr/spacemacs), especially in key bindings.
-Hence it is friendly to those who use spacemacs and vim at the same time.
+     ___ _ __   __ _  ___ ___     __   _(_)_ __ ___
+     / __| -_ \ / _- |/ __/ _ \____\ \ / / | -_ - _ \ 
+     \__ \ |_) | (_| | (_|  __/_____\ V /| | | | | | |
+     |___/ .__/ \__._|\___\___|      \_/ |_|_| |_| |_|
+         |_|
 
-And it also learns much from other first-class vim configurations, such as [spf13-vim](https://github.com/spf13/spf13-vim).
+
+[space-vim](https://github.com/liuchengxu/space-vim) is a vim distribution inspired by [spacemacs](https://github.com/syl20bnr/spacemacs), especially in key bindings.
+Hence it is fruitful to those who use spacemacs and vim at the same time as well as vim beginer.
+
+And it also has learned a great deal from other first-class vim configurations, such as [spf13-vim](https://github.com/spf13/spf13-vim).
 Thanks for their outstanding works.
 
 Screenshots:
