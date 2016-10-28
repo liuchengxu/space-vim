@@ -26,6 +26,7 @@
     Plugin 'nathanaelkane/vim-indent-guides'
     Plugin 'easymotion/vim-easymotion'
     Plugin 'scrooloose/nerdtree'
+    Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
     Plugin 'majutsushi/tagbar'
     Plugin 'ctrlpvim/ctrlp.vim'
     Plugin 'Shougo/unite.vim'

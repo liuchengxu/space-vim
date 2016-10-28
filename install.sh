@@ -82,13 +82,13 @@ sync_repo() {
     local repo_name="$4"
 
     if [ ! -e "$repo_path" ]; then
-        msg "Trying to clone $repo_name"
+        msg "\e[1;34m==>\e[0m Trying to clone $repo_name"
         mkdir -p "$repo_path"
         git clone -b "$repo_branch" "$repo_uri" "$repo_path"
         ret="$?"
         success "Successfully cloned $repo_name."
     else
-        msg "Trying to update $repo_name"
+        msg "\e[1;34m==>\e[0m Trying to update $repo_name"
         cd "$repo_path" && git pull origin "$repo_branch"
         ret="$?"
         success "Successfully updated $repo_name"
