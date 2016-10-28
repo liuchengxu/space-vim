@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# This setup file is based on spf13-vim's bootstrap.sh.
-# Thanks for spf13-vim.
+#   This setup file is based on spf13-vim's bootstrap.sh.
+#   Thanks for spf13-vim.
 
 app_name='space-vim'
 [ -z "$APP_PATH" ] && APP_PATH="$HOME/.space-vim"
@@ -10,7 +10,7 @@ app_name='space-vim'
 debug_mode='0'
 [ -z "$VUNDLE_URI" ] && VUNDLE_URI="https://github.com/VundleVim/Vundle.vim"
 
-#### Basic setup tools
+########## Basic setup tools
 msg() {
     printf '%b\n' "$1" >&2
 }
@@ -61,7 +61,7 @@ lnif() {
     debug
 }
 
-#### Setup function
+########## Setup function
 do_backup() {
     if [ -e "$1" ] || [ -e "$2" ] || [ -e "$3" ]; then
         msg "Attempting to back up your original vim configuration."
@@ -126,7 +126,7 @@ setup_vundle() {
 }
 
 
-#### Main()
+########## Main()
 program_must_exist "vim"
 program_must_exist "git"
 
@@ -148,4 +148,5 @@ sync_repo       "$HOME/.vim/bundle/Vundle.vim" \
 
 setup_vundle
 
-msg             "\nThanks for installing $app_name. And don't forget to compile YouCompleteMe."
+msg             "\nThanks for installing $app_name."
+msg             "\n⚠ Don't forget to compile YouCompleteMe and install necessary tools."
