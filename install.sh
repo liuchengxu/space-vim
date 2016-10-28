@@ -82,13 +82,13 @@ sync_repo() {
     local repo_name="$4"
 
     if [ ! -e "$repo_path" ]; then
-        msg "\e[1;34m==>\e[0m Trying to clone $repo_name"
+        msg "\033[1;34m==>\033[0m Trying to clone $repo_name"
         mkdir -p "$repo_path"
         git clone -b "$repo_branch" "$repo_uri" "$repo_path"
         ret="$?"
         success "Successfully cloned $repo_name."
     else
-        msg "\e[1;34m==>\e[0m Trying to update $repo_name"
+        msg "\033[1;34m==>\033[0m Trying to update $repo_name"
         cd "$repo_path" && git pull origin "$repo_branch"
         ret="$?"
         success "Successfully updated $repo_name"
@@ -148,5 +148,5 @@ sync_repo       "$HOME/.vim/bundle/Vundle.vim" \
 
 setup_vundle
 
-msg             "\nThanks for installing $app_name."
+msg             "\nThanks for installing \033[1;31m$app_name\033[0m."
 msg             "\n⚠ Don't forget to compile YouCompleteMe and install necessary tools."
