@@ -159,10 +159,10 @@
         inoremap <C-l> <Right>
         inoremap <C-d> <Delete>
         " quit insert mode
-        imap jj <Esc>
-        imap jk <Esc>
-        imap kk <Esc>
-        imap ;; <Esc>
+        inoremap jj <Esc>
+        inoremap jk <Esc>
+        inoremap kk <Esc>
+        inoremap ;; <Esc>
         " move to the start of line
         nnoremap H ^
         " move to the end of line
@@ -190,10 +190,10 @@
         " Ctrl+c 复制，Ctrl+v 粘贴
         map <C-c> "+y
         map <C-v> "+p
-        " 搜索完后按<leader>sc, search highlight cancel, 即可去掉高亮
-        map <Leader>sc :nohl<CR>       " 搜索完成后去掉搜索结果高亮
+        " 搜索完后按<Leader>sc, search highlight cancel, 即可去掉高亮
+        nmap <Leader>sc :nohl<CR>       " 搜索完成后去掉搜索结果高亮
         " Show hidden chars hidden emerge
-        nmap <Leader>he :set list!<CR>  " 显示不可见字符
+        nnoremap <Leader>he :set list!<CR>  " 显示不可见字符
         " Toggle paste mode on and off
         nnoremap <Leader>tp :setlocal paste!<CR>
         " Pressing ss will toggle and untoggle spell checking

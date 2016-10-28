@@ -1,32 +1,25 @@
 **Table of Contents**
 
-- [Guideline](#guideline)
+<!-- vim-markdown-toc GFM -->
+* [Guideline](#guideline)
+	* [键位设定](#键位设定)
+	* [Prerequisites](#prerequisites)
+	* [快捷键](#快捷键)
+* [General](#general)
+	* [Buffer](#buffer)
+	* [File](#file)
+	* [Window](#window)
+* [Plugins](#plugins)
+	* [vim-airline](#vim-airline)
+	* [vim-colorschemes](#vim-colorschemes)
+	* [tabular](#tabular)
+	* [vim-easymotion](#vim-easymotion)
+	* [unite.vim](#unitevim)
+	* [syntastic](#syntastic)
+	* [YouCompleteMe](#youcompleteme)
+* [Customization](#customization)
 
-- [General](#general)
-
-    - [Buffer](#buffer)
-
-    - [File & Fold](#file)
-
-    - [Window](#window)
-
-- [Plugins](#plugins)
-
-    - [vim-airline](#vim-airline)
-
-    - [vim-colorschemes](#vim-colorschemes)
-
-    - [tabular](#tabular)
-
-    - [vim-easymotion](#vim-easymotion)
-
-    - [unite.vim](#unitevim)
-
-    - [syntastic](#syntastic)
-
-    - [youcomplete](#youcompleteme)
-
-- [Customization](#customization)
+<!-- vim-markdown-toc -->
 
 ## Guideline
 
@@ -140,7 +133,7 @@ Key Binding | Description
 `kk`        | `<ESC>`
 `;;`        | `<ESC>`
 
-`<ESC>` 可能是使用非常多的一个键， 如果将 `jj`, `jk` 几个快速退出插入模式的快捷键熟记于心，应当会减轻不少 "切换" 的压力。
+`<ESC>` 可能是使用非常多的一个键， 如果将 `jj`, `jk` 几个快速退出插入模式的快捷键熟记于心，应当会减轻不少 "切换" 的压力。 另外，新手请注意默认情况下 `Ctrl + [` 也是 `<ESC>`.
 
 ### Buffer
 
@@ -249,6 +242,8 @@ let g:airline_powerline_fonts=1
 ```
 echo "color atom" >> ~/.vimrc.local
 ```
+
+我比较喜欢的是 dracula 和 molokai。
 
 ### [tabular](https://github.com/godlygeek/tabular)
 
