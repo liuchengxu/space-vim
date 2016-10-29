@@ -26,7 +26,8 @@
     Plug 'easymotion/vim-easymotion'
     Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
-    Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
+    " error occurs when tabar enabled
+    " Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'Shougo/unite.vim'
     Plug 'tsukkee/unite-help'
