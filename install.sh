@@ -112,9 +112,9 @@ create_symlinks() {
 }
 
 sync_vim_plug() {
-    local vim_plug_path="$1"
-    local vim_plug_url="$2"
-    curl -fLo "$vim_plug_path" --create-dirs "$vim_plug_url"
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    debug
 }
 
 setup_vim_plug(){
@@ -148,8 +148,7 @@ sync_repo       "$APP_PATH" \
 create_symlinks "$APP_PATH" \
                 "$HOME"
 
-sync_vim_plug   "$VIM_PLUG_PATH"
-                "$VIM_PLUG_URL"
+sync_vim_plug
 
 setup_vim_plug
 
