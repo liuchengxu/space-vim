@@ -6,7 +6,7 @@
 app_name='space-vim'
 [ -z "$APP_PATH" ] && APP_PATH="$HOME/.space-vim"
 [ -z "$REPO_URI" ] && REPO_URI='https://github.com/liuchengxu/space-vim.git'
-[ -z "$REPO_BRANCH" ] && REPO_BRANCH='master'
+[ -z "$REPO_BRANCH" ] && REPO_BRANCH='vim-plug'
 debug_mode='0'
 [ -z "$VIM_PLUG_PATH" ] && VIM_PLUG_PATH="$HOME/.vim/autoload"
 [ -z "$VIM_PLUG_URL" ] && VIM_PLUG_URL='https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
