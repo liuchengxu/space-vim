@@ -6,7 +6,7 @@
 app_name='space-vim'
 [ -z "$APP_PATH" ] && APP_PATH="$HOME/.space-vim"
 [ -z "$REPO_URI" ] && REPO_URI='https://github.com/liuchengxu/space-vim.git'
-[ -z "$REPO_BRANCH" ] && REPO_BRANCH='master'
+[ -z "$REPO_BRANCH" ] && REPO_BRANCH='vundle'
 debug_mode='0'
 [ -z "$VUNDLE_URI" ] && VUNDLE_URI="https://github.com/VundleVim/Vundle.vim"
 

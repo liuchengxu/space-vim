@@ -34,18 +34,20 @@ Screenshots:
 
 You need to statisfy some prerequisites to make all the plugins work, especially vim complied with certain features, such as python, and some other tools used by related plugins. [Here is a recommended list](doc/tutorial_cn.md#prerequisites).
 
+### Linux and macOS
+
 For linux and macOS, it is easy to install space-vim with curl or wget.
 
 - curl
 
   ```
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/liuchengxu/space-vim/master/install.sh)"
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/liuchengxu/space-vim/vundle/install.sh)"
   ```
 
 - wget
 
   ```
-  sh -c "$(wget -qO- https://raw.githubusercontent.com/liuchengxu/space-vim/master/install.sh)"
+  sh -c "$(wget -qO- https://raw.githubusercontent.com/liuchengxu/space-vim/vundle/install.sh)"
   ```
 
 ## How to use
