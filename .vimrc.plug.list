@@ -4,18 +4,19 @@
 
     Plug 'sjl/vitality.vim'
     Plug 'luochen1990/rainbow'
+    Plug 'dracula/vim'
     Plug 'flazz/vim-colorschemes'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'mhinz/vim-startify', { 'on': 'Startify' }
 
-    Plug 'godlygeek/tabular'
     Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
     Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 
     Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
     Plug 'tpope/vim-fugitive'
+    Plug 'godlygeek/tabular'
     Plug 'junegunn/vim-easy-align'
     Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
     Plug 'Raimondi/delimitMate'
@@ -29,6 +30,7 @@
     " error occurs when tabar enabled
     " Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
     Plug 'ctrlpvim/ctrlp.vim'
+
     Plug 'Shougo/unite.vim'
     Plug 'tsukkee/unite-help'
     Plug 'ujihisa/unite-colorscheme'
@@ -36,7 +38,7 @@
     Plug 'osyo-manga/unite-filetype'
     Plug 'osyo-manga/unite-quickfix'
     Plug 'osyo-manga/unite-fold'
-    Plug 'dracula/vim'
+
     Plug 'sheerun/vim-polyglot'
     Plug 'scrooloose/syntastic', {'for': ['python', 'c', 'cpp'] }
 
@@ -46,7 +48,7 @@
         " - status: 'installed', 'updated', or 'unchanged'
         " - force:  set on PlugInstall! or PlugUpdate!
         if a:info.status == 'installed' || a:info.force
-            !./install.py
+            !./install.py --clang-completer
         endif
     endfunction
 
