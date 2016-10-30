@@ -7,7 +7,7 @@
              |_|
 
 
-[space-vim](https://github.com/liuchengxu/space-vim) is a vim distribution inspired by [spacemacs](https://github.com/syl20bnr/spacemacs), especially in key bindings.
+[space-vim](https://github.com/liuchengxu/space-vim) is a vim distribution inspired by [spacemacs](https://github.com/syl20bnr/spacemacs), especially in key bindings, intended for offering an out-of-the-box vim configuration.
 
 I use both spacemacs and vim everyday and hope they maintain consistency in operation as far as possible.
 Hence it is fruitful to those who use spacemacs and vim at the same time as well as vim beginer.
@@ -33,6 +33,16 @@ Screenshots:
 ## Installation
 
 You need to statisfy some prerequisites to make all the plugins work, especially vim complied with certain features, such as python, and some other tools used by related plugins. [Here is a recommended list](doc/tutorial_cn.md#prerequisites).
+
+### Vundle or vim-plug
+
+space-vim offers two vim plugin managers: [Vundle](https://github.com/VundleVim/Vundle.vim) or [vim-plug](https://github.com/junegunn/vim-plug).
+
+If you prefer vim-plug, please move to [vim-plug branch](https://github.com/liuchengxu/space-vim/tree/vim-plug).
+
+For now, [master branch](https://github.com/liuchengxu/space-vim) use Vundle.
+
+### Linux and macOS
 
 For linux and macOS, it is easy to install space-vim with curl or wget.
 
