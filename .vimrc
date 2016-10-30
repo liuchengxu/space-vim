@@ -25,7 +25,7 @@
 " }
 
 " General {
-
+    set shortmess=atI
     set background=dark
     " This makes vim act like all other editores, buffers can
     " exist in the background without being in a window.

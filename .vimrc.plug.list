@@ -8,25 +8,16 @@
     Plug 'flazz/vim-colorschemes'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
-    Plug 'mhinz/vim-startify', { 'on': 'Startify' }
-
-    Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
-    Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
-
-    Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
     Plug 'tpope/vim-fugitive'
-    Plug 'godlygeek/tabular'
-    Plug 'junegunn/vim-easy-align'
-    Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
     Plug 'Raimondi/delimitMate'
     Plug 'scrooloose/nerdcommenter'
     Plug 'tpope/vim-surround'
-    Plug 'nathanaelkane/vim-indent-guides', { 'for': ['shell', 'python',
-                                                    \ 'java', 'c', 'cpp'] }
+    Plug 'godlygeek/tabular'
+    Plug 'junegunn/vim-easy-align'
+
     Plug 'easymotion/vim-easymotion'
-    Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-    Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
+
     " error occurs when tabar enabled
     " Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
     Plug 'ctrlpvim/ctrlp.vim'
@@ -39,8 +30,22 @@
     Plug 'osyo-manga/unite-quickfix'
     Plug 'osyo-manga/unite-fold'
 
-    Plug 'sheerun/vim-polyglot'
-    Plug 'scrooloose/syntastic', {'for': ['python', 'c', 'cpp'] }
+    Plug 'mhinz/vim-startify', { 'on': 'Startify' }
+
+    Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+    Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
+
+    Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+    Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
+
+    Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
+
+    Plug 'nathanaelkane/vim-indent-guides', { 'for': ['shell', 'python',
+                \ 'java', 'c', 'cpp'] }
+
+    Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+    " Plug 'sheerun/vim-polyglot'
+    Plug 'scrooloose/syntastic', {'for': ['python', 'c', 'cpp', 'shell'] }
 
     function! BuildYCM(info)
         " info is a dictionary with 3 fields
