@@ -24,28 +24,8 @@
     endif
 " }
 
-" General {
-    " Use Unix as the standard file type
-    set ffs=unix,dos,mac
-
-    set encoding=utf-8
-    set termencoding=utf-8
-    set langmenu=zh-CN.UTF-8
-    set fileencoding=utf-8
-    set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
-
-" " }
-
 " VIM UI {
-
-    set foldenable
-    set foldmarker={,}
-    set foldlevel=0
-    set foldmethod=marker
-    set foldcolumn=3
-
     set relativenumber
-
 " }
 
 " Key (re)Mappings {
@@ -71,23 +51,11 @@
     " }
 
     " File & Fold {
-        nmap <Leader>fs :w<CR>
+        nnoremap <Leader>fs :w<CR>
         nmap <Leader>fv :e ~/.vimrc<CR>
         nmap <Leader>fc :e ~/.vimrc.plug.conf<CR>
         nmap <Leader>fl :e ~/.vimrc.plug.list<CR>
-        nmap <Leader>fR :source $MYVIMRC<CR>
-
-        " code folding options
-        nmap <Leader>f0 :set foldlevel=0<CR>
-        nmap <Leader>f1 :set foldlevel=1<CR>
-        nmap <Leader>f2 :set foldlevel=2<CR>
-        nmap <Leader>f3 :set foldlevel=3<CR>
-        nmap <Leader>f4 :set foldlevel=4<CR>
-        nmap <Leader>f5 :set foldlevel=5<CR>
-        nmap <Leader>f6 :set foldlevel=6<CR>
-        nmap <Leader>f7 :set foldlevel=7<CR>
-        nmap <Leader>f8 :set foldlevel=8<CR>
-        nmap <Leader>f9 :set foldlevel=9<CR>
+        nnoremap <Leader>fR :source $MYVIMRC<CR>
     " }
 
     " Autocmd {
