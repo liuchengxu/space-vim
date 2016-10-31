@@ -1,6 +1,14 @@
 " Plugins list {
 
+    " Load vim-plug
+    if empty(glob("~/.vim/autoload/plug.vim"))
+        execute '!curl -fLo ~/.vim/autoload/plug.vim
+                    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    endif
+
     call plug#begin('~/.vim/plugged')
+
+    Plug 'liuchengxu/vim-better-default'
 
     Plug 'sjl/vitality.vim'
     Plug 'luochen1990/rainbow'
@@ -14,7 +22,7 @@
     Plug 'scrooloose/nerdcommenter'
     Plug 'tpope/vim-surround'
     Plug 'godlygeek/tabular'
-    Plug 'junegunn/vim-easy-align'
+    Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 
     Plug 'easymotion/vim-easymotion'
 
@@ -30,22 +38,22 @@
     Plug 'osyo-manga/unite-quickfix'
     Plug 'osyo-manga/unite-fold'
 
-    Plug 'mhinz/vim-startify', { 'on': 'Startify' }
+    Plug 'mhinz/vim-startify',       { 'on': 'Startify' }
 
-    Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+    Plug 'plasticboy/vim-markdown',  { 'for': 'markdown' }
     Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 
-    Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-    Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
+    Plug 'scrooloose/nerdtree',                     { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
+    Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
 
     Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 
     Plug 'nathanaelkane/vim-indent-guides', { 'for': ['shell', 'python',
-                \ 'java', 'c', 'cpp'] }
+                                                    \ 'java', 'c', 'cpp'] }
 
     Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
     " Plug 'sheerun/vim-polyglot'
-    Plug 'scrooloose/syntastic', {'for': ['python', 'c', 'cpp', 'shell'] }
+    Plug 'scrooloose/syntastic',            { 'for': ['python', 'c', 'cpp', 'shell'] }
 
     function! BuildYCM(info)
         " info is a dictionary with 3 fields
@@ -58,7 +66,6 @@
     endfunction
 
     Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
-
 
     if filereadable(expand("~/.vimrc.plug.local"))
         source ~/.vimrc.plug.local
