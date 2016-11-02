@@ -12,20 +12,12 @@
         endfunction
     " }
 
-    " Basics {
-        set nocompatible              " Must be the first line
-    " }
-
 " }
 
 " Plugins List {
     if filereadable(expand("~/.vimrc.plug.list"))
         source ~/.vimrc.plug.list
     endif
-" }
-
-" VIM UI {
-    set relativenumber
 " }
 
 " Key (re)Mappings {
@@ -45,16 +37,12 @@
         nnoremap <Leader>tp :setlocal paste!<CR>
         " Pressing ss will toggle and untoggle spell checking
         map <Leader>ss :setlocal spell!<CR>
-        " :W sudo saves the file
-        " (useful for handling the permission-denied error)
-        command! W w !sudo tee % > /dev/null
     " }
 
     " File & Fold {
-        nnoremap <Leader>fs :w<CR>
-        nmap <Leader>fv :e ~/.vimrc<CR>
-        nmap <Leader>fc :e ~/.vimrc.plug.conf<CR>
-        nmap <Leader>fl :e ~/.vimrc.plug.list<CR>
+        nnoremap <Leader>fv :e ~/.vimrc<CR>
+        nnoremap <Leader>fc :e ~/.vimrc.plug.conf<CR>
+        nnoremap <Leader>fl :e ~/.vimrc.plug.list<CR>
         nnoremap <Leader>fR :source $MYVIMRC<CR>
     " }
 
@@ -218,8 +206,4 @@
     endif
 " }
 
-" Use local gvimrc if exists {
-    if filereadable(expand("~/.gvimrc.local"))
-        source ~/.gvimrc.local
-    endif
-" }
+

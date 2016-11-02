@@ -13,6 +13,7 @@
     Plug 'sjl/vitality.vim'
     Plug 'luochen1990/rainbow'
     Plug 'dracula/vim'
+    Plug 'morhetz/gruvbox'
     Plug 'flazz/vim-colorschemes'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
@@ -23,7 +24,8 @@
     Plug 'tpope/vim-surround'
     Plug 'godlygeek/tabular'
     Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
-
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    Plug 'junegunn/fzf.vim'
     Plug 'easymotion/vim-easymotion'
 
     " error occurs when tabar enabled
