@@ -32,6 +32,12 @@ Screenshots:
 
 ## Installation
 
+Before setting up space-vim, you need to choose a vim plugin manager, for space-vim offers two options: [Vundle](https://github.com/VundleVim/Vundle.vim) and [vim-plug](https://github.com/junegunn/vim-plug).
+
+If you prefer Vundle, please move to [master](https://github.com/liuchengxu/space-vim) branch. 
+
+### Linux and macOS
+
 You need to statisfy some prerequisites to make all the plugins work, especially vim complied with certain features, such as python, and some other tools used by related plugins. [Here is a recommended list](doc/tutorial_cn.md#prerequisites).
 
 ### Vundle or vim-plug
@@ -49,13 +55,13 @@ For linux and macOS, it is easy to install space-vim with curl or wget.
 - curl
 
   ```
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/liuchengxu/space-vim/master/install.sh)"
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/liuchengxu/space-vim/vim-plug/install.sh)"
   ```
 
 - wget
 
   ```
-  sh -c "$(wget -qO- https://raw.githubusercontent.com/liuchengxu/space-vim/master/install.sh)"
+  sh -c "$(wget -qO- https://raw.githubusercontent.com/liuchengxu/space-vim/vim-plug/install.sh)"
   ```
 
 ## How to use
@@ -71,7 +77,7 @@ You can manually perform the following steps, or completely reinstall space-vim,
 ```
 cd ~/.space-vim
 git pull
-vim +PluginInstall! +PluginClean +q
+vim +PlugInstall! +PlugClean +q
 ```
 
 ## TODO

@@ -1,50 +1,78 @@
 " Plugins list {
 
-    filetype off                  " required
+    " Load vim-plug
+    if empty(glob("~/.vim/autoload/plug.vim"))
+        execute '!curl -fLo ~/.vim/autoload/plug.vim
+                    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    endif
 
-    " set the runtime path to include Vundle and initialize
-    set rtp+=~/.vim/bundle/Vundle.vim
-    call vundle#begin()
+    call plug#begin('~/.vim/plugged')
 
-    Plugin 'VundleVim/Vundle.vim'
-    Plugin 'sjl/vitality.vim'
-    Plugin 'luochen1990/rainbow'
-    Plugin 'flazz/vim-colorschemes'
-    Plugin 'vim-airline/vim-airline'
-    Plugin 'vim-airline/vim-airline-themes'
-    Plugin 'mhinz/vim-startify'
-    Plugin 'godlygeek/tabular'
-    Plugin 'plasticboy/vim-markdown'
-    Plugin 'mzlogin/vim-markdown-toc'
-    Plugin 'honza/vim-snippets'
-    Plugin 'SirVer/ultisnips'
-    Plugin 'tpope/vim-fugitive'
-    Plugin 'bronson/vim-trailing-whitespace'
-    Plugin 'Raimondi/delimitMate'
-    Plugin 'scrooloose/nerdcommenter'
-    Plugin 'tpope/vim-surround'
-    Plugin 'nathanaelkane/vim-indent-guides'
-    Plugin 'easymotion/vim-easymotion'
-    Plugin 'scrooloose/nerdtree'
-    Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
-    Plugin 'majutsushi/tagbar'
-    Plugin 'ctrlpvim/ctrlp.vim'
-    Plugin 'Shougo/unite.vim'
-    Plugin 'tsukkee/unite-help'
-    Plugin 'ujihisa/unite-colorscheme'
-    Plugin 'ujihisa/unite-locate'
-    Plugin 'osyo-manga/unite-filetype'
-    Plugin 'osyo-manga/unite-quickfix'
-    Plugin 'osyo-manga/unite-fold'
-    Plugin 'dracula/vim'
-    Plugin 'sheerun/vim-polyglot'
-    Plugin 'scrooloose/syntastic'
-    Plugin 'Valloric/YouCompleteMe'
+    Plug 'liuchengxu/vim-better-default'
+
+    Plug 'sjl/vitality.vim'
+    Plug 'luochen1990/rainbow'
+    Plug 'dracula/vim'
+    Plug 'morhetz/gruvbox'
+    Plug 'flazz/vim-colorschemes'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+
+    Plug 'tpope/vim-fugitive'
+    Plug 'Raimondi/delimitMate'
+    Plug 'scrooloose/nerdcommenter'
+    Plug 'tpope/vim-surround'
+    Plug 'godlygeek/tabular'
+    Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    Plug 'junegunn/fzf.vim'
+    Plug 'easymotion/vim-easymotion'
+
+    " error occurs when tabar enabled
+    " Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
+    Plug 'ctrlpvim/ctrlp.vim'
+
+    Plug 'Shougo/unite.vim'
+    Plug 'tsukkee/unite-help'
+    Plug 'ujihisa/unite-colorscheme'
+    Plug 'ujihisa/unite-locate'
+    Plug 'osyo-manga/unite-filetype'
+    Plug 'osyo-manga/unite-quickfix'
+    Plug 'osyo-manga/unite-fold'
+
+    Plug 'mhinz/vim-startify',       { 'on': 'Startify' }
+
+    Plug 'plasticboy/vim-markdown',  { 'for': 'markdown' }
+    Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
+
+    Plug 'scrooloose/nerdtree',                     { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
+    Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
+
+    Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
+
+    Plug 'nathanaelkane/vim-indent-guides', { 'for': ['shell', 'python',
+                                                    \ 'java', 'c', 'cpp'] }
+
+    Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+    " Plug 'sheerun/vim-polyglot'
+    Plug 'scrooloose/syntastic',            { 'for': ['python', 'c', 'cpp', 'shell'] }
+
+    function! BuildYCM(info)
+        " info is a dictionary with 3 fields
+        " - name:   name of the plugin
+        " - status: 'installed', 'updated', or 'unchanged'
+        " - force:  set on PlugInstall! or PlugUpdate!
+        if a:info.status == 'installed' || a:info.force
+            !./install.py --clang-completer
+        endif
+    endfunction
+
+    Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 
     if filereadable(expand("~/.vimrc.plug.local"))
         source ~/.vimrc.plug.local
     endif
 
-    call vundle#end()            " required
+    call plug#end()
 
 " }

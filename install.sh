@@ -6,9 +6,10 @@
 app_name='space-vim'
 [ -z "$APP_PATH" ] && APP_PATH="$HOME/.space-vim"
 [ -z "$REPO_URI" ] && REPO_URI='https://github.com/liuchengxu/space-vim.git'
-[ -z "$REPO_BRANCH" ] && REPO_BRANCH='master'
+[ -z "$REPO_BRANCH" ] && REPO_BRANCH='vim-plug'
 debug_mode='0'
-[ -z "$VUNDLE_URI" ] && VUNDLE_URI="https://github.com/VundleVim/Vundle.vim"
+[ -z "$VIM_PLUG_PATH" ] && VIM_PLUG_PATH="$HOME/.vim/autoload"
+[ -z "$VIM_PLUG_URL" ] && VIM_PLUG_URL='https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 ########## Basic setup tools
 msg() {
@@ -101,27 +102,37 @@ create_symlinks() {
     local source_path="$1"
     local target_path="$2"
 
-    lnif "$source_path/.vimrc"         "$target_path/.vimrc"
-    lnif "$source_path/.vimrc.plug.list" "$target_path/.vimrc.plug.list"
+    lnif "$source_path/.vimrc"            "$target_path/.vimrc"
+    lnif "$source_path/.vimrc.plug.list"  "$target_path/.vimrc.plug.list"
     lnif "$source_path/.vimrc.plug.conf"  "$target_path/.vimrc.plug.conf"
 
     ret="$?"
     success "Setting up vim symlinks."
+
     debug
 }
 
-setup_vundle() {
+sync_vim_plug() {
+    local vim_plug_path="$1"
+    local vim_plug_url="$2"
+    curl -fLo "$1" --create-dirs "$2"
+
+    debug
+}
+
+setup_vim_plug(){
     local system_shell="$SHELL"
     export SHELL='/bin/sh'
 
     vim \
-        "+PluginInstall!" \
-        "+PluginClean" \
+        "+PlugInstall!" \
+        "+PlugClean" \
         "+qall"
 
     export SHELL="$system_shell"
 
-    success "Now updating/installing plugins using Vundle"
+    success "Now updating/installing plugins using vim-plug"
+
     debug
 }
 
@@ -141,12 +152,9 @@ sync_repo       "$APP_PATH" \
 create_symlinks "$APP_PATH" \
                 "$HOME"
 
-sync_repo       "$HOME/.vim/bundle/Vundle.vim" \
-                "$VUNDLE_URI" \
-                "master" \
-                "vundle"
+sync_vim_plug   "$VIM_PLUG_PATH" \
+                "$VIM_PLUG_URL"
 
-setup_vundle
+setup_vim_plug
 
 msg             "\nThanks for installing \033[1;31m$app_name\033[0m."
-msg             "\n⚠ Don't forget to compile YouCompleteMe and install necessary tools."
