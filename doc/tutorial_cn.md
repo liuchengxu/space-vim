@@ -5,7 +5,6 @@
     * [Prerequisites](#prerequisites)
     * [快捷键](#快捷键)
 * [General](#general)
-    * [Window](#window)
 * [Plugins](#plugins)
     * [vim-better-default](#vim-better-default)
         * [Basic](#basic)
