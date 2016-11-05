@@ -1,4 +1,4 @@
-# space-vim
+# space-vim [|中文](doc/tutorial_cn.md)
 
          ___ _ __   __ _  ___ ___     __   _(_)_ __ ___
          / __| -_ \ / _- |/ __/ _ \____\ \ / / | -_ - _ \ 
@@ -26,9 +26,6 @@ Screenshots:
 - macOS
 
 ![screenshot](doc/img/screenshot.png)
-
-
-## [中文指南](doc/tutorial_cn.md)
 
 ## Installation
 
