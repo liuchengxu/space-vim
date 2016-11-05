@@ -10,7 +10,7 @@
 
     Plug 'liuchengxu/vim-better-default'
 
-    Plug 'sjl/vitality.vim'
+    " Plug 'sjl/vitality.vim'
     Plug 'luochen1990/rainbow'
     Plug 'dracula/vim'
     Plug 'morhetz/gruvbox'

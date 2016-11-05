@@ -1,27 +1,28 @@
 **Table of Contents**
 
-<!-- vim-markdown-toc GFM -->
-* [Guideline](#guideline)
-	* [键位设定](#键位设定)
-	* [Prerequisites](#prerequisites)
-	* [快捷键](#快捷键)
+* [前言](#前言)
+    * [键位设定](#键位设定)
+    * [Prerequisites](#prerequisites)
+    * [快捷键](#快捷键)
 * [General](#general)
-	* [Buffer](#buffer)
-	* [File](#file)
-	* [Window](#window)
+    * [Window](#window)
 * [Plugins](#plugins)
-	* [vim-airline](#vim-airline)
-	* [vim-colorschemes](#vim-colorschemes)
-	* [tabular](#tabular)
-	* [vim-easymotion](#vim-easymotion)
-	* [unite.vim](#unitevim)
-	* [syntastic](#syntastic)
-	* [YouCompleteMe](#youcompleteme)
+    * [vim-better-default](#vim-better-default)
+        * [Basic](#basic)
+        * [Buffer](#buffer)
+        * [File & Fold](#file--fold)
+        * [Window](#window-1)
+    * [vim-airline](#vim-airline)
+    * [vim-colorschemes](#vim-colorschemes)
+    * [tabular](#tabular)
+    * [vim-easymotion](#vim-easymotion)
+    * [unite.vim](#unitevim)
+    * [syntastic](#syntastic)
+    * [YouCompleteMe](#youcompleteme)
 * [Customization](#customization)
 
-<!-- vim-markdown-toc -->
 
-## Guideline
+## 前言
 
 首先关于 vim , emacs 与 IDE 之间的争论这里并不讨论，也不想评论。 因为我不排斥这其中的任何一个，这些工具我也都在使用，各有所长，自己用着方便就好。
 
@@ -99,66 +100,18 @@ brew install cmake
 
 ## General
 
-这部分大都是一些常用命令的快捷键映射或是默认的一些功能键，下面表格中的快捷键按使用频率排序.
+这部分大都是一些常用命令的快捷键映射或是默认的一些功能键，由于想精简 `.vimrc` ，于是我将一些常见且不经常改动的设置包装成一个插件进行载入，详情查看 [vim-better-default](#vim-better-default)
+
+下面表格中的快捷键按使用频率排序.
 
 Key Binding    | Description
 :---:          | :---:
-`<Leader> q`   | 退出 (quit)
-`<Leader> Q`   | 不保存直接退出
-`<Leader> d`   | 向下 (down) 移动半屏
-`<Leader> u`   | 向上 (up) 移动半屏
-`u`            | 撤消， undo
-`U`            | 重做， redo
-`H`            | 光标跳转到行首
-`L`            | 光标跳转到行尾
-`Y`            | 从光标处复制到行尾
 `Ctrl + c`     | 复制
 `Ctrl + v`     | 粘贴
 `<F5>`         | 编译运行c， cpp, python等文件
 `%`            | 光标停留在括号处，%跳转到对应匹配的括号
-`<Leader> '`   | 在 vim 中打开shell
-`<Leader> t p` | 粘贴模式开关 (toggle pastemode)
 `<Leader> t n` | 显示/隐藏 行号(line number)
 `<Leader> t r` | 显示/隐藏 相对(relative)行号
-
-插入模式 (insert mode) 的一些快捷键：
-
-Key Binding | Description
-:---:       | :---:
-`Ctrl j`    | 向下移动
-`Ctrl k`    | 向上移动
-`Ctrl h`    | 向左移动
-`Ctrl l`    | 向右移动
-`jj`        | `<ESC>`
-`jk`        | `<ESC>`
-`kk`        | `<ESC>`
-`;;`        | `<ESC>`
-
-`<ESC>` 可能是使用非常多的一个键， 如果将 `jj`, `jk` 几个快速退出插入模式的快捷键熟记于心，应当会减轻不少 "切换" 的压力。 另外，新手请注意默认情况下 `Ctrl + [` 也是 `<ESC>`.
-
-### Buffer
-
-缓冲区操作， `<Leader> b`.
-
-我最常用的是 `<Leader> [1-9]`， 直接前缀键加上对应的 buffer 编号即可跳转到该 buffer.
-在 `spacemacs` 中， `<Leader> [1-9]` 是跳转到对应的 window. 因为 emacs 中 window 是有编号的,而 vim 中 window 没有编号, buffer 有编号.
-
-Key Binding       | Description
-:---:             | :---:
-`<Leader> [1-9]`  | 切换至对应编号[1-9]对应缓冲区
-`<Leader> b p	` | 上一个 (previous) 缓冲区
-`<Leader> b n	` | 下一个 (next) 缓冲区
-`<Leader> b d	` | 删除 (delete) 当前缓冲区
-`<Leader> b k`    | 杀掉 (kill) 缓冲区
-`<Leader> b b	` | 显示缓冲区 (buffer)
-
-两个删除缓冲区命令的区别：
-
-- `<Leader> b d` : buffer delete.
-
-- `<Leader> b k` (实际映射的是bw) : like bd， but really delete the buffer. Everything related to the buffer is lost. All marks in this buffer become invalid, option settings are lost, etc. Don’t use this unless you know what you are doing.
-
-### File
 
 文件操作， `<Leader> f`.
 
@@ -166,8 +119,6 @@ Key Binding       | Description
 
 Key Binding        | Description
 :---:              | :---:
-`<Leader> f s`     | 保存（save）文件
-`<Leader> f [1-9]` | 设置折叠 (fold) 层次，`f 0` 相当于全部折叠, `f 9` 相当于取消折叠全部展开
 `<Leader> f v	`  | 打开 .vimrc
 `<Leader> f l	`  | 打开 .vimrc.plug.list
 `<Leader> f c`     | 打开 .vimrc.plug.conf
@@ -178,22 +129,9 @@ Key Binding        | Description
 
 窗口操作, `<Leader> w`.
 
-关于分割窗口的功能，我常常使用 [tmux](https://tmux.github.io) 来实现，因为它也非常值得学习.
-
 Key Binding       | Description
 :---:             | :---:
-`<Leader> w j	` | 移动至下方窗口
-`<Leader> w k	` | 移动至上方窗口
-`<Leader> w h	` | 移动至左边窗口
-`<Leader> w l	` | 移动至右边窗口
-`<Leader> w v`    | 竖直分割窗口， 等同于 `<Leader> w |`
-`<Leader> w 2`    | 将窗口分割为两列，等同于`<Leader> w v`
-`<Leader> w s`    | 水平分割窗口， 等同于 `<Leader> w -`
 `<Leader> w m`    | GUI环境下为窗口最大化切换开关
-`<Leader> w d	` | 关闭 (cancel) 当前窗口
-`<Leader> w q	` | 退出 (quit) 当前窗口，若是最后一个窗口则退出vim
-`<Leader> w w	` | 在所有窗口中循环移动
-`<Leader> w r`    | 向右或向下方交换 (replace) 窗口
 
 
 ## Plugins
@@ -214,6 +152,88 @@ Key Binding    | Description
 `<Leader> b h` | vim起始页（**b**uffer **h**ome）(等同于 `<Leader> f r`)
 `<Leader> f r` | 查看最近文件 (**f**ile opened **r**ecently)
 `<Leader> x d` | 去除行尾多余空格 (te**x**t **d**elete trailing whitespaces)
+
+### [vim-better-default](https://github.com/liuchengxu/vim-better-default)
+
+#### Basic
+
+Key Binding    | Mode   | Description
+:---:          | :---:  | :---:
+`<Leader> q`   | Normal | 退出 (quit)
+`<Leader> Q`   | Normal | 不保存直接退出
+`<Leader> d`   | Normal | 向下 (down) 移动半屏
+`<Leader> u`   | Normal | 向上 (up) 移动半屏
+`U`            | Normal | 重做， redo (对应 `u` 为撤销，undo)
+`H`            | Normal | 光标跳转到行首
+`L`            | Normal | 光标跳转到行尾
+`Y`            | Normal | 从光标处复制到行尾
+`<Leader> '`   | Normal | 在 vim 中打开shell
+`<Leader> s c` | Normal | 撤销搜索结果高亮
+`<Leader> t p` | Normal | 粘贴模式开关 (toggle pastemode)
+`Ctrl j`       | Insert | j, 向下移动
+`Ctrl k`       | Insert | k, 向上移动
+`Ctrl h`       | Insert | h, 向左移动
+`Ctrl l`       | Insert | l, 向右移动
+`jj`           | Insert | `<Esc>`
+`jk`           | Insert | `<Esc>`
+`kk`           | Insert | `<Esc>`
+`;;`           | Insert | `<Esc>`
+`v`            | Visual | `<Esc>`
+`<ESC>` 可能是使用非常多的一个键， 如果将 `jj`, `jk` 几个快速退出插入模式的快捷键熟记于心，应当会减轻不少 "切换" 的压力。 另外，新手请注意默认情况下 `Ctrl + [` 也是 `<ESC>`. 按一下 `v` 进入 `visual mode`, 再按一下离开 `visual mode` 也很方便。
+
+#### Buffer
+
+缓冲区操作， `<Leader> b`.
+
+我最常用的是 `<Leader> [1-9]`， 直接前缀键加上对应的 buffer 编号即可跳转到该 buffer.
+在 `spacemacs` 中， `<Leader> [1-9]` 是跳转到对应的 window. 因为 emacs 中 window 是有编号的,而 vim 中 window 没有编号, buffer 有编号. 此外很多人会使用 vim-airline，在 vim-airline 中上方也会显示 buffer 的编号，很方便。
+
+Key Binding       | Description
+:---:             | :---:
+`<Leader> [1-9]`  | 切换至对应编号[1-9]对应缓冲区
+`<Leader> b p	` | 上一个 (previous) 缓冲区
+`<Leader> b n	` | 下一个 (next) 缓冲区
+`<Leader> b d	` | 删除 (delete) 当前缓冲区
+`<Leader> b k`    | 杀掉 (kill) 缓冲区
+`<Leader> b b	` | 显示缓冲区 (buffer)
+
+两个删除缓冲区命令的区别：
+
+- `<Leader> b d` : buffer delete.
+
+- `<Leader> b k` (实际映射的是bw) : like bd， but really delete the buffer. Everything related to the buffer is lost. All marks in this buffer become invalid, option settings are lost, etc. Don’t use this unless you know what you are doing.
+
+#### File & Fold
+文件操作， `<Leader> f`.
+
+打开文件时，可能有些人不太喜欢全部折叠起来，`<Leader> f 9` 即可全部展开.
+
+Key Binding        | Description
+:---:              | :---:
+`<Leader> f s`     | 保存（save）文件
+`<Leader> f [1-9]` | 设置折叠 (fold) 层次，`f 0` 相当于全部折叠, `f 9` 相当于取消折叠全部展开
+
+
+#### Window
+
+窗口操作, `<Leader> w`.
+
+关于分割窗口的功能，我还常常使用 [tmux](https://tmux.github.io) 来实现，因为它也非常值得学习.
+
+Key Binding       | Description
+:---:             | :---:
+`<Leader> w j	` | 移动至下方窗口
+`<Leader> w k	` | 移动至上方窗口
+`<Leader> w h	` | 移动至左边窗口
+`<Leader> w l	` | 移动至右边窗口
+`<Leader> w v`    | 竖直分割窗口， 等同于 `<Leader> w |`
+`<Leader> w 2`    | 将窗口分割为两列，等同于`<Leader> w v`
+`<Leader> w s`    | 水平分割窗口， 等同于 `<Leader> w -`
+`<Leader> w d	` | 关闭 (cancel) 当前窗口
+`<Leader> w q	` | 退出 (quit) 当前窗口，若是最后一个窗口则退出vim
+`<Leader> w w	` | 在所有窗口中循环移动
+`<Leader> w r`    | 向右或向下方交换 (replace) 窗口
+
 
 ### [vim-airline](https://github.com/vim-airline/vim-airline)
 
@@ -261,20 +281,20 @@ Key Binding | Description
 
 easymotion 默认的前缀键为 `<Leader><Leader>`.
 
-Key Binding | 	Description
-:---:|:---:
-`<Leader><Leader> w`	|单词 (word) 向前快速移动
-`<Leader><Leader> b`	|单词向后 (backward) 快速移动
-`<Leader><Leader> j`	|行间向下快速移动
-`<Leader><Leader> k`	|行间向上快速移动
-`<Leader><Leader> s`	|搜索字符 (search) 跳转，双向
-`<Leader><Leader> f`	|向前 (forward) 查找字符
+Key Binding          | Description
+:---:                | :---:
+`<Leader><Leader> w` | 单词 (word) 向前快速移动
+`<Leader><Leader> b` | 单词向后 (backward) 快速移动
+`<Leader><Leader> j` | 行间向下快速移动
+`<Leader><Leader> k` | 行间向上快速移动
+`<Leader><Leader> s` | 搜索字符 (search) 跳转，双向
+`<Leader><Leader> f` | 向前 (forward) 查找字符
 
 为了与 spacemacs 相一致，我还添加了这几个快捷键:
 
 Key Binding | 	Description
 :---:|:---:
-`<Leader> j w`	| 单词跳转 (jump to word)
+`<Leader> j w` | 单词跳转 (jump to word)
 `<Leader> j l`	| 行间跳转 (jump to line)
 
 ### [unite.vim](https://github.com/Shougo/unite.vim)
@@ -351,6 +371,6 @@ vimrc Related      | Description
     Plugin 'terryma/vim-multiple-cursors'
     ```
 
-    然后 `<Leader> f R` 使配置生效，并执行 `:PluginInstall` 进行安装.
+    然后 `<Leader> f R` 使配置生效，并执行 `:PlugInstall` 进行安装.
 
 

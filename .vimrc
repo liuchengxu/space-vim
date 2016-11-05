@@ -33,8 +33,6 @@
         map <C-v> "+p
         " Show hidden chars hidden emerge
         nnoremap <Leader>he :set list!<CR>  " 显示不可见字符
-        " Toggle paste mode on and off
-        nnoremap <Leader>tp :setlocal paste!<CR>
         " Pressing ss will toggle and untoggle spell checking
         map <Leader>ss :setlocal spell!<CR>
     " }
@@ -205,5 +203,12 @@
         source ~/.vimrc.local
     endif
 " }
-
-
+ 
+highlight Cursor guifg=black guibg=#dfff00
+highlight iCursor guifg=black guibg=white
+highlight vCursor guifg=black guibg=#df5f00
+set guicursor=n-v-c:block-Cursor
+" set guicursor+=i:ver100-iCursor
+set guicursor+=n-v-c:blinkon0
+" set guicursor+=i:blinkwait10
+set guicursor=i:ver1
