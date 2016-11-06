@@ -5,7 +5,6 @@
     * [Prerequisites](#prerequisites)
     * [快捷键](#快捷键)
 * [General](#general)
-    * [Window](#window)
 * [Plugins](#plugins)
     * [vim-better-default](#vim-better-default)
         * [Basic](#basic)
@@ -100,7 +99,7 @@ brew install cmake
 
 ## General
 
-这部分大都是一些常用命令的快捷键映射或是默认的一些功能键，由于想精简 `.vimrc` ，于是我将一些常见且不经常改动的设置包装成一个插件进行载入，详情查看 [vim-better-default](#vim-better-default)
+这部分大都是一些常用命令的快捷键映射或是默认的一些功能键，由于想精简 `.vimrc` ，于是我将一些常见且不经常改动的设置包装成一个插件进行载入，详情查看下一部分的 [vim-better-default](#vim-better-default)。
 
 下面表格中的快捷键按使用频率排序.
 
@@ -112,26 +111,11 @@ Key Binding    | Description
 `%`            | 光标停留在括号处，%跳转到对应匹配的括号
 `<Leader> t n` | 显示/隐藏 行号(line number)
 `<Leader> t r` | 显示/隐藏 相对(relative)行号
-
-文件操作， `<Leader> f`.
-
-打开文件时，可能有些人不太喜欢全部折叠起来，`<Leader> f 9` 即可全部展开.
-
-Key Binding        | Description
-:---:              | :---:
-`<Leader> f v	`  | 打开 .vimrc
-`<Leader> f l	`  | 打开 .vimrc.plug.list
-`<Leader> f c`     | 打开 .vimrc.plug.conf
-`<Leader> f R`     | 重新加载vimrc
-
-
-### Window
-
-窗口操作, `<Leader> w`.
-
-Key Binding       | Description
-:---:             | :---:
-`<Leader> w m`    | GUI环境下为窗口最大化切换开关
+`<Leader> f v` | 打开 .vimrc
+`<Leader> f l` | 打开 .vimrc.plug.list
+`<Leader> f c` | 打开 .vimrc.plug.conf
+`<Leader> f R` | 重新加载 vimrc
+`<Leader> w m` | GUI 环境下为窗口最大化切换开关
 
 
 ## Plugins
@@ -139,7 +123,6 @@ Key Binding       | Description
 插件并不是越多越好，每个插件我们常用的大多只是其中一小部分功能而已. 插件装多了，vim 一样会慢. 当然也不是配置地功能越强大越好, 选择合适且真正用得到的功能，在这些地方用的舒心即可。
 
 有些插件 “即装即用”，基本不用配置, 或是 "一次配置，终身使用". 有些则稍麻烦一些，不仅是在配置上需要注意，使用上也可能会有一些学习成本，需要有一点耐心才能看到它带来的效果.
-
 
 我不使用 vim 的标签页 (tab) 功能，所以关于 `<Leader> t` 的快捷键都不涉及 tab 操作.
 
