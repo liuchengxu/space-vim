@@ -9,24 +9,21 @@
     call plug#begin('~/.vim/plugged')
 
     Plug 'liuchengxu/vim-better-default'
+    Plug 'liuchengxu/space-vim-dark'
 
-    " Plug 'sjl/vitality.vim'
     Plug 'luochen1990/rainbow'
-    Plug 'dracula/vim'
-    Plug 'morhetz/gruvbox'
-    Plug 'flazz/vim-colorschemes'
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
+    Plug 'vim-airline/vim-airline-themes' | Plug 'vim-airline/vim-airline'
+    Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
-    Plug 'tpope/vim-fugitive'
     Plug 'Raimondi/delimitMate'
     Plug 'scrooloose/nerdcommenter'
     Plug 'tpope/vim-surround'
+    Plug 'easymotion/vim-easymotion'
+
     Plug 'godlygeek/tabular'
     Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
-    Plug 'easymotion/vim-easymotion'
 
     " error occurs when tabar enabled
     " Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
@@ -45,16 +42,11 @@
     Plug 'plasticboy/vim-markdown',  { 'for': 'markdown' }
     Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 
-    Plug 'scrooloose/nerdtree',                     { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
-    Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
+    Plug 'scrooloose/nerdtree',                     { 'on': 'NERDTreeToggle' }
+    Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
 
     Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
-
-    Plug 'nathanaelkane/vim-indent-guides', { 'for': ['shell', 'python',
-                                                    \ 'java', 'c', 'cpp'] }
-
-    Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-    " Plug 'sheerun/vim-polyglot'
+    Plug 'nathanaelkane/vim-indent-guides', { 'for': ['shell', 'python', 'java', 'c', 'cpp'] }
     Plug 'scrooloose/syntastic',            { 'for': ['python', 'c', 'cpp', 'shell'] }
 
     function! BuildYCM(info)

@@ -19,10 +19,6 @@ Thanks for their outstanding works.
 
 Screenshots:
 
-- ubuntu
-
-![ubuntu](doc/img/ubuntu.png)
-
 - macOS
 
 ![screenshot](doc/img/screenshot.png)

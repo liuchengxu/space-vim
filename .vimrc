@@ -35,6 +35,9 @@
         nnoremap <Leader>he :set list!<CR>  " 显示不可见字符
         " Pressing ss will toggle and untoggle spell checking
         map <Leader>ss :setlocal spell!<CR>
+
+        hi LineNr ctermfg=239
+
     " }
 
     " File & Fold {
@@ -212,3 +215,5 @@ set guicursor=n-v-c:block-Cursor
 set guicursor+=n-v-c:blinkon0
 " set guicursor+=i:blinkwait10
 set guicursor=i:ver1
+
+color space-vim-dark
