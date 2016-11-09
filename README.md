@@ -7,6 +7,17 @@
              |_|
 
 
+
+<!-- vim-markdown-toc GFM -->
+* [Installation](#installation)
+    * [Vundle or vim-plug](#vundle-or-vim-plug)
+    * [Linux and macOS](#linux-and-macos)
+* [How to use](#how-to-use)
+* [Updating to the latest version](#updating-to-the-latest-version)
+* [TODO](#todo)
+
+<!-- vim-markdown-toc -->
+
 [space-vim](https://github.com/liuchengxu/space-vim) is a vim distribution inspired by [spacemacs](https://github.com/syl20bnr/spacemacs), especially in key bindings, intended for offering an out-of-the-box vim configuration.
 
 I use both spacemacs and vim everyday and hope they maintain consistency in operation as far as possible.
@@ -28,8 +39,6 @@ Screenshots:
 Before setting up space-vim, you need to choose a vim plugin manager, for space-vim offers two options: [Vundle](https://github.com/VundleVim/Vundle.vim) and [vim-plug](https://github.com/junegunn/vim-plug).
 
 If you prefer Vundle, please move to [master](https://github.com/liuchengxu/space-vim) branch. 
-
-### Linux and macOS
 
 You need to statisfy some prerequisites to make all the plugins work, especially vim complied with certain features, such as python, and some other tools used by related plugins. [Here is a recommended list](doc/tutorial_cn.md#prerequisites).
 
