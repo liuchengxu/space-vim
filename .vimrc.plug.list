@@ -15,20 +15,17 @@
     Plug 'vim-airline/vim-airline-themes' | Plug 'vim-airline/vim-airline'
     Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
+    Plug 'godlygeek/tabular'
     Plug 'Raimondi/delimitMate'
     Plug 'scrooloose/nerdcommenter'
     Plug 'tpope/vim-surround'
     Plug 'easymotion/vim-easymotion'
 
-    Plug 'godlygeek/tabular'
-    Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
-    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-    Plug 'junegunn/fzf.vim'
-
-    " error occurs when tabar enabled
-    " Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
+    " Do not lazy loading tagbar, see vim-airline issue 1313.
+    Plug 'majutsushi/tagbar'
     Plug 'ctrlpvim/ctrlp.vim'
 
+    Plug 'Shougo/denite.nvim'
     Plug 'Shougo/unite.vim'
     Plug 'tsukkee/unite-help'
     Plug 'ujihisa/unite-colorscheme'
@@ -41,6 +38,10 @@
 
     Plug 'plasticboy/vim-markdown',  { 'for': 'markdown' }
     Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
+
+    Plug 'junegunn/vim-easy-align',  { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
+    Plug 'junegunn/fzf',             { 'dir': '~/.fzf', 'do': './install --all' }
+    Plug 'junegunn/fzf.vim'
 
     Plug 'scrooloose/nerdtree',                     { 'on': 'NERDTreeToggle' }
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }

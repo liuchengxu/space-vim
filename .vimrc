@@ -1,19 +1,3 @@
-" Environment {
-
-    " Identify platform{
-        silent function! OSX()
-            return has('macunix')
-        endfunction
-        silent function! LINUX()
-            return has('unix') && !has('macunix') && !has('win32unix')
-        endfunction
-        silent function! WINDOWS()
-            return (has('win32') || has('win64'))
-        endfunction
-    " }
-
-" }
-
 " Plugins List {
     if filereadable(expand("~/.vimrc.plug.list"))
         source ~/.vimrc.plug.list
@@ -79,9 +63,9 @@
 
     " F keys {
         " mac
-        nnoremap <F8> :w<cr>:!dot -Teps -o %<.eps % && open %<.eps<CR><CR>
+            nnoremap <F8> :w<cr>:!dot -Teps -o %<.eps % && open %<.eps<CR><CR>
         " ubuntu
-        " nnoremap <F8> :w<cr>:!dot -Teps -o %<.eps % && evince %<.eps<CR><CR>
+            " nnoremap <F8> :w<cr>:!dot -Teps -o %<.eps % && evince %<.eps<CR><CR>
     " }
 
 " }
@@ -163,6 +147,23 @@
         endif
     endfunction
 " }
+
+" Environment {
+
+    " Identify platform{
+    silent function! OSX()
+    return has('macunix')
+            endfunction
+            silent function! LINUX()
+            return has('unix') && !has('macunix') && !has('win32unix')
+        endfunction
+        silent function! WINDOWS()
+        return (has('win32') || has('win64'))
+    endfunction
+    " }
+
+" }
+
 
 " GUI Settings {
 
