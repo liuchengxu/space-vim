@@ -9,6 +9,8 @@
     " Better defaults {
         let mapleader="\<Space>"
         let maplocalleader=","
+
+        nnoremap ; :
          " 映射全选加复制 Ctrl+a
         map <C-a> ggVGY
         map! <C-a> <Esc>ggVGY
@@ -21,10 +23,7 @@
         map <Leader>ss :setlocal spell!<CR>
     " }
 
-    " File & Fold {
-        nnoremap <Leader>fv :e ~/.vimrc<CR>
-        nnoremap <Leader>fc :e ~/.vimrc.plug.conf<CR>
-        nnoremap <Leader>fl :e ~/.vimrc.plug.list<CR>
+    " File {
         nnoremap <Leader>fR :source $MYVIMRC<CR>
     " }
 
@@ -150,14 +149,14 @@
 
 " Environment {
 
-    " Identify platform{
+    " Identify platform {
     silent function! OSX()
-    return has('macunix')
-            endfunction
-            silent function! LINUX()
-            return has('unix') && !has('macunix') && !has('win32unix')
-        endfunction
-        silent function! WINDOWS()
+        return has('macunix')
+    endfunction
+    silent function! LINUX()
+        return has('unix') && !has('macunix') && !has('win32unix')
+    endfunction
+    silent function! WINDOWS()
         return (has('win32') || has('win64'))
     endfunction
     " }

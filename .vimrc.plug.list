@@ -12,8 +12,8 @@
     Plug 'liuchengxu/space-vim-dark'
 
     Plug 'luochen1990/rainbow'
-    Plug 'vim-airline/vim-airline-themes' | Plug 'vim-airline/vim-airline'
     Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+    Plug 'vim-airline/vim-airline-themes' | Plug 'vim-airline/vim-airline'
 
     Plug 'godlygeek/tabular'
     Plug 'Raimondi/delimitMate'
@@ -23,32 +23,27 @@
 
     " Do not lazy loading tagbar, see vim-airline issue 1313.
     Plug 'majutsushi/tagbar'
-    Plug 'ctrlpvim/ctrlp.vim'
 
     Plug 'Shougo/denite.nvim'
     Plug 'Shougo/unite.vim'
-    Plug 'tsukkee/unite-help'
-    Plug 'ujihisa/unite-colorscheme'
-    Plug 'ujihisa/unite-locate'
-    Plug 'osyo-manga/unite-filetype'
-    Plug 'osyo-manga/unite-quickfix'
-    Plug 'osyo-manga/unite-fold'
 
     Plug 'mhinz/vim-startify',       { 'on': 'Startify' }
 
     Plug 'plasticboy/vim-markdown',  { 'for': 'markdown' }
     Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 
-    Plug 'junegunn/vim-easy-align',  { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
-    Plug 'junegunn/fzf',             { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
+    Plug 'junegunn/fzf',             { 'dir': '~/.fzf', 'do': './install --all' }
+    Plug 'junegunn/vim-easy-align',  { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 
     Plug 'scrooloose/nerdtree',                     { 'on': 'NERDTreeToggle' }
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
 
     Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
     Plug 'nathanaelkane/vim-indent-guides', { 'for': ['shell', 'python', 'java', 'c', 'cpp'] }
-    Plug 'scrooloose/syntastic',            { 'for': ['python', 'c', 'cpp', 'shell'] }
+
+    let g:space_vim_filetype_check_list = ['python', 'shell', 'c', 'cpp', 'html', 'css','js', 'ruby'] 
+    Plug 'scrooloose/syntastic',            { 'for': g:space_vim_filetype_check_list }
 
     function! BuildYCM(info)
         " info is a dictionary with 3 fields
@@ -59,8 +54,8 @@
             !./install.py --clang-completer
         endif
     endfunction
-
-    Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+    Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM'), 
+                                  \ 'for': g:space_vim_filetype_check_list}
 
     if filereadable(expand("~/.vimrc.plug.local"))
         source ~/.vimrc.plug.local

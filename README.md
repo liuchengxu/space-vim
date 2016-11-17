@@ -1,4 +1,4 @@
-# space-vim [|中文](doc/tutorial_cn.md)
+# space-vim [| 中文](doc/tutorial_cn.md)
 
          ___ _ __   __ _  ___ ___     __   _(_)_ __ ___
          / __| -_ \ / _- |/ __/ _ \____\ \ / / | -_ - _ \ 
@@ -38,8 +38,6 @@ Screenshots:
 
 Before setting up space-vim, you need to choose a vim plugin manager, for space-vim offers two options: [Vundle](https://github.com/VundleVim/Vundle.vim) and [vim-plug](https://github.com/junegunn/vim-plug).
 
-If you prefer Vundle, please move to [master](https://github.com/liuchengxu/space-vim) branch. 
-
 You need to statisfy some prerequisites to make all the plugins work, especially vim complied with certain features, such as python, and some other tools used by related plugins. [Here is a recommended list](doc/tutorial_cn.md#prerequisites).
 
 ### Vundle or vim-plug
@@ -48,7 +46,7 @@ space-vim offers two vim plugin managers: [Vundle](https://github.com/VundleVim/
 
 If you prefer vundle, please move to [vundle branch](https://github.com/liuchengxu/space-vim/tree/vundle).
 
-For now, [master branch](https://github.com/liuchengxu/space-vim) use vim-plug for its convenience.
+At present, the default option of space-vim is vim-plug.
 
 ### Linux and macOS
 
