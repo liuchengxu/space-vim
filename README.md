@@ -21,7 +21,8 @@
 [space-vim](https://github.com/liuchengxu/space-vim) is a vim distribution inspired by [spacemacs](https://github.com/syl20bnr/spacemacs), especially in key bindings, intended for offering an out-of-the-box vim configuration.
 
 I use both spacemacs and vim everyday and hope they maintain consistency in operation as far as possible.
-Hence it is fruitful to those who use spacemacs and vim at the same time as well as vim beginer.
+Hence it is fruitful to those who use spacemacs and vim at the same time as well as vim beginer. 
+Furthermore, I live in the terminal vim, so space-vim may not be so perfect for GVIM, feel free to improve it if you find any unconvenience in GVIM.
 
 The distribution is customisable using a `~/.vimrc.local` and `~/.vimrc.plug.local` Vim RC files.
 
@@ -29,8 +30,6 @@ It has also learned a great deal from other first-class vim configurations, such
 Thanks for their outstanding works.
 
 Screenshots:
-
-- macOS
 
 ![screenshot](doc/img/screenshot.png)
 

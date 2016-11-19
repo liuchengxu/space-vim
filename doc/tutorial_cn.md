@@ -138,6 +138,8 @@ Key Binding    | Description
 
 ### [vim-better-default](https://github.com/liuchengxu/vim-better-default)
 
+开始时觉得 .vimrc 太长了，而且里面有很多都是常见，“人手必备” 的配置，就将这部分内容抽离了出来，一来能够简化 .vimrc, 二来对于初学者也能有点帮助，至少不用到处零星点点地复制粘贴别人的 .vimrc.
+
 #### Basic
 
 Key Binding    | Mode   | Description
@@ -162,6 +164,7 @@ Key Binding    | Mode   | Description
 `kk`           | Insert | `<Esc>`
 `;;`           | Insert | `<Esc>`
 `v`            | Visual | `<Esc>`
+
 `<ESC>` 可能是使用非常多的一个键， 如果将 `jj`, `jk` 几个快速退出插入模式的快捷键熟记于心，应当会减轻不少 "切换" 的压力。 另外，新手请注意默认情况下 `Ctrl + [` 也是 `<ESC>`. 按一下 `v` 进入 `visual mode`, 再按一下离开 `visual mode` 也很方便。
 
 #### Buffer
@@ -239,15 +242,29 @@ let g:airline_powerline_fonts=1
 
 ![powerline_setting](img/iterm2_powerline_setting.png)
 
+### [space-vim-dark](https://github.com/liuchengxu/space-vim-dark)
+
+因为我想要 vim 与 spacemacs 有着类似的主题，所以自己写了这个 colorscheme. 如果想要其他颜色主题，可以安装下面的[vim-colorschemes](https://github.com/flazz/vim-colorschemes).
+
 ### [vim-colorschemes](https://github.com/flazz/vim-colorschemes)
 
-一个多漂亮的主题用的久了，总会没感觉，这个插件集成了很多 vim 的主题，可以自行挑一个在自己机器上显示效果不错的。 比如想修改为 atom:
+这个插件里面收集了很多的颜色主题, 想要换换新主题时，不妨安装这个插件。
+
+安装 [vim-colorschemes](https://github.com/flazz/vim-colorschemes)：
 
 ```
-echo "color atom" >> ~/.vimrc.local
+echo "Plug 'vim-colorschemes/vim-colorschemes'" >> ~/.vimrc.plug.local
+
+vim +PlugInstall! +qall
 ```
 
-我比较喜欢的是 dracula 和 molokai。
+选择主题进行切换，比如 molokai:
+
+```
+echo "color molokai" >> ~/.vimrc.local
+```
+
+这时再打开 vim 应该就能看到效果了.
 
 ### [tabular](https://github.com/godlygeek/tabular)
 
@@ -279,6 +296,12 @@ Key Binding | 	Description
 :---:|:---:
 `<Leader> j w` | 单词跳转 (jump to word)
 `<Leader> j l`	| 行间跳转 (jump to line)
+
+### [fzf.vim](https://github.com/junegunn/fzf.vim)
+
+fzf.vim 由 [fzf](https://github.com/junegunn/fzf) 进行支持，用于文件的模糊查找等，使用也非常方便，并且开发者非常活跃，很值得尝试。
+
+![fzf](https://camo.githubusercontent.com/0b07def9e05309281212369b118fcf9b9fc7948e/68747470733a2f2f7261772e6769746875622e636f6d2f6a756e6567756e6e2f692f6d61737465722f667a662e676966)
 
 ### [unite.vim](https://github.com/Shougo/unite.vim)
 
@@ -318,7 +341,9 @@ let g:syntastic_html_checkers=['tidy', 'jshint']       " brew install tidy-html5
 
 ### [YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
 
-YouCompleteMe 配置稍显复杂，其实也不复杂，关键在于需要安装一些必要的软件，比如 cmake. 具体可以查阅[其安装介绍](https://github.com/Valloric/YouCompleteMe#mac-os-x).
+YouCompleteMe 配置稍显复杂，其实也不复杂，而且使用 [vim-plug](https://github.com/junegunn/vim-plug) 作为插件管理器后更是非常方便，能够一键式安装。
+
+ycm 关键在于需要安装一些必要的软件，比如 cmake, clang 等，在进行安装时可能需要花费一些等待时间， 更多安装内容可以查阅[其安装介绍](https://github.com/Valloric/YouCompleteMe#mac-os-x).
 
 此外一点注意：必须在 `.vimrc.plug.conf` 中正确设置 Python 路径.如果不设置该选项 YCM 会经常 crashed. python 版本应当与编译 YCM 时的 Python 版本一致， 建议使用 Python3 和绝对路径避免不必要的问题.
 
