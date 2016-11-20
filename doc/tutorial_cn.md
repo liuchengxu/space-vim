@@ -1,5 +1,6 @@
 **Table of Contents**
 
+<!-- vim-markdown-toc GFM -->
 * [前言](#前言)
     * [键位设定](#键位设定)
     * [Prerequisites](#prerequisites)
@@ -10,16 +11,19 @@
         * [Basic](#basic)
         * [Buffer](#buffer)
         * [File & Fold](#file--fold)
-        * [Window](#window-1)
+        * [Window](#window)
     * [vim-airline](#vim-airline)
+    * [space-vim-dark](#space-vim-dark)
     * [vim-colorschemes](#vim-colorschemes)
     * [tabular](#tabular)
     * [vim-easymotion](#vim-easymotion)
+    * [fzf.vim](#fzfvim)
     * [unite.vim](#unitevim)
     * [syntastic](#syntastic)
     * [YouCompleteMe](#youcompleteme)
 * [Customization](#customization)
 
+<!-- vim-markdown-toc -->
 
 ## 前言
 
@@ -105,15 +109,12 @@ brew install cmake
 
 Key Binding    | Description
 :---:          | :---:
+`<F5>`         | 编译运行c， cpp, python等文件
+`%`            | 光标停留在括号处，% 跳转到对应匹配的括号
 `Ctrl + c`     | 复制
 `Ctrl + v`     | 粘贴
-`<F5>`         | 编译运行c， cpp, python等文件
-`%`            | 光标停留在括号处，%跳转到对应匹配的括号
 `<Leader> t n` | 显示/隐藏 行号(line number)
 `<Leader> t r` | 显示/隐藏 相对(relative)行号
-`<Leader> f v` | 打开 .vimrc
-`<Leader> f l` | 打开 .vimrc.plug.list
-`<Leader> f c` | 打开 .vimrc.plug.conf
 `<Leader> f R` | 重新加载 vimrc
 `<Leader> w m` | GUI 环境下为窗口最大化切换开关
 
@@ -138,7 +139,7 @@ Key Binding    | Description
 
 ### [vim-better-default](https://github.com/liuchengxu/vim-better-default)
 
-开始时觉得 .vimrc 太长了，而且里面有很多都是常见，“人手必备” 的配置，就将这部分内容抽离了出来，一来能够简化 .vimrc, 二来对于初学者也能有点帮助，至少不用到处零星点点地复制粘贴别人的 .vimrc.
+开始时觉得 .vimrc 太长了，而且里面有很多都是常见，“人手必备” 的配置，就将这部分内容抽离了出来. 一来能够简化 .vimrc, 二来对于初学者也能有点帮助，至少不用到处零星点点地复制粘贴别人的 .vimrc.
 
 #### Basic
 

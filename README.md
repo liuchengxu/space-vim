@@ -1,4 +1,5 @@
-# space-vim [| 中文](doc/tutorial_cn.md)
+space-vim
+==============================
 
          ___ _ __   __ _  ___ ___     __   _(_)_ __ ___
          / __| -_ \ / _- |/ __/ _ \____\ \ / / | -_ - _ \ 
@@ -7,6 +8,7 @@
              |_|
 
 
+[:cn: 中文](doc/tutorial_cn.md)
 
 <!-- vim-markdown-toc GFM -->
 * [Installation](#installation)
