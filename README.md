@@ -58,13 +58,13 @@ space-vim 的键位绑定启发自 spacemacs，这也是为什么叫做 space-vi
 
 - curl
 
-    ```
+    ```sh
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/liuchengxu/space-vim/master/install.sh)"
     ```
 
 - wget
 
-    ```
+    ```sh
     sh -c "$(wget -qO- https://raw.githubusercontent.com/liuchengxu/space-vim/master/install.sh)"
     ```
 
@@ -74,14 +74,14 @@ space-vim 的键位绑定启发自 spacemacs，这也是为什么叫做 space-vi
 
 mac 下使用 brew 安装的话非常方便， 可以使用 `brew info vim` 看有哪些安装选项，并在安装时指定编译选项：
 
-```
+```sh
 brew install vim --with-lua --with-python3 --with-override-system-vi
 ```
 其他平台下，网络上有很多指引，这里不再赘述。
 
 另外，有些插件用到的一些工具也要安装, 下面给出 mac 下的一些安装途径， 其他平台下可对应查找安装途径:
 
-```
+```sh
 # tools used by some plugins, you need install them to make all the plugins work
 # you can install them with brew painlessly as followed,
 # if you use linux or windows, install them on your own, it is not too difficult.
@@ -102,7 +102,7 @@ brew install cmake
 
 space-vim 的前缀键设置为空格键， 来源于 spacemacs. spacemacs 除了外观漂亮，社区驱动等等优点，使用空格键作为 evil 的前缀键可能也是其中一个成功的卖点，因为可以减轻手指负担，毕竟“触手可及”.
 
-```
+```vim
 let mapleader="\<Space>"
 ```
 
@@ -211,7 +211,7 @@ Key Binding        | Description
 
 #### 窗口
 
-窗口操作, `<Leader> w`.
+窗口 (window) 操作, `<Leader> w`.
 
 关于分割窗口的功能，我还常常使用 [tmux](https://tmux.github.io) 来实现，因为它也非常值得学习.
 
@@ -251,14 +251,14 @@ Key Binding    | Description
 
 vim-airline 最好搭配 [powerline fonts](https://github.com/powerline/fonts) 字体， space-vim 默认不使用. 不过推荐安装:
 
-```
+```sh
 git clone https://github.com/powerline/fonts.git ~/.fonts
 sh ~/.fonts/install.sh
 ```
 
 powerline font 安装完成后，在 `.vimrc.plug.conf`中的 air-line 中启用字体：
 
-```
+```vim
 let g:airline_powerline_fonts=1
 ```
 
@@ -278,7 +278,7 @@ let g:airline_powerline_fonts=1
 
 安装 [vim-colorschemes](https://github.com/flazz/vim-colorschemes)：
 
-```
+```sh
 echo "Plug 'vim-colorschemes/vim-colorschemes'" >> ~/.vimrc.plug.local
 
 vim +PlugInstall! +qall
@@ -286,7 +286,7 @@ vim +PlugInstall! +qall
 
 选择主题进行切换，比如 molokai:
 
-```
+```sh
 echo "color molokai" >> ~/.vimrc.local
 ```
 
@@ -335,7 +335,7 @@ unite.vim 可以为 vim 提供一个命令 UI，可以将一些不常用或不�
 
 unite.vim 的前缀键为 `localleader`， 这里设置为 `,`.
 
-```
+```vim
 let maplocalleader="，"
 ```
 
@@ -352,13 +352,13 @@ Key Binding | Description
 [menu] t    | 功能开关(toggle)
 [menu] v    | vim相关
 
-unite.vim 这部分配置需要很多心思打磨，有待完善.
+unite.vim 的作者又出了一个 denite.vim, 号称比 unite.vim 更好，期待。
 
 ### [syntastic](https://github.com/scrooloose/syntastic)
 
 在前部分介绍安装事项时，提到要安装一些额外使用的工具，有很多就是 syntastic 这个插件所需要的：
 
-```
+```vim
 let g:jyntastic_python_checkers=['pyflakes']           " 使用pyflakes 比pylint快, 需要pip安装pyflakes，
 let g:syntastic_javascript_checkers=['jsl', 'jshint']  " npm install jsl jshint
 let g:syntastic_html_checkers=['tidy', 'jshint']       " brew install tidy-html5
@@ -373,7 +373,7 @@ ycm 关键在于需要安装一些必要的软件，比如 cmake, clang 等，�
 
 此外一点注意：必须在 `.vimrc.plug.conf` 中正确设置 Python 路径.如果不设置该选项 YCM 会经常 crashed. python 版本应当与编译 YCM 时的 Python 版本一致， 建议使用 Python3 和绝对路径避免不必要的问题.
 
-```
+```vim
 let g:ycm_path_to_python_interpreter='/absolute/path/to/python'
 ```
 
@@ -389,7 +389,7 @@ vimrc Related      | Description
 
 - 将配置信息写入到 `~/.vimrc.local` ， 比如想要修改主题:
 
-    ```
+    ```sh
     echo "color solarized" >> ~/.vimrc.local
     ```
 
@@ -399,7 +399,7 @@ vimrc Related      | Description
 
     如果想要安装另外的插件，将插件信息写入到 `~/.vimrc.plug.local` , 比如添加多光标操作[vim-multiple-cursors](https://github.com/terryma/vim-multiple-cursors)这个插件:
 
-    ```
+    ```sh
     Plugin 'terryma/vim-multiple-cursors'
     ```
 
