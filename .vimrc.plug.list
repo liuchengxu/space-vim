@@ -24,6 +24,8 @@
     " Do not lazy loading tagbar, see vim-airline issue 1313.
     Plug 'majutsushi/tagbar'
 
+    Plug 'skywind3000/asyncrun.vim'
+
     Plug 'Shougo/denite.nvim'
     Plug 'Shougo/unite.vim'
 
@@ -42,8 +44,7 @@
     Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
     Plug 'nathanaelkane/vim-indent-guides', { 'for': ['shell', 'python', 'java', 'c', 'cpp'] }
 
-    let g:space_vim_filetype_check_list = ['python', 'shell', 'c', 'cpp', 'html', 'css','js', 'ruby'] 
-    Plug 'scrooloose/syntastic',            { 'for': g:space_vim_filetype_check_list }
+    Plug 'scrooloose/syntastic'
 
     function! BuildYCM(info)
         " info is a dictionary with 3 fields
@@ -54,8 +55,7 @@
             !./install.py --clang-completer
         endif
     endfunction
-    Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM'), 
-                                  \ 'for': g:space_vim_filetype_check_list}
+    Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 
     if filereadable(expand("~/.vimrc.plug.local"))
         source ~/.vimrc.plug.local
