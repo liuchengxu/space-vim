@@ -16,7 +16,7 @@ space-vim
     * [安装](#安装)
         * [Linux and macOS](#linux-and-macos)
         * [安装注意事项](#安装注意事项)
-    * [键位设定](#键位设定)
+    * [理解 vim 键位](#理解-vim-键位)
 * [基本篇](#基本篇)
     * [vim-better-default](#vim-better-default)
         * [基本操作](#基本操作)
@@ -26,6 +26,9 @@ space-vim
 * [插件篇](#插件篇)
     * [vim-airline](#vim-airline)
     * [space-vim-dark](#space-vim-dark)
+    * [nerdtree](#nerdtree)
+        * [nerdtree-git-plugin](#nerdtree-git-plugin)
+        * [vim-nerdtree-syntax-highlight](#vim-nerdtree-syntax-highlight)
     * [vim-colorschemes](#vim-colorschemes)
     * [tabular](#tabular)
     * [vim-easymotion](#vim-easymotion)
@@ -70,7 +73,7 @@ space-vim 的键位绑定启发自 spacemacs，这也是为什么叫做 space-vi
 
 #### 安装注意事项
 
-在安装 vim 时, 因为不太熟悉可能会走一条捷径， 贪图一个简单的安装命令就搞定, 比如 `sudo apt install vim`。不过后期可能会因为缺少某些功能而发生一些问题。 因此， 在前期安装 vim 时最好就将这些问题搞定, 比如编译支持 python 的vim, 因为 后面的插件 YouCompleteMe 需要这一特性.
+在安装 vim 时, 因为不太熟悉可能会走一条捷径， 贪图一个简单的安装命令就搞定, 比如 ubuntu 下 `sudo apt install vim`。不过后期可能会因为缺少某些功能而发生一些问题。 因此， 在前期安装 vim 时最好就将这些问题搞定, 比如编译支持 python 的vim, 因为 后面的插件 YouCompleteMe 需要这一特性.
 
 mac 下使用 brew 安装的话非常方便， 可以使用 `brew info vim` 看有哪些安装选项，并在安装时指定编译选项：
 
@@ -98,9 +101,9 @@ brew install ctags
 brew install cmake
 ```
 
-### 键位设定
+### 理解 vim 键位
 
-space-vim 的前缀键设置为空格键， 来源于 spacemacs. spacemacs 除了外观漂亮，社区驱动等等优点，使用空格键作为 evil 的前缀键可能也是其中一个成功的卖点，因为可以减轻手指负担，毕竟“触手可及”.
+space-vim 的前缀键设置为空格键， 来源于 spacemacs (当然在此之前已经有很多人设置空格键为 Leader 键，不过其键位设置原则并没有 spacemacs 这么 "科学"). spacemacs 除了外观漂亮，社区驱动等等优点，使用空格键作为 evil 的前缀键可能也是其中一个成功的卖点，因为可以减轻手指负担，毕竟“触手可及”.
 
 ```vim
 let mapleader="\<Space>"
@@ -119,7 +122,7 @@ let mapleader="\<Space>"
 看到这个，也就应该能够理解为什么 vim 使用 hjkl 作为方向键，因为物理条件就是这样.
 
 ## 基本篇
-要想使用 vim 提高效率，记住一些快捷键是必然的. 而这种事情都是熟能生巧，一些常用操作用多了自然也就记住了.
+要想使用 vim 提高效率，记住一些快捷键是必然的. 要想记住一些快捷键，一来是要熟能生巧，二来是要快捷键的安排合理有效，这一点上借鉴了 spacemacs 的 “Mnemonics” 原则，非常易于记忆。
 
 介绍具体的快捷键之前，先来了解一下一些基本概念，比如 buffer, 比如 window, 否则即使知道快捷键是什么也不知道该怎么用.如下图中的红色边框区域都是 window , `<Leader> w` 都是 window 相关操作的快捷键.
 
@@ -140,8 +143,6 @@ Key Binding    | Description
 `%`            | 光标停留在括号处，% 跳转到对应匹配的括号
 `Ctrl + c`     | 复制
 `Ctrl + v`     | 粘贴
-`<Leader> t n` | 显示/隐藏 行号(line number)
-`<Leader> t r` | 显示/隐藏 相对(relative)行号
 `<Leader> f R` | 重新加载 vimrc
 `<Leader> w m` | GUI 环境下为窗口最大化切换开关
 
@@ -235,6 +236,8 @@ Key Binding       | Description
 
 有些插件 “即装即用”，基本不用配置, 或是 "一次配置，终身使用". 有些则稍麻烦一些，不仅是在配置上需要注意，使用上也可能会有一些学习成本，需要有一点耐心才能看到它带来的效果.
 
+关于插件的更多配置，可以直接查看 [.vimrc.plug.conf](https://github.com/liuchengxu/space-vim/blob/master/.vimrc.plug.conf) 对应信息.
+
 我不使用 vim 的标签页 (tab) 功能，所以关于 `<Leader> t` 的快捷键都不涉及 tab 操作.
 
 Key Binding    | Description
@@ -271,6 +274,13 @@ let g:airline_powerline_fonts=1
 ### [space-vim-dark](https://github.com/liuchengxu/space-vim-dark)
 
 因为我想要 vim 与 spacemacs 有着类似的主题，所以自己写了这个 colorscheme. 如果想要其他颜色主题，可以安装下面的[vim-colorschemes](https://github.com/flazz/vim-colorschemes).
+
+
+### [nerdtree](https://github.com/scrooloose/nerdtree)
+
+#### [nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-plugin)
+
+#### [vim-nerdtree-syntax-highlight](https://github.com/tiagofumo/vim-nerdtree-syntax-highlight)
 
 ### [vim-colorschemes](https://github.com/flazz/vim-colorschemes)
 

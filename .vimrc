@@ -10,6 +10,8 @@
         let mapleader="\<Space>"
         let maplocalleader=","
 
+        set fillchars+=vert:\. 
+        set fillchars=""
         nnoremap ; :
          " 映射全选加复制 Ctrl+a
         map <C-a> ggVGY
@@ -18,9 +20,12 @@
         map <C-c> "+y
         map <C-v> "+p
         " Show hidden chars hidden emerge
-        nnoremap <Leader>he :set list!<CR>  " 显示不可见字符
+        nnoremap <Leader>he :set list!<CR>
         " Pressing ss will toggle and untoggle spell checking
         map <Leader>ss :setlocal spell!<CR>
+
+        " formate python
+        nnoremap <LocalLeader>= :!yapf %<CR>
     " }
 
     " File {
@@ -76,53 +81,6 @@
 " }
 
 " Functions {
-
-    " 默认情况下F1为打开vim的内置帮助
-    " F5分配给编译运行功能
-    nnoremap <F5> :call CompileAndRun()<CR>
-    nnoremap <silent><Leader>cC :call CompileAndRun()<CR>
-    function! CompileAndRun()
-        exec "w"
-        if &filetype == 'c'
-            exec "!gcc % -o %<"
-            exec "!time ./%<"
-        elseif &filetype == 'cpp'
-            exec "!g++ -std=c++11 % -o %<"
-            exec "!time ./%<"
-        elseif &filetype == 'java'
-            exec "!javac %"
-            exec "!time java %<"
-        elseif &filetype == 'sh'
-            :!time bash %
-        elseif &filetype == 'python'
-            exec "!time python %"
-        endif
-    endfunction
-
-    " 切换行号显示模式
-    nnoremap <Leader>tn :call ToggleLineNumber()<CR>
-    function! ToggleLineNumber()
-        if &number
-            set nonumber
-            set norelativenumber
-        else
-            set number
-            set relativenumber
-        endif
-    endfunction
-    nnoremap <Leader>tr :call ToggleRelativeLineNumber()<CR>
-    function! ToggleRelativeLineNumber()
-        if &number
-            if &relativenumber
-                set norelativenumber
-            else
-                set relativenumber
-            endif
-        else
-            set number
-            set relativenumber
-        endif
-    endfunction
 
     " GUI 环境下最大化开关
     let s:lines=&lines
@@ -203,7 +161,7 @@
         source ~/.vimrc.local
     endif
 " }
- 
+
 highlight Cursor guifg=black guibg=#dfff00
 highlight iCursor guifg=black guibg=white
 highlight vCursor guifg=black guibg=#df5f00
