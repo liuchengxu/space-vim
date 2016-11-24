@@ -14,7 +14,7 @@ space-vim
 <!-- vim-markdown-toc GFM -->
 * [前言](#前言)
     * [安装](#安装)
-        * [Linux and macOS](#linux-and-macos)
+        * [Linux/macOS](#linuxmacos)
         * [Windows](#windows)
         * [注意事项](#注意事项)
     * [理解 vim 键位](#理解-vim-键位)
@@ -27,15 +27,17 @@ space-vim
 * [插件篇](#插件篇)
     * [vim-airline](#vim-airline)
     * [space-vim-dark](#space-vim-dark)
+    * [vim-colorschemes](#vim-colorschemes)
     * [nerdtree](#nerdtree)
         * [nerdtree-git-plugin](#nerdtree-git-plugin)
         * [vim-nerdtree-syntax-highlight](#vim-nerdtree-syntax-highlight)
-    * [vim-colorschemes](#vim-colorschemes)
     * [tabular](#tabular)
     * [vim-easymotion](#vim-easymotion)
     * [fzf.vim](#fzfvim)
     * [unite.vim](#unitevim)
+    * [AsyncRun.vim](#asyncrunvim)
     * [syntastic](#syntastic)
+    * [ale](#ale)
     * [YouCompleteMe](#youcompleteme)
 * [个性化](#个性化)
 
@@ -54,9 +56,11 @@ space-vim
 
 space-vim 的键位绑定启发自 spacemacs，这也是为什么叫做 space-vim. 我同时使用 spacemacs 与 vim, 在桌面环境时倾向于 spacemacs, 终端环境时倾向于 vim. 有了 vim 的基础， 也帮助我能够快速上手 spacemacs.
 
+![screenshot](doc/img/screenshot.png)
+
 ### 安装
 
-#### Linux and macOS
+#### Linux/macOS
 
 对于 linux and macOS, 可以通过 curl 或 wget 执行执行下面的命令进行快速安装。
 
@@ -282,20 +286,6 @@ let g:airline_powerline_fonts=1
 
 ![space-vim-dark](doc/img/screenshot.png)
 
-### [nerdtree](https://github.com/scrooloose/nerdtree)
-
-文件浏览器，非常实用。
-
-下面两个关于 nerdtree 的插件个人来讲，美观性大于实用性，不过要的就是漂亮 :tada:.
-
-#### [nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-plugin)
-
-在 nerdtree 中显示 git 仓库中文件的状态.
-
-#### [vim-nerdtree-syntax-highlight](https://github.com/tiagofumo/vim-nerdtree-syntax-highlight)
-
-按文件类型，扩展名等高亮显示 nerdtree 中的文件.
-
 ### [vim-colorschemes](https://github.com/flazz/vim-colorschemes)
 
 这个插件里面收集了很多的颜色主题, 想要换换新主题时，不妨安装这个插件。
@@ -315,6 +305,20 @@ echo "color molokai" >> ~/.vimrc.local
 ```
 
 这时再打开 vim 应该就能看到效果了.
+
+### [nerdtree](https://github.com/scrooloose/nerdtree)
+
+文件浏览器，非常实用。
+
+下面两个关于 nerdtree 的插件个人来讲，美观性大于实用性，不过要的就是漂亮 :tada:.
+
+#### [nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-plugin)
+
+在 nerdtree 中显示 git 仓库中文件的状态.
+
+#### [vim-nerdtree-syntax-highlight](https://github.com/tiagofumo/vim-nerdtree-syntax-highlight)
+
+按文件类型，扩展名等高亮显示 nerdtree 中的文件.
 
 ### [tabular](https://github.com/godlygeek/tabular)
 
@@ -342,10 +346,10 @@ Key Binding          | Description
 
 为了与 spacemacs 相一致，我还添加了这几个快捷键:
 
-Key Binding | 	Description
-:---:|:---:
+Key Binding    | Description
+:---:          | :---:
 `<Leader> j w` | 单词跳转 (jump to word)
-`<Leader> j l`	| 行间跳转 (jump to line)
+`<Leader> j l` | 行间跳转 (jump to line)
 
 ### [fzf.vim](https://github.com/junegunn/fzf.vim)
 
@@ -378,6 +382,8 @@ Key Binding | Description
 
 unite.vim 的作者又出了一个 denite.vim, 号称比 unite.vim 更好，期待。
 
+### [AsyncRun.vim](https://github.com/skywind3000/asyncrun.vim)
+
 ### [syntastic](https://github.com/scrooloose/syntastic)
 
 在前部分介绍安装事项时，提到要安装一些额外使用的工具，有很多就是 syntastic 这个插件所需要的：
@@ -388,6 +394,8 @@ let g:syntastic_javascript_checkers=['jsl', 'jshint']  " npm install jsl jshint
 let g:syntastic_html_checkers=['tidy', 'jshint']       " brew install tidy-html5
 ```
 有更多需要的话也可以自行查阅 syntastic 文档。
+
+### [ale](https://github.com/w0rp/ale)
 
 ### [YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
 

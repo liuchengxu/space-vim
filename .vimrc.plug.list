@@ -45,7 +45,8 @@
     Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
     Plug 'nathanaelkane/vim-indent-guides', { 'for': ['shell', 'python', 'java', 'c', 'cpp'] }
 
-    Plug 'scrooloose/syntastic'
+    " Plug 'scrooloose/syntastic'
+    Plug 'w0rp/ale'
 
     function! BuildYCM(info)
         " info is a dictionary with 3 fields
