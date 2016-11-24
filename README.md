@@ -15,7 +15,8 @@ space-vim
 * [前言](#前言)
     * [安装](#安装)
         * [Linux and macOS](#linux-and-macos)
-        * [安装注意事项](#安装注意事项)
+        * [Windows](#windows)
+        * [注意事项](#注意事项)
     * [理解 vim 键位](#理解-vim-键位)
 * [基本篇](#基本篇)
     * [vim-better-default](#vim-better-default)
@@ -71,7 +72,11 @@ space-vim 的键位绑定启发自 spacemacs，这也是为什么叫做 space-vi
     sh -c "$(wget -qO- https://raw.githubusercontent.com/liuchengxu/space-vim/master/install.sh)"
     ```
 
-#### 安装注意事项
+#### Windows
+
+On the way.......
+
+#### 注意事项
 
 在安装 vim 时, 因为不太熟悉可能会走一条捷径， 贪图一个简单的安装命令就搞定, 比如 ubuntu 下 `sudo apt install vim`。不过后期可能会因为缺少某些功能而发生一些问题。 因此， 在前期安装 vim 时最好就将这些问题搞定, 比如编译支持 python 的vim, 因为 后面的插件 YouCompleteMe 需要这一特性.
 
@@ -148,7 +153,7 @@ Key Binding    | Description
 
 ### [vim-better-default](https://github.com/liuchengxu/vim-better-default)
 
-开始时觉得 .vimrc 太长了，而且里面有很多都是常见，“人手必备” 的配置，就将这部分内容抽离了出来. 一来能够简化 .vimrc, 二来对于初学者也能有点帮助，至少不用到处零星点点地复制粘贴别人的 .vimrc.
+之所以会有这个插件, 是开始时觉得 .vimrc 太长了，而且里面有很多都是常见，“人手必备” 的配置，就将这部分内容抽离了出来. 一来能够简化 .vimrc, 二来对于初学者也能有点帮助，至少不用到处零星点点地复制粘贴别人的 .vimrc.
 
 #### 基本操作
 
@@ -275,12 +280,21 @@ let g:airline_powerline_fonts=1
 
 因为我想要 vim 与 spacemacs 有着类似的主题，所以自己写了这个 colorscheme. 如果想要其他颜色主题，可以安装下面的[vim-colorschemes](https://github.com/flazz/vim-colorschemes).
 
+![space-vim-dark](doc/img/screenshot.png)
 
 ### [nerdtree](https://github.com/scrooloose/nerdtree)
 
+文件浏览器，非常实用。
+
+下面两个关于 nerdtree 的插件个人来讲，美观性大于实用性，不过要的就是漂亮 :tada:.
+
 #### [nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-plugin)
 
+在 nerdtree 中显示 git 仓库中文件的状态.
+
 #### [vim-nerdtree-syntax-highlight](https://github.com/tiagofumo/vim-nerdtree-syntax-highlight)
+
+按文件类型，扩展名等高亮显示 nerdtree 中的文件.
 
 ### [vim-colorschemes](https://github.com/flazz/vim-colorschemes)
 
