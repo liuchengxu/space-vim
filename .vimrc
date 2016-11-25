@@ -1,6 +1,18 @@
+if !exists('g:default_layers')
+    let g:default_layers={
+                \ 'fzf' : 't',
+                \ 'ycmd' : 't',
+                \ 'unite' : 't',
+                \ 'markdown' : 't',
+                \ 'better-defaults' : 't',
+                \ 'syntax-checking' : 'ale',
+                \ 'text-align' : 'vim-easy-align',
+                \}
+endif
+
 " Plugins List {
-    if filereadable(expand("~/.vimrc.plug.list"))
-        source ~/.vimrc.plug.list
+    if filereadable(expand("~/.space-vim/packages.vim"))
+        source ~/.space-vim/packages.vim
     endif
 " }
 
@@ -10,7 +22,6 @@
         let mapleader="\<Space>"
         let maplocalleader=","
 
-        set fillchars+=vert:\. 
         set fillchars=""
         nnoremap ; :
          " 映射全选加复制 Ctrl+a
@@ -36,8 +47,7 @@
     if has("autocmd")
         " 打开自动定位到最后编辑的位置, 需要确认 .viminfo 当前用户可写
         autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-        autocmd BufRead,BufNewFile *.html set shiftwidth=2
-        autocmd BufRead,BufNewFile *.c,*.cpp,*.h,*.py set shiftwidth=4
+        autocmd FileType html set shiftwidth=2
         autocmd BufNewFile *.py,*.rb,*.cpp,*.[ch],*.sh,*.java exec ":call SetTitle()"
         function!  SetTitle()
             if &filetype == 'sh'
@@ -75,8 +85,8 @@
 " }
 
 " Plugins Configuration {
-    if filereadable(expand("~/.vimrc.plug.conf"))
-        source ~/.vimrc.plug.conf
+    if filereadable(expand("~/.space-vim/config.vim"))
+        source ~/.space-vim/config.vim
     endif
 " }
 
@@ -130,6 +140,14 @@
         set langmenu=zh_CN
         source $VIMRUNTIME/delmenu.vim
         source $VIMRUNTIME/menu.vim
+        highlight Cursor guifg=black guibg=#dfff00
+        highlight iCursor guifg=black guibg=white
+        highlight vCursor guifg=black guibg=#df5f00
+        set guicursor=n-v-c:block-Cursor
+        " set guicursor+=i:ver100-iCursor
+        set guicursor+=n-v-c:blinkon0
+        " set guicursor+=i:blinkwait10
+        set guicursor=i:ver1
         " windows GUI界面乱码设置
         if WINDOWS() && has("gui_running")
             "处理consle输出乱码
@@ -161,12 +179,3 @@
         source ~/.vimrc.local
     endif
 " }
-
-highlight Cursor guifg=black guibg=#dfff00
-highlight iCursor guifg=black guibg=white
-highlight vCursor guifg=black guibg=#df5f00
-set guicursor=n-v-c:block-Cursor
-" set guicursor+=i:ver100-iCursor
-set guicursor+=n-v-c:blinkon0
-" set guicursor+=i:blinkwait10
-set guicursor=i:ver1

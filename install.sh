@@ -103,8 +103,6 @@ create_symlinks() {
     local target_path="$2"
 
     lnif "$source_path/.vimrc"            "$target_path/.vimrc"
-    lnif "$source_path/.vimrc.plug.list"  "$target_path/.vimrc.plug.list"
-    lnif "$source_path/.vimrc.plug.conf"  "$target_path/.vimrc.plug.conf"
 
     ret="$?"
     success "Setting up vim symlinks."
