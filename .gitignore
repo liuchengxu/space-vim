@@ -15,4 +15,5 @@ Thumbs.db
 
 
 *.un~
-/private/*
+private/*
+!private/README.md
