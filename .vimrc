@@ -1,32 +1,3 @@
-if filereadable(expand("~/.vimrc.before"))
-    source ~/.vimrc.before
-endif
-
-if !exists('g:default_layers')
-    let g:default_layers={
-                \ 'fzf' : 't',
-                \ 'ycmd' : 't',
-                \ 'unite' : 't',
-                \ 'markdown' : 't',
-                \ 'programming' : 't',
-                \ 'better-defaults' : 't',
-                \ 'syntax-checking' : 'ale',
-                \ 'text-align' : 'vim-easy-align',
-                \}
-endif
-
-if !exists('g:spacevim_leader')
-    let mapleader = "\<Space>"
-else
-    let mapleader=g:spacevim_leader
-endif
-
-if !exists('g:spacevim_localleader')
-    let maplocalleader = ','
-else
-    let maplocalleader=g:spacevim_localleader
-endif
-
 " Environment {
 
     " Identify platform {
@@ -43,21 +14,26 @@ endif
 
 " }
 
+let g:spacevim_base_dir = "~/.space-vim/"
+
 " Setup tools {
+
     " Load the plugins for layers {
-    function! LoadLayersPackage()
-        if filereadable(expand("~/.space-vim/packages.vim"))
-            source ~/.space-vim/packages.vim
+    function! LoadLayersPackage(relative_path)
+        let s:config_file = g:spacevim_base_dir . a:relative_path
+        if filereadable(expand(s:config_file))
+            execute "source " . fnameescape(s:config_file)
+        else
+            echom 'No layers loaded.'
+            finish
         endif
     endfunction
     " }
 
     " Load configuration file for layers {
-    function! LoadLayersConfig()
-        let s:layers_dir = "~/.space-vim/layers/"
-        let s:config_path = "/config.vim"
+    function! LoadLayersConfig(layer_base_dir, relative_path)
         for [key, val] in items(g:default_layers)
-            let s:config_file = s:layers_dir . key . s:config_path
+            let s:config_file = g:spacevim_base_dir . a:layer_base_dir . key . '/' . a:relative_path
             if filereadable(expand(s:config_file))
                 execute "source " . fnameescape(s:config_file)
             else
@@ -67,20 +43,49 @@ endif
     endfunction
     " }
 
-    " Load local config id available {
-    function! LoadLocalConfig()
-        if filereadable(expand("~/.vimrc.local"))
-            source ~/.vimrc.local
+    " Load local config if available {
+    function! LoadPrivateConfig(relative_path)
+        let s:config_file = g:spacevim_base_dir . a:relative_path
+        if filereadable(expand(s:config_file))
+            execute "source " . fnameescape(s:config_file)
         endif
     endfunction
     " }
 
-    function! Bootstrap()
-        call LoadLayersPackage()
-        call LoadLayersConfig()
-        call LoadLocalConfig()
-    endfunction
 " }
+
+call LoadPrivateConfig("private/before_vimrc.vim")
+
+if !exists('g:default_layers')
+    let g:default_layers={
+                \ 'fzf' : 't',
+                \ 'ycmd' : 't',
+                \ 'unite' : 't',
+                \ 'markdown' : 't',
+                \ 'programming' : 't',
+                \ 'better-defaults' : 't',
+                \ 'syntax-checking' : 'ale',
+                \ 'text-align' : 'vim-easy-align',
+                \}
+endif
+
+if exists('g:spacevim_leader')
+    let mapleader=g:spacevim_leader
+else
+    let mapleader = "\<Space>"
+endif
+
+if exists('g:spacevim_localleader')
+    let maplocalleader=g:spacevim_localleader
+else
+    let maplocalleader = ','
+endif
+
+function! Bootstrap()
+    call LoadLayersPackage("packages.vim")
+    call LoadLayersConfig("layers/", "config.vim")
+    call LoadPrivateConfig("private/after_vimrc.vim")
+endfunction
 
 " Bootstrap space-vim
 call Bootstrap()
