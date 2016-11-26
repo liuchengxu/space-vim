@@ -1,19 +1,19 @@
-"                                           _         
-"       ___ _ __   __ _  ___ ___     __   _(_)_ __ ___    
+"                                           _
+"       ___ _ __   __ _  ___ ___     __   _(_)_ __ ___
 "      / __| -_ \ / _- |/ __/ _ \____\ \ / / | -_ - _ \ 
-"      \__ \ |_) | (_| | (_|  __/_____\ V /| | | | | | |  
-"      |___/ .__/ \__._|\___\___|      \_/ |_|_| |_| |_|   
-"          |_|                                        
-"                                                   
+"      \__ \ |_) | (_| | (_|  __/_____\ V /| | | | | | |
+"      |___/ .__/ \__._|\___\___|      \_/ |_|_| |_| |_|
+"          |_|
+"
 "   This is the personal .vimrc file of Liu-Cheng Xu.
 "   Considering it is beneficial for general use, I would
 "   recommend picking out the parts you want and understand.
-"   
+"
 "   https://github.com/liuchengxu/space-vim
-"   
-"   © 2016 Liu-Cheng Xu
-" 
-  
+"
+"   Copyright © 2016 Liu-Cheng Xu
+"
+
 " Environment {
 
     " Identify platform {
@@ -71,6 +71,14 @@ let g:spacevim_base_dir = "~/.space-vim/"
 " }
 
 call LoadPrivateConfig("private/before_vimrc.vim")
+
+" TODO
+" call Layers#begin()
+
+" Layer 'better-defaulets'
+" Layer 'programming'
+
+" call Layers#end()
 
 if !exists('g:default_layers')
     let g:default_layers={

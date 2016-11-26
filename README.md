@@ -1,6 +1,7 @@
 ![space-vim](doc/img/space-vim.png)
+======================================
 
-:us:[English](doc/tutorial_en.md)
+:us: [English](doc/tutorial_en.md)
 
 :warning: 目前文档稍落后，如有内容不符当前配置，请以 vim 配置为准，文档将会随后更新。
 
