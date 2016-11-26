@@ -23,12 +23,14 @@
         Plug 'Shougo/denite.nvim'
         Plug 'Shougo/unite.vim'
 
+        Plug 'junegunn/vim-emoji'
+
         Plug 'mhinz/vim-startify'
         Plug 'scrooloose/nerdtree',                     { 'on': 'NERDTreeToggle' }
         Plug 'Xuyuanp/nerdtree-git-plugin',             { 'on': 'NERDTreeToggle' }
         Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
 
-        Plug 'skywind3000/asyncrun.vim', { 'on': ['AsyncRun'] }
+        Plug 'skywind3000/asyncrun.vim', { 'on': ['AsyncRun!', 'AsyncRun'] }
         Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
     endif
 
@@ -61,7 +63,7 @@
     if get(g:default_layers, 'syntax-checking') ==? 'ale'
         Plug 'w0rp/ale'
     else
-        Plug 'scrooloose/syntastic'
+        Plug 'scrooloose/syntastic',     { 'on': 'SyntasticCheck' }
     endif
 
     if get(g:default_layers, 'ycmd') ==? 't'

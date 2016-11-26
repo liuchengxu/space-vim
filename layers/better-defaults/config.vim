@@ -1,3 +1,74 @@
+" Functions {
+
+" GUI 环境下最大化开关
+let s:lines=&lines
+let s:columns=&columns
+function! FullScreenEnter()
+    set lines=999 columns=999
+    set fullscreen
+endfunction
+
+function! FullScreenLeave()
+    let &lines=s:lines
+    let &columns=s:columns
+    set nofullscreen
+endfunction
+
+function! FullScreenToggle()
+    if &fullscreen
+        call FullScreenLeave()
+    else
+        call FullScreenEnter()
+    endif
+endfunction
+" }
+
+
+    " GUI Settings {
+
+    if has("gui_running")
+        " 解决菜单栏乱码
+        let $LANG = 'zh_CN.UTF-8'
+        set langmenu=zh_CN
+        source $VIMRUNTIME/delmenu.vim
+        source $VIMRUNTIME/menu.vim
+        highlight Cursor guifg=black guibg=#dfff00
+        highlight iCursor guifg=black guibg=white
+        highlight vCursor guifg=black guibg=#df5f00
+        set guicursor=n-v-c:block-Cursor
+        " set guicursor+=i:ver100-iCursor
+        set guicursor+=n-v-c:blinkon0
+        " set guicursor+=i:blinkwait10
+        set guicursor=i:ver1
+        " windows GUI界面乱码设置
+        if WINDOWS() && has("gui_running")
+            "处理consle输出乱码
+            language messages zh_CN.utf-8
+            " Set extra options when running in GUI mode
+            set guifont=Consolas:h13
+            " set guifont＝Source\ Code\ Pro\ for\ Powerline
+            if has("gui_gtk2")   "GTK2
+                set guifont=Monaco\ 12,Monospace\ 12
+            endif
+            set guitablabel=%M\ %t
+            " set showtabline=1
+            " set guioptions+=e   " 这两个设置会使得airline上方的buffer无法显示
+            set linespace=2
+            set noimd
+        elseif OSX() && has("gui_running")
+            " set guifont=Cousine\ for\ Powerline:h13
+            set guifont=Roboto\ Mono\ Light\ for\ Powerline:h13
+            set lines=100 columns=90
+            " GUI 最大化快捷键
+            nnoremap <Leader>wm :call FullScreenToggle()<CR>
+        endif
+    endif
+
+    " }
+
+" 打开自动定位到最后编辑的位置, 需要确认 .viminfo 当前用户可写
+autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
 " space-vim-dark {
 if isdirectory(expand("~/.vim/plugged/space-vim-dark"))
     color space-vim-dark
@@ -220,3 +291,7 @@ if isdirectory(expand("~/.vim/plugged/vim-trailing-whitespace"))
     nnoremap <Leader>xd :FixWhitespace<CR>
 endif
 " }
+
+if isdirectory(expand("~/.vim/plugged/vim-emoji"))
+    set completefunc=emoji#complete
+endif
