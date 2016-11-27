@@ -71,7 +71,7 @@ else
 endif
 
 function! Bootstrap()
-    call LoadLayersPackage("packages.vim")
+    call LoadLayersPackage()
     call LoadLayersConfig("layers/", "config.vim")
     call LoadPrivateConfig("private/after_vimrc.vim")
 endfunction

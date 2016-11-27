@@ -1,26 +1,8 @@
-" Environment {
-
-    " Identify platform {
-    silent function! OSX()
-        return has('macunix')
-    endfunction
-    silent function! LINUX()
-        return has('unix') && !has('macunix') && !has('win32unix')
-    endfunction
-    silent function! WINDOWS()
-        return (has('win32') || has('win64'))
-    endfunction
-    " }
-
-" }
-
-let g:spacevim_base_dir = "~/.space-vim/"
-
 " Setup tools {
 
     " Load the plugins of loaded layers via plugin manager {
-    function! LoadLayersPackage(relative_path)
-        let s:config_file = g:spacevim_base_dir . a:relative_path
+    function! LoadLayersPackage()
+        let s:config_file = g:spacevim_base_dir . 'core/core_packages.vim'
         if filereadable(expand(s:config_file))
             execute "source " . fnameescape(s:config_file)
         else

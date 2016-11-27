@@ -3,6 +3,35 @@
 
 :us: [English](doc/tutorial_en.md)
 
+
+目标:
+
+- 实现更科学的 Layer 加载, 最终形式大致如下:
+
+    ```vim
+    call Layers#begin()
+
+    Layer 'better-defaulets'
+    Layer 'programming'
+
+    call Layers#end()
+    ```
+- 针对 Layer 进行配置，易于扩展与优化。
+
+- 目前配置不兼容 Windows。
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------
+
 :warning: 目前文档稍落后，如有内容不符当前配置，请以 vim 配置为准，文档将会随后更新。
 
 **Table of Contents**
