@@ -20,35 +20,21 @@ let g:layers_loaded = []
 function! s:load_layers_package()
     for layer in g:layers_loaded
         let l:layer_packages = g:spacevim_base_dir . g:spacevim_layers_dir . '/' . layer . '/packages.vim'
-        " echo 'start sourcing: ' . l:layer_packages
-        if filereadable(expand(l:layer_packages))
-            execute "source " . fnameescape(l:layer_packages)
-        else
-            echom l:layer_packages . ' does not exist, please check it.'
-            return
-        endif
+        call Source(l:layer_packages)
     endfor
 endfunction
 
 function! s:load_layers_config()
     for layer in g:layers_loaded
         let l:layer_config = g:spacevim_base_dir . g:spacevim_layers_dir . '/' . layer . '/config.vim'
-        " echo 'start sourcing: ' . l:layer_config
-        if filereadable(expand(l:layer_config))
-            execute "source " . fnameescape(l:layer_config)
-        else
-            echom l:layer_packages . ' doesnot exist, please check it.'
-        endif
+        call Source(l:layer_config)
     endfor
 endfunction
 
 function! s:load_private_config()
-    let s:config_file = g:spacevim_base_dir . '/private/after_vimrc.vim'
-    if filereadable(expand(s:config_file))
-        execute "source " . fnameescape(s:config_file)
-    endif
+    let l:private_config = g:spacevim_base_dir . '/private/after_vimrc.vim'
+    call Source(l:private_config)
 endfunction
-"
 
 function! s:to_a(v)
     return type(a:v) == s:TYPE.list ? a:v : [a:v]
