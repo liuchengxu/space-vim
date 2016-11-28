@@ -17,7 +17,6 @@
 
 let g:spacevim_base_dir = "~/.space-vim"
 let g:spacevim_core_dir = "/core"
-let g:spacevim_layers_dir = "/layers"
 
 " Tools {
 
@@ -75,6 +74,10 @@ call LayersBegin()
 Layer 'fzf'
 Layer 'ycmd'
 Layer 'unite'
+Layer 'emoji'
+Layer 'c-c++'
+Layer 'colors'
+Layer 'python'
 Layer 'markdown'
 Layer 'text-align'
 Layer 'programming'

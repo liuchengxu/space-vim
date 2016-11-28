@@ -5,7 +5,7 @@ if isdirectory(expand("~/.vim/plugged/ale"))
                 \   'python': ['flake8'],
                 \   'html' : ['tidy'],
                 \}
-    if emoji#available()
+    if index(g:layers_loaded, 'emoji') > -1
         let g:ale_sign_error = emoji#for('x')
         let g:ale_sign_warning = emoji#for('small_red_triangle')
     else

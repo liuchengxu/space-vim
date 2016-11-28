@@ -69,38 +69,6 @@ endfunction
 " 打开自动定位到最后编辑的位置, 需要确认 .viminfo 当前用户可写
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-" space-vim-dark {
-if isdirectory(expand("~/.vim/plugged/space-vim-dark"))
-    color space-vim-dark
-endif
-" }
-
-" vim-airline {
-if isdirectory(expand("~/.vim/plugged/vim-airline"))
-    " let g:airline_theme="luna"
-    let g:airline_theme="violet"
-    " let g:airline_theme="powerlineish"
-    let g:Powerline_symbols="fancy"
-    " use powerline font. If not, let g:airline_powerline_fonts=0
-    let g:airline_powerline_fonts=1
-    let g:airline#extensions#default#layout = [
-                \ [ 'a', 'b', 'c' ],
-                \ [ 'x', 'y', 'z', 'error', 'warning' ]
-                \ ]
-    " let g:airline_section_x = '%>%ft'
-    let g:airline#extensions#tabline#enabled=1
-    let g:airline#extensions#tabline#buffer_nr_show=1
-    " let g:airline#extensions#whitespce#enabled=0
-    " let g:airline#extensions#whitespace#symbol='!'
-    " let g:airline#extensions#whitespace#mixed_indent_algo=2
-    if !exists('g:airline_powerline_fonts')
-        let g:airline_left_sep='>'
-        let g:airline_right_sep='<'
-    endif
-endif
-
-" }
-
 " ultisnips {
 if isdirectory(expand("~/.vim/plugged/ultisnips"))
     " Set ultisnips triggers
@@ -292,6 +260,3 @@ if isdirectory(expand("~/.vim/plugged/vim-trailing-whitespace"))
 endif
 " }
 
-if isdirectory(expand("~/.vim/plugged/vim-emoji"))
-    set completefunc=emoji#complete
-endif

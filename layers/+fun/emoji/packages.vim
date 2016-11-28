@@ -1,0 +1,2 @@
+Plug 'junegunn/vim-emoji'
+
