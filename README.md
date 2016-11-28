@@ -5,7 +5,7 @@
 :us: [English](doc/tutorial_en.md)
 
 
-虽尚有很多工作未完成，不过 Linux 和 macOS 用户已可试用，并欢迎反馈意见。安装方式见下方。
+虽尚有很多工作未完成，不过 Linux 和 macOS 用户已可试用，并欢迎反馈意见。安装方式见[下方](#安装)。
 
 TODO:
 
@@ -15,13 +15,19 @@ TODO:
     call LayersBegin()
 
     Layer 'better-defaulets'
-    Layer 'programming'
+    Layer 'python'
 
     call LayersEnd()
     ```
     下一步进行针对 Layer 增加选项配置，比如同类插件选择，语法检查 ale 还是 syntastic。
 
 - 文档已落后很多，完善文档。
+
+- Layer 还很残缺，待补充。
+
+
+欢迎大家补充。
+
 
 
 
@@ -35,7 +41,7 @@ TODO:
 
 ----------------------------------
 
-:warning: 目前文档稍落后，如有内容不符当前配置，请以 vim 配置为准，文档将会随后更新。
+:warning: 下述内容变更较大，如有内容不符当前配置，请以 vim 配置为准，文档将会随后更新。
 
 **Table of Contents**
 

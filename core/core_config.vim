@@ -7,15 +7,6 @@ let s:TYPE = {
             \   'funcref': type(function('call'))
             \ }
 
-let g:LAYERS = [
-            \   'better-defaults',
-            \   'markdown',
-            \   'python',
-            \   'c-c++',
-            \   'syntax-checking',
-            \   'ycmd',
-            \]
-
 let g:LANG = [
             \   'c-c++',
             \   'python',
@@ -134,10 +125,6 @@ function! LayersEnd()
     call s:load_layer_config()
     call s:load_private_config()
 
-endfunction
-
-function! s:trim(str)
-    return substitute(a:str, '[\/]\+$', '', '')
 endfunction
 
 function! s:err(msg)
