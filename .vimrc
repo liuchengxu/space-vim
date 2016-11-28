@@ -15,7 +15,11 @@
 "
 "
 
-" Environment {
+let g:spacevim_base_dir = "~/.space-vim"
+let g:spacevim_core_dir = "/core"
+let g:spacevim_layers_dir = "/layers"
+
+" Tools {
 
     " Identify platform {
     silent function! OSX()
@@ -23,40 +27,31 @@
     endfunction
     silent function! LINUX()
         return has('unix') && !has('macunix') && !has('win32unix')
-    endfunction
+    enunction
     silent function! WINDOWS()
         return (has('win32') || has('win64'))
     endfunction
     " }
 
+    silent function! Source(file)
+        if filereadable(expand(a:file))
+            execute "source " . fnameescape(a:file)
+        else
+            echom a:file . ' does not exist, which may cause unexpected errors.'
+        endif
+    endfunction
+
+    function! LoadPrivateConfig(relative_path)
+        let s:config_file = g:spacevim_base_dir . a:relative_path
+        if filereadable(expand(s:config_file))
+            execute "source " . fnameescape(s:config_file)
+        endif
+    endfunction
+
+
 " }
 
-let g:spacevim_base_dir = "~/.space-vim/"
-
-execute "source " . fnameescape(g:spacevim_base_dir . 'core/core_config.vim')
-
-call LoadPrivateConfig("private/before_vimrc.vim")
-
-" TODO
-" call Layers#begin()
-
-" Layer 'better-defaulets'
-" Layer 'programming'
-
-" call Layers#end()
-
-if !exists('g:default_layers')
-    let g:default_layers={
-                \ 'fzf' : 't',
-                \ 'ycmd' : 't',
-                \ 'unite' : 't',
-                \ 'markdown' : 't',
-                \ 'programming' : 't',
-                \ 'better-defaults' : 't',
-                \ 'syntax-checking' : 'ale',
-                \ 'text-align' : 'vim-easy-align',
-                \}
-endif
+call LoadPrivateConfig("/private/before_vimrc.vim")
 
 if exists('g:spacevim_leader')
     let mapleader=g:spacevim_leader
@@ -70,11 +65,21 @@ else
     let maplocalleader = ','
 endif
 
-function! Bootstrap()
-    call LoadLayersPackage()
-    call LoadLayersConfig("layers/", "config.vim")
-    call LoadPrivateConfig("private/after_vimrc.vim")
-endfunction
+call Source(g:spacevim_base_dir . g:spacevim_core_dir . '/core_config.vim')
 
-" Bootstrap space-vim
-call Bootstrap()
+""""""""""""""""""""""""""""""""""""""""""""""
+" Put layer here you want to load
+""""""""""""""""""""""""""""""""""""""""""""""
+call LayersBegin()
+
+Layer 'fzf'
+Layer 'ycmd'
+Layer 'unite'
+Layer 'markdown'
+Layer 'text-align'
+Layer 'programming'
+Layer 'better-defaults'
+Layer 'syntax-checking'
+
+call LayersEnd()
+"""""""""""""""""""""""""""""""""""""""""""""
