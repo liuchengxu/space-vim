@@ -1,24 +1,25 @@
 ![space-vim](doc/img/space-vim.png)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://raw.githubusercontent.com/liuchengxu/space-vim/master/install.sh)
 ======================================
 
 :us: [English](doc/tutorial_en.md)
 
 
-目标:
+TODO:
 
-- 实现更科学的 Layer 加载, 最终形式大致如下:
+- 目前已经实现如下的 Layer 加载:
 
     ```vim
-    call Layers#begin()
+    call LayersBegin()
 
     Layer 'better-defaulets'
     Layer 'programming'
 
-    call Layers#end()
+    call LayersEnd()
     ```
-- 针对 Layer 进行配置，易于扩展与优化。
+    下一步进行针对 Layer 增加选项配置，比如同类插件选择，语法检查 ale 还是 syntastic。
 
-- 目前配置不兼容 Windows。
+- 文档已落后很多，完善文档。
 
 
 
