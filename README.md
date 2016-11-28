@@ -5,6 +5,8 @@
 :us: [English](doc/tutorial_en.md)
 
 
+虽尚有很多工作未完成，不过 Linux 和 macOS 用户已可试用，并欢迎反馈意见。安装方式见下方。
+
 TODO:
 
 - 目前已经实现如下的 Layer 加载:
