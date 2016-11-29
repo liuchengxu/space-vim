@@ -101,16 +101,12 @@ function! s:add_layer(...)
 endfunction
 
 function! s:layer_status()
-    call s:new_window()
-endfunction
-
-function! s:new_window()
-	execute get(g:, 'plug_window', 'vertical topleft new')
+    execute get(g:, 'spacevim_window', 'vertical topleft new')
     execute append(0, [len(g:layers_loaded) . ' Layers loaded:'])
     execute append(1, ['======================================='])
-	for layer in g:layers_loaded
-		execute append(2, ['+ ' . layer])
-	endfor
+    for layer in g:layers_loaded
+        execute append(2, ['+ ' . layer])
+    endfor
     setlocal buftype=nofile bufhidden=wipe nobuflisted nolist noswapfile nowrap cursorline nomodifiable
     if exists('g:syntax_on')
         call s:syntax()
