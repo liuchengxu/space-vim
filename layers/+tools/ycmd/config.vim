@@ -1,10 +1,10 @@
 " YouCompleteMe {
 if isdirectory(expand("~/.vim/plugged/YouCompleteMe"))
-    let g:ycm_global_ycm_extra_conf = '~/.space-vim/.ycm_extra_conf.py'
+    let g:ycm_global_ycm_extra_conf = g:spacevim_base_dir . '/layers/+tools/ycmd/global_conf.py'
     let g:ycm_error_symbol='✖'
     let g:ycm_warning_symbol='✴'
     " ycm_path_to_python_interpreter is important!
-    let g:ycm_path_to_python_interpreter='/Users/xlc/anaconda3/bin/python'
+    let g:ycm_path_to_python_interpreter='python'
     let g:ycm_collect_identifiers_from_comments_and_strings=1
     let g:ycm_min_num_of_chars_for_completion=2
     let g:ycm_cache_omnifunc=0

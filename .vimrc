@@ -9,7 +9,8 @@
 "   Considering it is beneficial for general use, I would
 "   recommend picking out the parts you want and understand.
 "
-"   https://github.com/liuchengxu/space-vim
+"   Author: Liu-Cheng Xu <xuliuchengxlc@gmail.com>
+"   URL: https://github.com/liuchengxu/space-vim
 "
 "   Copyright © 2016 Liu-Cheng Xu
 "
@@ -26,7 +27,7 @@ let g:spacevim_core_dir = "/core"
     endfunction
     silent function! LINUX()
         return has('unix') && !has('macunix') && !has('win32unix')
-    enunction
+    endfunction
     silent function! WINDOWS()
         return (has('win32') || has('win64'))
     endfunction

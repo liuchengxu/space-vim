@@ -105,10 +105,6 @@ let g:unite_source_menu_menus.t.command_candidates = [
             \'TagbarToggle'],
             \['▷  ➞  syntastic                                         (plugin)       ⌘',
             \'SyntasticToggleMode'],
-            \['▷  ➞  line-numbers                                                     ⌘ <Leader> t n',
-            \'call ToggleLineNumber()'],
-            \['▷  ➞  linum-relative-toggle                                            ⌘ <Leader> t r',
-            \'call ToggleRelativeLineNumber()'],
             \]
 nnoremap <silent>[menu]t :Unite -silent
             \ menu:t<CR>
@@ -133,10 +129,6 @@ let g:unite_source_menu_menus.v = {
 let g:unite_source_menu_menus.v.command_candidates = [
             \['▷  ➞  vimrc',
             \'e ~/.vimrc'],
-            \['▷  ➞  config.vim',
-            \'e ~/.space-vim/config.vim'],
-            \['▷  ➞  packages.vim',
-            \'e ~/.space-vim/packages.vim'],
             \['▷  ➞  vim-help',
             \'Unite help -start-insert'],
             \['▷  ➞  vim-commands',

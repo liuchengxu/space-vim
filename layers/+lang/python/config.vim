@@ -4,3 +4,7 @@ else
     autocmd Filetype python nnoremap <buffer> <F5> :update<Bar>execute '! python '.shellescape(@%, 1)<CR>
 endif
 
+if executable('yapf')
+    autocmd Filetype python nnoremap <buffer> <F5> :update<Bar>execute '! python '.shellescape(@%, 1)<CR>
+endif
+
