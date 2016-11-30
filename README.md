@@ -46,11 +46,13 @@ space-vim 源于[spacemacs](https://github.com/syl20bnr/spacemacs), "社区驱�
 ![screenshot](doc/img/screenshot.png)
 
 :warning: Space-vim now is in the early stages, a ton of stuff are waiting to be covered. Vimers, feel free to make a contribution!
+
 :warning: space-vim 目前尚不成熟，欢迎大家贡献！
 
 ## Features
 
 - **丰富的文档**. 每个 Layer 都有对应的文档介绍，包括涉及到的插件，配置，使用经验等。
+
 - **科学的键位设定**: commands have mnemonic prefixes like SPC b for all the buffer commands or SPC p for the project commands.
 
 ## Prerequisites
