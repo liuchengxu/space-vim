@@ -1,11 +1,13 @@
 if index(g:layers_loaded, 'c-c++') > -1
 
     if index(g:layers_loaded, 'programming') > -1
-        let s:SHELL_COMMAND = 'AsyncRun!'
+        autocmd Filetype c,cpp nnoremap <buffer> <F5> :update<Bar>execute 'AsyncRun! make '.shellescape(@%, 1)<CR>
     else
-        let s:SHELL_COMMAND = '!'
+        autocmd Filetype c,cpp nnoremap <buffer> <F5> :update<Bar>execute 'AsyncRun! make '.shellescape(@%, 1)<CR>
     endif
 
-    autocmd Filetype c,cpp nnoremap <buffer> <F5> :update<Bar>execute s:SHELL_COMMAND . ' make '.shellescape(@%, 1)<CR>
+    augroup SPACEVIM_C
+        autocmd Filetype c,cpp setlocal :
+
 
 endif

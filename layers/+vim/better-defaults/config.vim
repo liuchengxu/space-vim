@@ -1,5 +1,5 @@
 scriptencoding utf-8
-" GUI 环境下最大化开关
+
 let s:lines=&lines
 let s:columns=&columns
 function! s:enter_full_screen()
@@ -15,12 +15,15 @@ endfunction
 
 function! s:full_screen_toggle()
     if &fullscreen
-        call FullScreenLeave()
+        call s:leave_full_screen()
     else
-        call FullScreenEnter()
+        call s:enter_full_screen()
     endif
 endfunction
 
+augroup SPACEVIM_GUI
+    autocmd GUIEnter * nnoremap <Leader>wm :call <SID>full_screen_toggle()<CR>
+augroup END
 
 " GUI Settings {
 
@@ -55,15 +58,16 @@ if has('gui_running')
         set noimdisable
     elseif OSX() && has('gui_running')
         " set guifont=Cousine\ for\ Powerline:h13
-        set guifont=Roboto\ Mono\ Light\ for\ Powerline:h13
+        set guifont=Source\ Code\ Pro\ for\ Powerline:h12
         set lines=100 columns=90
-        " GUI 最大化快捷键
-        nnoremap <Leader>wm :call s:full_screen_toggle()<CR>
     endif
 endif
+" }
 
 " 打开自动定位到最后编辑的位置, 需要确认 .viminfo 当前用户可写
-autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+augroup SPACEVIM_BASIC
+    autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+augroup END
 
 " ultisnips {
 if isdirectory(expand('~/.vim/plugged/ultisnips'))
@@ -78,9 +82,9 @@ if isdirectory(expand('~/.vim/plugged/ultisnips'))
     let g:UltiSnipsExpandTrigger = "<nop>"
     let g:ulti_expand_or_jump_res = 0
     function! ExpandSnippetOrCarriageReturn()
-        let snippet = UltiSnips#ExpandSnippetOrJump()
+        let l:snippet = UltiSnips#ExpandSnippetOrJump()
         if g:ulti_expand_or_jump_res > 0
-            return snippet
+            return l:snippet
         else
             return "\<CR>"
         endif
@@ -88,8 +92,6 @@ if isdirectory(expand('~/.vim/plugged/ultisnips'))
     inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
 endif
 " }
-
-
 
 " vim-startify {
 if isdirectory(expand('~/.vim/plugged/vim-startify'))
@@ -100,9 +102,11 @@ if isdirectory(expand('~/.vim/plugged/vim-startify'))
                 \'        \__ \ |_) | (_| | (_|  __/_____\ V /| | | | | | |',
                 \'        |___/ .__/ \__._|\___\___|      \_/ |_|_| |_| |_|',
                 \'            |_|',
-                \'          [ s p a c e - v i m 0.10.1 @' . v:version . ' ]']
+                \'                [ space-vim 0.100.1 ＠' . v:version . ' ]']
 
-    autocmd VimEnter * if !argc() | Startify | endif
+    augroup SPACEVIM_START
+        autocmd VimEnter * if !argc() | Startify | endif
+    augroup END
     nnoremap <silent><Leader>bh :Startify<CR>
     nnoremap <silent><Leader>fr :Startify<CR>
 endif
@@ -116,11 +120,13 @@ endif
 " <Leader><Leader>j
 " <Leader><Leader>k
 " Jump to line
-map <Leader>jl <Plug>(easymotion-bd-jk)
-nmap <Leader>jl <Plug>(easymotion-overwin-line)
-" Jump to word
-map  <Leader>jw <Plug>(easymotion-bd-w)
-nmap <Leader>jw <Plug>(easymotion-overwin-w)
+if isdirectory(expand('~/.vim/plugged/vim-easymotion'))
+    map <Leader>jl <Plug>(easymotion-bd-jk)
+    nmap <Leader>jl <Plug>(easymotion-overwin-line)
+    " Jump to word
+    map  <Leader>jw <Plug>(easymotion-bd-w)
+    nmap <Leader>jw <Plug>(easymotion-overwin-w)
+endif
 " }
 
 " nerdtree {
@@ -131,7 +137,6 @@ if isdirectory(expand('~/.vim/plugged/nerdtree'))
                 \ '\.py[cd]$', '\~$', '\.swo$', '\.swp$',
                 \ '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$',
                 \ ]
-    autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
     map <F4> :NERDTreeToggle<CR>
     imap <F4> <ESC>:NERDTreeToggle<CR>
@@ -206,9 +211,9 @@ if isdirectory(expand('~/.vim/plugged/ctrlp.vim'))
     let g:ctrlp_clear_cache_on_exit=0  		" speed up by not removing clearing cache evertime
     let g:ctrlp_mruf_max = 250 				" number of recently opened files
     let g:ctrlp_custom_ignore = {
-                \ 'dir':  '\v[\/]\.(git|hg|svn|build)$',
-                \ 'file': '\v\.(exe|so|dll)$',
-                \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
+                \   'dir':  '\v[\/]\.(git|hg|svn|build)$',
+                \   'file': '\v\.(exe|so|dll)$',
+                \   'link': 'SOME_BAD_SYMBOLIC_LINKS',
                 \ }
     let g:ctrlp_match_window_bottom = 0		" show the match window at the top of the screen
     let g:ctrlp_by_filename = 1
