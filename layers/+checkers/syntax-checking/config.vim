@@ -1,13 +1,17 @@
+scriptencoding utf-8
 if index(g:layers_loaded, 'syntax-checking') > -1
     " ale
-    if isdirectory(expand("~/.vim/plugged/ale"))
+    if isdirectory(expand('~/.vim/plugged/ale'))
         let g:ale_linters = {
-                    \   'javascript': ['eslint'],
-                    \   'python': ['flake8'],
+                    \   'sh' : ['shellcheck'],
+                    \   'vim' : ['vint'],
                     \   'html' : ['tidy'],
+                    \   'python' : ['flake8'],
+                    \   'markdown' : ['mdl'],
+                    \   'javascript' : ['eslint'],
                     \}
         if index(g:layers_loaded, 'emoji') > -1
-            let g:ale_sign_error = emoji#for('x')
+            let g:ale_sign_error = emoji#for('boom')
             let g:ale_sign_warning = emoji#for('small_orange_diamond')
         else
             let g:ale_sign_error = '❌'
@@ -16,6 +20,7 @@ if index(g:layers_loaded, 'syntax-checking') > -1
         let g:ale_echo_msg_error_str = '✷ Error'
         let g:ale_echo_msg_warning_str = '⚠ Warning'
         let g:ale_echo_msg_format = '[#%linter%#] %s [%severity%]'
+        let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
     endif
 
     " syntastic

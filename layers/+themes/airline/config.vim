@@ -1,9 +1,4 @@
-if index(g:layers_loaded, 'colors') > -1
-    " space-vim-dark {
-    if isdirectory(expand('~/.vim/plugged/space-vim-dark'))
-        color space-vim-dark
-    endif
-    " }
+if index(g:layers_loaded, 'airline') > -1
 
     " vim-airline {
     if isdirectory(expand('~/.vim/plugged/vim-airline'))

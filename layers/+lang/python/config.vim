@@ -1,5 +1,7 @@
 if index(g:layers_loaded, 'python') > -1
 
+    autocmd FileType python setlocal foldmethod=indent
+
     if index(g:layers_loaded, 'programming') > -1
         autocmd Filetype python nnoremap <buffer> <F5> :update<Bar>execute 'AsyncRun! python '.shellescape(@%, 1)<CR>
         " formate code

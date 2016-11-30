@@ -1,4 +1,4 @@
-let s:spacevim_layers_dir = "/layers"
+let s:spacevim_layers_dir = '/layers'
 
 let s:TYPE = {
             \   'string':  type(''),
@@ -9,8 +9,10 @@ let s:TYPE = {
 
 let g:LANG = [
             \   'c-c++',
+            \   'html',
             \   'python',
             \   'markdown',
+            \   'graphviz',
             \]
 
 let g:FUN = [
@@ -19,6 +21,8 @@ let g:FUN = [
 
 let g:VIM = [
             \   'better-defaults',
+            \   'programming',
+            \   'text-align',
             \]
 
 let g:TOOLS = [
@@ -28,6 +32,7 @@ let g:TOOLS = [
 
 let g:THEMES = [
             \   'colors',
+            \   'airline',
             \]
 
 let g:CHECKERS = [
@@ -39,8 +44,6 @@ let g:COMPLETION = [
             \]
 
 let g:OTHERS = [
-            \   'programming',
-            \   'text-align',
             \]
 
 let g:VERSION_CONTROL = [
@@ -58,7 +61,7 @@ endfunction
 
 function! s:warn(cmd, msg)
     echohl WarningMsg
-    execute a:cmd 'a:msg'
+    echom '[space-vim] '.a:msg
     echohl None
 endfunction
 
@@ -73,7 +76,7 @@ endfunction
 function! LayersBegin()
 
     " Load vim-plug
-    if empty(glob("~/.vim/autoload/plug.vim"))
+    if empty(glob('~/.vim/autoload/plug.vim'))
         echo '==> Downloading vim-plug ......'
         execute '!curl -fLo ~/.vim/autoload/plug.vim
                     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
@@ -96,7 +99,7 @@ function! s:add_layer(...)
     elseif a:0 == 1
         call add(g:layers_loaded, eval(a:1))
     else
-        echom 'Options not supported now.'
+        call s:err('Options not supported now.')
     endif
 endfunction
 
@@ -104,8 +107,8 @@ function! s:layer_status()
     execute get(g:, 'spacevim_window', 'vertical topleft new')
     execute append(0, [len(g:layers_loaded) . ' Layers loaded:'])
     execute append(1, ['======================================='])
-    for layer in g:layers_loaded
-        execute append(2, ['+ ' . layer])
+    for l:layer in g:layers_loaded
+        execute append(2, ['+ ' . l:layer])
     endfor
     setlocal buftype=nofile bufhidden=wipe nobuflisted nolist noswapfile nowrap cursorline nomodifiable
     if exists('g:syntax_on')
@@ -211,22 +214,21 @@ function! s:cur_layer_base_dir(layer)
         return l:layers_base . '/'
 
     else
-        return s:err(a:layer . " is invalid, no such layer, please check it.")
+        return s:err('*' . a:layer . '* is invalid, no such layer, please check it.')
 
     endif
 endfunction
 
 function! s:load_layer_packages()
-    for layer in g:layers_loaded
-        echo
-        let l:layer_packages = s:cur_layer_base_dir(layer) . layer . '/packages.vim'
+    for l:layer in g:layers_loaded
+        let l:layer_packages = s:cur_layer_base_dir(l:layer) . l:layer . '/packages.vim'
         call Source(l:layer_packages)
     endfor
 endfunction
 
 function! s:load_layer_config()
-    for layer in g:layers_loaded
-        let l:layer_config = s:cur_layer_base_dir(layer) . layer . '/config.vim'
+    for l:layer in g:layers_loaded
+        let l:layer_config = s:cur_layer_base_dir(l:layer) . l:layer . '/config.vim'
         call Source(l:layer_config)
     endfor
 endfunction
