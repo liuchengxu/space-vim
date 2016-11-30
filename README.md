@@ -1,10 +1,8 @@
 ![space-vim](doc/img/space-vim.png)
 
 
-[![space-vim-badge](assets/space-vim-badge.svg)](https://github.com/liuchengxu/space-vim) [![license](assets/license.svg)](https://raw.githubusercontent.com/liuchengxu/space-vim/master/LICENSE)
+[![space-vim-badge](https://cdn.rawgit.com/liuchengxu/space-vim/master/assets/space-vim-badge.svg)](https://github.com/liuchengxu/space-vim) [![license](https://cdn.rawgit.com/liuchengxu/space-vim/master/assets/license.svg)](https://raw.githubusercontent.com/liuchengxu/space-vim/master/LICENSE)
 ======================================
-
-:us: [English](doc/tutorial_en.md)
 
 
 ### Quick Install
