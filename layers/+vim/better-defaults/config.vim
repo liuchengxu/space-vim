@@ -246,3 +246,4 @@ if isdirectory(expand('~/.vim/plugged/vim-trailing-whitespace'))
 endif
 " }
 
+nnoremap <Leader>fR :source $MYVIMRC<CR>

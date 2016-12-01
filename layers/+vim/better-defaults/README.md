@@ -17,36 +17,35 @@
 
 ## Key Bindings
 
-Key Binding   | Mode   | Description
-:---:         | :---:  | :---:
-`SPC q`       | Normal | 退出 (quit)
-`SPC Q`       | Normal | 不保存直接退出
-`SPC d`       | Normal | 向下 (down) 移动半屏
-`SPC u`       | Normal | 向上 (up) 移动半屏
-`SPC '`       | Normal | 在 vim 中打开shell
-`SPC s c`     | Normal | 撤销搜索结果高亮
-`SPC t p`     | Normal | 粘贴模式开关 (toggle pastemode)
-`Ctrl j`      | Insert | j, 向下移动
-`Ctrl k`      | Insert | k, 向上移动
-`Ctrl h`      | Insert | h, 向左移动
-`Ctrl l`      | Insert | l, 向右移动
-`jj`          | Insert | `<Esc>`
-`jk`          | Insert | `<Esc>`
-`kk`          | Insert | `<Esc>`
-`;;`          | Insert | `<Esc>`
-`v`           | Visual | `<Esc>`
-`U`           | Normal | 重做， redo (对应 `u` 为撤销，undo)
-`H`           | Normal | 光标跳转到行首
-`L`           | Normal | 光标跳转到行尾
-`Y`           | Normal | 从光标处复制到行尾
-`SPC f s`     | Normal |  保存（save）文件
-`SPC f [1-9]` | Normal | 设置折叠 (fold) 层次，`f 0` 相当于全部折叠, `f 9` 相当于取消折叠全部展开
+Key Binding            | Mode   | Description
+:---:                  | :---:  | :---:
+<kbd>SPC q</kbd>       | Normal | 退出 (quit)
+<kbd>SPC Q</kbd>       | Normal | 不保存直接退出
+<kbd>SPC d</kbd>       | Normal | 向下 (down) 移动半屏
+<kbd>SPC u</kbd>       | Normal | 向上 (up) 移动半屏
+<kbd>SPC '</kbd>       | Normal | 在 vim 中打开shell
+<kbd>SPC s c</kbd>     | Normal | 撤销搜索结果高亮
+<kbd>SPC t p</kbd>     | Normal | 粘贴模式开关 (toggle pastemode)
+<kbd>Ctrl j</kbd>      | Insert | j, 向下移动
+<kbd>Ctrl k</kbd>      | Insert | k, 向上移动
+<kbd>Ctrl h</kbd>      | Insert | h, 向左移动
+<kbd>Ctrl l</kbd>      | Insert | l, 向右移动
+<kbd>jj</kbd>          | Insert | <kbd><Esc></kbd>
+<kbd>jk</kbd>          | Insert | <kbd><Esc></kbd>
+<kbd>kk</kbd>          | Insert | <kbd><Esc></kbd>
+<kbd>v</kbd>           | Visual | <kbd><Esc></kbd>
+<kbd>U<kbd>            | Normal | 重做， redo (对应 <kbd>u</kbd> 为撤销，undo)
+<kbd>H<kbd>            | Normal | 光标跳转到行首
+<kbd>L<kbd>            | Normal | 光标跳转到行尾
+<kbd>Y<kbd>            | Normal | 从光标处复制到行尾
+<kbd>SPC f s</kbd>     | Normal |  保存（save）文件
+<kbd>SPC f [1-9]</kbd> | Normal | 设置折叠 (fold) 层次，`f 0` 相当于全部折叠, `f 9` 相当于取消折叠全部展开
 
 ### Buffer
 
 Key Binding | Mode   | Description
 :---:       | :---:  | :---:
-`SPC [1-9]` | Normal | 切换至对应编号[1-9]对应缓冲区
+<kbd>SPC [1-9]</kbd> | Normal | 切换至对应编号[1-9]对应缓冲区
 `SPC b p`   | Normal | 上一个 (previous) 缓冲区
 `SPC b n`   | Normal | 下一个 (next) 缓冲区
 `SPC b d`   | Normal | 删除 (delete) 当前缓冲区

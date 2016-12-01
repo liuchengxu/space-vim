@@ -47,7 +47,7 @@ space-vim 源于[spacemacs](https://github.com/syl20bnr/spacemacs), "社区驱�
 
 :warning: Space-vim now is in the early stages, a ton of stuff are waiting to be covered. Vimers, feel free to make a contribution!
 
-:warning: space-vim 目前尚不成熟，欢迎大家贡献！
+:warning: space-vim 目前尚不成熟，不过已可试用，欢迎分享，共同改进！
 
 ## Features
 

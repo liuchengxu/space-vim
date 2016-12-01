@@ -51,17 +51,7 @@ let g:spacevim_core_dir = '/core'
         endif
     endfunction
 
-    function! LoadPrivateConfig(relative_path)
-        let s:config_file = g:spacevim_base_dir . a:relative_path
-        if filereadable(expand(s:config_file))
-            execute 'source ' . fnameescape(s:config_file)
-        endif
-    endfunction
-
-
 " }
-
-call LoadPrivateConfig('/private/before_vimrc.vim')
 
 if exists('g:spacevim_leader')
     let g:mapleader=g:spacevim_leader

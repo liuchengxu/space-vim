@@ -17,6 +17,7 @@ let g:LANG = [
 
 let g:FUN = [
             \   'emoji',
+            \   'goyo',
             \]
 
 let g:VIM = [
