@@ -51,7 +51,18 @@ let g:VERSION_CONTROL = [
             \   'github',
             \]
 
+let g:LAYERS = [g:LANG, g:FUN, g:VIM, g:TOOLS, g:THEMES, g:CHECKERS, g:COMPLETION, g:VERSION_CONTROL, g:OTHERS]
+
 let g:layers_loaded = []
+
+" calculate the number of whole available layers
+function! s:cal_layers_num()
+    let l:num = 0
+    for l:topic in g:LAYERS
+        let l:num = l:num + len(l:topic)
+    endfor
+    return l:num
+endfunction
 
 function! s:err(msg)
     echohl ErrorMsg
@@ -75,13 +86,14 @@ endfunction
 
 function! LayersBegin()
 
-    " Load vim-plug
+    " Download vim-plug if unavailable
     if empty(glob('~/.vim/autoload/plug.vim'))
         echo '==> Downloading vim-plug ......'
         execute '!curl -fLo ~/.vim/autoload/plug.vim
                     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
     endif
 
+    " Important
     call plug#begin()
 
     call s:define_command()
@@ -105,7 +117,7 @@ endfunction
 
 function! s:layer_status()
     execute get(g:, 'spacevim_window', 'vertical topleft new')
-    execute append(0, [len(g:layers_loaded) . ' Layers loaded:'])
+    execute append(0, ['(' . len(g:layers_loaded) . '/' . s:cal_layers_num() . ') Layers enabled:'])
     execute append(1, ['======================================='])
     for l:layer in g:layers_loaded
         execute append(2, ['+ ' . l:layer])
@@ -168,9 +180,17 @@ function! s:syntax()
     hi def link LayerNotLoaded Comment
 endfunction
 
+function! s:load_private_packages()
+    let l:private_packages = g:spacevim_base_dir . '/private/packages.vim'
+    if filereadable(expand(l:private_packages))
+        execute 'source ' . fnameescape(l:private_packages)
+    endif
+endfunction
 
 
 function! LayersEnd()
+
+    call s:load_private_packages()
 
     call s:load_layer_packages()
 
@@ -234,6 +254,10 @@ function! s:load_layer_config()
 endfunction
 
 function! s:load_private_config()
-    let l:private_config = g:spacevim_base_dir . '/private/after_vimrc.vim'
-    call Source(l:private_config)
+    let l:private_config = g:spacevim_base_dir . '/private/config.vim'
+    if filereadable(expand(l:private_config))
+        execute 'source ' . fnameescape(l:private_config)
+    endif
 endfunction
+
+
