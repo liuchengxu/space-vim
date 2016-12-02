@@ -8,13 +8,13 @@
 
 - curl
 
-    ```
+    ```sh
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/liuchengxu/space-vim/master/install.sh)"
     ```
 
 - wget
 
-    ```
+    ```sh
     sh -c "$(wget -qO- https://raw.githubusercontent.com/liuchengxu/space-vim/master/install.sh)"
     ```
 
@@ -58,7 +58,7 @@ In order to build a new vim distribution like spacemacs in emacs world, space-vi
 
 space-vim 既然是从 spacemacs 启发而来，自然借鉴了非常多的东西，最重要的一个概念便是 “Layer”. [space-vim](https://github.com/liuchengxu/space-vim)目前实现了 Layer 的概念：
 
-```
+```vim
 call LayersBegin()
 
 Layer 'fzf'
@@ -81,7 +81,7 @@ call LayersEnd()
 
 在 space-vim 中，所谓的一个 Layer ，其实很简单，就是集成了一些相关的 vim 插件及其配置，比如 better-defaults, 目前包括的插件有：
 
-```
+```vim
 Plug 'liuchengxu/vim-better-default' 
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets' 
@@ -106,13 +106,13 @@ Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 
 LayerStatus 可以查看启用了哪些 Layer.
 
-![LayerStatus](http://upload-images.jianshu.io/upload_images/127313-f1238570aba5514e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![layerstatus](doc/img/layerstatus.png)
 
 ### 个性化
 
 个人配置文件为 `.spacevim`, 如果没有 '.spacevim', 那么 space-vim 仅会加载默认的 Layer. `.space-vim` 中定义了两个函数分别用于加载 Layer 与个人配置信息。
 
-```
+```vim
 function! UserInit()
 
     Layer 'fzf'
@@ -148,7 +148,9 @@ endfunction
 
 ## 展望
 
-目前还没有在 Windows 下测试，实现了仅 Layer 的按需加载，后续应当还支持一些选项的设置，比如同类插件选择哪一个，以及还有很多文档工作。**对于初学者而言，文档可能比什么都重要，装了一些插件不是什么难事，重要的是学会使用这些插件，发挥其功效**。
+- 目前还没有在 Windows 下测试，实现了仅 Layer 的按需加载，后续应当还支持一些选项的设置，比如同类插件选择哪一个.
+- 很多文档工作。**对于初学者而言，文档可能比什么都重要，装了一些插件不是什么难事，重要的是学会使用这些插件，发挥其功效**。
+- 功能，UI 增强。
 
 一个人的精力始终是有限的，非常欢迎大家分享自己的使用经验。三个臭皮匠还赛过诸葛亮呢，还不行? 那就四个:p。
 

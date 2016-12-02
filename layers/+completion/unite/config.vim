@@ -131,8 +131,10 @@ if index(g:layers_loaded, 'unite') > -1
                 \ 'description' : '    vim              ⌘ [menu]v',
                 \}
     let g:unite_source_menu_menus.v.command_candidates = [
-                \['▷  ➞  vimrc',
+                \['▷  ➞  .vimrc',
                 \'e ~/.vimrc'],
+                \['▷  ➞  .spacevim',
+                \'e ~/.spacevim'],
                 \['▷  ➞  vim-help',
                 \'Unite help -start-insert'],
                 \['▷  ➞  vim-commands',
