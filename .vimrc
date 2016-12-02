@@ -20,7 +20,7 @@ scriptencoding utf-8
 
 let g:spacevim_base_dir = '~/.space-vim'
 let g:spacevim_core_dir = '/core'
-let g:spacevim_version = '0.1.1'
+let g:spacevim_version = '0.0.1'
 
 " Tools {
 
@@ -54,18 +54,6 @@ let g:spacevim_version = '0.1.1'
 
 " }
 
-if exists('g:spacevim_leader')
-    let g:mapleader=g:spacevim_leader
-else
-    let g:mapleader = "\<Space>"
-endif
-
-if exists('g:spacevim_localleader')
-    let g:maplocalleader=g:spacevim_localleader
-else
-    let g:maplocalleader = ','
-endif
-
 call Source(g:spacevim_base_dir . g:spacevim_core_dir . '/core_config.vim')
 
 """"""""""""""""""""""""""""""""""""""""""""""
@@ -73,6 +61,7 @@ call Source(g:spacevim_base_dir . g:spacevim_core_dir . '/core_config.vim')
 """"""""""""""""""""""""""""""""""""""""""""""
 call LayersBegin()
 
+" Default layers
 Layer 'unite'
 Layer 'colors'
 Layer 'airline'
@@ -82,3 +71,4 @@ Layer 'better-defaults'
 
 call LayersEnd()
 """""""""""""""""""""""""""""""""""""""""""""
+

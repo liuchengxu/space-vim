@@ -204,9 +204,22 @@ function! LayersEnd()
 
     call s:check_user_config()
 
+    if exists('g:spacevim_leader')
+        let g:mapleader=g:spacevim_leader
+    else
+        let g:mapleader = "\<Space>"
+    endif
+
+    if exists('g:spacevim_localleader')
+        let g:maplocalleader=g:spacevim_localleader
+    else
+        let g:maplocalleader = ','
+    endif
+
     if s:private_spacevim_exists
         call UserInit()
     endif
+
     call s:load_private_packages()
 
     call s:load_layer_packages()
