@@ -20,6 +20,7 @@ scriptencoding utf-8
 
 let g:spacevim_base_dir = '~/.space-vim'
 let g:spacevim_core_dir = '/core'
+let g:spacevim_version = '0.1.1'
 
 " Tools {
 
@@ -72,20 +73,12 @@ call Source(g:spacevim_base_dir . g:spacevim_core_dir . '/core_config.vim')
 """"""""""""""""""""""""""""""""""""""""""""""
 call LayersBegin()
 
-Layer 'fzf'
-Layer 'ycmd'
-Layer 'html'
 Layer 'unite'
-Layer 'emoji'
-Layer 'c-c++'
 Layer 'colors'
-Layer 'python'
 Layer 'airline'
-Layer 'markdown'
 Layer 'text-align'
 Layer 'programming'
 Layer 'better-defaults'
-Layer 'syntax-checking'
 
 call LayersEnd()
 """""""""""""""""""""""""""""""""""""""""""""

@@ -7,7 +7,9 @@ if index(g:layers_loaded, 'c-c++') > -1
     endif
 
     augroup SPACEVIM_C
-        autocmd Filetype c,cpp setlocal :
+        autocmd!
+        autocmd Filetype c,cpp setlocal cindent
+    augroup END
 
 
 endif

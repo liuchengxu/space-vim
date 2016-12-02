@@ -22,6 +22,7 @@ function! s:full_screen_toggle()
 endfunction
 
 augroup SPACEVIM_GUI
+    autocmd!
     autocmd GUIEnter * nnoremap <Leader>wm :call <SID>full_screen_toggle()<CR>
 augroup END
 
@@ -102,7 +103,7 @@ if isdirectory(expand('~/.vim/plugged/vim-startify'))
                 \'        \__ \ |_) | (_| | (_|  __/_____\ V /| | | | | | |',
                 \'        |___/ .__/ \__._|\___\___|      \_/ |_|_| |_| |_|',
                 \'            |_|',
-                \'                [ space-vim 0.100.1 ＠' . v:version . ' ]']
+                \'                [ space-vim ' . g:spacevim_version . ' ＠' . v:version . ' ]']
 
     augroup SPACEVIM_START
         autocmd VimEnter * if !argc() | Startify | endif

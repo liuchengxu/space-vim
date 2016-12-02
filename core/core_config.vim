@@ -1,5 +1,7 @@
 let s:spacevim_layers_dir = '/layers'
 
+autocmd BufRead,BufNewFile *.spacevim set filetype=vim
+
 let s:TYPE = {
             \   'string':  type(''),
             \   'list':    type([]),
@@ -188,9 +190,23 @@ function! s:load_private_packages()
     endif
 endfunction
 
+function! s:check_user_config()
+    let l:private_spacevim = '~/.spacevim'
+    if filereadable(expand(l:private_spacevim))
+        call Source(l:private_spacevim)
+        let s:private_spacevim_exists = 1
+    else
+        let s:private_spacevim_exists = 0
+    endif
+endfunction
 
 function! LayersEnd()
 
+    call s:check_user_config()
+
+    if s:private_spacevim_exists
+        call UserInit()
+    endif
     call s:load_private_packages()
 
     call s:load_layer_packages()
@@ -200,6 +216,10 @@ function! LayersEnd()
     call s:load_layer_config()
 
     call s:load_private_config()
+
+    if s:private_spacevim_exists
+        call UserConfig()
+    endif
 
 endfunction
 

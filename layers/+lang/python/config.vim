@@ -1,6 +1,7 @@
 if index(g:layers_loaded, 'python') > -1
 
     augroup SPACEVIM_PYTHON
+        autocmd!
         " Force indentation styles for python
         autocmd FileType python setlocal
                     \   foldmethod=indent

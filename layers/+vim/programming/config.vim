@@ -70,6 +70,7 @@ if index(g:layers_loaded, 'programming') > -1
     if isdirectory(expand("~/.vim/plugged/asyncrun.vim"))
         nnoremap <F5> :call CompileAndRun()<CR>
         augroup SPACEVIM_ASYNCRUN
+            autocmd!
             autocmd User AsyncRunStart call asyncrun#quickfix_toggle(20, 1)
         augroup END
         function! CompileAndRun()

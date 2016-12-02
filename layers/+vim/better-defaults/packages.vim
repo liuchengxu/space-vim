@@ -17,6 +17,6 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
 
 Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 
-if OSX()
-    Plug 'ybian/smartim'
-endif
+" if OSX()
+    " Plug 'ybian/smartim'
+" endif
