@@ -13,6 +13,8 @@
 
 ## Description
 
+这个 Layer 涉及比较多的基本操作，但是记忆起来应当不是很复杂，快捷键一般控制在两个。
+
 ## Install
 
 ## Key Bindings
@@ -43,30 +45,30 @@ Key Binding            | Mode   | Description
 
 ### Buffer
 
-Key Binding | Mode   | Description
-:---:       | :---:  | :---:
+Key Binding          | Mode   | Description
+:---:                | :---:  | :---:
 <kbd>SPC [1-9]</kbd> | Normal | 切换至对应编号[1-9]对应缓冲区
-`SPC b p`   | Normal | 上一个 (previous) 缓冲区
-`SPC b n`   | Normal | 下一个 (next) 缓冲区
-`SPC b d`   | Normal | 删除 (delete) 当前缓冲区
-`SPC b k`   | Normal | 杀掉 (kill) 缓冲区
-`SPC b b`   | Normal | 显示缓冲区 (buffer)
+<kbd>SPC b p</kbd>   | Normal | 上一个 (previous) 缓冲区
+<kbd>SPC b n</kbd>   | Normal | 下一个 (next) 缓冲区
+<kbd>SPC b d</kbd>   | Normal | 删除 (delete) 当前缓冲区
+<kbd>SPC b k</kbd>   | Normal | 杀掉 (kill) 缓冲区
+<kbd>SPC b b</kbd>   | Normal | 显示缓冲区 (buffer)
 
 ### Window
 
-Key Binding | Mode   | Description
-:---:       | :---:  | :---:
-`SPC w j`   | Normal | 移动至下方窗口
-`SPC w k`   | Normal | 移动至上方窗口
-`SPC w h`   | Normal | 移动至左边窗口
-`SPC w l`   | Normal | 移动至右边窗口
-`SPC w v`   | Normal | 竖直分割窗口， 等同于 `SPC w |`
-`SPC w 2`   | Normal | 将窗口分割为两列，等同于`SPC w v`
-`SPC w s`   | Normal | 水平分割窗口， 等同于 `SPC w -`
-`SPC w d`   | Normal | 关闭 (cancel) 当前窗口
-`SPC w q`   | Normal | 退出 (quit) 当前窗口，若是最后一个窗口则退出vim
-`SPC w w`   | Normal | 在所有窗口中循环移动
-`SPC w r`   | Normal | 向右或向下方交换 (replace) 窗口
+Key Binding        | Mode   | Description
+:---:              | :---:  | :---:
+<kbd>SPC w j</kbd> | Normal | 移动至下方窗口
+<kbd>SPC w k</kbd> | Normal | 移动至上方窗口
+<kbd>SPC w h</kbd> | Normal | 移动至左边窗口
+<kbd>SPC w l</kbd> | Normal | 移动至右边窗口
+<kbd>SPC w v</kbd> | Normal | 竖直分割窗口， 等同于 `SPC w |`
+<kbd>SPC w 2</kbd> | Normal | 将窗口分割为两列，等同于`SPC w v`
+<kbd>SPC w s</kbd> | Normal | 水平分割窗口， 等同于 `SPC w -`
+<kbd>SPC w d</kbd> | Normal | 关闭 (cancel) 当前窗口
+<kbd>SPC w q</kbd> | Normal | 退出 (quit) 当前窗口，若是最后一个窗口则退出vim
+<kbd>SPC w w</kbd> | Normal | 在所有窗口中循环移动
+<kbd>SPC w r</kbd> | Normal | 向右或向下方交换 (replace) 窗口
 
 
 

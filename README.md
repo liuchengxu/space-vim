@@ -31,6 +31,7 @@
         * [Layer](#layer)
         * [.spacevim](#spacevim)
     * [如何使用](#如何使用)
+    * [如何更新](#如何更新)
     * [如何贡献](#如何贡献)
 * [展望](#展望)
 * [致谢](#致谢)
@@ -162,11 +163,16 @@ function! UserConfig()
 endfunction
 ```
 
+更多使用信息可以查看 Layer 目录下对应的 README, 当然了目前还比较粗糙，如果 README 不够详尽，还得要 查看 config.vim 和 packages.vim.
 
 此外, private 可以看做是一个 Layer ，如果个人配置比较多，可以放在这里, private 目录可以有 Layer 的两个 "标准" 文件, space-vim 也会进行加载：
 
 - packages.vim
 - config.vim
+
+### 如何更新
+
+进入 `~/.space-vim`, 执行 `git pull` 即可.
 
 ### 如何贡献
 
