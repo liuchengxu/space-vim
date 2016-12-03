@@ -3,6 +3,8 @@
 [![space-vim-badge](https://cdn.rawgit.com/liuchengxu/space-vim/master/assets/space-vim-badge.svg)](https://github.com/liuchengxu/space-vim) [![license](https://cdn.rawgit.com/liuchengxu/space-vim/master/assets/license.svg)](https://raw.githubusercontent.com/liuchengxu/space-vim/master/LICENSE)
 ======================================
 
+:us: [English](doc/README_en.md)
+
 
 ### Quick Install
 
@@ -17,8 +19,6 @@
     ```sh
     sh -c "$(wget -qO- https://raw.githubusercontent.com/liuchengxu/space-vim/master/install.sh)"
     ```
-
-:us: [English](doc/README_en.md)
 
 
 **Table of Contents**

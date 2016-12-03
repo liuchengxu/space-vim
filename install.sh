@@ -149,17 +149,17 @@ function! UserInit()
     " let g:spacevim_localleader = ','
 
     " Put the layers you want to enable
-    Layer 'fzf'
+    " Layer 'fzf'
 
     " Put private plugins
-    Plug 'junegunn/vim-github-dashboard'
+    " Plug 'junegunn/vim-github-dashboard'
 
 endfunction
 
 " Customize configuration
 function! UserConfig()
 
-    color space-vim-dark
+    " color space-vim-dark
 
 endfunction
 DOTSPACEVIM

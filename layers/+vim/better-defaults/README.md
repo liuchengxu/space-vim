@@ -8,6 +8,7 @@
 * [Key Bindings](#key-bindings)
     * [Buffer](#buffer)
     * [Window](#window)
+    * [其他](#其他)
 
 <!-- vim-markdown-toc -->
 
@@ -69,6 +70,11 @@ Key Binding        | Mode   | Description
 <kbd>SPC w q</kbd> | Normal | 退出 (quit) 当前窗口，若是最后一个窗口则退出vim
 <kbd>SPC w w</kbd> | Normal | 在所有窗口中循环移动
 <kbd>SPC w r</kbd> | Normal | 向右或向下方交换 (replace) 窗口
+<kbd>SPC w m</kbd> | Normal | GUI 环境下 vim 窗口最大化开关
 
+### 其他
 
-
+Key Binding        | Mode   | Description
+:---:              | :---:  | :---:
+<kbd>SPC x d</kbd> | Normal | 去掉行尾多余空格
+<kbd>SPC f R</kbd> | Normal | Source .vimrc
