@@ -18,51 +18,7 @@
     sh -c "$(wget -qO- https://raw.githubusercontent.com/liuchengxu/space-vim/master/install.sh)"
     ```
 
-[Space-vim](https://github.com/liuchengxu/space-vim) is inspired by [spacemacs](https://github.com/syl20bnr/spacemacs), which is a community-driven emacs ditribution and has been the most famous emacs configuration.
-
-As metioned in spacemacs, that the best editor is neither Emacs nor Vim, it's Emacs **and** Vim! So, both emacs and vim are worthy of trying.
-
-In order to build a new vim distribution like spacemacs in emacs world, space-vim was born!
-
-![screenshot](doc/img/screenshot.png)
-
-:warning: Space-vim now is in the early stages, a ton of stuff are waiting to be covered. Vimers, feel free to make a contribution! 
-
-You can customize space-vim with `.spacevim`, where you can put it in your home directory and enable Layers and put your private configuration.
-
-```vim
-
-function! UserInit()
-
-    " Space has been set as the default leader key, 
-    " if you want to change it, uncomment and set it here.
-    " let g:spacevim_leader = "<\Space>"
-    " let g:spacevim_localleader = ','
-
-    " Put the layers you want to enable as well as extra private plugins
-    Layer 'fzf'
-    Layer 'ycmd'
-    Layer 'syntax-checking'
-
-    Layer 'emoji'
-    Layer 'goyo'
-
-    Layer 'html'
-    Layer 'python'
-    Layer 'markdown'
-    Layer 'c-c++'
-
-    Plug 'tpope/vim-fugitive'
-    Plug 'junegunn/vim-github-dashboard'
-
-endfunction
-
-function! UserConfig()
-
-    " color gruvbox
-
-endfunction
-```
+:us: [English](doc/README_en.md)
 
 **Table of Contents**
 
@@ -75,7 +31,6 @@ endfunction
 * [致谢](#致谢)
 
 <!-- vim-markdown-toc -->
-
 
 ## 初衷
 
@@ -119,17 +74,17 @@ call LayersEnd()
 在 space-vim 中，所谓的一个 Layer ，其实很简单，就是集成了一些相关的 vim 插件及其配置，比如 better-defaults, 目前包括的插件有：
 
 ```vim
-Plug 'liuchengxu/vim-better-default' 
+Plug 'liuchengxu/vim-better-default'
 Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets' 
-Plug 'Raimondi/delimitMate' 
-Plug 'tpope/vim-surround' 
-Plug 'easymotion/vim-easymotion' 
-Plug 'Shougo/denite.nvim' 
-Plug 'Shougo/unite.vim' 
-Plug 'mhinz/vim-startify' 
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } 
-Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' } 
+Plug 'honza/vim-snippets'
+Plug 'Raimondi/delimitMate'
+Plug 'tpope/vim-surround'
+Plug 'easymotion/vim-easymotion'
+Plug 'Shougo/denite.nvim'
+Plug 'Shougo/unite.vim'
+Plug 'mhinz/vim-startify'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
 Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 ```
@@ -195,4 +150,5 @@ endfunction
 
 ## 致谢
 
-- [spacemacs](https://github.com/syl20bnr/spacemacs) 
+- [spacemacs](https://github.com/syl20bnr/spacemacs)
+- [spf13-vim](https://github.com/spf13/spf13-vim)
