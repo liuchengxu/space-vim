@@ -27,7 +27,11 @@
 * [初衷](#初衷)
 * [愿景](#愿景)
 * [概览](#概览)
-    * [个性化](#个性化)
+    * [名词解释](#名词解释)
+        * [Layer](#layer)
+        * [.spacevim](#spacevim)
+    * [如何使用](#如何使用)
+    * [如何贡献](#如何贡献)
 * [展望](#展望)
 * [致谢](#致谢)
 
@@ -51,30 +55,30 @@
 
 ## 概览
 
-space-vim 既然是从 spacemacs 启发而来，自然借鉴了非常多的东西，最重要的一个概念便是 “Layer”. [space-vim](https://github.com/liuchengxu/space-vim)目前实现了 Layer 的概念：
+### 名词解释
+
+space-vim 既然是从 spacemacs 启发而来，自然借鉴了非常多的东西，其中最重要的一个概念便是 “Layer”.
+
+#### Layer
+
+[space-vim](https://github.com/liuchengxu/space-vim) 目前实现了 Layer 的概念, 就像这样：
 
 ```vim
 call LayersBegin()
 
 Layer 'fzf'
-Layer 'ycmd'
-Layer 'html'
-Layer 'unite'
 Layer 'emoji'
-Layer 'c-c++'
 Layer 'colors'
 Layer 'python'
-Layer 'airline'
 Layer 'markdown'
-Layer 'text-align'
-Layer 'programming'
-Layer 'better-defaults'
 Layer 'syntax-checking'
 
 call LayersEnd()
 ```
 
-在 space-vim 中，所谓的一个 Layer ，其实很简单，就是集成了一些相关的 vim 插件及其配置，比如 better-defaults, 目前包括的插件有：
+在 space-vim 中，所谓的一个 Layer ，其实很简单，就是集成了一些相关的 vim 插件及其配置，涉及到两个文件: config.vim 与 packages.vim. 不难理解，config.vim 为该 Layer 的相关配置信息，packages.vim 则为该 Layer 所需的一些 vim 插件。
+
+比如 Layer better-defaults, packages.vim 中的插件有：
 
 ```vim
 Plug 'liuchengxu/vim-better-default'
@@ -83,8 +87,6 @@ Plug 'honza/vim-snippets'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
-Plug 'Shougo/denite.nvim'
-Plug 'Shougo/unite.vim'
 Plug 'mhinz/vim-startify'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
@@ -92,20 +94,45 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
 Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 ```
 
-一个 Layer 下有两个重要的文件：
-
-- config.vim : Layer 所涉及的相关插件配置
-- packages.vim : Layer 所需插件
-
 调整，增加 Layer 都非常方便, 这也为 “集百家之长” 提供了土壤。
+
+#### .spacevim
+
+这个对应的是 .spacemacs, 用户可以自己决定启用哪些 Layer, 可以加载 space-vim 中没有的插件. 首次安装 space-vim 时，.spacevim 会在当前用户目录默认生成，其中主要有两个函数:
+
+```vim
+" Put layers you want to enable as well as extra private plugins
+function! UserInit()
+
+    " Space has been set as the default leader key,
+    " if you want to change it, uncomment and set it here.
+    " let g:spacevim_leader = "<\Space>"
+    " let g:spacevim_localleader = ','
+
+    " Put the layers you want to enable
+    Layer 'fzf'
+
+    " Put private plugins
+    Plug 'junegunn/vim-github-dashboard'
+
+endfunction
+
+" Customize configuration
+function! UserConfig()
+
+    color space-vim-dark
+
+endfunction
+
+```
 
 LayerStatus 可以查看启用了哪些 Layer.
 
 ![layerstatus](doc/img/layerstatus.png)
 
-### 个性化
+### 如何使用
 
-个人配置文件为 `.spacevim`, 如果没有 '.spacevim', 那么 space-vim 仅会加载默认的 Layer. `.space-vim` 中定义了两个函数分别用于加载 Layer 与个人配置信息。
+个人配置文件为 `.spacevim`, 如果没有 `.spacevim`, 那么 space-vim 仅会加载默认的 Layer. `.space-vim` 中定义了两个函数分别用于加载 Layer 与个人配置信息。
 
 ```vim
 function! UserInit()
@@ -136,20 +163,27 @@ endfunction
 ```
 
 
-此外, private 可以看做是一个 Layer ，如果个人配置比较多，可以放在这里可以有 Layer 的两个 "标准" 文件：
+此外, private 可以看做是一个 Layer ，如果个人配置比较多，可以放在这里, private 目录可以有 Layer 的两个 "标准" 文件, space-vim 也会进行加载：
 
 - packages.vim
 - config.vim
+
+### 如何贡献
+
+- 完善，增加 Layer. 遵循已有的 Layer 结构。
+- 文档，包括安装细节，使用经验等。
 
 ## 展望
 
 - 目前还没有在 Windows 下测试，实现了仅 Layer 的按需加载，后续应当还支持一些选项的设置，比如同类插件选择哪一个.
 - 很多文档工作。**对于初学者而言，文档可能比什么都重要，装了一些插件不是什么难事，重要的是学会使用这些插件，发挥其功效**。
-- 功能，UI 增强。
+- ......
 
 一个人的精力始终是有限的，非常欢迎大家分享自己的使用经验。三个臭皮匠还赛过诸葛亮呢，还不行? 那就四个:p。
 
-当然啦，可能很多人觉得 vimscript 没有 lisp 那么有表现力，稍显蹩脚。Anyway, 都是工具，乐趣而已。初期阶段，可做的事情还很多，欢迎大家分享与贡献. ：[space-vim](https://github.com/liuchengxu/space-vim)
+当然啦，可能很多人觉得 vimscript 没有 lisp 那么有表现力，稍显蹩脚。Anyway, 都是工具，乐趣而已。如果能够集思广益，也是利己利人。
+
+初期阶段，可做的事情还很多，欢迎大家分享与贡献. ：[space-vim](https://github.com/liuchengxu/space-vim)
 
 ## 致谢
 
