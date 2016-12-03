@@ -20,6 +20,7 @@
 
 :us: [English](doc/README_en.md)
 
+
 **Table of Contents**
 
 <!-- vim-markdown-toc GFM -->
@@ -41,6 +42,8 @@
 就我自身的使用而言，GUI 环境下我会选择 spacemacs, 但是终端环境下 vim 依然是我的首选。我希望尽量保持这两个环境下操作的一致性。此外，vim 社区中，虽有 [spf13-vim](https://github.com/spf13/spf13-vim), [k-vim](https://github.com/wklken/k-vim) 等一些比较有名的 vim 配置，但始终整合的不够，散落着很多适用特定环境的很好的配置，比如针对 c-c++, python, ruby 等等不同语言环境。还有大多也不够漂亮（当然了，这个有点主观，但不管怎么说，年轻人就是要挑“好看”的-_-）。
 
 随着 vim8 的升级，会有很多新的更好的插件诞生，比如我用来替代 [syntastic](https://github.com/vim-syntastic/syntastic) 的 [ale](https://github.com/w0rp/ale), ale 使用了异步特性，再也不用因为语法检查而拖慢速度了。还有[asyncrun.vim](https://github.com/skywind3000/asyncrun.vim) 等等，都会成为我们新的选择。 spf13-vim 等的更新似乎不太跟得上步伐，希望集体智慧能够给我们带来一个更好用的 vim 配置。
+
+![screenshot](doc/img/screenshot.png)
 
 ## 愿景
 

@@ -4,7 +4,7 @@ As metioned in spacemacs, that the best editor is neither Emacs nor Vim, it's Em
 
 In order to build a new vim distribution like spacemacs in emacs world, space-vim was born!
 
-![screenshot](doc/img/screenshot.png)
+![screenshot](img/screenshot.png)
 
 :warning: Space-vim now is in the early stages, a ton of stuff are waiting to be covered. Vimers, feel free to make a contribution!
 
