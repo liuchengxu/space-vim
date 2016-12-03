@@ -4,6 +4,7 @@
 #   Thanks for spf13-vim.
 
 app_name='space-vim'
+dot_spacevim="$HOME/.spacevim"
 [ -z "$APP_PATH" ] && APP_PATH="$HOME/.space-vim"
 [ -z "$REPO_URI" ] && REPO_URI='https://github.com/liuchengxu/space-vim.git'
 [ -z "$REPO_BRANCH" ] && REPO_BRANCH='vim-plug'
@@ -134,6 +135,38 @@ setup_vim_plug(){
     debug
 }
 
+generate_dot_spacevim(){
+    if [ ! -f $dot_spacevim ]; then
+        touch $dot_spacevim
+        (
+        cat <<DOTSPACEVIM
+" Put layers you want to enable as well as extra private plugins
+function! UserInit()
+
+    " Space has been set as the default leader key,
+    " if you want to change it, uncomment and set it here.
+    " let g:spacevim_leader = "<\Space>"
+    " let g:spacevim_localleader = ','
+
+    " Put the layers you want to enable
+    Layer 'fzf'
+
+    " Put private plugins
+    Plug 'junegunn/vim-github-dashboard'
+
+endfunction
+
+" Customize configuration
+function! UserConfig()
+
+    color space-vim-dark
+
+endfunction
+DOTSPACEVIM
+) >$dot_spacevim
+
+    fi
+}
 
 ########## Main()
 program_must_exist "vim"
@@ -155,4 +188,6 @@ sync_vim_plug   "$VIM_PLUG_PATH" \
 
 setup_vim_plug
 
-msg             "\nThanks for installing \033[1;31m$app_name\033[0m."
+generate_dot_spacevim
+
+msg             "\nThanks for installing \033[1;31m$app_name\033[0m. Enjoy!"
