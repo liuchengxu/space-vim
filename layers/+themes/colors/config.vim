@@ -1,4 +1,5 @@
 if index(g:layers_loaded, 'colors') > -1
+
     " space-vim-dark {
     if isdirectory(expand('~/.vim/plugged/space-vim-dark'))
         color space-vim-dark
@@ -12,7 +13,7 @@ if index(g:layers_loaded, 'colors') > -1
         " let g:airline_theme="powerlineish"
         let g:Powerline_symbols='fancy'
         " use powerline font. If not, let g:airline_powerline_fonts=0
-        let g:airline_powerline_fonts=1
+        let g:airline_powerline_fonts=0
         let g:airline#extensions#default#layout = [
                     \ [ 'a', 'b', 'c' ],
                     \ [ 'x', 'y', 'z', 'error', 'warning' ]
@@ -31,5 +32,6 @@ if index(g:layers_loaded, 'colors') > -1
     endif
 
     " }
+
 endif
 

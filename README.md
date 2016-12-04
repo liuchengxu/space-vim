@@ -1,10 +1,20 @@
-![space-vim](doc/img/space-vim.png)
+<p align="center"><img src="doc/img/space-vim.png" alt="space-vim"/></p>
 
-[![space-vim-badge](https://cdn.rawgit.com/liuchengxu/space-vim/master/assets/space-vim-badge.svg)](https://github.com/liuchengxu/space-vim) [![license](https://cdn.rawgit.com/liuchengxu/space-vim/master/assets/license.svg)](https://raw.githubusercontent.com/liuchengxu/space-vim/master/LICENSE)
-======================================
+***
+<p align="center">
+:us: <b><a href="doc/README_en.md">English Introduction</a></b>
+</p>
+<p align="center">
+:cn: <b><a href="doc/README_cn.md">中文快速指引</a></b>
+</p>
+***
+<p align="center">
+<a href="#"><img src="https://cdn.rawgit.com/liuchengxu/space-vim/master/assets/space-vim-badge.svg" alt="badge"></a>
+<a href="#"><img src="https://cdn.rawgit.com/liuchengxu/space-vim/master/assets/license.svg" alt="license"></a>
+</p>
+***
 
-:us: [English](doc/README_en.md)
-
+:warning: Linux and macOS supported now, windows has not been tested.
 
 ### Quick Install
 
@@ -133,6 +143,8 @@ LayerStatus 可以查看启用了哪些 Layer.
 
 ### 如何使用
 
+更多使用信息请点击 [快速指引](doc/tutorial_cn.md), 下面为简短介绍。
+
 个人配置文件为 `.spacevim`, 如果没有 `.spacevim`, 那么 space-vim 仅会加载默认的 Layer. `.space-vim` 中定义了两个函数分别用于加载 Layer 与个人配置信息。
 
 ```vim
@@ -195,3 +207,4 @@ endfunction
 
 - [spacemacs](https://github.com/syl20bnr/spacemacs)
 - [spf13-vim](https://github.com/spf13/spf13-vim)
+- ......

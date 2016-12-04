@@ -64,9 +64,6 @@ call LayersBegin()
 " Default layers
 Layer 'unite'
 Layer 'colors'
-Layer 'airline'
-Layer 'text-align'
-Layer 'programming'
 Layer 'better-defaults'
 
 call LayersEnd()
