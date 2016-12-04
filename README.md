@@ -5,7 +5,7 @@
 :us: <b><a href="doc/README_en.md">English Introduction</a></b>
 </p>
 <p align="center">
-:cn: <b><a href="doc/README_cn.md">中文快速指引</a></b>
+:cn: <b><a href="doc/tutorial_cn.md">中文快速指引</a></b>
 </p>
 ***
 <p align="center">
