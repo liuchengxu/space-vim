@@ -115,7 +115,7 @@ sync_vim_plug() {
     local vim_plug_path="$1"
     local vim_plug_url="$2"
     if [ ! -f "$VIM_PLUG_PATH/plug.vim" ]; then
-        curl -fLo "$1" --create-dirs "$2"
+        curl -fLo "$1/plug.vim" --create-dirs "$2"
     fi
 
     debug
