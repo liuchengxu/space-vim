@@ -23,7 +23,7 @@
 
 ### 几个概念
 
-首先来了解一些概念，在 `layers` 目录有一些以 `+` 开头的子目录，比如 `+lang`，我们可以称之为 topic, 在该 topic 下会有一些 “真正” 的 layer. 
+首先来了解一些概念，在 layers 目录有一些以 "+" 开头的子目录，比如 +lang，我们可以称之为 topic, 在该 topic 下会有一些 “真正” 的 layer.
 
 
 ```
@@ -49,7 +49,7 @@
 └── LAYERS.md
 ```
 
-以 `+lang` 为例，下面有 `c-c++`, `python`, `markdown` 等等一些子目录，这些就是我们真正在配置文件 `.spacevim` 可以用 `Layer 'python'` 这样的命令进行加载的 layer. 每个 layer 下一般有两个 “标准” 文件：
+以 +lang 为例，下面有 c-c++, python, markdown 等等一些子目录，这些就是我们真正在配置文件 .spacevim 可以用 `Layer 'python'` 这样的命令进行加载的 layer. 每个 layer 下一般有两个 “标准” 文件：
 
 - packages.vim
 
@@ -105,9 +105,9 @@ let g:mapleader="\<Space>"
 
 #### 一个满足 “需求” 的 vim
 
-所谓需求，是指有些插件要求 vim 必须拥有某项特性，比如 ycmd layer 中使用的 [YouCompleteMe](https://github.com/Valloric/YouCompleteMe) 要有 vim 得有 python 支持。
+所谓需求，是指有些插件要求 vim 必须拥有某项特性，比如 ycmd layer 中使用的 [YouCompleteMe](https://github.com/Valloric/YouCompleteMe) 要求 vim 得有 python 支持。
 
-terminal 中输入 `vim --version`, 可以看到一串信息，下面显示的是我使用 brew 安装的 vim, 带 `+` 说明该 feature 有了， 带 `-` 说明没有，比如下面的 `+python` 说明支持 python3. 安装时还是保险一点，什么 lua, python 都装上, 以免后患。
+terminal 中输入 `vim --version`, 可以看到一串信息，下面显示的是我使用 brew 安装的 vim, 带 "+" 说明该 feature 有了， 带 "-" 说明没有，比如下面的 +python 说明支持 python3. 安装时还是保险一点，什么 lua, python 都装上, 以免后患。
 
 ```vim
 $ vim --version
@@ -169,13 +169,13 @@ git clone https://github.com/powerline/fonts.git ~/.fonts
 sh ~/.fonts/install.sh
 ```
 
-powerline font 安装完成后，在 `.spacevim` 中启用字体：
+powerline font 安装完成后，在 .spacevim 中启用字体：
 
 ```vim
 let g:airline_powerline_fonts=1
 ```
 
-设置 terminal 字体：
+需要注意的是设置 terminal 字体：
 
 GUI 环境下可直接在 vim 字体可在配置文件进行设置. 终端环境下 vim 的字体服从于 terminal 的字体设置，因此安装完成后需要在 terminal 的字体设置中将原有字体改为带有 for powerline 样式的字体，否则可能会出现状态栏乱码. 比如 iterm2 中字体设置：
 
@@ -208,7 +208,7 @@ function! UserInit()
 endfunction
 ```
 
-:warning: 需要注意的是，启用 layer 后，需要重新加载 .vimrc 执行 `:PlugInstall` 安装该 layer 涉及的相关插件。
+:warning: 注意，启用 layer 后，需要重新加载 .vimrc 执行 `:PlugInstall` 安装该 layer 涉及的相关插件。
 
 ### 如何个性化
 
@@ -217,7 +217,7 @@ endfunction
 ```vim
 function! UserConfig()
 
-    color space-vim-dark
+    color molokai
 
 endfunction
 ```
@@ -226,7 +226,7 @@ endfunction
 
 ### 如何更新
 
-对于插件的更新，自然是通过 vim-plug提供的相关命令。对于 space-vim, 可以进入 `~/.space-vim` 执行 `git pull`, 后期会提供更加人性化的方式。
+对于插件的更新，自然是通过 vim-plug提供的相关命令。对于 space-vim, 可以进入 "~/.space-vim" 执行 `git pull`, 后期可能会提供更加人性化的方式。
 
 
 ## 默认安装
@@ -242,9 +242,20 @@ Layer 'better-defaults'
 
 :warning: TODO, 目前请直接查看 layer 下的 config.vim 与 packages.vim.
 
+先学会一个一打十的技能：<kbd>SPC ?</kbd>, 使用 空格键加问号查看键位绑定:
+
+![maps](img/maps.png)
+
+从图中可以看到键位映射，比如挑一个 <Leader>bp, 对应的命令为 `:bprevious<CR>`, 意为 buffer previous, 跳转前一个 buffer. 后面还跟着定义该快捷键的文件, 来自 “vim-better-default/plugin/default.vim”。  
+
+图中可以看出我正在 tmux 中使用 vim, 如果不是，那么执行这个操作的窗口会比较大，不要惊讶。
+
 ### better-defaults
 
 ### unite
 
+
+
 ### colors
 
+colors 比较简单，只是提供了一些 colorscheme 以供选择.

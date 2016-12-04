@@ -23,10 +23,11 @@ if index(g:layers_loaded, 'unite') > -1
 
     " unite.vim useful resources:
     " https://github.com/joedicastro/dotfiles/tree/master/vim
-    " unite前缀键: LocalLeader=','
+    " unite prefix: LocalLeader=','
     " menus menu
     nnoremap <silent>[menu]m :Unite -silent -winheight=40 menu<CR>
-    nnoremap <Leader>? :Unite output:nmap\ \<Leader\><CR>
+    " supported by fzf.vim
+    nnoremap <Leader>? :Maps<CR>
 
     " [menu]x : menu.edition {
     let g:unite_source_menu_menus.x = {
@@ -54,6 +55,7 @@ if index(g:layers_loaded, 'unite') > -1
     let g:unite_source_menu_menus.f = {
                 \ 'description' : '    fzf.vim     ⌘ [menu]f',
                 \}
+    " supported by fzf.vim
     let g:unite_source_menu_menus.f.command_candidates = [
                 \['▷   ➞  Buffers',
                 \'Buffers'],
