@@ -20,7 +20,7 @@ scriptencoding utf-8
 
 let g:spacevim_base_dir = '~/.space-vim'
 let g:spacevim_core_dir = '/core'
-let g:spacevim_version = '0.0.1'
+let g:spacevim_version = '0.1.0'
 
 " Tools {
 
@@ -68,4 +68,3 @@ Layer 'better-defaults'
 
 call LayersEnd()
 """""""""""""""""""""""""""""""""""""""""""""
-

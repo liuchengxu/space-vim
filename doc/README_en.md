@@ -43,4 +43,5 @@ function! UserConfig()
 endfunction
 ```
 
+When you enable a certain layer, do not forget to reload .vimrc and run `:PlugInstall` to install related plugins.
 
