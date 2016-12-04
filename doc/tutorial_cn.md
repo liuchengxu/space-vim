@@ -25,6 +25,8 @@
 
 <!-- vim-markdown-toc -->
 
+下述内容可能并非完全适用，请作参照考量。
+
 ## 前言
 
 首先关于 vim , emacs 与 IDE 之间的争论这里并不讨论，也不想评论。 因为我不排斥这其中的任何一个，这些工具我也都在使用，各有所长，自己用着方便就好。
@@ -354,32 +356,41 @@ let g:ycm_path_to_python_interpreter='/absolute/path/to/python'
 
 ## Customization
 
-vimrc Related      | Description
-:---:              | :---:
-`.vimrc`           | 也可单独作为无插件vim配置
-`.vimrc.plug.list` | 安装的vim插件列表
-`.vimrc.plug.conf` | 所安装vim各种插件的相关设置
+个人配置文件为 `.spacevim`, 如果没有 `.spacevim`, 那么 space-vim 仅会加载默认的 Layer. `.space-vim` 中定义了两个函数分别用于加载 Layer 与个人配置信息。
 
-运行 `sh ~/.space-vim/uninstall.sh` 即可卸载 space-vim.
+```vim
+function! UserInit()
 
-如果想要修改配置，当然可以选择在我的配置文件上直接修改. 但是如果只是些微调，还是建议您采取以下方式:
+    Layer 'fzf'
+    Layer 'ycmd'
+    Layer 'syntax-checking'
 
-- 将配置信息写入到 `~/.vimrc.local` ， 比如想要修改主题:
+    Layer 'emoji'
+    Layer 'goyo'
 
-    ```
-    echo "color solarized" >> ~/.vimrc.local
-    ```
+    Layer 'html'
+    Layer 'python'
+    Layer 'markdown'
+    Layer 'c-c++'
 
-    然后， `<Leader> f R` 使得配置生效.
+    " 加载 space-vim Layer中没有的插件
+    Plug 'tpope/vim-fugitive'
+    Plug 'junegunn/vim-github-dashboard'
 
-- 如果想要卸载 space-vim 默认安装的插件， 打开 `~/.vimrc.plug.list` 注释掉对应行, 执行 `:PluginClean` 即可.
+endfunction
 
-    如果想要安装另外的插件，将插件信息写入到 `~/.vimrc.plug.local` , 比如添加多光标操作[vim-multiple-cursors](https://github.com/terryma/vim-multiple-cursors)这个插件:
+function! UserConfig()
 
-    ```
-    Plugin 'terryma/vim-multiple-cursors'
-    ```
+    color space-vim-dark
 
-    然后 `<Leader> f R` 使配置生效，并执行 `:PlugInstall` 进行安装.
+endfunction
+```
+
+更多使用信息可以查看 Layer 目录下对应的 README, 当然了目前还比较粗糙，如果 README 不够详尽，还得要 查看 config.vim 和 packages.vim.
+
+此外, private 可以看做是一个 Layer ，如果个人配置比较多，可以放在这里, private 目录可以有 Layer 的两个 "标准" 文件, space-vim 也会进行加载：
+
+- packages.vim
+- config.vim
 
 
