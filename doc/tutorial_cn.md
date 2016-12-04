@@ -242,19 +242,17 @@ Layer 'better-defaults'
 
 :warning: TODO, 目前请直接查看 layer 下的 config.vim 与 packages.vim.
 
-先学会一个一打十的技能：<kbd>SPC ?</kbd>, 使用 空格键加问号查看键位绑定:
+先学会一个一打十的技能：<kbd>SPC ?</kbd>, 使用 空格键加问号查看键位绑定, 打开后可使用 <kbd>Ctrl j</kbd>, <kbd>Ctrl k</kbd>进行上下选择，也可直接输入进行模糊查找:
 
 ![maps](img/maps.png)
 
-从图中可以看到键位映射，比如挑一个 <Leader>bp, 对应的命令为 `:bprevious<CR>`, 意为 buffer previous, 跳转前一个 buffer. 后面还跟着定义该快捷键的文件, 来自 “vim-better-default/plugin/default.vim”。  
+从图中可以看到键位映射，比如挑一个 `<Space>bp`, 后面跟着改快捷键对应的命令 `:bprevious<CR>`, 意为 buffer previous, 即跳转前一个 buffer. 后面还跟着定义该快捷键的文件, 来自 “vim-better-default/plugin/default.vim”。 不熟悉时，可以将这快捷键都看一下。
 
-图中可以看出我正在 tmux 中使用 vim, 如果不是，那么执行这个操作的窗口会比较大，不要惊讶。
+（图中可以看出我正在 tmux 中使用 vim, 如果不是，那么执行这个操作的窗口会比较大，不要惊讶。）
 
 ### better-defaults
 
 ### unite
-
-
 
 ### colors
 
