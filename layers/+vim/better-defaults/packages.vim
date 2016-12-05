@@ -4,7 +4,8 @@ Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
 
-Plug 'mhinz/vim-startify'
+" Plug 'mhinz/vim-startify'
+Plug 'liuchengxu/vim-startify'
 
 Plug 'scrooloose/nerdtree',                     { 'on': 'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin',             { 'on': 'NERDTreeToggle' }

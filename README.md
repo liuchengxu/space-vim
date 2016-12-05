@@ -16,6 +16,8 @@
 
 :warning: Linux and macOS supported now, windows has not been tested.
 
+space-vim is still in beta, so contributions are highly welcome.
+
 ### Quick Install
 
 - curl
