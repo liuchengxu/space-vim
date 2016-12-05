@@ -106,11 +106,24 @@ if isdirectory(expand('~/.vim/plugged/vim-startify'))
                 \'        \__ \ |_) | (_| | (_|  __/_____\ V /| | | | | | |',
                 \'        |___/ .__/ \__._|\___\___|      \_/ |_|_| |_| |_|',
                 \'            |_|',
-                \'                [ space-vim ' . g:spacevim_version . ' ＠' . v:version . ' ]']
+                \'                  [ space-vim ' . g:spacevim_version . ' ＠' . v:version . ' ]',
+                \]
 
     augroup SPACEVIM_START
         autocmd VimEnter * if !argc() | Startify | endif
     augroup END
+    let g:startify_list_order = [
+                \ ['   Recent Files:'],
+                \ 'files',
+                \ ['   Project:'],
+                \ 'dir',
+                \ ['   Sessions:'],
+                \ 'sessions',
+                \ ['   Bookmarks:'],
+                \ 'bookmarks',
+                \ ['   Commands:'],
+                \ 'commands',
+                \ ]
     nnoremap <silent><Leader>bh :Startify<CR>
     nnoremap <silent><Leader>fr :Startify<CR>
 endif

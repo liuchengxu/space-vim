@@ -63,6 +63,7 @@ call LayersBegin()
 
 " Default layers
 Layer 'unite'
+Layer 'fzf'
 Layer 'colors'
 Layer 'better-defaults'
 

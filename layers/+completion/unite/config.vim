@@ -53,7 +53,7 @@ if index(g:layers_loaded, 'unite') > -1
 
     " [menu]f : menu.files {
     let g:unite_source_menu_menus.f = {
-                \ 'description' : '    fzf.vim     ⌘ [menu]f',
+                \ 'description' : '    fzf.vim          ⌘ [menu]f',
                 \}
     " supported by fzf.vim
     let g:unite_source_menu_menus.f.command_candidates = [

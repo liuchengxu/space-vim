@@ -236,11 +236,12 @@ endfunction
 ```
 " Default layers
 Layer 'unite'
+Layer 'fzf'
 Layer 'colors'
 Layer 'better-defaults'
 ```
 
-:warning: TODO, 目前请直接查看 layer 下的 config.vim 与 packages.vim.
+:warning: TODO, 目前还不完备，更多内容请直接查看 layer 下的 README, config.vim 与 packages.vim.
 
 先学会一个一打十的技能：<kbd>SPC ?</kbd>, 使用 空格键加问号查看键位绑定, 打开后可使用 <kbd>Ctrl j</kbd>, <kbd>Ctrl k</kbd>进行上下选择，也可直接输入进行模糊查找:
 
@@ -250,9 +251,15 @@ Layer 'better-defaults'
 
 （图中可以看出我正在 tmux 中使用 vim, 如果不是，那么执行这个操作的窗口会比较大，不要惊讶。）
 
+<kbd>SPC ?</kbd> 实际映射的命令是 [fzf.vim](https://github.com/junegunn/fzf.vim) 的 `:Maps`, 因此 fzf layer 实际是为了支持 unite layer. 不过其中安装的 [fzf](https://github.com/junegunn/fzf) 除了可在 vim 中，也可在 terminal 中使用。 
+
 ### better-defaults
 
+一些 “人性化” 设置和基本的键位映射，包括 buffer, window, esay-motion 快速移动等操作。
+
 ### unite
+
+unite layer 主要希望提供一个界面来选择一些命令，<kbd>, m</kbd> 可以查看有哪些选项。
 
 ### colors
 
