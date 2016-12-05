@@ -107,7 +107,7 @@ let g:mapleader="\<Space>"
 
 所谓需求，是指有些插件要求 vim 必须拥有某项特性，比如 ycmd layer 中使用的 [YouCompleteMe](https://github.com/Valloric/YouCompleteMe) 要求 vim 得有 python 支持。
 
-terminal 中输入 `vim --version`, 可以看到一串信息，下面显示的是我使用 brew 安装的 vim, 带 "+" 说明该 feature 有了， 带 "-" 说明没有，比如下面的 +python 说明支持 python3. 安装时还是保险一点，什么 lua, python 都装上, 以免后患。
+terminal 中输入 `vim --version`, 可以看到一串信息，下面显示的是我使用 brew 安装的 vim, 带 "+" 说明该 feature 有了， 带 "-" 说明没有，比如下面的 +python3 说明支持 python3. 安装时还是保险一点，什么 lua, python 都装上, 以免后患。
 
 ```vim
 $ vim --version
@@ -177,7 +177,7 @@ let g:airline_powerline_fonts=1
 
 需要注意的是设置 terminal 字体：
 
-GUI 环境下可直接在 vim 字体可在配置文件进行设置. 终端环境下 vim 的字体服从于 terminal 的字体设置，因此安装完成后需要在 terminal 的字体设置中将原有字体改为带有 for powerline 样式的字体，否则可能会出现状态栏乱码. 比如 iterm2 中字体设置：
+GUI 环境下, 可直接在配置文件进行设置. 终端环境下 vim 的字体服从于 terminal 的字体设置，因此安装完成后需要在 terminal 的字体设置中将原有字体改为带有 for powerline 样式的字体，否则可能会出现状态栏乱码. 比如 iterm2 中字体设置：
 
 ![powerline_setting](img/iterm2_powerline_setting.png)
 
@@ -231,7 +231,7 @@ endfunction
 
 ## 默认安装
 
-默认启用了 3 个 layer:
+默认启用了 4 个 layer:
 
 ```
 " Default layers

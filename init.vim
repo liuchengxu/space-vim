@@ -13,8 +13,6 @@
 "   URL: https://github.com/liuchengxu/space-vim
 "
 "   Copyright © 2016 Liu-Cheng Xu
-"
-"
 
 scriptencoding utf-8
 

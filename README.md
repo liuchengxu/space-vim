@@ -209,4 +209,5 @@ endfunction
 
 - [spacemacs](https://github.com/syl20bnr/spacemacs)
 - [spf13-vim](https://github.com/spf13/spf13-vim)
+- [vim-plug](https://github.com/junegunn/vim-plug)
 - ......

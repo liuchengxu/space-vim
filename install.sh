@@ -103,7 +103,7 @@ create_symlinks() {
     local source_path="$1"
     local target_path="$2"
 
-    lnif "$source_path/.vimrc"            "$target_path/.vimrc"
+    lnif "$source_path/init.vim"            "$target_path/.vimrc"
 
     ret="$?"
     success "Setting up vim symlinks."
@@ -151,7 +151,7 @@ function! UserInit()
     " let g:spacevim_localleader = ','
 
     " Put the layers you want to enable
-    " Layer 'fzf'
+    " Layer 'emoji'
 
     " Put private plugins
     " Plug 'junegunn/vim-github-dashboard'

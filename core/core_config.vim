@@ -1,5 +1,8 @@
 let s:spacevim_layers_dir = '/layers'
 
+let s:spacevim_tab = get(s:, 'spacevim_tab', -1)
+let s:spacevim_buf = get(s:, 'spacevim_buf', -1)
+
 autocmd BufRead,BufNewFile *.spacevim set filetype=vim
 
 let s:TYPE = {
@@ -96,8 +99,9 @@ function! LayersBegin()
                     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
     endif
 
+    let s:plugged_home = '~/.vim/plugged'
     " Important
-    call plug#begin()
+    call plug#begin(s:plugged_home)
 
     call s:define_command()
 
@@ -118,14 +122,46 @@ function! s:add_layer(...)
     endif
 endfunction
 
-function! s:layer_status()
+function! s:new_window()
     execute get(g:, 'spacevim_window', 'vertical topleft new')
-    execute append(0, ['(' . len(g:layers_loaded) . '/' . s:cal_layers_num() . ') Layers enabled:'])
-    execute append(1, ['======================================='])
+endfunction
+
+function! s:spacevim_window_exists()
+    let l:buflist = tabpagebuflist(s:spacevim_tab)
+    return !empty(l:buflist) && index(l:buflist, s:spacevim_buf) >= 0
+endfunction
+
+function! s:assign_name()
+    " Assign buffer name
+    let l:prefix = '[Layers]'
+    let l:name   = l:prefix
+    let l:idx    = 2
+    while bufexists(l:name)
+        let l:name = printf('%s (%s)', l:prefix, l:idx)
+        let l:idx = l:idx + 1
+    endwhile
+    silent! execute 'f' fnameescape(l:name)
+endfunction
+
+function! s:layer_status()
+    call s:new_window()
+
+    let b:spacevim_preview = -1
+    let s:spacevim_tab = tabpagenr()
+    let s:spacevim_buf = winbufnr(0)
+    call s:assign_name()
+
+    let [l:cnt, l:total] = [0, len(g:layers_loaded)]
+
+    call append(0, ['Enabled layers: ' . '(' . len(g:layers_loaded) . '/' . s:cal_layers_num() . ')'])
+    call setline(2, '[' . repeat('=', len(g:layers_loaded)) . ']')
+    let l:inx = 3
     for l:layer in g:layers_loaded
-        execute append(2, ['+ ' . l:layer])
+        call setline(l:inx, '+ ' . l:layer)
+        let l:inx = l:inx + 1
     endfor
     setlocal buftype=nofile bufhidden=wipe nobuflisted nolist noswapfile nowrap cursorline nomodifiable
+    setf spacevim
     if exists('g:syntax_on')
         call s:syntax()
     endif
