@@ -6,7 +6,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 Plug 'skywind3000/asyncrun.vim',        { 'on': ['AsyncRun!', 'AsyncRun'] }
-Plug 'nathanaelkane/vim-indent-guides', { 'for': ['shell', 'python', 'java', 'c', 'cpp'] }
+Plug 'nathanaelkane/vim-indent-guides', { 'on': 'IndentGuidesToggle'}
 
 if executable('ctags')
     " Do not lazy loading tagbar, see vim-airline issue 1313.
