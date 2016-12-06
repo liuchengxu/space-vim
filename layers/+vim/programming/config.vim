@@ -30,7 +30,7 @@ if index(g:layers_loaded, 'programming') > -1
     augroup END
 
     " rainbow {
-    if isdirectory(expand('~/.vim/plugged/rainbow'))
+    if isdirectory(expand(g:my_plug_home.'rainbow'))
         let g:rainbow_active = 1
         let g:rainbow_conf = {
                     \   'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
@@ -58,7 +58,7 @@ if index(g:layers_loaded, 'programming') > -1
     " }
 
     " tagbar {
-    if isdirectory(expand("~/.vim/plugged/tagbar"))
+    if isdirectory(expand(g:my_plug_home.'tagbar'))
         let g:tagbar_autofocus = 1
         nmap <F6> :TagbarToggle<CR>
         imap <F6> <ESC>:TagbarToggle<CR>
@@ -66,13 +66,13 @@ if index(g:layers_loaded, 'programming') > -1
     " }
 
     " asyncrun.vim {
-    if isdirectory(expand("~/.vim/plugged/asyncrun.vim"))
-        nnoremap <F5> :call CompileAndRun()<CR>
+    if isdirectory(expand(g:my_plug_home.'asyncrun.vim'))
+        nnoremap <F5> :call s:compile_and_run()<CR>
         augroup SPACEVIM_ASYNCRUN
             autocmd!
             autocmd User AsyncRunStart call asyncrun#quickfix_toggle(20, 1)
         augroup END
-        function! CompileAndRun()
+        function! s:compile_and_run()
             exec "w"
             if &filetype == 'c'
                 exec "AsyncRun! gcc % -o %<; time ./%<"
@@ -90,7 +90,7 @@ if index(g:layers_loaded, 'programming') > -1
     " }
 
     " nerdcommenter {
-    if isdirectory(expand("~/.vim/plugged/nerdcommenter"))
+    if isdirectory(expand(g:my_plug_home.'nerdcommenter'))
         let NERDSpaceDelims=1
 
         nmap <Leader>;; <Plug>NERDCommenterToggle
@@ -100,7 +100,7 @@ if index(g:layers_loaded, 'programming') > -1
     " }
 
     " indentLine {
-    if isdirectory(expand("~/.vim/plugged/indentLine"))
+    if isdirectory(expand(g:my_plug_home.'indentLine'))
         let g:indentLine_char='┊'
         let g:indentLine_enabled=1
         let g:indentLine_color_term=239
@@ -112,7 +112,7 @@ if index(g:layers_loaded, 'programming') > -1
     " }
 
     " indent_guides {
-    if isdirectory(expand("~/.vim/plugged/vim-indent-guides/"))
+    if isdirectory(expand(g:my_plug_home.'vim-indent-guides'))
         let g:indent_guides_start_level = 2
         let g:indent_guides_guide_size = 1
         let g:indent_guides_enable_on_vim_startup = 1

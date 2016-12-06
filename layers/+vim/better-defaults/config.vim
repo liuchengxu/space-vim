@@ -74,7 +74,7 @@ augroup SPACEVIM_BASIC
 augroup END
 
 " ultisnips {
-if isdirectory(expand('~/.vim/plugged/ultisnips'))
+if isdirectory(expand(g:my_plug_home.'ultisnips'))
     " Set ultisnips triggers
     let g:UltiSnipsSnippetDirectories=['UltiSnips']
     let g:UltiSnipsSnippetsDir = '~/.vim/plugged/vim-snippets/UltiSnips/'
@@ -98,7 +98,7 @@ endif
 " }
 
 " vim-startify {
-if isdirectory(expand('~/.vim/plugged/vim-startify'))
+if isdirectory(expand(g:my_plug_home.'vim-startify'))
     let g:startify_custom_header = [
                 \'                                             _',
                 \'         ___ _ __   __ _  ___ ___     __   _(_)_ __ ___',
@@ -137,7 +137,7 @@ endif
 " <Leader><Leader>j
 " <Leader><Leader>k
 " Jump to line
-if isdirectory(expand('~/.vim/plugged/vim-easymotion'))
+if isdirectory(expand(g:my_plug_home.'vim-easymotion'))
     map <Leader>jl <Plug>(easymotion-bd-jk)
     nmap <Leader>jl <Plug>(easymotion-overwin-line)
     " Jump to word
@@ -147,7 +147,7 @@ endif
 " }
 
 " nerdtree {
-if isdirectory(expand('~/.vim/plugged/nerdtree'))
+if isdirectory(expand(g:my_plug_home.'nerdtree'))
     let g:NERDTreeShowHidden=1            " 显示隐藏文件
     let g:NERDTreeAutoDeleteBuffer=1      " 删除文件时自动删除文件对应buffer
     let g:NERDTreeIgnore=[
@@ -162,7 +162,7 @@ endif
 " }
 
 "nerdtree-git-plugin {
-if isdirectory(expand('~/.vim/plugged/nerdtree-git-plugin'))
+if isdirectory(expand(g:my_plug_home.'nerdtree-git-plugin'))
     let g:NERDTreeIndicatorMapCustom = {
                 \ 'Modified'  : '✹',
                 \ 'Staged'    : '✚',
@@ -178,7 +178,7 @@ endif
 " }
 
 " vim-nerdtree-syntax-highlight {
-if isdirectory(expand('~/.vim/plugged/vim-nerdtree-syntax-highlight'))
+if isdirectory(expand(g:my_plug_home.'vim-nerdtree-syntax-highlight'))
     let g:NERDTreeFileExtensionHighlightFullName = 1
     let g:NERDTreeExactMatchHighlightFullName = 1
     let g:NERDTreePatternMatchHighlightFullName = 1
@@ -218,7 +218,7 @@ endif
 " }
 
 " vim-ctrlp {
-if isdirectory(expand('~/.vim/plugged/ctrlp.vim'))
+if isdirectory(expand(g:my_plug_home.'ctrlp.vim'))
     let g:ctrlp_working_path_mode = 'ra'	" search for nearest ancestor like .git, .hg, and the directory of the current file
     let g:ctrlp_match_window_bottom = 0		" show the match window at the top of the screen
     let g:ctrlp_by_filename = 1
@@ -252,15 +252,120 @@ endif
 " }
 
 " delimitMate {
-if isdirectory(expand('~/.vim/plugged/delimitMate'))
+if isdirectory(expand(g:my_plug_home.'delimitMate'))
     let g:delimitMate_expand_cr=1
 endif
 " }
 
 " vim-trailing-whitespace {
-if isdirectory(expand('~/.vim/plugged/vim-trailing-whitespace'))
+if isdirectory(expand(g:my_plug_home.'vim-trailing-whitespace'))
     nnoremap <Leader>xd :FixWhitespace<CR>
 endif
 " }
 
+" The decoration about statusline was stealed from
+" https://github.com/junegunn/dotfiles/blob/master/vimrc.
+" %< Where to truncate
+" %n buffer number
+" %F Full path
+" %m Modified flag: [+], [-]
+" %r Readonly flag: [RO]
+" %y Type:          [vim]
+" fugitive#statusline()
+" %= Separator
+" %-14.(...)
+" %l Line
+" %c Column
+" %V Virtual column
+" %P Percentage
+" %#HighlightGroup#
+set statusline=%<[%n]\ %F\ %m%r%y\ %{exists('g:loaded_fugitive')?fugitive#statusline():''}\ %=%-14.(%l,%c%V%)\ %P
+silent! if emoji#available()
+let s:ft_emoji = map({
+            \ 'c':          'baby_chick',
+            \ 'clojure':    'lollipop',
+            \ 'coffee':     'coffee',
+            \ 'cpp':        'chicken',
+            \ 'css':        'art',
+            \ 'eruby':      'ring',
+            \ 'gitcommit':  'soon',
+            \ 'haml':       'hammer',
+            \ 'help':       'angel',
+            \ 'html':       'herb',
+            \ 'java':       'older_man',
+            \ 'javascript': 'monkey',
+            \ 'make':       'seedling',
+            \ 'markdown':   'book',
+            \ 'perl':       'camel',
+            \ 'python':     'snake',
+            \ 'ruby':       'gem',
+            \ 'scala':      'barber',
+            \ 'sh':         'shell',
+            \ 'slim':       'dancer',
+            \ 'text':       'books',
+            \ 'vim':        'poop',
+            \ 'vim-plug':   'electric_plug',
+            \ 'yaml':       'yum',
+            \ 'yaml.jinja': 'yum'
+            \ }, 'emoji#for(v:val)')
+
+function! S_filetype()
+    if empty(&filetype)
+        return emoji#for('grey_question')
+    else
+        return get(s:ft_emoji, &filetype, '['.&filetype.']')
+    endif
+endfunction
+
+function! S_modified()
+    if &modified
+        return emoji#for('kiss').' '
+    elseif !&modifiable
+        return emoji#for('construction').' '
+    else
+        return ''
+    endif
+endfunction
+
+function! S_fugitive()
+    if !exists('g:loaded_fugitive')
+        return ''
+    endif
+    let head = fugitive#head()
+    if empty(head)
+        return ''
+    else
+        return head == 'master' ? emoji#for('crown') : emoji#for('dango').'='.head
+    endif
+endfunction
+
+let s:braille = split('"⠉⠒⠤⣀', '\zs')
+function! Braille()
+    let len = len(s:braille)
+    let [cur, max] = [line('.'), line('$')]
+    let pos  = min([len * (cur - 1) / max([1, max - 1]), len - 1])
+    return s:braille[pos]
+endfunction
+
+hi def link User1 TablineFill
+let s:cherry = emoji#for('cherry_blossom')
+function! MyStatusLine()
+    let mod = '%{S_modified()}'
+    let ro  = "%{&readonly ? emoji#for('lock') . ' ' : ''}"
+    let ft  = '%{S_filetype()}'
+    let fug = ' %{S_fugitive()}'
+    let sep = ' %= '
+    let pos = ' %l,%c%V '
+    let pct = ' %P '
+
+    return s:cherry.' [%n] %F %<'.mod.ro.ft.fug.sep.pos.'%{Braille()}%*'.pct.s:cherry
+endfunction
+
+" Note that the "%!" expression is evaluated in the context of the
+" current window and buffer, while %{} items are evaluated in the
+" context of the window that the statusline belongs to.
+set statusline=%!MyStatusLine()
+endif
+
+" Reload .vimrc
 nnoremap <Leader>fR :source $MYVIMRC<CR>
