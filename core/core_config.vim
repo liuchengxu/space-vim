@@ -1,4 +1,5 @@
 let s:spacevim_layers_dir = '/layers'
+let s:dot_spacevim = $HOME.'/.spacevim'
 
 let s:spacevim_tab = get(s:, 'spacevim_tab', -1)
 let s:spacevim_buf = get(s:, 'spacevim_buf', -1)
@@ -12,63 +13,36 @@ let s:TYPE = {
             \   'funcref': type(function('call'))
             \ }
 
-let g:LANG = [
-            \   'c-c++',
-            \   'html',
-            \   'python',
-            \   'markdown',
-            \   'graphviz',
-            \]
+" get the whole available layers number s:layers_sum, number
+" get the topics s:topics, list
+" get the pair topic to layers s:topic2layers, dict
+function! s:collect_topics()
 
-let g:FUN = [
-            \   'emoji',
-            \   'goyo',
-            \]
+" Don't indent 
+let py_exe = has('python') ? 'python' : 'python3'
 
-let g:VIM = [
-            \   'better-defaults',
-            \   'programming',
-            \   'text-align',
-            \]
+execute py_exe "<< EOF"
+import os
+import vim
+topic_base = vim.eval('g:spacevim_base_dir') + vim.eval('s:spacevim_layers_dir')
+topics = [f for f in os.listdir(topic_base) if os.path.isdir(os.path.join(topic_base,f))]
+topic2layers = {}
+layers_sum = 0
+for t in topics:
+    topic_path = topic_base + '/' + t
+    layers = [f for f in os.listdir(topic_path) if os.path.isdir(os.path.join(topic_path,f))]
+    layers_sum = layers_sum + len(layers)
+    topic2layers[t] = layers
+vim.command("let s:layers_sum = %d" % layers_sum)
+vim.command("let s:topics = %s" % topics)
+vim.command("let s:topic2layers = %s" % topic2layers)
+EOF
 
-let g:TOOLS = [
-            \   'fzf',
-            \   'ycmd',
-            \]
+endfunction
 
-let g:THEMES = [
-            \   'colors',
-            \   'airline',
-            \]
-
-let g:CHECKERS = [
-            \   'syntax-checking',
-            \]
-
-let g:COMPLETION = [
-            \   'unite',
-            \]
-
-let g:OTHERS = [
-            \]
-
-let g:VERSION_CONTROL = [
-            \   'git',
-            \   'github',
-            \]
-
-let g:LAYERS = [g:LANG, g:FUN, g:VIM, g:TOOLS, g:THEMES, g:CHECKERS, g:COMPLETION, g:VERSION_CONTROL, g:OTHERS]
+call s:collect_topics()
 
 let g:layers_loaded = []
-
-" calculate the number of whole available layers
-function! s:cal_layers_num()
-    let l:num = 0
-    for l:topic in g:LAYERS
-        let l:num = l:num + len(l:topic)
-    endfor
-    return l:num
-endfunction
 
 function! s:err(msg)
     echohl ErrorMsg
@@ -153,7 +127,7 @@ function! s:layer_status()
 
     let [l:cnt, l:total] = [0, len(g:layers_loaded)]
 
-    call append(0, ['Enabled layers: ' . '(' . len(g:layers_loaded) . '/' . s:cal_layers_num() . ')'])
+    call append(0, ['Enabled layers: ' . '(' . len(g:layers_loaded) . '/' . s:layers_sum . ')'])
     call setline(2, '[' . repeat('=', len(g:layers_loaded)) . ']')
     let l:inx = 3
     for l:layer in g:layers_loaded
@@ -227,12 +201,11 @@ function! s:load_private_packages()
 endfunction
 
 function! s:check_user_config()
-    let l:private_spacevim = '~/.spacevim'
-    if filereadable(expand(l:private_spacevim))
-        call Source(l:private_spacevim)
-        let s:private_spacevim_exists = 1
+    if filereadable(expand(s:dot_spacevim))
+        call Source(s:dot_spacevim)
+        let s:dot_spacevim_exists = 1
     else
-        let s:private_spacevim_exists = 0
+        let s:dot_spacevim_exists = 0
     endif
 endfunction
 
@@ -252,21 +225,20 @@ function! LayersEnd()
         let g:maplocalleader = ','
     endif
 
-    if s:private_spacevim_exists
+    if s:dot_spacevim_exists
         call UserInit()
     endif
 
-    call s:load_private_packages()
-
     call s:load_layer_packages()
+    call s:load_private_packages()
 
     call plug#end()
 
     call s:load_layer_config()
-
     call s:load_private_config()
 
-    if s:private_spacevim_exists
+    " Load user's private configuration
+    if s:dot_spacevim_exists
         call UserConfig()
     endif
 
@@ -276,37 +248,12 @@ endfunction
 function! s:cur_layer_base_dir(layer)
 
     let l:layers_base = g:spacevim_base_dir . s:spacevim_layers_dir
-    if index(g:VIM, a:layer) > -1
-        return l:layers_base . '/+vim/'
-
-    elseif index(g:LANG, a:layer) > -1
-        return l:layers_base . '/+lang/'
-
-    elseif index(g:FUN, a:layer) > -1
-        return l:layers_base . '/+fun/'
-
-    elseif index(g:TOOLS, a:layer) > -1
-        return l:layers_base . '/+tools/'
-
-    elseif index(g:THEMES, a:layer) > -1
-        return l:layers_base . '/+themes/'
-
-    elseif index(g:COMPLETION, a:layer) > -1
-        return l:layers_base . '/+completion/'
-
-    elseif index(g:CHECKERS, a:layer) > -1
-        return l:layers_base . '/+checkers/'
-
-    elseif index(g:VERSION_CONTROL, a:layer) > -1
-        return l:layers_base . '/+version-control/'
-
-    elseif index(g:OTHERS, a:layer) > -1
-        return l:layers_base . '/'
-
-    else
-        return s:err('*' . a:layer . '* is invalid, no such layer, please check it.')
-
-    endif
+    for [key, val] in items(s:topic2layers)
+        if index(val, a:layer) > -1
+            return l:layers_base . '/' . key . '/'
+        endif
+    endfor
+    return s:err('Layer * ' . a:layer . ' * is invalid, please check it.')
 endfunction
 
 function! s:load_layer_packages()
@@ -329,5 +276,3 @@ function! s:load_private_config()
         execute 'source ' . fnameescape(l:private_config)
     endif
 endfunction
-
-
