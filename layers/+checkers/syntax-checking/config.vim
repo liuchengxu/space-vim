@@ -1,7 +1,7 @@
 scriptencoding utf-8
 if index(g:layers_loaded, 'syntax-checking') > -1
     " ale
-    if isdirectory(expand('~/.vim/plugged/ale'))
+    if isdirectory(expand(g:my_plug_home.'ale'))
         let g:ale_linters = {
                     \   'sh' : ['shellcheck'],
                     \   'vim' : ['vint'],
@@ -24,7 +24,7 @@ if index(g:layers_loaded, 'syntax-checking') > -1
     endif
 
     " syntastic
-    if isdirectory(expand('~/.vim/plugged/syntastic'))
+    if isdirectory(expand(g:my_plug_home.'syntastic'))
         let g:syntastic_python_checkers=['pyflakes']
         let g:syntastic_javascript_checkers=['jsl', 'jshint']
         let g:syntastic_html_checkers=['tidy', 'jshint']

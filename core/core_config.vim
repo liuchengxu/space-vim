@@ -1,3 +1,4 @@
+
 let s:spacevim_layers_dir = '/layers'
 let s:dot_spacevim = $HOME.'/.spacevim'
 
@@ -18,7 +19,7 @@ let s:TYPE = {
 " get the pair topic to layers s:topic2layers, dict
 function! s:collect_topics()
 
-" Don't indent 
+" Don't indent
 let py_exe = has('python') ? 'python' : 'python3'
 
 execute py_exe "<< EOF"
@@ -73,9 +74,12 @@ function! LayersBegin()
                     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
     endif
 
-    let s:plugged_home = '~/.vim/plugged'
+    if !exists('g:my_plug_home')
+        let g:my_plug_home = $HOME.'/.vim/plugged/'
+    endif
+
     " Important
-    call plug#begin(s:plugged_home)
+    call plug#begin(g:my_plug_home)
 
     call s:define_command()
 
@@ -92,7 +96,7 @@ function! s:add_layer(...)
     elseif a:0 == 1
         call add(g:layers_loaded, eval(a:1))
     else
-        call s:err('Options not supported now.')
+        call s:err('Options not supported now. Sorry for that.')
     endif
 endfunction
 

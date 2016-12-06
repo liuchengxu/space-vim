@@ -74,7 +74,7 @@ augroup SPACEVIM_BASIC
 augroup END
 
 " ultisnips {
-if isdirectory(expand('~/.vim/plugged/ultisnips'))
+if isdirectory(expand(g:my_plug_home.'ultisnips'))
     " Set ultisnips triggers
     let g:UltiSnipsSnippetDirectories=['UltiSnips']
     let g:UltiSnipsSnippetsDir = '~/.vim/plugged/vim-snippets/UltiSnips/'
@@ -98,7 +98,7 @@ endif
 " }
 
 " vim-startify {
-if isdirectory(expand('~/.vim/plugged/vim-startify'))
+if isdirectory(expand(g:my_plug_home.'vim-startify'))
     let g:startify_custom_header = [
                 \'                                             _',
                 \'         ___ _ __   __ _  ___ ___     __   _(_)_ __ ___',
@@ -137,7 +137,7 @@ endif
 " <Leader><Leader>j
 " <Leader><Leader>k
 " Jump to line
-if isdirectory(expand('~/.vim/plugged/vim-easymotion'))
+if isdirectory(expand(g:my_plug_home.'vim-easymotion'))
     map <Leader>jl <Plug>(easymotion-bd-jk)
     nmap <Leader>jl <Plug>(easymotion-overwin-line)
     " Jump to word
@@ -147,7 +147,7 @@ endif
 " }
 
 " nerdtree {
-if isdirectory(expand('~/.vim/plugged/nerdtree'))
+if isdirectory(expand(g:my_plug_home.'nerdtree'))
     let g:NERDTreeShowHidden=1            " 显示隐藏文件
     let g:NERDTreeAutoDeleteBuffer=1      " 删除文件时自动删除文件对应buffer
     let g:NERDTreeIgnore=[
@@ -162,7 +162,7 @@ endif
 " }
 
 "nerdtree-git-plugin {
-if isdirectory(expand('~/.vim/plugged/nerdtree-git-plugin'))
+if isdirectory(expand(g:my_plug_home.'nerdtree-git-plugin'))
     let g:NERDTreeIndicatorMapCustom = {
                 \ 'Modified'  : '✹',
                 \ 'Staged'    : '✚',
@@ -178,7 +178,7 @@ endif
 " }
 
 " vim-nerdtree-syntax-highlight {
-if isdirectory(expand('~/.vim/plugged/vim-nerdtree-syntax-highlight'))
+if isdirectory(expand(g:my_plug_home.'vim-nerdtree-syntax-highlight'))
     let g:NERDTreeFileExtensionHighlightFullName = 1
     let g:NERDTreeExactMatchHighlightFullName = 1
     let g:NERDTreePatternMatchHighlightFullName = 1
@@ -218,7 +218,7 @@ endif
 " }
 
 " vim-ctrlp {
-if isdirectory(expand('~/.vim/plugged/ctrlp.vim'))
+if isdirectory(expand(g:my_plug_home.'ctrlp.vim'))
     let g:ctrlp_working_path_mode = 'ra'	" search for nearest ancestor like .git, .hg, and the directory of the current file
     let g:ctrlp_match_window_bottom = 0		" show the match window at the top of the screen
     let g:ctrlp_by_filename = 1
@@ -252,13 +252,13 @@ endif
 " }
 
 " delimitMate {
-if isdirectory(expand('~/.vim/plugged/delimitMate'))
+if isdirectory(expand(g:my_plug_home.'delimitMate'))
     let g:delimitMate_expand_cr=1
 endif
 " }
 
 " vim-trailing-whitespace {
-if isdirectory(expand('~/.vim/plugged/vim-trailing-whitespace'))
+if isdirectory(expand(g:my_plug_home.'vim-trailing-whitespace'))
     nnoremap <Leader>xd :FixWhitespace<CR>
 endif
 " }

@@ -1,7 +1,7 @@
 if index(g:layers_loaded, 'airline') > -1
 
     " vim-airline {
-    if isdirectory(expand('~/.vim/plugged/vim-airline'))
+    if isdirectory(expand(g:my_plug_home.'vim-airline'))
         " let g:airline_theme="luna"
         let g:airline_theme='violet'
         " let g:airline_theme="powerlineish"
