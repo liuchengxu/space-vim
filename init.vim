@@ -5,10 +5,9 @@
 "      |___/ .__/ \__._|\___\___|      \_/ |_|_| |_| |_|
 "          |_|
 "
-"   This is the personal .vimrc file of Liu-Cheng Xu.
-"   Considering it is beneficial for general use, I would
-"   recommend picking out the parts you want and understand.
-"
+"   You can customize spacevim with .spacevim and don't have to care of this
+"   file.
+"   
 "   Author: Liu-Cheng Xu <xuliuchengxlc@gmail.com>
 "   URL: https://github.com/liuchengxu/space-vim
 "
@@ -54,16 +53,12 @@ let g:spacevim_version = '0.1.0'
 
 call Source(g:spacevim_base_dir . g:spacevim_core_dir . '/core_config.vim')
 
-""""""""""""""""""""""""""""""""""""""""""""""
-" Load layers
-""""""""""""""""""""""""""""""""""""""""""""""
 call LayersBegin()
 
 " Default layers
-Layer 'unite'
 Layer 'fzf'
+Layer 'unite'
 Layer 'colors'
 Layer 'better-defaults'
 
 call LayersEnd()
-"""""""""""""""""""""""""""""""""""""""""""""

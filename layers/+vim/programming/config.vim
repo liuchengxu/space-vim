@@ -67,13 +67,13 @@ if index(g:layers_loaded, 'programming') > -1
 
     " asyncrun.vim {
     if isdirectory(expand(g:my_plug_home.'asyncrun.vim'))
-        nnoremap <F5> :call s:compile_and_run()<CR>
+        nnoremap <F5> :call <SID>compile_and_run()<CR>
         augroup SPACEVIM_ASYNCRUN
             autocmd!
             autocmd User AsyncRunStart call asyncrun#quickfix_toggle(20, 1)
         augroup END
         function! s:compile_and_run()
-            exec "w"
+            exec 'w'
             if &filetype == 'c'
                 exec "AsyncRun! gcc % -o %<; time ./%<"
             elseif &filetype == 'cpp'
@@ -91,7 +91,7 @@ if index(g:layers_loaded, 'programming') > -1
 
     " nerdcommenter {
     if isdirectory(expand(g:my_plug_home.'nerdcommenter'))
-        let NERDSpaceDelims=1
+        let g:NERDSpaceDelims=1
 
         nmap <Leader>;; <Plug>NERDCommenterToggle
         omap <Leader>;; <Plug>NERDCommenterToggle
