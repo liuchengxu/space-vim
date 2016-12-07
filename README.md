@@ -3,7 +3,7 @@
 ***
 
 <p align="center">
-:cn: <b><a href="doc/README_cn.md">中文简介</a></b>
+:cn: <b><a href="README_cn.md">中文简介</a></b>
 </p>
 ***
 <p align="center">
