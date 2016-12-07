@@ -7,19 +7,11 @@ let s:spacevim_buf = get(s:, 'spacevim_buf', -1)
 
 autocmd BufRead,BufNewFile *.spacevim set filetype=vim
 
-let s:TYPE = {
-            \   'string':  type(''),
-            \   'list':    type([]),
-            \   'dict':    type({}),
-            \   'funcref': type(function('call'))
-            \ }
-
 " get the whole available layers number s:layers_sum, number
 " get the topics s:topics, list
 " get the pair topic to layers s:topic2layers, dict
 function! s:collect_topics()
 
-" Don't indent
 let py_exe = has('python') ? 'python' : 'python3'
 
 execute py_exe "<< EOF"
@@ -57,14 +49,6 @@ function! s:warn(cmd, msg)
     echohl None
 endfunction
 
-function! s:to_a(v)
-    return type(a:v) == s:TYPE.list ? a:v : [a:v]
-endfunction
-
-function! s:to_s(v)
-    return type(a:v) == s:TYPE.string ? a:v : join(a:v, "\n") . "\n"
-endfunction
-
 function! LayersBegin()
 
     " Download vim-plug if unavailable
@@ -74,11 +58,12 @@ function! LayersBegin()
                     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
     endif
 
+    let s:vim_home = $HOME.'/.vim/'
+
     if !exists('g:my_plug_home')
-        let g:my_plug_home = $HOME.'/.vim/plugged/'
+        let g:my_plug_home = s:vim_home.'plugged/'
     endif
 
-    " Important
     call plug#begin(g:my_plug_home)
 
     call s:define_command()
@@ -87,6 +72,9 @@ endfunction
 
 function! s:define_command()
     command! -nargs=+ -bar Layer call s:add_layer(<f-args>)
+    command! -nargs=0 -bar LayerInstall call s:layer_install()
+    command! -nargs=0 -bar LayerClean call s:layer_clean()
+    command! -nargs=0 -bar LayerUpdate call s:layer_update()
     command! -nargs=0 -bar LayerStatus call s:layer_status()
 endfunction
 
@@ -98,6 +86,18 @@ function! s:add_layer(...)
     else
         call s:err('Options not supported now. Sorry for that.')
     endif
+endfunction
+
+function! s:layer_install()
+    execute 'PlugInstall'
+endfunction
+
+function! s:layer_update()
+    execute 'PlugUpdate'
+endfunction
+
+function! s:layer_clean()
+    execute 'PlugClean'
 endfunction
 
 function! s:new_window()
@@ -197,13 +197,6 @@ function! s:syntax()
     hi def link LayerNotLoaded Comment
 endfunction
 
-function! s:load_private_packages()
-    let l:private_packages = g:spacevim_base_dir . '/private/packages.vim'
-    if filereadable(expand(l:private_packages))
-        execute 'source ' . fnameescape(l:private_packages)
-    endif
-endfunction
-
 function! s:check_user_config()
     if filereadable(expand(s:dot_spacevim))
         call Source(s:dot_spacevim)
@@ -241,7 +234,6 @@ function! LayersEnd()
     call s:load_layer_config()
     call s:load_private_config()
 
-    " Load user's private configuration
     if s:dot_spacevim_exists
         call UserConfig()
     endif
@@ -265,6 +257,13 @@ function! s:load_layer_packages()
         let l:layer_packages = s:cur_layer_base_dir(l:layer) . l:layer . '/packages.vim'
         call Source(l:layer_packages)
     endfor
+endfunction
+
+function! s:load_private_packages()
+    let l:private_packages = g:spacevim_base_dir . '/private/packages.vim'
+    if filereadable(expand(l:private_packages))
+        execute 'source ' . fnameescape(l:private_packages)
+    endif
 endfunction
 
 function! s:load_layer_config()
