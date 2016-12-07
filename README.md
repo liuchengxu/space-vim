@@ -21,6 +21,7 @@
     * [Linux and macOS](#linux-and-macos)
     * [Windows](#windows)
 * [Customize](#customize)
+* [Usage](#usage)
 * [Update](#update)
 * [Contributions](#contributions)
 * [Acknowledgements](#acknowledgements)
@@ -90,6 +91,10 @@ endfunction
 ```
 
 If have a heavy customized configuration, you can organize them in private directory with `packages.vim` and `config.vim` too.
+
+## Usage
+
+For more information, you'd better refer to the README under the layer you want to enable or see config.vim and packages.vim directly.
 
 ## Update
 
