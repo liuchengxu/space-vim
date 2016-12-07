@@ -23,15 +23,16 @@
 * [Customize](#customize)
 * [Update](#update)
 * [Contributions](#contributions)
+* [Acknowledgements](#acknowledgements)
 
 <!-- vim-markdown-toc -->
 
 ## Introduction
 
-At the very beginning, I just want to have a fully customized vim configuration, which is also convenient to rebuild the vim environment from scratch on a new machine.
+At the very beginning, I just want to have a fully customized vim configuration, which is also handy to rebuild the vim environment from scratch on a new machine.
 Afterwards, I start to use [spacemacs](https://github.com/syl20bnr/spacemacs) and was amazed by its beautiful GUI as well as mnemonic key bindings.
 
-Now, I often use spacemacs when in GUI environment. But in terminal, vim is definitely my first choice. Then I hope to maintain consistency in the two scenes as much as possible.
+Now, I often use spacemacs when in GUI environment. But in terminal, vim is definitely my first choice. Then I hope to maintain consistency in operation in the two scenes as much as possible.
 Hence I try to reconfig the vim based on spacemacs's architecture, especially in key bindings and GUI. This is space-vim at present. 
 
 ![screenshot](doc/img/screenshot.png)
@@ -43,7 +44,7 @@ Hence I try to reconfig the vim based on spacemacs's architecture, especially in
 
 ## Install
 
-You have to satisfy some prerequsites at first: vim with `+python` or `+python3`, git.
+You have to satisfy some prerequisites at first: vim with `+python` or `+python3` feature, git.
 
 ### Linux and macOS
 
@@ -65,7 +66,30 @@ Not tested now.
 
 ## Customize
 
-`.spacevim` in your home directory is similar to `.spacemacs` in spacemacs, where you can enable layers and put your own private configuration. If you have a heavy customized configuration, 
+`.spacevim` in your home directory is similar to `.spacemacs` in spacemacs, where you can enable layers and put your own private configuration. 
+
+```vim
+" Put layers you want to enable as well as extra private plugins
+function! UserInit()
+    " Space has been set as the default leader key,
+    " if you want to change it, uncomment and set it here.
+    " let g:spacevim_leader = "<\Space>"
+    " let g:spacevim_localleader = ','
+
+    " Put the layers you want to enable
+    " Layer 'emoji'
+
+    " Put private plugins
+    " Plug 'junegunn/vim-github-dashboard'
+endfunction
+
+" Customize configuration
+function! UserConfig()
+    " color space-vim-dark
+endfunction
+```
+
+If have a heavy customized configuration, you can organize them in private directory with `packages.vim` and `config.vim` too.
 
 ## Update
 
