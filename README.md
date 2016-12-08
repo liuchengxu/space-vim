@@ -119,7 +119,8 @@ vim +PlugInstall! +PlugUpdate +PlugClean +q
 
 ## FAQ
 
-Q: Why develop this?
+Q: Why develop this? 
+
 A: I often use spacemacs when in GUI environment. But in terminal, vim is definitely my first choice. Then I hope to maintain consistency in operation in the two scenes as much as possible.
 Hence I try to reconfig the vim based on spacemacs's architecture, especially in key bindings and GUI. This is space-vim at present. 
 
