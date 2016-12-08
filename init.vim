@@ -15,10 +15,6 @@
 
 scriptencoding utf-8
 
-let g:spacevim_base_dir = $HOME.'/.space-vim'
-let g:spacevim_core_dir = '/core'
-let g:spacevim_version = '0.1.0'
-
 " Tools {
 
     " Identify platform {
@@ -50,6 +46,10 @@ let g:spacevim_version = '0.1.0'
     endfunction
 
 " }
+
+let g:spacevim_base_dir = $HOME.'/.space-vim'
+let g:spacevim_core_dir = '/core'
+let g:spacevim_version = '0.1.0'
 
 call Source(g:spacevim_base_dir . g:spacevim_core_dir . '/core_config.vim')
 

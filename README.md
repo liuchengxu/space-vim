@@ -3,7 +3,7 @@
 ***
 
 <p align="center">
-:cn: <b><a href="doc/README_cn.md">中文简介</a></b>
+:cn: <b><a href="README_cn.md">中文简介</a></b>
 </p>
 ***
 <p align="center">
@@ -64,6 +64,12 @@ You have to satisfy some prerequisites at first: vim with `+python` or `+python3
 ### Windows
 
 Not tested now. 
+
+:warning: For neovim, after the installer is done, you still need to create a symlink:
+
+```sh
+ln -s ~/.space-vim/init.vim ~/.config/nvim/init.vim
+```
 
 ## Customize
 
