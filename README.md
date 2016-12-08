@@ -23,6 +23,7 @@
 * [Customize](#customize)
 * [Usage](#usage)
 * [Update](#update)
+* [FAQ](#faq)
 * [Contributions](#contributions)
 * [Acknowledgements](#acknowledgements)
 
@@ -30,17 +31,17 @@
 
 ## Introduction
 
-At the very beginning, I just want to have a fully customized vim configuration, which is also handy to rebuild the vim environment from scratch on a new machine.
-Afterwards, I start to use [spacemacs](https://github.com/syl20bnr/spacemacs) and was amazed by its beautiful GUI as well as mnemonic key bindings.
+space-vim is a vim distribution for vim plugins and resources, compatible with Vim and Neovim.
 
-Now, I often use spacemacs when in GUI environment. But in terminal, vim is definitely my first choice. Then I hope to maintain consistency in operation in the two scenes as much as possible.
-Hence I try to reconfig the vim based on spacemacs's architecture, especially in key bindings and GUI. This is space-vim at present. 
+It is inspired by [spacemacs](https://github.com/syl20bnr/spacemacs), espcially in key bindings and GUI. if have ever tried spaceamcs, you will find spacevim is very similar to it in user experience.
+
+The distribution is completely customisable using `.spacevim`, which is equivalent to `.spacemacs` in spacemacs.
 
 ![screenshot](doc/img/screenshot.png)
 
 ## Features
 
-- **Beautiful GUI:** I have also written a vim colorscheme based on spacemacs-dark theme.
+- **Beautiful GUI:** I have also written a vim colorscheme [space-vim-dark](https://github.com/liuchengxu/space-vim-dark) based on spacemacs-dark theme.
 - **Mnemonic key bindings:** commands have mnemonic prefixes like <kbd>SPC b</kbd> for all the buffer commands.
 
 ## Install
@@ -73,7 +74,7 @@ ln -s ~/.space-vim/init.vim ~/.config/nvim/init.vim
 
 ## Customize
 
-`.spacevim` in your home directory is similar to `.spacemacs` in spacemacs, where you can enable layers and put your own private configuration. 
+You can use `.spacevim` in your home directory to customize space-vim, where you can enable existing layers, add your extra plugins and private configuration. 
 
 ```vim
 " Put layers you want to enable as well as extra private plugins
@@ -96,11 +97,13 @@ function! UserConfig()
 endfunction
 ```
 
-If have a heavy customized configuration, you can organize them in private directory with `packages.vim` and `config.vim` too.
+If have a heavy customized configuration, you can organize them in private directory with `packages.vim` and `config.vim` too, which will be loaded on startup. 
 
 ## Usage
 
-For more information, you'd better refer to the README under the layer you want to enable or see config.vim and packages.vim directly. If the README is not elaborate for you, sorry for that, space-vim now is in the early stages and a ton of stuffs are waitting to be done.
+For more information, you'd better refer to the README under the layer enabled or see config.vim and packages.vim directly. 
+
+If the README is not elaborate, sorry for that, space-vim now is in the early stages and a ton of stuffs are waitting to be done.
 
 ## Update
 
@@ -114,9 +117,16 @@ git pull
 vim +PlugInstall! +PlugUpdate +PlugClean +q
 ```
 
+## FAQ
+
+Q: Why develop this?
+A: I often use spacemacs when in GUI environment. But in terminal, vim is definitely my first choice. Then I hope to maintain consistency in operation in the two scenes as much as possible.
+Hence I try to reconfig the vim based on spacemacs's architecture, especially in key bindings and GUI. This is space-vim at present. 
+
+
 ## Contributions
 
-Space-vim is still in beta. If you are interested too, contributions are highly welcome.
+Space-vim is still in beta. If you are interested, contributions are highly welcome.
 
 ## Acknowledgements
 
