@@ -65,6 +65,12 @@ You have to satisfy some prerequisites at first: vim with `+python` or `+python3
 
 Not tested now. 
 
+:warning: For neovim, after the installer is done, you still need to create a symlink:
+
+```sh
+ln -s ~/.space-vim/init.vim ~/.config/nvim/init.vim
+```
+
 ## Customize
 
 `.spacevim` in your home directory is similar to `.spacemacs` in spacemacs, where you can enable layers and put your own private configuration. 

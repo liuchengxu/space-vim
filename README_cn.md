@@ -9,6 +9,12 @@
 
 :warning: 目前支持 Linux and macOS, windows 尚未测试。
 
+如果使用 neovim, 只需要在安装脚本后建立一个软连接: 
+
+```sh
+ln -s ~/.space-vim/init.vim ~/.config/nvim/init.vim
+```
+
 ### 快速安装
 
 - curl
