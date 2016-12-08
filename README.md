@@ -100,7 +100,7 @@ If have a heavy customized configuration, you can organize them in private direc
 
 ## Usage
 
-For more information, you'd better refer to the README under the layer you want to enable or see config.vim and packages.vim directly.
+For more information, you'd better refer to the README under the layer you want to enable or see config.vim and packages.vim directly. If the README is not elaborate for you, sorry for that, space-vim now is in the early stages and a ton of stuffs are waitting to be done.
 
 ## Update
 
