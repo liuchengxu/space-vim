@@ -60,7 +60,6 @@ if has('gui_running')
     elseif OSX() && has('gui_running')
         " set guifont=Cousine\ for\ Powerline:h13
         set guifont=Source\ Code\ Pro\ for\ Powerline:h12
-        set lines=100 columns=90
     endif
 endif
 " }
