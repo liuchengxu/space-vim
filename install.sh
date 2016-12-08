@@ -64,17 +64,16 @@ lnif() {
 }
 
 ########## Setup function
-do_backup() {
-    if [ -e "$1" ] || [ -e "$2" ] || [ -e "$3" ]; then
+backup() {
+    if [ -e "$1" ]; then
         msg "Attempting to back up your original vim configuration."
         today=`date +%Y%m%d_%s`
-        for i in "$1" "$2" "$3"; do
-            [ -e "$i" ] && [ ! -L "$i" ] && mv -v "$i" "$i.$today";
-        done
+        mv -v "$1" "$1.$today"
+
         ret="$?"
         success "Your original vim configuration has been backed up."
         debug
-   fi
+    fi
 }
 
 sync_repo() {
@@ -174,8 +173,7 @@ DOTSPACEVIM
 program_must_exist "vim"
 program_must_exist "git"
 
-do_backup       "$HOME/.vimrc" \
-                "$HOME/.gvimrc"
+backup          "$HOME/.vimrc"
 
 sync_repo       "$APP_PATH" \
                 "$REPO_URI" \
