@@ -216,6 +216,9 @@ endfunction
 
 function! LayersEnd()
 
+    " Make vim-better-default settings can be overrided
+    runtime! plugin/default.vim
+
     call s:check_user_config()
 
     if exists('g:spacevim_leader')
