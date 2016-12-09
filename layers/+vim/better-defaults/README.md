@@ -23,7 +23,7 @@
 
 ## Key Bindings
 
-### Basic 
+### Basic
 
 Key Binding            | Mode   | Description
 :---:                  | :---:  | :---:
