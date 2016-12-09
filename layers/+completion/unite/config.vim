@@ -1,5 +1,5 @@
 scriptencoding utf-8
-if index(g:layers_loaded, 'unite') > -1
+if LayerLoaded('unite')
     " unite.vim {
     let g:unite_source_menu_menus = {}
 

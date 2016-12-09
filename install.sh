@@ -34,9 +34,13 @@ debug() {
     fi
 }
 
+exists() {
+    command -v "$1" >/dev/null 2>&1
+}
+
 program_exists() {
     local ret='0'
-    command -v $1 >/dev/null 2>&1 || { local ret='1'; }
+    exists $1 || { local ret='1'; }
 
     # fail on non-zero return value
     if [ "$ret" -ne 0 ]; then

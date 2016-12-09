@@ -5,7 +5,17 @@ let s:dot_spacevim = $HOME.'/.spacevim'
 let s:spacevim_tab = get(s:, 'spacevim_tab', -1)
 let s:spacevim_buf = get(s:, 'spacevim_buf', -1)
 
+let g:layers_loaded = []
+
 autocmd BufRead,BufNewFile *.spacevim set filetype=vim
+
+function! LayerLoaded(layer)
+    if index(g:layers_loaded, a:layer) > -1
+        return 1
+    else
+        return 0
+    endif
+endfunction
 
 " get the whole available layers number s:layers_sum, number
 " get the topics s:topics, list
@@ -34,8 +44,6 @@ EOF
 endfunction
 
 call s:collect_topics()
-
-let g:layers_loaded = []
 
 function! s:err(msg)
     echohl ErrorMsg

@@ -1,5 +1,5 @@
 scriptencoding utf-8
-if index(g:layers_loaded, 'syntax-checking') > -1
+if LayerLoaded('syntax-checking')
     " ale
     if isdirectory(expand(g:my_plug_home.'ale'))
         let g:ale_linters = {

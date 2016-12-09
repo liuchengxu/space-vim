@@ -76,7 +76,7 @@ augroup END
 if isdirectory(expand(g:my_plug_home.'ultisnips'))
     " Set ultisnips triggers
     let g:UltiSnipsSnippetDirectories=['UltiSnips']
-    let g:UltiSnipsSnippetsDir = '~/.vim/plugged/vim-snippets/UltiSnips/'
+    let g:UltiSnipsSnippetsDir = g:my_plug_home.'vim-snippets/UltiSnips/'
     let g:UltiSnipsListSnippets = '<C-Tab>'
     let g:UltiSnipsJumpForwardTrigger = '<Tab>'
     let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'
@@ -109,6 +109,7 @@ if isdirectory(expand(g:my_plug_home.'vim-startify'))
                 \]
 
     augroup SPACEVIM_START
+        autocmd!
         autocmd VimEnter * if !argc() | Startify | endif
     augroup END
     let g:startify_list_order = [

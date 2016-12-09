@@ -6,21 +6,41 @@
 <!-- vim-markdown-toc GFM -->
 * [Description](#description)
 * [Install](#install)
+    * [Layer](#layer)
+    * [Dependencies](#dependencies)
+        * [Auto-completion](#auto-completion)
+        * [Syntax checking](#syntax-checking)
 * [Key Bindings](#key-bindings)
 
 <!-- vim-markdown-toc -->
 
 ## Description
 
-如果启用 `syntax-checking` Layer, 在语法检查时 vim8 使用 ale, 否则使用 syntastic. 需要安装 flake8 这一语法检查工具.
+This layer adds support for the Python language.
 
 ## Install
 
-在 .spacevim UserInit() 中启用 `Layer 'python'`.
+### Layer
+
+To use this configuration layer, add it to your `~/.spacevim`.
+
+### Dependencies
+
+#### Auto-completion
+
+`ycmd` layer needed.
+
+#### Syntax checking
+
+`syntax-checking` layer needed. Syntax checking uses `flake8` package:
+
+```sh
+pip install flake8
+```
 
 ## Key Bindings
 
 Key Binding    | Mode   | Description
 :---:          | :---:  | :---:
-<kbd>F5</kbd>  | Normal | 运行
-<kbd>, =</kbd> | Normal | yapf 格式化代码
+<kbd>F5</kbd>  | Normal | Execute current file
+<kbd>, =</kbd> | Normal | Reformat the buffer according to PEP8 using [YAPF](https://github.com/google/yapf)

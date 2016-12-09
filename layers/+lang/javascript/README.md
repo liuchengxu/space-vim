@@ -2,16 +2,17 @@
 
 **Table of Contents**
 
-    <!-- vim-markdown-toc GFM -->
-    * [Description](#description)
-    * [Install](#install)
-    <!-- vim-markdown-toc -->
+<!-- vim-markdown-toc GFM -->
+* [Description](#description)
+* [Install](#install)
+
+<!-- vim-markdown-toc -->
 
 ## Description
 
-    Better JavaScript support.
+This layer adds support for the JavaScript language.
 
 ## Install
 
-    Add `Layer 'javascript'` to `.spacevim UserInit()`;
+To use this configuration layer, add it to your `~/.spacevim`.
 

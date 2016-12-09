@@ -6,12 +6,13 @@
 <!-- vim-markdown-toc GFM -->
 * [Description](#description)
 * [Install](#install)
-* [Key Bindings](#key-bindings)
 
 <!-- vim-markdown-toc -->
 
 ## Description
 
+This layer adds many popular vim colorschemes.
+
 ## Install
 
-## Key Bindings
+To use this configuration layer, add it to your `~/.spacevim`.

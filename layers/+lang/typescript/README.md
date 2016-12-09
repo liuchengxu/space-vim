@@ -2,16 +2,16 @@
 
 **Table of Contents**
 
-    <!-- vim-markdown-toc GFM -->
-    * [Description](#description)
-    * [Install](#install)
-    <!-- vim-markdown-toc -->
+<!-- vim-markdown-toc GFM -->
+* [Description](#description)
+* [Install](#install)
+
+<!-- vim-markdown-toc -->
 
 ## Description
 
-    Add TypeScript support.
+This adds support for the TypeScript language.
 
 ## Install
 
-    Add `Layer 'typescript'` to `.spacevim UserInit()`;
-
+To use this configuration layer, add it to your `~/.spacevim`.

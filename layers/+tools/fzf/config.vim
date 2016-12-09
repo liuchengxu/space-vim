@@ -1,8 +1,10 @@
-if index(g:layers_loaded, 'fzf') > -1
+if LayerLoaded('fzf')
+
     " fzf.vim {
     if isdirectory(expand(g:my_plug_home.'fzf.vim'))
         nnoremap <Leader>bb :Buffers<CR>
     endif
     " }
+
 endif
 

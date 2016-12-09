@@ -1,4 +1,4 @@
-if index(g:layers_loaded, 'emoji') > -1
+if LayerLoaded('emoji')
     if isdirectory(expand(g:my_plug_home.'vim-emoji'))
         augroup emoji_complete
             autocmd!

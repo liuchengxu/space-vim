@@ -1,7 +1,5 @@
 # Text-Align layer
 
-
-
 **Table of Contents**
 
 <!-- vim-markdown-toc GFM -->
@@ -27,4 +25,4 @@ Key Binding        | Mode   | Description
 <kbd>SPC a         | </kbd>|Normal, Visual | 按 | 对齐
 <kbd>SPC a :</kbd> | Normal, Visual | 按 : 对齐
 <kbd>SPC x a</kbd> | Normal, Visual | 使用 vim-easy-align 对齐
- 
+

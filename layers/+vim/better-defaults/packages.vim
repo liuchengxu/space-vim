@@ -6,11 +6,9 @@ Plug 'easymotion/vim-easymotion'
 
 Plug 'mhinz/vim-startify'
 
-Plug 'scrooloose/nerdtree',                     { 'on': 'NERDTreeToggle' }
-Plug 'Xuyuanp/nerdtree-git-plugin',             { 'on': 'NERDTreeToggle' }
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
-
-Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'bronson/vim-trailing-whitespace'
 
 " if OSX()
     " Plug 'ybian/smartim'

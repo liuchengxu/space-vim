@@ -1,6 +1,5 @@
 # Programming layer
 
-
 **Table of Contents**
 
 <!-- vim-markdown-toc GFM -->
@@ -23,4 +22,3 @@
 Key Binding        | Mode   | Description
 :---:              | :---:  | :---:
 <kbd>SPC ; ;</kbd> | Normal, Visual | 自动添加/取消注释
- 

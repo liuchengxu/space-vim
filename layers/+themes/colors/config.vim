@@ -1,4 +1,4 @@
-if index(g:layers_loaded, 'colors') > -1
+if LayerLoaded('colors')
 
     " space-vim-dark {
     if isdirectory(expand(g:my_plug_home.'space-vim-dark'))

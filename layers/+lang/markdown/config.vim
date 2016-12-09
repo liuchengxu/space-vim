@@ -1,4 +1,4 @@
-if index(g:layers_loaded, 'markdown') > -1
+if LayerLoaded('markdown')
 
     " vim-markdown {
     if isdirectory(expand(g:my_plug_home.'vim-markdown'))

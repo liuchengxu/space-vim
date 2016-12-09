@@ -1,4 +1,4 @@
-if index(g:layers_loaded, 'airline') > -1
+if LayerLoaded('airline')
 
     " vim-airline {
     if isdirectory(expand(g:my_plug_home.'vim-airline'))

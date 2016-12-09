@@ -1,7 +1,5 @@
 # Fzf layer
 
-
-
 **Table of Contents**
 
 <!-- vim-markdown-toc GFM -->
@@ -13,6 +11,10 @@
 
 ## Description
 
+This layer adds supporty fuzzy file finder and much more other functionalities.
+
 ## Install
+
+To use this configuration layer, add it to your `~/.spacevim`.
 
 ## Key Bindings

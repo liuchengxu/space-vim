@@ -1,4 +1,4 @@
-if index(g:layers_loaded, 'python') > -1
+if LayerLoaded('python')
 
     augroup SPACEVIM_PYTHON
         autocmd!

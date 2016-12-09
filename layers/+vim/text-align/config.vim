@@ -1,5 +1,6 @@
 
-if index(g:layers_loaded, 'text-align')
+if LayerLoaded('text-align')
+
     " tabular {
     if isdirectory(expand(g:my_plug_home.'tabular'))
         nmap <Leader>a= :Tabularize /=<CR>

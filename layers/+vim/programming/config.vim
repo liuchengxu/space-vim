@@ -1,6 +1,6 @@
 scriptencoding utf-8
 
-if index(g:layers_loaded, 'programming') > -1
+if LayerLoaded('programming')
 
     function!  s:add_title()
         if &filetype == 'sh'

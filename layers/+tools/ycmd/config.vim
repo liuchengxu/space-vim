@@ -1,4 +1,5 @@
-if index(g:layers_loaded, 'ycmd')
+scriptencoding utf-8
+if LayerLoaded('ycmd')
     " YouCompleteMe {
     if isdirectory(expand(g:my_plug_home.'YouCompleteMe'))
         let g:ycm_global_ycm_extra_conf = g:spacevim_base_dir . '/layers/+tools/ycmd/global_conf.py'
