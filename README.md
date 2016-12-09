@@ -72,6 +72,8 @@ Not tested now.
 ln -s ~/.space-vim/init.vim ~/.config/nvim/init.vim
 ```
 
+:exclamation: When layers enabled at first time, you need to run `:PlugInstall` to install related plugins.
+
 ## Customize
 
 You can use `.spacevim` in your home directory to customize space-vim, where you can enable existing layers, add your extra plugins and private configuration. 
