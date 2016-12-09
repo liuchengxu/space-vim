@@ -7,7 +7,7 @@
 "
 "   You can customize spacevim with .spacevim and don't have to care of this
 "   file.
-"   
+"
 "   Author: Liu-Cheng Xu <xuliuchengxlc@gmail.com>
 "   URL: https://github.com/liuchengxu/space-vim
 "

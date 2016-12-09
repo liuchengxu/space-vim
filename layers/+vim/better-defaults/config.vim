@@ -26,8 +26,6 @@ augroup SPACEVIM_GUI
     autocmd GUIEnter * nnoremap <Leader>wm :call <SID>full_screen_toggle()<CR>
 augroup END
 
-" GUI Settings {
-
 if has('gui_running')
     " 解决菜单栏乱码
     let $LANG = 'zh_CN.UTF-8'
@@ -62,7 +60,6 @@ if has('gui_running')
         set guifont=Source\ Code\ Pro\ for\ Powerline:h12
     endif
 endif
-" }
 
 augroup SPACEVIM_BASIC
     " Restore cursor position when opening file
@@ -138,6 +135,7 @@ endif
 " <Leader><Leader>k
 " Jump to line
 if isdirectory(expand(g:my_plug_home.'vim-easymotion'))
+    " Jump to line
     map <Leader>jl <Plug>(easymotion-bd-jk)
     nmap <Leader>jl <Plug>(easymotion-overwin-line)
     " Jump to word
@@ -237,7 +235,7 @@ if isdirectory(expand(g:my_plug_home.'ctrlp.vim'))
     let g:ctrlp_max_height = 10				" maxiumum height of match window
     let g:ctrlp_switch_buffer = 'et'		" jump to a file if it's open already
     let g:ctrlp_regexp = 1
-    " 如果ag可用，使用ag替换grep进行搜索
+    " If ag available, use it to replace grep
     if executable('ag')
         " Use Ag over Grep
         set grepprg=ag\ --nogroup\ --nocolor
@@ -263,7 +261,15 @@ if isdirectory(expand(g:my_plug_home.'vim-trailing-whitespace'))
 endif
 " }
 
-" The decoration about statusline was stealed from
+" incsearch.vim {
+if isdirectory(expand(g:my_plug_home.'incsearch.vim'))
+    map /  <Plug>(incsearch-forward)
+    map ?  <Plug>(incsearch-backward)
+    map g/ <Plug>(incsearch-stay)
+endif
+" }
+
+" The decoration of statusline was stealed from
 " https://github.com/junegunn/dotfiles/blob/master/vimrc.
 " %< Where to truncate
 " %n buffer number
