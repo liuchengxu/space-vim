@@ -9,7 +9,7 @@
 
 :warning: 目前支持 Linux and macOS, windows 尚未测试。
 
-如果使用 neovim, 只需要在安装脚本后建立一个软连接: 
+如果使用 neovim, 只需要在安装脚本后建立一个软连接:
 
 ```sh
 ln -s ~/.space-vim/init.vim ~/.config/nvim/init.vim
@@ -173,6 +173,8 @@ function! UserConfig()
 
 endfunction
 ```
+
+:warning: 启用 layer 后, 须执行 `:PlugInstall` 来安装相关插件才能真正生效.
 
 更多使用信息可以查看 Layer 目录下对应的 README, 当然了目前还比较粗糙，如果 README 不够详尽，还得要 查看 config.vim 和 packages.vim.
 
