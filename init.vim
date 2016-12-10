@@ -47,11 +47,11 @@ scriptencoding utf-8
 
 " }
 
-let g:spacevim_base_dir = $HOME.'/.space-vim'
+let g:spacevim_dir = $HOME.'/.space-vim'
 let g:spacevim_core_dir = '/core'
 let g:spacevim_version = '0.2.0'
 
-call Source(g:spacevim_base_dir . g:spacevim_core_dir . '/core_config.vim')
+call Source(g:spacevim_dir . g:spacevim_core_dir . '/core_config.vim')
 
 call LayersBegin()
 

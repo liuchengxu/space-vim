@@ -11,18 +11,24 @@
 
 ## Description
 
-文本对齐，最常见的比如 markdown 中的表格对齐。
+This layer adds support for the painless text alignment.
 
 ## Install
 
-启用 text-align Layer.
+To use this configuration layer, add it to your `~/.spacevim`.
 
 ## Key Bindings
 
-Key Binding        | Mode   | Description
-:---:              | :---:  | :---:
-<kbd>SPC a =</kbd> | Normal, Visual | 按 = 对齐
-<kbd>SPC a         | </kbd>|Normal, Visual | 按 | 对齐
-<kbd>SPC a :</kbd> | Normal, Visual | 按 : 对齐
-<kbd>SPC x a</kbd> | Normal, Visual | 使用 vim-easy-align 对齐
+Key Binding         | Mode           | Description
+:---:               | :---:          | :---:
+<kbd>SPC a &</kbd>  | Normal, Visual | align-repeat-ampersand
+<kbd>SPC a =</kbd>  | Normal, Visual | align-repeat-equal
+<kbd>SPC a =></kbd> | Normal, Visual | align-repeat-double-arrow
+<kbd>SPC a :</kbd>  | Normal, Visual | align-repeat-colon
+<kbd>SPC a :</kbd>  | Normal, Visual | align-repeat-colon
+<kbd>SPC a ::</kbd> | Normal, Visual | align-repeat-double-colon
+<kbd>SPC a ,</kbd>  | Normal, Visual | align-repeat-comma
+<kbd>SPC a ,,</kbd> | Normal, Visual | align-repeat-double-comma
+<kbd>SPC a | </kbd> | Normal, Visual | align-repeat-bar
+<kbd>SPC x a</kbd>  | Normal, Visual | invoke-vim-easy-align
 

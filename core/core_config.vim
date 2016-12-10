@@ -27,7 +27,7 @@ let py_exe = has('python') ? 'python' : 'python3'
 execute py_exe "<< EOF"
 import os
 import vim
-topic_base = vim.eval('g:spacevim_base_dir') + vim.eval('s:spacevim_layers_dir')
+topic_base = vim.eval('g:spacevim_dir') + vim.eval('s:spacevim_layers_dir')
 topics = [f for f in os.listdir(topic_base) if os.path.isdir(os.path.join(topic_base,f))]
 topic2layers = {}
 layers_sum = 0
@@ -92,6 +92,10 @@ function! s:add_layer(...)
     elseif a:0 == 1
         call add(g:layers_loaded, eval(a:1))
     else
+        echo len(a:000)
+        for tmp in a:000
+            echo tmp
+        endfor
         call s:err('Options not supported now. Sorry for that.')
     endif
 endfunction
@@ -254,7 +258,7 @@ endfunction
 " Return the layer's base dir
 function! s:cur_layer_base_dir(layer)
 
-    let l:layers_base = g:spacevim_base_dir . s:spacevim_layers_dir
+    let l:layers_base = g:spacevim_dir . s:spacevim_layers_dir
     for [key, val] in items(s:topic2layers)
         if index(val, a:layer) > -1
             return l:layers_base . '/' . key . '/'
@@ -271,7 +275,7 @@ function! s:load_layer_packages()
 endfunction
 
 function! s:load_private_packages()
-    let l:private_packages = g:spacevim_base_dir . '/private/packages.vim'
+    let l:private_packages = g:spacevim_dir . '/private/packages.vim'
     if filereadable(expand(l:private_packages))
         execute 'source ' . fnameescape(l:private_packages)
     endif
@@ -285,7 +289,7 @@ function! s:load_layer_config()
 endfunction
 
 function! s:load_private_config()
-    let l:private_config = g:spacevim_base_dir . '/private/config.vim'
+    let l:private_config = g:spacevim_dir . '/private/config.vim'
     if filereadable(expand(l:private_config))
         execute 'source ' . fnameescape(l:private_config)
     endif

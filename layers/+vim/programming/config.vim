@@ -105,9 +105,6 @@ if LayerLoaded('programming')
         let g:indentLine_enabled=1
         let g:indentLine_color_term=239
         let g:indentLine_concealcursor='vc' " default 'inc'
-
-        map <F9> :IndentLinesToggle<CR>
-        imap <F9> <ESC>:IndentLinesToggle<CR>
     endif
     " }
 

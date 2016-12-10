@@ -2,7 +2,7 @@ scriptencoding utf-8
 if LayerLoaded('ycmd')
     " YouCompleteMe {
     if isdirectory(expand(g:my_plug_home.'YouCompleteMe'))
-        let g:ycm_global_ycm_extra_conf = g:spacevim_base_dir . '/layers/+tools/ycmd/global_conf.py'
+        let g:ycm_global_ycm_extra_conf = g:spacevim_dir . '/layers/+tools/ycmd/global_conf.py'
         let g:ycm_error_symbol='✖'
         let g:ycm_warning_symbol='✴'
         " ycm_path_to_python_interpreter is important!
