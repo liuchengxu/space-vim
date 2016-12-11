@@ -3,6 +3,7 @@ Configuration layers
 
 ## Table of Contents
 
+<!-- vim-markdown-toc GFM -->
 * [Checkerers](#checkerers)
 * [Completion](#completion)
 * [Fun](#fun)
@@ -11,20 +12,21 @@ Configuration layers
 * [Tools](#tools)
 * [Version-Control](#version-control)
 * [Vim](#vim)
-* [Programming](#programming)
-* [Text-Align](#text-align)
 
+<!-- vim-markdown-toc -->
 ### Checkerers
 
 - syntax-checking
 
 ### Completion
 
+- auto-completion
 - unite
 
 ### Fun
 
 - emoji
+- goyo
 
 ### Lang
 
@@ -33,10 +35,13 @@ Configuration layers
 - html
 - markdown
 - python
+- typescript
 
 ### Themes
 
 - colors
+- airline
+- lightline
 
 ### Tools
 
@@ -52,8 +57,6 @@ Configuration layers
 ### Vim
 
 - better-defaults
-
-### Programming
-
-### Text-Align
+- programming
+- text-align
 

@@ -1,7 +1,7 @@
 if LayerLoaded('git')
 
     " vim-fugitive {
-    if isdirectory(expand(g:my_plug_home.'vim-fugitive'))
+    if IsDir('vim-fugitive')
         nnoremap <silent> <Leader>gs :Gstatus<CR>
         nnoremap <silent> <Leader>gd :Gdiff<CR>
         nnoremap <silent> <Leader>gc :Gcommit<CR>

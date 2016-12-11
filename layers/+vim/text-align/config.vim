@@ -2,7 +2,7 @@
 if LayerLoaded('text-align')
 
     " tabular {
-    if isdirectory(expand(g:my_plug_home.'tabular'))
+    if IsDir('tabular')
         nmap <Leader>a& :Tabularize /&<CR>
         vmap <Leader>a& :Tabularize /&<CR>
         nmap <Leader>a= :Tabularize /^[^=]*\zs=<CR>
@@ -23,7 +23,7 @@ if LayerLoaded('text-align')
     " }
 
     " vim-easy-align {
-    if isdirectory(expand(g:my_plug_home.'vim-easy-align'))
+    if IsDir('vim-easy-align')
         " Start interactive EasyAlign in visual mode (e.g. vipga)
         xmap <Leader>xa <Plug>(EasyAlign)
 

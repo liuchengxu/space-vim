@@ -3,7 +3,7 @@ scriptencoding utf-8
 if LayerLoaded('syntax-checking')
 
     " ale
-    if isdirectory(expand(g:my_plug_home.'ale'))
+    if IsDir('ale')
         let g:ale_linters = {
                     \   'sh' : ['shellcheck'],
                     \   'vim' : ['vint'],
@@ -26,7 +26,7 @@ if LayerLoaded('syntax-checking')
     endif
 
     " syntastic
-    if isdirectory(expand(g:my_plug_home.'syntastic'))
+    if IsDir('syntastic')
         let g:syntastic_python_checkers=['pyflakes']
         let g:syntastic_javascript_checkers=['jsl', 'jshint']
         let g:syntastic_html_checkers=['tidy', 'jshint']
@@ -41,6 +41,5 @@ if LayerLoaded('syntax-checking')
     if !s:vim8
         nnoremap <Leader>ts :SyntasticToggleMode<CR>
     endif
-
 
 endif

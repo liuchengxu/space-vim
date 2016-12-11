@@ -30,7 +30,7 @@ if LayerLoaded('programming')
     augroup END
 
     " rainbow {
-    if isdirectory(expand(g:my_plug_home.'rainbow'))
+    if IsDir('rainbow')
         let g:rainbow_active = 1
         let g:rainbow_conf = {
                     \   'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
@@ -58,7 +58,7 @@ if LayerLoaded('programming')
     " }
 
     " tagbar {
-    if isdirectory(expand(g:my_plug_home.'tagbar'))
+    if IsDir('tagbar')
         let g:tagbar_autofocus = 1
         nmap <F6> :TagbarToggle<CR>
         imap <F6> <ESC>:TagbarToggle<CR>
@@ -67,7 +67,7 @@ if LayerLoaded('programming')
     " }
 
     " asyncrun.vim {
-    if isdirectory(expand(g:my_plug_home.'asyncrun.vim'))
+    if IsDir('asyncrun.vim')
         nnoremap <F5> :call <SID>compile_and_run()<CR>
         augroup SPACEVIM_ASYNCRUN
             autocmd!
@@ -91,7 +91,7 @@ if LayerLoaded('programming')
     " }
 
     " nerdcommenter {
-    if isdirectory(expand(g:my_plug_home.'nerdcommenter'))
+    if IsDir('nerdcommenter')
         let g:NERDSpaceDelims=1
 
         nmap <Leader>;; <Plug>NERDCommenterToggle
@@ -101,7 +101,7 @@ if LayerLoaded('programming')
     " }
 
     " indentLine {
-    if isdirectory(expand(g:my_plug_home.'indentLine'))
+    if IsDir('indentLine')
         let g:indentLine_char='┊'
         let g:indentLine_enabled=1
         let g:indentLine_color_term=239
@@ -110,7 +110,7 @@ if LayerLoaded('programming')
     " }
 
     " indent_guides {
-    if isdirectory(expand(g:my_plug_home.'vim-indent-guides'))
+    if IsDir('vim-indent-guides')
         let g:indent_guides_start_level = 2
         let g:indent_guides_guide_size = 1
         let g:indent_guides_enable_on_vim_startup = 1

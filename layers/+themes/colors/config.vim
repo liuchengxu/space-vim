@@ -1,13 +1,13 @@
 if LayerLoaded('colors')
 
     " space-vim-dark {
-    if isdirectory(expand(g:my_plug_home.'space-vim-dark'))
+    if IsDir('space-vim-dark')
         color space-vim-dark
     endif
     " }
 
     " vim-airline {
-    if isdirectory(expand(g:my_plug_home.'vim-airline'))
+    if IsDir('vim-airline')
         " let g:airline_theme="luna"
         let g:airline_theme='violet'
         " let g:airline_theme="powerlineish"

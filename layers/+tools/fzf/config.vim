@@ -1,7 +1,7 @@
 if LayerLoaded('fzf')
 
     " fzf.vim {
-    if isdirectory(expand(g:my_plug_home.'fzf.vim'))
+    if IsDir('fzf.vim')
         nnoremap <Leader>bb :Buffers<CR>
     endif
     " }

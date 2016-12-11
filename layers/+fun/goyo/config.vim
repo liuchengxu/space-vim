@@ -1,4 +1,6 @@
 if LayerLoaded('goyo')
-    if isdirectory(expand(g:my_plug_home.'goyo.vim'))
+    " goyo.vim
+    if IsDir('goyo.vim')
+        nmap <Leader>gy :Goyo<CR>
     endif
 endif

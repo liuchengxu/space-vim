@@ -7,7 +7,7 @@ augroup SPACEVIM_BASIC
 augroup END
 
 " ultisnips {
-if isdirectory(expand(g:my_plug_home.'ultisnips'))
+if IsDir('ultisnips')
     " Set ultisnips triggers
     let g:UltiSnipsSnippetDirectories=['UltiSnips']
     let g:UltiSnipsSnippetsDir = g:my_plug_home.'vim-snippets/UltiSnips/'
@@ -30,7 +30,7 @@ endif
 " }
 
 " incsearch.vim {
-if isdirectory(expand(g:my_plug_home.'incsearch.vim'))
+if IsDir('incsearch.vim')
     " incsearch.vim has bug with GUI vim
     if !has('gui_running')
         map /  <Plug>(incsearch-forward)
@@ -42,7 +42,7 @@ endif
 " }
 
 " vim-startify {
-if isdirectory(expand(g:my_plug_home.'vim-startify'))
+if IsDir('vim-startify')
     let g:startify_custom_header = [
                 \'                                             _',
                 \'         ___ _ __   __ _  ___ ___     __   _(_)_ __ ___',
@@ -73,7 +73,7 @@ endif
 " }
 
 " nerdtree {
-if isdirectory(expand(g:my_plug_home.'nerdtree'))
+if IsDir('nerdtree')
     let g:NERDTreeShowHidden=1
     let g:NERDTreeAutoDeleteBuffer=1
     let g:NERDTreeIgnore=[
@@ -85,7 +85,7 @@ endif
 " }
 
 "nerdtree-git-plugin {
-if isdirectory(expand(g:my_plug_home.'nerdtree-git-plugin'))
+if IsDir('nerdtree-git-plugin')
     let g:NERDTreeIndicatorMapCustom = {
                 \ 'Modified'  : '✹',
                 \ 'Staged'    : '✚',
@@ -101,7 +101,7 @@ endif
 " }
 
 " vim-nerdtree-syntax-highlight {
-if isdirectory(expand(g:my_plug_home.'vim-nerdtree-syntax-highlight'))
+if IsDir('vim-nerdtree-syntax-highlight')
     let g:NERDTreeFileExtensionHighlightFullName = 1
     let g:NERDTreeExactMatchHighlightFullName = 1
     let g:NERDTreePatternMatchHighlightFullName = 1
@@ -141,7 +141,7 @@ endif
 " }
 
 " vim-ctrlp {
-if isdirectory(expand(g:my_plug_home.'ctrlp.vim'))
+if IsDir('ctrlp.vim')
     let g:ctrlp_working_path_mode = 'ra'	" search for nearest ancestor like .git, .hg, and the directory of the current file
     let g:ctrlp_match_window_bottom = 0		" show the match window at the top of the screen
     let g:ctrlp_by_filename = 1
@@ -175,7 +175,7 @@ endif
 " }
 
 " delimitMate {
-if isdirectory(expand(g:my_plug_home.'delimitMate'))
+if IsDir('delimitMate')
     let g:delimitMate_expand_cr=1
 endif
 " }
