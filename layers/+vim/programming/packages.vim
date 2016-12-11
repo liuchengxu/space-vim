@@ -5,8 +5,14 @@
 " Plug 'SirVer/ultisnips'
 " Plug 'honza/vim-snippets'
 
+<<<<<<< HEAD
 " Plug 'skywind3000/asyncrun.vim',        { 'on': ['AsyncRun!', 'AsyncRun'] }
 " Plug 'nathanaelkane/vim-indent-guides', { 'on': 'IndentGuidesToggle'}
+=======
+Plug 'skywind3000/asyncrun.vim',        { 'on': ['AsyncRun!', 'AsyncRun'] }
+Plug 'nathanaelkane/vim-indent-guides', { 'on': 'IndentGuidesToggle'}
+Plug 'editorconfig/editorconfig-vim'
+>>>>>>> 911bcf4f1f963a96df674b616d2c9408f7ba6f78
 
 " Do not lazy loading tagbar, see vim-airline issue 1313.
 " Plug 'majutsushi/tagbar'
