@@ -22,6 +22,8 @@
     * [Windows](#windows)
 * [Customize](#customize)
 * [Usage](#usage)
+    * [`Layer`](#layer)
+    * [`Exclude`](#exclude)
 * [Update](#update)
 * [FAQ](#faq)
 * [Contributions](#contributions)
@@ -102,6 +104,14 @@ endfunction
 If have a heavy customized configuration, you can organize them in private directory with `packages.vim` and `config.vim` too, which will be loaded on startup.
 
 ## Usage
+
+### `Layer`
+
+Use `Layer` command in `.spacevim` to enable a existing layer, e.g., `Layer 'python'`.
+
+### `Exclude`
+
+Use `Exclude` command in `.spacevim` to remove a plugin in the layers enabled, e.g., `Exclude 'Shougo/denite.nvim'`.
 
 For more information, you'd better refer to the README under the layer enabled or see config.vim and packages.vim directly.
 

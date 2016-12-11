@@ -7,5 +7,8 @@ function! BuildYCM(info)
         !./install.py --clang-completer
     endif
 endfunction
-Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+
+" Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+
+MP 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 
