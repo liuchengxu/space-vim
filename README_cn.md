@@ -38,6 +38,7 @@ ln -s ~/.space-vim/init.vim ~/.config/nvim/init.vim
 * [概览](#概览)
     * [名词解释](#名词解释)
         * [Layer](#layer)
+        * [Exclude](#exclude)
         * [.spacevim](#spacevim)
     * [如何使用](#如何使用)
     * [如何更新](#如何更新)
@@ -105,6 +106,16 @@ Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 ```
 
 调整，增加 Layer 都非常方便, 这也为 “集百家之长” 提供了土壤。
+
+#### Exclude
+
+如果想要删除 layer 中的某个插件，可执行 `Exclude` 命令，比如:
+
+```vim
+Exclude `Shougo/denite.vim`
+```
+
+:warning: 不过需要注意，执行 `Exclude` 需要运行 `PlugClean` 清除本地的插件缓存，这样才能保证清除插件的相关配置不会被加载，否则可能会出现问题。
 
 #### .spacevim
 
