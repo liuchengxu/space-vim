@@ -13,7 +13,7 @@ if LayerLoaded('python')
                     \   autoindent
                     \   fileformat=unix
 
-        if index(g:layers_loaded, 'programming') > -1
+        if LayerLoaded('programming')
             autocmd FileType python nnoremap <buffer> <F5> :update<Bar>execute 'AsyncRun! python '.shellescape(@%, 1)<CR>
         else
             autocmd FileType python nnoremap <buffer> <F5> :update<Bar>execute '! python '.shellescape(@%, 1)<CR>

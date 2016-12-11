@@ -34,6 +34,13 @@ if LayerLoaded('syntax-checking')
         let g:syntastic_warning_symbol='✴'
         let g:syntastic_aggregate_errors=1
 
+    endif
+
+    let s:vim8 = has('patch-8.0.0039') && exists('*job_start')
+
+    if !s:vim8
         nnoremap <Leader>ts :SyntasticToggleMode<CR>
     endif
+
+
 endif

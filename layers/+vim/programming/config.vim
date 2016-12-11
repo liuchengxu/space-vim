@@ -62,6 +62,7 @@ if LayerLoaded('programming')
         let g:tagbar_autofocus = 1
         nmap <F6> :TagbarToggle<CR>
         imap <F6> <ESC>:TagbarToggle<CR>
+        nnoremap <Leader>tt :TagbarToggle<CR>
     endif
     " }
 

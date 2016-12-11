@@ -29,6 +29,18 @@ if isdirectory(expand(g:my_plug_home.'ultisnips'))
 endif
 " }
 
+" incsearch.vim {
+if isdirectory(expand(g:my_plug_home.'incsearch.vim'))
+    " incsearch.vim has bug with GUI vim
+    if !has('gui_running')
+        map /  <Plug>(incsearch-forward)
+        map ?  <Plug>(incsearch-backward)
+        map g/ <Plug>(incsearch-stay)
+    endif
+endif
+
+" }
+
 " vim-startify {
 if isdirectory(expand(g:my_plug_home.'vim-startify'))
     let g:startify_custom_header = [

@@ -1,0 +1,1 @@
+MP 'itchyny/lightline.vim'

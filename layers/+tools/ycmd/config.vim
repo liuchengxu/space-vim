@@ -1,13 +1,13 @@
 scriptencoding utf-8
 if LayerLoaded('ycmd')
+
     " YouCompleteMe {
     if isdirectory(expand(g:my_plug_home.'YouCompleteMe'))
         let g:ycm_global_ycm_extra_conf = g:spacevim_dir . '/layers/+tools/ycmd/global_conf.py'
         let g:ycm_error_symbol='✖'
-        let g:ycm_warning_symbol='✴'
+        let g:ycm_warning_symbol='⚠ '
         " ycm_path_to_python_interpreter is important!
         let g:ycm_path_to_python_interpreter='python'
-        let g:ycm_collect_identifiers_from_comments_and_strings=1
         let g:ycm_min_num_of_chars_for_completion=2
         let g:ycm_cache_omnifunc=0
         let g:ycm_seed_identifiers_with_syntax=1
@@ -23,6 +23,33 @@ if LayerLoaded('ycmd')
                     \   'csv' : 1,
                     \}
         " let g:ycm_key_invoke_completion='<M-;>'
+
+
+        augroup SPACEVIM_YCM
+
+            " Enable omni completion.
+            autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+            autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+            autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+            autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+            autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+            autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+            autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+
+            " Key bindings
+            autocmd FileType c,cpp,python,go,javascript,rust
+                        \   nnoremap <LocalLeader>gd :YcmCompleter GoTo<CR>
+            autocmd FileType c,cpp,python,rust,javascript,typescript
+                        \   nnoremap <LocalLeader>gD :YcmCompleter GetDoc<CR>
+            autocmd FileType c,cpp
+                        \   nnoremap <LocalLeader>gi :YcmCompleter GoToInclude<CR>
+            autocmd FileType javascript,python,typescript
+                        \   nnoremap <LocalLeader>gr :YcmCompleter GoToReferences<CR>
+            autocmd FileType c,cpp,javascript,typescript
+                        \   nnoremap <LocalLeader>gt :YcmCompleter GetType<CR>
+            autocmd FileType c,cpp
+                        \   nnoremap <LocalLeader>gp :YcmCompleter GetParent<CR>
+        augroup END
     endif
     " }
 

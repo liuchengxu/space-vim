@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+### Added
+
+- Lightline layer
 
 
 ## [0.3.0]

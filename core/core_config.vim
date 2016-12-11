@@ -81,17 +81,15 @@ endfunction
 function! s:define_command()
     command! -nargs=+ -bar Layer call s:add_layer(<f-args>)
 
-    command! -nargs=+ -bar LayerElement call s:add_element(<f-args>)
-
     " MP means MyPlugin
     command! -nargs=+ -bar MP call s:add_element(<f-args>)
 
     command! -nargs=+ -bar Exclude call s:exclude_elements(<f-args>)
 
-    command! -nargs=0 -bar LayerInstall call s:layer_install()
     command! -nargs=0 -bar LayerClean call s:layer_clean()
-    command! -nargs=0 -bar LayerUpdate call s:layer_update()
     command! -nargs=0 -bar LayerStatus call s:layer_status()
+    command! -nargs=0 -bar LayerUpdate call s:layer_update()
+    command! -nargs=0 -bar LayerInstall call s:layer_install()
 endfunction
 
 function! s:add_layer(...)
@@ -131,9 +129,6 @@ function! s:add_element(...)
     else
         let l:str = s:to_string(a:000)
         call add(g:spacevim_elements, l:str)
-        " echo tmp
-        " echo split(tmp, ',')[0]
-        " echo len(g:spacevim_elements)
     endif
 endfunction
 
@@ -144,12 +139,8 @@ function! s:exclude_elements(...)
     else
         let l:str = s:to_string(a:000)
         call add(g:spacevim_exclude, l:str)
-        " echo 'Exclude'
-        " echo tmp
     endif
 endfunction
-
-
 
 function! s:layer_install()
     execute 'PlugInstall'
