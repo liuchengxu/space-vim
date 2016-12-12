@@ -153,7 +153,7 @@ LayerStatus 可以查看启用了哪些 Layer.
 
 ### 如何使用
 
-更多使用信息请点击 [快速指引](doc/tutorial_cn.md), 下面为简短介绍。
+更多使用信息请点击 [快速指引](doc/tutorial_cn.md), 也可查看 [wiki](https://github.com/liuchengxu/space-vim/wiki) 也许会有收获。 下面为简短介绍。
 
 个人配置文件为 `.spacevim`, 如果没有 `.spacevim`, 那么 space-vim 仅会加载默认的 Layer. `.space-vim` 中定义了两个函数分别用于加载 Layer 与个人配置信息。
 
@@ -171,6 +171,8 @@ function! UserInit()
     Layer 'python'
     Layer 'markdown'
     Layer 'c-c++'
+
+    Exclude 'Shougo/denite.nvim'
 
     " 加载 space-vim Layer中没有的插件
     Plug 'tpope/vim-fugitive'

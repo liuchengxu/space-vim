@@ -9,7 +9,8 @@
     * [Basic](#basic)
     * [Buffer](#buffer)
     * [Window](#window)
-    * [其他](#其他)
+    * [easy-motion](#easy-motion)
+    * [Others](#others)
 
 <!-- vim-markdown-toc -->
 
@@ -66,8 +67,12 @@ Key Binding        | Mode   | Description
 :---:              | :---:  | :---:
 <kbd>SPC w j</kbd> | Normal | 移动至下方窗口
 <kbd>SPC w k</kbd> | Normal | 移动至上方窗口
-<kbd>SPC w h</kbd> | Normal | 移动至左边窗口
-<kbd>SPC w l</kbd> | Normal | 移动至右边窗口
+<kbd>SPC w h</kbd> | Normal | 移动至左侧窗口
+<kbd>SPC w l</kbd> | Normal | 移动至右侧窗口
+<kbd>SPC w J</kbd> | Normal | 向下扩大当前窗口
+<kbd>SPC w K</kbd> | Normal | 向上扩大当前窗口
+<kbd>SPC w H</kbd> | Normal | 向右扩大当前窗口
+<kbd>SPC w L</kbd> | Normal | 向左扩大当前窗口
 <kbd>SPC w v</kbd> | Normal | 竖直分割窗口， 等同于 `SPC w |`
 <kbd>SPC w 2</kbd> | Normal | 将窗口分割为两列，等同于`SPC w v`
 <kbd>SPC w s</kbd> | Normal | 水平分割窗口， 等同于 `SPC w -`
@@ -77,11 +82,24 @@ Key Binding        | Mode   | Description
 <kbd>SPC w r</kbd> | Normal | 向右或向下方交换 (**r**eplace) 窗口
 <kbd>SPC w m</kbd> | Normal | GUI 环境下 vim 窗口最大化 (**m**aximum) 开关
 
-### 其他
+### easy-motion
 
-Key Binding        | Mode   | Description
-:---:              | :---:  | :---:
-<kbd>SPC x d</kbd> | Normal | 去掉行尾多余空格 (te**x**t **d**elete)
-<kbd>SPC f R</kbd> | Normal | 重新加载 .vimrc (**f**ile **R**esource)
-<kbd>SPC f r</kbd> | Normal | 最近打开的文件 (**f**ile opened *r*ecently)
-<kbd>SPC b h</kbd> | Normal | 主 buffer (**b**uffer **h**ome), 同 <kbd>SPC f r</kbd>
+Key Binding          | Mode   | Description
+:---:                | :---:  | :---:
+<kbd>SPC j w         | Nomral | 单词跳转 (jump to word)
+<kbd>SPC j l         | Nomral | 行间跳转 (jump to line)
+<kbd>SPC SPC w</kbd> | Normal | 快速词间移动(向前)
+<kbd>SPC SPC b</kbd> | Normal | 快速词间移动 (向后)
+<kbd>SPC SPC s</kbd> | Normal | 快速字符搜索 (双向)
+<kbd>SPC SPC f</kbd> | Normal | 快速字符搜索 (向前)
+<kbd>SPC SPC j</kbd> | Normal | 快速行间移动 (向下)
+<kbd>SPC SPC k</kbd> | Normal | 快速行间移动 (向上)
+
+### Others
+
+Key Binding          | Mode   | Description
+:---:                | :---:  | :---:
+<kbd>SPC x d</kbd>   | Normal | 去掉行尾多余空格 (te**x**t **d**elete)
+<kbd>SPC f R</kbd>   | Normal | 重新加载 .vimrc (**f**ile **R**esource)
+<kbd>SPC f r</kbd>   | Normal | 最近打开的文件 (**f**ile opened *r*ecently)
+<kbd>SPC b h</kbd>   | Normal | 主 buffer (**b**uffer **h**ome), 同 <kbd>SPC f r</kbd>
