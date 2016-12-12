@@ -1,6 +1,6 @@
 # Better-defaults layer
 
-**Table of Contents**
+## Table of Contents
 
 <!-- vim-markdown-toc GFM -->
 * [Description](#description)

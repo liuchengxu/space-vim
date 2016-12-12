@@ -21,7 +21,7 @@
     * [Linux and macOS](#linux-and-macos)
     * [Windows](#windows)
 * [Customize](#customize)
-* [Usage](#usage)
+* [Command](#command)
     * [`Layer`](#layer)
     * [`Exclude`](#exclude)
 * [Update](#update)
@@ -103,7 +103,7 @@ endfunction
 
 If have a heavy customized configuration, you can organize them in private directory with `packages.vim` and `config.vim` too, which will be loaded on startup.
 
-## Usage
+## Command
 
 ### `Layer`
 
@@ -111,9 +111,9 @@ Use `Layer` command in `.spacevim` to enable a existing layer, e.g., `Layer 'pyt
 
 ### `Exclude`
 
-Use `Exclude` command in `.spacevim` to remove a plugin in the layers enabled, e.g., `Exclude 'Shougo/denite.nvim'`.
+Use `Exclude` command in `.spacevim` to remove a plugin in the layers enabled, e.g., `Exclude 'Shougo/denite.nvim'`. If use `Exclude` command, you need to run `:PlugClean` to gurantee the relevant configurations not to be loaded.
 
-For more information, you'd better refer to the README under the layer enabled or see config.vim and packages.vim directly.
+For more information, please refer to the README under the layer enabled, or you can see config.vim and packages.vim directly.
 
 If the README is not elaborate, sorry for that, space-vim now is in the early stages and a ton of stuffs are waitting to be done.
 
@@ -135,7 +135,6 @@ Q: Why develop this?
 
 A: I often use spacemacs when in GUI environment. But in terminal, vim is definitely my first choice. Then I hope to maintain consistency in operation in the two scenes as much as possible.
 Hence I try to reconfig the vim based on spacemacs's architecture, especially in key bindings and GUI. This is space-vim at present.
-
 
 ## Contributions
 

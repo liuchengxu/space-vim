@@ -1,7 +1,6 @@
 # Lightline layer
 
-
-**Table of Contents**
+## Table of Contents
 
 <!-- vim-markdown-toc GFM -->
 * [Description](#description)
@@ -11,7 +10,7 @@
 
 ## Description
 
-This layer adds a fancy statusline.
+This layer adds support for a fancy statusline.
 
 ## Install
 

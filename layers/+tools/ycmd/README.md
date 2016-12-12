@@ -1,6 +1,6 @@
 # Ycmd layer
 
-**Table of Contents**
+## Table of Contents
 
 <!-- vim-markdown-toc GFM -->
 * [Description](#description)
@@ -11,6 +11,10 @@
 
 ## Description
 
+This layer adds support a code completion engine.
+
 ## Install
+
+To use this configuration layer, add it to your `~/.spacevim`.
 
 ## Key Bindings
