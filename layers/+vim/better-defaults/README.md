@@ -57,9 +57,9 @@ Key Binding          | Mode   | Description
 <kbd>SPC [1-9]</kbd> | Normal | 切换至对应编号[1-9]对应缓冲区
 <kbd>SPC b p</kbd>   | Normal | 上一个 (**p**revious) 缓冲区
 <kbd>SPC b n</kbd>   | Normal | 下一个 (**n**ext) 缓冲区
+<kbd>\<Tab></kbd>    | Normal | 切换 buffer, 等同于 <kbd>SPC b n</kbd>
 <kbd>SPC b d</kbd>   | Normal | 删除 (**d**elete) 当前缓冲区
 <kbd>SPC b k</kbd>   | Normal | 杀掉 (**k**ill) 缓冲区
-<kbd>SPC b b</kbd>   | Normal | 显示缓冲区 (**b**uffer)
 
 ### Window
 
@@ -101,5 +101,4 @@ Key Binding          | Mode   | Description
 :---:                | :---:  | :---:
 <kbd>SPC x d</kbd>   | Normal | 去掉行尾多余空格 (te**x**t **d**elete)
 <kbd>SPC f R</kbd>   | Normal | 重新加载 .vimrc (**f**ile **R**esource)
-<kbd>SPC f r</kbd>   | Normal | 最近打开的文件 (**f**ile opened *r*ecently)
-<kbd>SPC b h</kbd>   | Normal | 主 buffer (**b**uffer **h**ome), 同 <kbd>SPC f r</kbd>
+<kbd>SPC b h</kbd>   | Normal | 主 buffer (**b**uffer **h**ome)

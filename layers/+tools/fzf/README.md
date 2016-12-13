@@ -1,6 +1,4 @@
-# Fzf layer
-
-![fzf](https://raw.githubusercontent.com/junegunn/i/master/fzf.png)
+# ![fzf](https://raw.githubusercontent.com/junegunn/i/master/fzf.png)
 
 ## Table of Contents
 
@@ -13,7 +11,7 @@
 
 ## Description
 
-This layer adds supporty fuzzy file finder as well as much more other functionalities.
+This layer adds supports fuzzy file finder as well as much more other functionalities.
 
 ## Install
 
@@ -28,3 +26,4 @@ Key Binding        | Mode   | Description
 <kbd>SPC b ?</kbd> | Normal | buffers list
 <kbd>SPC w ?</kbd> | Normal | windows list
 <kbd>SPC f ?</kbd> | Normal | search files in home directory
+<kbd>SPC f r</kbd> | Normal | files most recently used

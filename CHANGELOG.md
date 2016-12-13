@@ -5,9 +5,14 @@
 ### Added
 
 - Lightline layer
+- LaTeX layer
+
+### Changed
+
+- Replace vim-markdown-preview with vim-Xmark to markdown layer
 
 
-## [0.3.0]
+## [0.3.0] - 2016.12.11
 
 ### Added
 

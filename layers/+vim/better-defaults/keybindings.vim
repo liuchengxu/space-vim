@@ -1,9 +1,10 @@
 " Reload .vimrc
 nnoremap <Leader>fR :source $MYVIMRC<CR>
+" Use Tab to switch buffer
+nnoremap <Tab> :bn<CR>
 
 " Startify
 nnoremap <silent><Leader>bh :Startify<CR>
-nnoremap <silent><Leader>fr :Startify<CR>
 
 " vim-trailing-whitespace
 nnoremap <Leader>xd :FixWhitespace<CR>

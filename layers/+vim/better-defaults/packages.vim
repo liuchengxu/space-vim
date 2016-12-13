@@ -36,5 +36,3 @@ MP 'itchyny/vim-cursorword'
 MP 'terryma/vim-multiple-cursors'
 
 MP 'danro/rename.vim'
-
-MP 'vim-ctrlspace/vim-ctrlspace'

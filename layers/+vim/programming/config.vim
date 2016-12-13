@@ -34,7 +34,7 @@ if LayerLoaded('programming')
         let g:rainbow_active = 1
         let g:rainbow_conf = {
                     \   'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
-                    \   'ctermfgs': ['blue', 'gray', 'cyan', 'magenta'],
+                    \   'ctermfgs': ['98', '133', '140', '169'],
                     \   'operators': '_,_',
                     \   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
                     \   'separately': {

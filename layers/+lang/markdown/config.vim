@@ -14,4 +14,10 @@ if LayerLoaded('markdown')
     endif
     " }
 
+    " vim-xmark {
+    if IsDir('vim-xmark')
+        autocmd FileType markdown nnoremap <LocalLeader>p :Xmark<CR>
+    endif
+    " }
+
 endif

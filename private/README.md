@@ -11,14 +11,14 @@ You could put extra configuration in `config.vim` and plugins space-vim have not
 依旧遵循 Layer 的 “结构” 可以有两个文件:
 
 - packages.vim: 所要安装的插件列表，比如:
-    
+
     ```vim
     " NeoVim front-end UI focused on IDE-like extensibility
     Plug 'extr0py/oni'
     ```
-    
+
 - config.vim: 个人配置信息, 比如:
-    
+
     ```vim
     color molokai
     ```

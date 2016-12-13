@@ -1,4 +1,4 @@
-# C-C++ layer
+# LaTeX layer
 
 ## Table of Contents
 
@@ -11,10 +11,6 @@
 
 ## Description
 
-This layer adds support for the C and CPP language.
-
 ## Install
-
-To use this configuration layer, add it to your `~/.spacevim`.
 
 ## Key Bindings

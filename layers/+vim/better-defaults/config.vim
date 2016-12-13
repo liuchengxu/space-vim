@@ -76,11 +76,13 @@ endif
 if IsDir('nerdtree')
     let g:NERDTreeShowHidden=1
     let g:NERDTreeAutoDeleteBuffer=1
+    let g:NERDTreeDirArrowExpandable = '➤'
     let g:NERDTreeIgnore=[
                 \ '\.py[cd]$', '\~$', '\.swo$', '\.swp$',
                 \ '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$',
                 \ ]
-
+    " close vim if the only window left open is a NERDTree
+    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 endif
 " }
 

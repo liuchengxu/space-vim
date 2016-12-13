@@ -29,8 +29,7 @@ ln -s ~/.space-vim/init.vim ~/.config/nvim/init.vim
     sh -c "$(wget -qO- https://raw.githubusercontent.com/liuchengxu/space-vim/master/install.sh)"
     ```
 
-
-**Table of Contents**
+### Table of Contents
 
 <!-- vim-markdown-toc GFM -->
 * [初衷](#初衷)
@@ -41,6 +40,9 @@ ln -s ~/.space-vim/init.vim ~/.config/nvim/init.vim
         * [Exclude](#exclude)
         * [.spacevim](#spacevim)
     * [如何使用](#如何使用)
+        * [键位设定](#键位设定)
+        * [`.spacevim`](#spacevim-1)
+        * [`private`](#private)
     * [如何更新](#如何更新)
     * [如何贡献](#如何贡献)
 * [展望](#展望)
@@ -125,23 +127,23 @@ Exclude `Shougo/denite.vim`
 " Put layers you want to enable as well as extra private plugins
 function! UserInit()
 
-    " Space has been set as the default leader key,
-    " if you want to change it, uncomment and set it here.
-    " let g:spacevim_leader = "<\Space>"
-    " let g:spacevim_localleader = ','
+" Space has been set as the default leader key,
+" if you want to change it, uncomment and set it here.
+" let g:spacevim_leader = "<\Space>"
+" let g:spacevim_localleader = ','
 
-    " Put the layers you want to enable
-    Layer 'fzf'
+" Put the layers you want to enable
+Layer 'fzf'
 
-    " Put private plugins
-    Plug 'junegunn/vim-github-dashboard'
+" Put private plugins
+Plug 'junegunn/vim-github-dashboard'
 
 endfunction
 
 " Customize configuration
 function! UserConfig()
 
-    color space-vim-dark
+color space-vim-dark
 
 endfunction
 
@@ -155,43 +157,51 @@ LayerStatus 可以查看启用了哪些 Layer.
 
 更多使用信息请点击 [快速指引](doc/tutorial_cn.md), 也可查看 [wiki](https://github.com/liuchengxu/space-vim/wiki) 也许会有收获。 下面为简短介绍。
 
-个人配置文件为 `.spacevim`, 如果没有 `.spacevim`, 那么 space-vim 仅会加载默认的 Layer. `.space-vim` 中定义了两个函数分别用于加载 Layer 与个人配置信息。
+#### 键位设定
+
+space-vim 虽然启发自 spacemacs, 但 emacs 与 vim 始终有所区别。比如 vim  没有 helm, 无法给出快速有效的快捷键提示。因此 space-vim 的快捷键设定在模仿 spacemacs 的基础上，尽量将其调整控制在两个及以内，因为再多恐怕就不太能够接受了。
+
+#### `.spacevim`
+
+个性化配置文件为 `.spacevim`, 如果没有 `.spacevim`, 那么 space-vim 仅会加载默认的 Layer. `.space-vim` 中定义了两个函数分别用于加载 Layer 与个人配置信息。
 
 ```vim
 function! UserInit()
 
-    Layer 'fzf'
-    Layer 'ycmd'
-    Layer 'syntax-checking'
+Layer 'fzf'
+Layer 'ycmd'
+Layer 'syntax-checking'
 
-    Layer 'emoji'
-    Layer 'goyo'
+Layer 'emoji'
+Layer 'goyo'
 
-    Layer 'html'
-    Layer 'python'
-    Layer 'markdown'
-    Layer 'c-c++'
+Layer 'html'
+Layer 'python'
+Layer 'markdown'
+Layer 'c-c++'
 
-    Exclude 'Shougo/denite.nvim'
+Exclude 'Shougo/denite.nvim'
 
-    " 加载 space-vim Layer中没有的插件
-    Plug 'tpope/vim-fugitive'
-    Plug 'junegunn/vim-github-dashboard'
+" 加载 space-vim Layer中没有的插件
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/vim-github-dashboard'
 
 endfunction
 
 function! UserConfig()
 
-    color gruvbox
+color gruvbox
 
 endfunction
 ```
 
 :warning: 启用 layer 后, 须执行 `:PlugInstall` 来安装相关插件才能真正生效.
 
-更多使用信息可以查看 Layer 目录下对应的 README, 当然了目前还比较粗糙，如果 README 不够详尽，还得要 查看 config.vim 和 packages.vim.
+更多使用信息可以查看 Layer 目录下对应的 README, 当然了目前还比较粗糙，如果 README 不够详尽，还得要查看 config.vim 和 packages.vim.
 
-此外, private 可以看做是一个 Layer ，如果个人配置比较多，可以放在这里, private 目录可以有 Layer 的两个 "标准" 文件, space-vim 也会进行加载：
+#### `private`
+
+private 可以看做是一个 Layer ，如果个人配置比较多，可以放在这里, private 目录可以有 Layer 的两个 "标准" 文件, space-vim 在启动时也会进行加载：
 
 - packages.vim
 - config.vim
@@ -211,11 +221,11 @@ endfunction
 - 很多文档工作。**对于初学者而言，文档可能比什么都重要，装了一些插件不是什么难事，重要的是学会使用这些插件，发挥其功效**。
 - ......
 
-一个人的精力始终是有限的，非常欢迎大家分享自己的使用经验。三个臭皮匠还赛过诸葛亮呢，还不行? 那就四个:p。
+    一个人的精力始终是有限的，非常欢迎大家分享自己的使用经验。三个臭皮匠还赛过诸葛亮呢，还不行? 那就四个:p。
 
-当然啦，可能很多人觉得 vimscript 没有 lisp 那么有表现力，稍显蹩脚。Anyway, 都是工具，乐趣而已。如果能够集思广益，也是利己利人。
+    当然啦，可能很多人觉得 vimscript 没有 lisp 那么有表现力，稍显蹩脚。Anyway, 都是工具，乐趣而已。如果能够集思广益，也是利己利人。
 
-初期阶段，可做的事情还很多，欢迎大家分享与贡献. ：[space-vim](https://github.com/liuchengxu/space-vim)
+    初期阶段，可做的事情还很多，欢迎大家分享与贡献. ：[space-vim](https://github.com/liuchengxu/space-vim)
 
 ## 致谢
 
