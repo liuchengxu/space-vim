@@ -16,50 +16,52 @@
 
 ## Description
 
-这个 Layer 涉及比较多的基本操作，但是记忆起来应当不是很复杂，快捷键一般控制在两个。
+This layer has defined a ton of fundamental key bindings. You can see the keybings.vim for more information and modify the existing key mappings in `UserConfig()`.
+
+这个 Layer 涉及比较多的基本操作，但是记忆起来应当不是很复杂，快捷键一般控制在两个。如果想要修改已有的键位，可在 `UserConfig()` 中进行调整。
 
 ## Install
 
-已默认启用。
+This layer has been enabled as the default layer. 已默认启用。
 
 ## Key Bindings
 
 ### Basic
 
-Key Binding            | Mode   | Description
-:---:                  | :---:  | :---:
-<kbd>SPC q</kbd>       | Normal | 退出 (**q**uit)
-<kbd>SPC Q</kbd>       | Normal | 不保存直接退出
-<kbd>SPC d</kbd>       | Normal | 向下 (**d**own) 移动半屏
-<kbd>SPC u</kbd>       | Normal | 向上 (**u**p) 移动半屏
-<kbd>SPC '</kbd>       | Normal | 在 vim 中打开 shell
-<kbd>SPC s c</kbd>     | Normal | 撤销搜索结果高亮 (**s**earch result highlight *c*ountermand)
-<kbd>SPC t p</kbd>     | Normal | 粘贴模式开关 (**t**oggle **p**astemode)
-<kbd>Ctrl j</kbd>      | Insert | j, 向下移动
-<kbd>Ctrl k</kbd>      | Insert | k, 向上移动
-<kbd>Ctrl h</kbd>      | Insert | h, 向左移动
-<kbd>Ctrl l</kbd>      | Insert | l, 向右移动
-<kbd>jj</kbd>          | Insert | <kbd>\<Esc></kbd>
-<kbd>jk</kbd>          | Insert | <kbd>\<Esc></kbd>
-<kbd>kk</kbd>          | Insert | <kbd>\<Esc></kbd>
-<kbd>v</kbd>           | Visual | <kbd>\<Esc></kbd>
-<kbd>U</kbd>           | Normal | 重做， redo (对应 <kbd>u</kbd> 为撤销，undo)
-<kbd>H</kbd>           | Normal | 光标跳转到行首
-<kbd>L</kbd>           | Normal | 光标跳转到行尾
-<kbd>Y</kbd>           | Normal | 从光标处复制到行尾
-<kbd>SPC f s</kbd>     | Normal | 保存文件 (**f**ile **s**ave)
-<kbd>SPC f [1-9]</kbd> | Normal | 设置折叠 (**f**old) 层次，`f 0` 相当于全部折叠, `f 9` 相当于取消折叠全部展开
+Key Binding            | Mode       | Description
+:---:                  | :---:      | :---:
+<kbd>SPC q</kbd>       | Normal     | **q**uit, 退出
+<kbd>SPC Q</kbd>       | Normal     | quit without saving, 不保存强制退出
+<kbd>SPC d</kbd>       | Normal     | go **d**own half page, 向下移动半屏
+<kbd>SPC u</kbd>       | Normal     | go **u**p half page, 向上移动半屏
+<kbd>SPC '</kbd>       | Normal     | open shell, 在 vim 中打开 shell
+<kbd>SPC s c</kbd>     | Normal     | **s**earch result highlight *c*ountermand, 取消搜索结果高亮
+<kbd>SPC t p</kbd>     | Normal     | **t**oggle **p**astemode, 粘贴模式开关
+<kbd>Ctrl j</kbd>      | **Insert** | j, 向下移动
+<kbd>Ctrl k</kbd>      | **Insert** | k, 向上移动
+<kbd>Ctrl h</kbd>      | **Insert** | h, 向左移动
+<kbd>Ctrl l</kbd>      | **Insert** | l, 向右移动
+<kbd>jj</kbd>          | **Insert** | <kbd>\<Esc></kbd>
+<kbd>jk</kbd>          | **Insert** | <kbd>\<Esc></kbd>
+<kbd>kk</kbd>          | **Insert** | <kbd>\<Esc></kbd>
+<kbd>v</kbd>           | **Visual** | <kbd>\<Esc></kbd>
+<kbd>U</kbd>           | Normal     | redo, 重做(对应 <kbd>u</kbd> 为撤销，undo)
+<kbd>H</kbd>           | Normal     | beginning of line, 光标跳转到行首
+<kbd>L</kbd>           | Normal     | end of line, 光标跳转到行尾
+<kbd>Y</kbd>           | Normal     | yank from cursor to end of line, 从光标处复制到行尾
+<kbd>SPC f s</kbd>     | Normal     | **f**ile **s**ave, 保存文件
+<kbd>SPC f [1-9]</kbd> | Normal     | **f**old level, 设置折叠层次，`f 0` 相当于全部折叠, `f 9` 相当于取消折叠全部展开
 
 ### Buffer
 
 Key Binding          | Mode   | Description
 :---:                | :---:  | :---:
-<kbd>SPC [1-9]</kbd> | Normal | 切换至对应编号[1-9]对应缓冲区
-<kbd>SPC b p</kbd>   | Normal | 上一个 (**p**revious) 缓冲区
-<kbd>SPC b n</kbd>   | Normal | 下一个 (**n**ext) 缓冲区
-<kbd>\<Tab></kbd>    | Normal | 切换 buffer, 等同于 <kbd>SPC b n</kbd>
-<kbd>SPC b d</kbd>   | Normal | 删除 (**d**elete) 当前缓冲区
-<kbd>SPC b k</kbd>   | Normal | 杀掉 (**k**ill) 缓冲区
+<kbd>SPC [1-9]</kbd> | Normal | switch to buffer with number [1-9], 切换至对应编号[1-9]对应缓冲区
+<kbd>SPC b p</kbd>   | Normal | **previous** **b**uffer, 上一个缓冲区
+<kbd>SPC b n</kbd>   | Normal | **n**ext **b**uffer, 下一个缓冲区
+<kbd>\<Tab></kbd>    | Normal | switch buffer, equal to <kbd>SPC b n</kbd>, 等同于 <kbd>SPC b n</kbd>
+<kbd>SPC b d</kbd>   | Normal | **d**elete current buffer, 删除当前缓冲区
+<kbd>SPC b k</kbd>   | Normal | **k**ill current buffer, 杀掉当前缓冲区
 
 ### Window
 
@@ -99,6 +101,6 @@ Key Binding          | Mode   | Description
 
 Key Binding          | Mode   | Description
 :---:                | :---:  | :---:
-<kbd>SPC x d</kbd>   | Normal | 去掉行尾多余空格 (te**x**t **d**elete)
-<kbd>SPC f R</kbd>   | Normal | 重新加载 .vimrc (**f**ile **R**esource)
+<kbd>SPC x d</kbd>   | Normal | delete trailing whitespace, 去掉行尾多余空格 (te**x**t **d**elete)
+<kbd>SPC f R</kbd>   | Normal | reload .vimrc, 重新加载 .vimrc (**f**ile **R**esource)
 <kbd>SPC b h</kbd>   | Normal | 主 buffer (**b**uffer **h**ome)

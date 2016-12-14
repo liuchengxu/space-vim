@@ -14,6 +14,22 @@ if LayerLoaded('ycmd')
         let g:ycm_complete_in_comments=1
         let g:ycm_complete_in_strings=1
         let g:ycm_collect_identifiers_from_comments_and_strings=0
+        let g:ycm_semantic_triggers =  {
+                    \   'c' : ['->', '.'],
+                    \   'objc' : ['->', '.'],
+                    \   'ocaml' : ['.', '#'],
+                    \   'cpp,objcpp' : ['->', '.', '::'],
+                    \   'perl' : ['->'],
+                    \   'php' : ['->', '::', '(', 'use ', 'namespace ', '\'],
+                    \   'cs,java,typescript,d,python,perl6,scala,vb,elixir,go' : ['.', 're!(?=[a-zA-Z]{3,4})'],
+                    \   'html': ['<', '"', '</', ' '],
+                    \   'vim' : ['re![_a-za-z]+[_\w]*\.'],
+                    \   'ruby' : ['.', '::'],
+                    \   'lua' : ['.', ':'],
+                    \   'erlang' : [':'],
+                    \   'haskell' : ['.', 're!.'],
+                    \   'scss,css': [ 're!^\s{2,4}', 're!:\s+' ],
+                    \ }
         let g:ycm_filetype_blacklist={
                     \   'tagbar' : 1,
                     \   'nerdtree' : 1,

@@ -5,15 +5,13 @@
 <!-- vim-markdown-toc GFM -->
 * [Description](#description)
 * [Install](#install)
-* [Key Bindings](#key-bindings)
 
 <!-- vim-markdown-toc -->
 
 ## Description
 
+Chinese layer 解决在 GUI 环境下可能会出现的中文乱码问题。
 
 ## Install
 
-
-## Key Bindings
-
+在 `.spacevim` 中添加 `Layer 'chinese'`.

@@ -11,7 +11,9 @@
 
 ## Description
 
-This layer adds support a code completion engine.
+This layer adds support for a code completion engine.
+
+![screenshot](img/screenshot.png)
 
 ## Install
 

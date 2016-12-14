@@ -1,7 +1,7 @@
 scriptencoding utf-8
 if LayerLoaded('auto-completion')
 
-    if IsDir('neocomplete')
+    if IsDir('neocomplete.vim')
         "Note: This option must be set in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
         " Disable AutoComplPop.
         let g:acp_enableAtStartup = 0

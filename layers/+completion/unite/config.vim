@@ -1,6 +1,18 @@
 scriptencoding utf-8
 if LayerLoaded('unite')
 
+    " if ctrlp.vim {
+    if IsDir('ctrlp.vim')
+        let g:ctrlp_custom_ignore = {
+                    \ 'dir':  '\v[\/](node_modules|target|dist)|\.(git|hg|svn|rvm)$',
+                    \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz)$',
+                    \ }
+        let g:ctrlp_follow_symlinks=1
+        let g:ctrlp_mruf_relative = 1
+        let g:ctrlp_mruf_exclude = '/tmp/.*\|/temp/.*'
+        nnoremap <Leader>fr :CtrlPMRU<CR>
+    endif
+    " }
     " unite.vim {
     if IsDir('unite.vim')
         let g:unite_source_menu_menus = {}

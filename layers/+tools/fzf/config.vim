@@ -12,7 +12,6 @@ if LayerLoaded('fzf')
 
     " fzf-filemru {
     if IsDir('fzf-filemru')
-        nnoremap <Leader>fr :FilesMru --tiebreak=end<cr>
         nnoremap <Leader>pr :ProjectMru --tiebreak=end<cr>
     endif
     " }

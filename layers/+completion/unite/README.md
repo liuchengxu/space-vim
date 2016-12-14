@@ -19,8 +19,9 @@ To use this configuration layer, add it to your `~/.spacevim`.
 
 ## Key Bindings
 
-Key Binding       | Mode   | Description
-:---:             | :---:  | :---:
-<kbd>Ctrl p</kbd> | Normal | fuzzy finder toggle
-<kbd>, m</kbd>    | Normal | unite.vim menu
+Key Binding        | Mode   | Description
+:---:              | :---:  | :---:
+<kbd>Ctrl p</kbd>  | Normal | fuzzy finder toggle
+<kbd>, m</kbd>     | Normal | unite.vim menu
+<kbd>SPC f r</kbd> | Normal | files most recently used
 

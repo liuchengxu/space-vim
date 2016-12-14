@@ -6,6 +6,11 @@ augroup SPACEVIM_BASIC
                 \ endif
 augroup END
 
+autocmd BufReadPre *
+            \   if getfsize(expand("%")) > 10000000 |
+            \   syntax off |
+            \   endif
+
 " ultisnips {
 if IsDir('ultisnips')
     " Set ultisnips triggers

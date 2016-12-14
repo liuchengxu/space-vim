@@ -1,4 +1,4 @@
-# ![fzf](https://raw.githubusercontent.com/junegunn/i/master/fzf.png)
+# fzf layer
 
 ## Table of Contents
 
@@ -13,9 +13,11 @@
 
 This layer adds supports fuzzy file finder as well as much more other functionalities.
 
+![screenshot](img/screenshot.png)
+
 ## Install
 
-To use this configuration layer, add it to your `~/.spacevim`.
+To use this configuration layer, add it to your `~/.spacevim`. *It has been enabled as one of the default layers.*
 
 ## Key Bindings
 
@@ -27,3 +29,5 @@ Key Binding        | Mode   | Description
 <kbd>SPC w ?</kbd> | Normal | windows list
 <kbd>SPC f ?</kbd> | Normal | search files in home directory
 <kbd>SPC f r</kbd> | Normal | files most recently used
+
+press <kbd>\<esc></kbd>, <kbd>Ctrl c</kbd> or <kbd>Ctrl [</kbd> to exit.

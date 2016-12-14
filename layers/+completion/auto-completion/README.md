@@ -12,6 +12,8 @@
 
 This layer adds support for basical keyword completion.
 
+![screenshot](img/screenshot.png)
+
 If you want a more powerful completion engine, please enable another layer `ycmd`.
 
 ## Install

@@ -16,7 +16,9 @@ if LayerLoaded('markdown')
 
     " vim-xmark {
     if IsDir('vim-xmark')
-        autocmd FileType markdown nnoremap <LocalLeader>p :Xmark<CR>
+        augroup SPACEVIM_MD
+            autocmd FileType markdown nnoremap <LocalLeader>cp :Xmark<CR>
+        augroup END
     endif
     " }
 

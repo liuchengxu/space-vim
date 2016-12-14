@@ -12,6 +12,6 @@ MP 'majutsushi/tagbar'
 
 MP 'editorconfig/editorconfig-vim'
 
-MP 'skywind3000/asyncrun.vim',        { 'on': ['AsyncRun!', 'AsyncRun'] }
 MP 'nathanaelkane/vim-indent-guides', { 'on': 'IndentGuidesToggle'}
+MP 'skywind3000/asyncrun.vim',        { 'on': ['AsyncRun!', 'AsyncRun'] }
 
