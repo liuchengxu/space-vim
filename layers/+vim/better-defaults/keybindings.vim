@@ -18,12 +18,53 @@ nnoremap <Leader>xd :FixWhitespace<CR>
 " <leader><Leader>f : forward
 " <Leader><Leader>j
 " <Leader><Leader>k
+
+" Consistent with spacemacs
+" <Leader>f{char} to move to {char}
+map  <Leader>jj <Plug>(easymotion-bd-f)
+nmap <Leader>jj <Plug>(easymotion-overwin-f)
+
+" s{char}{char} to move to {char}{char}
+nmap <Leader>jJ <Plug>(easymotion-overwin-f2)
+
 " Jump to line
 map <Leader>jl <Plug>(easymotion-bd-jk)
 nmap <Leader>jl <Plug>(easymotion-overwin-line)
+
 " Jump to word
 map  <Leader>jw <Plug>(easymotion-bd-w)
 nmap <Leader>jw <Plug>(easymotion-overwin-w)
+
+" incsearch.vim x fuzzy x vim-easymotion
+
+function! s:config_easyfuzzymotion(...) abort
+    return extend(copy({
+                \   'converters': [incsearch#config#fuzzy#converter()],
+                \   'modules': [incsearch#config#easymotion#module()],
+                \   'keymap': {"\<CR>": '<Over>(easymotion)'},
+                \   'is_expr': 0,
+                \   'is_stay': 1
+                \ }), get(a:, 1, {}))
+endfunction
+
+noremap <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion())
+
+" You can use other keymappings like <C-l> instead of <CR> if you want to
+" use these mappings as default search and somtimes want to move cursor with
+" EasyMotion.
+function! s:incsearch_config(...) abort
+    return incsearch#util#deepextend(deepcopy({
+                \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
+                \   'keymap': {
+                \     "\<CR>": '<Over>(easymotion)'
+                \   },
+                \   'is_expr': 0
+                \ }), get(a:, 1, {}))
+endfunction
+
+noremap <silent><expr> <Leader>/  incsearch#go(<SID>incsearch_config())
+" noremap <silent><expr> ?  incsearch#go(<SID>incsearch_config({'command': '?'}))
+" noremap <silent><expr> g/ incsearch#go(<SID>incsearch_config({'is_stay': 1}))
 
 " nerdtree
 map <F4> :NERDTreeToggle<CR>

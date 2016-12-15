@@ -57,7 +57,7 @@ Key Binding            | Mode       | Description
 Key Binding          | Mode   | Description
 :---:                | :---:  | :---:
 <kbd>SPC [1-9]</kbd> | Normal | switch to buffer with number [1-9], 切换至对应编号[1-9]对应缓冲区
-<kbd>SPC b p</kbd>   | Normal | **previous** **b**uffer, 上一个缓冲区
+<kbd>SPC b p</kbd>   | Normal | **p**revious **b**uffer, 上一个缓冲区
 <kbd>SPC b n</kbd>   | Normal | **n**ext **b**uffer, 下一个缓冲区
 <kbd>\<Tab></kbd>    | Normal | switch buffer, equal to <kbd>SPC b n</kbd>, 等同于 <kbd>SPC b n</kbd>
 <kbd>SPC b d</kbd>   | Normal | **d**elete current buffer, 删除当前缓冲区
@@ -90,6 +90,8 @@ Key Binding          | Mode   | Description
 :---:                | :---:  | :---:
 <kbd>SPC j w         | Nomral | 单词跳转 (jump to word)
 <kbd>SPC j l         | Nomral | 行间跳转 (jump to line)
+<kbd>SPC j j         | Nomral | goto-char, 单个字符搜索, 等同于<kbd>SPC SPC s</kbd>
+<kbd>SPC j J         | Nomral | goto-char-2, 两个字符搜索
 <kbd>SPC SPC w</kbd> | Normal | 快速词间移动(向前)
 <kbd>SPC SPC b</kbd> | Normal | 快速词间移动 (向后)
 <kbd>SPC SPC s</kbd> | Normal | 快速字符搜索 (双向)
@@ -103,4 +105,4 @@ Key Binding          | Mode   | Description
 :---:                | :---:  | :---:
 <kbd>SPC x d</kbd>   | Normal | delete trailing whitespace, 去掉行尾多余空格 (te**x**t **d**elete)
 <kbd>SPC f R</kbd>   | Normal | reload .vimrc, 重新加载 .vimrc (**f**ile **R**esource)
-<kbd>SPC b h</kbd>   | Normal | 主 buffer (**b**uffer **h**ome)
+<kbd>SPC b h</kbd>   | Normal | **b**uffer **h**ome, 主 buffer

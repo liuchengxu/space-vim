@@ -13,8 +13,8 @@ MP 'Raimondi/delimitMate'
 MP 'itchyny/vim-cursorword'
 
 MP 'haya14busa/incsearch.vim'
-
 MP 'easymotion/vim-easymotion'
+MP 'haya14busa/incsearch-easymotion.vim'
 
 MP 'terryma/vim-multiple-cursors'
 

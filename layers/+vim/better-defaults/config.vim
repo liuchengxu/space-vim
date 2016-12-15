@@ -303,4 +303,4 @@ endfunction
 set statusline=%!MyStatusLine()
 endif
 
-call Source(g:spacevim_dir.'/layers/+vim/better-defaults/keybindings.vim')
+execute 'source' fnamemodify(expand('<sfile>'), ':h') . '/keybindings.vim'
