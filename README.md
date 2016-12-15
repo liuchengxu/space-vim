@@ -33,7 +33,7 @@
 
 ## Introduction
 
-space-vim is a vim distribution for vim plugins and resources, compatible with Vim and Neovim.
+space-vim is a vim distribution for vim plugins and resources, compatible with Vim and NeoVim.
 
 It is inspired by [spacemacs](https://github.com/syl20bnr/spacemacs), espcially in key bindings and GUI. if have ever tried spaceamcs, you will find spacevim is very similar to it in user experience.
 
@@ -74,7 +74,7 @@ Not tested now.
 ln -s ~/.space-vim/init.vim ~/.config/nvim/init.vim
 ```
 
-:exclamation: When layers enabled at first time, you need to run `:PlugInstall` to install relevant plugins.
+:exclamation: When layers enabled at the first time, you need to run `:PlugInstall` to install relevant plugins.
 
 ## Customize
 
@@ -133,7 +133,7 @@ vim +PlugInstall! +PlugUpdate +PlugClean +q
 
 Q: Why develop this?
 
-A: I often use spacemacs when in GUI environment. But in terminal, vim is definitely my first choice. Then I hope to maintain consistency in operation in the two scenes as much as possible.
+A: I was amazed by spacemacs' beautiful GUI and mnemonic key bindings when use it at the first time. Now I often use spacemacs when in GUI environment. But in terminal, vim is definitely my first choice. Then I hope to maintain consistency in operation in the two scenes as much as possible.
 Hence I try to reconfig the vim based on spacemacs's architecture, especially in key bindings and GUI. This is space-vim at present.
 
 ## Contributions

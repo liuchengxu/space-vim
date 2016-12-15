@@ -1,5 +1,6 @@
 " Reload .vimrc
 nnoremap <Leader>fR :source $MYVIMRC<CR>
+
 " Use Tab to switch buffer
 nnoremap <Tab> :bn<CR>
 

@@ -17,6 +17,8 @@
 
 This layer adds support for the Python language.
 
+![screenshot](img/screenshot.png)
+
 ## Install
 
 ### Layer
@@ -27,7 +29,7 @@ To use this configuration layer, add it to your `~/.spacevim`.
 
 #### Auto-completion
 
-`ycmd` layer needed.
+`ycmd` layer recommended.
 
 #### Syntax checking
 

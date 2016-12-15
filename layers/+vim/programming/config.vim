@@ -71,7 +71,7 @@ if LayerLoaded('programming')
         nnoremap <F5> :call <SID>compile_and_run()<CR>
         augroup SPACEVIM_ASYNCRUN
             autocmd!
-            autocmd User AsyncRunStart call asyncrun#quickfix_toggle(20, 1)
+            autocmd User AsyncRunStart call asyncrun#quickfix_toggle(15, 1)
         augroup END
         function! s:compile_and_run()
             exec 'w'

@@ -109,10 +109,12 @@ endif
 
 " vim-nerdtree-syntax-highlight {
 if IsDir('vim-nerdtree-syntax-highlight')
-    let g:NERDTreeFileExtensionHighlightFullName = 1
-    let g:NERDTreeExactMatchHighlightFullName = 1
-    let g:NERDTreePatternMatchHighlightFullName = 1
-    let g:NERDTreeLimitedSyntax = 1
+
+    " let g:NERDTreeFileExtensionHighlightFullName = 1
+    " let g:NERDTreeExactMatchHighlightFullName = 1
+    " let g:NERDTreePatternMatchHighlightFullName = 1
+    " let g:NERDTreeLimitedSyntax = 1
+
     " you can add these colors to your .vimrc to help customizing
     let s:brown = '905532'
     let s:aqua =  '3AFFDB'
@@ -132,18 +134,27 @@ if IsDir('vim-nerdtree-syntax-highlight')
     let s:white = 'FFFFFF'
     let s:rspec_red = 'FE405F'
     let s:git_orange = 'F54D27'
+
     let g:NERDTreeExtensionHighlightColor = {} " this line is needed to avoid error
     let g:NERDTreeExtensionHighlightColor['css'] = s:blue " sets the color of css files to blue
     let g:NERDTreeExtensionHighlightColor = {} " this line is needed to avoid error
+    let g:NERDTreeExtensionHighlightColor['python'] = s:green " sets the color of css files to blue
+    let g:NERDTreeExtensionHighlightColor = {} " this line is needed to avoid error
     let g:NERDTreeExtensionHighlightColor['org'] = s:pink " sets the color of css files to blue
+
     let g:NERDTreeExactMatchHighlightColor = {} " this line is needed to avoid error
-    let g:NERDTreeExtensionHighlightColor['tex'] = s:rspec_red " sets the color of css files to blue
+    let g:NERDTreeExactMatchHighlightColor['tex'] = s:rspec_red " sets the color of css files to blue
     let g:NERDTreeExactMatchHighlightColor = {} " this line is needed to avoid error
     let g:NERDTreeExactMatchHighlightColor['.gitignore'] = s:git_orange " sets the color for .gitignore files
     let g:NERDTreeExactMatchHighlightColor = {} " this line is needed to avoid error
     let g:NERDTreeExactMatchHighlightColor['.ipynb'] = s:lightPurple " sets the color for .ipynb files
+    let g:NERDTreeExactMatchHighlightColor = {} " this line is needed to avoid error
+    let g:NERDTreeExactMatchHighlightColor['.py'] = s:red " sets the color for .ipynb files
+
     let g:NERDTreePatternMatchHighlightColor = {} " this line is needed to avoid error
     let g:NERDTreePatternMatchHighlightColor['.*_spec\.rb$'] = s:rspec_red " sets the color for files ending with _spec.rb
+    let g:NERDTreePatternMatchHighlightColor = {} " this line is needed to avoid error
+    let g:NERDTreePatternMatchHighlightColor['*.py$'] = s:red " sets the color for files ending with _spec.rb
 endif
 " }
 

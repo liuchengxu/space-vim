@@ -1,38 +1,26 @@
-" Plug 'liuchengxu/vim-better-default'
-
-" Plug 'Raimondi/delimitMate'
-" Plug 'tpope/vim-surround'
-
-" Plug 'easymotion/vim-easymotion'
-" Plug 'haya14busa/incsearch.vim'
-
-" Plug 'mhinz/vim-startify'
-
-" Plug 'scrooloose/nerdtree'
-" Plug 'Xuyuanp/nerdtree-git-plugin'
-" Plug 'bronson/vim-trailing-whitespace'
-
 " if OSX()
     " Plug 'ybian/smartim'
 " endif
 
-MP 'liuchengxu/vim-better-default'
-
-MP 'Raimondi/delimitMate'
-MP 'tpope/vim-surround'
-
-MP 'easymotion/vim-easymotion'
+MP 'danro/rename.vim'
 
 MP 'mhinz/vim-startify'
 
-MP 'scrooloose/nerdtree'
-MP 'Xuyuanp/nerdtree-git-plugin'
-MP 'bronson/vim-trailing-whitespace'
+MP 'tpope/vim-surround'
 
-MP 'haya14busa/incsearch.vim'
+MP 'Raimondi/delimitMate'
 
 MP 'itchyny/vim-cursorword'
 
+MP 'haya14busa/incsearch.vim'
+
+MP 'easymotion/vim-easymotion'
+
 MP 'terryma/vim-multiple-cursors'
 
-MP 'danro/rename.vim'
+MP 'scrooloose/nerdtree'
+MP 'Xuyuanp/nerdtree-git-plugin'
+
+MP 'liuchengxu/vim-better-default'
+
+MP 'bronson/vim-trailing-whitespace'
