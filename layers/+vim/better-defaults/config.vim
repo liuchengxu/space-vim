@@ -200,6 +200,7 @@ endif
 
 " The decoration of statusline was stealed from
 " https://github.com/junegunn/dotfiles/blob/master/vimrc.
+"
 " %< Where to truncate
 " %n buffer number
 " %F Full path

@@ -10,11 +10,6 @@ nnoremap <silent><Leader>bh :Startify<CR>
 " vim-trailing-whitespace
 nnoremap <Leader>xd :FixWhitespace<CR>
 
-" incsearch.vim
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
-
 " easy-motion
 " Default key bindings:
 " <Leader><Leader>w : word
