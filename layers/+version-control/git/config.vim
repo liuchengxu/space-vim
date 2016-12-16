@@ -21,11 +21,12 @@ if LayerLoaded('git')
 
     " vim-gitgutter {
     if IsDir('vim-gitgutter')
-        let g:gitgutter_sign_added = '+'
-        let g:gitgutter_sign_modified = '*'
-        let g:gitgutter_sign_removed = 'x'
+        let g:gitgutter_sign_added = '++'
+        let g:gitgutter_sign_modified = '**'
+        let g:gitgutter_sign_removed = 'xx'
         let g:gitgutter_sign_removed_first_line = '^^'
         let g:gitgutter_sign_modified_removed = 'ww'
+        let g:gitgutter_override_sign_column_highlight = 0
         nnoremap <silent> <Leader>tg :GitGuggterToggle<CR>
     endif
     " }

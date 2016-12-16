@@ -41,8 +41,6 @@ The distribution is completely customisable using `.spacevim`, which is equivale
 
 ![screenshot](doc/img/screenshot.png)
 
-Bonus: []()
-
 ## Features
 
 - **Beautiful GUI:** I have also written a vim colorscheme [space-vim-dark](https://github.com/liuchengxu/space-vim-dark) based on spacemacs-dark theme.
