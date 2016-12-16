@@ -41,6 +41,8 @@ The distribution is completely customisable using `.spacevim`, which is equivale
 
 ![screenshot](doc/img/screenshot.png)
 
+Bonus: []()
+
 ## Features
 
 - **Beautiful GUI:** I have also written a vim colorscheme [space-vim-dark](https://github.com/liuchengxu/space-vim-dark) based on spacemacs-dark theme.
@@ -138,7 +140,7 @@ Hence I try to reconfig the vim based on spacemacs's architecture, especially in
 
 ## Contributions
 
-If you encounter any problem or have any suggestions, please [open an issue](https://github.com/liuchengxu/space-vim/issues/new).
+If you encounter any problem or have any suggestions, please [open an issue](https://github.com/liuchengxu/space-vim/issues/new) or [send a PR](https://github.com/liuchengxu/space-vim/pulls).
 
 Space-vim is still in beta. If you are interested, contributions are highly welcome.
 

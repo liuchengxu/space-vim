@@ -62,6 +62,8 @@ ln -s ~/.space-vim/init.vim ~/.config/nvim/init.vim
 
 ![screenshot](doc/img/screenshot.png)
 
+终端环境我基本都会使用 tmux, [这里](https://github.com/liuchengxu/dotfiles/blob/master/tmux.conf)是我的 tmux 配置.
+
 ## 愿景
 
 集百家之长，惠千家万家。
@@ -219,7 +221,7 @@ private 可以看做是一个 Layer ，如果个人配置比较多，可以放�
 - 完善，增加 Layer. 遵循已有的 Layer 结构。
 - 文档，包括安装细节，使用经验等。
 
-    如有任何的建议或意见，欢迎 [open an issue](https://github.com/liuchengxu/space-vim/issues/new).
+    如有任何的建议或意见，欢迎 [open an issue](https://github.com/liuchengxu/space-vim/issues/new) 与[send a PR](https://github.com/liuchengxu/space-vim/pulls).
 
 ## 展望
 

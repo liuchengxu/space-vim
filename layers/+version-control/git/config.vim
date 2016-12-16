@@ -1,3 +1,5 @@
+scriptencoding utf-8
+
 if LayerLoaded('git')
 
     " vim-fugitive {
@@ -16,5 +18,16 @@ if LayerLoaded('git')
         nnoremap <silent> <Leader>gg :SignifyToggle<CR>
     endif
     "}
+
+    " vim-gitgutter {
+    if IsDir('vim-gitgutter')
+        let g:gitgutter_sign_added = '+'
+        let g:gitgutter_sign_modified = '*'
+        let g:gitgutter_sign_removed = 'x'
+        let g:gitgutter_sign_removed_first_line = '^^'
+        let g:gitgutter_sign_modified_removed = 'ww'
+        nnoremap <silent> <Leader>tg :GitGuggterToggle<CR>
+    endif
+    " }
 
 endif
