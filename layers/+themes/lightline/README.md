@@ -10,7 +10,9 @@
 
 ## Description
 
-This layer adds support for a fancy statusline.
+This layer adds support for a beautiful statusline.
+
+![screenshot](img/screenshot.png)
 
 ## Install
 

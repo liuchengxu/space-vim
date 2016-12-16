@@ -25,6 +25,7 @@ if LayerLoaded('programming')
     endfunction
 
     augroup SPACEVIM_NEWFILE
+        autocmd!
         autocmd BufNewFile *.py,*.rb,*.cpp,*.c,*.sh,*.java execute "call s:add_title()"
         autocmd BufNewFile * normal G
     augroup END
@@ -32,8 +33,9 @@ if LayerLoaded('programming')
     " ultisnips {
     if IsDir('ultisnips')
         " Set ultisnips triggers
+        " let g:UltiSnipsSnippetDirectories=[g:spacevim_dir.'/private/snippets', 'UltiSnips']
         let g:UltiSnipsSnippetDirectories=['UltiSnips']
-        let g:UltiSnipsSnippetsDir = g:my_plug_home.'vim-snippets/UltiSnips/'
+        let g:UltiSnipsSnippetsDir = [g:spacevim_dir.'/private/UltiSnips', g:my_plug_home.'vim-snippets/UltiSnips/']
         let g:UltiSnipsListSnippets = '<C-Tab>'
         let g:UltiSnipsJumpForwardTrigger = '<Tab>'
         let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'
@@ -132,7 +134,7 @@ if LayerLoaded('programming')
     endif
     " }
 
-    " indent_guides {
+    " vim-indent_guides {
     if IsDir('vim-indent-guides')
         let g:indent_guides_start_level = 2
         let g:indent_guides_guide_size = 1

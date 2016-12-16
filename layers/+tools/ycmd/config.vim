@@ -3,7 +3,7 @@ if LayerLoaded('ycmd')
 
     " YouCompleteMe {
     if IsDir('YouCompleteMe')
-        let g:ycm_global_ycm_extra_conf = g:spacevim_dir . '/layers/+tools/ycmd/global_conf.py'
+        let g:ycm_global_ycm_extra_conf = fnamemodify(expand('<sfile>'), ':h') . '/global_conf.py'
         let g:ycm_error_symbol='✖'
         let g:ycm_warning_symbol='⚠ '
         " ycm_path_to_python_interpreter is important!
@@ -42,6 +42,8 @@ if LayerLoaded('ycmd')
 
 
         augroup SPACEVIM_YCM
+
+            autocmd!
 
             " Enable omni completion.
             autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS

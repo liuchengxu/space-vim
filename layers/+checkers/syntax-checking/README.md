@@ -5,12 +5,18 @@
 <!-- vim-markdown-toc GFM -->
 * [Description](#description)
 * [Install](#install)
-* [Key Bindings](#key-bindings)
+    * [Dependencies](#dependencies)
 
 <!-- vim-markdown-toc -->
 
 ## Description
 
+This layer adds support for syntax checking.
+
 ## Install
 
-## Key Bindings
+To use this configuration layer, add it to your `~/.spacevim`.
+
+### Dependencies
+
+To make syntax checking work, you need to install some external tools beforehand, e.g., `flake8` for the Python language.

@@ -138,6 +138,8 @@ Hence I try to reconfig the vim based on spacemacs's architecture, especially in
 
 ## Contributions
 
+If you encounter any problem or have any suggestions, please [open an issue](https://github.com/liuchengxu/space-vim/issues/new).
+
 Space-vim is still in beta. If you are interested, contributions are highly welcome.
 
 ## Acknowledgements

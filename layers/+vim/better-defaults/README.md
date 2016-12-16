@@ -67,21 +67,21 @@ Key Binding          | Mode   | Description
 
 Key Binding        | Mode   | Description
 :---:              | :---:  | :---:
-<kbd>SPC w j</kbd> | Normal | 移动至下方窗口
-<kbd>SPC w k</kbd> | Normal | 移动至上方窗口
-<kbd>SPC w h</kbd> | Normal | 移动至左侧窗口
-<kbd>SPC w l</kbd> | Normal | 移动至右侧窗口
+<kbd>SPC w j</kbd> | Normal | window-down, 移动至下方窗口
+<kbd>SPC w k</kbd> | Normal | window-up, 移动至上方窗口
+<kbd>SPC w h</kbd> | Normal | window-left, 移动至左侧窗口
+<kbd>SPC w l</kbd> | Normal | window-right, 移动至右侧窗口
 <kbd>SPC w J</kbd> | Normal | 向下扩大当前窗口
 <kbd>SPC w K</kbd> | Normal | 向上扩大当前窗口
 <kbd>SPC w H</kbd> | Normal | 向右扩大当前窗口
 <kbd>SPC w L</kbd> | Normal | 向左扩大当前窗口
-<kbd>SPC w v</kbd> | Normal | 竖直分割窗口， 等同于 `SPC w |`
-<kbd>SPC w 2</kbd> | Normal | 将窗口分割为两列，等同于`SPC w v`
-<kbd>SPC w s</kbd> | Normal | 水平分割窗口， 等同于 `SPC w -`
-<kbd>SPC w d</kbd> | Normal | 关闭 (cancel, 记 **d**elete) 当前窗口
-<kbd>SPC w q</kbd> | Normal | 退出 (**q**uit) 当前窗口，若是最后一个窗口则退出vim
-<kbd>SPC w w</kbd> | Normal | 在所有窗口中循环移动
-<kbd>SPC w r</kbd> | Normal | 向右或向下方交换 (**r**eplace) 窗口
+<kbd>SPC w v</kbd> | Normal | split-window-right, 竖直分割窗口， 等同于 `SPC w |`
+<kbd>SPC w 2</kbd> | Normal | layout-double-columns, 将窗口分割为两列，等同于`SPC w v`
+<kbd>SPC w s</kbd> | Normal | split-window-below, 水平分割窗口， 等同于 `SPC w -`
+<kbd>SPC w d</kbd> | Normal | delete-window, 关闭 (cancel, 记 **d**elete) 当前窗口
+<kbd>SPC w q</kbd> | Normal | quit-window, 退出 (**q**uit) 当前窗口，若是最后一个窗口则退出vim
+<kbd>SPC w w</kbd> | Normal | other-window, 在所有窗口中循环移动
+<kbd>SPC w r</kbd> | Normal | window-replace, 向右或向下方交换 (**r**eplace) 窗口
 <kbd>SPC w m</kbd> | Normal | GUI 环境下 vim 窗口最大化 (**m**aximum) 开关
 
 ### easy-motion

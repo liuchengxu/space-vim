@@ -155,7 +155,11 @@ LayerStatus 可以查看启用了哪些 Layer.
 
 ### 如何使用
 
-更多使用信息请点击 [快速指引](doc/tutorial_cn.md), 也可查看 [wiki](https://github.com/liuchengxu/space-vim/wiki) 也许会有收获。 下面为简短介绍。
+更多使用信息请点击 [快速指引](doc/tutorial_cn.md), 也可查看 [wiki](https://github.com/liuchengxu/space-vim/wiki) 也许会有收获。
+
+[better-defaults](https://github.com/liuchengxu/space-vim/blob/master/layers/%2Bvim/better-defaults/README.md) layer 为必看内容，这里包含了所有包括 buffer, window, motion等等的基本操作。了解它们是能够愉快使用 space-vim 的前提。
+
+下面为简短介绍。
 
 #### 键位设定
 
@@ -214,6 +218,8 @@ private 可以看做是一个 Layer ，如果个人配置比较多，可以放�
 
 - 完善，增加 Layer. 遵循已有的 Layer 结构。
 - 文档，包括安装细节，使用经验等。
+
+    如有任何的建议或意见，欢迎 [open an issue](https://github.com/liuchengxu/space-vim/issues/new).
 
 ## 展望
 

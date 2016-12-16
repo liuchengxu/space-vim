@@ -22,8 +22,11 @@ if LayerLoaded('python')
 
         if LayerLoaded('programming')
             autocmd FileType python nnoremap <buffer> <F5> :update<Bar>execute 'AsyncRun! python '.shellescape(@%, 1)<CR>
+            autocmd FileType python nnoremap <buffer> <LocalLeader>cc :update<Bar>execute 'AsyncRun! python '.shellescape(@%, 1)<CR>
+            autocmd FileType python nnoremap <buffer> <LocalLeader>cs :update<Bar>execute 'AsyncStop!'.shellescape(@%, 1)<CR>
         else
             autocmd FileType python nnoremap <buffer> <F5> :update<Bar>execute '! python '.shellescape(@%, 1)<CR>
+            autocmd FileType python nnoremap <buffer> <LocalLeader>cc :update<Bar>execute '! python '.shellescape(@%, 1)<CR>
         endif
 
         if executable('yapf')

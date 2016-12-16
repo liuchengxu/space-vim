@@ -13,4 +13,3 @@ MP 'morhetz/gruvbox'
 MP 'joshdick/onedark.vim'
 MP 'junegunn/seoul256.vim'
 MP 'liuchengxu/space-vim-dark'
-

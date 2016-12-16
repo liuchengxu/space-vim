@@ -12,6 +12,8 @@
 
 This layer adds a fancy statusline.
 
+![screenshot](img/screenshot.png)
+
 ## Install
 
 To use this configuration layer, add it to your `~/.spacevim`.
