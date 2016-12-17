@@ -1,7 +1,7 @@
 if LayerLoaded('emoji')
 
     if IsDir('vim-emoji')
-        augroup emoji_complete
+        augroup SPACEVIM_EMOJI
             autocmd!
             autocmd FileType markdown setlocal completefunc=emoji#complete
         augroup END
