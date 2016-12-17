@@ -13,6 +13,7 @@ if LayerLoaded('unite')
         nnoremap <Leader>fr :CtrlPMRU<CR>
     endif
     " }
+
     " unite.vim {
     if IsDir('unite.vim')
         let g:unite_source_menu_menus = {}
@@ -40,8 +41,6 @@ if LayerLoaded('unite')
         " unite prefix: LocalLeader=','
         " menus menu
         nnoremap <silent>[menu]m :Unite -silent -winheight=40 menu<CR>
-        " supported by fzf.vim
-        nnoremap <Leader>? :Maps<CR>
 
         " [menu]x : menu.edition {
         let g:unite_source_menu_menus.x = {
