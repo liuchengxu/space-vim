@@ -157,7 +157,9 @@ LayerStatus 可以查看启用了哪些 Layer.
 
 ### 如何使用
 
-更多使用信息请点击 [快速指引](doc/tutorial_cn.md), 也可查看 [wiki](https://github.com/liuchengxu/space-vim/wiki) 也许会有收获。
+对于老司机而言，可以选择参考感兴趣的 layer 下的一些配置，也非常欢迎分享老司机的开车经验。
+
+如果是新手上路，更多使用信息请点击 [快速指引](doc/tutorial_cn.md), 也可查看 [wiki](https://github.com/liuchengxu/space-vim/wiki) 也许会有收获。
 
 [better-defaults](https://github.com/liuchengxu/space-vim/blob/master/layers/%2Bvim/better-defaults/README.md) layer 为必看内容，这里包含了所有包括 buffer, window, motion等等的基本操作。了解它们是能够愉快使用 space-vim 的前提。
 
