@@ -20,7 +20,8 @@ MP 'terryma/vim-multiple-cursors'
 
 MP 'scrooloose/nerdtree'
 MP 'Xuyuanp/nerdtree-git-plugin'
+MP 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 MP 'liuchengxu/vim-better-default'
 
-MP 'bronson/vim-trailing-whitespace'
+MP 'ntpeters/vim-better-whitespace'

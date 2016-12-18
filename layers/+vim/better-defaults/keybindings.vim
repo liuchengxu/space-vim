@@ -8,7 +8,7 @@ nnoremap <Tab> :bn<CR>
 nnoremap <silent><Leader>bh :Startify<CR>
 
 " vim-trailing-whitespace
-nnoremap <Leader>xd :FixWhitespace<CR>
+nnoremap <Leader>xd :StripWhitespace<CR>
 
 " easy-motion
 " Default key bindings:

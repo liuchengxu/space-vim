@@ -1,9 +1,17 @@
 # Elixir layer
 
-Uses vim-elixir plugin from Elixir lang site.
-
 ## Table of Contents
+
+<!-- vim-markdown-toc GFM -->
+* [Description](#description)
+* [Install](#install)
+
+<!-- vim-markdown-toc -->
+
+## Description
+
+This layer adds support the Elixir.
 
 ## Install
 
-## Key Bindings
+To use this configuration layer, add it to your `~/.spacevim`.

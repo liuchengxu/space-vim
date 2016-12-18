@@ -4,12 +4,14 @@
 
 ### Added
 
-- Lightline layer
 - LaTeX layer
+- Elixir layer
+- Lightline layer
 
 ### Changed
 
 - Replace vim-markdown-preview with vim-Xmark to markdown layer
+- Replace bronson/vim-trailing-whitespace with ntpeters/vim-better-whitespace
 
 
 ## [0.3.0] - 2016.12.11

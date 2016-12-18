@@ -1,15 +1,17 @@
+scriptencoding utf-8
+
 augroup SPACEVIM_BASIC
     " Restore cursor position when opening file
     autocmd BufReadPost *
                 \ if line("'\"") > 1 && line("'\"") <= line("$") |
                 \   execute "normal! g`\"" |
                 \ endif
-augroup END
 
-autocmd BufReadPre *
-            \   if getfsize(expand("%")) > 10000000 |
-            \   syntax off |
-            \   endif
+    autocmd BufReadPre *
+                \   if getfsize(expand("%")) > 10000000 |
+                \   syntax off |
+                \   endif
+augroup END
 
 " ultisnips {
 if IsDir('ultisnips')
@@ -51,7 +53,7 @@ if IsDir('vim-startify')
     let g:startify_custom_header = [
                 \'                                             _',
                 \'         ___ _ __   __ _  ___ ___     __   _(_)_ __ ___',
-                \'        / __| -_ \ / _- |/ __/ _ \____\ \ / / | -_ - _ \ ',
+                \'        / __| -_ \ / _- |/ __/ _ \____\ \ / / | -_ - _ \',
                 \'        \__ \ |_) | (_| | (_|  __/_____\ V /| | | | | | |',
                 \'        |___/ .__/ \__._|\___\___|      \_/ |_|_| |_| |_|',
                 \'            |_|',
