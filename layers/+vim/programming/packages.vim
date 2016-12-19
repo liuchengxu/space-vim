@@ -1,5 +1,7 @@
 MP 'luochen1990/rainbow'
 
+MP 'junegunn/rainbow_parentheses.vim', { 'for': ['lisp', 'clojure', 'scheme'] }
+
 " MP 'SirVer/ultisnips', { 'on': '<Plug>(tab)' }
 MP 'SirVer/ultisnips'
 MP 'honza/vim-snippets'

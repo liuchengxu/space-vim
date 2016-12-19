@@ -200,7 +200,7 @@ endif
 " %V Virtual column
 " %P Percentage
 " %#HighlightGroup#
-set statusline=%<[%n]\ %F\ %m%r%y\ %{exists('g:loaded_fugitive')?fugitive#statusline():''}\ %=%-14.(%l,%c%V%)\ %P
+set statusline=%<[%n]\ %F\ [%{exists('g:loaded_ale')?ALEGetStatusLine():''}]\ %m%r%y\ %{exists('g:loaded_fugitive')?fugitive#statusline():''}\ %=%-14.(%l,%c%V%)\ %P
 silent! if emoji#available()
 let s:ft_emoji = map({
             \ 'c':          'baby_chick',

@@ -89,6 +89,13 @@ if LayerLoaded('programming')
                     \}
     endif
     " }
+    
+    if IsDir('rainbow_parentheses.vim')
+        augroup rainbow_lisp
+            autocmd!
+            autocmd FileType lisp,clojure,scheme RainbowParentheses
+        augroup END
+    endif
 
     " tagbar {
     if IsDir('tagbar')

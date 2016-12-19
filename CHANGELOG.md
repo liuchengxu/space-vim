@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.4.0] - 2016.12.20
+
 ### Added
 
 - LaTeX layer
@@ -12,6 +14,7 @@
 
 - Replace vim-markdown-preview with vim-Xmark to markdown layer
 - Replace bronson/vim-trailing-whitespace with ntpeters/vim-better-whitespace
+- A lot of details
 
 ### Removed
 
