@@ -24,10 +24,10 @@ if LayerLoaded('text-align')
 
     " vim-easy-align {
     if IsDir('vim-easy-align')
-        " Start interactive EasyAlign in visual mode (e.g. vipga)
+        " Start interactive EasyAlign in visual mode (e.g. vipxa)
         xmap <Leader>xa <Plug>(EasyAlign)
 
-        " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+        " Start interactive EasyAlign for a motion/text object (e.g. xaip)
         nmap <Leader>xa <Plug>(EasyAlign)
     endif
     " }

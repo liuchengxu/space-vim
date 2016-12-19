@@ -3,6 +3,8 @@ if LayerLoaded('unite')
 
     " if ctrlp.vim {
     if IsDir('ctrlp.vim')
+        let g:ctrlp_map = '<c-p>'
+        let g:ctrlp_cmd = 'CtrlP'
         let g:ctrlp_custom_ignore = {
                     \ 'dir':  '\v[\/](node_modules|target|dist)|\.(git|hg|svn|rvm)$',
                     \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz)$',

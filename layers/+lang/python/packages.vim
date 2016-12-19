@@ -1,1 +1,1 @@
-MP 'tmhedberg/SimpylFold'
+MP 'tmhedberg/SimpylFold', { 'for': 'python'}

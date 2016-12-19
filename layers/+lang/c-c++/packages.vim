@@ -1,1 +1,1 @@
-MP 'octol/vim-cpp-enhanced-highlight'
+MP 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }

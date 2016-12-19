@@ -7,7 +7,7 @@ nnoremap <Tab> :bn<CR>
 " Startify
 nnoremap <silent><Leader>bh :Startify<CR>
 
-" vim-trailing-whitespace
+" vim-better-whitespace
 nnoremap <Leader>xd :StripWhitespace<CR>
 
 " easy-motion
@@ -35,40 +35,9 @@ nmap <Leader>jl <Plug>(easymotion-overwin-line)
 map  <Leader>jw <Plug>(easymotion-bd-w)
 nmap <Leader>jw <Plug>(easymotion-overwin-w)
 
-" incsearch.vim x fuzzy x vim-easymotion
-
-function! s:config_easyfuzzymotion(...) abort
-    return extend(copy({
-                \   'converters': [incsearch#config#fuzzy#converter()],
-                \   'modules': [incsearch#config#easymotion#module()],
-                \   'keymap': {"\<CR>": '<Over>(easymotion)'},
-                \   'is_expr': 0,
-                \   'is_stay': 1
-                \ }), get(a:, 1, {}))
-endfunction
-
-noremap <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion())
-
-" You can use other keymappings like <C-l> instead of <CR> if you want to
-" use these mappings as default search and somtimes want to move cursor with
-" EasyMotion.
-function! s:incsearch_config(...) abort
-    return incsearch#util#deepextend(deepcopy({
-                \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
-                \   'keymap': {
-                \     "\<CR>": '<Over>(easymotion)'
-                \   },
-                \   'is_expr': 0
-                \ }), get(a:, 1, {}))
-endfunction
-
-noremap <silent><expr> <Leader>/  incsearch#go(<SID>incsearch_config())
-" noremap <silent><expr> ?  incsearch#go(<SID>incsearch_config({'command': '?'}))
-" noremap <silent><expr> g/ incsearch#go(<SID>incsearch_config({'is_stay': 1}))
-
 " nerdtree
-map <F4> :NERDTreeToggle<CR>
-imap <F4> <ESC>:NERDTreeToggle<CR>
+nnoremap <F4> :NERDTreeToggle<CR>
+inoremap <F4> <ESC>:NERDTreeToggle<CR>
 nnoremap <Leader>ft :NERDTreeToggle<CR>
 
 let s:lines=&lines

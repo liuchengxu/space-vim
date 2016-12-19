@@ -10,7 +10,7 @@
 
 ## Description
 
-This layer adds a fancy statusline.
+This layer adds support for a fancy statusline.
 
 ![screenshot](img/screenshot.png)
 

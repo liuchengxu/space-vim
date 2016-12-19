@@ -27,20 +27,28 @@ if LayerLoaded('programming')
     augroup SPACEVIM_NEWFILE
         autocmd!
         autocmd BufNewFile *.py,*.rb,*.cpp,*.c,*.sh,*.java execute "call s:add_title()"
-        autocmd BufNewFile * normal G
+        autocmd BufNewFile * normal 2G
     augroup END
+
+     if has_key(g:plugs, 'ultisnips')
+        " UltiSnips will be loaded only when tab is first pressed in insert mode
+        if !exists(':UltiSnipsEdit')
+            inoremap <silent> <Plug>(tab) <c-r>=plug#load('ultisnips')?UltiSnips#ExpandSnippet():''<cr>
+            imap <tab> <Plug>(tab)
+        endif
+    endif
 
     " ultisnips {
     if IsDir('ultisnips')
+
         " Set ultisnips triggers
-        " let g:UltiSnipsSnippetDirectories=[g:spacevim_dir.'/private/snippets', 'UltiSnips']
         let g:UltiSnipsSnippetDirectories=['UltiSnips']
         let g:UltiSnipsSnippetsDir = [g:spacevim_dir.'/private/UltiSnips', g:my_plug_home.'vim-snippets/UltiSnips/']
         let g:UltiSnipsListSnippets = '<C-Tab>'
         let g:UltiSnipsJumpForwardTrigger = '<Tab>'
         let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'
         " Fix tab conflict with YCM
-        let g:UltiSnipsExpandTrigger = "<nop>"
+        let g:UltiSnipsExpandTrigger = '<nop>'
         let g:ulti_expand_or_jump_res = 0
         function! ExpandSnippetOrCarriageReturn()
             let l:snippet = UltiSnips#ExpandSnippetOrJump()
@@ -85,9 +93,10 @@ if LayerLoaded('programming')
     " tagbar {
     if IsDir('tagbar')
         let g:tagbar_autofocus = 1
-        nmap <F6> :TagbarToggle<CR>
-        imap <F6> <ESC>:TagbarToggle<CR>
+        nnoremap <F6> :TagbarToggle<CR>
+        inoremap <F6> <ESC>:TagbarToggle<CR>
         nnoremap <Leader>tt :TagbarToggle<CR>
+        let g:tagbar_sort = 0
     endif
     " }
 

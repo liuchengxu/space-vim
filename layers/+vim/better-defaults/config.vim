@@ -13,26 +13,11 @@ augroup SPACEVIM_BASIC
                 \   endif
 augroup END
 
-" ultisnips {
-if IsDir('ultisnips')
-    " Set ultisnips triggers
-    let g:UltiSnipsSnippetDirectories=['UltiSnips']
-    let g:UltiSnipsSnippetsDir = g:my_plug_home.'vim-snippets/UltiSnips/'
-    let g:UltiSnipsListSnippets = '<C-Tab>'
-    let g:UltiSnipsJumpForwardTrigger = '<Tab>'
-    let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'
-    " Fix tab conflict with YCM
-    let g:UltiSnipsExpandTrigger = "<nop>"
-    let g:ulti_expand_or_jump_res = 0
-    function! ExpandSnippetOrCarriageReturn()
-        let l:snippet = UltiSnips#ExpandSnippetOrJump()
-        if g:ulti_expand_or_jump_res > 0
-            return l:snippet
-        else
-            return "\<CR>"
-        endif
-    endfunction
-    inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
+silent! color space-vim-dark
+
+" vim-better-whitespace {
+if IsDir('vim-better-whitespace')
+    highlight ExtraWhitespace ctermbg=197
 endif
 " }
 
@@ -45,7 +30,6 @@ if IsDir('incsearch.vim')
         map g/ <Plug>(incsearch-stay)
     endif
 endif
-
 " }
 
 " vim-startify {
@@ -111,7 +95,6 @@ endif
 
 " vim-nerdtree-syntax-highlight {
 if IsDir('vim-nerdtree-syntax-highlight')
-
     " let g:NERDTreeFileExtensionHighlightFullName = 1
     " let g:NERDTreeExactMatchHighlightFullName = 1
     " let g:NERDTreePatternMatchHighlightFullName = 1

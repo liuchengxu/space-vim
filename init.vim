@@ -6,7 +6,7 @@
 "          |_|
 "
 "   You can customize spacevim with .spacevim
-"   and don't have to care of this file.
+"   and don't have to take care of this file.
 "
 "   Author: Liu-Cheng Xu <xuliuchengxlc@gmail.com>
 "   URL: https://github.com/liuchengxu/space-vim
@@ -58,7 +58,6 @@ call LayersBegin()
 " Default layers
 Layer 'fzf'
 Layer 'unite'
-Layer 'colors'
 Layer 'better-defaults'
 
 call LayersEnd()

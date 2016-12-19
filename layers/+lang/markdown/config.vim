@@ -1,5 +1,14 @@
 if LayerLoaded('markdown')
 
+    augroup SPACEVIM_MARKDOWN        
+        " Markdown headings
+        autocmd FileType markdown nnoremap <LocalLeader>1 m`yypVr=``
+        autocmd FileType markdown nnoremap <LocalLeader>2 m`yypVr-``
+        autocmd FileType markdown nnoremap <LocalLeader>3 m`^i### <esc>``4l
+        autocmd FileType markdown nnoremap <LocalLeader>4 m`^i#### <esc>``5l
+        autocmd FileType markdown nnoremap <LocalLeader>5 m`^i##### <esc>``6l
+    augroup END
+
     " vim-markdown {
     if IsDir('vim-markdown')
         let g:vim_markdown_math=1

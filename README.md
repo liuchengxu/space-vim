@@ -20,6 +20,7 @@
 * [Install](#install)
     * [Linux and macOS](#linux-and-macos)
     * [Windows](#windows)
+    * [Manual](#manual)
 * [Customize](#customize)
 * [Command](#command)
     * [`Layer`](#layer)
@@ -50,6 +51,8 @@ The distribution is completely customisable using `.spacevim`, which is equivale
 
 You have to satisfy some prerequisites at first: vim with `+python` or `+python3` feature, git.
 
+:exclamation: When layers enabled at the first time, you need to run `:PlugInstall` to install relevant plugins.
+
 ### Linux and macOS
 
 - curl
@@ -64,17 +67,41 @@ You have to satisfy some prerequisites at first: vim with `+python` or `+python3
     sh -c "$(wget -qO- https://raw.githubusercontent.com/liuchengxu/space-vim/master/install.sh)"
     ```
 
+    :warning: For neovim, after the quick installer is done, you still need to create a symlink:
+
+    ```sh
+    ln -s ~/.space-vim/init.vim ~/.config/nvim/init.vim
+    ```
+
 ### Windows
 
 Not tested now.
 
-:warning: For neovim, after the installer is done, you still need to create a symlink:
+### Manual
 
-```sh
-ln -s ~/.space-vim/init.vim ~/.config/nvim/init.vim
-```
+1. clone [space-vim](https://github.com/liuchengxu/space-vim)
 
-:exclamation: When layers enabled at the first time, you need to run `:PlugInstall` to install relevant plugins.
+    ```sh
+    git clone https://github.com/liuchengxu/space-vim.git ~/.space-vim
+    ```
+
+2. install [vim-plug](https://github.com/junegunn/vim-plug#installation), refer to vim-plug installation section for more information.
+
+3. create a symlink
+
+    ```sh
+    # for vim
+    ln -s ~/.space-vim/init.vim ~/.vimrc
+
+    # for neovim
+    ln -s ~/.space-vim/init.vim ~/.config/nvim/init.vim
+    ```
+
+4. set up plugins
+
+    ```sh
+    vim +PlugInstall! +PlugClean +q
+    ```
 
 ## Customize
 

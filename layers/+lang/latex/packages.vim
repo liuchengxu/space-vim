@@ -1,1 +1,1 @@
-MP 'xuhdev/vim-latex-live-preview'
+MP 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
