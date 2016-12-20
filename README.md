@@ -1,9 +1,9 @@
-<p align="center"><img src="doc/img/space-vim.png" alt="space-vim"/></p>
+<p align="center"><img src="docs/img/space-vim.png" alt="space-vim"/></p>
 
 ***
 
 <p align="center">
-:cn: <b><a href="README_cn.md">中文简介</a></b>
+:cn: <b><a href="docs/README_cn.md">中文简介</a></b>
 </p>
 ***
 <p align="center">
@@ -40,7 +40,7 @@ It is inspired by [spacemacs](https://github.com/syl20bnr/spacemacs), espcially 
 
 The distribution is completely customisable using `.spacevim`, which is equivalent to `.spacemacs` in spacemacs.
 
-![screenshot](doc/img/screenshot.png)
+![screenshot](docs/img/screenshot.png)
 
 ## Features
 

@@ -1,4 +1,4 @@
-<p align="center"><img src="doc/img/space-vim.png" alt="space-vim"/></p>
+<p align="center"><img src="img/space-vim.png" alt="space-vim"/></p>
 
 ***
 <p align="center">
@@ -60,7 +60,7 @@ ln -s ~/.space-vim/init.vim ~/.config/nvim/init.vim
 
 随着 vim8 的升级，会有很多新的更好的插件诞生，比如我用来替代 [syntastic](https://github.com/vim-syntastic/syntastic) 的 [ale](https://github.com/w0rp/ale), ale 使用了异步特性，再也不用因为语法检查而拖慢速度了。还有[asyncrun.vim](https://github.com/skywind3000/asyncrun.vim) 等等，都会成为我们新的选择。 spf13-vim 等的更新似乎不太跟得上步伐，希望集体智慧能够给我们带来一个更好用的 vim 配置。
 
-![screenshot](doc/img/screenshot.png)
+![screenshot](img/screenshot.png)
 
 终端环境我基本都会使用 tmux, [这里](https://github.com/liuchengxu/dotfiles/blob/master/tmux.conf)是我的 tmux 配置.
 
@@ -153,13 +153,13 @@ endfunction
 
 LayerStatus 可以查看启用了哪些 Layer.
 
-![layerstatus](doc/img/layerstatus.png)
+![layerstatus](img/layerstatus.png)
 
 ### 如何使用
 
 对于老司机而言，可以选择参考感兴趣的 layer 下的一些配置，也非常欢迎分享老司机的开车经验。
 
-如果是新手上路，更多使用信息请点击 [快速指引](doc/tutorial_cn.md), 也可查看 [wiki](https://github.com/liuchengxu/space-vim/wiki) 也许会有收获。
+如果是新手上路，更多使用信息请点击 [快速指引](tutorial_cn.md), 也可查看 [wiki](https://github.com/liuchengxu/space-vim/wiki) 也许会有收获。
 
 [better-defaults](https://github.com/liuchengxu/space-vim/blob/master/layers/%2Bvim/better-defaults/README.md) layer 为必看内容，这里包含了所有包括 buffer, window, motion等等的基本操作。了解它们是能够愉快使用 space-vim 的前提。
 
