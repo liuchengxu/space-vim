@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-12-20 Tue 14:25 -->
+<!-- 2016-12-20 Tue 16:42 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -154,138 +154,97 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline6">1. 前言</a>
+<li><a href="#orgheadline4">1. 前言</a>
 <ul>
-<li><a href="#orgheadline3">1.1. 几个概念</a>
-<ul>
-<li><a href="#orgheadline1">1.1.1. packages.vim</a></li>
-<li><a href="#orgheadline2">1.1.2. config.vim</a></li>
+<li><a href="#orgheadline1">1.1. 什么是 layer</a></li>
+<li><a href="#orgheadline2">1.2. 为什么使用空格键为前缀建</a></li>
+<li><a href="#orgheadline3">1.3. 为什么使用 hjkl 作为方向键</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline4">1.2. 为什么使用空格键为前缀建</a></li>
-<li><a href="#orgheadline5">1.3. 为什么使用 hjkl 作为方向键</a></li>
+<li><a href="#orgheadline13">2. 如何使用 space-vim</a>
+<ul>
+<li><a href="#orgheadline9">2.1. 准备工作</a>
+<ul>
+<li><a href="#orgheadline5">2.1.1. 满足 “要求” 的 vim</a></li>
+<li><a href="#orgheadline6">2.1.2. 第三方工具</a></li>
+<li><a href="#orgheadline8">2.1.3. 字体</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline14">2. 如何使用 space-vim</a>
-<ul>
-<li><a href="#orgheadline10">2.1. 准备工作</a>
-<ul>
-<li><a href="#orgheadline7">2.1.1. 满足 “需求” 的 vim</a></li>
-<li><a href="#orgheadline8">2.1.2. 额外所需的工具</a></li>
-<li><a href="#orgheadline9">2.1.3. 字体</a></li>
+<li><a href="#orgheadline10">2.2. 启用 layer</a></li>
+<li><a href="#orgheadline11">2.3. 个性化</a></li>
+<li><a href="#orgheadline12">2.4. 更新</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline11">2.2. 启用 layer</a></li>
-<li><a href="#orgheadline12">2.3. 个性化</a></li>
-<li><a href="#orgheadline13">2.4. 更新</a></li>
-</ul>
-</li>
-<li><a href="#orgheadline17">3. 默认安装</a>
+<li><a href="#orgheadline16">3. 默认安装</a>
 <ul>
-<li><a href="#orgheadline15">3.1. better-defaults</a></li>
-<li><a href="#orgheadline16">3.2. unite</a></li>
+<li><a href="#orgheadline14">3.1. better-defaults</a></li>
+<li><a href="#orgheadline15">3.2. unite</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-2">
-<h2 id="orgheadline6"><span class="section-number-2">1</span> 前言</h2>
+<div id="outline-container-orgheadline4" class="outline-2">
+<h2 id="orgheadline4"><span class="section-number-2">1</span> 前言</h2>
 <div class="outline-text-2" id="text-1">
-</div><div id="outline-container-orgheadline3" class="outline-3">
-<h3 id="orgheadline3"><span class="section-number-3">1.1</span> 几个概念</h3>
+</div><div id="outline-container-orgheadline1" class="outline-3">
+<h3 id="orgheadline1"><span class="section-number-3">1.1</span> 什么是 layer</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
-首先来了解一些概念，在 layers 目录有一些以 "+" 开头的子目录，比如 +lang，我们可以称之为 topic, 在该 topic 下会有一些 “真正” 的 layer.
+layer, 名词有 "层次", 动词有 "分层" 的意思, 其实很简单, layer 这个概念不过是为了井然有序, 便于进一步的处理而已。就像计算机网络有应用层, 传输层等等, 每个 layer 有自己的职能。space-vim 中一个 layer 不过是针对某方面的 vim 配置与插件的集合.
 </p>
 
-<div class="org-src-container">
+<p>
+在 space-vim 中, 像如下的 c-c++, graphviz, html 等等都为一个 <i>layer</i>. layer 的上一级目录, 比如 python layer 的上一级目录 +lang, 可称之为 topic. topic 下的内容均可认为是一个 layer.
+</p>
 
-<pre class="src src-sh">layers
-&#9500;&#9472;&#9472; +lang
-&#9474;&#160;&#160; &#9500;&#9472;&#9472; c-c++
-&#9474;&#160;&#160; &#9500;&#9472;&#9472; graphviz
-&#9474;&#160;&#160; &#9500;&#9472;&#9472; html
-&#9474;&#160;&#160; &#9500;&#9472;&#9472; markdown
-&#9474;&#160;&#160; &#9492;&#9472;&#9472; python
-&#9500;&#9472;&#9472; +themes
-&#9474;&#160;&#160; &#9500;&#9472;&#9472; airline
-&#9474;&#160;&#160; &#9492;&#9472;&#9472; colors
-&#9500;&#9472;&#9472; +tools
-&#9474;&#160;&#160; &#9500;&#9472;&#9472; fzf
-&#9474;&#160;&#160; &#9492;&#9472;&#9472; ycmd
-&#9500;&#9472;&#9472; +version-control
-&#9474;&#160;&#160; &#9500;&#9472;&#9472; git
-&#9474;&#160;&#160; &#9492;&#9472;&#9472; github
-&#9500;&#9472;&#9472; +vim
-&#9474;&#160;&#160; &#9500;&#9472;&#9472; better-defaults
-&#9474;&#160;&#160; &#9500;&#9472;&#9472; programming
-&#9474;&#160;&#160; &#9492;&#9472;&#9472; text-align
-&#9492;&#9472;&#9472; LAYERS.md
+<pre class="example">
+layers
+├── +lang
+│   ├── c-c++
+│   ├── graphviz
+│   ├── html
+│   ├── markdown
+│   └── python
+├── +themes
+│   ├── airline
+│   └── colors
+├── +tools
+│   ├── fzf
+│   └── ycmd
+├── +version-control
+│   ├── git
+│   └── github
+├── +vim
+│   ├── better-defaults
+│   ├── programming
+│   └── text-align
+└── LAYERS.md
 </pre>
-</div>
 
 <p>
-以 <code>+lang</code> 为例，下面有 c-c++, python, markdown 等等一些子目录，就是所谓的 layer, 可以在 <code>.spacevim</code> 中这样进行加载:
+一个 layer 通常由 3 个部分组成, README 为其简要介绍, config.vim 为针对该 layer 的配置信息, packages.vim 为支持该 layer 所需安装的一些插件.
 </p>
 
-<div class="org-src-container">
-
-<pre class="src src-vim">function! UserInit()
-Layer 'python'
-Layer 'programming'
-endfunction
-</pre>
-</div>
-</div>
-
-<div id="outline-container-orgheadline1" class="outline-4">
-<h4 id="orgheadline1"><span class="section-number-4">1.1.1</span> packages.vim</h4>
-<div class="outline-text-4" id="text-1-1-1">
-<p>
-支持该 layer 所需的一些插件。在加载插件时，可能会有特殊的配置，比如 lazy-loading, 这也是插件管理器 <a href="https://github.com/junegunn/vim-plug">vim-plug</a> 支持的特性之一。
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgheadline2" class="outline-4">
-<h4 id="orgheadline2"><span class="section-number-4">1.1.2</span> config.vim</h4>
-<div class="outline-text-4" id="text-1-1-2">
-<p>
-针对该 layer 的配置信息。比如针对 python, html 有不同的缩进等。
-</p>
-
-<p>
-此外, <b>每个 layer 下，通常附有一个 README 以简要说明，请在启用该 layer 时进行查阅</b> 。
-</p>
-
-
-<div class="org-src-container">
-
-<pre class="src src-sh">&#9500;&#9472;&#9472; c-c++
-&#9474;&#160;&#160; &#9500;&#9472;&#9472; README.md
-&#9474;&#160;&#160; &#9500;&#9472;&#9472; config.vim
-&#9474;&#160;&#160; &#9492;&#9472;&#9472; packages.vim
-&#9500;&#9472;&#9472; markdown
-&#9474;&#160;&#160; &#9500;&#9472;&#9472; README.md
-&#9474;&#160;&#160; &#9500;&#9472;&#9472; config.vim
-&#9474;&#160;&#160; &#9492;&#9472;&#9472; packages.vim
-&#9492;&#9472;&#9472; python
-    &#9500;&#9472;&#9472; README.md
-    &#9500;&#9472;&#9472; config.vim
-    &#9492;&#9472;&#9472; packages.vim
+<pre class="example">
+python
+├── README.md
+├── config.vim
+└── packages.vim
 </pre>
 </div>
 </div>
-</div>
-</div>
 
-<div id="outline-container-orgheadline4" class="outline-3">
-<h3 id="orgheadline4"><span class="section-number-3">1.2</span> 为什么使用空格键为前缀建</h3>
+<div id="outline-container-orgheadline2" class="outline-3">
+<h3 id="orgheadline2"><span class="section-number-3">1.2</span> 为什么使用空格键为前缀建</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
-space-vim 的前缀键 (Leader key) 设置为空格键，来源于 spacemacs. 当然了，在 spacemacs 之前就已经有很多人这么设置了。spacemacs 除了外观漂亮，社区驱动等等优点，使用 evil 并用空格键作为其前缀键可能也是其中一个成功的卖点，因为真的可以减轻手指负担，毕竟 “触手可及”.
+space-vim 的前缀键 (Leader key) 设置为空格键，取自 <a href="https://github.com/syl20bnr/spacemacs">spacemacs</a>. 当然了，在 spacemacs 之前就已经有很多人这么设置了, 它不是第一个，但是它的流行影响了很多人对 Leader key 的设置。
+</p>
+
+<p>
+spacemacs 除了外观漂亮，社区驱动等等优点，主打 evil 并用空格键作为其前缀键可能也是其中一个成功的卖点，因为真的可以减轻手指负担，毕竟 "触手可及".
 </p>
 
 <div class="org-src-container">
@@ -306,11 +265,11 @@ space-vim 的前缀键 (Leader key) 设置为空格键，来源于 spacemacs. �
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-3">
-<h3 id="orgheadline5"><span class="section-number-3">1.3</span> 为什么使用 hjkl 作为方向键</h3>
+<div id="outline-container-orgheadline3" class="outline-3">
+<h3 id="orgheadline3"><span class="section-number-3">1.3</span> 为什么使用 hjkl 作为方向键</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
-关于 vim 自身的键位设定，开始时能会觉得很奇怪为什么会这样，因为以前的键盘长这样:
+关于 vim 自身的键位设定，刚开始时可能会觉得很奇怪, 为什么要用这几个键作为方向键呢? 这是因为以前的键盘长这样:
 </p>
 
 
@@ -332,22 +291,22 @@ space-vim 的前缀键 (Leader key) 设置为空格键，来源于 spacemacs. �
 </div>
 </div>
 
-<div id="outline-container-orgheadline14" class="outline-2">
-<h2 id="orgheadline14"><span class="section-number-2">2</span> 如何使用 space-vim</h2>
+<div id="outline-container-orgheadline13" class="outline-2">
+<h2 id="orgheadline13"><span class="section-number-2">2</span> 如何使用 space-vim</h2>
 <div class="outline-text-2" id="text-2">
-</div><div id="outline-container-orgheadline10" class="outline-3">
-<h3 id="orgheadline10"><span class="section-number-3">2.1</span> 准备工作</h3>
+</div><div id="outline-container-orgheadline9" class="outline-3">
+<h3 id="orgheadline9"><span class="section-number-3">2.1</span> 准备工作</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
-又想马儿跑，又要马儿不吃草，那是不太现实的，所以要想要 space-vim 的体验好一些，一些准备工作必不可少:
+又想马儿跑，又要马儿不吃草，那是不太现实的，所以要想要 space-vim 的体验好一些，一些准备工作必不可少.
 </p>
 </div>
 
-<div id="outline-container-orgheadline7" class="outline-4">
-<h4 id="orgheadline7"><span class="section-number-4">2.1.1</span> 满足 “需求” 的 vim</h4>
+<div id="outline-container-orgheadline5" class="outline-4">
+<h4 id="orgheadline5"><span class="section-number-4">2.1.1</span> 满足 “要求” 的 vim</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <p>
-所谓需求，是指有些插件要求 vim 必须拥有某项特性，比如 ycmd layer 中使用的 <a href="https://github.com/Valloric/YouCompleteMe">YouCompleteMe</a> 要求 vim 得有 python 支持。
+所谓要求，是指有些插件需要 vim 在编译时必须包含某项特性 (feature)，比如 ycmd layer 中使用的 <a href="https://github.com/Valloric/YouCompleteMe">YouCompleteMe</a> 要求 vim 得有 python 支持。使用 NeoVim 就可以直接跳过这一节le, 因为 NeoVim 默认编译时包含全部特性.
 </p>
 
 <p>
@@ -402,23 +361,31 @@ Compilation: clang -c -I. -Iproto -DHAVE_CONFIG_H   -DMACOS_X_UNIX  -g -O2 -U_FO
 Linking: clang   -L. -L/usr/local/lib  -L/usr/local/lib -o vim        -lm  -lncurses -liconv -framework Cocoa  -L/usr/local/lib -llua -fstack-protector  -L/System/Library/Perl/5.18/darwin-thread-multi-2level/CORE -lperl  -L/usr/local/opt/python3/Frameworks/Python.framework/Versions/3.5/lib/python3.5/config-3.5m -lpython3.5m -framework CoreFoundation  -lruby.2.0.0 -lobjc
 </pre>
 </div>
-</div>
-</div>
 
-<div id="outline-container-orgheadline8" class="outline-4">
-<h4 id="orgheadline8"><span class="section-number-4">2.1.2</span> 额外所需的工具</h4>
-<div class="outline-text-4" id="text-2-1-2">
 <p>
-这里的工具，比如语法检查时用到的各种 linter, python 代码格式化时用到的 yapf。具体这些工具如何安装，可自行搜索。
+macOS 下使用 brew 安装 vim 非常方便, 其他平台下可以自行搜索更多内容.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgheadline9" class="outline-4">
-<h4 id="orgheadline9"><span class="section-number-4">2.1.3</span> 字体</h4>
+<div id="outline-container-orgheadline6" class="outline-4">
+<h4 id="orgheadline6"><span class="section-number-4">2.1.2</span> 第三方工具</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<p>
+比如语法检查时用到的各种 linter, python 代码格式化时用到的 yapf。具体这些工具如何安装，在需要时自行安装即可。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline8" class="outline-4">
+<h4 id="orgheadline8"><span class="section-number-4">2.1.3</span> 字体</h4>
 <div class="outline-text-4" id="text-2-1-3">
 <p>
-要想漂亮，字体可能也是不可或缺。况且安装也不是很复杂。对于 airline layer 中使用的 <a href="https://github.com/vim-airline/vim-airline">vim-airline</a> 最好搭配 <a href="https://github.com/powerline/fonts">powerline fonts</a> 字体， space-vim 默认不使用. 不过推荐安装:
+要想界面漂亮，字体可能也是不可或缺, 况且安装也不是很复杂。
+</p>
+
+<p>
+对于 airline layer 中使用的 <a href="https://github.com/vim-airline/vim-airline">vim-airline</a> 最好搭配 <a href="https://github.com/powerline/fonts">powerline fonts</a> 字体， space-vim 默认不使用. 推荐安装:
 </p>
 
 <div class="org-src-container">
@@ -429,21 +396,24 @@ sh ~/.fonts/install.sh
 </div>
 
 <p>
-powerline font 安装完成后，在 .spacevim 中启用字体：
+powerline font 安装完成后，在 <code>.spacevim</code> 中启用字体：
 </p>
 
 <div class="org-src-container">
 
-<pre class="src src-sh"><span style="color: #4f97d7;">let</span> g:<span style="color: #7590db;">airline_powerline_fonts</span>=<span style="color: #a45bad;">1</span>
+<pre class="src src-vim">let g:airline_powerline_fonts=1
 </pre>
 </div>
+</div>
 
+<ol class="org-ol"><li><a id="orgheadline7"></a>字体设置<br  /><div class="outline-text-5" id="text-2-1-3-1">
 <p>
-需要注意的是设置 terminal 字体：
+GUI 环境下, 可直接在 vim 的配置文件进行设置. 
 </p>
 
 <p>
-GUI 环境下, 可直接在配置文件进行设置. 终端环境下 vim 的字体服从于 terminal 的字体设置，因此安装完成后需要在 terminal 的字体设置中将原有字体改为带有 for powerline 样式的字体，否则可能会出现状态栏乱码. 比如 iterm2 中字体设置：
+终端环境下 vim 的字体服从于 terminal 的字体设置，因此安装完成后, 需要在 terminal 的字体设置中启用带有 for powerline 样式的字体，否则在启用 airline 时可能会出现状态栏乱码. 
+下图为 iterm2 中的字体设置：
 </p>
 
 
@@ -451,16 +421,19 @@ GUI 环境下, 可直接在配置文件进行设置. 终端环境下 vim 的字�
 <p><img src="../img/iterm2_powerline_setting.png" alt="iterm2_powerline_setting.png" />
 </p>
 </div>
-</div>
+</div></li></ol>
 </div>
 </div>
 
-
-<div id="outline-container-orgheadline11" class="outline-3">
-<h3 id="orgheadline11"><span class="section-number-3">2.2</span> 启用 layer</h3>
+<div id="outline-container-orgheadline10" class="outline-3">
+<h3 id="orgheadline10"><span class="section-number-3">2.2</span> 启用 layer</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
-启用 layer 非常简单，使用一键安装脚本安装 space-vim 时会自动在当前用户目录下生成一个 `.spacevim`，可在其中的 `UserInit()` 部分进行启用, 也可以在里面放置 space-vim 没有的插件：
+启用 layer 非常简单，使用一键安装脚本安装<a href="https://github.com/liuchengxu/space-vim"> space-vim</a> 时会自动在当前用户目录下生成一个 <code>.spacevim</code> ，可在其中的 <code>UserInit()</code> 部分进行启用已有的 layer, 也可以在里面放置 space-vim 没有的插件：
+</p>
+
+<p>
+<b>每个 layer 下，通常附有一个 README 以简要说明，请在启用该 layer 时进行查阅</b> 。
 </p>
 
 <div class="org-src-container">
@@ -488,16 +461,16 @@ endfunction
 </div>
 
 <p>
-注意，启用 layer 后，需要重新加载 .vimrc 执行 <code>:PlugInstall</code> 安装该 layer 涉及的相关插件。
+<b>注意，如果是首次启用一个 layer，需要执行 <code>SPC f R</code>, 或者 <code>:so $MYVIMRC</code>, 或者退出在打开 vim, 重新加载 .vimrc 并执行 <code>:PlugInstall</code> 安装所需的相关插件</b> 。
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgheadline12" class="outline-3">
-<h3 id="orgheadline12"><span class="section-number-3">2.3</span> 个性化</h3>
+<div id="outline-container-orgheadline11" class="outline-3">
+<h3 id="orgheadline11"><span class="section-number-3">2.3</span> 个性化</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
-在 <code>.spacevim</code> 中， 有个 UserConfig()，可以将一些个人的设置放置在这里。比如想换个主题：
+上面说了可以再 <code>UserInit()</code> 中放置自己的插件, 此外在 <code>.spacevim</code> 中还有个 <code>UserConfig()</code> ，可以将一些个性化配置放在这里。比如想换个主题：
 </p>
 
 <div class="org-src-container">
@@ -516,18 +489,22 @@ endfunction
 </div>
 </div>
 
-<div id="outline-container-orgheadline13" class="outline-3">
-<h3 id="orgheadline13"><span class="section-number-3">2.4</span> 更新</h3>
+<div id="outline-container-orgheadline12" class="outline-3">
+<h3 id="orgheadline12"><span class="section-number-3">2.4</span> 更新</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
-对于插件的更新，自然是通过 vim-plug 提供的相关命令。对于 space-vim, 可以进入 "~/.space-vim" 执行 `git pull`, 后期可能会提供更加人性化的方式。
+对于 vim 插件的更新，自然是通过插件管理器 vim-plug 提供的相关命令 <code>:PlugUpdate</code> 。
+</p>
+
+<p>
+对于 space-vim, 可以进入 "~/.space-vim" 执行 `git pull`。
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgheadline17" class="outline-2">
-<h2 id="orgheadline17"><span class="section-number-2">3</span> 默认安装</h2>
+<div id="outline-container-orgheadline16" class="outline-2">
+<h2 id="orgheadline16"><span class="section-number-2">3</span> 默认安装</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 默认启用了 3 个 layer:
@@ -543,7 +520,7 @@ Layer 'better-defaults'
 </div>
 
 <p>
-先学会一个一打十的技能: <code>SPC ?</code> , 使用 空格键加问号查看键位绑定, 打开后可使用 <code>Ctrl j</code>, <code>Ctrl k</code> 进行上下选择，也可直接输入进行模糊查找:
+一个尽快上手最重要的快捷键: <code>SPC ?</code> , 使用空格键加问号查看现有的键位绑定, 打开后可使用 <code>Ctrl j</code>, <code>Ctrl k</code> 进行上下选择, <code>Ctrl c</code> 退出, 也可直接输入进行模糊查找:
 </p>
 
 
@@ -553,11 +530,7 @@ Layer 'better-defaults'
 </div>
 
 <p>
-从图中可以看到键位映射，比如挑一个 <code>&lt;Space&gt;bp</code>, 后面跟着该快捷键对应的命令 <code>:bprevious&lt;CR&gt;</code>, 意为 buffer previous, 即跳转前一个 buffer. 后面还跟着定义该快捷键的文件, 来自 “vim-better-default/plugin/default.vim”。 不熟悉时，可以将这快捷键都看一下。
-</p>
-
-<p>
-（图中可以看出我正在 tmux 中使用 vim, 如果不是，那么执行这个操作的窗口会比较大，不要惊讶。）
+从图中可以看到键位映射，比如挑一个 <code>&lt;Space&gt;bp</code>, 后面跟着该快捷键对应的命令 <code>:bprevious&lt;CR&gt;</code>, 意为 buffer previous, 即跳转前一个 buffer. 后面还跟着定义该快捷键的文件, 来自 “vim-better-default/plugin/default.vim”。 不熟悉时，可以将快捷键都看一下。（图中可以看出我正在 tmux 中使用 vim, 如果不是，那么执行这个操作的窗口会比较大，不要惊讶。）
 </p>
 
 <p>
@@ -569,17 +542,17 @@ Layer 'better-defaults'
 </p>
 </div>
 
-<div id="outline-container-orgheadline15" class="outline-3">
-<h3 id="orgheadline15"><span class="section-number-3">3.1</span> better-defaults</h3>
+<div id="outline-container-orgheadline14" class="outline-3">
+<h3 id="orgheadline14"><span class="section-number-3">3.1</span> better-defaults</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
-一些 “人性化” 设置和基本的键位映射，包括 buffer, window, esay-motion 快速移动等操作。
+一些 “人性化” 设置和基本的键位映射，包括 buffer, window, esay-motion 快速移动等操作。了解 better-defaults 下面的键位设置非常重要，因为这些是所有快捷键设定的重要组成部分.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgheadline16" class="outline-3">
-<h3 id="orgheadline16"><span class="section-number-3">3.2</span> unite</h3>
+<div id="outline-container-orgheadline15" class="outline-3">
+<h3 id="orgheadline15"><span class="section-number-3">3.2</span> unite</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 unite layer 主要希望提供一个界面来选择一些不太常用或稍复杂的命令.
@@ -590,7 +563,7 @@ unite layer 主要希望提供一个界面来选择一些不太常用或稍复�
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Liu-Cheng Xu</p>
-<p class="date">Created: 2016-12-20 Tue 14:25</p>
+<p class="date">Created: 2016-12-20 Tue 16:42</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
