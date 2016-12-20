@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2016-12-20 Tue 14:25 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title></title>
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Liu-Cheng Xu" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/readtheorg/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/readtheorg/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/lib/js/jquery.stickytableheaders.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/readtheorg/js/readtheorg.js"></script>
+<link rel="stylesheet" type="text/css" href="home.css"/>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline6">1. 前言</a>
+<ul>
+<li><a href="#orgheadline3">1.1. 几个概念</a>
+<ul>
+<li><a href="#orgheadline1">1.1.1. packages.vim</a></li>
+<li><a href="#orgheadline2">1.1.2. config.vim</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline4">1.2. 为什么使用空格键为前缀建</a></li>
+<li><a href="#orgheadline5">1.3. 为什么使用 hjkl 作为方向键</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline14">2. 如何使用 space-vim</a>
+<ul>
+<li><a href="#orgheadline10">2.1. 准备工作</a>
+<ul>
+<li><a href="#orgheadline7">2.1.1. 满足 “需求” 的 vim</a></li>
+<li><a href="#orgheadline8">2.1.2. 额外所需的工具</a></li>
+<li><a href="#orgheadline9">2.1.3. 字体</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline11">2.2. 启用 layer</a></li>
+<li><a href="#orgheadline12">2.3. 个性化</a></li>
+<li><a href="#orgheadline13">2.4. 更新</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline17">3. 默认安装</a>
+<ul>
+<li><a href="#orgheadline15">3.1. better-defaults</a></li>
+<li><a href="#orgheadline16">3.2. unite</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline6" class="outline-2">
+<h2 id="orgheadline6"><span class="section-number-2">1</span> 前言</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-orgheadline3" class="outline-3">
+<h3 id="orgheadline3"><span class="section-number-3">1.1</span> 几个概念</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+首先来了解一些概念，在 layers 目录有一些以 "+" 开头的子目录，比如 +lang，我们可以称之为 topic, 在该 topic 下会有一些 “真正” 的 layer.
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sh">layers
+&#9500;&#9472;&#9472; +lang
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; c-c++
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; graphviz
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; html
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; markdown
+&#9474;&#160;&#160; &#9492;&#9472;&#9472; python
+&#9500;&#9472;&#9472; +themes
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; airline
+&#9474;&#160;&#160; &#9492;&#9472;&#9472; colors
+&#9500;&#9472;&#9472; +tools
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; fzf
+&#9474;&#160;&#160; &#9492;&#9472;&#9472; ycmd
+&#9500;&#9472;&#9472; +version-control
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; git
+&#9474;&#160;&#160; &#9492;&#9472;&#9472; github
+&#9500;&#9472;&#9472; +vim
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; better-defaults
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; programming
+&#9474;&#160;&#160; &#9492;&#9472;&#9472; text-align
+&#9492;&#9472;&#9472; LAYERS.md
+</pre>
+</div>
+
+<p>
+以 <code>+lang</code> 为例，下面有 c-c++, python, markdown 等等一些子目录，就是所谓的 layer, 可以在 <code>.spacevim</code> 中这样进行加载:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-vim">function! UserInit()
+Layer 'python'
+Layer 'programming'
+endfunction
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgheadline1" class="outline-4">
+<h4 id="orgheadline1"><span class="section-number-4">1.1.1</span> packages.vim</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<p>
+支持该 layer 所需的一些插件。在加载插件时，可能会有特殊的配置，比如 lazy-loading, 这也是插件管理器 <a href="https://github.com/junegunn/vim-plug">vim-plug</a> 支持的特性之一。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline2" class="outline-4">
+<h4 id="orgheadline2"><span class="section-number-4">1.1.2</span> config.vim</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<p>
+针对该 layer 的配置信息。比如针对 python, html 有不同的缩进等。
+</p>
+
+<p>
+此外, <b>每个 layer 下，通常附有一个 README 以简要说明，请在启用该 layer 时进行查阅</b> 。
+</p>
+
+
+<div class="org-src-container">
+
+<pre class="src src-sh">&#9500;&#9472;&#9472; c-c++
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; README.md
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; config.vim
+&#9474;&#160;&#160; &#9492;&#9472;&#9472; packages.vim
+&#9500;&#9472;&#9472; markdown
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; README.md
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; config.vim
+&#9474;&#160;&#160; &#9492;&#9472;&#9472; packages.vim
+&#9492;&#9472;&#9472; python
+    &#9500;&#9472;&#9472; README.md
+    &#9500;&#9472;&#9472; config.vim
+    &#9492;&#9472;&#9472; packages.vim
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline4" class="outline-3">
+<h3 id="orgheadline4"><span class="section-number-3">1.2</span> 为什么使用空格键为前缀建</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+space-vim 的前缀键 (Leader key) 设置为空格键，来源于 spacemacs. 当然了，在 spacemacs 之前就已经有很多人这么设置了。spacemacs 除了外观漂亮，社区驱动等等优点，使用 evil 并用空格键作为其前缀键可能也是其中一个成功的卖点，因为真的可以减轻手指负担，毕竟 “触手可及”.
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-vim">let g:mapleader="\&lt;Space&gt;"
+</pre>
+</div>
+
+<p>
+从现代键盘设计的角度看，空格键理应受到优待, 毕竟一个人在 “VIP” 区占了好几个位. 即使 HHKB 这样的神器，也有空格键的一席之地.
+</p>
+
+
+<div class="figure">
+<p><img src="../img/hhkb.jpg" alt="hhkb.jpg" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline5" class="outline-3">
+<h3 id="orgheadline5"><span class="section-number-3">1.3</span> 为什么使用 hjkl 作为方向键</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+关于 vim 自身的键位设定，开始时能会觉得很奇怪为什么会这样，因为以前的键盘长这样:
+</p>
+
+
+<div class="figure">
+<p><img src="../img/ancient_keyboard.png" alt="ancient_keyboard.png" />
+</p>
+</div>
+
+
+<div class="figure">
+<p><img src="../img/ADM-3A.png" alt="ADM-3A.png" />
+</p>
+</div>
+
+<p>
+看到这个，也就应该能够理解为什么 vim 使用 hjkl 作为方向键，因为物理条件就是这样, 没得选. 参见 <a href="http://www.catonmat.net/blog/why-vim-uses-hjkl-as-arrow-keys/">why-vim-uses-hjkl-as-arrow-keys</a> .
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline14" class="outline-2">
+<h2 id="orgheadline14"><span class="section-number-2">2</span> 如何使用 space-vim</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-orgheadline10" class="outline-3">
+<h3 id="orgheadline10"><span class="section-number-3">2.1</span> 准备工作</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+又想马儿跑，又要马儿不吃草，那是不太现实的，所以要想要 space-vim 的体验好一些，一些准备工作必不可少:
+</p>
+</div>
+
+<div id="outline-container-orgheadline7" class="outline-4">
+<h4 id="orgheadline7"><span class="section-number-4">2.1.1</span> 满足 “需求” 的 vim</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<p>
+所谓需求，是指有些插件要求 vim 必须拥有某项特性，比如 ycmd layer 中使用的 <a href="https://github.com/Valloric/YouCompleteMe">YouCompleteMe</a> 要求 vim 得有 python 支持。
+</p>
+
+<p>
+terminal 中输入 <code>vim --version</code>, 可以看到一串信息，下面显示的是我使用 brew 安装的 vim, 带 "+" 说明该 feature 有了， 带 "-" 说明没有，比如下面的 +python3 说明支持 python3. 安装时还是保险一点，什么 lua, python 都装上, 以免后患。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sh">$ vim --version
+VIM - Vi IMproved <span style="color: #a45bad;">8.0</span> <span style="color: #4f97d7;">(</span><span style="color: #a45bad;">2016</span> Sep <span style="color: #a45bad;">12,</span> compiled Nov <span style="color: #a45bad;">21</span> <span style="color: #a45bad;">2016</span> <span style="color: #a45bad;">17:35:16</span><span style="color: #4f97d7;">)</span>
+MacOS X <span style="color: #4f97d7;">(</span>unix<span style="color: #4f97d7;">)</span> version
+Included patches: <span style="color: #a45bad;">1-94</span>
+Compiled by Homebrew
+Huge version without GUI.  Features included <span style="color: #4f97d7;">(</span>+<span style="color: #4f97d7;">)</span> or not <span style="color: #4f97d7;">(</span>-<span style="color: #4f97d7;">)</span>:
++acl             +file_in_path    +mouse_sgr       +tag_old_static
++arabic          +find_in_path    -mouse_sysmouse  -tag_any_white
++autocmd         +float           +mouse_urxvt     -tcl
+-balloon_eval    +folding         +mouse_xterm     +termguicolors
+-browse          -footer          +multi_byte      +terminfo
+++builtin_terms  +fork<span style="color: #4f97d7;">()</span>          +multi_lang      +termresponse
++byte_offset     -gettext         -mzscheme        +textobjects
++channel         -hangul_input    +netbeans_intg   +timers
++cindent         +iconv           +num64           +title
+-clientserver    +insert_expand   +packages        -toolbar
++clipboard       +job             +path_extra      +user_commands
++cmdline_compl   +jumplist        +perl            +vertsplit
++cmdline_hist    +keymap          +persistent_undo +virtualedit
++cmdline_info    +lambda          +postscript      +visual
++comments        +langmap         +printer         +visualextra
++conceal         +libcall         +profile         +viminfo
++cryptv          +linebreak       -python          +vreplace
++cscope          +lispindent      +python3         +wildignore
++cursorbind      +listcmds        +quickfix        +wildmenu
++cursorshape     +localmap        +reltime         +windows
++dialog_con      +lua             +rightleft       +writebackup
++diff            +menu            +ruby            -X11
++digraphs        +mksession       +scrollbind      -xfontset
+-dnd             +modify_fname    +signs           -xim
+-ebcdic          +mouse           +smartindent     -xpm
++emacs_tags      -mouseshape      +startuptime     -xsmp
++eval            +mouse_dec       +statusline      -xterm_clipboard
++ex_extra        -mouse_gpm       -sun_workshop    -xterm_save
++extra_search    -mouse_jsbterm   +syntax
++farsi           +mouse_netterm   +tag_binary
+system vimrc file: <span style="color: #2d9574;">"$VIM/vimrc"</span>
+user vimrc file: <span style="color: #2d9574;">"$HOME/.vimrc"</span>
+<span style="color: #a45bad;">2nd</span> user vimrc file: <span style="color: #2d9574;">"~/.vim/vimrc"</span>
+user exrc file: <span style="color: #2d9574;">"$HOME/.exrc"</span>
+defaults file: <span style="color: #2d9574;">"$VIMRUNTIME/defaults.vim"</span>
+fall-back for $<span style="color: #7590db;">VIM</span>: <span style="color: #2d9574;">"/usr/local/share/vim"</span>
+Compilation: clang -c -I. -Iproto -DHAVE_CONFIG_H   -DMACOS_X_UNIX  -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=<span style="color: #a45bad;">1</span>
+Linking: clang   -L. -L/usr/local/lib  -L/usr/local/lib -o vim        -lm  -lncurses -liconv -framework Cocoa  -L/usr/local/lib -llua -fstack-protector  -L/System/Library/Perl/5.18/darwin-thread-multi-2level/CORE -lperl  -L/usr/local/opt/python3/Frameworks/Python.framework/Versions/3.5/lib/python3.5/config-3.5m -lpython3.5m -framework CoreFoundation  -lruby.2.0.0 -lobjc
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline8" class="outline-4">
+<h4 id="orgheadline8"><span class="section-number-4">2.1.2</span> 额外所需的工具</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<p>
+这里的工具，比如语法检查时用到的各种 linter, python 代码格式化时用到的 yapf。具体这些工具如何安装，可自行搜索。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline9" class="outline-4">
+<h4 id="orgheadline9"><span class="section-number-4">2.1.3</span> 字体</h4>
+<div class="outline-text-4" id="text-2-1-3">
+<p>
+要想漂亮，字体可能也是不可或缺。况且安装也不是很复杂。对于 airline layer 中使用的 <a href="https://github.com/vim-airline/vim-airline">vim-airline</a> 最好搭配 <a href="https://github.com/powerline/fonts">powerline fonts</a> 字体， space-vim 默认不使用. 不过推荐安装:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sh">git clone https://github.com/powerline/fonts.git ~/.fonts
+sh ~/.fonts/install.sh
+</pre>
+</div>
+
+<p>
+powerline font 安装完成后，在 .spacevim 中启用字体：
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sh"><span style="color: #4f97d7;">let</span> g:<span style="color: #7590db;">airline_powerline_fonts</span>=<span style="color: #a45bad;">1</span>
+</pre>
+</div>
+
+<p>
+需要注意的是设置 terminal 字体：
+</p>
+
+<p>
+GUI 环境下, 可直接在配置文件进行设置. 终端环境下 vim 的字体服从于 terminal 的字体设置，因此安装完成后需要在 terminal 的字体设置中将原有字体改为带有 for powerline 样式的字体，否则可能会出现状态栏乱码. 比如 iterm2 中字体设置：
+</p>
+
+
+<div class="figure">
+<p><img src="../img/iterm2_powerline_setting.png" alt="iterm2_powerline_setting.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline11" class="outline-3">
+<h3 id="orgheadline11"><span class="section-number-3">2.2</span> 启用 layer</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+启用 layer 非常简单，使用一键安装脚本安装 space-vim 时会自动在当前用户目录下生成一个 `.spacevim`，可在其中的 `UserInit()` 部分进行启用, 也可以在里面放置 space-vim 没有的插件：
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-vim">function! UserInit()
+
+    " Put the layers you want to enable as well as extra private plugins
+    Layer 'fzf'
+    Layer 'ycmd'
+    Layer 'syntax-checking'
+
+    Layer 'emoji'
+    Layer 'goyo'
+
+    Layer 'html'
+    Layer 'python'
+    Layer 'markdown'
+    Layer 'c-c++'
+
+    " put extra plugins
+    Plug 'extr0py/oni'
+
+endfunction
+</pre>
+</div>
+
+<p>
+注意，启用 layer 后，需要重新加载 .vimrc 执行 <code>:PlugInstall</code> 安装该 layer 涉及的相关插件。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline12" class="outline-3">
+<h3 id="orgheadline12"><span class="section-number-3">2.3</span> 个性化</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+在 <code>.spacevim</code> 中， 有个 UserConfig()，可以将一些个人的设置放置在这里。比如想换个主题：
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-vim">function! UserConfig()
+
+    color molokai
+
+endfunction
+</pre>
+</div>
+
+<p>
+如果个性化配置比较多，也可以放在 private 目录下。private 可看做是一个 layer, 里面可以有 config.vim 与 packages.vim 这两个文件。如果这两个文件存在，space-vim 也会在启动时进行加载。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline13" class="outline-3">
+<h3 id="orgheadline13"><span class="section-number-3">2.4</span> 更新</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+对于插件的更新，自然是通过 vim-plug 提供的相关命令。对于 space-vim, 可以进入 "~/.space-vim" 执行 `git pull`, 后期可能会提供更加人性化的方式。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline17" class="outline-2">
+<h2 id="orgheadline17"><span class="section-number-2">3</span> 默认安装</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+默认启用了 3 个 layer:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-vim">" Default layers
+Layer 'fzf'
+Layer 'unite'
+Layer 'better-defaults'
+</pre>
+</div>
+
+<p>
+先学会一个一打十的技能: <code>SPC ?</code> , 使用 空格键加问号查看键位绑定, 打开后可使用 <code>Ctrl j</code>, <code>Ctrl k</code> 进行上下选择，也可直接输入进行模糊查找:
+</p>
+
+
+<div class="figure">
+<p><img src="../img/maps.png" alt="maps.png" />
+</p>
+</div>
+
+<p>
+从图中可以看到键位映射，比如挑一个 <code>&lt;Space&gt;bp</code>, 后面跟着该快捷键对应的命令 <code>:bprevious&lt;CR&gt;</code>, 意为 buffer previous, 即跳转前一个 buffer. 后面还跟着定义该快捷键的文件, 来自 “vim-better-default/plugin/default.vim”。 不熟悉时，可以将这快捷键都看一下。
+</p>
+
+<p>
+（图中可以看出我正在 tmux 中使用 vim, 如果不是，那么执行这个操作的窗口会比较大，不要惊讶。）
+</p>
+
+<p>
+<code>SPC ?</code> 实际映射的命令是 <a href="https://github.com/junegunn/fzf.vim">fzf.vim</a> 的 <code>:Maps</code>, 因此 fzf layer 实际是为了支持 unite layer. 不过其中安装的 <a href="https://github.com/junegunn/fzf">fzf</a> 除了可在 vim 中，也可在 terminal 中使用。 
+</p>
+
+<p>
+更多内容请直接查看 layer 下的 README, config.vim 与 packages.vim.
+</p>
+</div>
+
+<div id="outline-container-orgheadline15" class="outline-3">
+<h3 id="orgheadline15"><span class="section-number-3">3.1</span> better-defaults</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+一些 “人性化” 设置和基本的键位映射，包括 buffer, window, esay-motion 快速移动等操作。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline16" class="outline-3">
+<h3 id="orgheadline16"><span class="section-number-3">3.2</span> unite</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+unite layer 主要希望提供一个界面来选择一些不太常用或稍复杂的命令.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Liu-Cheng Xu</p>
+<p class="date">Created: 2016-12-20 Tue 14:25</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

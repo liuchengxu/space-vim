@@ -1,0 +1,23 @@
+.footnum, .footref {
+    font-size: 100%;
+}
+
+#text-footnotes sup {
+    top: 0em;
+}
+
+#content img {
+    border: 1px solid #ddd;
+}
+
+.footpara {
+    padding-left: 0px;
+}
+
+b {
+    color: #ff1493;
+}
+
+.org-ol li {
+    padding: 4px;
+}

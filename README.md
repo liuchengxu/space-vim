@@ -3,7 +3,8 @@
 ***
 
 <p align="center">
-:cn: <b><a href="docs/README_cn.md">中文简介</a></b>
+:cn: <b><a href="docs/README_cn.md">中文简介</a></b> |
+<b><a href="docs/org/tutorial_cn.html">安装与使用指南</a></b>
 </p>
 ***
 <p align="center">
