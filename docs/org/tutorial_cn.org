@@ -19,7 +19,7 @@
     │   └── python
     ├── +themes
     │   ├── airline
-    │   └── colors
+    │   └── lightline
     ├── +tools
     │   ├── fzf
     │   └── ycmd
@@ -33,7 +33,7 @@
     └── LAYERS.md
     #+END_EXAMPLE
 
-    一个 layer 通常由 3 个部分组成, README 为其简要介绍, config.vim 为针对该 layer 的配置信息, packages.vim 为支持该 layer 所需安装的一些插件.
+    一个 layer 通常由 3 个部分组成, README.md 为其简要介绍, config.vim 为针对该 layer 的配置信息, packages.vim 为支持该 layer 所需安装的一些插件.
 
     #+BEGIN_EXAMPLE
     python
@@ -42,40 +42,56 @@
     └── packages.vim
     #+END_EXAMPLE
 
-** 为什么使用空格键为前缀建
+   | Layer Component | Description                 |
+   |--------------+-----------------------------|
+   | README.md    | layer 的简要介绍            |
+   | config.vim   | 针对 layer 的配置信息       |
+   | packages.vim | 支持该 layer 所需的一些插件 |
+    
+
+** 为什么使用空格键作为前缀建
 
     space-vim 的前缀键 (Leader key) 设置为空格键，取自 [[https://github.com/syl20bnr/spacemacs][spacemacs]]. 当然了，在 spacemacs 之前就已经有很多人这么设置了, 它不是第一个，但是它的流行影响了很多人对 Leader key 的设置。
 
     spacemacs 除了外观漂亮，社区驱动等等优点，主打 evil 并用空格键作为其前缀键可能也是其中一个成功的卖点，因为真的可以减轻手指负担，毕竟 "触手可及".
 
-    #+BEGIN_SRC vim
+    #+BEGIN_SRC vimrc
     let g:mapleader="\<Space>"
     #+END_SRC
 
     从现代键盘设计的角度看，空格键理应受到优待, 毕竟一个人在 “VIP” 区占了好几个位. 即使 HHKB 这样的神器，也有空格键的一席之地.
 
+    #+CAPTION: HHKB keyboard
     file:../img/hhkb.jpg
 
 ** 为什么使用 hjkl 作为方向键
 
     关于 vim 自身的键位设定，刚开始时可能会觉得很奇怪, 为什么要用这几个键作为方向键呢? 这是因为以前的键盘长这样:
 
+    #+CAPTION: Lear Siegler's ADM-3A computer terminal's full keyboard
     file:../img/ancient_keyboard.png
 
     file:../img/ADM-3A.png
 
     看到这个，也就应该能够理解为什么 vim 使用 hjkl 作为方向键，因为物理条件就是这样, 没得选. 参见 [[http://www.catonmat.net/blog/why-vim-uses-hjkl-as-arrow-keys/][why-vim-uses-hjkl-as-arrow-keys]] .
 
-* 如何使用 space-vim
-** 准备工作
+* 运行截图
+
+  #+CAPTION: python
+  file:../img/screenshot.png
+
+  以上截图可能并非最新版本，仅供参考。
+
+* 开始使用
+** 安装工作
 
     又想马儿跑，又要马儿不吃草，那是不太现实的，所以要想要 space-vim 的体验好一些，一些准备工作必不可少.
 
 *** 满足 “要求” 的 vim
 
-     所谓要求，是指有些插件需要 vim 在编译时必须包含某项特性 (feature)，比如 ycmd layer 中使用的 [[https://github.com/Valloric/YouCompleteMe][YouCompleteMe]] 要求 vim 得有 python 支持。使用 NeoVim 就可以直接跳过这一节le, 因为 NeoVim 默认编译时包含全部特性.
+     所谓要求，是指有些插件需要 vim 在编译时必须包含某项特性 (feature)，比如 ycmd layer 中使用的 [[https://github.com/Valloric/YouCompleteMe][YouCompleteMe]] 要求 vim 得有 python 支持。如果使用 NeoVim 可以直接跳过这一节, 因为 NeoVim 默认编译时包含全部特性.
 
-     terminal 中输入 ~vim --version~, 可以看到一串信息，下面显示的是我使用 brew 安装的 vim, 带 "+" 说明该 feature 有了， 带 "-" 说明没有，比如下面的 +python3 说明支持 python3. 安装时还是保险一点，什么 lua, python 都装上, 以免后患。
+     terminal 中输入 ~vim --version~, 可以看到一串信息，下面显示的是我使用 brew 安装的 vim, 带 "+" 说明该 feature 有了， 带 "-" 说明没有，比如下面的 +python3 说明支持 python3. 安装时还是保险一点，什么 lua, python , clipboard都装上, 以免后患。
 
       #+BEGIN_SRC sh
       $ vim --version
@@ -124,21 +140,21 @@
       Linking: clang   -L. -L/usr/local/lib  -L/usr/local/lib -o vim        -lm  -lncurses -liconv -framework Cocoa  -L/usr/local/lib -llua -fstack-protector  -L/System/Library/Perl/5.18/darwin-thread-multi-2level/CORE -lperl  -L/usr/local/opt/python3/Frameworks/Python.framework/Versions/3.5/lib/python3.5/config-3.5m -lpython3.5m -framework CoreFoundation  -lruby.2.0.0 -lobjc
       #+END_SRC
 
-      macOS 下使用 brew 安装 vim 非常方便, 其他平台下可以自行搜索更多内容.
+      macOS 下使用 brew 安装 vim 非常方便, 其他平台下可以自行搜索更多内容, 网络上有很多指引.
 
 *** 第三方工具
 
      比如语法检查时用到的各种 linter, python 代码格式化时用到的 yapf。具体这些工具如何安装，在需要时自行安装即可。
 
-*** 字体
+*** 安装字体
 
      要想界面漂亮，字体可能也是不可或缺, 况且安装也不是很复杂。
 
      对于 airline layer 中使用的 [[https://github.com/vim-airline/vim-airline][vim-airline]] 最好搭配 [[https://github.com/powerline/fonts][powerline fonts]] 字体， space-vim 默认不使用. 推荐安装:
 
      #+BEGIN_SRC sh
-     git clone https://github.com/powerline/fonts.git ~/.fonts
-     sh ~/.fonts/install.sh
+     $ git clone https://github.com/powerline/fonts.git ~/.fonts
+     $ sh ~/.fonts/install.sh
      #+END_SRC
 
      powerline font 安装完成后，在 ~.spacevim~ 中启用字体：
@@ -147,13 +163,14 @@
      let g:airline_powerline_fonts=1
      #+END_SRC
 
-**** 字体设置
+*** 字体设置
 
      GUI 环境下, 可直接在 vim 的配置文件进行设置. 
 
      终端环境下 vim 的字体服从于 terminal 的字体设置，因此安装完成后, 需要在 terminal 的字体设置中启用带有 for powerline 样式的字体，否则在启用 airline 时可能会出现状态栏乱码. 
      下图为 iterm2 中的字体设置：
 
+     #+CAPTION: iterm2 font setting
      file:../img/iterm2_powerline_setting.png
 
 ** 启用 layer
@@ -162,10 +179,9 @@
 
     *每个 layer 下，通常附有一个 README 以简要说明，请在启用该 layer 时进行查阅* 。
 
-    #+BEGIN_SRC vim
+    #+BEGIN_SRC vimrc
     function! UserInit()
 
-        " Put the layers you want to enable as well as extra private plugins
         Layer 'fzf'
         Layer 'ycmd'
         Layer 'syntax-checking'
@@ -178,7 +194,6 @@
         Layer 'markdown'
         Layer 'c-c++'
 
-        " put extra plugins
         Plug 'extr0py/oni'
 
     endfunction
@@ -186,32 +201,43 @@
 
     *注意，如果是首次启用一个 layer，需要执行 ~SPC f R~, 或者 ~:so $MYVIMRC~, 或者退出在打开 vim, 重新加载 .vimrc 并执行 ~:PlugInstall~ 安装所需的相关插件* 。
 
-** 个性化
+** 禁用部分插件
+   使用 ~Layer~ 命令可以加载 layer, 但是如果不想加载 layer 中的所有插件, 可以使用 ~Exclude~ 命令禁用, 比如不想要 'Shougo/denite.nvim':
 
-    上面说了可以再 ~UserInit()~ 中放置自己的插件, 此外在 =.spacevim= 中还有个 ~UserConfig()~ ，可以将一些个性化配置放在这里。比如想换个主题：
+   #+BEGIN_SRC vimrc
+   Exclude 'Shougo/denite.nvim'
+   #+END_SRC
 
-    #+BEGIN_SRC vim
+* 个性化
+
+    上面说了可以在 ~UserInit()~ 中放置自己的插件, 此外在 =.spacevim= 中还有个 ~UserConfig()~ ，可以将一些个性化配置放在这里。比如想换个主题, 自定义一些快捷键等：
+
+    #+BEGIN_SRC vimrc
     function! UserConfig()
 
         color molokai
+        nnoremap Q :qa!<CR>
 
     endfunction
     #+END_SRC
 
     如果个性化配置比较多，也可以放在 private 目录下。private 可看做是一个 layer, 里面可以有 config.vim 与 packages.vim 这两个文件。如果这两个文件存在，space-vim 也会在启动时进行加载。
 
-** 更新
+* 更新
 
     对于 vim 插件的更新，自然是通过插件管理器 vim-plug 提供的相关命令 ~:PlugUpdate~ 。
 
-    对于 space-vim, 可以进入 "~/.space-vim" 执行 `git pull`。
+    对于 [[https://github.com/liuchengxu/space-vim][space-vim]] , 可以进入 ~path/to/.space-vim~ 执行 ~git pull origin master~ 。
+
+    #+BEGIN_SRC sh
+    $ git pull origin master
+    #+END_SRC
 
 * 默认安装
 
    默认启用了 3 个 layer:
 
-    #+BEGIN_SRC vim
-    " Default layers
+    #+BEGIN_SRC vimrc
     Layer 'fzf'
     Layer 'unite'
     Layer 'better-defaults'
@@ -219,6 +245,7 @@
 
     一个尽快上手最重要的快捷键: ~SPC ?~ , 使用空格键加问号查看现有的键位绑定, 打开后可使用 ~Ctrl j~, ~Ctrl k~ 进行上下选择, ~Ctrl c~ 退出, 也可直接输入进行模糊查找:
 
+    #+CAPTION: ~SPC ?~ key maps
     file:../img/maps.png
 
     从图中可以看到键位映射，比如挑一个 =<Space>bp=, 后面跟着该快捷键对应的命令 =:bprevious<CR>=, 意为 buffer previous, 即跳转前一个 buffer. 后面还跟着定义该快捷键的文件, 来自 “vim-better-default/plugin/default.vim”。 不熟悉时，可以将快捷键都看一下。（图中可以看出我正在 tmux 中使用 vim, 如果不是，那么执行这个操作的窗口会比较大，不要惊讶。）
@@ -234,3 +261,94 @@
 ** unite
 
     unite layer 主要希望提供一个界面来选择一些不太常用或稍复杂的命令.
+
+* 键位绑定
+
+** Basic
+
+    | Key Binding   | Mode      | Description                                                                 |
+    |---------------+-----------+-----------------------------------------------------------------------------|
+    | ~SPC q~       | Normal    | /q/ uit, 退出                                                               |
+    | ~SPC Q~       | Normal    | quit without saving, 不保存强制退出                                         |
+    | ~SPC d~       | Normal    | go /d/ own half page, 向下移动半屏                                          |
+    | ~SPC u~       | Normal    | go /u/ p half page, 向上移动半屏                                            |
+    | ~SPC s c~     | Normal    | /s/ earch result highlight /c/ ountermand, 取消搜索结果高亮                 |
+    | ~SPC t p~     | Normal    | /t/ oggle /p/ astemode, 粘贴模式开关                                        |
+    | ~Ctrl j~      | /Insert/  | /j/, 向下移动                                                               |
+    | ~Ctrl k~      | /Insert/  | /k/, 向上移动                                                               |
+    | ~Ctrl h~      | /Insert/  | /h/, 向左移动                                                               |
+    | ~Ctrl l~      | /Insert/  | /l/, 向右移动                                                               |
+    | ~jj~          | /Insert/  | ~\<Esc>~                                                                    |
+    | ~jk~          | /Insert/  | ~\<Esc>~                                                                    |
+    | ~kk~          | /Insert/  | ~\<Esc>~                                                                    |
+    | ~Ctrl h~      | /Command/ | <left>                                                                      |
+    | ~Ctrl j~      | /Command/ | <down>, next command, 下一条历史命令                                        |
+    | ~Ctrl k~      | /Command/ | <up>, previous command, 上一条历史命令                                      |
+    | ~Ctrl l~      | /Command/ | <right>                                                                     |
+    | ~Ctrl a~      | /Command/ | <home>, 行首                                                                |
+    | ~Ctrl e~      | /Command/ | <end>, 行尾                                                                 |
+    | ~Ctrl d~      | /Command/ | <delete>                                                                    |
+    | ~v~           | /Visual/  | ~<Esc>~                                                                    |
+    | ~U~           | Normal    | redo, 重做(对应  ~u~  为撤销，undo)                                         |
+    | ~H~           | Normal    | beginning of line, 光标跳转到行首                                           |
+    | ~L~           | Normal    | end of line, 光标跳转到行尾                                                 |
+    | ~Y~           | Normal    | yank from cursor to end of line, 从光标处复制到行尾                         |
+    | ~;~           | Normal    | ~:~, 快速进入 command mode                                                  |
+    | ~SPC f s~     | Normal    | /f/ ile /s/ ave, 保存文件                                                   |
+    | ~SPC f [1-9]~ | Normal    | /f/ old level, 设置折叠层次，f 0 相当于全部折叠, f 9 相当于取消折叠全部展开 |
+
+** Buffer
+
+    | Key Binding | Mode   | Description                                                           |
+    |-------------+--------+-----------------------------------------------------------------------|
+    | ~SPC [1-9]~ | Normal | switch to buffer with number [1-9], 切换至对应编号[1-9]对应缓冲区     |
+    | ~SPC b p~   | Normal | /p/ revious /b/ uffer, 上一个缓冲区                                   |
+    | ~SPC b n~   | Normal | /n/ ext /b/ uffer, 下一个缓冲区                                       |
+    | ~<Tab>~     | Normal | switch buffer, equal to ~SPC b n~, 等同于 ~SPC b n~                   |
+    | ~SPC b d~   | Normal | /d/ elete current buffer, 删除当前缓冲区                              |
+    | ~SPC b k~   | Normal | /k/ ill current buffer, 杀掉当前缓冲区                                |
+
+** Window
+
+    | Key Binding | Mode   | Description                                                     |
+    |-------------+--------+-----------------------------------------------------------------|
+    | ~SPC w j~   | Normal | window-down, 移动至下方窗口                                     |
+    | ~SPC w k~   | Normal | window-up, 移动至上方窗口                                       |
+    | ~SPC w h~   | Normal | window-left, 移动至左侧窗口                                     |
+    | ~SPC w l~   | Normal | window-right, 移动至右侧窗口                                    |
+    | ~SPC w J~   | Normal | 向下扩大当前窗口                                                |
+    | ~SPC w K~   | Normal | 向上扩大当前窗口                                                |
+    | ~SPC w H~   | Normal | 向右扩大当前窗口                                                |
+    | ~SPC w L~   | Normal | 向左扩大当前窗口                                                |
+    | ~SPC w v~   | Normal | split-window-right, 竖直分割窗口                                |
+    | ~SPC w 2~   | Normal | layout-double-columns, 将窗口分割为两列，等同于 ~SPC w v~       |
+    | ~SPC w s~   | Normal | split-window-below, 水平分割窗口， 等同于 ~SPC w -~             |
+    | ~SPC w d~   | Normal | delete-window, 关闭 (cancel, 记 /d/ elete) 当前窗口             |
+    | ~SPC w q~   | Normal | quit-window, 退出 (/q/ uit) 当前窗口，若是最后一个窗口则退出vim |
+    | ~SPC w w~   | Normal | other-window, 在所有窗口中循环移动                              |
+    | ~SPC w r~   | Normal | window-replace, 向右或向下方交换 (/r/ eplace) 窗口              |
+    | ~SPC w m~   | Normal | GUI 环境下 vim 窗口最大化 (/m/ aximum) 开关                     |
+
+** easy-motion
+
+    | Key Binding | Mode   | Description                                 |
+    |-------------+--------+---------------------------------------------|
+    | ~SPC j w~   | Nomral | 单词跳转 (jump to word)                     |
+    | ~SPC j l~   | Nomral | 行间跳转 (jump to line)                     |
+    | ~SPC j j~   | Nomral | goto-char, 单个字符搜索, 等同于 ~SPC SPC s~ |
+    | ~SPC j J~   | Nomral | goto-char-2, 两个字符搜索                   |
+    | ~SPC SPC w~ | Normal | 快速词间移动(向前)                          |
+    | ~SPC SPC b~ | Normal | 快速词间移动 (向后)                         |
+    | ~SPC SPC s~ | Normal | 快速字符搜索 (双向)                         |
+    | ~SPC SPC f~ | Normal | 快速字符搜索 (向前)                         |
+    | ~SPC SPC j~ | Normal | 快速行间移动 (向下)                         |
+    | ~SPC SPC k~ | Normal | 快速行间移动 (向上)                         |
+
+** Others
+
+    | Key Binding | Mode   | Description                                                       |
+    |-------------+--------+-------------------------------------------------------------------|
+    | ~SPC x d~   | Normal | delete trailing whitespace, 去掉行尾多余空格 (te /x/ t /d/ elete) |
+    | ~SPC f R~   | Normal | reload .vimrc, 重新加载 .vimrc (/f/ ile /R/ esource)              |
+    | ~SPC b h~   | Normal | /b/ uffer /h/ ome, 主 buffer                                      |
+

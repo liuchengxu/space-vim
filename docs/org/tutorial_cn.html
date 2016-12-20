@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-12-20 Tue 16:42 -->
+<!-- 2016-12-20 Tue 20:20 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -157,28 +157,40 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline4">1. 前言</a>
 <ul>
 <li><a href="#orgheadline1">1.1. 什么是 layer</a></li>
-<li><a href="#orgheadline2">1.2. 为什么使用空格键为前缀建</a></li>
+<li><a href="#orgheadline2">1.2. 为什么使用空格键作为前缀建</a></li>
 <li><a href="#orgheadline3">1.3. 为什么使用 hjkl 作为方向键</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline13">2. 如何使用 space-vim</a>
+<li><a href="#orgheadline5">2. 运行截图</a></li>
+<li><a href="#orgheadline13">3. 开始使用</a>
 <ul>
-<li><a href="#orgheadline9">2.1. 准备工作</a>
+<li><a href="#orgheadline10">3.1. 安装工作</a>
 <ul>
-<li><a href="#orgheadline5">2.1.1. 满足 “要求” 的 vim</a></li>
-<li><a href="#orgheadline6">2.1.2. 第三方工具</a></li>
-<li><a href="#orgheadline8">2.1.3. 字体</a></li>
+<li><a href="#orgheadline6">3.1.1. 满足 “要求” 的 vim</a></li>
+<li><a href="#orgheadline7">3.1.2. 第三方工具</a></li>
+<li><a href="#orgheadline8">3.1.3. 安装字体</a></li>
+<li><a href="#orgheadline9">3.1.4. 字体设置</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline10">2.2. 启用 layer</a></li>
-<li><a href="#orgheadline11">2.3. 个性化</a></li>
-<li><a href="#orgheadline12">2.4. 更新</a></li>
+<li><a href="#orgheadline11">3.2. 启用 layer</a></li>
+<li><a href="#orgheadline12">3.3. 禁用部分插件</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline16">3. 默认安装</a>
+<li><a href="#orgheadline14">4. 个性化</a></li>
+<li><a href="#orgheadline15">5. 更新</a></li>
+<li><a href="#orgheadline18">6. 默认安装</a>
 <ul>
-<li><a href="#orgheadline14">3.1. better-defaults</a></li>
-<li><a href="#orgheadline15">3.2. unite</a></li>
+<li><a href="#orgheadline16">6.1. better-defaults</a></li>
+<li><a href="#orgheadline17">6.2. unite</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline24">7. 键位绑定</a>
+<ul>
+<li><a href="#orgheadline19">7.1. Basic</a></li>
+<li><a href="#orgheadline20">7.2. Buffer</a></li>
+<li><a href="#orgheadline21">7.3. Window</a></li>
+<li><a href="#orgheadline22">7.4. easy-motion</a></li>
+<li><a href="#orgheadline23">7.5. Others</a></li>
 </ul>
 </li>
 </ul>
@@ -209,7 +221,7 @@ layers
 │   └── python
 ├── +themes
 │   ├── airline
-│   └── colors
+│   └── lightline
 ├── +tools
 │   ├── fzf
 │   └── ycmd
@@ -224,7 +236,7 @@ layers
 </pre>
 
 <p>
-一个 layer 通常由 3 个部分组成, README 为其简要介绍, config.vim 为针对该 layer 的配置信息, packages.vim 为支持该 layer 所需安装的一些插件.
+一个 layer 通常由 3 个部分组成, README.md 为其简要介绍, config.vim 为针对该 layer 的配置信息, packages.vim 为支持该 layer 所需安装的一些插件.
 </p>
 
 <pre class="example">
@@ -233,11 +245,44 @@ python
 ├── config.vim
 └── packages.vim
 </pre>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Layer Component</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">README.md</td>
+<td class="org-left">layer 的简要介绍</td>
+</tr>
+
+<tr>
+<td class="org-left">config.vim</td>
+<td class="org-left">针对 layer 的配置信息</td>
+</tr>
+
+<tr>
+<td class="org-left">packages.vim</td>
+<td class="org-left">支持该 layer 所需的一些插件</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 
+
 <div id="outline-container-orgheadline2" class="outline-3">
-<h3 id="orgheadline2"><span class="section-number-3">1.2</span> 为什么使用空格键为前缀建</h3>
+<h3 id="orgheadline2"><span class="section-number-3">1.2</span> 为什么使用空格键作为前缀建</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 space-vim 的前缀键 (Leader key) 设置为空格键，取自 <a href="https://github.com/syl20bnr/spacemacs">spacemacs</a>. 当然了，在 spacemacs 之前就已经有很多人这么设置了, 它不是第一个，但是它的流行影响了很多人对 Leader key 的设置。
@@ -249,7 +294,7 @@ spacemacs 除了外观漂亮，社区驱动等等优点，主打 evil 并用空�
 
 <div class="org-src-container">
 
-<pre class="src src-vim">let g:mapleader="\&lt;Space&gt;"
+<pre class="src src-vimrc"><span style="color: #4f97d7; font-weight: bold;">let</span> <span style="color: #7590db;">g:mapleader</span><span style="color: #a45bad;">=</span><span style="color: #2d9574;">"\&lt;Space&gt;"</span>
 </pre>
 </div>
 
@@ -261,6 +306,7 @@ spacemacs 除了外观漂亮，社区驱动等等优点，主打 evil 并用空�
 <div class="figure">
 <p><img src="../img/hhkb.jpg" alt="hhkb.jpg" />
 </p>
+<p><span class="figure-number">Figure 1:</span> HHKB keyboard</p>
 </div>
 </div>
 </div>
@@ -276,6 +322,7 @@ spacemacs 除了外观漂亮，社区驱动等等优点，主打 evil 并用空�
 <div class="figure">
 <p><img src="../img/ancient_keyboard.png" alt="ancient_keyboard.png" />
 </p>
+<p><span class="figure-number">Figure 2:</span> Lear Siegler's ADM-3A computer terminal's full keyboard</p>
 </div>
 
 
@@ -291,26 +338,42 @@ spacemacs 除了外观漂亮，社区驱动等等优点，主打 evil 并用空�
 </div>
 </div>
 
-<div id="outline-container-orgheadline13" class="outline-2">
-<h2 id="orgheadline13"><span class="section-number-2">2</span> 如何使用 space-vim</h2>
+<div id="outline-container-orgheadline5" class="outline-2">
+<h2 id="orgheadline5"><span class="section-number-2">2</span> 运行截图</h2>
 <div class="outline-text-2" id="text-2">
-</div><div id="outline-container-orgheadline9" class="outline-3">
-<h3 id="orgheadline9"><span class="section-number-3">2.1</span> 准备工作</h3>
-<div class="outline-text-3" id="text-2-1">
+
+<div class="figure">
+<p><img src="../img/screenshot.png" alt="screenshot.png" />
+</p>
+<p><span class="figure-number">Figure 4:</span> python</p>
+</div>
+
+<p>
+以上截图可能并非最新版本，仅供参考。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline13" class="outline-2">
+<h2 id="orgheadline13"><span class="section-number-2">3</span> 开始使用</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-orgheadline10" class="outline-3">
+<h3 id="orgheadline10"><span class="section-number-3">3.1</span> 安装工作</h3>
+<div class="outline-text-3" id="text-3-1">
 <p>
 又想马儿跑，又要马儿不吃草，那是不太现实的，所以要想要 space-vim 的体验好一些，一些准备工作必不可少.
 </p>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-4">
-<h4 id="orgheadline5"><span class="section-number-4">2.1.1</span> 满足 “要求” 的 vim</h4>
-<div class="outline-text-4" id="text-2-1-1">
+<div id="outline-container-orgheadline6" class="outline-4">
+<h4 id="orgheadline6"><span class="section-number-4">3.1.1</span> 满足 “要求” 的 vim</h4>
+<div class="outline-text-4" id="text-3-1-1">
 <p>
-所谓要求，是指有些插件需要 vim 在编译时必须包含某项特性 (feature)，比如 ycmd layer 中使用的 <a href="https://github.com/Valloric/YouCompleteMe">YouCompleteMe</a> 要求 vim 得有 python 支持。使用 NeoVim 就可以直接跳过这一节le, 因为 NeoVim 默认编译时包含全部特性.
+所谓要求，是指有些插件需要 vim 在编译时必须包含某项特性 (feature)，比如 ycmd layer 中使用的 <a href="https://github.com/Valloric/YouCompleteMe">YouCompleteMe</a> 要求 vim 得有 python 支持。如果使用 NeoVim 可以直接跳过这一节, 因为 NeoVim 默认编译时包含全部特性.
 </p>
 
 <p>
-terminal 中输入 <code>vim --version</code>, 可以看到一串信息，下面显示的是我使用 brew 安装的 vim, 带 "+" 说明该 feature 有了， 带 "-" 说明没有，比如下面的 +python3 说明支持 python3. 安装时还是保险一点，什么 lua, python 都装上, 以免后患。
+terminal 中输入 <code>vim --version</code>, 可以看到一串信息，下面显示的是我使用 brew 安装的 vim, 带 "+" 说明该 feature 有了， 带 "-" 说明没有，比如下面的 +python3 说明支持 python3. 安装时还是保险一点，什么 lua, python , clipboard都装上, 以免后患。
 </p>
 
 <div class="org-src-container">
@@ -363,14 +426,14 @@ Linking: clang   -L. -L/usr/local/lib  -L/usr/local/lib -o vim        -lm  -lncu
 </div>
 
 <p>
-macOS 下使用 brew 安装 vim 非常方便, 其他平台下可以自行搜索更多内容.
+macOS 下使用 brew 安装 vim 非常方便, 其他平台下可以自行搜索更多内容, 网络上有很多指引.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-4">
-<h4 id="orgheadline6"><span class="section-number-4">2.1.2</span> 第三方工具</h4>
-<div class="outline-text-4" id="text-2-1-2">
+<div id="outline-container-orgheadline7" class="outline-4">
+<h4 id="orgheadline7"><span class="section-number-4">3.1.2</span> 第三方工具</h4>
+<div class="outline-text-4" id="text-3-1-2">
 <p>
 比如语法检查时用到的各种 linter, python 代码格式化时用到的 yapf。具体这些工具如何安装，在需要时自行安装即可。
 </p>
@@ -378,8 +441,8 @@ macOS 下使用 brew 安装 vim 非常方便, 其他平台下可以自行搜索�
 </div>
 
 <div id="outline-container-orgheadline8" class="outline-4">
-<h4 id="orgheadline8"><span class="section-number-4">2.1.3</span> 字体</h4>
-<div class="outline-text-4" id="text-2-1-3">
+<h4 id="orgheadline8"><span class="section-number-4">3.1.3</span> 安装字体</h4>
+<div class="outline-text-4" id="text-3-1-3">
 <p>
 要想界面漂亮，字体可能也是不可或缺, 况且安装也不是很复杂。
 </p>
@@ -390,8 +453,8 @@ macOS 下使用 brew 安装 vim 非常方便, 其他平台下可以自行搜索�
 
 <div class="org-src-container">
 
-<pre class="src src-sh">git clone https://github.com/powerline/fonts.git ~/.fonts
-sh ~/.fonts/install.sh
+<pre class="src src-sh">$ git clone https://github.com/powerline/fonts.git ~/.fonts
+$ sh ~/.fonts/install.sh
 </pre>
 </div>
 
@@ -405,8 +468,11 @@ powerline font 安装完成后，在 <code>.spacevim</code> 中启用字体：
 </pre>
 </div>
 </div>
+</div>
 
-<ol class="org-ol"><li><a id="orgheadline7"></a>字体设置<br  /><div class="outline-text-5" id="text-2-1-3-1">
+<div id="outline-container-orgheadline9" class="outline-4">
+<h4 id="orgheadline9"><span class="section-number-4">3.1.4</span> 字体设置</h4>
+<div class="outline-text-4" id="text-3-1-4">
 <p>
 GUI 环境下, 可直接在 vim 的配置文件进行设置. 
 </p>
@@ -420,14 +486,15 @@ GUI 环境下, 可直接在 vim 的配置文件进行设置.
 <div class="figure">
 <p><img src="../img/iterm2_powerline_setting.png" alt="iterm2_powerline_setting.png" />
 </p>
+<p><span class="figure-number">Figure 5:</span> iterm2 font setting</p>
 </div>
-</div></li></ol>
+</div>
 </div>
 </div>
 
-<div id="outline-container-orgheadline10" class="outline-3">
-<h3 id="orgheadline10"><span class="section-number-3">2.2</span> 启用 layer</h3>
-<div class="outline-text-3" id="text-2-2">
+<div id="outline-container-orgheadline11" class="outline-3">
+<h3 id="orgheadline11"><span class="section-number-3">3.2</span> 启用 layer</h3>
+<div class="outline-text-3" id="text-3-2">
 <p>
 启用 layer 非常简单，使用一键安装脚本安装<a href="https://github.com/liuchengxu/space-vim"> space-vim</a> 时会自动在当前用户目录下生成一个 <code>.spacevim</code> ，可在其中的 <code>UserInit()</code> 部分进行启用已有的 layer, 也可以在里面放置 space-vim 没有的插件：
 </p>
@@ -438,25 +505,23 @@ GUI 环境下, 可直接在 vim 的配置文件进行设置.
 
 <div class="org-src-container">
 
-<pre class="src src-vim">function! UserInit()
+<pre class="src src-vimrc"><span style="color: #4f97d7; font-weight: bold;">function</span><span style="color: #a45bad;">!</span> <span style="color: #bc6ec5; font-weight: bold;">UserInit</span>()
 
-    " Put the layers you want to enable as well as extra private plugins
-    Layer 'fzf'
-    Layer 'ycmd'
-    Layer 'syntax-checking'
+    Layer <span style="color: #2d9574;">'fzf'</span>
+    Layer <span style="color: #2d9574;">'ycmd'</span>
+    Layer <span style="color: #2d9574;">'syntax-checking'</span>
 
-    Layer 'emoji'
-    Layer 'goyo'
+    Layer <span style="color: #2d9574;">'emoji'</span>
+    Layer <span style="color: #2d9574;">'goyo'</span>
 
-    Layer 'html'
-    Layer 'python'
-    Layer 'markdown'
-    Layer 'c-c++'
+    Layer <span style="color: #2d9574;">'html'</span>
+    Layer <span style="color: #2d9574;">'python'</span>
+    Layer <span style="color: #2d9574;">'markdown'</span>
+    Layer <span style="color: #2d9574;">'c-c++'</span>
 
-    " put extra plugins
-    Plug 'extr0py/oni'
+    Plug <span style="color: #2d9574;">'extr0py/oni'</span>
 
-endfunction
+<span style="color: #4f97d7; font-weight: bold;">endfunction</span>
 </pre>
 </div>
 
@@ -466,20 +531,37 @@ endfunction
 </div>
 </div>
 
-<div id="outline-container-orgheadline11" class="outline-3">
-<h3 id="orgheadline11"><span class="section-number-3">2.3</span> 个性化</h3>
-<div class="outline-text-3" id="text-2-3">
+<div id="outline-container-orgheadline12" class="outline-3">
+<h3 id="orgheadline12"><span class="section-number-3">3.3</span> 禁用部分插件</h3>
+<div class="outline-text-3" id="text-3-3">
 <p>
-上面说了可以再 <code>UserInit()</code> 中放置自己的插件, 此外在 <code>.spacevim</code> 中还有个 <code>UserConfig()</code> ，可以将一些个性化配置放在这里。比如想换个主题：
+使用 <code>Layer</code> 命令可以加载 layer, 但是如果不想加载 layer 中的所有插件, 可以使用 <code>Exclude</code> 命令禁用, 比如不想要 'Shougo/denite.nvim':
 </p>
 
 <div class="org-src-container">
 
-<pre class="src src-vim">function! UserConfig()
+<pre class="src src-vimrc">Exclude <span style="color: #2d9574;">'Shougo/denite.nvim'</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline14" class="outline-2">
+<h2 id="orgheadline14"><span class="section-number-2">4</span> 个性化</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+上面说了可以在 <code>UserInit()</code> 中放置自己的插件, 此外在 <code>.spacevim</code> 中还有个 <code>UserConfig()</code> ，可以将一些个性化配置放在这里。比如想换个主题, 自定义一些快捷键等：
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-vimrc"><span style="color: #4f97d7; font-weight: bold;">function</span><span style="color: #a45bad;">!</span> <span style="color: #bc6ec5; font-weight: bold;">UserConfig</span>()
 
     color molokai
+    <span style="color: #4f97d7; font-weight: bold;">nnoremap</span> Q :<span style="color: #4f97d7; font-weight: bold;">qa</span><span style="color: #a45bad;">!&lt;</span>CR<span style="color: #a45bad;">&gt;</span>
 
-endfunction
+<span style="color: #4f97d7; font-weight: bold;">endfunction</span>
 </pre>
 </div>
 
@@ -489,33 +571,37 @@ endfunction
 </div>
 </div>
 
-<div id="outline-container-orgheadline12" class="outline-3">
-<h3 id="orgheadline12"><span class="section-number-3">2.4</span> 更新</h3>
-<div class="outline-text-3" id="text-2-4">
+<div id="outline-container-orgheadline15" class="outline-2">
+<h2 id="orgheadline15"><span class="section-number-2">5</span> 更新</h2>
+<div class="outline-text-2" id="text-5">
 <p>
 对于 vim 插件的更新，自然是通过插件管理器 vim-plug 提供的相关命令 <code>:PlugUpdate</code> 。
 </p>
 
 <p>
-对于 space-vim, 可以进入 "~/.space-vim" 执行 `git pull`。
+对于 <a href="https://github.com/liuchengxu/space-vim">space-vim</a> , 可以进入 <code>path/to/.space-vim</code> 执行 <code>git pull origin master</code> 。
 </p>
+
+<div class="org-src-container">
+
+<pre class="src src-sh">$ git pull origin master
+</pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgheadline16" class="outline-2">
-<h2 id="orgheadline16"><span class="section-number-2">3</span> 默认安装</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-orgheadline18" class="outline-2">
+<h2 id="orgheadline18"><span class="section-number-2">6</span> 默认安装</h2>
+<div class="outline-text-2" id="text-6">
 <p>
 默认启用了 3 个 layer:
 </p>
 
 <div class="org-src-container">
 
-<pre class="src src-vim">" Default layers
-Layer 'fzf'
-Layer 'unite'
-Layer 'better-defaults'
+<pre class="src src-vimrc">Layer <span style="color: #2d9574;">'fzf'</span>
+Layer <span style="color: #2d9574;">'unite'</span>
+Layer <span style="color: #2d9574;">'better-defaults'</span>
 </pre>
 </div>
 
@@ -527,6 +613,7 @@ Layer 'better-defaults'
 <div class="figure">
 <p><img src="../img/maps.png" alt="maps.png" />
 </p>
+<p><span class="figure-number">Figure 6:</span> <code>SPC ?</code> key maps</p>
 </div>
 
 <p>
@@ -542,28 +629,535 @@ Layer 'better-defaults'
 </p>
 </div>
 
-<div id="outline-container-orgheadline14" class="outline-3">
-<h3 id="orgheadline14"><span class="section-number-3">3.1</span> better-defaults</h3>
-<div class="outline-text-3" id="text-3-1">
+<div id="outline-container-orgheadline16" class="outline-3">
+<h3 id="orgheadline16"><span class="section-number-3">6.1</span> better-defaults</h3>
+<div class="outline-text-3" id="text-6-1">
 <p>
 一些 “人性化” 设置和基本的键位映射，包括 buffer, window, esay-motion 快速移动等操作。了解 better-defaults 下面的键位设置非常重要，因为这些是所有快捷键设定的重要组成部分.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgheadline15" class="outline-3">
-<h3 id="orgheadline15"><span class="section-number-3">3.2</span> unite</h3>
-<div class="outline-text-3" id="text-3-2">
+<div id="outline-container-orgheadline17" class="outline-3">
+<h3 id="orgheadline17"><span class="section-number-3">6.2</span> unite</h3>
+<div class="outline-text-3" id="text-6-2">
 <p>
 unite layer 主要希望提供一个界面来选择一些不太常用或稍复杂的命令.
 </p>
 </div>
 </div>
 </div>
+
+<div id="outline-container-orgheadline24" class="outline-2">
+<h2 id="orgheadline24"><span class="section-number-2">7</span> 键位绑定</h2>
+<div class="outline-text-2" id="text-7">
+</div><div id="outline-container-orgheadline19" class="outline-3">
+<h3 id="orgheadline19"><span class="section-number-3">7.1</span> Basic</h3>
+<div class="outline-text-3" id="text-7-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Key Binding</th>
+<th scope="col" class="org-left">Mode</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>SPC q</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left"><i>q</i> uit, 退出</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC Q</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left">quit without saving, 不保存强制退出</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC d</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left">go <i>d</i> own half page, 向下移动半屏</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC u</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left">go <i>u</i> p half page, 向上移动半屏</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC s c</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left"><i>s</i> earch result highlight <i>c</i> ountermand, 取消搜索结果高亮</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC t p</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left"><i>t</i> oggle <i>p</i> astemode, 粘贴模式开关</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>Ctrl j</code></td>
+<td class="org-left"><i>Insert</i></td>
+<td class="org-left"><i>j</i>, 向下移动</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>Ctrl k</code></td>
+<td class="org-left"><i>Insert</i></td>
+<td class="org-left"><i>k</i>, 向上移动</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>Ctrl h</code></td>
+<td class="org-left"><i>Insert</i></td>
+<td class="org-left"><i>h</i>, 向左移动</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>Ctrl l</code></td>
+<td class="org-left"><i>Insert</i></td>
+<td class="org-left"><i>l</i>, 向右移动</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>jj</code></td>
+<td class="org-left"><i>Insert</i></td>
+<td class="org-left"><code>\&lt;Esc&gt;</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>jk</code></td>
+<td class="org-left"><i>Insert</i></td>
+<td class="org-left"><code>\&lt;Esc&gt;</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>kk</code></td>
+<td class="org-left"><i>Insert</i></td>
+<td class="org-left"><code>\&lt;Esc&gt;</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>Ctrl h</code></td>
+<td class="org-left"><i>Command</i></td>
+<td class="org-left">&lt;left&gt;</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>Ctrl j</code></td>
+<td class="org-left"><i>Command</i></td>
+<td class="org-left">&lt;down&gt;, next command, 下一条历史命令</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>Ctrl k</code></td>
+<td class="org-left"><i>Command</i></td>
+<td class="org-left">&lt;up&gt;, previous command, 上一条历史命令</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>Ctrl l</code></td>
+<td class="org-left"><i>Command</i></td>
+<td class="org-left">&lt;right&gt;</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>Ctrl a</code></td>
+<td class="org-left"><i>Command</i></td>
+<td class="org-left">&lt;home&gt;, 行首</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>Ctrl e</code></td>
+<td class="org-left"><i>Command</i></td>
+<td class="org-left">&lt;end&gt;, 行尾</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>Ctrl d</code></td>
+<td class="org-left"><i>Command</i></td>
+<td class="org-left">&lt;delete&gt;</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>v</code></td>
+<td class="org-left"><i>Visual</i></td>
+<td class="org-left"><code>&lt;Esc&gt;</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>U</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left">redo, 重做(对应  <code>u</code>  为撤销，undo)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>H</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left">beginning of line, 光标跳转到行首</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>L</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left">end of line, 光标跳转到行尾</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>Y</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left">yank from cursor to end of line, 从光标处复制到行尾</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>;</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left"><code>:</code>, 快速进入 command mode</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC f s</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left"><i>f</i> ile <i>s</i> ave, 保存文件</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC f [1-9]</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left"><i>f</i> old level, 设置折叠层次，f 0 相当于全部折叠, f 9 相当于取消折叠全部展开</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgheadline20" class="outline-3">
+<h3 id="orgheadline20"><span class="section-number-3">7.2</span> Buffer</h3>
+<div class="outline-text-3" id="text-7-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Key Binding</th>
+<th scope="col" class="org-left">Mode</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>SPC [1-9]</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left">switch to buffer with number [1-9], 切换至对应编号[1-9]对应缓冲区</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC b p</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left"><i>p</i> revious <i>b</i> uffer, 上一个缓冲区</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC b n</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left"><i>n</i> ext <i>b</i> uffer, 下一个缓冲区</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>&lt;Tab&gt;</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left">switch buffer, equal to <code>SPC b n</code>, 等同于 <code>SPC b n</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC b d</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left"><i>d</i> elete current buffer, 删除当前缓冲区</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC b k</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left"><i>k</i> ill current buffer, 杀掉当前缓冲区</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgheadline21" class="outline-3">
+<h3 id="orgheadline21"><span class="section-number-3">7.3</span> Window</h3>
+<div class="outline-text-3" id="text-7-3">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Key Binding</th>
+<th scope="col" class="org-left">Mode</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>SPC w j</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left">window-down, 移动至下方窗口</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC w k</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left">window-up, 移动至上方窗口</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC w h</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left">window-left, 移动至左侧窗口</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC w l</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left">window-right, 移动至右侧窗口</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC w J</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left">向下扩大当前窗口</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC w K</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left">向上扩大当前窗口</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC w H</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left">向右扩大当前窗口</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC w L</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left">向左扩大当前窗口</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC w v</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left">split-window-right, 竖直分割窗口</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC w 2</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left">layout-double-columns, 将窗口分割为两列，等同于 <code>SPC w v</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC w s</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left">split-window-below, 水平分割窗口， 等同于 <code>SPC w -</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC w d</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left">delete-window, 关闭 (cancel, 记 <i>d</i> elete) 当前窗口</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC w q</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left">quit-window, 退出 (<i>q</i> uit) 当前窗口，若是最后一个窗口则退出vim</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC w w</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left">other-window, 在所有窗口中循环移动</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC w r</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left">window-replace, 向右或向下方交换 (<i>r</i> eplace) 窗口</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC w m</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left">GUI 环境下 vim 窗口最大化 (<i>m</i> aximum) 开关</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgheadline22" class="outline-3">
+<h3 id="orgheadline22"><span class="section-number-3">7.4</span> easy-motion</h3>
+<div class="outline-text-3" id="text-7-4">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Key Binding</th>
+<th scope="col" class="org-left">Mode</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>SPC j w</code></td>
+<td class="org-left">Nomral</td>
+<td class="org-left">单词跳转 (jump to word)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC j l</code></td>
+<td class="org-left">Nomral</td>
+<td class="org-left">行间跳转 (jump to line)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC j j</code></td>
+<td class="org-left">Nomral</td>
+<td class="org-left">goto-char, 单个字符搜索, 等同于 <code>SPC SPC s</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC j J</code></td>
+<td class="org-left">Nomral</td>
+<td class="org-left">goto-char-2, 两个字符搜索</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC SPC w</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left">快速词间移动(向前)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC SPC b</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left">快速词间移动 (向后)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC SPC s</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left">快速字符搜索 (双向)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC SPC f</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left">快速字符搜索 (向前)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC SPC j</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left">快速行间移动 (向下)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC SPC k</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left">快速行间移动 (向上)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgheadline23" class="outline-3">
+<h3 id="orgheadline23"><span class="section-number-3">7.5</span> Others</h3>
+<div class="outline-text-3" id="text-7-5">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Key Binding</th>
+<th scope="col" class="org-left">Mode</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>SPC x d</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left">delete trailing whitespace, 去掉行尾多余空格 (te <i>x</i> t <i>d</i> elete)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC f R</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left">reload .vimrc, 重新加载 .vimrc (<i>f</i> ile <i>R</i> esource)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC b h</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left"><i>b</i> uffer <i>h</i> ome, 主 buffer</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Liu-Cheng Xu</p>
-<p class="date">Created: 2016-12-20 Tue 16:42</p>
+<p class="date">Created: 2016-12-20 Tue 20:20</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

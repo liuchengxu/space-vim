@@ -2,6 +2,10 @@
 
 ***
 <p align="center">
+<b><a href="https://liuchengxu.github.io/space-vim/org/tutorial_cn.html">安装与使用详细指南</a></b>
+</p>
+***
+<p align="center">
 <a href="https://github.com/liuchengxu/space-vim"><img src="https://rawgit.com/liuchengxu/space-vim/master/assets/space-vim-badge.svg" alt="badge"></a>
 <a href="https://github.com/liuchengxu/space-vim/blob/master/LICENSE"><img src="https://rawgit.com/liuchengxu/space-vim/master/assets/license.svg" alt="license"></a>
 </p>
