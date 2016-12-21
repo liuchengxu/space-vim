@@ -37,4 +37,29 @@ if LayerLoaded('python')
 
     augroup END
 
+    if IsDir('python-mode')
+        let g:pymode_lint_checkers = ['pyflakes']
+        let g:pymode_trim_whitespaces = 0
+        let g:pymode_options = 0
+        let g:pymode_rope = 0
+
+        " Enhanced python highlighting
+        hi pythonLambdaExpr ctermfg=105 guifg=#8787ff
+        hi pythonClass ctermfg=167 guifg=#d75f5f
+        hi pythonParameters ctermfg=147 guifg=#afafff
+        hi pythonParam ctermfg=175 guifg=#d787af
+        hi pythonBrackets ctermfg=183 guifg=#d7afff
+
+        hi pythonDottedName ctermfg=74 guifg=#5fafd7
+
+        hi pythonSelf ctermfg=181 guifg=#d7afaf
+
+        hi pythonError ctermfg=196 guifg=#ff0000
+        hi pythonIndentError ctermfg=197 guifg=#ff005f
+        hi pythonSpaceError ctermfg=198 guifg=#ff0087
+
+        hi pythonBuiltinObj ctermfg=71 guifg=#5faf5f
+        hi pythonBuiltinFunc ctermfg=140 guifg=#af87d7
+    endif
+
 endif

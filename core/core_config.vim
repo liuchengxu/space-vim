@@ -107,10 +107,6 @@ function! s:add_layer(...)
     elseif a:0 == 1
         call add(g:layers_loaded, eval(a:1))
     else
-        echo len(a:000)
-        for tmp in a:000
-            echo tmp
-        endfor
         call s:err('Options not supported now. Sorry for that.')
     endif
 endfunction
