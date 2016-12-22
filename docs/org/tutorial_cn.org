@@ -5,9 +5,9 @@
 * 前言
 ** 什么是 layer
 
-    layer, 名词有 "层次", 动词有 "分层" 的意思, 其实很简单, layer 这个概念不过是为了井然有序, 便于进一步的处理而已。就像计算机网络有应用层, 传输层等等, 每个 layer 有自己的职能。space-vim 中一个 layer 不过是针对某方面的 vim 配置与插件的集合.
+    layer, 名词有 "层次", 动词有 "分层" 的意思, 其实很简单, layer 这个概念不过是为了井然有序, 便于进一步的处理而已。就像计算机网络有应用层, 传输层等等, 每个 layer 有自己的职能。[[https://github.com/liuchengxu/space-vim][space-vim]] 中一个 layer 不过是针对某方面的 vim 配置与插件的集合.
 
-    在 space-vim 中, 像如下的 c-c++, graphviz, html 等等都为一个 /layer/. layer 的上一级目录, 比如 python layer 的上一级目录 +lang, 可称之为 topic. topic 下的内容均可认为是一个 layer.
+    在 [[https://github.com/liuchengxu/space-vim][space-vim]] 中, 像如下的 c-c++, graphviz, html 等等都为一个 /layer/. layer 的上一级目录, 比如 python layer 的上一级目录 +lang, 可称之为 topic. topic 下的内容均可认为是一个 layer.
 
     #+BEGIN_EXAMPLE
     layers
@@ -51,7 +51,7 @@
 
 ** 为什么使用空格键作为前缀建
 
-    space-vim 的前缀键 (Leader key) 设置为空格键，取自 [[https://github.com/syl20bnr/spacemacs][spacemacs]]. 当然了，在 spacemacs 之前就已经有很多人这么设置了, 它不是第一个，但是它的流行影响了很多人对 Leader key 的设置。
+    [[https://github.com/liuchengxu/space-vim][space-vim]] 的前缀键 (Leader key) 设置为空格键，取自 [[https://github.com/syl20bnr/spacemacs][spacemacs]]. 当然了，在 spacemacs 之前就已经有很多人这么设置了, 它不是第一个，但是它的流行影响了很多人对 Leader key 的设置。
 
     spacemacs 除了外观漂亮，社区驱动等等优点，主打 evil 并用空格键作为其前缀键可能也是其中一个成功的卖点，因为真的可以减轻手指负担，毕竟 "触手可及".
 
@@ -85,7 +85,7 @@
 * 开始使用
 ** 安装工作
 
-    又想马儿跑，又要马儿不吃草，那是不太现实的，所以要想要 space-vim 的体验好一些，一些准备工作必不可少.
+    又想马儿跑，又要马儿不吃草，那是不太现实的，所以要想要 [[https://github.com/liuchengxu/space-vim][space-vim]] 的体验好一些，一些准备工作必不可少.
 
 *** 满足 “要求” 的 vim
 
@@ -354,7 +354,7 @@
 
 * 后记
 
-  space-vim 仅仅是一个起点，在不断使用 vim 的过程中，每个人都会不断总结出适合自己的套路。开始不仅仅 "手中有剑", 而是 "心中有剑", 到这时你便完全可以打造一个独属于自己的配置。 为什么要有一个自己的配置？ Because you can and you love it.
+  [[https://github.com/liuchengxu/space-vim][space-vim]] 仅仅是一个起点，在不断使用 vim 的过程中，每个人都会不断总结出适合自己的套路。开始不仅仅 "手中有剑", 而是 "心中有剑", 到这时你便完全可以打造一个独属于自己的配置。 为什么要有一个自己的配置？ Because you can and you love it.
 
   学习从模仿开始, 而且要从模仿最好的开始. 我在学习与使用 vim 的过程中也向别人偷师了很多内容, 同样, 如果在此过程中，space-vim 能够发挥些许作用，也算功德圆满。
 

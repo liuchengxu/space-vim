@@ -2,9 +2,16 @@ MP 'luochen1990/rainbow'
 
 MP 'junegunn/rainbow_parentheses.vim', { 'for': ['lisp', 'clojure', 'scheme'] }
 
-" MP 'SirVer/ultisnips', { 'on': '<Plug>(tab)' }
-MP 'SirVer/ultisnips'
-MP 'honza/vim-snippets'
+" Refer to https://github.com/junegunn/vim-plug/wiki/faq
+" Load on nothing
+MP 'SirVer/ultisnips', { 'on': [] }
+MP 'honza/vim-snippets', { 'on': [] }
+
+augroup load_snips
+    autocmd!
+    autocmd InsertEnter * call plug#load('ultisnips', 'vim-snippets')
+                \| autocmd! load_snips
+augroup END
 
 " Do not lazy loading tagbar, see vim-airline issue 1313.
 MP 'majutsushi/tagbar'

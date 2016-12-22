@@ -10,5 +10,10 @@ endfunction
 
 " Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 
-MP 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+MP 'Valloric/YouCompleteMe', { 'do': function('BuildYCM'), 'on': [] }
 
+augroup load_ycm
+    autocmd!
+    autocmd InsertEnter * call plug#load('YouCompleteMe')
+                \| autocmd! load_ycm
+augroup END

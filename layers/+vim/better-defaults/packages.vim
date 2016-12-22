@@ -19,7 +19,7 @@ MP 'terryma/vim-multiple-cursors'
 
 MP 'liuchengxu/vim-better-default'
 
-MP 'danro/rename.vim',               { 'on': 'Rename' }
+MP 'danro/rename.vim',               { 'on' : 'Rename' }
 
 MP 'ntpeters/vim-better-whitespace', { 'on': 'StripWhitespace' }
 
