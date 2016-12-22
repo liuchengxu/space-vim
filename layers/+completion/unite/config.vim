@@ -78,7 +78,7 @@ if LayerLoaded('unite')
                     \['    ➞  show-hidden-chars',
                     \'set list!'],
                     \['x d ➞  delete-trailing-whitespaces                         ⌘ <Leader> x d',
-                    \'FixWhitespace'],
+                    \'StripWhitespace'],
                     \['a | ➞  align-repeat-bar                                    ⌘ <Leader> a |',
                     \'Tabularize /|'],
                     \['a = ➞  align-repeat-equal                                  ⌘ <Leader> a =',
@@ -98,16 +98,24 @@ if LayerLoaded('unite')
                     \}
         " supported by fzf layer
         let g:unite_source_menu_menus.f.command_candidates = [
-                    \['▷   ➞  Buffers',
+                    \['▷   Buffers                                          (fzf)',
                     \'Buffers'],
-                    \['▷   ➞  Files',
+                    \['▷   Files                                            (fzf)',
                     \'Files'],
-                    \['▷   ➞  Windows',
+                    \['▷   GFiles                                           (fzf)',
+                    \'GFiles?'],
+                    \['▷   Windows                                          (fzf)',
                     \'Windows'],
-                    \['▷   ➞  Maps',
+                    \['▷   Marks                                            (fzf)',
+                    \'Marks'],
+                    \['▷   Maps                                             (fzf)',
                     \'Maps'],
-                    \['▷   ➞  History',
+                    \['▷   History                                          (fzf)',
                     \'History'],
+                    \['▷   History:                                         (fzf)',
+                    \'History:'],
+                    \['▷   History/                                         (fzf)',
+                    \'History/'],
                     \]
         nnoremap <silent>[menu]f :Unite -silent -winheight=20
                     \ menu:f<CR>
@@ -118,23 +126,17 @@ if LayerLoaded('unite')
                     \ 'description' : '    plugins          ⌘ [menu]s',
                     \}
         let g:unite_source_menu_menus.p.command_candidates = [
-                    \['▷  ➞  install-plugin                                    (vim-plug)',
+                    \['▷  install-plugin                                    (vim-plug)',
                     \'PlugInstall'],
-                    \['▷  ➞  clean-plugin                                      (vim-plug)',
+                    \['▷  clean-plugin                                      (vim-plug)',
                     \'PlugClean'],
-                    \['▷  ➞  update-plugin                                     (vim-plug)',
+                    \['▷  update-plugin                                     (vim-plug)',
                     \'PlugUpdate'],
-                    \['▷  ➞  syntastic-check                                   (syntastic)',
-                    \'SyntasticCheck'],
-                    \['▷  ➞  syntastic-info                                    (syntastic)',
-                    \'SyntasticInfo'],
-                    \['▷  ➞  syntastic-reset                                   (syntastic)',
-                    \'SyntasticReset'],
-                    \['▷  ➞  syntastic-errors                                  (syntastic)',
-                    \'Errors'],
-                    \['▷  ➞  ycm-restart-server                                (youcompleteme)',
+                    \['▷  show-plugin-status                                (vim-plug)',
+                    \'PlugStatus'],
+                    \['▷  ycm-restart-server                                (youcompleteme)',
                     \'YcmRestartServer'],
-                    \['▷  ➞  generate-markdown-toc                             (vim-markdown-toc)',
+                    \['▷  generate-markdown-toc                             (vim-markdown-toc)',
                     \'GenTocGFM'],
                     \]
         nnoremap <silent>[menu]p :Unite -silent
@@ -146,7 +148,7 @@ if LayerLoaded('unite')
                     \ 'description' : '    toggle           ⌘ [menu]t',
                     \}
         let g:unite_source_menu_menus.t.command_candidates = [
-                    \['▷  ➞  nerdtree                                          (plugin)       ⌘ <F3>',
+                    \['▷  ➞  nerdtree                                          (plugin)       ⌘ <F4>',
                     \'NERDTreeToggle'],
                     \['▷  ➞  tagbar                                            (plugin)       ⌘ <F6>',
                     \'TagbarToggle'],
