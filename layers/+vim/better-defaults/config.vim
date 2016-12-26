@@ -28,6 +28,10 @@ if IsDir('incsearch.vim')
         map /  <Plug>(incsearch-forward)
         map ?  <Plug>(incsearch-backward)
         map g/ <Plug>(incsearch-stay)
+
+        map z/ <Plug>(incsearch-fuzzyspell-/)
+        map z? <Plug>(incsearch-fuzzyspell-?)
+        map zg/ <Plug>(incsearch-fuzzyspell-stay)
     endif
 endif
 " }
@@ -200,8 +204,15 @@ endif
 " %V Virtual column
 " %P Percentage
 " %#HighlightGroup#
-set statusline=%<[%n]\ %F\ 『%{exists('g:loaded_ale')?ALEGetStatusLine():''}』\ %m%r%y\ %{exists('g:loaded_fugitive')?fugitive#statusline():''}
-set statusline+=%=%{&ff}\ \|\ %{\"\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"\ \|\"}\ %=%-14.(%l:%c%V%)\ %P
+function! Buf_total_num()
+    return len(filter(range(1, bufnr('$')), 'buflisted(v:val)'))
+endfunction
+set statusline=%<[B-%n]
+" TOT is an abbreviation for total
+set statusline+=[TOT\ %{Buf_total_num()}]
+set statusline+=\ %F\ 『%{exists('g:loaded_ale')?ALEGetStatusLine():''}』\ %m%r%y\ %{exists('g:loaded_fugitive')?fugitive#statusline():''}
+set statusline+=%=%{&ff}\ \|
+set statusline+=\ %{\"\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"\ \|\"}\ %=%-14.(%l:%c%V%)\ %P
 silent! if emoji#available()
 let s:ft_emoji = map({
             \ 'c':          'baby_chick',

@@ -28,6 +28,11 @@ MP 'haya14busa/incsearch.vim',       { 'on': [
             \   '<Plug>(incsearch-backward)',
             \   '<Plug>(incsearch-stay)' ]
             \   }
+MP 'haya14busa/incsearch-fuzzy.vim',  { 'on': [
+            \   '<Plug>(incsearch-fuzzy-/)',
+            \   '<Plug>(incsearch-fuzzy-?)',
+            \   '<Plug>(incsearch-fuzzy-stay)' ]
+            \   }
 
 " Refer to https://github.com/junegunn/dotfiles  vimrc
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }

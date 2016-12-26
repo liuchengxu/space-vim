@@ -1,4 +1,5 @@
 scriptencoding utf-8
+
 if LayerLoaded('unite')
 
     " ctrlp.vim {
@@ -134,9 +135,9 @@ if LayerLoaded('unite')
                     \'PlugUpdate'],
                     \['▷  show-plugin-status                                (vim-plug)',
                     \'PlugStatus'],
-                    \['▷  ycm-restart-server                                (youcompleteme)',
+                    \['▷  ycm-restart-server                                (ycmd)',
                     \'YcmRestartServer'],
-                    \['▷  generate-markdown-toc                             (vim-markdown-toc)',
+                    \['▷  generate-markdown-toc                             (markdown-toc)',
                     \'GenTocGFM'],
                     \]
         nnoremap <silent>[menu]p :Unite -silent
@@ -148,11 +149,11 @@ if LayerLoaded('unite')
                     \ 'description' : '    toggle           ⌘ [menu]t',
                     \}
         let g:unite_source_menu_menus.t.command_candidates = [
-                    \['▷  ➞  nerdtree                                          (plugin)       ⌘ <F4>',
+                    \['▷  nerdtree                                          (toggle)       ⌘ <F4>',
                     \'NERDTreeToggle'],
-                    \['▷  ➞  tagbar                                            (plugin)       ⌘ <F6>',
+                    \['▷  tagbar                                            (toggle)       ⌘ <F6>',
                     \'TagbarToggle'],
-                    \['▷  ➞  syntastic                                         (plugin)       ⌘',
+                    \['▷  syntastic                                         (toggle)       ⌘',
                     \'SyntasticToggleMode'],
                     \]
         nnoremap <silent>[menu]t :Unite -silent

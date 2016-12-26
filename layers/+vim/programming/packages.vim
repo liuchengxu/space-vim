@@ -4,8 +4,7 @@ MP 'junegunn/rainbow_parentheses.vim', { 'for': ['lisp', 'clojure', 'scheme'] }
 
 " Refer to https://github.com/junegunn/vim-plug/wiki/faq
 " Load on nothing
-MP 'SirVer/ultisnips', { 'on': [] }
-MP 'honza/vim-snippets', { 'on': [] }
+MP 'SirVer/ultisnips', { 'on': [] } | MP 'honza/vim-snippets', { 'on': [] }
 
 augroup load_snips
     autocmd!
@@ -22,6 +21,7 @@ MP 'Chiel92/vim-autoformat',          { 'on': 'Autoformat'}
 
 MP 'nathanaelkane/vim-indent-guides', { 'on': 'IndentGuidesToggle'}
 
+MP 'vim-scripts/errormarker.vim'
 MP 'skywind3000/asyncrun.vim',        { 'on': ['AsyncRun!', 'AsyncRun'] }
 
 MP 'scrooloose/nerdcommenter',        { 'on': '<Plug>NERDCommenterToggle' }

@@ -48,7 +48,6 @@
    | config.vim   | 针对 layer 的配置信息       |
    | packages.vim | 支持该 layer 所需的一些插件 |
     
-
 ** 为什么使用空格键作为前缀建
 
     [[https://github.com/liuchengxu/space-vim][space-vim]] 的前缀键 (Leader key) 设置为空格键，取自 [[https://github.com/syl20bnr/spacemacs][spacemacs]]. 当然了，在 spacemacs 之前就已经有很多人这么设置了, 它不是第一个，但是它的流行影响了很多人对 Leader key 的设置。
@@ -81,6 +80,12 @@
   file:../img/screenshot.png
 
   以上截图可能并非最新版本，仅供参考。
+
+* 适用人群
+  - vim 初学者. 如果是老司机, 选择感兴趣的部分看看就好.
+  - 同时使用 vim 与 spacemacs, 并且希望 vim 不那么 “寒碜”。
+  - 惯用 Terminal vim, 而不是 GUI vim. 
+  虽然大部分设置 terminal 与 GUI 通用, 但因为我基本不使用 GUI vim, 所以仍然会有些设置可能对 GUI vim 不那么友好. 不过非常欢迎您帮助改进 GUI vim 下的一些潜在问题.
 
 * 开始使用
 ** 安装工作

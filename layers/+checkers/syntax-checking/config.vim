@@ -17,13 +17,18 @@ if LayerLoaded('syntax-checking')
             let g:ale_sign_error = emoji#for('boom')
             let g:ale_sign_warning = emoji#for('small_orange_diamond')
         catch
-            let g:ale_sign_error = '✹'
-            let g:ale_sign_warning = '✴'
+            " Use same sign and distinguish error and warning via different color
+            let g:ale_sign_error = '•'
+            let g:ale_sign_warning = '•'
         endtry
         let g:ale_echo_msg_error_str = '✹ Error'
         let g:ale_echo_msg_warning_str = '⚠ Warning'
         let g:ale_echo_msg_format = '[#%linter%#] %s [%severity%]'
-        let g:ale_statusline_format = [' Ⓔ •%d', 'Ⓦ •%d ', ' ⬥ ok ']
+        if has('gui_running')
+            let g:ale_statusline_format = [' E•%d', 'W•%d ', ' ⬥ ok ']
+        else
+            let g:ale_statusline_format = ['Ⓔ •%d ', 'Ⓦ •%d ', ' ⬥ ok ']
+        endif
     endif
 
     " syntastic

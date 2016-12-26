@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-12-22 Thu 20:37 -->
+<!-- 2016-12-23 Fri 09:11 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -162,38 +162,39 @@ for the JavaScript code in this tag.
 </ul>
 </li>
 <li><a href="#orgheadline5">2. 运行截图</a></li>
-<li><a href="#orgheadline13">3. 开始使用</a>
+<li><a href="#orgheadline6">3. 适用人群</a></li>
+<li><a href="#orgheadline14">4. 开始使用</a>
 <ul>
-<li><a href="#orgheadline10">3.1. 安装工作</a>
+<li><a href="#orgheadline11">4.1. 安装工作</a>
 <ul>
-<li><a href="#orgheadline6">3.1.1. 满足 “要求” 的 vim</a></li>
-<li><a href="#orgheadline7">3.1.2. 第三方工具</a></li>
-<li><a href="#orgheadline8">3.1.3. 安装字体</a></li>
-<li><a href="#orgheadline9">3.1.4. 字体设置</a></li>
+<li><a href="#orgheadline7">4.1.1. 满足 “要求” 的 vim</a></li>
+<li><a href="#orgheadline8">4.1.2. 第三方工具</a></li>
+<li><a href="#orgheadline9">4.1.3. 安装字体</a></li>
+<li><a href="#orgheadline10">4.1.4. 字体设置</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline11">3.2. 启用 layer</a></li>
-<li><a href="#orgheadline12">3.3. 禁用部分插件</a></li>
+<li><a href="#orgheadline12">4.2. 启用 layer</a></li>
+<li><a href="#orgheadline13">4.3. 禁用部分插件</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline14">4. 个性化</a></li>
-<li><a href="#orgheadline15">5. 更新</a></li>
-<li><a href="#orgheadline18">6. 默认安装</a>
+<li><a href="#orgheadline15">5. 个性化</a></li>
+<li><a href="#orgheadline16">6. 更新</a></li>
+<li><a href="#orgheadline19">7. 默认安装</a>
 <ul>
-<li><a href="#orgheadline16">6.1. better-defaults</a></li>
-<li><a href="#orgheadline17">6.2. unite</a></li>
+<li><a href="#orgheadline17">7.1. better-defaults</a></li>
+<li><a href="#orgheadline18">7.2. unite</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline24">7. 键位绑定</a>
+<li><a href="#orgheadline25">8. 键位绑定</a>
 <ul>
-<li><a href="#orgheadline19">7.1. Basic</a></li>
-<li><a href="#orgheadline20">7.2. Buffer</a></li>
-<li><a href="#orgheadline21">7.3. Window</a></li>
-<li><a href="#orgheadline22">7.4. easy-motion</a></li>
-<li><a href="#orgheadline23">7.5. Others</a></li>
+<li><a href="#orgheadline20">8.1. Basic</a></li>
+<li><a href="#orgheadline21">8.2. Buffer</a></li>
+<li><a href="#orgheadline22">8.3. Window</a></li>
+<li><a href="#orgheadline23">8.4. easy-motion</a></li>
+<li><a href="#orgheadline24">8.5. Others</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline25">8. 后记</a></li>
+<li><a href="#orgheadline26">9. 后记</a></li>
 </ul>
 </div>
 </div>
@@ -281,7 +282,6 @@ python
 </div>
 </div>
 
-
 <div id="outline-container-orgheadline2" class="outline-3">
 <h3 id="orgheadline2"><span class="section-number-3">1.2</span> 为什么使用空格键作为前缀建</h3>
 <div class="outline-text-3" id="text-1-2">
@@ -355,20 +355,34 @@ spacemacs 除了外观漂亮，社区驱动等等优点，主打 evil 并用空�
 </div>
 </div>
 
-<div id="outline-container-orgheadline13" class="outline-2">
-<h2 id="orgheadline13"><span class="section-number-2">3</span> 开始使用</h2>
+<div id="outline-container-orgheadline6" class="outline-2">
+<h2 id="orgheadline6"><span class="section-number-2">3</span> 适用人群</h2>
 <div class="outline-text-2" id="text-3">
-</div><div id="outline-container-orgheadline10" class="outline-3">
-<h3 id="orgheadline10"><span class="section-number-3">3.1</span> 安装工作</h3>
-<div class="outline-text-3" id="text-3-1">
+<ul class="org-ul">
+<li>vim 初学者. 如果是老司机, 选择感兴趣的部分看看就好.</li>
+<li>同时使用 vim 与 spacemacs, 并且希望 vim 不那么 “寒碜”。</li>
+<li>惯用 Terminal vim, 而不是 GUI vim.</li>
+</ul>
+<p>
+虽然大部分设置 terminal 与 GUI 通用, 但因为我基本不使用 GUI vim, 所以仍然会有些设置可能对 GUI vim 不那么友好. 不过非常欢迎您帮助改进 GUI vim 下的一些潜在问题.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline14" class="outline-2">
+<h2 id="orgheadline14"><span class="section-number-2">4</span> 开始使用</h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-container-orgheadline11" class="outline-3">
+<h3 id="orgheadline11"><span class="section-number-3">4.1</span> 安装工作</h3>
+<div class="outline-text-3" id="text-4-1">
 <p>
 又想马儿跑，又要马儿不吃草，那是不太现实的，所以要想要 <a href="https://github.com/liuchengxu/space-vim">space-vim</a> 的体验好一些，一些准备工作必不可少.
 </p>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-4">
-<h4 id="orgheadline6"><span class="section-number-4">3.1.1</span> 满足 “要求” 的 vim</h4>
-<div class="outline-text-4" id="text-3-1-1">
+<div id="outline-container-orgheadline7" class="outline-4">
+<h4 id="orgheadline7"><span class="section-number-4">4.1.1</span> 满足 “要求” 的 vim</h4>
+<div class="outline-text-4" id="text-4-1-1">
 <p>
 所谓要求，是指有些插件需要 vim 在编译时必须包含某项特性 (feature)，比如 ycmd layer 中使用的 <a href="https://github.com/Valloric/YouCompleteMe">YouCompleteMe</a> 要求 vim 得有 python 支持。如果使用 NeoVim 可以直接跳过这一节, 因为 NeoVim 默认编译时包含全部特性.
 </p>
@@ -432,18 +446,18 @@ macOS 下使用 brew 安装 vim 非常方便, 其他平台下可以自行搜索�
 </div>
 </div>
 
-<div id="outline-container-orgheadline7" class="outline-4">
-<h4 id="orgheadline7"><span class="section-number-4">3.1.2</span> 第三方工具</h4>
-<div class="outline-text-4" id="text-3-1-2">
+<div id="outline-container-orgheadline8" class="outline-4">
+<h4 id="orgheadline8"><span class="section-number-4">4.1.2</span> 第三方工具</h4>
+<div class="outline-text-4" id="text-4-1-2">
 <p>
 比如语法检查时用到的各种 linter, python 代码格式化时用到的 yapf。具体这些工具如何安装，在需要时自行安装即可。
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgheadline8" class="outline-4">
-<h4 id="orgheadline8"><span class="section-number-4">3.1.3</span> 安装字体</h4>
-<div class="outline-text-4" id="text-3-1-3">
+<div id="outline-container-orgheadline9" class="outline-4">
+<h4 id="orgheadline9"><span class="section-number-4">4.1.3</span> 安装字体</h4>
+<div class="outline-text-4" id="text-4-1-3">
 <p>
 要想界面漂亮，字体可能也是不可或缺, 况且安装也不是很复杂。
 </p>
@@ -471,9 +485,9 @@ powerline font 安装完成后，在 <code>.spacevim</code> 中启用字体：
 </div>
 </div>
 
-<div id="outline-container-orgheadline9" class="outline-4">
-<h4 id="orgheadline9"><span class="section-number-4">3.1.4</span> 字体设置</h4>
-<div class="outline-text-4" id="text-3-1-4">
+<div id="outline-container-orgheadline10" class="outline-4">
+<h4 id="orgheadline10"><span class="section-number-4">4.1.4</span> 字体设置</h4>
+<div class="outline-text-4" id="text-4-1-4">
 <p>
 GUI 环境下, 可直接在 vim 的配置文件进行设置. 
 </p>
@@ -493,9 +507,9 @@ GUI 环境下, 可直接在 vim 的配置文件进行设置.
 </div>
 </div>
 
-<div id="outline-container-orgheadline11" class="outline-3">
-<h3 id="orgheadline11"><span class="section-number-3">3.2</span> 启用 layer</h3>
-<div class="outline-text-3" id="text-3-2">
+<div id="outline-container-orgheadline12" class="outline-3">
+<h3 id="orgheadline12"><span class="section-number-3">4.2</span> 启用 layer</h3>
+<div class="outline-text-3" id="text-4-2">
 <p>
 启用 layer 非常简单，使用一键安装脚本安装<a href="https://github.com/liuchengxu/space-vim"> space-vim</a> 时会自动在当前用户目录下生成一个 <code>.spacevim</code> ，可在其中的 <code>UserInit()</code> 部分进行启用已有的 layer, 也可以在里面放置 space-vim 没有的插件：
 </p>
@@ -532,9 +546,9 @@ GUI 环境下, 可直接在 vim 的配置文件进行设置.
 </div>
 </div>
 
-<div id="outline-container-orgheadline12" class="outline-3">
-<h3 id="orgheadline12"><span class="section-number-3">3.3</span> 禁用部分插件</h3>
-<div class="outline-text-3" id="text-3-3">
+<div id="outline-container-orgheadline13" class="outline-3">
+<h3 id="orgheadline13"><span class="section-number-3">4.3</span> 禁用部分插件</h3>
+<div class="outline-text-3" id="text-4-3">
 <p>
 使用 <code>Layer</code> 命令可以加载 layer, 但是如果不想加载 layer 中的所有插件, 可以使用 <code>Exclude</code> 命令禁用, 比如不想要 'Shougo/denite.nvim':
 </p>
@@ -548,9 +562,9 @@ GUI 环境下, 可直接在 vim 的配置文件进行设置.
 </div>
 </div>
 
-<div id="outline-container-orgheadline14" class="outline-2">
-<h2 id="orgheadline14"><span class="section-number-2">4</span> 个性化</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-orgheadline15" class="outline-2">
+<h2 id="orgheadline15"><span class="section-number-2">5</span> 个性化</h2>
+<div class="outline-text-2" id="text-5">
 <p>
 上面说了可以在 <code>UserInit()</code> 中放置自己的插件, 此外在 <code>.spacevim</code> 中还有个 <code>UserConfig()</code> ，可以将一些个性化配置放在这里。比如想换个主题, 自定义一些快捷键等：
 </p>
@@ -572,9 +586,9 @@ GUI 环境下, 可直接在 vim 的配置文件进行设置.
 </div>
 </div>
 
-<div id="outline-container-orgheadline15" class="outline-2">
-<h2 id="orgheadline15"><span class="section-number-2">5</span> 更新</h2>
-<div class="outline-text-2" id="text-5">
+<div id="outline-container-orgheadline16" class="outline-2">
+<h2 id="orgheadline16"><span class="section-number-2">6</span> 更新</h2>
+<div class="outline-text-2" id="text-6">
 <p>
 对于 vim 插件的更新，自然是通过插件管理器 vim-plug 提供的相关命令 <code>:PlugUpdate</code> 。
 </p>
@@ -591,9 +605,9 @@ GUI 环境下, 可直接在 vim 的配置文件进行设置.
 </div>
 </div>
 
-<div id="outline-container-orgheadline18" class="outline-2">
-<h2 id="orgheadline18"><span class="section-number-2">6</span> 默认安装</h2>
-<div class="outline-text-2" id="text-6">
+<div id="outline-container-orgheadline19" class="outline-2">
+<h2 id="orgheadline19"><span class="section-number-2">7</span> 默认安装</h2>
+<div class="outline-text-2" id="text-7">
 <p>
 默认启用了 3 个 layer:
 </p>
@@ -630,18 +644,18 @@ Layer <span style="color: #2d9574;">'better-defaults'</span>
 </p>
 </div>
 
-<div id="outline-container-orgheadline16" class="outline-3">
-<h3 id="orgheadline16"><span class="section-number-3">6.1</span> better-defaults</h3>
-<div class="outline-text-3" id="text-6-1">
+<div id="outline-container-orgheadline17" class="outline-3">
+<h3 id="orgheadline17"><span class="section-number-3">7.1</span> better-defaults</h3>
+<div class="outline-text-3" id="text-7-1">
 <p>
 一些 “人性化” 设置和基本的键位映射，包括 buffer, window, esay-motion 快速移动等操作。了解 better-defaults 下面的键位设置非常重要，因为这些是所有快捷键设定的重要组成部分.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgheadline17" class="outline-3">
-<h3 id="orgheadline17"><span class="section-number-3">6.2</span> unite</h3>
-<div class="outline-text-3" id="text-6-2">
+<div id="outline-container-orgheadline18" class="outline-3">
+<h3 id="orgheadline18"><span class="section-number-3">7.2</span> unite</h3>
+<div class="outline-text-3" id="text-7-2">
 <p>
 unite layer 主要希望提供一个界面来选择一些不太常用或稍复杂的命令.
 </p>
@@ -649,12 +663,12 @@ unite layer 主要希望提供一个界面来选择一些不太常用或稍复�
 </div>
 </div>
 
-<div id="outline-container-orgheadline24" class="outline-2">
-<h2 id="orgheadline24"><span class="section-number-2">7</span> 键位绑定</h2>
-<div class="outline-text-2" id="text-7">
-</div><div id="outline-container-orgheadline19" class="outline-3">
-<h3 id="orgheadline19"><span class="section-number-3">7.1</span> Basic</h3>
-<div class="outline-text-3" id="text-7-1">
+<div id="outline-container-orgheadline25" class="outline-2">
+<h2 id="orgheadline25"><span class="section-number-2">8</span> 键位绑定</h2>
+<div class="outline-text-2" id="text-8">
+</div><div id="outline-container-orgheadline20" class="outline-3">
+<h3 id="orgheadline20"><span class="section-number-3">8.1</span> Basic</h3>
+<div class="outline-text-3" id="text-8-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -845,9 +859,9 @@ unite layer 主要希望提供一个界面来选择一些不太常用或稍复�
 </div>
 </div>
 
-<div id="outline-container-orgheadline20" class="outline-3">
-<h3 id="orgheadline20"><span class="section-number-3">7.2</span> Buffer</h3>
-<div class="outline-text-3" id="text-7-2">
+<div id="outline-container-orgheadline21" class="outline-3">
+<h3 id="orgheadline21"><span class="section-number-3">8.2</span> Buffer</h3>
+<div class="outline-text-3" id="text-8-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -906,9 +920,9 @@ unite layer 主要希望提供一个界面来选择一些不太常用或稍复�
 </div>
 </div>
 
-<div id="outline-container-orgheadline21" class="outline-3">
-<h3 id="orgheadline21"><span class="section-number-3">7.3</span> Window</h3>
-<div class="outline-text-3" id="text-7-3">
+<div id="outline-container-orgheadline22" class="outline-3">
+<h3 id="orgheadline22"><span class="section-number-3">8.3</span> Window</h3>
+<div class="outline-text-3" id="text-8-3">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -1027,9 +1041,9 @@ unite layer 主要希望提供一个界面来选择一些不太常用或稍复�
 </div>
 </div>
 
-<div id="outline-container-orgheadline22" class="outline-3">
-<h3 id="orgheadline22"><span class="section-number-3">7.4</span> easy-motion</h3>
-<div class="outline-text-3" id="text-7-4">
+<div id="outline-container-orgheadline23" class="outline-3">
+<h3 id="orgheadline23"><span class="section-number-3">8.4</span> easy-motion</h3>
+<div class="outline-text-3" id="text-8-4">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -1112,9 +1126,9 @@ unite layer 主要希望提供一个界面来选择一些不太常用或稍复�
 </div>
 </div>
 
-<div id="outline-container-orgheadline23" class="outline-3">
-<h3 id="orgheadline23"><span class="section-number-3">7.5</span> Others</h3>
-<div class="outline-text-3" id="text-7-5">
+<div id="outline-container-orgheadline24" class="outline-3">
+<h3 id="orgheadline24"><span class="section-number-3">8.5</span> Others</h3>
+<div class="outline-text-3" id="text-8-5">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -1156,9 +1170,9 @@ unite layer 主要希望提供一个界面来选择一些不太常用或稍复�
 </div>
 </div>
 
-<div id="outline-container-orgheadline25" class="outline-2">
-<h2 id="orgheadline25"><span class="section-number-2">8</span> 后记</h2>
-<div class="outline-text-2" id="text-8">
+<div id="outline-container-orgheadline26" class="outline-2">
+<h2 id="orgheadline26"><span class="section-number-2">9</span> 后记</h2>
+<div class="outline-text-2" id="text-9">
 <p>
 <a href="https://github.com/liuchengxu/space-vim">space-vim</a> 仅仅是一个起点，在不断使用 vim 的过程中，每个人都会不断总结出适合自己的套路。开始不仅仅 "手中有剑", 而是 "心中有剑", 到这时你便完全可以打造一个独属于自己的配置。 为什么要有一个自己的配置？ Because you can and you love it.
 </p>
@@ -1179,7 +1193,7 @@ unite layer 主要希望提供一个界面来选择一些不太常用或稍复�
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Liu-Cheng Xu</p>
-<p class="date">Created: 2016-12-22 Thu 20:37</p>
+<p class="date">Created: 2016-12-23 Fri 09:11</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
