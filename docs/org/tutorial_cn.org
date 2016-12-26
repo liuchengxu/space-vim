@@ -363,12 +363,12 @@
 
    从 [[https://github.com/junegunn/vim-startuptime-benchmark][vim-startuptime-benchmark]] 可以看出, 即使使用很多插件仍然可以保持很快的启动 ( 200 ms 以内). 尽管加载的插件不尽相同, 但仍具有借鉴意义.
 
-   虽然有些使用插件延迟加载, 但 space-vim 启用很多 layer 时, 启动时间仍普遍超过 500 ms, 有时甚至会超过 900 ms. 测试环境:
+   虽然有些使用插件延迟加载, 但有一段时间 space-vim 启用很多 layer 时, 启动时间仍普遍超过 500 ms, 有时甚至会超过 900 ms. 测试环境:
 
    - Retina 13-inch mid 2014
    - VIM - Vi IMproved 8.0 (2016 Sep 12, compiled Nov 21 2016 17:35:16).
 
-   虽然比起 spacemacs 几秒钟的启动时间, 几百毫秒已经很快. 但对于 vim, 启动迅速是硬性要求, 而且当超过 900 ms 时, 就会有明显的 lag.
+   虽然比起 spacemacs 几秒钟的启动时间, 几百毫秒已经很快. 但对于 vim, 启动迅速是硬性要求, 而且当超过 900 ms 时, 就会有明显的 lag. 后来在这里找到了解决方案:[[https://github.com/junegunn/vim-plug/wiki/faq#loading-plugins-manually][load-plugins-manually]] , 主要是 YouCompleteMe 与 ultisnips 两个插件.
 
    下面是我一般会启用的 layer, 其中 =airline= 我已经默认不启用了, 因为可能会它可能会导致 100 ms 的启动延迟, 默认的 statusline 已经够用了, 我会在接下来介绍它。
 
