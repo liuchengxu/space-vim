@@ -141,13 +141,6 @@ if LayerLoaded('programming')
     endif
     " }
 
-    " asyncrun.vim {
-    if IsDir('asyncrun.vim')
-        " cooperate with errormaker
-        let g:asyncrun_auto = 'make'
-    endif
-    " }
-
     " indentLine {
     if IsDir('indentLine')
         let g:indentLine_char='┊'

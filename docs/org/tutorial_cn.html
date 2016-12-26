@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-12-23 Fri 09:11 -->
+<!-- 2016-12-26 一 17:44 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -185,7 +185,7 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline18">7.2. unite</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline25">8. 键位绑定</a>
+<li><a href="#orgheadline25">8. 基础键位</a>
 <ul>
 <li><a href="#orgheadline20">8.1. Basic</a></li>
 <li><a href="#orgheadline21">8.2. Buffer</a></li>
@@ -194,7 +194,13 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline24">8.5. Others</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline26">9. 后记</a></li>
+<li><a href="#orgheadline28">9. 使用建议</a>
+<ul>
+<li><a href="#orgheadline26">9.1. 启动时间</a></li>
+<li><a href="#orgheadline27">9.2. space-vim statusline</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline29">10. 后记</a></li>
 </ul>
 </div>
 </div>
@@ -664,7 +670,7 @@ unite layer 主要希望提供一个界面来选择一些不太常用或稍复�
 </div>
 
 <div id="outline-container-orgheadline25" class="outline-2">
-<h2 id="orgheadline25"><span class="section-number-2">8</span> 键位绑定</h2>
+<h2 id="orgheadline25"><span class="section-number-2">8</span> 基础键位</h2>
 <div class="outline-text-2" id="text-8">
 </div><div id="outline-container-orgheadline20" class="outline-3">
 <h3 id="orgheadline20"><span class="section-number-3">8.1</span> Basic</h3>
@@ -1170,9 +1176,96 @@ unite layer 主要希望提供一个界面来选择一些不太常用或稍复�
 </div>
 </div>
 
-<div id="outline-container-orgheadline26" class="outline-2">
-<h2 id="orgheadline26"><span class="section-number-2">9</span> 后记</h2>
+<div id="outline-container-orgheadline28" class="outline-2">
+<h2 id="orgheadline28"><span class="section-number-2">9</span> 使用建议</h2>
 <div class="outline-text-2" id="text-9">
+</div><div id="outline-container-orgheadline26" class="outline-3">
+<h3 id="orgheadline26"><span class="section-number-3">9.1</span> 启动时间</h3>
+<div class="outline-text-3" id="text-9-1">
+<p>
+当启用很多 layer 时, 意味着加载了很多插件与配置信息, 很可能会导致 vim 启动时变慢, 这是我们不愿意看到的. 
+</p>
+
+<p>
+从 <a href="https://github.com/junegunn/vim-startuptime-benchmark">vim-startuptime-benchmark</a> 可以看出, 即使使用很多插件仍然可以保持很快的启动 ( 200 ms 以内). 尽管加载的插件不尽相同, 但仍具有借鉴意义.
+</p>
+
+<p>
+虽然有些使用插件延迟加载, 但 space-vim 启用很多 layer 时, 启动时间仍普遍超过 500 ms, 有时甚至会超过 900 ms. 测试环境:
+</p>
+
+<ul class="org-ul">
+<li>Retina 13-inch mid 2014</li>
+<li>VIM - Vi IMproved 8.0 (2016 Sep 12, compiled Nov 21 2016 17:35:16).</li>
+</ul>
+
+<p>
+虽然比起 spacemacs 几秒钟的启动时间, 几百毫秒已经很快. 但对于 vim, 启动迅速是硬性要求, 而且当超过 900 ms 时, 就会有明显的 lag.
+</p>
+
+<p>
+下面是我一般会启用的 layer, 其中 <code>airline</code> 我已经默认不启用了, 因为可能会它可能会导致 100 ms 的启动延迟, 默认的 statusline 已经够用了, 我会在接下来介绍它。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-vimrc"><span style="color: #4f97d7; font-weight: bold;">function</span><span style="color: #a45bad;">!</span> <span style="color: #bc6ec5; font-weight: bold;">UserInit</span>()
+
+    Layer <span style="color: #2d9574;">'emoji'</span>
+    Layer <span style="color: #2d9574;">'goyo'</span>
+
+    Layer <span style="color: #2d9574;">'html'</span>
+    Layer <span style="color: #2d9574;">'c-c++'</span>
+    Layer <span style="color: #2d9574;">'python'</span>
+    Layer <span style="color: #2d9574;">'markdown'</span>
+    Layer <span style="color: #2d9574;">'graphviz'</span>
+
+    Layer <span style="color: #2d9574;">'airline'</span>
+
+    Layer <span style="color: #2d9574;">'chinese'</span>
+
+    Layer <span style="color: #2d9574;">'text-align'</span>
+    Layer <span style="color: #2d9574;">'programming'</span>
+
+    Layer <span style="color: #2d9574;">'ycmd'</span>
+    Layer <span style="color: #2d9574;">'syntax-checking'</span>
+
+<span style="color: #4f97d7; font-weight: bold;">endfunction</span>
+</pre>
+</div>
+
+<p>
+<code>vim --startuptime vim.log</code> 会将启动时的一些时间, 加载的文件等情况写入到 vim.log 中, 大家可以自行测试一下.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline27" class="outline-3">
+<h3 id="orgheadline27"><span class="section-number-3">9.2</span> space-vim statusline</h3>
+<div class="outline-text-3" id="text-9-2">
+<p>
+默认的 statuline 显示的信息依次为: 
+</p>
+
+<p>
+<b>[buffer-编号][TOT buffer 总数] 文件完整路径 『 ale 或 fugitive 信息』 文件编码 | 编码类型 | 行号:列号-虚拟列号 位置信息</b>
+</p>
+
+
+<div class="figure">
+<p><img src="../img/statusline.png" alt="statusline.png" />
+</p>
+</div>
+
+<p>
+通过 <b>buffer-编号</b>, 可以使用 <code>SPC 编号</code> 切换到对应 buffer. 通过 <b>[buffer 总数]</b> 知道当前共有几个 buffer, 使用 <code>Tab</code> 进行一次切换.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline29" class="outline-2">
+<h2 id="orgheadline29"><span class="section-number-2">10</span> 后记</h2>
+<div class="outline-text-2" id="text-10">
 <p>
 <a href="https://github.com/liuchengxu/space-vim">space-vim</a> 仅仅是一个起点，在不断使用 vim 的过程中，每个人都会不断总结出适合自己的套路。开始不仅仅 "手中有剑", 而是 "心中有剑", 到这时你便完全可以打造一个独属于自己的配置。 为什么要有一个自己的配置？ Because you can and you love it.
 </p>
@@ -1193,7 +1286,7 @@ unite layer 主要希望提供一个界面来选择一些不太常用或稍复�
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Liu-Cheng Xu</p>
-<p class="date">Created: 2016-12-23 Fri 09:11</p>
+<p class="date">Created: 2016-12-26 一 17:44</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

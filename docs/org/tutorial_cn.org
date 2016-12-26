@@ -267,7 +267,7 @@
 
     unite layer 主要希望提供一个界面来选择一些不太常用或稍复杂的命令.
 
-* 键位绑定
+* 基础键位
 
 ** Basic
 
@@ -357,6 +357,57 @@
     | ~SPC f R~   | Normal | reload .vimrc, 重新加载 .vimrc (/f/ ile /R/ esource)              |
     | ~SPC b h~   | Normal | /b/ uffer /h/ ome, 主 buffer                                      |
 
+* 使用建议
+** 启动时间
+   当启用很多 layer 时, 意味着加载了很多插件与配置信息, 很可能会导致 vim 启动时变慢, 这是我们不愿意看到的. 
+
+   从 [[https://github.com/junegunn/vim-startuptime-benchmark][vim-startuptime-benchmark]] 可以看出, 即使使用很多插件仍然可以保持很快的启动 ( 200 ms 以内). 尽管加载的插件不尽相同, 但仍具有借鉴意义.
+
+   虽然有些使用插件延迟加载, 但 space-vim 启用很多 layer 时, 启动时间仍普遍超过 500 ms, 有时甚至会超过 900 ms. 测试环境:
+
+   - Retina 13-inch mid 2014
+   - VIM - Vi IMproved 8.0 (2016 Sep 12, compiled Nov 21 2016 17:35:16).
+
+   虽然比起 spacemacs 几秒钟的启动时间, 几百毫秒已经很快. 但对于 vim, 启动迅速是硬性要求, 而且当超过 900 ms 时, 就会有明显的 lag.
+
+   下面是我一般会启用的 layer, 其中 =airline= 我已经默认不启用了, 因为可能会它可能会导致 100 ms 的启动延迟, 默认的 statusline 已经够用了, 我会在接下来介绍它。
+
+    #+BEGIN_SRC vimrc
+    function! UserInit()
+
+        Layer 'emoji'
+        Layer 'goyo'
+
+        Layer 'html'
+        Layer 'c-c++'
+        Layer 'python'
+        Layer 'markdown'
+        Layer 'graphviz'
+
+        Layer 'airline'
+
+        Layer 'chinese'
+
+        Layer 'text-align'
+        Layer 'programming'
+
+        Layer 'ycmd'
+        Layer 'syntax-checking'
+
+    endfunction
+    #+END_SRC
+
+    ~vim --startuptime vim.log~ 会将启动时的一些时间, 加载的文件等情况写入到 vim.log 中, 大家可以自行测试一下.
+
+** space-vim statusline
+
+   默认的 statuline 显示的信息依次为: 
+
+   *[buffer-编号][TOT buffer 总数] 文件完整路径 『 ale 或 fugitive 信息』 文件编码 | 编码类型 | 行号:列号-虚拟列号 位置信息*
+
+   file:../img/statusline.png
+
+   通过 *buffer-编号*, 可以使用 ~SPC 编号~ 切换到对应 buffer. 通过 *[buffer 总数]* 知道当前共有几个 buffer, 使用 ~Tab~ 进行一次切换.
 * 后记
 
   [[https://github.com/liuchengxu/space-vim][space-vim]] 仅仅是一个起点，在不断使用 vim 的过程中，每个人都会不断总结出适合自己的套路。开始不仅仅 "手中有剑", 而是 "心中有剑", 到这时你便完全可以打造一个独属于自己的配置。 为什么要有一个自己的配置？ Because you can and you love it.

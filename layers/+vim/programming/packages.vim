@@ -1,4 +1,5 @@
 MP 'luochen1990/rainbow'
+MP 'editorconfig/editorconfig-vim'
 
 MP 'junegunn/rainbow_parentheses.vim', { 'for': ['lisp', 'clojure', 'scheme'] }
 
@@ -13,15 +14,16 @@ augroup load_snips
 augroup END
 
 " Do not lazy loading tagbar, see vim-airline issue 1313.
-MP 'majutsushi/tagbar'
-
-MP 'editorconfig/editorconfig-vim'
+if LayerLoaded('airline')
+    MP 'majutsushi/tagbar'
+else
+    MP 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
+endif
 
 MP 'Chiel92/vim-autoformat',          { 'on': 'Autoformat'}
 
 MP 'nathanaelkane/vim-indent-guides', { 'on': 'IndentGuidesToggle'}
 
-MP 'vim-scripts/errormarker.vim'
 MP 'skywind3000/asyncrun.vim',        { 'on': ['AsyncRun!', 'AsyncRun'] }
 
 MP 'scrooloose/nerdcommenter',        { 'on': '<Plug>NERDCommenterToggle' }
