@@ -17,6 +17,9 @@
 
 ```sh
 ln -s ~/.space-vim/init.vim ~/.config/nvim/init.vim
+
+mkdir ~/.config/nvim/autoload
+ln -s ~/.vim/autoload/plug.vim ~/.config/nvim/autoload/plug.vim
 ```
 
 ### 快速安装

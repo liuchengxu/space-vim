@@ -3,7 +3,9 @@ if LayerLoaded('fzf')
     if !has('gui_running')
         " fzf.vim {
         if IsDir('fzf.vim')
-            nnoremap <Leader>? :Maps<CR>
+            nmap <Leader>? <plug>(fzf-maps-n)
+            xmap <Leader>? <plug>(fzf-maps-x)
+            omap <Leader>? <plug>(fzf-maps-o)
 
             nnoremap <Leader>bb :Buffers<CR>
 

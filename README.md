@@ -52,7 +52,7 @@ The distribution is completely customisable using `.spacevim`, which is equivale
 
 ## Features
 
-- **Beautiful GUI:** I have also written a vim colorscheme [space-vim-dark](https://github.com/liuchengxu/space-vim-dark) based on spacemacs-dark theme.
+- **Beautiful interface:** I have also written a vim colorscheme [space-vim-dark](https://github.com/liuchengxu/space-vim-dark) based on spacemacs-dark theme.
 - **Mnemonic key bindings:** commands have mnemonic prefixes like <kbd>SPC b</kbd> for all the buffer commands.
 
 ## Install
@@ -75,10 +75,13 @@ You have to satisfy some prerequisites at first: vim with `+python` or `+python3
     sh -c "$(wget -qO- https://raw.githubusercontent.com/liuchengxu/space-vim/master/install.sh)"
     ```
 
-    :warning: For neovim, after the quick installer is done, you still need to create a symlink:
+    :warning: For neovim, after the quick installer is done, you still need to create some symlinks:
 
     ```sh
     ln -s ~/.space-vim/init.vim ~/.config/nvim/init.vim
+
+    mkdir ~/.config/nvim/autoload
+    ln -s ~/.vim/autoload/plug.vim ~/.config/nvim/autoload/plug.vim
     ```
 
 ### Windows
