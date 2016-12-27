@@ -1,6 +1,11 @@
 # Change Log
 
-## [Unreleased]
+## [unreleased]
+
+## [0.5.0]
+
+### changed
+- default statusline
 
 ## [0.4.0] - 2016.12.20
 
