@@ -53,7 +53,11 @@ The distribution is completely customisable using `.spacevim`, which is equivale
 ## Features
 
 - **Beautiful interface:** I have also written a vim colorscheme [space-vim-dark](https://github.com/liuchengxu/space-vim-dark) based on spacemacs-dark theme.
-- **Mnemonic key bindings:** commands have mnemonic prefixes like <kbd>SPC b</kbd> for all the buffer commands.
+    As space-vim-dark is intended for Terminal vim and have not optimized for GUI vim. I recommend you try [spacemacs-theme.vim](https://github.com/colepeters/spacemacs-theme.vim), which looks nice in GUI vim.
+
+- **Mnemonic key bindings:** commands have mnemonic prefixes like <kbd>SPC b</kbd> for all the buffer commands. 
+    Meanwhile, the whole key bindings have been well adapted for vim for the lack of something alike helm in emacs. Most key bindings are limited to no more than two keystrokes without counting `<Leader>` or `<LocalLeader>` in, e.g. <kbd>SPC x d</kbd> to delete trailing whitespaces.
+    For different language layers, `<LocalLeader>` which is `,` as default in space-vim, can be seen as the major-mode prefix in spacemacs.
 
 ## Install
 
@@ -148,11 +152,11 @@ If have a heavy customized configuration, you can organize them in private direc
 
 ### `Layer`
 
-Use `Layer` command in `.spacevim` to enable a existing layer, e.g., `Layer 'python'`.
+Use `Layer` command in `.spacevim` to enable a existing layer, e.g. `Layer 'python'`.
 
 ### `Exclude`
 
-Use `Exclude` command in `.spacevim` to remove a plugin in the layers enabled, e.g., `Exclude 'Shougo/denite.nvim'`. If use `Exclude` command, you need to run `:PlugClean` to gurantee the relevant configurations not to be loaded.
+Use `Exclude` command in `.spacevim` to remove a plugin in the layers enabled, e.g. `Exclude 'Shougo/denite.nvim'`. If use `Exclude` command, you need to run `:PlugClean` to gurantee the relevant configurations not to be loaded.
 
 For more information, please refer to the README under the layer enabled, or you can see config.vim and packages.vim directly.
 
