@@ -349,7 +349,7 @@ endfunction
 
 LayerStatus 可以查看启用了哪些 Layer.
 
-![layerstatus](img/layerstatus.png)
+![layerstatus](docs/img/layerstatus.png)
 
 ### 如何使用
 
