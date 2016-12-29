@@ -47,6 +47,8 @@ space-vim is a vim distribution for vim plugins and resources, compatible with V
 
 It is inspired by [spacemacs](https://github.com/syl20bnr/spacemacs) and imitates spacemacs in a high level, especially in the whole architecture, key bindings and GUI. if have ever tried spacemacs, you will find spacevim is very similar to it in user experience.
 
+Elegance here means pleasing, graceful as well as simple.
+
 The distribution is completely customizable using `.spacevim`, which is equivalent to `.spacemacs` in spacemacs.
 
 ![screenshot](docs/img/screenshot.png)
@@ -57,7 +59,7 @@ The distribution is completely customizable using `.spacevim`, which is equivale
 
     As space-vim-dark is intended for Terminal vim and have not been optimized for GUI vim, I recommend you try [spacemacs-theme.vim](https://github.com/colepeters/spacemacs-theme.vim), which looks nice in GUI vim.
 
-- **Mnemonic key bindings:** commands have mnemonic prefixes like <kbd>SPC b</kbd> for all the buffer commands. 
+- **Mnemonic key bindings:** commands have mnemonic prefixes like <kbd>SPC b</kbd> for all the buffer commands.
 
     Meanwhile, the whole key bindings have been well adapted for vim for the lack of great plugins similar to helm in emacs. Most key bindings are limited to no more than two keystrokes without counting `<Leader>` or `<LocalLeader>` in, e.g. <kbd>SPC x d</kbd> to delete trailing whitespaces.
 
@@ -66,6 +68,7 @@ The distribution is completely customizable using `.spacevim`, which is equivale
 ## For whom?
 
 - the vim beginners
+- the vimmers who pursuit a beautiful appearance
 - the users using both vim and spacemacs
 
 If you have been a vimmer for quite a while, just pick out the part you are interested in. space-vim is well-organized due to the layers concept, you can easily find what you want.
