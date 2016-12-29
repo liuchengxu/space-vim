@@ -25,6 +25,7 @@
 <!-- vim-markdown-toc GFM -->
 * [Introduction](#introduction)
 * [Features](#features)
+* [For whom?](#for-whom)
 * [Install](#install)
     * [Linux and macOS](#linux-and-macos)
     * [Windows](#windows)
@@ -44,20 +45,30 @@
 
 space-vim is a vim distribution for vim plugins and resources, compatible with Vim and NeoVim.
 
-It is inspired by [spacemacs](https://github.com/syl20bnr/spacemacs), espcially in key bindings and GUI. if have ever tried spaceamcs, you will find spacevim is very similar to it in user experience.
+It is inspired by [spacemacs](https://github.com/syl20bnr/spacemacs), espcially in key bindings and GUI. if have ever tried spacemacs, you will find spacevim is very similar to it in user experience.
 
-The distribution is completely customisable using `.spacevim`, which is equivalent to `.spacemacs` in spacemacs.
+The distribution is completely customizable using `.spacevim`, which is equivalent to `.spacemacs` in spacemacs.
 
 ![screenshot](docs/img/screenshot.png)
 
 ## Features
 
 - **Beautiful interface:** I have also written a vim colorscheme [space-vim-dark](https://github.com/liuchengxu/space-vim-dark) based on spacemacs-dark theme.
-    As space-vim-dark is intended for Terminal vim and have not optimized for GUI vim. I recommend you try [spacemacs-theme.vim](https://github.com/colepeters/spacemacs-theme.vim), which looks nice in GUI vim.
+
+    As space-vim-dark is intended for Terminal vim and have not been optimized for GUI vim, I recommend you try [spacemacs-theme.vim](https://github.com/colepeters/spacemacs-theme.vim), which looks nice in GUI vim.
 
 - **Mnemonic key bindings:** commands have mnemonic prefixes like <kbd>SPC b</kbd> for all the buffer commands. 
-    Meanwhile, the whole key bindings have been well adapted for vim for the lack of something alike helm in emacs. Most key bindings are limited to no more than two keystrokes without counting `<Leader>` or `<LocalLeader>` in, e.g. <kbd>SPC x d</kbd> to delete trailing whitespaces.
-    For different language layers, `<LocalLeader>` which is `,` as default in space-vim, can be seen as the major-mode prefix in spacemacs.
+
+    Meanwhile, the whole key bindings have been well adapted for vim for the lack of great plugins similar to helm in emacs. Most key bindings are limited to no more than two keystrokes without counting `<Leader>` or `<LocalLeader>` in, e.g. <kbd>SPC x d</kbd> to delete trailing whitespaces.
+
+    For different language layers, `<LocalLeader>`, <kbd>,</kbd> as default in space-vim, can be seen as the major-mode prefix in spacemacs.
+
+## For whom?
+
+- the vim beginners
+- the users using both vim and spacemacs
+
+If you have been a vimmer for quite a while, just pick out the part you are interested in. space-vim is well-organized due to the layers concept, you can easily find what you want.
 
 ## Install
 
@@ -123,7 +134,7 @@ Not tested now.
 
 ## Customize
 
-You can use `.spacevim` in your home directory to customize space-vim, where you can enable existing layers, add your extra plugins and private configuration.
+You can use `.spacevim` in your home directory to customize space-vim, where you can enable the existing layers, add your extra plugins and private configuration.
 
 ```vim
 " Put layers you want to enable as well as extra private plugins
@@ -156,17 +167,17 @@ Use `Layer` command in `.spacevim` to enable a existing layer, e.g. `Layer 'pyth
 
 ### `Exclude`
 
-Use `Exclude` command in `.spacevim` to remove a plugin in the layers enabled, e.g. `Exclude 'Shougo/denite.nvim'`. If use `Exclude` command, you need to run `:PlugClean` to gurantee the relevant configurations not to be loaded.
+Use `Exclude` command in `.spacevim` to remove a plugin in the layers enabled, e.g. `Exclude 'Shougo/denite.nvim'`. If use `Exclude` command, you need to run `:PlugClean` to guarantee the relevant configurations not to be loaded.
 
 For more information, please refer to the README under the layer enabled, or you can see config.vim and packages.vim directly.
 
-If the README is not elaborate, sorry for that, space-vim now is in the early stages and a ton of stuffs are waitting to be done.
+If the README is not elaborate, sorry for that, space-vim now is in the early stages and a ton of stuff are waiting to be done.
 
 ## Update
 
-The simpliest way to update is to reinstall it completely by rerunning the installer above. It will non destructively upgrade to the latest version.
+The simplest way to update is to reinstall it completely by rerunning the installer above. It will non-destructively upgrade to the latest version.
 
-Alternatively you can manually perform the following steps. If anything has changed with the structure of the configuration, you will have to create the appropriate symlinks.
+Alternatively, you can manually perform the following steps. If anything has changed with the structure of the configuration, you will have to create the appropriate symlinks.
 
 ```sh
 cd path/to/space-vim/
@@ -178,8 +189,8 @@ vim +PlugInstall! +PlugUpdate +PlugClean +q
 
 Q: Why develop this?
 
-A: I was amazed by spacemacs' beautiful GUI and mnemonic key bindings when use it at the first time. Now I often use spacemacs when in GUI environment. But in terminal, vim is definitely my first choice. Then I hope to maintain consistency in operation in the two scenes as much as possible.
-Hence I try to reconfig the vim based on spacemacs's architecture, especially in key bindings and GUI. This is space-vim at present.
+A: I was amazed by spacemacs' beautiful GUI and mnemonic key bindings when using it at the first time. Now I often use spacemacs when in GUI environment. But in terminal, vim is definitely my first choice. Then I hope to maintain consistency in operation in the two scenes as much as possible.
+Hence I try to reconfigure the vim based on spacemacs' architecture, especially in key bindings and GUI. This is space-vim at present.
 
 ## Contributions
 
