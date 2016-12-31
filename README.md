@@ -54,7 +54,7 @@ The distribution is completely customizable using `.spacevim`, which is equivale
 
 - **Beautiful interface:** I have also written a vim colorscheme [space-vim-dark](https://github.com/liuchengxu/space-vim-dark) based on spacemacs-dark theme.
 
-    As space-vim-dark is intended for Terminal vim and have not been optimized for GUI vim, I recommend you try [spacemacs-theme.vim](https://github.com/colepeters/spacemacs-theme.vim), which looks nice in GUI vim.
+    As space-vim-dark is intended for Terminal vim and have not been optimized for GUI vim, I recommend you to try [spacemacs-theme.vim](https://github.com/colepeters/spacemacs-theme.vim), which looks nice in GUI vim.
 
 - **Mnemonic key bindings:** commands have mnemonic prefixes like <kbd>SPC b</kbd> for all the buffer commands.
 
@@ -189,7 +189,7 @@ vim +PlugInstall! +PlugUpdate +PlugClean +q
 
 Q: Why develop this?
 
-A: I was amazed by spacemacs' beautiful GUI and mnemonic key bindings when using it at the first time. Now I often use spacemacs when in GUI environment. But in terminal, vim is definitely my first choice. Then I hope to maintain consistency in operation in the two scenes as much as possible.
+A: I was amazed by spacemacs' beautiful GUI and mnemonic key bindings when using it at the first time. Now I often use spacemacs when in GUI environment. But in terminal, vim is definitely my first choice. Then I hope to maintain consistency in operation as much as possible in either scenario.
 Hence I try to reconfigure the vim based on spacemacs' architecture, especially in key bindings and GUI. This is space-vim at present.
 
 ## Contributions

@@ -72,6 +72,7 @@ if IsDir('nerdtree')
     let g:NERDTreeShowHidden=1
     let g:NERDTreeAutoDeleteBuffer=1
     let g:NERDTreeDirArrowExpandable = '➤'
+    let g:NERDTreeDirArrowCollapsible = '▼'
     let g:NERDTreeIgnore=[
                 \ '\.py[cd]$', '\~$', '\.swo$', '\.swp$',
                 \ '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$',
@@ -236,12 +237,12 @@ set statusline+=%9*\ %P\ %*
 hi User1 cterm=bold ctermfg=232 ctermbg=179
 hi User2 cterm=None ctermfg=214 ctermbg=242
 hi User3 cterm=None ctermfg=251 ctermbg=240
-hi User4 cterm=bold ctermfg=169 ctermbg=239
-hi User5 cterm=None ctermfg=208 ctermbg=238
+hi User4 cterm=None ctermfg=177 ctermbg=239
+hi User5 cterm=None ctermfg=208 ctermbg=237
 hi User6 cterm=None ctermfg=178 ctermbg=237
-hi User7 cterm=None ctermfg=250 ctermbg=237
-hi User8 cterm=None ctermfg=249 ctermbg=238
-hi User9 cterm=None ctermfg=249 ctermbg=240
+hi User7 cterm=None ctermfg=250 ctermbg=238
+hi User8 cterm=None ctermfg=249 ctermbg=239
+hi User9 cterm=None ctermfg=249 ctermbg=241
 silent! if emoji#available()
 let s:ft_emoji = map({
             \ 'c':          'baby_chick',

@@ -1,6 +1,6 @@
 #+SETUPFILE: theme-readtheorg.setup
 #+AUTHOR: Liu-Cheng Xu
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="home.css"/>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="readtheorg.css"/>
 
 * 前言
 ** 什么是 layer
@@ -361,7 +361,7 @@
 ** 启动时间
    当启用很多 layer 时, 意味着加载了很多插件与配置信息, 很可能会导致 vim 启动时变慢, 这是我们不愿意看到的. 
 
-   从 [[https://github.com/junegunn/vim-startuptime-benchmark][vim-startuptime-benchmark]] 可以看出, 即使使用很多插件仍然可以保持很快的启动 ( 200 ms 以内). 尽管加载的插件不尽相同, 但仍具有借鉴意义.
+   从 [[https://github.com/junegunn/vim-startuptime-benchmark][vim-startuptime-benchmark]] 可以看出, 即使使用很多插件仍然可以保持很快的启动 ( 200 ms 以内). 尽管加载的插件不尽相同, 但仍具有借鉴意义.[[https://zhuanlan.zhihu.com/p/24484514][ 这里]] 也有一篇关于 vim 启动优化非常好的文章。
 
    虽然有些使用插件延迟加载, 但有一段时间 space-vim 启用很多 layer 时, 启动时间仍普遍超过 500 ms, 有时甚至会超过 900 ms. 测试环境:
 
@@ -403,7 +403,7 @@
 
    默认的 statuline 显示的信息依次为: 
 
-   *[buffer-编号][TOT buffer 总数] 文件完整路径 『 ale 或 fugitive 信息』 文件编码 | 编码类型 | 行号:列号-虚拟列号 位置信息*
+   *[buffer-编号][TOT:buffer 总数] 文件完整路径  ale 或 fugitive 信息 文件编码 | 编码类型 | 行号:列号-虚拟列号 位置信息*
 
    file:../img/statusline.png
 
