@@ -205,44 +205,59 @@ endif
 " %V Virtual column
 " %P Percentage
 " %#HighlightGroup#
-function! Buf_total_num()
-    return len(filter(range(1, bufnr('$')), 'buflisted(v:val)'))
-endfunction
-function! File_size(f)
-    let l:size = getfsize(expand(a:f))
-    if l:size == 0 || l:size == -1 || l:size == -2
-        return ''
-    endif
-    if l:size < 1024
-        return l:size.' bytes'
-    elseif l:size < 1024*1024
-        return printf('%.1f', l:size/1024.0).'k'
-    elseif l:size < 1024*1024*1024
-        return printf('%.1f', l:size/1024.0/1024.0) . 'm'
+if !LayerLoaded('airline') && !LayerLoaded('lightline')
+    function! Buf_num()
+        let l:circled_num_list = ['① ', '② ', '③ ', '④ ', '⑤ ', '⑥ ', '⑦ ', '⑧ ', '⑨ ', '⑩ ',
+                    \             '⑪ ', '⑫ ', '⑬ ', '⑭ ', '⑮ ', '⑯ ', '⑰ ', '⑱ ', '⑲ ', '⑳ ']
+        return l:circled_num_list[bufnr('%')-1]
+    endfunction
+    call Buf_num()
+    function! Buf_total_num()
+        return len(filter(range(1, bufnr('$')), 'buflisted(v:val)'))
+    endfunction
+    function! File_size(f)
+        let l:size = getfsize(expand(a:f))
+        if l:size == 0 || l:size == -1 || l:size == -2
+            return ''
+        endif
+        if l:size < 1024
+            return l:size.' bytes'
+        elseif l:size < 1024*1024
+            return printf('%.1f', l:size/1024.0).'k'
+        elseif l:size < 1024*1024*1024
+            return printf('%.1f', l:size/1024.0/1024.0) . 'm'
+        else
+            return printf('%.1f', l:size/1024.0/1024.0/1024.0) . 'g'
+        endif
+    endfunction
+    if g:spacevim_gui_running
+        set statusline=%<%1*[B-%n]%*
     else
-        return printf('%.1f', l:size/1024.0/1024.0/1024.0) . 'g'
+        set statusline=%1*\ %{Buf_num()}\ %*
     endif
-endfunction
-set statusline=%<%1*[B-%n]%*
-" TOT is an abbreviation for total
-set statusline+=%2*[TOT:%{Buf_total_num()}]%*
-set statusline+=%3*\ %{File_size(@%)}\ %*
-set statusline+=%4*\ %F\ %*
-set statusline+=%5*\ %{exists('g:loaded_ale')?ALEGetStatusLine():''}%*
-set statusline+=%6*\ %{exists('g:loaded_fugitive')?fugitive#statusline():''}%*
-set statusline+=%7*\ %m%r%y\ %*
-set statusline+=%=%8*\ %{&ff}\ \|\ %{\"\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"\ \|\"}\ %-10.(%l:%c%V%)%*
-set statusline+=%9*\ %P\ %*
-" default bg for statusline is 236 in space-vim-dark
-hi User1 cterm=bold ctermfg=232 ctermbg=179
-hi User2 cterm=None ctermfg=214 ctermbg=242
-hi User3 cterm=None ctermfg=251 ctermbg=240
-hi User4 cterm=None ctermfg=177 ctermbg=239
-hi User5 cterm=None ctermfg=208 ctermbg=237
-hi User6 cterm=None ctermfg=178 ctermbg=237
-hi User7 cterm=None ctermfg=250 ctermbg=238
-hi User8 cterm=None ctermfg=249 ctermbg=239
-hi User9 cterm=None ctermfg=249 ctermbg=241
+    " TOT is an abbreviation for total
+    set statusline+=%2*[TOT:%{Buf_total_num()}]%*
+    set statusline+=%3*\ %{File_size(@%)}\ %*
+    set statusline+=%4*\ %F\ %*
+    set statusline+=%5*\ %{exists('g:loaded_ale')?ALEGetStatusLine():''}%*
+    set statusline+=%6*\ %{exists('g:loaded_fugitive')?fugitive#statusline():''}%*
+    set statusline+=%7*\ %m%r%y\ %*         " Modified? Readonly? Filetype
+    set statusline+=%=%8*\ %{&ff}\ \|       " FileFormat (dos/unix..)
+    set statusline+=\ %{''.(&fenc!=''?&fenc:&enc).''}\ \|      " Encoding
+    set statusline+=\ %{(&bomb?\",BOM\":\"\")}                 " Encoding2
+    set statusline+=%-10.(%l:%c%V%)%*
+    set statusline+=%9*\ %P\ %*
+    " default bg for statusline is 236 in space-vim-dark
+    hi User1 cterm=bold ctermfg=232 ctermbg=179 gui=bold guifg=#080808 guibg=#d7af5f
+    hi User2 cterm=None ctermfg=214 ctermbg=242 gui=None guifg=#ffaf00 guibg=#666666
+    hi User3 cterm=None ctermfg=251 ctermbg=240 gui=None guifg=#c6c6c6 guibg=#585858
+    hi User4 cterm=None ctermfg=177 ctermbg=239 gui=None guifg=#d787ff guibg=#4e4e4e
+    hi User5 cterm=None ctermfg=208 ctermbg=237 gui=None guifg=#ff8700 guibg=#3a3a3a
+    hi User6 cterm=None ctermfg=178 ctermbg=237 gui=None guifg=#d7af00 guibg=#3a3a3a
+    hi User7 cterm=None ctermfg=250 ctermbg=238 gui=None guifg=#bcbcbc guibg=#444444
+    hi User8 cterm=None ctermfg=249 ctermbg=239 gui=None guifg=#b2b2b2 guibg=#4e4e4e
+    hi User9 cterm=None ctermfg=249 ctermbg=241 gui=None guifg=#b2b2b2 guibg=#606060
+endif
 silent! if emoji#available()
 let s:ft_emoji = map({
             \ 'c':          'baby_chick',

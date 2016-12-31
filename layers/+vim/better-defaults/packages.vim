@@ -1,4 +1,4 @@
-" if OSX()
+" if g:MAC
     " Plug 'ybian/smartim'
 " endif
 

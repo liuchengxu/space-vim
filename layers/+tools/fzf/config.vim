@@ -1,6 +1,6 @@
 if LayerLoaded('fzf')
 
-    if !has('gui_running')
+    if !g:spacevim_gui_running
         " fzf.vim {
         if IsDir('fzf.vim')
             nmap <Leader>? <plug>(fzf-maps-n)

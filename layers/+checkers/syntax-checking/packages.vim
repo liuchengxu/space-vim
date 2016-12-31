@@ -1,6 +1,4 @@
-let s:vim8 = has('patch-8.0.0039') && exists('*job_start')
-
-if s:vim8 || has('nvim')
+if g:spacevim_vim8 || g:spacevim_nvim
     MP 'w0rp/ale'
 else
     MP 'scrooloose/syntastic',     { 'on': 'SyntasticCheck' }

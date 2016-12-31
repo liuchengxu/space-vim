@@ -24,7 +24,7 @@ if LayerLoaded('syntax-checking')
         let g:ale_echo_msg_error_str = '✹ Error'
         let g:ale_echo_msg_warning_str = '⚠ Warning'
         let g:ale_echo_msg_format = '[#%linter%#] %s [%severity%]'
-        if has('gui_running')
+        if g:spacevim_gui_running
             let g:ale_statusline_format = [' E•%d', 'W•%d ', ' ⬥ OK ']
         else
             let g:ale_statusline_format = ['Ⓔ •%d ', 'Ⓦ •%d ', ' ✔ •OK ']

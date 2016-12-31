@@ -11,41 +11,31 @@
 "   Author: Liu-Cheng Xu <xuliuchengxlc@gmail.com>
 "   URL: https://github.com/liuchengxu/space-vim
 "
-"   Copyright © 2016 Liu-Cheng Xu
+"   Copyright (C) 2016 Liu-Cheng Xu
 
 scriptencoding utf-8
 
-" Tools {
-
-    " Identify platform {
-    silent function! OSX()
-        return has('macunix')
-    endfunction
-    silent function! LINUX()
-        return has('unix') && !has('macunix') && !has('win32unix')
-    endfunction
-    silent function! WINDOWS()
-        return (has('win32') || has('win64'))
-    endfunction
-    " }
-
-    " Windows Compatible {
-    " On Windows, also use '.vim' instead of 'vimfiles'; this makes synchronization
-    " across (heterogeneous) systems easier.
-    if WINDOWS()
-        set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
-    endif
-    " }
-
-    silent function! Source(file)
-        if filereadable(expand(a:file))
-            execute 'source ' . fnameescape(a:file)
-        else
-            echom '[space-vim] ' . a:file . ' does not exist, which may cause unexpected errors.'
-        endif
-    endfunction
-
+" Identify platform {
+let g:MAC = has('macunix')
+let g:LINUX = has('unix') && !has('macunix') && !has('win32unix')
+let g:WINDOWS = has('win32') || has('win64')
 " }
+
+" Windows Compatible {
+" On Windows, also use '.vim' instead of 'vimfiles'; this makes synchronization
+" across (heterogeneous) systems easier.
+if g:WINDOWS
+    set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
+endif
+" }
+
+silent function! Source(file)
+    if filereadable(expand(a:file))
+        execute 'source ' . fnameescape(a:file)
+    else
+        echom '[space-vim] ' . a:file . ' does not exist, which may cause unexpected errors.'
+    endif
+endfunction
 
 let g:spacevim_dir = $HOME.'/.space-vim'
 let g:spacevim_core_dir = '/core'
