@@ -23,19 +23,16 @@ MP 'danro/rename.vim',               { 'on' : 'Rename' }
 
 MP 'ntpeters/vim-better-whitespace', { 'on': 'StripWhitespace' }
 
-" will cause neovim crash (https://github.com/neovim/neovim/issues/5769)
-if !has('nvim')
-    MP 'haya14busa/incsearch.vim',       { 'on': [
-                \   '<Plug>(incsearch-forward)',
-                \   '<Plug>(incsearch-backward)',
-                \   '<Plug>(incsearch-stay)' ]
-                \   }
-    MP 'haya14busa/incsearch-fuzzy.vim',  { 'on': [
-                \   '<Plug>(incsearch-fuzzy-/)',
-                \   '<Plug>(incsearch-fuzzy-?)',
-                \   '<Plug>(incsearch-fuzzy-stay)' ]
-                \   }
-endif
+MP 'haya14busa/incsearch.vim',       { 'on': [
+            \   '<Plug>(incsearch-forward)',
+            \   '<Plug>(incsearch-backward)',
+            \   '<Plug>(incsearch-stay)' ]
+            \   }
+MP 'haya14busa/incsearch-fuzzy.vim',  { 'on': [
+            \   '<Plug>(incsearch-fuzzy-/)',
+            \   '<Plug>(incsearch-fuzzy-?)',
+            \   '<Plug>(incsearch-fuzzy-stay)' ]
+            \   }
 
 " Refer to https://github.com/junegunn/dotfiles  vimrc
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
