@@ -11,6 +11,17 @@ augroup SPACEVIM_BASIC
                 \   if getfsize(expand("%")) > 10000000 |
                 \   syntax off |
                 \   endif
+    
+    au BufEnter * call MyLastWindow()
+    function! MyLastWindow()
+        " if the window is quickfix go on
+        if &buftype=="quickfix"
+            " if this window is last on screen quit without warning
+            if winbufnr(2) == -1
+                quit!
+            endif
+        endif
+    endfunction
 augroup END
 
 silent! color space-vim-dark
@@ -188,6 +199,51 @@ if IsDir('delimitMate')
 endif
 " }
 
+" Refer to http://vim.wikia.com/wiki/Show_tab_number_in_your_tab_line
+if g:spacevim_gui_running
+    set guioptions-=e
+endif
+function! MyTabLine()
+    let s = ''
+    let t = tabpagenr()
+    let i = 1
+    while i <= tabpagenr('$')
+        let buflist = tabpagebuflist(i)
+        let winnr = tabpagewinnr(i)
+        let s .= '%' . i . 'T'
+        let s .= (i == t ? '%1*' : '%2*')
+        let s .= ' '
+        let s .= 'T-' . i . ':'
+        let s .= winnr . '/' . tabpagewinnr(i,'$') .'W'
+        let s .= ' %*'
+        let s .= (i == t ? '%#TabLineSel#' : '%#TabLine#')
+        let bufnr = buflist[winnr - 1]
+        let file = bufname(bufnr)
+        let buftype = getbufvar(bufnr, 'buftype')
+        if buftype == 'nofile'
+            if file =~ '\/.'
+                let file = substitute(file, '.*\/\ze.', '', '')
+            endif
+        else
+            let file = fnamemodify(file, ':p:t')
+        endif
+        if file == ''
+            let file = '[No Name]'
+        endif
+        let s .= file
+        let i = i + 1
+    endwhile
+    let s .= '%T%#TabLineFill#%='
+    let s .= (tabpagenr('$') > 1 ? '%999XX' : 'X')
+    return s
+endfunction
+silent! set showtabline=1
+silent! set tabline=%!MyTabLine()
+map    <C-Tab>    :tabnext<CR>
+imap   <C-Tab>    <C-O>:tabnext<CR>
+map    <M-Tab>  :tabprev<CR>
+imap   <M-Tab>  <C-O>:tabprev<CR>
+
 " The decoration of statusline was stealed from
 " https://github.com/junegunn/dotfiles/blob/master/vimrc.
 "
@@ -209,7 +265,11 @@ if !LayerLoaded('airline') && !LayerLoaded('lightline')
     function! Buf_num()
         let l:circled_num_list = ['① ', '② ', '③ ', '④ ', '⑤ ', '⑥ ', '⑦ ', '⑧ ', '⑨ ', '⑩ ',
                     \             '⑪ ', '⑫ ', '⑬ ', '⑭ ', '⑮ ', '⑯ ', '⑰ ', '⑱ ', '⑲ ', '⑳ ']
-        return l:circled_num_list[bufnr('%')-1]
+        try
+            return l:circled_num_list[bufnr('%')-1]
+        catch
+            return bufnr('%')
+        endtry
     endfunction
     call Buf_num()
     function! Buf_total_num()

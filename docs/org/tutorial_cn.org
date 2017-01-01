@@ -302,6 +302,15 @@
     | ~SPC f s~     | Normal    | /f/ ile /s/ ave, 保存文件                                                   |
     | ~SPC f [1-9]~ | Normal    | /f/ old level, 设置折叠层次，f 0 相当于全部折叠, f 9 相当于取消折叠全部展开 |
 
+** Tab
+
+    | Key Binding | Mode   | Description                                                           |
+    |-------------+--------+-----------------------------------------------------------------------|
+    | ~Ctrl Tab~  | Normal, Insert | next tab   |
+    | ~Alt Tab~   | Normal, Insert | previous tab                           |
+ 
+    tabline 显示的信息示例: =T-2:1/3W=, =T-当前 tab 编号:当前光标所在 Window 的编号/该 tab 所有的 window 总数=.
+
 ** Buffer
 
     | Key Binding | Mode   | Description                                                           |

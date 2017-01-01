@@ -6,6 +6,9 @@
 - change the functions for indentifying the platform to global variables
 - more beautiful statusline for Terminal vim due to the circled numbers
 
+### Added
+- support for tab
+
 ## [0.5.0] - 2016.12.27
 
 ### changed

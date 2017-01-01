@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-12-31 Sat 13:12 -->
+<!-- 2017-01-01 Sun 20:51 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -185,22 +185,23 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline18">7.2. unite</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline25">8. 基础键位</a>
+<li><a href="#orgheadline26">8. 基础键位</a>
 <ul>
 <li><a href="#orgheadline20">8.1. Basic</a></li>
-<li><a href="#orgheadline21">8.2. Buffer</a></li>
-<li><a href="#orgheadline22">8.3. Window</a></li>
-<li><a href="#orgheadline23">8.4. easy-motion</a></li>
-<li><a href="#orgheadline24">8.5. Others</a></li>
+<li><a href="#orgheadline21">8.2. Tab</a></li>
+<li><a href="#orgheadline22">8.3. Buffer</a></li>
+<li><a href="#orgheadline23">8.4. Window</a></li>
+<li><a href="#orgheadline24">8.5. easy-motion</a></li>
+<li><a href="#orgheadline25">8.6. Others</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline28">9. 使用建议</a>
+<li><a href="#orgheadline29">9. 使用建议</a>
 <ul>
-<li><a href="#orgheadline26">9.1. 启动时间</a></li>
-<li><a href="#orgheadline27">9.2. space-vim statusline</a></li>
+<li><a href="#orgheadline27">9.1. 启动时间</a></li>
+<li><a href="#orgheadline28">9.2. space-vim statusline</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline29">10. 后记</a></li>
+<li><a href="#orgheadline30">10. 后记</a></li>
 </ul>
 </div>
 </div>
@@ -669,8 +670,8 @@ unite layer 主要希望提供一个界面来选择一些不太常用或稍复�
 </div>
 </div>
 
-<div id="outline-container-orgheadline25" class="outline-2">
-<h2 id="orgheadline25"><span class="section-number-2">8</span> 基础键位</h2>
+<div id="outline-container-orgheadline26" class="outline-2">
+<h2 id="orgheadline26"><span class="section-number-2">8</span> 基础键位</h2>
 <div class="outline-text-2" id="text-8">
 </div><div id="outline-container-orgheadline20" class="outline-3">
 <h3 id="orgheadline20"><span class="section-number-3">8.1</span> Basic</h3>
@@ -866,8 +867,49 @@ unite layer 主要希望提供一个界面来选择一些不太常用或稍复�
 </div>
 
 <div id="outline-container-orgheadline21" class="outline-3">
-<h3 id="orgheadline21"><span class="section-number-3">8.2</span> Buffer</h3>
+<h3 id="orgheadline21"><span class="section-number-3">8.2</span> Tab</h3>
 <div class="outline-text-3" id="text-8-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Key Binding</th>
+<th scope="col" class="org-left">Mode</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>Ctrl Tab</code></td>
+<td class="org-left">Normal, Insert</td>
+<td class="org-left">next tab</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>Alt Tab</code></td>
+<td class="org-left">Normal, Insert</td>
+<td class="org-left">previous tab</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+tabline 显示的信息示例: <code>T-2:1/3W</code>, <code>T-当前 tab 编号:当前光标所在 Window 的编号/该 tab 所有的 window 总数</code>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline22" class="outline-3">
+<h3 id="orgheadline22"><span class="section-number-3">8.3</span> Buffer</h3>
+<div class="outline-text-3" id="text-8-3">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -926,9 +968,9 @@ unite layer 主要希望提供一个界面来选择一些不太常用或稍复�
 </div>
 </div>
 
-<div id="outline-container-orgheadline22" class="outline-3">
-<h3 id="orgheadline22"><span class="section-number-3">8.3</span> Window</h3>
-<div class="outline-text-3" id="text-8-3">
+<div id="outline-container-orgheadline23" class="outline-3">
+<h3 id="orgheadline23"><span class="section-number-3">8.4</span> Window</h3>
+<div class="outline-text-3" id="text-8-4">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -1047,9 +1089,9 @@ unite layer 主要希望提供一个界面来选择一些不太常用或稍复�
 </div>
 </div>
 
-<div id="outline-container-orgheadline23" class="outline-3">
-<h3 id="orgheadline23"><span class="section-number-3">8.4</span> easy-motion</h3>
-<div class="outline-text-3" id="text-8-4">
+<div id="outline-container-orgheadline24" class="outline-3">
+<h3 id="orgheadline24"><span class="section-number-3">8.5</span> easy-motion</h3>
+<div class="outline-text-3" id="text-8-5">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -1132,9 +1174,9 @@ unite layer 主要希望提供一个界面来选择一些不太常用或稍复�
 </div>
 </div>
 
-<div id="outline-container-orgheadline24" class="outline-3">
-<h3 id="orgheadline24"><span class="section-number-3">8.5</span> Others</h3>
-<div class="outline-text-3" id="text-8-5">
+<div id="outline-container-orgheadline25" class="outline-3">
+<h3 id="orgheadline25"><span class="section-number-3">8.6</span> Others</h3>
+<div class="outline-text-3" id="text-8-6">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -1176,11 +1218,11 @@ unite layer 主要希望提供一个界面来选择一些不太常用或稍复�
 </div>
 </div>
 
-<div id="outline-container-orgheadline28" class="outline-2">
-<h2 id="orgheadline28"><span class="section-number-2">9</span> 使用建议</h2>
+<div id="outline-container-orgheadline29" class="outline-2">
+<h2 id="orgheadline29"><span class="section-number-2">9</span> 使用建议</h2>
 <div class="outline-text-2" id="text-9">
-</div><div id="outline-container-orgheadline26" class="outline-3">
-<h3 id="orgheadline26"><span class="section-number-3">9.1</span> 启动时间</h3>
+</div><div id="outline-container-orgheadline27" class="outline-3">
+<h3 id="orgheadline27"><span class="section-number-3">9.1</span> 启动时间</h3>
 <div class="outline-text-3" id="text-9-1">
 <p>
 当启用很多 layer 时, 意味着加载了很多插件与配置信息, 很可能会导致 vim 启动时变慢, 这是我们不愿意看到的. 
@@ -1240,8 +1282,8 @@ unite layer 主要希望提供一个界面来选择一些不太常用或稍复�
 </div>
 </div>
 
-<div id="outline-container-orgheadline27" class="outline-3">
-<h3 id="orgheadline27"><span class="section-number-3">9.2</span> space-vim statusline</h3>
+<div id="outline-container-orgheadline28" class="outline-3">
+<h3 id="orgheadline28"><span class="section-number-3">9.2</span> space-vim statusline</h3>
 <div class="outline-text-3" id="text-9-2">
 <p>
 默认的 statuline 显示的信息依次为: 
@@ -1263,8 +1305,8 @@ unite layer 主要希望提供一个界面来选择一些不太常用或稍复�
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline29" class="outline-2">
-<h2 id="orgheadline29"><span class="section-number-2">10</span> 后记</h2>
+<div id="outline-container-orgheadline30" class="outline-2">
+<h2 id="orgheadline30"><span class="section-number-2">10</span> 后记</h2>
 <div class="outline-text-2" id="text-10">
 <p>
 <a href="https://github.com/liuchengxu/space-vim">space-vim</a> 仅仅是一个起点，在不断使用 vim 的过程中，每个人都会不断总结出适合自己的套路。开始不仅仅 "手中有剑", 而是 "心中有剑", 到这时你便完全可以打造一个独属于自己的配置。 为什么要有一个自己的配置？ Because you can and you love it.
@@ -1286,7 +1328,7 @@ unite layer 主要希望提供一个界面来选择一些不太常用或稍复�
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Liu-Cheng Xu</p>
-<p class="date">Created: 2016-12-31 Sat 13:12</p>
+<p class="date">Created: 2017-01-01 Sun 20:51</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
