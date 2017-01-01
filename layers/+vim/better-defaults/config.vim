@@ -231,13 +231,13 @@ if !LayerLoaded('airline') && !LayerLoaded('lightline')
         endif
     endfunction
     if g:spacevim_gui_running
-        set statusline=%<%1*[B-%n]%*
+        set statusline=%1*[B-%n]%*
     else
         set statusline=%1*\ %{Buf_num()}\ %*
     endif
     " TOT is an abbreviation for total
     set statusline+=%2*[TOT:%{Buf_total_num()}]%*
-    set statusline+=%3*\ %{File_size(@%)}\ %*
+    set statusline+=%<%3*\ %{File_size(@%)}\ %*
     set statusline+=%4*\ %F\ %*
     set statusline+=%5*\ %{exists('g:loaded_ale')?ALEGetStatusLine():''}%*
     set statusline+=%6*\ %{exists('g:loaded_fugitive')?fugitive#statusline():''}%*

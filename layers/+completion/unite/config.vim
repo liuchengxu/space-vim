@@ -76,17 +76,17 @@ if LayerLoaded('unite')
                     \ 'description' : '    text             ⌘ [menu]x',
                     \}
         let g:unite_source_menu_menus.x.command_candidates = [
-                    \['    ➞  show-hidden-chars',
+                    \['▷   show-hidden-chars',
                     \'set list!'],
-                    \['x d ➞  delete-trailing-whitespaces                         ⌘ <Leader> x d',
+                    \['▷   x d ➞  delete-trailing-whitespaces                         ⌘  SPC x d',
                     \'StripWhitespace'],
-                    \['a | ➞  align-repeat-bar                                    ⌘ <Leader> a |',
+                    \['▷   a | ➞  align-repeat-bar                                    ⌘  SPC a |',
                     \'Tabularize /|'],
-                    \['a = ➞  align-repeat-equal                                  ⌘ <Leader> a =',
+                    \['▷   a = ➞  align-repeat-equal                                  ⌘  SPC a =',
                     \'Tabularize /^[^=]*\zs='],
-                    \['s c ➞  cancel-highlight-of-searched-result                 ⌘ <Leader> s c',
+                    \['▷   s c ➞  cancel-highlight-of-searched-result                 ⌘  SPC s c',
                     \'nohl'],
-                    \['t p ➞  toggle-paste-mode                                   ⌘ <Leader> t p',
+                    \['▷   t p ➞  toggle-paste-mode                                   ⌘  SPC t p',
                     \'setlocal paste!'],
                     \]
         nnoremap <silent>[menu]x :Unite -silent -winheight=20
@@ -153,6 +153,8 @@ if LayerLoaded('unite')
                     \'NERDTreeToggle'],
                     \['▷  tagbar                                            (toggle)       ⌘ <F6>',
                     \'TagbarToggle'],
+                    \['▷  indent-line                                       (toggle)       ⌘',
+                    \'IndentGuidesToggle'],
                     \['▷  syntastic                                         (toggle)       ⌘',
                     \'SyntasticToggleMode'],
                     \]
@@ -177,21 +179,21 @@ if LayerLoaded('unite')
                     \ 'description' : '    vim              ⌘ [menu]v',
                     \}
         let g:unite_source_menu_menus.v.command_candidates = [
-                    \['▷  ➞  .vimrc',
+                    \['▷  init.vim',
                     \'e ~/.vimrc'],
-                    \['▷  ➞  .spacevim',
+                    \['▷  .spacevim',
                     \'e ~/.spacevim'],
-                    \['▷  ➞  vim-help',
+                    \['▷  vim-help',
                     \'Unite help -start-insert'],
-                    \['▷  ➞  vim-commands',
+                    \['▷  vim-commands',
                     \'Unite command -start-insert'],
-                    \['▷  ➞  vim-mappings',
+                    \['▷  vim-mappings',
                     \'Unite mapping -start-insert'],
-                    \['▷  ➞  vim-functions',
+                    \['▷  vim-functions',
                     \'Unite function -start-insert'],
-                    \['▷  ➞  vim-runtimepath',
+                    \['▷  vim-runtimepath',
                     \'Unite runtimepath -start-insert '],
-                    \['▷  ➞  vim-command-output',
+                    \['▷  vim-command-output',
                     \'Unite output'],
                     \]
         nnoremap <silent>[menu]v :Unite -silent

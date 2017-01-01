@@ -163,11 +163,23 @@ If have a heavy customized configuration, you can organize them in private direc
 
 ### `Layer`
 
-Use `Layer` command in `.spacevim` to enable a existing layer, e.g. `Layer 'python'`.
+Use `Layer` command in `.spacevim` to enable an existing layer, e.g. `Layer 'python'`.
+
+```vim
+function! UserInit()
+    Layer 'python'
+endfunction
+```
 
 ### `Exclude`
 
 Use `Exclude` command in `.spacevim` to remove a plugin in the layers enabled, e.g. `Exclude 'Shougo/denite.nvim'`. If use `Exclude` command, you need to run `:PlugClean` to guarantee the relevant configurations not to be loaded.
+
+```vim
+function! UserInit()
+    Exclude 'Shougo/denite.nvim'
+endfunction
+```
 
 For more information, please refer to the README under the layer enabled, or you can see config.vim and packages.vim directly.
 
@@ -189,8 +201,16 @@ vim +PlugInstall! +PlugUpdate +PlugClean +q
 
 Q: Why develop this?
 
-A: I was amazed by spacemacs' beautiful GUI and mnemonic key bindings when using it at the first time. Now I often use spacemacs when in GUI environment. But in terminal, vim is definitely my first choice. Then I hope to maintain consistency in operation as much as possible in either scenario.
+A: I was amazed by spacemacs' beautiful GUI and mnemonic key bindings when using it at the first time. Now I often use spacemacs when in GUI environment. But in the terminal, vim is definitely my first choice. Then I hope to maintain consistency in operation as much as possible in either scenario.
 Hence I try to reconfigure the vim based on spacemacs' architecture, especially in key bindings and GUI. This is space-vim at present.
+
+Q: How do you think of space-vim, and some other vim configurations/distributions derived from spacemacs?
+
+A: Spacemacs' popularity indeed benefits a great number of people, making remarkable contributions to the community. I truly appreciate @syl20bnr and the whole contributors' outstanding works and have learnt many lessons from spacemacs. 
+
+But for space-vim, it was merely a personal vim configuration for the purpose of convenience of users using vim and spacemacs at the same time. I am glad that some people like it and give many suggestions to improve it.
+
+If you like space-vim and are willing to polish it, feel free to give any pieces of advice. However, don't mean that I am positive on spending extra time joining some community focusing on make a spacemacs-like vim distribution. You can also fork it to build up your own customized vim configuration. It's an open source project, you can turn it into any shape you like.
 
 ## Contributions
 
