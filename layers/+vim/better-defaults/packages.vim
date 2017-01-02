@@ -23,16 +23,18 @@ MP 'danro/rename.vim',               { 'on' : 'Rename' }
 
 MP 'ntpeters/vim-better-whitespace', { 'on': 'StripWhitespace' }
 
-MP 'haya14busa/incsearch.vim',       { 'on': [
-            \   '<Plug>(incsearch-forward)',
-            \   '<Plug>(incsearch-backward)',
-            \   '<Plug>(incsearch-stay)' ]
-            \   }
-MP 'haya14busa/incsearch-fuzzy.vim',  { 'on': [
-            \   '<Plug>(incsearch-fuzzy-/)',
-            \   '<Plug>(incsearch-fuzzy-?)',
-            \   '<Plug>(incsearch-fuzzy-stay)' ]
-            \   }
+if !has('nvim')
+    MP 'haya14busa/incsearch.vim',       { 'on': [
+                \   '<Plug>(incsearch-forward)',
+                \   '<Plug>(incsearch-backward)',
+                \   '<Plug>(incsearch-stay)' ]
+                \   }
+    MP 'haya14busa/incsearch-fuzzy.vim',  { 'on': [
+                \   '<Plug>(incsearch-fuzzy-/)',
+                \   '<Plug>(incsearch-fuzzy-?)',
+                \   '<Plug>(incsearch-fuzzy-stay)' ]
+                \   }
+endif
 
 " Refer to https://github.com/junegunn/dotfiles  vimrc
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
