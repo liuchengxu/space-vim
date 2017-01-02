@@ -4,6 +4,12 @@ nnoremap <Leader>fR :source $MYVIMRC<CR>
 " Use Tab to switch buffer
 nnoremap <Tab> :bn<CR>
 
+" Use Ctrl-Tab and Alt-Tab to switch tab
+map    <C-Tab>  :tabnext<CR>
+imap   <C-Tab>  <C-O>:tabnext<CR>
+map    <M-Tab>  :tabprev<CR>
+imap   <M-Tab>  <C-O>:tabprev<CR>
+
 " Startify
 nnoremap <silent><Leader>bh :Startify<CR>
 

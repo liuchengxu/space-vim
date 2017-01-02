@@ -212,7 +212,7 @@ For space-vim, it was merely a personal vim configuration for the purpose of con
 
 If you like space-vim and are willing to polish it, feel free to give any pieces of advice. However, it doesn't mean that I am positive on spending extra time joining some organization focusing on making a spacemacs-like vim distribution. I don't have enough time to maintain or contribute to another similar vim distribution.
 
-It is encouraged to fork space-vim to build up your own customized vim configuration. It's an open source project, you can turn it into any shape you like.
+It is encouraged to fork space-vim to build up your own personalized vim configuration. It's an open source project, you can turn it into any shape you like.
 
 ## Contributions
 

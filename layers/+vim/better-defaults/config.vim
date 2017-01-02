@@ -14,8 +14,8 @@ augroup SPACEVIM_BASIC
     
     au BufEnter * call MyLastWindow()
     function! MyLastWindow()
-        " if the window is quickfix go on
-        if &buftype=="quickfix"
+        " if the window is quickfix/locationlist go on
+        if &buftype=="quickfix" || &buftype == "locationlist"
             " if this window is last on screen quit without warning
             if winbufnr(2) == -1
                 quit!
@@ -239,10 +239,6 @@ function! MyTabLine()
 endfunction
 silent! set showtabline=1
 silent! set tabline=%!MyTabLine()
-map    <C-Tab>    :tabnext<CR>
-imap   <C-Tab>    <C-O>:tabnext<CR>
-map    <M-Tab>  :tabprev<CR>
-imap   <M-Tab>  <C-O>:tabprev<CR>
 
 " The decoration of statusline was stealed from
 " https://github.com/junegunn/dotfiles/blob/master/vimrc.
