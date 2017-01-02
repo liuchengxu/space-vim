@@ -33,7 +33,7 @@ endif
 " }
 
 " incsearch.vim {
-if IsDir('incsearch.vim')
+if IsDir('incsearch.vim') && !has('nvim')
     " incsearch.vim has bug with GUI vim
     if !has('gui_running')
         map /  <Plug>(incsearch-forward)
