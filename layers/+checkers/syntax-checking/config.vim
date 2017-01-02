@@ -31,6 +31,10 @@ if LayerLoaded('syntax-checking')
             let g:ale_echo_msg_warning_str = '⚠ Warning'
             let g:ale_statusline_format = ['Ⓔ •%d ', 'Ⓦ •%d ', ' ✔ •OK ']
         endif
+        augroup SPCACEVIM_ALELINT
+            autocmd!
+            autocmd User ALELint call lightline#update()
+        augroup END
     endif
 
     " syntastic

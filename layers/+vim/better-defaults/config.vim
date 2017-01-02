@@ -24,7 +24,8 @@ augroup SPACEVIM_BASIC
     endfunction
 augroup END
 
-silent! color space-vim-dark
+"silent! color space-vim-dark
+silent! color gruvbox
 
 " vim-better-whitespace {
 if IsDir('vim-better-whitespace')

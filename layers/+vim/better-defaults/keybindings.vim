@@ -1,15 +1,3 @@
-" Reload .vimrc
-nnoremap <Leader>fR :source $MYVIMRC<CR>
-
-" Use Tab to switch buffer
-nnoremap <Tab> :bn<CR>
-
-" Startify
-nnoremap <silent><Leader>bh :Startify<CR>
-
-" vim-better-whitespace
-nnoremap <Leader>xd :StripWhitespace<CR>
-
 " easy-motion
 " Default key bindings:
 " <Leader><Leader>w : word
@@ -21,6 +9,7 @@ nnoremap <Leader>xd :StripWhitespace<CR>
 
 " Consistent with spacemacs
 " <Leader>f{char} to move to {char}
+
 map  <Leader>jj <Plug>(easymotion-bd-f)
 nmap <Leader>jj <Plug>(easymotion-overwin-f)
 
@@ -35,10 +24,11 @@ nmap <Leader>jl <Plug>(easymotion-overwin-line)
 map  <Leader>jw <Plug>(easymotion-bd-w)
 nmap <Leader>jw <Plug>(easymotion-overwin-w)
 
+nmap s <Plug>(easymotion-overwin-f2)
+
 " nerdtree
 nnoremap <F4> :NERDTreeToggle<CR>
 inoremap <F4> <ESC>:NERDTreeToggle<CR>
-nnoremap <Leader>ft :NERDTreeToggle<CR>
 
 let s:lines=&lines
 let s:columns=&columns

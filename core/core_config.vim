@@ -301,6 +301,10 @@ function! LayersEnd()
     call s:load_layer_config()
     call s:load_private_config()
 
+    
+    call Source(g:spacevim_dir . g:spacevim_core_dir . '/core_keybindings.vim')
+    call s:load_layer_keybindings()
+    call s:load_private_keybindings()
     if s:dot_spacevim_exists
         call UserConfig()
     endif
@@ -352,5 +356,21 @@ function! s:load_private_config()
     let l:private_config = g:spacevim_dir . '/private/config.vim'
     if filereadable(expand(l:private_config))
         execute 'source ' . fnameescape(l:private_config)
+    endif
+endfunction
+
+function! s:load_layer_keybindings()
+    for l:layer in g:layers_loaded
+        let l:layer_keybindings = s:cur_layer_base_dir(l:layer) . l:layer . '/keybindings.vim'
+        if filereadable(expand(l:layer_keybindings))
+            call Source(l:layer_keybindings)
+        endif
+    endfor
+endfunction
+
+function! s:load_private_keybindings()
+    let l:private_keybindings = g:spacevim_dir . '/private/keybindings.vim'
+    if filereadable(expand(l:private_keybindings))
+        execute 'source ' . fnameescape(l:private_keybindings)
     endif
 endfunction

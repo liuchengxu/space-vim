@@ -12,6 +12,8 @@ MP 'itchyny/vim-cursorword'
 
 MP 'liuchengxu/space-vim-dark'
 
+MP 'morhetz/gruvbox'
+
 MP 'easymotion/vim-easymotion'
 MP 'haya14busa/incsearch-easymotion.vim'
 

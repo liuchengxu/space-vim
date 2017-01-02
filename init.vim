@@ -43,11 +43,29 @@ let g:spacevim_version = '0.5.0'
 
 call Source(g:spacevim_dir . g:spacevim_core_dir . '/core_config.vim')
 
+
 call LayersBegin()
 
 " Default layers
+
 Layer 'fzf'
 Layer 'unite'
 Layer 'better-defaults'
+Layer 'lightline'
+Layer 'auto-completion'
+Layer 'markdown'
+Layer 'python'
+Layer 'syntax-checking'
+Layer 'text-align'
+Layer 'programming'
+Layer 'git'
+Layer 'github'
+"Layer 'leader-guide'
+Layer 'goyo'
+Layer 'emoji'
+Layer 'polyglot'
+
+Plug 'hecal3/vim-leader-guide'
 
 call LayersEnd()
+
