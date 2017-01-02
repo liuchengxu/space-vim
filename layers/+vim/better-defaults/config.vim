@@ -33,9 +33,9 @@ endif
 " }
 
 " incsearch.vim {
-if IsDir('incsearch.vim') && !has('nvim')
+if IsDir('incsearch.vim') && !g:spacevim_nvim
     " incsearch.vim has bug with GUI vim
-    if !has('gui_running')
+    if !g:spacevim_gui_running
         map /  <Plug>(incsearch-forward)
         map ?  <Plug>(incsearch-backward)
         map g/ <Plug>(incsearch-stay)

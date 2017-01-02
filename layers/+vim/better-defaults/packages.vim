@@ -23,7 +23,7 @@ MP 'danro/rename.vim',               { 'on' : 'Rename' }
 
 MP 'ntpeters/vim-better-whitespace', { 'on': 'StripWhitespace' }
 
-if !has('nvim')
+if !g:spacevim_nvim
     MP 'haya14busa/incsearch.vim',       { 'on': [
                 \   '<Plug>(incsearch-forward)',
                 \   '<Plug>(incsearch-backward)',
