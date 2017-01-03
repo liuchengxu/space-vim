@@ -259,50 +259,62 @@ function! s:syntax()
     hi def link LayerNotLoaded Comment
 endfunction
 
-function! s:check_user_config()
+function! s:check_dot_spacevim()
     if filereadable(expand(s:dot_spacevim))
         call Source(s:dot_spacevim)
-        let s:dot_spacevim_exists = 1
+        return 1
     else
-        let s:dot_spacevim_exists = 0
+        echom '.spacevim does not exist!!!'
+        return 0
     endif
 endfunction
 
 function! LayersEnd()
 
-    call s:check_user_config()
+    if s:check_dot_spacevim()
 
-    if exists('g:spacevim_leader')
-        let g:mapleader=g:spacevim_leader
-    else
-        let g:mapleader = "\<Space>"
-    endif
+        try
+            call Layers()
+        catch
+            echom '[space-vim] The function Layers() does not exist, please add it to .spacevim.'
+        endtry
 
-    if exists('g:spacevim_localleader')
-        let g:maplocalleader=g:spacevim_localleader
-    else
-        let g:maplocalleader = ','
-    endif
+        call s:load_layer_packages()
+        call s:load_private_packages()
 
-    if s:dot_spacevim_exists
-        call UserInit()
-    endif
+        call s:filter_and_invoke_plug()
 
-    call s:load_layer_packages()
-    call s:load_private_packages()
+        try
+            call UserInit()
+        catch
+            echom '[space-vim] The function UserInit() does not exist, please add it to .spacevim.'
+        endtry
 
-    call s:filter_and_invoke_plug()
+        call plug#end()
 
-    call plug#end()
+        if exists('g:spacevim_leader')
+            let g:mapleader=g:spacevim_leader
+        else
+            let g:mapleader = "\<Space>"
+        endif
 
-    " Make vim-better-default settings can be overrided
-    runtime! plugin/default.vim
+        if exists('g:spacevim_localleader')
+            let g:maplocalleader=g:spacevim_localleader
+        else
+            let g:maplocalleader = ','
+        endif
 
-    call s:load_layer_config()
-    call s:load_private_config()
+        " Make vim-better-default settings can be overrided
+        runtime! plugin/default.vim
 
-    if s:dot_spacevim_exists
-        call UserConfig()
+        call s:load_layer_config()
+        call s:load_private_config()
+
+        try
+            call UserConfig()
+        catch
+            echom '[space-vim] The function UserConfig() does not exist, please add it to .spacevim.'
+        endtry
     endif
 
 endfunction

@@ -145,7 +145,19 @@ generate_dot_spacevim(){
         touch $dot_spacevim
         (
         cat <<DOTSPACEVIM
-" Put layers you want to enable as well as extra private plugins
+" You can enable the existing layers in space-vim and
+" exclude the partial plugins in a certain layer.
+" The command Layer and Exlcude are vaild in the function Layers().
+function! Layers()
+
+    " Default layers, recommended!
+    Layer 'fzf'
+    Layer 'unite'
+    Layer 'better-defaults'
+
+endfunction
+
+" Put your private plugins here.
 function! UserInit()
 
     " Space has been set as the default leader key,
@@ -153,18 +165,15 @@ function! UserInit()
     " let g:spacevim_leader = "<\Space>"
     " let g:spacevim_localleader = ','
 
-    " Put the layers you want to enable
-    " Layer 'emoji'
-
-    " Put private plugins
-    " Plug 'junegunn/vim-github-dashboard'
+    " Install private plugins
+    " Plug 'extr0py/oni'
 
 endfunction
 
-" Customize configuration
+" Put your costom configurations here, e.g., change the colorscheme.
 function! UserConfig()
 
-    " color space-vim-dark
+    " color desert
 
 endfunction
 DOTSPACEVIM

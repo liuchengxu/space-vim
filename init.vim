@@ -45,9 +45,4 @@ call Source(g:spacevim_dir . g:spacevim_core_dir . '/core_config.vim')
 
 call LayersBegin()
 
-" Default layers
-Layer 'fzf'
-Layer 'unite'
-Layer 'better-defaults'
-
 call LayersEnd()
