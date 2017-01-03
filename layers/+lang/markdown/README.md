@@ -21,7 +21,9 @@ To use this configuration layer, add it to your `~/.spacevim`.
 
 Key Binding      | Mode   | Description
 :---:            | :---:  | :---:
-<kbd>, c p</kbd> | Normal | markdown preview (macOS only)
+<kbd>, c p</kbd> | Normal | markdown preview (require chrome in linux and windows ,require safari in MacOS)
+<kbd>, c t</kbd> | Normal | Generate Toc
+<kbd>, c s</kbd> | Normal | Show Toc sidebar
 <kbd>, 1</kbd>   | Normal | heading level 1
 <kbd>, 2</kbd>   | Normal | heading level 2
 <kbd>, 3</kbd>   | Normal | heading level 3

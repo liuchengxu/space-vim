@@ -20,14 +20,24 @@ if LayerLoaded('markdown')
     if IsDir('vim-markdown-toc')
         let g:vmt_auto_update_on_save = 1
         let g:vmt_dont_insert_fence = 0
+        let g:vim_markdown_toc_autofit = 1
     endif
     " }
 
-    " vim-xmark {
-    if IsDir('vim-xmark')
-        augroup SPACEVIM_MD
-            autocmd FileType markdown nnoremap <LocalLeader>cp :Xmark<CR>
-        augroup END
+    if IsDir("markdown-preview.vim")
+        if  g:MAC
+            let g:mkdp_path_to_chrome = 'open -a safari'
+        elseif g:WINDOWS
+            let g:mkdp_path_to_chrome = 'C:\\Program\ Files\ (x86)\\Google\\Chrome\\Application\\chrome.exe'
+        else
+            let g:mkdp_path_to_chrome = 'google-chrome'
+        endif
+        " Markdown preview in browser
+        autocmd SPACEVIM_MARKDOWN FileType markdown nnoremap <LocalLeader>cp :MarkdownPreview<cr>
+        " generate markdown TOC
+        autocmd SPACEVIM_MARKDOWN FileType markdown nnoremap <LocalLeader>ct :silent GenTocGFM<cr>
+        " Show toc sidebar
+        autocmd SPACEVIM_MARKDOWN FileType markdown nnoremap <LocalLeader>cs :Toc<cr>
     endif
     " }
 
