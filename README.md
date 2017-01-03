@@ -222,6 +222,8 @@ Space-vim is still in beta. If you are interested, contributions are highly welc
 
 ## Acknowledgements
 
+I would like to thank the many people who have helped and contributed this project.
+
 - [spacemacs](https://github.com/syl20bnr/spacemacs)
 - [vim-plug](https://github.com/junegunn/vim-plug)
 - [spf13-vim](https://github.com/spf13/spf13-vim)

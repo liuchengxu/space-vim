@@ -124,7 +124,7 @@ let s:TYPE = {
 function! s:to_string(list)
     let str = ''
     for i in a:list
-        let str = str . i
+        let str .= i
     endfor
     return str
 endfunction
