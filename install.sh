@@ -173,6 +173,8 @@ endfunction
 " Put your costom configurations here, e.g., change the colorscheme.
 function! UserConfig()
 
+    " If you enable airline layer and have installed the powerline fonts, set it here.
+    " let g:airline_powerline_fonts=1
     " color desert
 
 endfunction

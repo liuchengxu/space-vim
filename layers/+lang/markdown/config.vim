@@ -1,6 +1,6 @@
 if LayerLoaded('markdown')
 
-    augroup SPACEVIM_MARKDOWN        
+    augroup SPACEVIM_MARKDOWN
         " Markdown headings
         autocmd FileType markdown nnoremap <LocalLeader>1 m`yypVr=``
         autocmd FileType markdown nnoremap <LocalLeader>2 m`yypVr-``
@@ -24,7 +24,7 @@ if LayerLoaded('markdown')
     endif
     " }
 
-    if IsDir("markdown-preview.vim")
+    if IsDir('markdown-preview.vim')
         if  g:MAC
             let g:mkdp_path_to_chrome = 'open -a safari'
         elseif g:WINDOWS
@@ -34,7 +34,7 @@ if LayerLoaded('markdown')
         endif
         " Markdown preview in browser
         autocmd SPACEVIM_MARKDOWN FileType markdown nnoremap <LocalLeader>cp :MarkdownPreview<cr>
-        " generate markdown TOC
+        " Generate markdown TOC
         autocmd SPACEVIM_MARKDOWN FileType markdown nnoremap <LocalLeader>ct :silent GenTocGFM<cr>
         " Show toc sidebar
         autocmd SPACEVIM_MARKDOWN FileType markdown nnoremap <LocalLeader>cs :Toc<cr>

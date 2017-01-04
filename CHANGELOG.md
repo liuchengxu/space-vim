@@ -5,9 +5,12 @@
 ### changed
 - change the functions for indentifying the platform to global variables
 - more beautiful statusline for Terminal vim due to the circled numbers
+- markdown layer preview plugin
 
 ### Added
 - support for tab
+- Layers() in `.spacevim`
+- s:post_user_config() for vim-airline in `core_config.vim`
 
 ## [0.5.0] - 2016.12.27
 

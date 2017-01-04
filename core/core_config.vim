@@ -10,7 +10,7 @@ let g:spacevim_gui_running = has('gui_running')
 
 let g:layers_loaded = []
 
-autocmd BufRead,BufNewFile *.spacevim set filetype=vim
+autocmd BufRead,BufNewFile *.spacevim setlocal filetype=vim
 
 " argument plugin is the vim plugin's name
 function! IsDir(plugin)
@@ -315,6 +315,8 @@ function! LayersEnd()
         catch
             echom '[space-vim] The function UserConfig() does not exist, please add it to .spacevim.'
         endtry
+
+        call s:post_user_config()
     endif
 
 endfunction
@@ -364,5 +366,22 @@ function! s:load_private_config()
     let l:private_config = g:spacevim_dir . '/private/config.vim'
     if filereadable(expand(l:private_config))
         execute 'source ' . fnameescape(l:private_config)
+    endif
+endfunction
+
+function! s:post_user_config()
+    " airline
+    if !exists('g:airline_powerline_fonts')
+
+        let g:airline_left_sep=''
+        let g:airline_right_sep=''
+
+        let g:airline_symbols = {}
+        let g:airline_symbols.linenr = '␊'
+        let g:airline_symbols.linenr = '␤'
+        let g:airline_symbols.linenr = '¶'
+        let g:airline_symbols.branch = '⎇'
+        let g:airline_symbols.paste = 'Þ'
+        let g:airline_symbols.whitespace = 'Ξ'
     endif
 endfunction
