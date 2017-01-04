@@ -201,8 +201,8 @@ create_symlinks "$APP_PATH" \
 sync_vim_plug   "$VIM_PLUG_PATH" \
                 "$VIM_PLUG_URL"
 
-setup_vim_plug
-
 generate_dot_spacevim
+
+setup_vim_plug
 
 msg             "\nThanks for installing \033[1;31m$app_name\033[0m. Enjoy!"
