@@ -56,7 +56,6 @@ Key Binding            | Mode       | Description
 
 Key Binding          | Mode   | Description
 :---:                | :---:  | :---:
-<kbd>SPC [1-9]</kbd> | Normal | switch to buffer with number [1-9], 切换至对应编号[1-9]对应缓冲区
 <kbd>SPC b p</kbd>   | Normal | **p**revious **b**uffer, 上一个缓冲区
 <kbd>SPC b n</kbd>   | Normal | **n**ext **b**uffer, 下一个缓冲区
 <kbd>\<Tab></kbd>    | Normal | switch buffer, equal to <kbd>SPC b n</kbd>, 等同于 <kbd>SPC b n</kbd>
@@ -67,6 +66,7 @@ Key Binding          | Mode   | Description
 
 Key Binding        | Mode   | Description
 :---:              | :---:  | :---:
+<kbd>SPC [1-9]</kbd> | Normal | switch to window with number [1-9], 切换至对应编号[1-9]对应的 window
 <kbd>SPC w j</kbd> | Normal | window-down, 移动至下方窗口
 <kbd>SPC w k</kbd> | Normal | window-up, 移动至上方窗口
 <kbd>SPC w h</kbd> | Normal | window-left, 移动至左侧窗口

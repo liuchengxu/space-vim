@@ -1,6 +1,13 @@
 MP 'luochen1990/rainbow'
 MP 'editorconfig/editorconfig-vim'
 
+MP 'matze/vim-move', { 'on': [ 
+            \   '<Plug>MoveBlockDown',
+            \   '<Plug>MoveBlockUp',
+            \   '<Plug>MoveLineDown',
+            \   '<Plug>MoveLineUp',
+            \   ]}
+
 MP 'junegunn/rainbow_parentheses.vim', { 'for': ['lisp', 'clojure', 'scheme'] }
 
 " Refer to https://github.com/junegunn/vim-plug/wiki/faq

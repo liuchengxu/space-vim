@@ -6,6 +6,7 @@
 * [Description](#description)
 * [Install](#install)
 * [Key Bindings](#key-bindings)
+* [Tips](#tips)
 
 <!-- vim-markdown-toc -->
 
@@ -26,3 +27,10 @@ Key Binding                        | Mode           | Description
 <kbd>SPC ; ;</kbd>                 | Normal, Visual | comment/uncomment automatically, 自动添加/取消注释
 <kbd>SPC t i</kbd>                 | Normal         | toggle-indent-guide, 显示缩进对齐
 <kbd>SPC t t</kbd> / <kbd>F6</kbd> | Normal         | toggle-tagbar, 打开 tagbar (也可记 tagbar 6个字符, 故为 F6)
+
+## Tips
+
+For <kbd>Alt j</kbd> and <kbd>Alt k</kbd> (move line/selection down/up)supported by [vim-move](https://github.com/matze/vim-move), you need to configure your terminal and iterm, see [here](https://github.com/matze/vim-move/issues/15).
+
+- In iTerm: Profiles -> Keys -> Left option key acts as: `+Esc`
+- In Terminal: Profiles -> Keyboard -> `Use Option as Meta key`

@@ -15,7 +15,7 @@ augroup SPACEVIM_BASIC
     au BufEnter * call MyLastWindow()
     function! MyLastWindow()
         " if the window is quickfix/locationlist go on
-        if &buftype=="quickfix" || &buftype == "locationlist"
+        if &buftype=='quickfix' || &buftype == 'locationlist'
             " if this window is last on screen quit without warning
             if winbufnr(2) == -1
                 quit!
@@ -288,22 +288,33 @@ if !LayerLoaded('airline') && !LayerLoaded('lightline')
     endfunction
     if g:spacevim_gui_running
         set statusline=%1*[B-%n]%*
+        set statusline+=%#win_num#[W-%{winnr()}]\ %*
     else
         set statusline=%1*\ %{Buf_num()}\ %*
+        set statusline+=%#win_num#❖\ %{winnr()}\ %*
     endif
     " TOT is an abbreviation for total
     set statusline+=%2*[TOT:%{Buf_total_num()}]%*
     set statusline+=%<%3*\ %{File_size(@%)}\ %*
     set statusline+=%4*\ %F\ %*
     set statusline+=%5*\ %{exists('g:loaded_ale')?ALEGetStatusLine():''}%*
-    set statusline+=%6*\ %{exists('g:loaded_fugitive')?fugitive#statusline():''}%*
+    set statusline+=%6*%{exists('g:loaded_fugitive')?fugitive#statusline():''}%*
     set statusline+=%7*\ %m%r%y\ %*         " Modified? Readonly? Filetype
+    " TODO
+    " let g:ale_error_format = '•%d'
+    " set statusline+=%#ale_error#\ %{exists('g:loaded_ale')?ALEGetError():''}%*
+    " let g:ale_warning_format = '•%d'
+    " set statusline+=%#ale_warning#\ %{exists('g:loaded_ale')?ALEGetWarning():''}%*
     set statusline+=%=%8*\ %{&ff}\ \|       " FileFormat (dos/unix..)
     set statusline+=\ %{''.(&fenc!=''?&fenc:&enc).''}\ \|      " Encoding
     set statusline+=\ %{(&bomb?\",BOM\":\"\")}                 " Encoding2
     set statusline+=%-10.(%l:%c%V%)%*
     set statusline+=%9*\ %P\ %*
     " default bg for statusline is 236 in space-vim-dark
+    hi ale_error cterm=None ctermfg=196 ctermbg=237
+    hi ale_warning cterm=None ctermfg=214 ctermbg=237
+    hi win_num cterm=bold ctermfg=232 ctermbg=179 gui=bold guifg=#080808 guibg=#d7af5f
+
     hi User1 cterm=bold ctermfg=232 ctermbg=179 gui=bold guifg=#080808 guibg=#d7af5f
     hi User2 cterm=None ctermfg=214 ctermbg=242 gui=None guifg=#ffaf00 guibg=#666666
     hi User3 cterm=None ctermfg=251 ctermbg=240 gui=None guifg=#c6c6c6 guibg=#585858
