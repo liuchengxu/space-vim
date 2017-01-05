@@ -28,7 +28,7 @@ if LayerLoaded('markdown')
         if  g:MAC
             let g:mkdp_path_to_chrome = 'open -a safari'
         elseif g:WINDOWS
-            let g:mkdp_path_to_chrome = 'C:\\Program\ Files\ (x86)\\Google\\Chrome\\Application\\chrome.exe'
+            let g:mkdp_path_to_chrome = 'C:\\Program Files (x86)\Google\Chrome\Application\chrome.exe'
         else
             let g:mkdp_path_to_chrome = 'google-chrome'
         endif
