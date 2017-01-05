@@ -72,7 +72,11 @@ endfunction
 function! LayersBegin()
 
     " Download vim-plug if unavailable
-    if empty(glob('~/.vim/autoload/plug.vim'))
+    if g:spacevim_nvim && empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+        echo '==> Downloading vim-plug ......'
+	execute '!curl -sSfLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+		    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    elseif empty(glob('~/.vim/autoload/plug.vim'))
         echo '==> Downloading vim-plug ......'
         execute '!curl -fLo ~/.vim/autoload/plug.vim
                     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
