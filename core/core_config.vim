@@ -1,4 +1,5 @@
 let s:spacevim_layers_dir = '/layers'
+let s:spacevim_private_layers_dir = '/private'
 let s:dot_spacevim = $HOME.'/.spacevim'
 
 let s:spacevim_tab = get(s:, 'spacevim_tab', -1)
@@ -40,9 +41,11 @@ execute py_exe "<< EOF"
 import os
 import vim
 topic_base = vim.eval('g:spacevim_dir') + vim.eval('s:spacevim_layers_dir')
+private_base = vim.eval('g:spacevim_dir') + vim.eval('s:spacevim_private_layers_dir')
 topics = [f for f in os.listdir(topic_base) if os.path.isdir(os.path.join(topic_base,f))]
 topic2layers = {}
-layers_sum = 0
+private_layers = [f for f in os.listdir(private_base) if os.path.isdir(os.path.join(private_base,f))]
+layers_sum = len(private_layers)
 for t in topics:
     topic_path = topic_base + '/' + t
     layers = [f for f in os.listdir(topic_path) if os.path.isdir(os.path.join(topic_path,f))]
@@ -51,6 +54,7 @@ for t in topics:
 vim.command("let s:layers_sum = %d" % layers_sum)
 vim.command("let s:topics = %s" % topics)
 vim.command("let s:topic2layers = %s" % topic2layers)
+vim.command("let s:private_layers = %s" % private_layers)
 EOF
 
 endfunction
@@ -342,6 +346,12 @@ function! s:cur_layer_base_dir(layer)
             return l:layers_base . '/' . key . '/'
         endif
     endfor
+
+    " Try the private layers
+    let l:private_layers_base = g:spacevim_dir . s:spacevim_private_layers_dir
+    if index(s:private_layers, a:layer) > -1
+        return l:private_layers_base . '/'
+    endif
     return s:err('Layer * ' . a:layer . ' * is invalid, please check it.')
 endfunction
 
