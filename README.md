@@ -30,9 +30,7 @@
     * [Windows](#windows)
     * [Manual](#manual)
 * [Customize](#customize)
-* [Command](#command)
-    * [`Layer`](#layer)
-    * [`Exclude`](#exclude)
+* [How to use](#how-to-use)
 * [Update](#update)
 * [FAQ](#faq)
 * [Contributions](#contributions)
@@ -44,7 +42,7 @@ space-vim is a vim distribution for vim plugins and resources, compatible with V
 
 It is inspired by [spacemacs](https://github.com/syl20bnr/spacemacs) and mimics spacemacs in a high level, especially in the whole architecture, key bindings and GUI. if have ever tried spacemacs, you will find spacevim is very similar to it in user experience.
 
-Elegance here means pleasing, graceful as well as simple.
+Elegance here means pleasing, graceful as well as simple. If you are unfamiliar with spacemacs, you can visit [spacemacs.org](http://spacemacs.org/doc/DOCUMENTATION.html) for more about the priciple behind that, which is also what space-vim seeks.
 
 The distribution is completely customizable using `.spacevim`, which is equivalent to `.spacemacs` in spacemacs.
 
@@ -134,54 +132,51 @@ Not tested now.
 
 ## Customize
 
-You can use `.spacevim` in your home directory to customize space-vim, where you can enable the existing layers, add your extra plugins and private configuration.
+You can use `.spacevim` in your home directory to customize space-vim, where you can enable the existing layers, add your extra plugins and private configurations.
+
+If `.spacevim` does not exist, none of the vim configurations will be loaded!
 
 ```vim
-" Put layers you want to enable as well as extra private plugins
+" You can enable the existing layers in space-vim and 
+" exclude the partial plugins in a certain layer.
+" The command Layer and Exlcude are vaild in the function Layers().
+function! Layers()
+
+    " Default layers, recommended!
+    Layer 'fzf'
+    Layer 'unite'
+    Layer 'better-defaults'
+
+endfunction
+
+" Put your private plugins here.
 function! UserInit()
+
     " Space has been set as the default leader key,
     " if you want to change it, uncomment and set it here.
     " let g:spacevim_leader = "<\Space>"
     " let g:spacevim_localleader = ','
 
-    " Put the layers you want to enable
-    " Layer 'emoji'
+    " Install private plugins
+    " Plug 'extr0py/oni'
 
-    " Put private plugins
-    " Plug 'junegunn/vim-github-dashboard'
 endfunction
 
-" Customize configuration
+" Put your costom configurations here, e.g., change the colorscheme.
 function! UserConfig()
-    " color space-vim-dark
+
+    " color desert
+
 endfunction
 ```
 
 If have a heavy customized configuration, you can organize them in private directory with `packages.vim` and `config.vim` too, which will be loaded on startup.
 
-## Command
+## How to use
 
-### `Layer`
+I recommend you to look through the existing key bindings via <kbd>SPC ?</kbd>. What's more, you definitely can not miss reading the README of [better-defaults layer](https://github.com/liuchengxu/space-vim/blob/master/layers/%2Bvim/better-defaults/README.md), which is of great importance for you to get started quickly.
 
-Use `Layer` command in `.spacevim` to enable an existing layer, e.g. `Layer 'python'`.
-
-```vim
-function! UserInit()
-    Layer 'python'
-endfunction
-```
-
-### `Exclude`
-
-Use `Exclude` command in `.spacevim` to remove a plugin in the layers enabled, e.g. `Exclude 'Shougo/denite.nvim'`. If use `Exclude` command, you need to run `:PlugClean` to guarantee the relevant configurations not to be loaded.
-
-```vim
-function! UserInit()
-    Exclude 'Shougo/denite.nvim'
-endfunction
-```
-
-For more information, please refer to the README under the layer enabled, or you can see config.vim and packages.vim directly.
+For more information, please refer to the README under the certain layer enabled, or you can see config.vim and packages.vim directly. 
 
 If the README is not elaborate, sorry for that, space-vim now is in the early stages and a ton of stuff are waiting to be done.
 
@@ -212,7 +207,7 @@ For space-vim, it was merely a personal vim configuration for the purpose of con
 
 If you like space-vim and are willing to polish it, feel free to give any pieces of advice. However, it doesn't mean that I am positive on spending extra time joining some organization focusing on making a spacemacs-like vim distribution. I don't have enough time to maintain or contribute to another similar vim distribution.
 
-It is encouraged to fork space-vim to build up your own customized vim configuration. It's an open source project, you can turn it into any shape you like.
+It is encouraged to fork space-vim to build up your own personalized vim configuration. It's an open source project, you can turn it into any shape you like.
 
 ## Contributions
 
@@ -221,6 +216,8 @@ If you encounter any problem or have any suggestions, please [open an issue](htt
 Space-vim is still in beta. If you are interested, contributions are highly welcome.
 
 ## Acknowledgements
+
+I would like to thank the many people who have helped and contributed to this project.
 
 - [spacemacs](https://github.com/syl20bnr/spacemacs)
 - [vim-plug](https://github.com/junegunn/vim-plug)
@@ -281,7 +278,7 @@ space-vim 得益于 layer 的概念，非常易于扩展，也为下面的愿景
 
 ![screenshot](docs/img/screenshot.png)
 
-终端环境我基本都会使用 tmux, [这里](https://github.com/liuchengxu/dotfiles/blob/master/tmux.conf)是我的 tmux 配置.
+终端环境我基本都会使用 tmux, [这里](https://github.com/liuchengxu/dotfiles/blob/master/tmux.conf) 是我的 tmux 配置.
 
 ## 愿景
 
@@ -311,7 +308,7 @@ call LayersEnd()
 
 在 space-vim 中，所谓的一个 Layer ，其实很简单，就是集成了一些相关的 vim 插件及其配置，涉及到两个文件: config.vim 与 packages.vim. 不难理解，config.vim 为该 Layer 的相关配置信息，packages.vim 则为该 Layer 所需的一些 vim 插件。
 
-比如 Layer better-defaults, packages.vim 中的插件有：
+比如 Layer better-defaults, packages.vim 中的插件有(以当前实际配置为准)：
 
 ```vim
 Plug 'liuchengxu/vim-better-default'
@@ -321,10 +318,10 @@ Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
 Plug 'mhinz/vim-startify'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree',                     { 'on': 'NERDTreeToggle' }
+Plug 'Xuyuanp/nerdtree-git-plugin',             { 'on': 'NERDTreeToggle' }
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
-Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
+Plug 'bronson/vim-trailing-whitespace',         { 'on': 'FixWhitespace' }
 ```
 
 调整，增加 Layer 都非常方便, 这也为 “集百家之长” 提供了土壤。
@@ -377,7 +374,7 @@ LayerStatus 可以查看启用了哪些 Layer.
 
 对于老司机而言，可以选择参考感兴趣的 layer 下的一些配置，也非常欢迎分享老司机的开车经验。
 
-如果是新手上路，更多使用信息请点击 [快速指引](tutorial_cn.md), 也可查看 [wiki](https://github.com/liuchengxu/space-vim/wiki) 也许会有收获。
+如果是新手上路，更多使用信息请点击 [这里](liuchengxu.github.io/space-vim/org/tutorial_cn.html#orgheadline4), 也可查看 [wiki](https://github.com/liuchengxu/space-vim/wiki) 也许会有收获。
 
 [better-defaults](https://github.com/liuchengxu/space-vim/blob/master/layers/%2Bvim/better-defaults/README.md) layer 为必看内容，这里包含了所有包括 buffer, window, motion等等的基本操作。了解它们是能够愉快使用 space-vim 的前提。
 
@@ -389,37 +386,42 @@ space-vim 虽然启发自 spacemacs, 但 emacs 与 vim 始终有所区别。比�
 
 #### `.spacevim`
 
-个性化配置文件为 `.spacevim`, 如果没有 `.spacevim`, 那么 space-vim 仅会加载默认的 Layer. `.space-vim` 中定义了两个函数分别用于加载 Layer 与个人配置信息。
+个性化配置文件为 `.spacevim`, 位于当前用户目录. 如果没有 `.spacevim`, space-vim 将不会加载 **任何配置**。
 
 ```vim
-function! UserInit()
+" 在 Layers() 中可以使用 Layer 命令启用 space-vim 已有的 Layer, 
+" 如果不想要该 Layer 中的所有插件，也可用 Exlcude 命令排除所启用其中的部分插件。
+function! Layers()
 
-    Layer 'ycmd'
-    Layer 'syntax-checking'
-
-    Layer 'emoji'
-    Layer 'goyo'
-
-    Layer 'html'
-    Layer 'python'
-    Layer 'markdown'
-    Layer 'c-c++'
-
-    Exclude 'Shougo/denite.nvim'
-
-    " 加载 space-vim Layer中没有的插件
-    Plug 'extr0py/oni'
+    " Default layers, recommended!
+    Layer 'fzf'
+    Layer 'unite'
+    Layer 'better-defaults'
 
 endfunction
 
+" UserInit() 可以放置私人个性化的一些插件, 也可更改 Leader 与 LocalLeader key (不推荐)。
+function! UserInit()
+
+    " Space has been set as the default leader key,
+    " if you want to change it, uncomment and set it here.
+    " let g:spacevim_leader = "<\Space>"
+    " let g:spacevim_localleader = ','
+
+    " Install private plugins
+    " Plug 'extr0py/oni'
+
+endfunction
+
+" 在这里放置配置信息进行覆盖已有设置, 比如，改变主题。
 function! UserConfig()
 
-    color space-vim-dark
+    " color desert
 
 endfunction
 ```
 
-:warning: 启用 layer 后, 须执行 `:PlugInstall` 来安装好相关插件才能真正生效.
+:warning: 首次启用 layer, 须执行 `:PlugInstall` 来安装好相关插件才能真正生效.
 
 更多使用信息可以查看 Layer 目录下对应的 README, 当然了目前还比较粗糙，如果 README 不够详尽，还是得要查看 config.vim 和 packages.vim.
 

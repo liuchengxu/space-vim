@@ -23,7 +23,7 @@ if LayerLoaded('python')
         if LayerLoaded('programming')
             autocmd FileType python nnoremap <buffer> <F5> :update<Bar>execute 'AsyncRun! python '.shellescape(@%, 1)<CR>
             autocmd FileType python nnoremap <buffer> <LocalLeader>cc :update<Bar>execute 'AsyncRun! python '.shellescape(@%, 1)<CR>
-            autocmd FileType python nnoremap <buffer> <LocalLeader>cs :update<Bar>execute 'AsyncStop!'.shellescape(@%, 1)<CR>
+            autocmd FileType python nnoremap <buffer> <LocalLeader>cs :update<Bar>execute 'AsyncStop!'<CR>
         else
             autocmd FileType python nnoremap <buffer> <F5> :update<Bar>execute '! python '.shellescape(@%, 1)<CR>
             autocmd FileType python nnoremap <buffer> <LocalLeader>cc :update<Bar>execute '! python '.shellescape(@%, 1)<CR>
@@ -42,6 +42,13 @@ if LayerLoaded('python')
         let g:pymode_trim_whitespaces = 0
         let g:pymode_options = 0
         let g:pymode_rope = 0
+
+        let g:pymode_indent = 1
+        let g:pymode_options_colorcolumn = 1
+
+        if LayerLoaded('syntax-checking')
+            let g:pymode_lint = 0
+        endif
 
         " Enhanced python highlighting
         hi pythonLambdaExpr      ctermfg=105 guifg=#8787ff

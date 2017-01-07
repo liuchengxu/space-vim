@@ -76,14 +76,22 @@ endfunction
 function! LayersBegin()
 
     " Download vim-plug if unavailable
+<<<<<<< HEAD
+    if !g:spacevim_nvim && empty(glob('~/.vim/autoload/plug.vim'))
+=======
     if g:spacevim_nvim && empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
         echo '==> Downloading vim-plug ......'
-        execute '!curl -sSfLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
-                    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+	execute '!curl -sSfLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+		    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
     elseif empty(glob('~/.vim/autoload/plug.vim'))
+>>>>>>> b1c905041ade16fbd31c3b04df797c8e498c9f88
         echo '==> Downloading vim-plug ......'
         execute '!curl -fLo ~/.vim/autoload/plug.vim
                     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    elseif g:spacevim_nvim && empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+        echo '==> Downloading vim-plug ......'
+        silent !curl -sSfLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+                    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     endif
 
     let s:vim_home = $HOME.'/.vim/'
@@ -315,12 +323,16 @@ function! LayersEnd()
         " Make vim-better-default settings can be overrided
         runtime! plugin/default.vim
 
+<<<<<<< HEAD
+    
+    call Source(g:spacevim_dir . g:spacevim_core_dir . '/core_keybindings.vim')
+    call s:load_layer_keybindings()
+    call s:load_private_keybindings()
+    if s:dot_spacevim_exists
+        call UserConfig()
+=======
         call s:load_layer_config()
         call s:load_private_config()
-
-        call Source(g:spacevim_dir . g:spacevim_core_dir . '/core_keybindings.vim')
-        call s:load_layer_keybindings()
-        call s:load_private_keybindings()
 
         try
             call UserConfig()
@@ -329,6 +341,7 @@ function! LayersEnd()
         endtry
 
         call s:post_user_config()
+>>>>>>> b1c905041ade16fbd31c3b04df797c8e498c9f88
     endif
 
 endfunction
@@ -387,6 +400,7 @@ function! s:load_private_config()
     endif
 endfunction
 
+<<<<<<< HEAD
 function! s:load_layer_keybindings()
     for l:layer in g:layers_loaded
         let l:layer_keybindings = s:cur_layer_base_dir(l:layer) . l:layer . '/keybindings.vim'
@@ -400,7 +414,7 @@ function! s:load_private_keybindings()
     let l:private_keybindings = g:spacevim_dir . '/private/keybindings.vim'
     if filereadable(expand(l:private_keybindings))
         execute 'source ' . fnameescape(l:private_keybindings)
-
+=======
 function! s:post_user_config()
     " airline
     if !exists('g:airline_powerline_fonts')
@@ -415,5 +429,6 @@ function! s:post_user_config()
         let g:airline_symbols.branch = '⎇'
         let g:airline_symbols.paste = 'Þ'
         let g:airline_symbols.whitespace = 'Ξ'
+>>>>>>> b1c905041ade16fbd31c3b04df797c8e498c9f88
     endif
 endfunction

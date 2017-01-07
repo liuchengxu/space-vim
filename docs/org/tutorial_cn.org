@@ -178,44 +178,43 @@
      #+CAPTION: iterm2 font setting
      file:../img/iterm2_powerline_setting.png
 
-** 启用 layer
+** 启用已有 layer / 禁用部分插件
 
-    启用 layer 非常简单，使用一键安装脚本安装[[https://github.com/liuchengxu/space-vim][ space-vim]] 时会自动在当前用户目录下生成一个 ~.spacevim~ ，可在其中的 ~UserInit()~ 部分进行启用已有的 layer, 也可以在里面放置 space-vim 没有的插件：
+    启用 layer 非常简单，使用一键安装脚本安装[[https://github.com/liuchengxu/space-vim][ space-vim]] 时会自动在当前用户目录下生成一个 ~.spacevim~ ，可在其中的 ~Layers()~ 部分进行启用已有的 layer, 也可以在里面放置 space-vim 没有的插件：
 
     *每个 layer 下，通常附有一个 README 以简要说明，请在启用该 layer 时进行查阅* 。
 
+    使用 ~Layer~ 命令可以加载 layer, 但是如果不想加载 layer 中的所有插件, 可以使用 ~Exclude~ 命令进行部分禁用, 比如不想要 'Shougo/denite.nvim':
     #+BEGIN_SRC vimrc
-    function! UserInit()
+    function! Layers()
 
         Layer 'fzf'
-        Layer 'ycmd'
-        Layer 'syntax-checking'
+        Layer 'unite'
+        Layer 'better-defaults'
 
-        Layer 'emoji'
-        Layer 'goyo'
-
-        Layer 'html'
         Layer 'python'
-        Layer 'markdown'
-        Layer 'c-c++'
-
-        Plug 'extr0py/oni'
+        Exclude 'Shougo/denite.nvim'
 
     endfunction
     #+END_SRC
 
     *注意，如果是首次启用一个 layer，需要执行 ~SPC f R~, 或者 ~:so $MYVIMRC~, 或者退出在打开 vim, 重新加载 .vimrc 并执行 ~:PlugInstall~ 安装所需的相关插件* 。
 
-** 禁用部分插件
-   使用 ~Layer~ 命令可以加载 layer, 但是如果不想加载 layer 中的所有插件, 可以使用 ~Exclude~ 命令禁用, 比如不想要 'Shougo/denite.nvim':
+** 添加个性化插件
+
+   ~UserInit()~ 可以放置个人私有的一些插件。
 
    #+BEGIN_SRC vimrc
-   Exclude 'Shougo/denite.nvim'
+   function! UserInit()
+
+      Plug 'extr0py/oni'
+
+   endfunction
    #+END_SRC
 
-* 个性化
+** 覆盖已有配置信息
 
-    上面说了可以在 ~UserInit()~ 中放置自己的插件, 此外在 =.spacevim= 中还有个 ~UserConfig()~ ，可以将一些个性化配置放在这里。比如想换个主题, 自定义一些快捷键等：
+    =.spacevim= 中有个 ~UserConfig()~ ，可以将一些个性化配置放在这里, 对已有的一些配置信息进行覆盖。比如想换个主题, 自定义一些快捷键等：
 
     #+BEGIN_SRC vimrc
     function! UserConfig()

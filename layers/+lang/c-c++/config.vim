@@ -8,7 +8,9 @@ if LayerLoaded('c-c++')
 
     augroup SPACEVIM_C
         autocmd!
-        autocmd Filetype c,cpp setlocal cindent
+        autocmd FileType c,cpp setlocal cindent
+        autocmd FileType c,cpp,objc nnoremap <LocalLeader>= :ClangFormat<CR>
+        autocmd FileType c,cpp,objc vnoremap <LocalLeader>= :<C-u>ClangFormat<CR>
     augroup END
 
     if IsDir('vim-cpp-enhanced-highlight')

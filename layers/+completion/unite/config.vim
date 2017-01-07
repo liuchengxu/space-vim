@@ -40,6 +40,7 @@ if LayerLoaded('unite')
         endif
 
         nnoremap <Leader>fr :CtrlPMRU<CR>
+        let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
     endif
     " }
 

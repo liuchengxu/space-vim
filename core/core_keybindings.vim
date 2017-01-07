@@ -83,16 +83,16 @@ call SpacevimBind('map', 'qQ', 'kill-vim', 'quitall!', 1)
 call SpacevimBind('map', 'qs', 'save-buffers-kill-vim', 'xall', 1)
 
 " windows {{{
-call SpacevimBind('map', 'w1', 'window-1', '1wincmd w', 1)
-call SpacevimBind('map', 'w2', 'window-2', '2wincmd w', 1)
-call SpacevimBind('map', 'w3', 'window-3', '3wincmd w', 1)
-call SpacevimBind('map', 'w4', 'window-4', '4wincmd w', 1)
-call SpacevimBind('map', 'w5', 'window-5', '5wincmd w', 1)
-call SpacevimBind('map', 'w6', 'window-6', '6wincmd w', 1)
-call SpacevimBind('map', 'w7', 'window-7', '7wincmd w', 1)
-call SpacevimBind('map', 'w8', 'window-8', '8wincmd w', 1)
-call SpacevimBind('map', 'w9', 'window-9', '9wincmd w', 1)
-call SpacevimBind('map', 'w0', 'window-10', '10wincmd w', 1)
+"call SpacevimBind('map', 'w1', 'window-1', '1wincmd w', 1)
+"call SpacevimBind('map', 'w2', 'window-2', '2wincmd w', 1)
+"call SpacevimBind('map', 'w3', 'window-3', '3wincmd w', 1)
+"call SpacevimBind('map', 'w4', 'window-4', '4wincmd w', 1)
+"call SpacevimBind('map', 'w5', 'window-5', '5wincmd w', 1)
+"call SpacevimBind('map', 'w6', 'window-6', '6wincmd w', 1)
+"call SpacevimBind('map', 'w7', 'window-7', '7wincmd w', 1)
+"call SpacevimBind('map', 'w8', 'window-8', '8wincmd w', 1)
+"call SpacevimBind('map', 'w9', 'window-9', '9wincmd w', 1)
+"call SpacevimBind('map', 'w0', 'window-10', '10wincmd w', 1)
 call SpacevimBind('map', 'w-', 'split-window-below', 'split', 1)
 call SpacevimBind('map', 'w/', 'split-window-right', 'vsplit', 1)
 call SpacevimBind('map', 'w=', 'balance-windows', 'wincmd =', 1)
@@ -115,15 +115,15 @@ call SpacevimBind('map', 'ww', 'other-window', 'wincmd w', 1)
 
 " buffers {{{
 "call SpacevimBind('nmap', '<Tab>', 'next-buffer', 'bn', 1)
-call SpacevimBind('map', 'b1', 'buffer-1', 'buffer1', 1)
-call SpacevimBind('map', 'b2', 'buffer-2', 'buffer2', 1)
-call SpacevimBind('map', 'b3', 'buffer-3', 'buffer3', 1)
-call SpacevimBind('map', 'b4', 'buffer-4', 'buffer4', 1)
-call SpacevimBind('map', 'b5', 'buffer-5', 'buffer5', 1)
-call SpacevimBind('map', 'b6', 'buffer-6', 'buffer6', 1)
-call SpacevimBind('map', 'b7', 'buffer-7', 'buffer7', 1)
-call SpacevimBind('map', 'b8', 'buffer-8', 'buffer8', 1)
-call SpacevimBind('map', 'b9', 'buffer-9', 'buffer9', 1)
+"call SpacevimBind('map', 'b1', 'buffer-1', 'buffer1', 1)
+"call SpacevimBind('map', 'b2', 'buffer-2', 'buffer2', 1)
+"call SpacevimBind('map', 'b3', 'buffer-3', 'buffer3', 1)
+"call SpacevimBind('map', 'b4', 'buffer-4', 'buffer4', 1)
+"call SpacevimBind('map', 'b5', 'buffer-5', 'buffer5', 1)
+"call SpacevimBind('map', 'b6', 'buffer-6', 'buffer6', 1)
+"call SpacevimBind('map', 'b7', 'buffer-7', 'buffer7', 1)
+"call SpacevimBind('map', 'b8', 'buffer-8', 'buffer8', 1)
+"call SpacevimBind('map', 'b9', 'buffer-9', 'buffer9', 1)
 call SpacevimBind('map', 'bb', 'buffers', 'call SpacevimBuffers()', 1)
 call SpacevimBind('map', 'b?', 'buffers', 'call SpacevimBuffers()', 1)
 call SpacevimBind('map', 'bd', 'kill-this-buffer', 'call SpacevimKillBuffer()', 1)
@@ -272,14 +272,25 @@ endif
 " }}}
 
 " move/motion {{{
-call SpacevimBindPlug('map', 'mf', 'move-to-{char}', '(easymotion-s)')
-call SpacevimBindPlug('nmap', 'mf', 'move-to-{char}', '(easymotion-overwin-f)')
-call SpacevimBindPlug('nmap', 'ms', 'move-to-{char}{char}', '(easymotion-overwin-f2)')
-call SpacevimBindPlug('map', 'ml', 'move-to-line', '(easymotion-bd-jk)')
-call SpacevimBindPlug('nmap', 'ml', 'move-to-line', '(easymotion-overwin-line)')
-call SpacevimBindPlug('map', 'mw', 'move-to-word', '(easymotion-bd-w)')
-call SpacevimBindPlug('nmap', 'mw', 'move-to-word', '(easymotion-overwin-w)')
-call SpacevimBindPlug('map', 'm.', 'repeat', '(easymotion-repeat)')
+" easy-motion
+" Default key bindings:
+" <Leader><Leader>w : word
+" <Leader><Leader>b : back
+" <Leader><Leader>s : search
+" <leader><Leader>f : forward
+" <Leader><Leader>j
+" <Leader><Leader>k
+
+" Consistent with spacemacs
+" <Leader>f{char} to move to {char}
+call SpacevimBindPlug('map', 'jj', 'move-to-{char}', '(easymotion-s)')
+call SpacevimBindPlug('nmap', 'jj', 'move-to-{char}', '(easymotion-overwin-f)')
+call SpacevimBindPlug('nmap', 'jJ', 'move-to-{char}{char}', '(easymotion-overwin-f2)')
+call SpacevimBindPlug('map', 'jl', 'move-to-line', '(easymotion-bd-jk)')
+call SpacevimBindPlug('nmap', 'jl', 'move-to-line', '(easymotion-overwin-line)')
+call SpacevimBindPlug('map', 'jw', 'move-to-word', '(easymotion-bd-w)')
+call SpacevimBindPlug('nmap', 'jw', 'move-to-word', '(easymotion-overwin-w)')
+call SpacevimBindPlug('map', 'j.', 'repeat', '(easymotion-repeat)')
 "}}}
 
 " zoom {{{
