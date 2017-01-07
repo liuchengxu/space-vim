@@ -45,6 +45,4 @@ call Source(g:spacevim_dir . g:spacevim_core_dir . '/core_config.vim')
 
 call LayersBegin()
 
-Plug 'hecal3/vim-leader-guide'
-
 call LayersEnd()
