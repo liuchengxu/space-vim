@@ -1,6 +1,3 @@
-" Reload .vimrc
-nnoremap <Leader>fR :source $MYVIMRC<CR>
-
 " Use Tab to switch buffer
 nnoremap <Tab> :bn<CR>
 
@@ -12,16 +9,36 @@ imap   <M-Tab>  <C-O>:tabprev<CR>
 
 " <Leader>w[1-9] move to window [1-9]
 for i in range(1, 9)
-    execute 'nnoremap <Leader>' . i . ' :' . i . 'wincmd w<CR>'
-    call SpacevimBind('nmap', 'swtich-to-window-' . i, i . 'wincmd w<CR>', 1)
+    call SpacevimBind('map', i, 'window-' . i, i . 'wincmd w', 1)
 endfor
 
 " Startify
-nnoremap <silent><Leader>bh :Startify<CR>
+call SpacevimBind('map', 'bh', 'startify', 'Startify', 1)
+
+" easy-motion{{{
+" Default key bindings:
+" <Leader><Leader>w : word
+" <Leader><Leader>b : back
+" <Leader><Leader>s : search
+" <leader><Leader>f : forward
+" <Leader><Leader>j
+" <Leader><Leader>k
+
+" Consistent with spacemacs
+" <Leader>f{char} to move to {char}
+call SpacevimBindPlug('map', 'jj', 'move-to-{char}', '(easymotion-s)')
+call SpacevimBindPlug('nmap', 'jj', 'move-to-{char}', '(easymotion-overwin-f)')
+call SpacevimBindPlug('nmap', 'jJ', 'move-to-{char}{char}', '(easymotion-overwin-f2)')
+call SpacevimBindPlug('map', 'jl', 'move-to-line', '(easymotion-bd-jk)')
+call SpacevimBindPlug('nmap', 'jl', 'move-to-line', '(easymotion-overwin-line)')
+call SpacevimBindPlug('map', 'jw', 'move-to-word', '(easymotion-bd-w)')
+call SpacevimBindPlug('nmap', 'jw', 'move-to-word', '(easymotion-overwin-w)')
+call SpacevimBindPlug('map', 'j.', 'repeat', '(easymotion-repeat)')
+"}}}
+
 
 " vim-better-whitespace
-nnoremap <Leader>xd :StripWhitespace<CR>
-call SpacevimBind('nmap', 'xd','strip-white-space')
+call SpacevimBind('nmap', 'xd','strip-white-space', 'StripWhitespace', 1)
 
 " nerdtree
 nnoremap <F4> :NERDTreeToggle<CR>

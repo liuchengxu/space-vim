@@ -45,6 +45,10 @@ function! SpacevimBind(map, binding, name, value, isCmd)
     endif
 
     if l:noremap !=# ''
+        if exists('g:spacevim_debug') && g:spacevim_debug !=# '0'
+            echom l:noremap . ' <silent> <SID>' . a:name . '# ' . l:value
+            echom a:map . ' <Leader>' . a:binding . ' <SID>' . a:name . '#'
+        endif
         execute l:noremap . ' <silent> <SID>' . a:name . '# ' . l:value
         execute a:map . ' <Leader>' . a:binding . ' <SID>' . a:name . '#'
     endif
@@ -124,10 +128,7 @@ call SpacevimBind('map', 'ww', 'other-window', 'wincmd w', 1)
 "call SpacevimBind('map', 'b7', 'buffer-7', 'buffer7', 1)
 "call SpacevimBind('map', 'b8', 'buffer-8', 'buffer8', 1)
 "call SpacevimBind('map', 'b9', 'buffer-9', 'buffer9', 1)
-call SpacevimBind('map', 'bb', 'buffers', 'call SpacevimBuffers()', 1)
-call SpacevimBind('map', 'b?', 'buffers', 'call SpacevimBuffers()', 1)
 call SpacevimBind('map', 'bd', 'kill-this-buffer', 'call SpacevimKillBuffer()', 1)
-call SpacevimBind('map', 'bh', 'startify', 'Startify', 1)
 call SpacevimBind('map', 'bK', 'kill-other-buffers', 'call SpacevimKillOtherBuffers()', 1)
 call SpacevimBind('map', 'bn', 'next-useful-buffer', 'bnext', 1)
 call SpacevimBind('map', 'bp', 'previous-useful-buffer', 'bprevious', 1)
@@ -146,9 +147,8 @@ call SpacevimBind('map', 'fc', 'copy-file', 'saveas', 1)
 " files/convert {{{
 call SpacevimBind('map', 'fD', 'delete-current-buffer-file', 'Remove', 1)
 call SpacevimBind('map', 'fE', 'sudo-edit', 'call feedkeys(":SudoEdit ")', 1)
-call SpacevimBind('map', 'ff', 'find-files', 'call SpacevimFindFiles()', 1)
+"call SpacevimBind('map', 'ff', 'find-files', 'call SpacevimFindFiles()', 1)
 call SpacevimBind('map', 'fL', 'locate', 'call feedkeys(":Locate ")', 1)
-call SpacevimBind('map', 'fr', 'recentf', 'call SpacevimRecentf()', 1)
 call SpacevimBind('map', 'fR', 'rename-current-buffer-file', 'call feedkeys(":Rename ")', 1)
 call SpacevimBind('map', 'fs', 'save-buffer', 'write', 1)
 call SpacevimBind('map', 'fS', 'write-all', 'wall', 1)
@@ -270,28 +270,6 @@ if LayerLoaded('core/search-symbol')
     call SpacevimBind('vmap', 'sP', 'smart-search-with-input', 'call SpacevimSmartSearchWithInput(1)', 1)
 endif
 " }}}
-
-" move/motion {{{
-" easy-motion
-" Default key bindings:
-" <Leader><Leader>w : word
-" <Leader><Leader>b : back
-" <Leader><Leader>s : search
-" <leader><Leader>f : forward
-" <Leader><Leader>j
-" <Leader><Leader>k
-
-" Consistent with spacemacs
-" <Leader>f{char} to move to {char}
-call SpacevimBindPlug('map', 'jj', 'move-to-{char}', '(easymotion-s)')
-call SpacevimBindPlug('nmap', 'jj', 'move-to-{char}', '(easymotion-overwin-f)')
-call SpacevimBindPlug('nmap', 'jJ', 'move-to-{char}{char}', '(easymotion-overwin-f2)')
-call SpacevimBindPlug('map', 'jl', 'move-to-line', '(easymotion-bd-jk)')
-call SpacevimBindPlug('nmap', 'jl', 'move-to-line', '(easymotion-overwin-line)')
-call SpacevimBindPlug('map', 'jw', 'move-to-word', '(easymotion-bd-w)')
-call SpacevimBindPlug('nmap', 'jw', 'move-to-word', '(easymotion-overwin-w)')
-call SpacevimBindPlug('map', 'j.', 'repeat', '(easymotion-repeat)')
-"}}}
 
 " zoom {{{
 if LayerLoaded('core/zoom')

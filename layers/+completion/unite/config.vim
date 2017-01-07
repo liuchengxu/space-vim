@@ -39,7 +39,6 @@ if LayerLoaded('unite')
             let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
         endif
 
-        nnoremap <Leader>fr :CtrlPMRU<CR>
         let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
     endif
     " }

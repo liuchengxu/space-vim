@@ -1,11 +1,4 @@
 if LayerLoaded('goyo')
-    " goyo.vim
-    if IsDir('goyo.vim')
-        nmap <Leader>ty :Goyo<CR>
-    endif
-endif
-
-
 " Limelight settings
     " Color name (:help cterm-colors) or ANSI code
     let g:limelight_conceal_ctermfg = 238
@@ -16,8 +9,10 @@ endif
     " Default: 0.5
     let g:limelight_default_coefficient = 0.9
 
-"Goyo.vim & Limelight.vim integration
-augroup SPACEVIM_GOYO
-    autocmd! User GoyoEnter Limelight
-    autocmd! User GoyoLeave Limelight!
-augroup END
+    "Goyo.vim & Limelight.vim integration
+    augroup SPACEVIM_GOYO
+        autocmd! User GoyoEnter Limelight
+        autocmd! User GoyoLeave Limelight!
+    augroup END
+endif
+

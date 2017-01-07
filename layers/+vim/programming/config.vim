@@ -115,7 +115,6 @@ if LayerLoaded('programming')
         let g:tagbar_autofocus = 1
         nnoremap <F6> :TagbarToggle<CR>
         inoremap <F6> <ESC>:TagbarToggle<CR>
-        nnoremap <Leader>tt :TagbarToggle<CR>
         let g:tagbar_sort = 0
     endif
     " }
@@ -147,10 +146,6 @@ if LayerLoaded('programming')
     " nerdcommenter {
     if IsDir('nerdcommenter')
         let g:NERDSpaceDelims=1
-
-        nmap <Leader>;; <Plug>NERDCommenterToggle
-        omap <Leader>;; <Plug>NERDCommenterToggle
-        vmap <Leader>;; <Plug>NERDCommenterToggle
     endif
     " }
 
@@ -171,7 +166,6 @@ if LayerLoaded('programming')
         let g:indent_guides_auto_colors = 0
         autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=237
         autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=239
-        nnoremap <Leader>ti :IndentGuidesToggle<CR>
     endif
     " }
 

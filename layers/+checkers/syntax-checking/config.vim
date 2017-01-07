@@ -46,7 +46,6 @@ if LayerLoaded('syntax-checking')
         let g:syntastic_warning_symbol='✴'
         let g:syntastic_aggregate_errors=1
 
-        nnoremap <Leader>ts :SyntasticToggleMode<CR>
     endif
 
 endif

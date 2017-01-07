@@ -24,8 +24,7 @@ augroup SPACEVIM_BASIC
     endfunction
 augroup END
 
-"silent! color space-vim-dark
-silent! color gruvbox
+silent! color space-vim-dark
 
 " vim-better-whitespace {
 if IsDir('vim-better-whitespace')
@@ -413,4 +412,4 @@ endfunction
 set statusline=%!MyStatusLine()
 endif
 
-execute 'source' fnamemodify(expand('<sfile>'), ':h') . '/keybindings.vim'
+"execute 'source' fnamemodify(expand('<sfile>'), ':h') . '/keybindings.vim'

@@ -400,6 +400,8 @@ function! s:load_private_keybindings()
     let l:private_keybindings = g:spacevim_dir . '/private/keybindings.vim'
     if filereadable(expand(l:private_keybindings))
         execute 'source ' . fnameescape(l:private_keybindings)
+    endif
+endfunction
 
 function! s:post_user_config()
     " airline
