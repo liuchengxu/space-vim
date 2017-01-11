@@ -281,23 +281,18 @@ function! LayersEnd()
 
     if s:check_dot_spacevim()
 
-        try
-            call Layers()
-        catch
-            echom '[space-vim] The function Layers() does not exist, please add it to .spacevim.'
-        endtry
+        call Layers()
 
         call s:load_layer_packages()
         call s:load_private_packages()
 
         call s:filter_and_invoke_plug()
 
-        try
-            call UserInit()
-        catch
-            echom '[space-vim] The function UserInit() does not exist, please add it to .spacevim.'
-        endtry
+        call UserInit()
 
+        """""""""""""""""""""""""""""""""""""""
+        " Plug ends.
+        """""""""""""""""""""""""""""""""""""""
         call plug#end()
 
         if exists('g:spacevim_leader')
@@ -318,11 +313,7 @@ function! LayersEnd()
         call s:load_layer_config()
         call s:load_private_config()
 
-        try
-            call UserConfig()
-        catch
-            echom '[space-vim] The function UserConfig() does not exist, please add it to .spacevim.'
-        endtry
+        call UserConfig()
 
         call s:post_user_config()
     endif
@@ -383,6 +374,23 @@ function! s:load_private_config()
     endif
 endfunction
 
+function! s:statusline_hi()
+    " default bg for statusline is 236 in space-vim-dark
+    hi win_num     cterm=bold ctermfg=232 ctermbg=179 gui=bold guifg=#080808 guibg=#d7af5f
+    hi ale_error   cterm=None ctermfg=197 ctermbg=237 gui=None guifg=#e0211d guibg=#3a3a3a
+    hi ale_warning cterm=None ctermfg=214 ctermbg=237 gui=None guifg=#dc752f guibg=#3a3a3a
+
+    hi User1 cterm=bold ctermfg=232 ctermbg=179 gui=bold guifg=#080808 guibg=#d7af5f
+    hi User2 cterm=None ctermfg=214 ctermbg=242 gui=None guifg=#ffaf00 guibg=#666666
+    hi User3 cterm=None ctermfg=251 ctermbg=240 gui=None guifg=#c6c6c6 guibg=#585858
+    hi User4 cterm=None ctermfg=177 ctermbg=239 gui=None guifg=#d787ff guibg=#4e4e4e
+    hi User5 cterm=None ctermfg=208 ctermbg=237 gui=None guifg=#ff8700 guibg=#3a3a3a
+    hi User6 cterm=None ctermfg=178 ctermbg=237 gui=None guifg=#d7af00 guibg=#3a3a3a
+    hi User7 cterm=None ctermfg=250 ctermbg=238 gui=None guifg=#bcbcbc guibg=#444444
+    hi User8 cterm=None ctermfg=249 ctermbg=239 gui=None guifg=#b2b2b2 guibg=#4e4e4e
+    hi User9 cterm=None ctermfg=249 ctermbg=241 gui=None guifg=#b2b2b2 guibg=#606060
+endfunction
+
 function! s:post_user_config()
     " airline
     if !exists('g:airline_powerline_fonts')
@@ -398,4 +406,14 @@ function! s:post_user_config()
         let g:airline_symbols.paste = 'Þ'
         let g:airline_symbols.whitespace = 'Ξ'
     endif
+
+    " User-defined highlightings shoule be put after colorscheme command.
+    call s:statusline_hi()
+
+    " https://github.com/junegunn/vim-plug/issues/574
+    if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+        echom '[space-vim]Some layers need to install the missing plugins first!'
+        autocmd VimEnter * PlugInstall --sync | source $MYVIMRC | q
+    endif
+
 endfunction

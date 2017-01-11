@@ -1,6 +1,8 @@
 MP 'luochen1990/rainbow'
 MP 'editorconfig/editorconfig-vim'
 
+MP 'Raimondi/delimitMate', { 'on': [] }
+
 MP 'matze/vim-move', { 'on': [ 
             \   '<Plug>MoveBlockDown',
             \   '<Plug>MoveBlockUp',
@@ -16,7 +18,7 @@ MP 'SirVer/ultisnips', { 'on': [] } | MP 'honza/vim-snippets', { 'on': [] }
 
 augroup load_snips
     autocmd!
-    autocmd InsertEnter * call plug#load('ultisnips', 'vim-snippets')
+    autocmd InsertEnter * call plug#load('ultisnips', 'vim-snippets', 'delimitMate')
                 \| autocmd! load_snips
 augroup END
 

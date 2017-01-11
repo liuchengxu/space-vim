@@ -3,17 +3,23 @@ function! BuildYCM(info)
     " - name:   name of the plugin
     " - status: 'installed', 'updated', or 'unchanged'
     " - force:  set on PlugInstall! or PlugUpdate!
-    if a:info.status == 'installed' || a:info.force
+    if a:info.status ==# 'installed' || a:info.force
         !./install.py --clang-completer
     endif
 endfunction
 
-" Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
-
 MP 'Valloric/YouCompleteMe', { 'do': function('BuildYCM'), 'on': [] }
 
-augroup load_ycm
+" Load YCM for specific filetypes
+function! s:invoke_ycm()
+    let l:supported = ['c', 'cpp', 'python', 'vim', 'js', 'go', 'sh']
+    let l:cur_ft = &filetype
+    if index(l:supported, l:cur_ft) > -1
+        call plug#load('YouCompleteMe')
+    endif
+endfunction
+
+augroup LOAD_YCM
     autocmd!
-    autocmd InsertEnter * call plug#load('YouCompleteMe')
-                \| autocmd! load_ycm
+    autocmd InsertEnter * call s:invoke_ycm()
 augroup END

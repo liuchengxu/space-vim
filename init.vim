@@ -45,4 +45,6 @@ call Source(g:spacevim_dir . g:spacevim_core_dir . '/core_config.vim')
 
 call LayersBegin()
 
+Layer 'spacevim'
+
 call LayersEnd()

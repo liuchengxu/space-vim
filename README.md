@@ -72,7 +72,7 @@ If you have been a vimmer for quite a while, just pick out the part you are inte
 
 You have to satisfy some prerequisites at first: vim with `+python` or `+python3` feature, git.
 
-:exclamation: When layers enabled at the first time, you need to run `:PlugInstall` to install relevant plugins.
+:exclamation: ~~When layers enabled at the first time, you need to run `:PlugInstall` to install relevant plugins~~.
 
 ### Linux and macOS
 
@@ -88,13 +88,10 @@ You have to satisfy some prerequisites at first: vim with `+python` or `+python3
     sh -c "$(wget -qO- https://raw.githubusercontent.com/liuchengxu/space-vim/master/install.sh)"
     ```
 
-    :warning: For neovim, after the quick installer is done, you still need to create some symlinks:
+    :warning: For neovim, after the quick installer is done, you still need to create a symlink:
 
     ```sh
     ln -s ~/.space-vim/init.vim ~/.config/nvim/init.vim
-
-    mkdir ~/.config/nvim/autoload
-    ln -s ~/.vim/autoload/plug.vim ~/.config/nvim/autoload/plug.vim
     ```
 
 ### Windows
@@ -119,9 +116,6 @@ Not tested now.
 
     # for neovim
     ln -s ~/.space-vim/init.vim ~/.config/nvim/init.vim
-
-    mkdir ~/.config/nvim/autoload
-    ln -s ~/.vim/autoload/plug.vim ~/.config/nvim/autoload/plug.vim
     ```
 
 4. set up plugins
@@ -149,28 +143,29 @@ function! Layers()
 
 endfunction
 
-" Put your private plugins here.
+" Put your private plugins here, e.g., change the colorscheme.
 function! UserInit()
 
     " Space has been set as the default leader key,
-    " if you want to change it, uncomment and set it here.
-    " let g:spacevim_leader = "<\Space>"
-    " let g:spacevim_localleader = ','
+    " Comma has been set at the default localleader key.
+    " If you want to change it, uncomment and set it here.
+    " let g:spacevim_leader = "your leader key"
+    " let g:spacevim_localleader = 'your localleader key'
 
     " Install private plugins
-    " Plug 'extr0py/oni'
+    Plug 'morhetz/gruvbox'
 
 endfunction
 
-" Put your costom configurations here, e.g., change the colorscheme.
+" Override the existing configurations and add extras here.
 function! UserConfig()
 
-    " color desert
+    " color gruvbox
 
 endfunction
 ```
 
-If have a heavy customized configuration, you can organize them in private directory with `packages.vim` and `config.vim` too, which will be loaded on startup.
+If have a heavy customized configuration, you can organize them in **private** directory with `packages.vim` and `config.vim` too, which will be loaded on startup. The **private** directory can be considered as either a single layer, i.e., in which you can put packages.vim and config.vim, or a set of multiple layers.  
 
 ## How to use
 
@@ -232,9 +227,6 @@ I would like to thank the many people who have helped and contributed to this pr
 
 ```sh
 ln -s ~/.space-vim/init.vim ~/.config/nvim/init.vim
-
-mkdir ~/.config/nvim/autoload
-ln -s ~/.vim/autoload/plug.vim ~/.config/nvim/autoload/plug.vim
 ```
 
 ### 快速安装

@@ -2,22 +2,18 @@
     " Plug 'ybian/smartim'
 " endif
 
+MP 'tpope/vim-rsi'
+
 MP 'mhinz/vim-startify'
 
 MP 'tpope/vim-surround'
 
-MP 'Raimondi/delimitMate'
-
 MP 'itchyny/vim-cursorword'
-
-MP 'liuchengxu/space-vim-dark'
 
 MP 'easymotion/vim-easymotion'
 MP 'haya14busa/incsearch-easymotion.vim'
 
 MP 'terryma/vim-multiple-cursors'
-
-MP 'liuchengxu/vim-better-default'
 
 MP 'danro/rename.vim',               { 'on' : 'Rename' }
 

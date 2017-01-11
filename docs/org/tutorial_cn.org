@@ -381,7 +381,7 @@
    下面是我一般会启用的 layer, 其中 =airline= 我已经默认不启用了, 因为可能会它可能会导致 100 ms 的启动延迟, 默认的 statusline 已经够用了, 我会在接下来介绍它。
 
     #+BEGIN_SRC vimrc
-    function! UserInit()
+    function! Layers()
 
         Layer 'emoji'
         Layer 'goyo'

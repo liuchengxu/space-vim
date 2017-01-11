@@ -175,4 +175,10 @@ if LayerLoaded('programming')
     endif
     " }
 
+    " delimitMate {
+    if IsDir('delimitMate')
+        let g:delimitMate_expand_cr=1
+    endif
+    " }
+
 endif
