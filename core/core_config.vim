@@ -73,17 +73,24 @@ function! s:warn(cmd, msg)
     echohl None
 endfunction
 
+function! s:check_vim_plug(plug_path)
+    if empty(glob(a:plug_path))
+        echo '==> Downloading vim-plug ......'
+        execute '!curl -fLo ' . a:plug_path . ' --create-dirs ' . 
+                    \   'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    endif
+endfunction
+
 function! LayersBegin()
 
+    let l:vim_plug_path = '~/.vim/autoload/plug.vim'
+    let l:nvim_plug_path = '~/.local/share/nvim/site/autoload/plug.vim'
+
     " Download vim-plug if unavailable
-    if g:spacevim_nvim && empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
-        echo '==> Downloading vim-plug ......'
-	execute '!curl -sSfLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
-		    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-    elseif empty(glob('~/.vim/autoload/plug.vim'))
-        echo '==> Downloading vim-plug ......'
-        execute '!curl -fLo ~/.vim/autoload/plug.vim
-                    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    if g:spacevim_nvim
+        call s:check_vim_plug(l:nvim_plug_path)
+    else
+        call s:check_vim_plug(l:vim_plug_path)
     endif
 
     let s:vim_home = $HOME.'/.vim/'
