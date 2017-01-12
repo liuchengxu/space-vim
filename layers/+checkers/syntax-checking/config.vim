@@ -25,12 +25,9 @@ if LayerLoaded('syntax-checking')
         let g:ale_statusline_format = ['E•%d', 'W•%d', 'OK']
         " For a more fancy ale statusline
         function! ALEGetError()
-            if !exists('g:loaded_ale')
-                return ''
-            endif
             let l:res = ale#statusline#Status()
             if l:res ==# 'OK'
-                let l:res = ''
+                return ''
             else
                 let l:e_w = split(l:res)
                 if len(l:e_w) == 2 || match(l:e_w, 'E') > -1
@@ -39,12 +36,9 @@ if LayerLoaded('syntax-checking')
             endif
         endfunction
         function! ALEGetWarning()
-            if !exists('g:loaded_ale')
-                return ''
-            endif
             let l:res = ale#statusline#Status()
             if l:res ==# 'OK'
-                let l:res = ''
+                return ''
             else
                 let l:e_w = split(l:res)
                 if len(l:e_w) == 2

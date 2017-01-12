@@ -128,6 +128,20 @@ if LayerLoaded('spacevim')
             endif
         endfunction
 
+        function! S_ale_error()
+            if !exists('g:loaded_ale')
+                return ''
+            endif
+            return !empty(ALEGetError())?ALEGetError():''
+        endfunction
+
+        function! S_ale_warning()
+            if !exists('g:loaded_ale')
+                return ''
+            endif
+            return !empty(ALEGetWarning())?ALEGetWarning():''
+        endfunction
+
         function! S_fugitive()
             if !exists('g:loaded_fugitive')
                 return ''
@@ -146,8 +160,8 @@ if LayerLoaded('spacevim')
             let l:tot = '%2*[TOT:%{S_buf_total_num()}]%*'
             let l:fs = '%3* %{S_file_size(@%)} %*'
             let l:fp = '%4* %{S_full_path()} %*'
-            let l:ale_e = "%#ale_error#%{!empty(ALEGetError())?ALEGetError():''}%*"
-            let l:ale_w = "%#ale_warning#%{!empty(ALEGetWarning())?ALEGetWarning():''}%*"
+            let l:ale_e = '%#ale_error#%{S_ale_error()}%*'
+            let l:ale_w = '%#ale_warning#%{S_ale_warning()}%*'
             let l:git = '%6*%{S_fugitive()}%*'
             let l:m_r_f = '%7* %m%r%y %*'
             let l:ff = '%8* %{&ff} |'
