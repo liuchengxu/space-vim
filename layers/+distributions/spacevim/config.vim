@@ -120,7 +120,21 @@ if LayerLoaded('spacevim')
             endif
         endfunction
 
-        let s:job_status = {}
+        function! S_full_path()
+            if &filetype ==# 'startify'
+                return ''
+            else
+                return expand('%:p:t')
+            endif
+        endfunction
+
+        function! S_fugitive()
+            if !exists('g:loaded_fugitive')
+                return ''
+            endif
+            let l:head = fugitive#head()
+            return empty(l:head) ? '' : ' ⎇ '.l:head . ' '
+        endfunction
 
         function! MyStatusLine()
 
@@ -131,17 +145,18 @@ if LayerLoaded('spacevim')
             endif
             let l:tot = '%2*[TOT:%{S_buf_total_num()}]%*'
             let l:fs = '%3* %{S_file_size(@%)} %*'
-            let l:fp = '%4* %F %*'
-            let l:ale_e = "%#ale_error# %{exists('g:loaded_ale')&&!empty(ALEGetError())?ALEGetError():''}%*"
-            let l:ale_w = "%#ale_warning# %{exists('g:loaded_ale')&&!empty(ALEGetWarning())?ALEGetWarning():''}%*"
-            let l:git = "%6*%{exists('g:loaded_fugitive')?fugitive#statusline():''}%*"
+            let l:fp = '%4* %{S_full_path()} %*'
+            let l:ale_e = "%#ale_error#%{!empty(ALEGetError())?ALEGetError():''}%*"
+            let l:ale_w = "%#ale_warning#%{!empty(ALEGetWarning())?ALEGetWarning():''}%*"
+            let l:git = '%6*%{S_fugitive()}%*'
             let l:m_r_f = '%7* %m%r%y %*'
             let l:ff = '%8* %{&ff} |'
             let l:enc = " %{''.(&fenc!=''?&fenc:&enc).''} | %{(&bomb?\",BOM\":\"\")}"
-            let l:pos = '%-10.(%l:%c%V%)%*'
+            let l:pos = '%l:%c%V %*'
             let l:pct = '%9* %P %*'
 
-            return l:buf_num.l:tot.'%<'.l:fs.l:fp.l:git.l:ale_e.l:ale_w.'%='.l:m_r_f.l:ff.l:enc.l:pos.l:pct
+            return l:buf_num.l:tot.'%<'.l:fs.l:fp.l:git.l:ale_e.l:ale_w.
+                        \   '%='.l:m_r_f.l:ff.l:enc.l:pos.l:pct
         endfunction
         " See the statusline highlightings in s:post_user_config() of core/core_config.vim
 
