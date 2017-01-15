@@ -6,5 +6,5 @@ before_install:
 - pip install --user vim-vint
 
 script:
-- vint init.vim layers/*.vim core/*.vim
+# - vint init.vim layers/*.vim core/*.vim
 - shellcheck *.sh

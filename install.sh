@@ -18,7 +18,8 @@ msg() {
 }
 
 success() {
-    if [ "$ret" -eq '0' ]; then
+    if [ "$ret" -eq '0' ];
+    then
         msg "\33[32m[✔]\33[0m ${1}${2}"
     fi
 }
@@ -29,7 +30,8 @@ error() {
 }
 
 debug() {
-    if [ "$debug_mode" -eq '1' ] && [ "$ret" -gt '1' ]; then
+    if [ "$debug_mode" -eq '1' ] && [ "$ret" -gt '1' ];
+    then
         msg "An error occurred in function \"${FUNCNAME[$i+1]}\" on line ${BASH_LINENO[$i+1]}, we're sorry for that."
     fi
 }
@@ -40,10 +42,11 @@ exists() {
 
 program_exists() {
     local ret='0'
-    exists $1 || { local ret='1'; }
+    exists "$1" || { local ret='1'; }
 
     # fail on non-zero return value
-    if [ "$ret" -ne 0 ]; then
+    if [ "$ret" -ne 0 ];
+    then
         return 1
     fi
 
@@ -51,16 +54,17 @@ program_exists() {
 }
 
 program_must_exist() {
-    program_exists $1
 
     # throw error on non-zero return value
-    if [ "$?" -ne 0 ]; then
+    if ! program_exists "$1";
+    then
         error "You must have '$1' installed to continue."
     fi
 }
 
 lnif() {
-    if [ -e "$1" ]; then
+    if [ -e "$1" ];
+    then
         ln -sf "$1" "$2"
     fi
     ret="$?"
@@ -69,9 +73,10 @@ lnif() {
 
 ########## Setup function
 backup() {
-    if [ -e "$1" ]; then
+    if [ -e "$1" ];
+    then
         msg "Attempting to back up your original vim configuration."
-        today=`date +%Y%m%d_%s`
+        today=$(date +%Y%m%d_%s)
         mv -v "$1" "$1.$today"
 
         ret="$?"
@@ -86,7 +91,8 @@ sync_repo() {
     local repo_branch="$3"
     local repo_name="$4"
 
-    if [ ! -e "$repo_path" ]; then
+    if [ ! -e "$repo_path" ];
+    then
         msg "\033[1;34m==>\033[0m Trying to clone $repo_name"
         mkdir -p "$repo_path"
         git clone -b "$repo_branch" "$repo_uri" "$repo_path"
@@ -115,9 +121,8 @@ create_symlinks() {
 }
 
 sync_vim_plug() {
-    local vim_plug_path="$1"
-    local vim_plug_url="$2"
-    if [ ! -f "$VIM_PLUG_PATH/plug.vim" ]; then
+    if [ ! -f "$VIM_PLUG_PATH/plug.vim" ];
+    then
         curl -fLo "$1/plug.vim" --create-dirs "$2"
     fi
 
@@ -141,8 +146,9 @@ setup_vim_plug(){
 }
 
 generate_dot_spacevim(){
-    if [ ! -f $dot_spacevim ]; then
-        touch $dot_spacevim
+    if [ ! -f "$dot_spacevim" ];
+    then
+        touch "$dot_spacevim"
         (
         cat <<DOTSPACEVIM
 " You can enable the existing layers in space-vim and
@@ -179,7 +185,7 @@ function! UserConfig()
 
 endfunction
 DOTSPACEVIM
-) >$dot_spacevim
+) >"$dot_spacevim"
 
     fi
 }
