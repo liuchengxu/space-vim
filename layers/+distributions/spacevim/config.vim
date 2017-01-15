@@ -150,6 +150,29 @@ if LayerLoaded('spacevim')
             return empty(l:head) ? '' : ' ⎇ '.l:head . ' '
         endfunction
 
+        let s:job_status = {}
+        function! S_git_status()
+            if g:spacevim_vim8
+                if !exists('g:loaded_fugitive')
+                    return ''
+                endif
+                let l:roots = values(s:job_status)
+                let l:root = fugitive#head()
+                if index(roots, root) >= 0
+                    return ''
+                endif
+                let job_id = jobstart(['git-status'], {
+                    \ 'cwd': root,
+                    \ 'on_stdout': function('s:JobHandler', [root]),
+                    \ 'on_stderr': function('s:JobHandler', [root]),
+                    \ 'on_exit': function('s:JobHandler', [root])
+                    \})
+                if job_id == 0 || job_id == -1 | return '' | endif
+                let s:job_status[job_id] = root
+                return ''
+            endif
+        endfunction
+
         function! MyStatusLine()
 
             if g:spacevim_gui_running

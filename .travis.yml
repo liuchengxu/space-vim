@@ -1,0 +1,10 @@
+sudo: required
+dist: trusty
+
+before_install:
+- apt-get install shellcheck
+- pip install --user vim-vint
+
+script:
+- vint init.vim layers/*.vim core/*.vim
+- shellcheck *.sh

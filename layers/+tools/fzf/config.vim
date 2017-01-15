@@ -22,6 +22,7 @@ if LayerLoaded('fzf')
             xmap <Leader>? <plug>(fzf-maps-x)
             omap <Leader>? <plug>(fzf-maps-o)
 
+            nnoremap <Leader>ag :Ag<CR>
             nnoremap <Leader>bb :Buffers<CR>
 
             nnoremap <Leader>b? :Buffers<CR>
