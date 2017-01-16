@@ -16,6 +16,9 @@ for i in range(1, 9)
     execute 'nnoremap <Leader>' . i . ' :' . i . 'wincmd w<CR>'
 endfor
 
+map y <Plug>(operator-flashy)
+nmap Y <Plug>(operator-flashy)$
+
 " Startify
 nnoremap <silent><Leader>bh :Startify<CR>
 

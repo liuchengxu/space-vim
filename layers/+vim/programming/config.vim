@@ -79,7 +79,7 @@ if LayerLoaded('programming')
     if IsDir('rainbow')
         let g:rainbow_active = 1
         let g:rainbow_conf = {
-                    \   'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
+                    \   'guifgs': [ '#8FBC8F', '#48D1CC', '#DEB887', '#FFA07A', 'seagreen3', '#66CDAA', '#FFB6C1'],
                     \   'ctermfgs': ['98', '133', '140', '169'],
                     \   'operators': '_,_',
                     \   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
@@ -89,7 +89,7 @@ if LayerLoaded('programming')
                     \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
                     \       },
                     \       'lisp': {
-                    \           'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
+                    \           'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', '#FF69B4', '#DDA0DD', '#F08080', '#FF8C00', '#20B2AA'],
                     \       },
                     \       'vim': {
                     \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],

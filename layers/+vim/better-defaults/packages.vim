@@ -15,6 +15,9 @@ MP 'haya14busa/incsearch-easymotion.vim'
 
 MP 'terryma/vim-multiple-cursors'
 
+MP 'kana/vim-operator-user',         { 'on': '<Plug>(operator-flashy)' }
+MP 'haya14busa/vim-operator-flashy', { 'on': '<Plug>(operator-flashy)' }
+
 MP 'danro/rename.vim',               { 'on' : 'Rename' }
 
 MP 'ntpeters/vim-better-whitespace', { 'on': 'StripWhitespace' }

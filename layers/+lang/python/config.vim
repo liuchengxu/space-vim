@@ -53,12 +53,12 @@ if LayerLoaded('python')
         " Enhanced python highlighting
         hi pythonLambdaExpr      ctermfg=105 guifg=#8787ff
         hi pythonInclude         ctermfg=68  guifg=#5f87d7 cterm=bold gui=bold
-        hi pythonClass           ctermfg=167 guifg=#d75f5f
-        hi pythonParameters      ctermfg=147 guifg=#afafff
-        hi pythonParam           ctermfg=175 guifg=#d787af
+        hi pythonClass           ctermfg=167 guifg=#FF62B0
+        hi pythonParameters      ctermfg=147 guifg=#AAAAFF
+        hi pythonParam           ctermfg=175 guifg=#E37795
         hi pythonBrackets        ctermfg=183 guifg=#d7afff
-        hi pythonClassParameters ctermfg=111 guifg=#87afff
-        hi pythonSelf            ctermfg=174 guifg=#d7afaf
+        hi pythonClassParameters ctermfg=111 guifg=#FF5353
+        hi pythonSelf            ctermfg=174 guifg=#4A9586
 
         hi pythonDottedName      ctermfg=74  guifg=#5fafd7
 
@@ -66,9 +66,9 @@ if LayerLoaded('python')
         hi pythonIndentError     ctermfg=197 guifg=#ff005f
         hi pythonSpaceError      ctermfg=198 guifg=#ff0087
 
-        hi pythonBuiltinType     ctermfg=74  guifg=#5fafd7
+        hi pythonBuiltinType     ctermfg=74  guifg=#9191FF
         hi pythonBuiltinObj      ctermfg=71  guifg=#5faf5f
-        hi pythonBuiltinFunc     ctermfg=140 guifg=#af87d7
+        hi pythonBuiltinFunc     ctermfg=140 guifg=#CB59E8
     endif
 
 endif

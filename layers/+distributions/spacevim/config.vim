@@ -176,9 +176,9 @@ if LayerLoaded('spacevim')
         function! MyStatusLine()
 
             if g:spacevim_gui_running
-                let l:buf_num = '%1* [B-%n] %*%#win_num#[W-%{winnr()}] %*'
+                let l:buf_num = '%1* [B-%n] [W-%{winnr()}] %*'
             else
-                let l:buf_num = '%1* %{S_buf_num()} %*%#win_num#❖ %{winnr()} %*'
+                let l:buf_num = '%1* %{S_buf_num()} ❖ %{winnr()} %*'
             endif
             let l:tot = '%2*[TOT:%{S_buf_total_num()}]%*'
             let l:fs = '%3* %{S_file_size(@%)} %*'

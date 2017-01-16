@@ -52,7 +52,9 @@ The distribution is completely customizable using `.spacevim`, which is equivale
 
 - **Beautiful interface:** I have also written a vim colorscheme [space-vim-dark](https://github.com/liuchengxu/space-vim-dark) based on spacemacs-dark theme.
 
-    As space-vim-dark is intended for Terminal vim and have not been optimized for GUI vim, I recommend you to try [spacemacs-theme.vim](https://github.com/colepeters/spacemacs-theme.vim), which looks nice in GUI vim.
+    You could also try [spacemacs-theme.vim](https://github.com/colepeters/spacemacs-theme.vim), which looks nice in GUI vim.
+
+    ![screenshot](https://github.com/liuchengxu/space-vim-dark/blob/screenshots/screenshot3.png?raw=true)
 
 - **Mnemonic key bindings:** commands have mnemonic prefixes like <kbd>SPC b</kbd> for all the buffer commands.
 
@@ -70,7 +72,7 @@ If you have been a vimmer for quite a while, just pick out the part you are inte
 
 ## Install
 
-You have to satisfy some prerequisites at first: vim with `+python` or `+python3` feature, git.
+You have to satisfy some prerequisites at first: vim with `+python` or `+python3` feature, git. The most recent vim version is recommended.
 
 :exclamation: ~~When layers enabled at the first time, you need to run `:PlugInstall` to install relevant plugins~~.
 
@@ -163,6 +165,16 @@ function! UserConfig()
     " color gruvbox
 
 endfunction
+```
+
+If you want to use GUI color in terminal vim, add this to `UserConfig()`:
+
+```vim
+set termguicolors
+" If you use vim inside tmux, see https://github.com/vim/vim/issues/993
+" set Vim-specific sequences for RGB colors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 ```
 
 If have a heavy customized configuration, you can organize them in **private** directory with `packages.vim` and `config.vim` too, which will be loaded on startup. The **private** directory can be considered as either a single layer, i.e., in which you can put packages.vim and config.vim, or a set of multiple layers.  
