@@ -11,9 +11,14 @@ imap   <C-Tab>  <C-O>:tabnext<CR>
 map    <M-Tab>  :tabprev<CR>
 imap   <M-Tab>  <C-O>:tabprev<CR>
 
-" <Leader>w[1-9] move to window [1-9]
-for i in range(1, 9)
-    execute 'nnoremap <Leader>' . i . ' :' . i . 'wincmd w<CR>'
+" <Leader>[1-9] move to window [1-9]
+for s:i in range(1, 9)
+    execute 'nnoremap <Leader>' . s:i . ' :' . s:i . 'wincmd w<CR>'
+endfor
+
+" <Leader>b[1-9] move to buffer [1-9]
+for s:i in range(1, 9)
+    execute 'nnoremap <Leader>b' . s:i . ' :b' . s:i . '<CR>'
 endfor
 
 map y <Plug>(operator-flashy)

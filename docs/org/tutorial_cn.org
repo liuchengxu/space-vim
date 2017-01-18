@@ -1,6 +1,7 @@
 #+SETUPFILE: theme-readtheorg.setup
 #+AUTHOR: Liu-Cheng Xu
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="readtheorg.css"/>
+#+TITLE: Space-vim documentation
 
 * 前言
 ** 什么是 layer
@@ -239,7 +240,7 @@
 
 * 默认安装
 
-   默认启用了 3 个 layer:
+    =.spacevim= 默认启用了 3 个 layer:
 
     #+BEGIN_SRC vimrc
     Layer 'fzf'
@@ -252,11 +253,11 @@
     #+CAPTION: ~SPC ?~ key maps
     file:../img/maps.png
 
-    从图中可以看到键位映射，比如挑一个 =<Space>bp=, 后面跟着该快捷键对应的命令 =:bprevious<CR>=, 意为 buffer previous, 即跳转前一个 buffer. 后面还跟着定义该快捷键的文件, 来自 “vim-better-default/plugin/default.vim”。 不熟悉时，可以将快捷键都看一下。（图中可以看出我正在 tmux 中使用 vim, 如果不是，那么执行这个操作的窗口会比较大，不要惊讶。）
+    从图中可以看到键位映射，比如挑一个 =<Space> b p=, 后面跟着该快捷键对应的命令 =:bprevious<CR>=, 意为 buffer previous, 即跳转前一个 buffer. 后面还跟着定义该快捷键的文件, 来自 /vim-better-default/plugin/default.vim/。 不熟悉时，可以将快捷键都看一下。
 
-    ~SPC ?~ 实际映射的命令是 [[https://github.com/junegunn/fzf.vim][fzf.vim]] 的 ~:Maps~, 因此 fzf layer 实际是为了支持 unite layer. 不过其中安装的 [[https://github.com/junegunn/fzf][fzf]] 除了可在 vim 中，也可在 terminal 中使用。 
+    ~SPC ?~ 实际映射的命令是 [[https://github.com/junegunn/fzf.vim][fzf.vim]] 的 ~:Maps~, 因此 fzf layer 实际是为了支持 unite layer. 不过其中安装的 [[https://github.com/junegunn/fzf][fzf]] 除了可在 vim 中，也可在 terminal 中使用, 非常值得了解。 
 
-    更多内容请直接查看 layer 下的 README, config.vim 与 packages.vim.
+    更多内容请直接查看各 layer 下的 README, config.vim 与 packages.vim.
 
 ** better-defaults
 
@@ -269,57 +270,62 @@
 * 基础键位
 
 ** Basic
+    insert mode 与 command mode 的快捷键大都由 [[https://github.com/tpope/vim-rsi/blob/master/plugin/rsi.vim][rsi.vim]] 支持, ~:h rsi~ 查看其完整文档。 它是一种类似 Emacs 的键位绑定，这种设定在很多地方都是默认配置，比如 bash.
 
-    | Key Binding   | Mode      | Description                                                                 |
-    |---------------+-----------+-----------------------------------------------------------------------------|
-    | ~SPC q~       | Normal    | /q/ uit, 退出                                                               |
-    | ~SPC Q~       | Normal    | quit without saving, 不保存强制退出                                         |
-    | ~SPC d~       | Normal    | go /d/ own half page, 向下移动半屏                                          |
-    | ~SPC u~       | Normal    | go /u/ p half page, 向上移动半屏                                            |
-    | ~SPC s c~     | Normal    | /s/ earch result highlight /c/ ountermand, 取消搜索结果高亮                 |
-    | ~SPC t p~     | Normal    | /t/ oggle /p/ astemode, 粘贴模式开关                                        |
-    | ~Ctrl j~      | /Insert/  | /j/, 向下移动                                                               |
-    | ~Ctrl k~      | /Insert/  | /k/, 向上移动                                                               |
-    | ~Ctrl h~      | /Insert/  | /h/, 向左移动                                                               |
-    | ~Ctrl l~      | /Insert/  | /l/, 向右移动                                                               |
-    | ~jj~          | /Insert/  | ~\<Esc>~                                                                    |
-    | ~jk~          | /Insert/  | ~\<Esc>~                                                                    |
-    | ~kk~          | /Insert/  | ~\<Esc>~                                                                    |
-    | ~Ctrl h~      | /Command/ | <left>                                                                      |
-    | ~Ctrl j~      | /Command/ | <down>, next command, 下一条历史命令                                        |
-    | ~Ctrl k~      | /Command/ | <up>, previous command, 上一条历史命令                                      |
-    | ~Ctrl l~      | /Command/ | <right>                                                                     |
-    | ~Ctrl a~      | /Command/ | <home>, 行首                                                                |
-    | ~Ctrl e~      | /Command/ | <end>, 行尾                                                                 |
-    | ~Ctrl d~      | /Command/ | <delete>                                                                    |
-    | ~v~           | /Visual/  | ~<Esc>~                                                                    |
-    | ~U~           | Normal    | redo, 重做(对应  ~u~  为撤销，undo)                                         |
-    | ~H~           | Normal    | beginning of line, 光标跳转到行首                                           |
-    | ~L~           | Normal    | end of line, 光标跳转到行尾                                                 |
-    | ~Y~           | Normal    | yank from cursor to end of line, 从光标处复制到行尾                         |
-    | ~;~           | Normal    | ~:~, 快速进入 command mode                                                  |
-    | ~SPC f s~     | Normal    | /f/ ile /s/ ave, 保存文件                                                   |
-    | ~SPC f [1-9]~ | Normal    | /f/ old level, 设置折叠层次，f 0 相当于全部折叠, f 9 相当于取消折叠全部展开 |
+    | Key Binding   | Mode                | Description                                                                 |
+    |---------------+---------------------+-----------------------------------------------------------------------------|
+    | ~SPC q~       | Normal              | /q/ uit, 退出                                                               |
+    | ~SPC Q~       | Normal              | quit without saving, 不保存强制退出                                         |
+    | ~SPC d~       | Normal              | go /d/ own half page, 向下移动半屏                                          |
+    | ~SPC u~       | Normal              | go /u/ p half page, 向上移动半屏                                            |
+    | ~SPC s c~     | Normal              | /s/ earch result highlight /c/ ountermand, 取消搜索结果高亮                 |
+    | ~SPC t p~     | Normal              | /t/ oggle /p/ astemode, 粘贴模式开关                                        |
+    | ~U~           | Normal              | redo, 重做(对应  ~u~  为撤销，undo)                                         |
+    | ~H~           | Normal              | beginning of line, 光标跳转到行首                                           |
+    | ~L~           | Normal              | end of line, 光标跳转到行尾                                                 |
+    | ~Y~           | Normal              | yank from cursor to end of line, 从光标处复制到行尾                         |
+    | ~;~           | Normal              | ~:~, 快速进入 command mode                                                  |
+    | ~SPC f s~     | Normal              | /f/ ile /s/ ave, 保存文件                                                   |
+    | ~SPC f [1-9]~ | Normal              | /f/ old level, 设置折叠层次，f 0 相当于全部折叠, f 9 相当于取消折叠全部展开 |
+    | ~Ctrl j~      | /Insert/            | /j/, 向下移动                                                               |
+    | ~Ctrl k~      | /Insert/            | /k/, 向上移动                                                               |
+    | ~Ctrl h~      | /Insert/            | /h/, 向左移动                                                               |
+    | ~Ctrl l~      | /Insert/            | /l/, 向右移动                                                               |
+    | ~jj~          | /Insert/            | ~\<Esc>~                                                                    |
+    | ~jk~          | /Insert/            | ~\<Esc>~                                                                    |
+    | ~kk~          | /Insert/            | ~\<Esc>~                                                                    |
+    | ~Ctrl h~      | /Command/           | <left>                                                                      |
+    | ~Ctrl j~      | /Command/           | <down>, next command, 下一条历史命令                                        |
+    | ~Ctrl k~      | /Command/           | <up>, previous command, 上一条历史命令                                      |
+    | ~Ctrl l~      | /Command/           | <right>                                                                     |
+    | ~Ctrl a~      | /Insert/, /Command/ | <home>, 行首                                                                |
+    | ~Ctrl e~      | /Insert/, /Command/ | <end>, 行尾                                                                 |
+    | ~Ctrl d~      | /Insert/, /Command/ | <delete>, 删除                                                              |
+    | ~Ctrl g~      | /Command/           | <esc>, return to nomral mode from command mode                              |
+    | ~Ctrl f~      | /Insert/, /Command/ | forward, move forward one character                                         |
+    | ~Ctrl b~      | /Insert/, /Command/ | backward, move backward one character                                       |
+    | ~v~           | /Visual/            | ~<Esc>~                                                                     |
 
 ** Tab
 
-    | Key Binding | Mode   | Description                                                           |
-    |-------------+--------+-----------------------------------------------------------------------|
-    | ~Ctrl Tab~  | Normal, Insert | next tab   |
-    | ~Alt Tab~   | Normal, Insert | previous tab                           |
+    | Key Binding  | Mode           | Description  |
+    |--------------+----------------+--------------|
+    | ~<Ctrl-Tab>~ | Normal, Insert | next tab     |
+    | ~<Alt-Tab>~  | Normal, Insert | previous tab |
  
     tabline 显示的信息示例: =T-2:1/3W=, =T-当前 tab 编号:当前光标所在 Window 的编号/该 tab 所有的 window 总数=.
 
 ** Buffer
 
-    | Key Binding | Mode   | Description                                                           |
-    |-------------+--------+-----------------------------------------------------------------------|
-    | ~SPC [1-9]~ | Normal | switch to buffer with number [1-9], 切换至对应编号[1-9]对应缓冲区     |
-    | ~SPC b p~   | Normal | /p/ revious /b/ uffer, 上一个缓冲区                                   |
-    | ~SPC b n~   | Normal | /n/ ext /b/ uffer, 下一个缓冲区                                       |
-    | ~<Tab>~     | Normal | switch buffer, equal to ~SPC b n~, 等同于 ~SPC b n~                   |
-    | ~SPC b d~   | Normal | /d/ elete current buffer, 删除当前缓冲区                              |
-    | ~SPC b k~   | Normal | /k/ ill current buffer, 杀掉当前缓冲区                                |
+    | Key Binding   | Mode   | Description                                                       |
+    |---------------+--------+-------------------------------------------------------------------|
+    | ~SPC b [1-9]~ | Normal | switch to buffer with number [1-9], 切换至对应编号[1-9]对应缓冲区 |
+    | ~SPC b p~     | Normal | /p/ revious /b/ uffer, 上一个缓冲区                               |
+    | ~SPC b n~     | Normal | /n/ ext /b/ uffer, 下一个缓冲区                                   |
+    | ~<Tab>~       | Normal | next buffer, equal to ~SPC b n~, 等同于 ~SPC b n~                 |
+    | ~<Shift-Tab>~ | Normal | previous buffer, equal to ~SPC b p~, 等同于 ~SPC b p~             |
+    | ~SPC b d~     | Normal | /d/ elete current buffer, 删除当前缓冲区                          |
+    | ~SPC b k~     | Normal | /k/ ill current buffer, 杀掉当前缓冲区                            |
 
 ** Window
 
@@ -361,9 +367,13 @@
 
     | Key Binding | Mode   | Description                                                       |
     |-------------+--------+-------------------------------------------------------------------|
-    | ~SPC x d~   | Normal | delete trailing whitespace, 去掉行尾多余空格 (te /x/ t /d/ elete) |
-    | ~SPC f R~   | Normal | reload .vimrc, 重新加载 .vimrc (/f/ ile /R/ esource)              |
     | ~SPC b h~   | Normal | /b/ uffer /h/ ome, 主 buffer                                      |
+    | ~SPC f f~   | Normal | file search, 使用 fzf 搜索当前用户目录下的文件 (terminal vim) |
+    | ~SPC f ?~   | Normal | file search, 使用 fzf 搜索当前工作目录下的文件 (terminal vim) |
+    | ~SPC f R~   | Normal | reload .vimrc, 重新加载 .vimrc (/f/ ile /R/ esource)              |
+    | ~SPC f r~   | Normal | file recently, 最近使用的文件 |
+    | ~SPC f t~   | Normal | file toggle, NERDTree toggle, 打开 NERDTrer |
+    | ~SPC x d~   | Normal | delete trailing whitespace, 去掉行尾多余空格 (te /x/ t /d/ elete) |
 
 * 使用建议
 ** 启动时间
@@ -371,12 +381,14 @@
 
    从 [[https://github.com/junegunn/vim-startuptime-benchmark][vim-startuptime-benchmark]] 可以看出, 即使使用很多插件仍然可以保持很快的启动 ( 200 ms 以内). 尽管加载的插件不尽相同, 但仍具有借鉴意义.[[https://zhuanlan.zhihu.com/p/24484514][ 这里]] 也有一篇关于 vim 启动优化非常好的文章。
 
-   虽然有些使用插件延迟加载, 但有一段时间 space-vim 启用很多 layer 时, 启动时间仍普遍超过 500 ms, 有时甚至会超过 900 ms. 测试环境:
+   虽然有些使用插件延迟加载, 但有一段时间 space-vim 启用很多 layer 时, 启动时间普遍超过 500 ms, 有时甚至会超过 900 ms. 测试环境:
 
    - Retina 13-inch mid 2014
    - VIM - Vi IMproved 8.0 (2016 Sep 12, compiled Nov 21 2016 17:35:16).
 
-   虽然比起 spacemacs 几秒钟的启动时间, 几百毫秒已经很快. 但对于 vim, 启动迅速是硬性要求, 而且当超过 900 ms 时, 就会有明显的 lag. 后来在这里找到了解决方案:[[https://github.com/junegunn/vim-plug/wiki/faq#loading-plugins-manually][load-plugins-manually]] , 主要是 YouCompleteMe 与 ultisnips 两个插件.
+    ~vim --startuptime vim.log~ 会将启动时的一些时间, 加载的文件等情况写入到 vim.log 中, 大家可以自行测试一下.
+
+   虽然比起 spacemacs 几秒钟的启动时间, 几百毫秒已经很快. 但对于 vim, 启动迅速是硬性要求, 而且当超过 900 ms 时, 就会有明显的 lag. 后来在这里找到了暂时的解决方案:[[https://github.com/junegunn/vim-plug/wiki/faq#loading-plugins-manually][ load-plugins-manually]] , 主要是 YouCompleteMe 与 ultisnips 两个插件.
 
    下面是我一般会启用的 layer, 其中 =airline= 我已经默认不启用了, 因为可能会它可能会导致 100 ms 的启动延迟, 默认的 statusline 已经够用了, 我会在接下来介绍它。
 
@@ -405,23 +417,31 @@
     endfunction
     #+END_SRC
 
-    ~vim --startuptime vim.log~ 会将启动时的一些时间, 加载的文件等情况写入到 vim.log 中, 大家可以自行测试一下.
-
 ** space-vim statusline
-
-   默认的 statuline 显示的信息依次为: 
-
-   *[buffer-编号][TOT:buffer 总数] 文件完整路径  ale 或 fugitive 信息 文件编码 | 编码类型 | 行号:列号-虚拟列号 位置信息*
-
    file:../img/statusline.png
+   Terminal vim 默认的 statuline 显示的信息依次为: 
 
-   通过 *buffer-编号*, 可以使用 ~SPC 编号~ 切换到对应 buffer. 通过 *[buffer 总数]* 知道当前共有几个 buffer, 使用 ~Tab~ 进行一次切换.
+   #+BEGIN_EXAMPLE
+   buffer 编号 ❖ window 编号 [TOT: buffer 总数] 文件大小 文件名 fugitive/ale 信息  [文件类型] 文件编码 | 编码类型 | 行号:列号-虚拟列号 位置信息
+   #+END_EXAMPLE
+
+   GUI vim 由于渲染的原因，有些 unicode 字符无法正常显示, 因此去掉了 unicode 字符。
+   #+BEGIN_EXAMPLE
+   [buffer-编号] [window-编号] [TOT: buffer 总数] 文件大小 文件名 fugitive/ale 信息  [文件类型] 文件编码 | 编码类型 | 行号:列号-虚拟列号 位置信息
+   #+END_EXAMPLE
+
+   通过 statuline 的 *window-编号*, 可以使用 ~SPC 编号~ 切换到对应的 window. 通过 *[TOT: buffer 总数]*, 可以知道当前共有几个 buffer, 使用 ~Tab~ 与 ~Shift-Tab~ 进行前后的 buffer 切换.
+
+   如果启用 airline Layer, 默认的 ~SPC [1-9]~ 快捷键可能不是那么人性化， 可以参考 [[https://github.com/liuchengxu/space-vim/issues/38][这里]] 重新进行覆盖设置.
+
 * 后记
-
   [[https://github.com/liuchengxu/space-vim][space-vim]] 仅仅是一个起点，在不断使用 vim 的过程中，每个人都会不断总结出适合自己的套路。开始不仅仅 "手中有剑", 而是 "心中有剑", 到这时你便完全可以打造一个独属于自己的配置。 为什么要有一个自己的配置？ Because you can and you love it.
 
   学习从模仿开始, 而且要从模仿最好的开始. 我在学习与使用 vim 的过程中也向别人偷师了很多内容, 同样, 如果在此过程中，space-vim 能够发挥些许作用，也算功德圆满。
 
   在使用 space-vim 的过程中，如果您能分享一些更好的解决方案，或是改进一些不合理之处，欢迎之至。
 
-  最后, vim 只不过是工具, 你用记事本写程序都可以, 我们最终要做的是解决问题, 切莫舍本逐末, 一味地追求工具的打磨.
+  vim 只不过是工具, 你用记事本写程序都可以, 我们最终要做的是解决问题, 切莫舍本逐末, 一味地追求工具的打磨.
+
+* 感谢
+  感谢 [[https://github.com/syl20bnr/spacemacs][spacemacs]], [[https://github.com/junegunn/vim-plug][vim-plug]] 以及众多开源项目等杰出的工作，也感谢所有关注 [[https://github.com/liuchengxu/space-vim][space-vim]] 并帮助其不断进步的人们！

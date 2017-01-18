@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-01-08 Sun 07:13 -->
+<!-- 2017-01-18 Wed 20:13 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
-<title></title>
+<title>Space-vim documentation</title>
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Liu-Cheng Xu" />
 <style type="text/css">
@@ -150,6 +150,7 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
+<h1 class="title">Space-vim documentation</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
@@ -202,6 +203,7 @@ for the JavaScript code in this tag.
 </ul>
 </li>
 <li><a href="#orgheadline30">9. 后记</a></li>
+<li><a href="#orgheadline31">10. 感谢</a></li>
 </ul>
 </div>
 </div>
@@ -616,7 +618,7 @@ GUI 环境下, 可直接在 vim 的配置文件进行设置.
 <h2 id="orgheadline19"><span class="section-number-2">6</span> 默认安装</h2>
 <div class="outline-text-2" id="text-6">
 <p>
-默认启用了 3 个 layer:
+<code>.spacevim</code> 默认启用了 3 个 layer:
 </p>
 
 <div class="org-src-container">
@@ -639,15 +641,15 @@ Layer <span style="color: #2d9574;">'better-defaults'</span>
 </div>
 
 <p>
-从图中可以看到键位映射，比如挑一个 <code>&lt;Space&gt;bp</code>, 后面跟着该快捷键对应的命令 <code>:bprevious&lt;CR&gt;</code>, 意为 buffer previous, 即跳转前一个 buffer. 后面还跟着定义该快捷键的文件, 来自 “vim-better-default/plugin/default.vim”。 不熟悉时，可以将快捷键都看一下。（图中可以看出我正在 tmux 中使用 vim, 如果不是，那么执行这个操作的窗口会比较大，不要惊讶。）
+从图中可以看到键位映射，比如挑一个 <code>&lt;Space&gt; b p</code>, 后面跟着该快捷键对应的命令 <code>:bprevious&lt;CR&gt;</code>, 意为 buffer previous, 即跳转前一个 buffer. 后面还跟着定义该快捷键的文件, 来自 /vim-better-default/plugin/default.vim/。 不熟悉时，可以将快捷键都看一下。
 </p>
 
 <p>
-<code>SPC ?</code> 实际映射的命令是 <a href="https://github.com/junegunn/fzf.vim">fzf.vim</a> 的 <code>:Maps</code>, 因此 fzf layer 实际是为了支持 unite layer. 不过其中安装的 <a href="https://github.com/junegunn/fzf">fzf</a> 除了可在 vim 中，也可在 terminal 中使用。 
+<code>SPC ?</code> 实际映射的命令是 <a href="https://github.com/junegunn/fzf.vim">fzf.vim</a> 的 <code>:Maps</code>, 因此 fzf layer 实际是为了支持 unite layer. 不过其中安装的 <a href="https://github.com/junegunn/fzf">fzf</a> 除了可在 vim 中，也可在 terminal 中使用, 非常值得了解。 
 </p>
 
 <p>
-更多内容请直接查看 layer 下的 README, config.vim 与 packages.vim.
+更多内容请直接查看各 layer 下的 README, config.vim 与 packages.vim.
 </p>
 </div>
 
@@ -676,6 +678,10 @@ unite layer 主要希望提供一个界面来选择一些不太常用或稍复�
 </div><div id="outline-container-orgheadline20" class="outline-3">
 <h3 id="orgheadline20"><span class="section-number-3">7.1</span> Basic</h3>
 <div class="outline-text-3" id="text-7-1">
+<p>
+insert mode 与 command mode 的快捷键大都由 <a href="https://github.com/tpope/vim-rsi/blob/master/plugin/rsi.vim">rsi.vim</a> 支持, <code>:h rsi</code> 查看其完整文档。 它是一种类似 Emacs 的键位绑定，这种设定在很多地方都是默认配置，比如 bash.
+</p>
+
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -728,6 +734,48 @@ unite layer 主要希望提供一个界面来选择一些不太常用或稍复�
 <td class="org-left"><code>SPC t p</code></td>
 <td class="org-left">Normal</td>
 <td class="org-left"><i>t</i> oggle <i>p</i> astemode, 粘贴模式开关</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>U</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left">redo, 重做(对应  <code>u</code>  为撤销，undo)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>H</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left">beginning of line, 光标跳转到行首</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>L</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left">end of line, 光标跳转到行尾</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>Y</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left">yank from cursor to end of line, 从光标处复制到行尾</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>;</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left"><code>:</code>, 快速进入 command mode</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC f s</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left"><i>f</i> ile <i>s</i> ave, 保存文件</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC f [1-9]</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left"><i>f</i> old level, 设置折叠层次，f 0 相当于全部折叠, f 9 相当于取消折叠全部展开</td>
 </tr>
 
 <tr>
@@ -798,68 +846,44 @@ unite layer 主要希望提供一个界面来选择一些不太常用或稍复�
 
 <tr>
 <td class="org-left"><code>Ctrl a</code></td>
-<td class="org-left"><i>Command</i></td>
+<td class="org-left"><i>Insert</i>, <i>Command</i></td>
 <td class="org-left">&lt;home&gt;, 行首</td>
 </tr>
 
 <tr>
 <td class="org-left"><code>Ctrl e</code></td>
-<td class="org-left"><i>Command</i></td>
+<td class="org-left"><i>Insert</i>, <i>Command</i></td>
 <td class="org-left">&lt;end&gt;, 行尾</td>
 </tr>
 
 <tr>
 <td class="org-left"><code>Ctrl d</code></td>
+<td class="org-left"><i>Insert</i>, <i>Command</i></td>
+<td class="org-left">&lt;delete&gt;, 删除</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>Ctrl g</code></td>
 <td class="org-left"><i>Command</i></td>
-<td class="org-left">&lt;delete&gt;</td>
+<td class="org-left">&lt;esc&gt;, return to nomral mode from command mode</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>Ctrl f</code></td>
+<td class="org-left"><i>Insert</i>, <i>Command</i></td>
+<td class="org-left">forward, move forward one character</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>Ctrl b</code></td>
+<td class="org-left"><i>Insert</i>, <i>Command</i></td>
+<td class="org-left">backward, move backward one character</td>
 </tr>
 
 <tr>
 <td class="org-left"><code>v</code></td>
 <td class="org-left"><i>Visual</i></td>
 <td class="org-left"><code>&lt;Esc&gt;</code></td>
-</tr>
-
-<tr>
-<td class="org-left"><code>U</code></td>
-<td class="org-left">Normal</td>
-<td class="org-left">redo, 重做(对应  <code>u</code>  为撤销，undo)</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>H</code></td>
-<td class="org-left">Normal</td>
-<td class="org-left">beginning of line, 光标跳转到行首</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>L</code></td>
-<td class="org-left">Normal</td>
-<td class="org-left">end of line, 光标跳转到行尾</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>Y</code></td>
-<td class="org-left">Normal</td>
-<td class="org-left">yank from cursor to end of line, 从光标处复制到行尾</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>;</code></td>
-<td class="org-left">Normal</td>
-<td class="org-left"><code>:</code>, 快速进入 command mode</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>SPC f s</code></td>
-<td class="org-left">Normal</td>
-<td class="org-left"><i>f</i> ile <i>s</i> ave, 保存文件</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>SPC f [1-9]</code></td>
-<td class="org-left">Normal</td>
-<td class="org-left"><i>f</i> old level, 设置折叠层次，f 0 相当于全部折叠, f 9 相当于取消折叠全部展开</td>
 </tr>
 </tbody>
 </table>
@@ -888,13 +912,13 @@ unite layer 主要希望提供一个界面来选择一些不太常用或稍复�
 </thead>
 <tbody>
 <tr>
-<td class="org-left"><code>Ctrl Tab</code></td>
+<td class="org-left"><code>&lt;Ctrl-Tab&gt;</code></td>
 <td class="org-left">Normal, Insert</td>
 <td class="org-left">next tab</td>
 </tr>
 
 <tr>
-<td class="org-left"><code>Alt Tab</code></td>
+<td class="org-left"><code>&lt;Alt-Tab&gt;</code></td>
 <td class="org-left">Normal, Insert</td>
 <td class="org-left">previous tab</td>
 </tr>
@@ -929,7 +953,7 @@ tabline 显示的信息示例: <code>T-2:1/3W</code>, <code>T-当前 tab 编号:
 </thead>
 <tbody>
 <tr>
-<td class="org-left"><code>SPC [1-9]</code></td>
+<td class="org-left"><code>SPC b [1-9]</code></td>
 <td class="org-left">Normal</td>
 <td class="org-left">switch to buffer with number [1-9], 切换至对应编号[1-9]对应缓冲区</td>
 </tr>
@@ -949,7 +973,13 @@ tabline 显示的信息示例: <code>T-2:1/3W</code>, <code>T-当前 tab 编号:
 <tr>
 <td class="org-left"><code>&lt;Tab&gt;</code></td>
 <td class="org-left">Normal</td>
-<td class="org-left">switch buffer, equal to <code>SPC b n</code>, 等同于 <code>SPC b n</code></td>
+<td class="org-left">next buffer, equal to <code>SPC b n</code>, 等同于 <code>SPC b n</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>&lt;Shift-Tab&gt;</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left">previous buffer, equal to <code>SPC b p</code>, 等同于 <code>SPC b p</code></td>
 </tr>
 
 <tr>
@@ -1196,9 +1226,21 @@ tabline 显示的信息示例: <code>T-2:1/3W</code>, <code>T-当前 tab 编号:
 </thead>
 <tbody>
 <tr>
-<td class="org-left"><code>SPC x d</code></td>
+<td class="org-left"><code>SPC b h</code></td>
 <td class="org-left">Normal</td>
-<td class="org-left">delete trailing whitespace, 去掉行尾多余空格 (te <i>x</i> t <i>d</i> elete)</td>
+<td class="org-left"><i>b</i> uffer <i>h</i> ome, 主 buffer</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC f f</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left">file search, 使用 fzf 搜索当前用户目录下的文件 (terminal vim)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC f ?</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left">file search, 使用 fzf 搜索当前工作目录下的文件 (terminal vim)</td>
 </tr>
 
 <tr>
@@ -1208,9 +1250,21 @@ tabline 显示的信息示例: <code>T-2:1/3W</code>, <code>T-当前 tab 编号:
 </tr>
 
 <tr>
-<td class="org-left"><code>SPC b h</code></td>
+<td class="org-left"><code>SPC f r</code></td>
 <td class="org-left">Normal</td>
-<td class="org-left"><i>b</i> uffer <i>h</i> ome, 主 buffer</td>
+<td class="org-left">file recently, 最近使用的文件</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC f t</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left">file toggle, NERDTree toggle, 打开 NERDTrer</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC x d</code></td>
+<td class="org-left">Normal</td>
+<td class="org-left">delete trailing whitespace, 去掉行尾多余空格 (te <i>x</i> t <i>d</i> elete)</td>
 </tr>
 </tbody>
 </table>
@@ -1233,16 +1287,22 @@ tabline 显示的信息示例: <code>T-2:1/3W</code>, <code>T-当前 tab 编号:
 </p>
 
 <p>
-虽然有些使用插件延迟加载, 但有一段时间 space-vim 启用很多 layer 时, 启动时间仍普遍超过 500 ms, 有时甚至会超过 900 ms. 测试环境:
+虽然有些使用插件延迟加载, 但有一段时间 space-vim 启用很多 layer 时, 启动时间普遍超过 500 ms, 有时甚至会超过 900 ms. 测试环境:
 </p>
 
 <ul class="org-ul">
 <li>Retina 13-inch mid 2014</li>
-<li>VIM - Vi IMproved 8.0 (2016 Sep 12, compiled Nov 21 2016 17:35:16).</li>
+<li><p>
+VIM - Vi IMproved 8.0 (2016 Sep 12, compiled Nov 21 2016 17:35:16).
+</p>
+
+<p>
+<code>vim --startuptime vim.log</code> 会将启动时的一些时间, 加载的文件等情况写入到 vim.log 中, 大家可以自行测试一下.
+</p></li>
 </ul>
 
 <p>
-虽然比起 spacemacs 几秒钟的启动时间, 几百毫秒已经很快. 但对于 vim, 启动迅速是硬性要求, 而且当超过 900 ms 时, 就会有明显的 lag. 后来在这里找到了解决方案:<a href="https://github.com/junegunn/vim-plug/wiki/faq#loading-plugins-manually">load-plugins-manually</a> , 主要是 YouCompleteMe 与 ultisnips 两个插件.
+虽然比起 spacemacs 几秒钟的启动时间, 几百毫秒已经很快. 但对于 vim, 启动迅速是硬性要求, 而且当超过 900 ms 时, 就会有明显的 lag. 后来在这里找到了暂时的解决方案:<a href="https://github.com/junegunn/vim-plug/wiki/faq#loading-plugins-manually"> load-plugins-manually</a> , 主要是 YouCompleteMe 与 ultisnips 两个插件.
 </p>
 
 <p>
@@ -1275,10 +1335,6 @@ tabline 显示的信息示例: <code>T-2:1/3W</code>, <code>T-当前 tab 编号:
 <span style="color: #4f97d7; font-weight: bold;">endfunction</span>
 </pre>
 </div>
-
-<p>
-<code>vim --startuptime vim.log</code> 会将启动时的一些时间, 加载的文件等情况写入到 vim.log 中, 大家可以自行测试一下.
-</p>
 </div>
 </div>
 
@@ -1286,25 +1342,32 @@ tabline 显示的信息示例: <code>T-2:1/3W</code>, <code>T-当前 tab 编号:
 <h3 id="orgheadline28"><span class="section-number-3">8.2</span> space-vim statusline</h3>
 <div class="outline-text-3" id="text-8-2">
 <p>
-默认的 statuline 显示的信息依次为: 
+<img src="../img/statusline.png" alt="statusline.png" />
+Terminal vim 默认的 statuline 显示的信息依次为: 
+</p>
+
+<pre class="example">
+buffer 编号 ❖ window 编号 [TOT: buffer 总数] 文件大小 文件名 fugitive/ale 信息  [文件类型] 文件编码 | 编码类型 | 行号:列号-虚拟列号 位置信息
+</pre>
+
+<p>
+GUI vim 由于渲染的原因，有些 unicode 字符无法正常显示, 因此去掉了 unicode 字符。
+</p>
+<pre class="example">
+[buffer-编号] [window-编号] [TOT: buffer 总数] 文件大小 文件名 fugitive/ale 信息  [文件类型] 文件编码 | 编码类型 | 行号:列号-虚拟列号 位置信息
+</pre>
+
+<p>
+通过 statuline 的 <b>window-编号</b>, 可以使用 <code>SPC 编号</code> 切换到对应的 window. 通过 <b>[TOT: buffer 总数]</b>, 可以知道当前共有几个 buffer, 使用 <code>Tab</code> 与 <code>Shift-Tab</code> 进行前后的 buffer 切换.
 </p>
 
 <p>
-<b>[buffer-编号][TOT:buffer 总数] 文件完整路径  ale 或 fugitive 信息 文件编码 | 编码类型 | 行号:列号-虚拟列号 位置信息</b>
-</p>
-
-
-<div class="figure">
-<p><img src="../img/statusline.png" alt="statusline.png" />
-</p>
-</div>
-
-<p>
-通过 <b>buffer-编号</b>, 可以使用 <code>SPC 编号</code> 切换到对应 buffer. 通过 <b>[buffer 总数]</b> 知道当前共有几个 buffer, 使用 <code>Tab</code> 进行一次切换.
+如果启用 airline Layer, 默认的 <code>SPC [1-9]</code> 快捷键可能不是那么人性化， 可以参考 <a href="https://github.com/liuchengxu/space-vim/issues/38">这里</a> 重新进行覆盖设置.
 </p>
 </div>
 </div>
 </div>
+
 <div id="outline-container-orgheadline30" class="outline-2">
 <h2 id="orgheadline30"><span class="section-number-2">9</span> 后记</h2>
 <div class="outline-text-2" id="text-9">
@@ -1321,14 +1384,23 @@ tabline 显示的信息示例: <code>T-2:1/3W</code>, <code>T-当前 tab 编号:
 </p>
 
 <p>
-最后, vim 只不过是工具, 你用记事本写程序都可以, 我们最终要做的是解决问题, 切莫舍本逐末, 一味地追求工具的打磨.
+vim 只不过是工具, 你用记事本写程序都可以, 我们最终要做的是解决问题, 切莫舍本逐末, 一味地追求工具的打磨.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline31" class="outline-2">
+<h2 id="orgheadline31"><span class="section-number-2">10</span> 感谢</h2>
+<div class="outline-text-2" id="text-10">
+<p>
+感谢 <a href="https://github.com/syl20bnr/spacemacs">spacemacs</a>, <a href="https://github.com/junegunn/vim-plug">vim-plug</a> 以及众多开源项目等杰出的工作，也感谢所有关注 <a href="https://github.com/liuchengxu/space-vim">space-vim</a> 并帮助其不断进步的人们！
 </p>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Liu-Cheng Xu</p>
-<p class="date">Created: 2017-01-08 Sun 07:13</p>
+<p class="date">Created: 2017-01-18 Wed 20:13</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

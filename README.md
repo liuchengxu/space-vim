@@ -48,14 +48,14 @@ Elegance here means pleasing, graceful as well as simple. If you are unfamiliar 
 The distribution is completely customizable using `.spacevim`, which is equivalent to `.spacemacs` in spacemacs.
 
 ![screenshot](docs/img/screenshot.png)
+(Terminal vim with space-vim-dark theme)
 
 ## Features
 
-- **Beautiful interface:** I have also written a vim colorscheme [space-vim-dark](https://github.com/liuchengxu/space-vim-dark) based on spacemacs-dark theme.
-
-    You could also try [spacemacs-theme.vim](https://github.com/colepeters/spacemacs-theme.vim), which looks nice in GUI vim.
+- **Beautiful interface:** I have also written a vim colorscheme [space-vim-dark](https://github.com/liuchengxu/space-vim-dark) based on spacemacs-dark theme. You could also try [spacemacs-theme.vim](https://github.com/colepeters/spacemacs-theme.vim), which looks nice in GUI vim.
 
     ![screenshot](https://github.com/liuchengxu/space-vim-dark/blob/screenshots/screenshot3.png?raw=true)
+    (Terminal vim with `set termguicolors`)
 
 - **Mnemonic key bindings:** commands have mnemonic prefixes like <kbd>SPC b</kbd> for all the buffer commands.
 
@@ -177,6 +177,8 @@ set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 ```
+
+For more details about true colour, please see the gist [TrueColour.md](https://gist.github.com/XVilka/8346728).
 
 If have a heavy customized configuration, you can organize them in **private** directory with `packages.vim` and `config.vim` too, which will be loaded on startup. The **private** directory can be considered as either a single layer, i.e., in which you can put packages.vim and config.vim, or a set of multiple layers.  
 

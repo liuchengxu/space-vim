@@ -58,7 +58,7 @@ if LayerLoaded('python')
         hi pythonParam           ctermfg=175 guifg=#E37795
         hi pythonBrackets        ctermfg=183 guifg=#d7afff
         hi pythonClassParameters ctermfg=111 guifg=#FF5353
-        hi pythonSelf            ctermfg=174 guifg=#4A9586
+        hi pythonSelf            ctermfg=174 guifg=#6094DB cterm=bold gui=bold
 
         hi pythonDottedName      ctermfg=74  guifg=#5fafd7
 
@@ -68,7 +68,7 @@ if LayerLoaded('python')
 
         hi pythonBuiltinType     ctermfg=74  guifg=#9191FF
         hi pythonBuiltinObj      ctermfg=71  guifg=#5faf5f
-        hi pythonBuiltinFunc     ctermfg=140 guifg=#CB59E8
+        hi pythonBuiltinFunc     ctermfg=140 guifg=#CB59E8 cterm=bold gui=bold
     endif
 
 endif
