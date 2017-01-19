@@ -253,11 +253,11 @@
     #+CAPTION: ~SPC ?~ key maps
     file:../img/maps.png
 
-    从图中可以看到键位映射，比如挑一个 =<Space> b p=, 后面跟着该快捷键对应的命令 =:bprevious<CR>=, 意为 buffer previous, 即跳转前一个 buffer. 后面还跟着定义该快捷键的文件, 来自 /vim-better-default/plugin/default.vim/。 不熟悉时，可以将快捷键都看一下。
+    从图中可以看到键位映射，比如挑一个 =<Space> b p=, 后面跟着该快捷键对应的命令 =:bprevious<CR>=, 意为 buffer previous, 即跳转前一个 buffer. 后面还跟着定义该快捷键的文件, 来自 =vim-better-default/plugin/default.vim= 。不熟悉时，可以将快捷键都看一下。
 
     ~SPC ?~ 实际映射的命令是 [[https://github.com/junegunn/fzf.vim][fzf.vim]] 的 ~:Maps~, 因此 fzf layer 实际是为了支持 unite layer. 不过其中安装的 [[https://github.com/junegunn/fzf][fzf]] 除了可在 vim 中，也可在 terminal 中使用, 非常值得了解。 
 
-    更多内容请直接查看各 layer 下的 README, config.vim 与 packages.vim.
+    更多内容请直接查看各 layer 下的 README. 如果 README 有问题，还是直接查看其中的 config.vim 与 packages.vim, 不要害怕，这些内容都很简单，跟平常的 vimrc 并没有什么两样。
 
 ** better-defaults
 
@@ -302,8 +302,8 @@
     | ~Ctrl e~      | /Insert/, /Command/ | <end>, 行尾                                                                 |
     | ~Ctrl d~      | /Insert/, /Command/ | <delete>, 删除                                                              |
     | ~Ctrl g~      | /Command/           | <esc>, return to nomral mode from command mode                              |
-    | ~Ctrl f~      | /Insert/, /Command/ | forward, move forward one character                                         |
-    | ~Ctrl b~      | /Insert/, /Command/ | backward, move backward one character                                       |
+    | ~Ctrl f~      | /Insert/, /Command/ | /f/ orward, move forward one character                                      |
+    | ~Ctrl b~      | /Insert/, /Command/ | /b/ ackward, move backward one character                                    |
     | ~v~           | /Visual/            | ~<Esc>~                                                                     |
 
 ** Tab
@@ -368,12 +368,12 @@
     | Key Binding | Mode   | Description                                                       |
     |-------------+--------+-------------------------------------------------------------------|
     | ~SPC b h~   | Normal | /b/ uffer /h/ ome, 主 buffer                                      |
-    | ~SPC f f~   | Normal | file search, 使用 fzf 搜索当前用户目录下的文件 (terminal vim) |
-    | ~SPC f ?~   | Normal | file search, 使用 fzf 搜索当前工作目录下的文件 (terminal vim) |
+    | ~SPC f f~   | Normal | /f/ ile /s/ earch, 使用 fzf 搜索当前用户目录下的文件 (terminal vim) |
+    | ~SPC f ?~   | Normal | /f/ ile search, 使用 fzf 搜索当前工作目录下的文件 (terminal vim) |
     | ~SPC f R~   | Normal | reload .vimrc, 重新加载 .vimrc (/f/ ile /R/ esource)              |
-    | ~SPC f r~   | Normal | file recently, 最近使用的文件 |
-    | ~SPC f t~   | Normal | file toggle, NERDTree toggle, 打开 NERDTrer |
-    | ~SPC x d~   | Normal | delete trailing whitespace, 去掉行尾多余空格 (te /x/ t /d/ elete) |
+    | ~SPC f r~   | Normal | /f/ ile used /r/ ecently, 最近使用的文件 |
+    | ~SPC f t~   | Normal | /f/ ilet/ oggle, NERDTree toggle, 打开 NERDTree  |
+    | ~SPC x d~   | Normal | delete trailing whitespace, 去掉行尾多余空格 (te /x/ t /d/ elete)    |
 
 * 使用建议
 ** 启动时间

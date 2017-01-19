@@ -7,6 +7,11 @@ if LayerLoaded('markdown')
         autocmd FileType markdown nnoremap <LocalLeader>3 m`^i### <esc>``4l
         autocmd FileType markdown nnoremap <LocalLeader>4 m`^i#### <esc>``5l
         autocmd FileType markdown nnoremap <LocalLeader>5 m`^i##### <esc>``6l
+
+        if LayerLoaded('text-align')
+            " Makrdown table align
+            autocmd FileType markdown nnoremap <LocalLeader>ta :Tabularize /<Bar><CR>
+        endif
     augroup END
 
     " vim-markdown {
@@ -39,6 +44,7 @@ if LayerLoaded('markdown')
         " Show toc sidebar
         autocmd SPACEVIM_MARKDOWN FileType markdown nnoremap <LocalLeader>cs :Toc<cr>
     endif
+
     " }
 
 endif

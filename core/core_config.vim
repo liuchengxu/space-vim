@@ -96,7 +96,12 @@ function! LayersBegin()
     let s:vim_home = $HOME.'/.vim/'
 
     if !exists('g:my_plug_home')
-        let g:my_plug_home = s:vim_home.'plugged/'
+        if g:spacevim_nvim
+            " https://github.com/junegunn/vim-plug/issues/559
+            let g:my_plug_home = '~/.local/shared/nvim/plugged'
+        else
+            let g:my_plug_home = s:vim_home.'plugged/'
+        endif
     endif
 
     call plug#begin(g:my_plug_home)
@@ -416,10 +421,11 @@ function! s:post_user_config()
     " User-defined highlightings shoule be put after colorscheme command.
     call s:statusline_hi()
 
-    " https://github.com/junegunn/vim-plug/issues/574
-    if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-        echom '[space-vim]Some layers need to install the missing plugins first!'
-        autocmd VimEnter * PlugInstall --sync | source $MYVIMRC | q
-    endif
+    " https://github.com/junegunn/vim-plug/wiki/extra#automatically-install-missing-plugins-on-startup
+    autocmd VimEnter *
+      \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+      \|   echom '[space-vim]Some layers need to install the missing plugins first!'
+      \|   PlugInstall --sync | q
+      \| endif
 
 endfunction

@@ -30,6 +30,7 @@ if LayerLoaded('python')
         endif
 
         if executable('yapf')
+            " Code formatter
             autocmd FileType python nnoremap <LocalLeader>= :0,$!yapf<CR>
         else
             autocmd FileType python nnoremap <LocalLeader>= echom '[space-vim] yapf is unavailable, please install it first.'
