@@ -93,11 +93,10 @@ if LayerLoaded('spacevim')
         function! S_buf_num()
             let l:circled_num_list = ['① ', '② ', '③ ', '④ ', '⑤ ', '⑥ ', '⑦ ', '⑧ ', '⑨ ', '⑩ ',
                         \             '⑪ ', '⑫ ', '⑬ ', '⑭ ', '⑮ ', '⑯ ', '⑰ ', '⑱ ', '⑲ ', '⑳ ']
-            try
-                return l:circled_num_list[bufnr('%')-1]
-            catch
+            if bufnr('%') > 20
                 return bufnr('%')
-            endtry
+            endif
+            return l:circled_num_list[bufnr('%')-1]
         endfunction
 
         function! S_buf_total_num()

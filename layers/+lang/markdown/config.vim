@@ -15,35 +15,31 @@ if LayerLoaded('markdown')
     augroup END
 
     " vim-markdown {
-    if IsDir('vim-markdown')
-        let g:vim_markdown_math=1
-        let g:vim_markdown_frontmatter=1
-    endif
+    let g:vim_markdown_math=1
+    let g:vim_markdown_frontmatter=1
     " }
 
     " vim-markdown-toc {
-    if IsDir('vim-markdown-toc')
-        let g:vmt_auto_update_on_save = 1
-        let g:vmt_dont_insert_fence = 0
-        let g:vim_markdown_toc_autofit = 1
-    endif
+    let g:vmt_auto_update_on_save = 1
+    let g:vmt_dont_insert_fence = 0
+    let g:vim_markdown_toc_autofit = 1
     " }
 
-    if IsDir('markdown-preview.vim')
-        if  g:MAC
-            let g:mkdp_path_to_chrome = 'open -a safari'
-        elseif g:WINDOWS
-            let g:mkdp_path_to_chrome = 'C:\\Program Files (x86)\Google\Chrome\Application\chrome.exe'
-        else
-            let g:mkdp_path_to_chrome = 'google-chrome'
-        endif
-        " Markdown preview in browser
-        autocmd SPACEVIM_MARKDOWN FileType markdown nnoremap <LocalLeader>cp :MarkdownPreview<cr>
-        " Generate markdown TOC
-        autocmd SPACEVIM_MARKDOWN FileType markdown nnoremap <LocalLeader>ct :silent GenTocGFM<cr>
-        " Show toc sidebar
-        autocmd SPACEVIM_MARKDOWN FileType markdown nnoremap <LocalLeader>cs :Toc<cr>
+    " markdown-preview.vim {
+    if  g:MAC
+        let g:mkdp_path_to_chrome = 'open -a safari'
+    elseif g:WINDOWS
+        let g:mkdp_path_to_chrome = 'C:\\Program Files (x86)\Google\Chrome\Application\chrome.exe'
+    else
+        let g:mkdp_path_to_chrome = 'google-chrome'
     endif
+
+    " Markdown preview in browser
+    autocmd SPACEVIM_MARKDOWN FileType markdown nnoremap <LocalLeader>cp :MarkdownPreview<cr>
+    " Generate markdown TOC
+    autocmd SPACEVIM_MARKDOWN FileType markdown nnoremap <LocalLeader>ct :silent GenTocGFM<cr>
+    " Show toc sidebar
+    autocmd SPACEVIM_MARKDOWN FileType markdown nnoremap <LocalLeader>cs :Toc<cr>
 
     " }
 

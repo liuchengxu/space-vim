@@ -39,146 +39,129 @@ if LayerLoaded('programming')
     endif
 
     " ultisnips {
-    if IsDir('ultisnips')
-
-        " Set ultisnips triggers
-        let g:UltiSnipsSnippetDirectories=['UltiSnips']
-        let g:UltiSnipsSnippetsDir = [g:spacevim_dir.'/private/UltiSnips', g:my_plug_home.'vim-snippets/UltiSnips/']
-        let g:UltiSnipsListSnippets = '<C-Tab>'
-        let g:UltiSnipsJumpForwardTrigger = '<Tab>'
-        let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'
-        " Fix tab conflict with YCM
-        let g:UltiSnipsExpandTrigger = '<nop>'
-        let g:ulti_expand_or_jump_res = 0
-        function! ExpandSnippetOrCarriageReturn()
-            let l:snippet = UltiSnips#ExpandSnippetOrJump()
-            if g:ulti_expand_or_jump_res > 0
-                return l:snippet
-            else
-                return "\<CR>"
-            endif
-        endfunction
-        inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
-    endif
+    " Set ultisnips triggers
+    let g:UltiSnipsSnippetDirectories=['UltiSnips']
+    let g:UltiSnipsSnippetsDir = [g:spacevim_dir.'/private/UltiSnips', g:my_plug_home.'vim-snippets/UltiSnips/']
+    let g:UltiSnipsListSnippets = '<C-Tab>'
+    let g:UltiSnipsJumpForwardTrigger = '<Tab>'
+    let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'
+    " Fix tab conflict with YCM
+    let g:UltiSnipsExpandTrigger = '<nop>'
+    let g:ulti_expand_or_jump_res = 0
+    function! ExpandSnippetOrCarriageReturn()
+        let l:snippet = UltiSnips#ExpandSnippetOrJump()
+        if g:ulti_expand_or_jump_res > 0
+            return l:snippet
+        else
+            return "\<CR>"
+        endif
+    endfunction
+    inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
     " }
 
-    if IsDir('vim-move')
-        " vim-move config
-        " for terms that send Alt as Escape sequence
-        " see http://vim.wikia.com/wiki/Mapping_fast_keycodes_in_terminal_Vim
-        " for why the <F20> hack. Keeps Esc from waiting for other keys to exit visual
-        set <F20>=j
-        set <F21>=k
-        vmap <F20> <Plug>MoveBlockDown
-        vmap <F21> <Plug>MoveBlockUp
-        nmap <F20> <Plug>MoveLineDown
-        nmap <F21> <Plug>MoveLineUp
-    endif
+    " vim-move {
+    " vim-move config
+    " for terms that send Alt as Escape sequence
+    " see http://vim.wikia.com/wiki/Mapping_fast_keycodes_in_terminal_Vim
+    " for why the <F20> hack. Keeps Esc from waiting for other keys to exit visual
+    set <F20>=j
+    set <F21>=k
+    vmap <F20> <Plug>MoveBlockDown
+    vmap <F21> <Plug>MoveBlockUp
+    nmap <F20> <Plug>MoveLineDown
+    nmap <F21> <Plug>MoveLineUp
+    " }
 
     " rainbow {
-    if IsDir('rainbow')
-        let g:rainbow_active = 1
-        let g:rainbow_conf = {
-                    \   'guifgs': [ '#8FBC8F', '#48D1CC', '#DEB887', '#FFA07A', 'seagreen3', '#66CDAA', '#FFB6C1'],
-                    \   'ctermfgs': ['98', '133', '140', '169'],
-                    \   'operators': '_,_',
-                    \   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
-                    \   'separately': {
-                    \       '*': {},
-                    \       'tex': {
-                    \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
-                    \       },
-                    \       'lisp': {
-                    \           'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', '#FF69B4', '#DDA0DD', '#F08080', '#FF8C00', '#20B2AA'],
-                    \       },
-                    \       'vim': {
-                    \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
-                    \       },
-                    \       'html': {
-                    \           'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
-                    \       },
-                    \       'css': 0,
-                    \   }
-                    \}
-    endif
+    let g:rainbow_active = 1
+    let g:rainbow_conf = {
+                \   'guifgs': [ '#8FBC8F', '#48D1CC', '#DEB887', '#FFA07A', 'seagreen3', '#66CDAA', '#FFB6C1'],
+                \   'ctermfgs': ['98', '133', '140', '169'],
+                \   'operators': '_,_',
+                \   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+                \   'separately': {
+                \       '*': {},
+                \       'tex': {
+                \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
+                \       },
+                \       'lisp': {
+                \           'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', '#FF69B4', '#DDA0DD', '#F08080', '#FF8C00', '#20B2AA'],
+                \       },
+                \       'vim': {
+                \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
+                \       },
+                \       'html': {
+                \           'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
+                \       },
+                \       'css': 0,
+                \   }
+                \}
     " }
 
-    if IsDir('rainbow_parentheses.vim')
-        augroup rainbow_lisp
-            autocmd!
-            autocmd FileType lisp,clojure,scheme RainbowParentheses
-        augroup END
-    endif
+    " rainbow_parentheses.vim {
+    augroup rainbow_lisp
+        autocmd!
+        autocmd FileType lisp,clojure,scheme RainbowParentheses
+    augroup END
+    " }
 
     " tagbar {
-    if IsDir('tagbar')
-        let g:tagbar_autofocus = 1
-        nnoremap <F6> :TagbarToggle<CR>
-        inoremap <F6> <ESC>:TagbarToggle<CR>
-        nnoremap <Leader>tt :TagbarToggle<CR>
-        let g:tagbar_sort = 0
-    endif
+    let g:tagbar_autofocus = 1
+    nnoremap <F6> :TagbarToggle<CR>
+    inoremap <F6> <ESC>:TagbarToggle<CR>
+    nnoremap <Leader>tt :TagbarToggle<CR>
+    let g:tagbar_sort = 0
     " }
 
     " asyncrun.vim {
-    if IsDir('asyncrun.vim')
-        nnoremap <F5> :call <SID>compile_and_run()<CR>
-        augroup SPACEVIM_ASYNCRUN
-            autocmd!
-            autocmd User AsyncRunStart call asyncrun#quickfix_toggle(15, 1)
-        augroup END
-        function! s:compile_and_run()
-            exec 'w'
-            if &filetype == 'c'
-                exec "AsyncRun! gcc % -o %<; time ./%<"
-            elseif &filetype == 'cpp'
-                exec "AsyncRun! g++ -std=c++11 % -o %<; time ./%<"
-            elseif &filetype == 'java'
-                exec "AsyncRun! javac %; time java %<"
-            elseif &filetype == 'sh'
-                exec "AsyncRun! time bash %"
-            elseif &filetype == 'python'
-                exec "AsyncRun! time python %"
-            endif
-        endfunction
-    endif
+    nnoremap <F5> :call <SID>compile_and_run()<CR>
+    augroup SPACEVIM_ASYNCRUN
+        autocmd!
+        autocmd User AsyncRunStart call asyncrun#quickfix_toggle(15, 1)
+    augroup END
+    function! s:compile_and_run()
+        exec 'w'
+        if &filetype == 'c'
+            exec "AsyncRun! gcc % -o %<; time ./%<"
+        elseif &filetype == 'cpp'
+            exec "AsyncRun! g++ -std=c++11 % -o %<; time ./%<"
+        elseif &filetype == 'java'
+            exec "AsyncRun! javac %; time java %<"
+        elseif &filetype == 'sh'
+            exec "AsyncRun! time bash %"
+        elseif &filetype == 'python'
+            exec "AsyncRun! time python %"
+        endif
+    endfunction
     " }
 
     " nerdcommenter {
-    if IsDir('nerdcommenter')
-        let g:NERDSpaceDelims=1
+    let g:NERDSpaceDelims=1
 
-        nmap <Leader>;; <Plug>NERDCommenterToggle
-        omap <Leader>;; <Plug>NERDCommenterToggle
-        vmap <Leader>;; <Plug>NERDCommenterToggle
-    endif
+    nmap <Leader>;; <Plug>NERDCommenterToggle
+    omap <Leader>;; <Plug>NERDCommenterToggle
+    vmap <Leader>;; <Plug>NERDCommenterToggle
     " }
 
     " indentLine {
-    if IsDir('indentLine')
-        let g:indentLine_char='┊'
-        let g:indentLine_enabled=1
-        let g:indentLine_color_term=239
-        let g:indentLine_concealcursor='vc' " default 'inc'
-    endif
+    let g:indentLine_char='┊'
+    let g:indentLine_enabled=1
+    let g:indentLine_color_term=239
+    let g:indentLine_concealcursor='vc' " default 'inc'
     " }
 
     " vim-indent_guides {
-    if IsDir('vim-indent-guides')
-        let g:indent_guides_start_level = 2
-        let g:indent_guides_guide_size = 1
-        let g:indent_guides_enable_on_vim_startup = 1
-        let g:indent_guides_auto_colors = 0
-        autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=237
-        autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=239
-        nnoremap <Leader>ti :IndentGuidesToggle<CR>
-    endif
+    let g:indent_guides_start_level = 2
+    let g:indent_guides_guide_size = 1
+    let g:indent_guides_enable_on_vim_startup = 1
+    let g:indent_guides_auto_colors = 0
+    autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=237
+    autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=239
+    nnoremap <Leader>ti :IndentGuidesToggle<CR>
     " }
 
     " delimitMate {
-    if IsDir('delimitMate')
-        let g:delimitMate_expand_cr=1
-    endif
+    let g:delimitMate_expand_cr=1
     " }
 
 endif

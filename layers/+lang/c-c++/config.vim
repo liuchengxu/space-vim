@@ -13,10 +13,9 @@ if LayerLoaded('c-c++')
         autocmd FileType c,cpp,objc vnoremap <LocalLeader>= :<C-u>ClangFormat<CR>
     augroup END
 
-    if IsDir('vim-cpp-enhanced-highlight')
-        let g:cpp_class_scope_highlight = 1
-        let g:c_no_curly_error=1
-    endif
-
+    " vim-cpp-enhanced-highlight {
+    let g:cpp_class_scope_highlight = 1
+    let g:c_no_curly_error=1
+    " }
 
 endif

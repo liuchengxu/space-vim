@@ -38,7 +38,7 @@ if LayerLoaded('python')
 
     augroup END
 
-    if IsDir('python-mode')
+    " python-mode {
         let g:pymode_lint_checkers = ['pyflakes']
         let g:pymode_trim_whitespaces = 0
         let g:pymode_options = 0
@@ -70,6 +70,6 @@ if LayerLoaded('python')
         hi pythonBuiltinType     ctermfg=74  guifg=#9191FF
         hi pythonBuiltinObj      ctermfg=71  guifg=#5faf5f
         hi pythonBuiltinFunc     ctermfg=140 guifg=#CB59E8 cterm=bold gui=bold
-    endif
+    " }
 
 endif
