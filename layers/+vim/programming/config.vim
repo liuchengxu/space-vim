@@ -1,44 +1,42 @@
 scriptencoding utf-8
 
-if LayerLoaded('programming')
-
-    function!  s:add_title()
-        if &filetype == 'sh'
-            call setline(1,'#!/usr/bin/env bash')
-            call append(line('.'), '')
-        elseif &filetype == 'python'
-            call setline(1,'#!/usr/bin/env python')
-            call append(line('.'), '# -*- coding: utf-8 -*-')
-            call append(line('.')+1, '')
-        elseif &filetype == 'ruby'
-            call setline(1,'#!/usr/bin/env ruby')
-            call append(line('.'), '# encoding: utf-8')
-            call append(line('.')+1, '')
-        elseif &filetype == 'cpp'
-            call setline(1, '#include<iostream>')
-            call append(line('.'), 'using namespace std;')
-            call append(line('.')+1, '')
-        elseif &filetype == 'c'
-            call setline(1, '#include<stdio.h>')
-            call append(line('.'), '')
-        endif
-    endfunction
-
-    augroup SPACEVIM_NEWFILE
-        autocmd!
-        autocmd BufNewFile *.py,*.rb,*.cpp,*.c,*.sh,*.java execute "call s:add_title()"
-        autocmd BufNewFile * normal 2G
-    augroup END
-
-     if has_key(g:plugs, 'ultisnips')
-        " UltiSnips will be loaded only when tab is first pressed in insert mode
-        if !exists(':UltiSnipsEdit')
-            inoremap <silent> <Plug>(tab) <c-r>=plug#load('ultisnips')?UltiSnips#ExpandSnippet():''<cr>
-            imap <tab> <Plug>(tab)
-        endif
+function!  s:add_title()
+    if &filetype == 'sh'
+        call setline(1,'#!/usr/bin/env bash')
+        call append(line('.'), '')
+    elseif &filetype == 'python'
+        call setline(1,'#!/usr/bin/env python')
+        call append(line('.'), '# -*- coding: utf-8 -*-')
+        call append(line('.')+1, '')
+    elseif &filetype == 'ruby'
+        call setline(1,'#!/usr/bin/env ruby')
+        call append(line('.'), '# encoding: utf-8')
+        call append(line('.')+1, '')
+    elseif &filetype == 'cpp'
+        call setline(1, '#include<iostream>')
+        call append(line('.'), 'using namespace std;')
+        call append(line('.')+1, '')
+    elseif &filetype == 'c'
+        call setline(1, '#include<stdio.h>')
+        call append(line('.'), '')
     endif
+endfunction
 
-    " ultisnips {
+augroup SPACEVIM_NEWFILE
+    autocmd!
+    autocmd BufNewFile *.py,*.rb,*.cpp,*.c,*.sh,*.java execute "call s:add_title()"
+    autocmd BufNewFile * normal 2G
+augroup END
+
+ if has_key(g:plugs, 'ultisnips')
+    " UltiSnips will be loaded only when tab is first pressed in insert mode
+    if !exists(':UltiSnipsEdit')
+        inoremap <silent> <Plug>(tab) <c-r>=plug#load('ultisnips')?UltiSnips#ExpandSnippet():''<cr>
+        imap <tab> <Plug>(tab)
+    endif
+endif
+
+" ultisnips {
     " Set ultisnips triggers
     let g:UltiSnipsSnippetDirectories=['UltiSnips']
     let g:UltiSnipsSnippetsDir = [g:spacevim_dir.'/private/UltiSnips', g:my_plug_home.'vim-snippets/UltiSnips/']
@@ -57,9 +55,9 @@ if LayerLoaded('programming')
         endif
     endfunction
     inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
-    " }
+" }
 
-    " vim-move {
+" vim-move {
     " vim-move config
     " for terms that send Alt as Escape sequence
     " see http://vim.wikia.com/wiki/Mapping_fast_keycodes_in_terminal_Vim
@@ -70,9 +68,9 @@ if LayerLoaded('programming')
     vmap <F21> <Plug>MoveBlockUp
     nmap <F20> <Plug>MoveLineDown
     nmap <F21> <Plug>MoveLineUp
-    " }
+" }
 
-    " rainbow {
+" rainbow {
     let g:rainbow_active = 1
     let g:rainbow_conf = {
                 \   'guifgs': [ '#8FBC8F', '#48D1CC', '#DEB887', '#FFA07A', 'seagreen3', '#66CDAA', '#FFB6C1'],
@@ -96,24 +94,24 @@ if LayerLoaded('programming')
                 \       'css': 0,
                 \   }
                 \}
-    " }
+" }
 
-    " rainbow_parentheses.vim {
+" rainbow_parentheses.vim {
     augroup rainbow_lisp
         autocmd!
         autocmd FileType lisp,clojure,scheme RainbowParentheses
     augroup END
-    " }
+" }
 
-    " tagbar {
+" tagbar {
     let g:tagbar_autofocus = 1
     nnoremap <F6> :TagbarToggle<CR>
     inoremap <F6> <ESC>:TagbarToggle<CR>
     nnoremap <Leader>tt :TagbarToggle<CR>
     let g:tagbar_sort = 0
-    " }
+" }
 
-    " asyncrun.vim {
+" asyncrun.vim {
     nnoremap <F5> :call <SID>compile_and_run()<CR>
     augroup SPACEVIM_ASYNCRUN
         autocmd!
@@ -133,35 +131,32 @@ if LayerLoaded('programming')
             exec "AsyncRun! time python %"
         endif
     endfunction
-    " }
+" }
 
-    " nerdcommenter {
+" nerdcommenter {
     let g:NERDSpaceDelims=1
 
     nmap <Leader>;; <Plug>NERDCommenterToggle
     omap <Leader>;; <Plug>NERDCommenterToggle
     vmap <Leader>;; <Plug>NERDCommenterToggle
-    " }
+" }
 
-    " indentLine {
+" indentLine {
     let g:indentLine_char='┊'
     let g:indentLine_enabled=1
     let g:indentLine_color_term=239
-    let g:indentLine_concealcursor='vc' " default 'inc'
-    " }
+    let g:indentLine_concealcursor='vc'      " default 'inc'
+    let g:indentLine_fileTypeExclude = ['help', 'startify', 'vimfiler']
+" }
 
-    " vim-indent_guides {
+" vim-indent-guides {
     let g:indent_guides_start_level = 2
     let g:indent_guides_guide_size = 1
     let g:indent_guides_enable_on_vim_startup = 1
     let g:indent_guides_auto_colors = 0
-    autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=237
-    autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=239
     nnoremap <Leader>ti :IndentGuidesToggle<CR>
-    " }
+" }
 
-    " delimitMate {
+" delimitMate {
     let g:delimitMate_expand_cr=1
-    " }
-
-endif
+" }

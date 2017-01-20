@@ -1,8 +1,6 @@
 scriptencoding utf-8
 
-if LayerLoaded('ycmd')
-
-    " YouCompleteMe {
+" YouCompleteMe {
     let g:ycm_global_ycm_extra_conf = fnamemodify(expand('<sfile>'), ':h') . '/global_conf.py'
     let g:ycm_error_symbol='✖'
     let g:ycm_warning_symbol='⚠ '
@@ -68,6 +66,4 @@ if LayerLoaded('ycmd')
         autocmd FileType c,cpp
                     \   nnoremap <LocalLeader>gp :YcmCompleter GetParent<CR>
     augroup END
-    " }
-
-endif
+" }

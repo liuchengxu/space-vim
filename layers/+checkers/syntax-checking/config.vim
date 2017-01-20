@@ -1,8 +1,6 @@
 scriptencoding utf-8
 
-if LayerLoaded('syntax-checking')
-
-    " ale {
+" ale {
     let g:ale_linters = {
                 \   'sh' : ['shellcheck'],
                 \   'vim' : ['vint'],
@@ -16,7 +14,7 @@ if LayerLoaded('syntax-checking')
         let g:ale_sign_error = emoji#for('boom')
         let g:ale_sign_warning = emoji#for('small_orange_diamond')
     catch
-        " Use same sign and distinguish error and warning via different color
+        " Use same sign and distinguish error and warning via different colors.
         let g:ale_sign_error = '•'
         let g:ale_sign_warning = '•'
     endtry
@@ -57,9 +55,9 @@ if LayerLoaded('syntax-checking')
         let g:ale_echo_msg_error_str = '✹ Error'
         let g:ale_echo_msg_warning_str = '⚠ Warning'
     endif
-    " }
+" }
 
-    " syntastic {
+" syntastic {
     let g:syntastic_python_checkers=['pyflakes']
     let g:syntastic_javascript_checkers=['jsl', 'jshint']
     let g:syntastic_html_checkers=['tidy', 'jshint']
@@ -68,6 +66,4 @@ if LayerLoaded('syntax-checking')
     let g:syntastic_aggregate_errors=1
 
     nnoremap <Leader>ts :SyntasticToggleMode<CR>
-    " }
-
-endif
+" }

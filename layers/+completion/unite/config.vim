@@ -1,8 +1,6 @@
 scriptencoding utf-8
 
-if LayerLoaded('unite')
-
-    " ctrlp.vim {
+" ctrlp.vim {
     let g:ctrlp_working_path_mode = 'ra'	" search for nearest ancestor like .git, .hg, and the directory of the current file
     let g:ctrlp_match_window_bottom = 0		" show the match window at the top of the screen
     let g:ctrlp_by_filename = 1
@@ -38,11 +36,12 @@ if LayerLoaded('unite')
         let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
     endif
 
-    nnoremap <Leader>fr :CtrlPMRU<CR>
     let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-    " }
+    nnoremap <Leader>fr :CtrlPMRU<CR>
+    nnoremap <C-p> :CtrlP<CR>
+" }
 
-    " unite.vim {
+" unite.vim {
     let g:unite_source_menu_menus = {}
 
     " menu prefix key (for all Unite menus)
@@ -197,6 +196,4 @@ if LayerLoaded('unite')
     nnoremap <silent>[menu]v :Unite -silent
                 \ menu:v<CR>
     " }
-    " }
-
-endif
+" }

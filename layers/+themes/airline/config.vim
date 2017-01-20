@@ -1,8 +1,6 @@
 scriptencoding=utf-8
 
-if LayerLoaded('airline')
-
-    " vim-airline {
+" vim-airline {
     let g:airline_theme='violet'
     let g:Powerline_symbols='fancy'
     let g:airline#extensions#tabline#enabled=1
@@ -30,7 +28,4 @@ if LayerLoaded('airline')
     " error information.
     let g:airline#extensions#ale#error_symbol = '•'
     let g:airline#extensions#ale#warning_symbol = '•'
-    " }
-
-endif
-
+" }

@@ -1,7 +1,5 @@
 MP 'luochen1990/rainbow'
-MP 'editorconfig/editorconfig-vim'
-
-MP 'Raimondi/delimitMate', { 'on': [] }
+MP 'editorconfig/editorconfig-vim', { 'on': 'EditorConfigReload' }
 
 MP 'matze/vim-move', { 'on': [ 
             \   '<Plug>MoveBlockDown',
@@ -11,6 +9,8 @@ MP 'matze/vim-move', { 'on': [
             \   ]}
 
 MP 'junegunn/rainbow_parentheses.vim', { 'for': ['lisp', 'clojure', 'scheme'] }
+
+MP 'Raimondi/delimitMate', { 'on': [] }
 
 " Refer to https://github.com/junegunn/vim-plug/wiki/faq
 " Load on nothing

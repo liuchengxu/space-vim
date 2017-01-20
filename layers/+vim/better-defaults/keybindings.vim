@@ -39,6 +39,8 @@ nnoremap <Leader>xd :StripWhitespace<CR>
 " <Leader><Leader>j
 " <Leader><Leader>k
 
+map <Leader><Leader> <Plug>(easymotion-prefix)
+
 " Consistent with spacemacs
 " <Leader>f{char} to move to {char}
 map  <Leader>jj <Plug>(easymotion-bd-f)

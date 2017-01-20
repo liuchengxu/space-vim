@@ -3,6 +3,6 @@
 
 MP 'Shougo/unite.vim'
 
-MP 'ctrlpvim/ctrlp.vim'
+MP 'ctrlpvim/ctrlp.vim',      { 'on': ['CtrlP', 'CtrlPMRU'] }
 
-MP 'FelikZ/ctrlp-py-matcher'
+MP 'FelikZ/ctrlp-py-matcher', { 'on': ['CtrlP', 'CtrlPMRU'] }

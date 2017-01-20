@@ -1,10 +1,5 @@
-if LayerLoaded('lightline')
-
-    " lightline.vim {
+" lightline.vim {
     let g:lightline = {
                 \ 'colorscheme': 'wombat',
                 \ }
-    " }
-
-endif
-
+" }

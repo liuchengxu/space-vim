@@ -1,8 +1,6 @@
 scriptencoding utf-8
 
-if LayerLoaded('git')
-
-    " vim-fugitive {
+" vim-fugitive {
     nnoremap <silent> <Leader>gs :Gstatus<CR>
     nnoremap <silent> <Leader>gd :Gdiff<CR>
     nnoremap <silent> <Leader>gc :Gcommit<CR>
@@ -28,6 +26,4 @@ if LayerLoaded('git')
     let g:gitgutter_override_sign_column_highlight = 0
 
     nnoremap <silent> <Leader>tg :GitGutterToggle<CR>
-    " }
-
-endif
+" }

@@ -1,5 +1,3 @@
-if LayerLoaded('goyo')
-    " goyo.vim {
+" goyo.vim {
     nnoremap <Leader>gy :Goyo<CR>
-    " }
-endif
+" }

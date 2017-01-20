@@ -1,8 +1,6 @@
 scriptencoding utf-8
 
-if LayerLoaded('auto-completion')
-
-    " neocomplete.vim {
+" neocomplete.vim {
     " Note: This option must be set in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
     " Disable AutoComplPop.
     let g:acp_enableAtStartup = 0
@@ -73,5 +71,5 @@ if LayerLoaded('auto-completion')
     " For perlomni.vim setting.
     " https://github.com/c9s/perlomni.vim
     let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-    " }
-endif
+
+" }
