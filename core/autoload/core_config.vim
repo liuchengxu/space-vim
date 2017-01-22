@@ -14,7 +14,7 @@ let g:layers_loaded = []
 autocmd BufRead,BufNewFile *.spacevim setlocal filetype=vim
 
 " argument plugin is the vim plugin's name
-function! IsDir(plugin)
+function! core_config#IsDir(plugin)
     if isdirectory(expand(g:my_plug_home.a:plugin))
         return 1
     else
@@ -22,11 +22,19 @@ function! IsDir(plugin)
     endif
 endfunction
 
-function! LayerLoaded(layer)
+function! core_config#LayerLoaded(layer)
     if index(g:layers_loaded, a:layer) > -1
         return 1
     else
         return 0
+    endif
+endfunction
+
+silent function! s:Source(file)
+    if filereadable(expand(a:file))
+        execute 'source ' . fnameescape(a:file)
+    else
+        echom '[space-vim] ' . a:file . ' does not exist, which may cause unexpected errors.'
     endif
 endfunction
 
@@ -81,7 +89,7 @@ function! s:check_vim_plug(plug_path)
     endif
 endfunction
 
-function! LayersBegin()
+function! core_config#begin()
 
     let l:vim_plug_path = '~/.vim/autoload/plug.vim'
     let l:nvim_plug_path = '~/.local/share/nvim/site/autoload/plug.vim'
@@ -281,7 +289,7 @@ endfunction
 
 function! s:check_dot_spacevim()
     if filereadable(expand(s:dot_spacevim))
-        call Source(s:dot_spacevim)
+        call s:Source(s:dot_spacevim)
         return 1
     else
         echom '.spacevim does not exist!!!'
@@ -289,7 +297,7 @@ function! s:check_dot_spacevim()
     endif
 endfunction
 
-function! LayersEnd()
+function! core_config#end()
 
     if s:check_dot_spacevim()
 
@@ -361,7 +369,7 @@ endfunction
 function! s:load_layer_packages()
     for l:layer in g:layers_loaded
         let l:layer_packages = s:cur_layer_base_dir(l:layer) . l:layer . '/packages.vim'
-        call Source(l:layer_packages)
+        call s:Source(l:layer_packages)
     endfor
 endfunction
 
@@ -375,7 +383,7 @@ endfunction
 function! s:load_layer_config()
     for l:layer in g:layers_loaded
         let l:layer_config = s:cur_layer_base_dir(l:layer) . l:layer . '/config.vim'
-        call Source(l:layer_config)
+        call s:Source(l:layer_config)
     endfor
 endfunction
 

@@ -18,7 +18,7 @@ augroup SPACEVIM_PYTHON
 
     autocmd FileType python nnoremap <LocalLeader>ho :call <SID>hi_over_length()<CR>
 
-    if LayerLoaded('programming')
+    if core_config#LayerLoaded('programming')
         autocmd FileType python nnoremap <buffer> <F5> :update<Bar>execute 'AsyncRun! python '.shellescape(@%, 1)<CR>
         autocmd FileType python nnoremap <buffer> <LocalLeader>cc :update<Bar>execute 'AsyncRun! python '.shellescape(@%, 1)<CR>
         autocmd FileType python nnoremap <buffer> <LocalLeader>cs :update<Bar>execute 'AsyncStop!'<CR>
@@ -45,7 +45,7 @@ augroup END
     let g:pymode_indent = 1
     let g:pymode_options_colorcolumn = 1
 
-    if LayerLoaded('syntax-checking')
+    if core_config#LayerLoaded('syntax-checking')
         let g:pymode_lint = 0
     endif
 

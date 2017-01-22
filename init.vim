@@ -29,22 +29,14 @@ if g:WINDOWS
 endif
 " }
 
-silent function! Source(file)
-    if filereadable(expand(a:file))
-        execute 'source ' . fnameescape(a:file)
-    else
-        echom '[space-vim] ' . a:file . ' does not exist, which may cause unexpected errors.'
-    endif
-endfunction
-
 let g:spacevim_dir = $HOME.'/.space-vim'
 let g:spacevim_core_dir = '/core'
 let g:spacevim_version = '0.5.0'
 
-call Source(g:spacevim_dir . g:spacevim_core_dir . '/core_config.vim')
+set runtimepath+=$HOME/.space-vim/core
 
-call LayersBegin()
+call core_config#begin()
 
 Layer 'spacevim'
 
-call LayersEnd()
+call core_config#end()

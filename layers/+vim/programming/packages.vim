@@ -23,7 +23,7 @@ augroup load_snips
 augroup END
 
 " Do not lazy loading tagbar, see vim-airline issue 1313.
-if LayerLoaded('airline')
+if core_config#LayerLoaded('airline')
     MP 'majutsushi/tagbar'
 else
     MP 'majutsushi/tagbar', { 'on': 'TagbarToggle' }

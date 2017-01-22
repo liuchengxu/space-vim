@@ -86,15 +86,13 @@ silent! set tabline=%!MyTabLine()
 " %V Virtual column
 " %P Percentage
 " %#HighlightGroup#
-if !LayerLoaded('airline') && !LayerLoaded('lightline')
+if !core_config#LayerLoaded('airline') && !core_config#LayerLoaded('lightline')
 
     function! S_buf_num()
         let l:circled_num_list = ['① ', '② ', '③ ', '④ ', '⑤ ', '⑥ ', '⑦ ', '⑧ ', '⑨ ', '⑩ ',
                     \             '⑪ ', '⑫ ', '⑬ ', '⑭ ', '⑮ ', '⑯ ', '⑰ ', '⑱ ', '⑲ ', '⑳ ']
-        if bufnr('%') > 20
-            return bufnr('%')
-        endif
-        return l:circled_num_list[bufnr('%')-1]
+        
+        return bufnr('%') > 20 ? bufnr('%') : l:circled_num_list[bufnr('%')-1]
     endfunction
 
     function! S_buf_total_num()
