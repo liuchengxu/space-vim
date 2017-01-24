@@ -23,8 +23,15 @@ To use this configuration layer, add it to your `~/.spacevim`.
 Regard of the complexity of installing this plugin,you may find the **ycmd** can't work properly as your expect,then you need to manually compile it.(All these steps have been tested and passed on the **ubuntu 16.04**,if you are working on other operation system or need more infomation please visit [YouCompleteMe](https://github.com/Valloric/YouCompleteMe).)
 
 **Step 1.**		
-Get into the folder of *YouCompleteMe*.(Note: If you don't have this folder means you haven't download the plugin,so you should download it first by adding ```Layer 'ycmd'```to ```~/.spacevim```) 	
-```cd ~/.vim/plugged/YouCompleteMe```		
+Get into the folder of *YouCompleteMe*.(Note: If you don't have this folder means you haven't downloaded the plugin,so you should download it first by adding ```Layer 'ycmd'```-> ```~/.spacevim```) 
+		
+			
+```
+# For vim
+cd ~/.vim/plugged/YouCompleteMe
+# For neovim
+cd ~/.local/share/nvim/plugged/YouCompleteMe
+```		
 
 **Step 2.**		
 Do the advanced-installation.		
