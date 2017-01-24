@@ -67,5 +67,7 @@ augroup END
 
     hi pythonBuiltinType     ctermfg=74  guifg=#9191FF
     hi pythonBuiltinObj      ctermfg=71  guifg=#5faf5f
-    hi pythonBuiltinFunc     ctermfg=140 guifg=#CB59E8 cterm=bold gui=bold
+    hi pythonBuiltinFunc     ctermfg=169 guifg=#d75faf cterm=bold gui=bold
+
+    hi pythonException       ctermfg=207 guifg=#CC3366 cterm=bold gui=bold
 " }

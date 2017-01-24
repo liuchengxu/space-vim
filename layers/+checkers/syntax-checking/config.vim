@@ -55,6 +55,9 @@ scriptencoding utf-8
         let g:ale_echo_msg_error_str = '✹ Error'
         let g:ale_echo_msg_warning_str = '⚠ Warning'
     endif
+
+    nmap <Leader>en <Plug>(ale_next)
+    nmap <Leader>ep <Plug>(ale_previous)
 " }
 
 " syntastic {

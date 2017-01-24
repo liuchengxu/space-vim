@@ -121,11 +121,7 @@ Not tested now.
     ln -s ~/.space-vim/init.vim ~/.config/nvim/init.vim
     ```
 
-4. set up plugins
-
-    ```sh
-    vim +PlugInstall! +PlugClean +q
-    ```
+4. Open vim, then space-vim will automatically install the missing plugins in enabled layers.
 
 ## Customize
 
@@ -134,7 +130,7 @@ You can use `.spacevim` in your home directory to customize space-vim, where you
 If `.spacevim` does not exist, none of the vim configurations will be loaded!
 
 ```vim
-" You can enable the existing layers in space-vim and 
+" You can enable the existing layers in space-vim and
 " exclude the partial plugins in a certain layer.
 " The command Layer and Exlcude are vaild in the function Layers().
 function! Layers()
@@ -180,13 +176,13 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 For more details about true colour, please see the gist [TrueColour.md](https://gist.github.com/XVilka/8346728).
 
-If have a heavy customized configuration, you can organize them in **private** directory with `packages.vim` and `config.vim` too, which will be loaded on startup. The **private** directory can be considered as either a single layer, i.e., in which you can put packages.vim and config.vim, or a set of multiple layers.  
+If have a heavy customized configuration, you can organize them in **private** directory with `packages.vim` and `config.vim` too, which will be loaded on startup. The **private** directory can be considered as either a single layer, i.e., in which you can put packages.vim and config.vim, or a set of multiple layers.
 
 ## How to use
 
 I recommend you to look through the existing key bindings via <kbd>SPC ?</kbd>. What's more, you definitely can not miss reading the README of [better-defaults layer](https://github.com/liuchengxu/space-vim/blob/master/layers/%2Bvim/better-defaults/README.md), which is of great importance for you to get started quickly.
 
-For more information, please refer to the README under the certain layer enabled, or you can see config.vim and packages.vim directly. 
+For more information, please refer to the README under the certain layer enabled, or you can see config.vim and packages.vim directly.
 
 If the README is not elaborate, sorry for that, space-vim now is in the early stages and a ton of stuff are waiting to be done.
 
@@ -198,8 +194,7 @@ Alternatively, you can manually perform the following steps. If anything has cha
 
 ```sh
 cd path/to/space-vim/
-git pull
-vim +PlugInstall! +PlugUpdate +PlugClean +q
+git pull origin master
 ```
 
 ## FAQ
@@ -211,7 +206,7 @@ Hence I try to reconfigure the vim based on spacemacs' architecture, especially 
 
 >Q: How do you think of spacemacs, space-vim as well as some other vim configurations/distributions derived from spacemacs?
 
-A: Spacemacs' popularity indeed benefits a great number of people, making remarkable contributions to the community. I truly appreciate @syl20bnr and the whole contributors' outstanding works and have learnt many lessons from spacemacs. 
+A: Spacemacs' popularity indeed benefits a great number of people, making remarkable contributions to the community. I truly appreciate @syl20bnr and the whole contributors' outstanding works and have learnt many lessons from spacemacs.
 
 For space-vim, it was merely a personal vim configuration for the purpose of convenience of users using vim and spacemacs at the same time. I am glad that some people like it and give many suggestions to improve it.
 
@@ -284,6 +279,10 @@ ln -s ~/.space-vim/init.vim ~/.config/nvim/init.vim
 space-vim 得益于 layer 的概念，非常易于扩展，也为下面的愿景提供了土壤。
 
 ![screenshot](docs/img/screenshot.png)
+(Terminal vim, space-vim-dark theme)
+
+![screenshot](https://github.com/liuchengxu/space-vim-dark/blob/screenshots/screenshot3.png?raw=true)
+(Terminal vim 使用 24 bit true color, `set termguicolors`)
 
 终端环境我基本都会使用 tmux, [这里](https://github.com/liuchengxu/dotfiles/blob/master/tmux.conf) 是我的 tmux 配置.
 
@@ -328,7 +327,7 @@ Plug 'mhinz/vim-startify'
 Plug 'scrooloose/nerdtree',                     { 'on': 'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin',             { 'on': 'NERDTreeToggle' }
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
-Plug 'bronson/vim-trailing-whitespace',         { 'on': 'FixWhitespace' }
+Plug 'bronson/vim-trailing-whitespace',         { 'on': 'FixWhitespace'  }
 ```
 
 调整，增加 Layer 都非常方便, 这也为 “集百家之长” 提供了土壤。
@@ -341,7 +340,7 @@ Plug 'bronson/vim-trailing-whitespace',         { 'on': 'FixWhitespace' }
 Exclude `Shougo/denite.vim`
 ```
 
-:warning: 不过需要注意，执行 `Exclude` 需要运行 `PlugClean` 清除本地的插件缓存，这样才能保证清除插件的相关配置不会被加载，否则可能会出现问题。
+:warning: 不过需要注意，执行 `Exclude` 虽然可以禁用插件，但是 space-vim 默认对于该插件的一些配置信息仍然会被加载，也许会出现异常，需要留心。
 
 #### `.spacevim`
 
@@ -396,8 +395,7 @@ space-vim 虽然启发自 spacemacs, 但 emacs 与 vim 始终有所区别。比�
 个性化配置文件为 `.spacevim`, 位于当前用户目录. 如果没有 `.spacevim`, space-vim 将不会加载 **任何配置**。
 
 ```vim
-" 在 Layers() 中可以使用 Layer 命令启用 space-vim 已有的 Layer, 
-" 如果不想要该 Layer 中的所有插件，也可用 Exlcude 命令排除所启用其中的部分插件。
+" Layers() 可以启用 space-vim 已有的 layer, 并可使用 Exclude 禁用 layer 中的部分插件。
 function! Layers()
 
     " Default layers, recommended!
@@ -411,24 +409,23 @@ endfunction
 function! UserInit()
 
     " Space has been set as the default leader key,
-    " if you want to change it, uncomment and set it here.
-    " let g:spacevim_leader = "<\Space>"
-    " let g:spacevim_localleader = ','
+    " Comma has been set at the default localleader key.
+    " If you want to change it, uncomment and set it here.
+    " let g:spacevim_leader = "your leader key"
+    " let g:spacevim_localleader = 'your localleader key'
 
     " Install private plugins
-    " Plug 'extr0py/oni'
+    Plug 'morhetz/gruvbox'
 
 endfunction
 
 " 在这里放置配置信息进行覆盖已有设置, 比如，改变主题。
 function! UserConfig()
 
-    " color desert
+    " color gruvbox
 
 endfunction
 ```
-
-:warning: 首次启用 layer, 须执行 `:PlugInstall` 来安装好相关插件才能真正生效.
 
 更多使用信息可以查看 Layer 目录下对应的 README, 当然了目前还比较粗糙，如果 README 不够详尽，还是得要查看 config.vim 和 packages.vim.
 
@@ -439,9 +436,11 @@ private 可以看做是一个 Layer ，如果个人配置比较多，可以放�
 - packages.vim
 - config.vim
 
+private 也可看做是多个 Layer 的集合。
+
 ### 如何更新
 
-进入 `~/.space-vim`, 执行 `git pull` 即可.
+进入 `~/.space-vim`, 执行 `git pull origin master` 即可.
 
 ### 如何贡献
 

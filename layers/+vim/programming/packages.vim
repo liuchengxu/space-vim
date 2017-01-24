@@ -29,9 +29,10 @@ else
     MP 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 endif
 
-MP 'Chiel92/vim-autoformat',          { 'on': 'Autoformat'}
+MP 'Chiel92/vim-autoformat',          { 'on': 'Autoformat' }
 
-MP 'nathanaelkane/vim-indent-guides', { 'on': 'IndentGuidesToggle'}
+MP 'Yggdroot/indentLine',             { 'on': 'IndentLinesToggle' }
+MP 'nathanaelkane/vim-indent-guides', { 'on': 'IndentGuidesToggle' }
 
 MP 'skywind3000/asyncrun.vim',        { 'on': ['AsyncRun!', 'AsyncRun'] }
 

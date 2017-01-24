@@ -5,13 +5,14 @@
 "      |___/ .__/ \__._|\___\___|      \_/ |_|_| |_| |_|
 "          |_|
 "
+"   Copyright (c) 2016 Liu-Cheng Xu & Contributors
+"
 "   You can customize space-vim with .spacevim
 "   and don't have to take care of this file.
 "
 "   Author: Liu-Cheng Xu <xuliuchengxlc@gmail.com>
 "   URL: https://github.com/liuchengxu/space-vim
-"
-"   Copyright (C) 2016 Liu-Cheng Xu
+"   License: MIT
 
 scriptencoding utf-8
 

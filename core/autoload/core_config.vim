@@ -11,10 +11,8 @@ let g:spacevim_gui_running = has('gui_running')
 
 let g:layers_loaded = []
 
-autocmd BufRead,BufNewFile *.spacevim setlocal filetype=vim
-
 " argument plugin is the vim plugin's name
-function! core_config#IsDir(plugin)
+function! core_config#IsDir(plugin) abort
     if isdirectory(expand(g:my_plug_home.a:plugin))
         return 1
     else
@@ -22,7 +20,7 @@ function! core_config#IsDir(plugin)
     endif
 endfunction
 
-function! core_config#LayerLoaded(layer)
+function! core_config#LayerLoaded(layer) abort
     if index(g:layers_loaded, a:layer) > -1
         return 1
     else
@@ -30,7 +28,7 @@ function! core_config#LayerLoaded(layer)
     endif
 endfunction
 
-silent function! s:Source(file)
+silent function! s:Source(file) abort
     if filereadable(expand(a:file))
         execute 'source ' . fnameescape(a:file)
     else
@@ -41,7 +39,7 @@ endfunction
 " get the whole available layers number s:layers_sum, number
 " get the topics s:topics, list
 " get the pair topic to layers s:topic2layers, dict
-function! s:collect_topics()
+function! s:collect_topics() abort
 
 let py_exe = has('python') ? 'python' : 'python3'
 
@@ -54,15 +52,19 @@ topics = [f for f in os.listdir(topic_base) if os.path.isdir(os.path.join(topic_
 topic2layers = {}
 private_layers = [f for f in os.listdir(private_base) if os.path.isdir(os.path.join(private_base,f))]
 layers_sum = len(private_layers)
+layer_path = {}
 for t in topics:
     topic_path = topic_base + '/' + t
     layers = [f for f in os.listdir(topic_path) if os.path.isdir(os.path.join(topic_path,f))]
     layers_sum = layers_sum + len(layers)
     topic2layers[t] = layers
+    for l in layers:
+        layer_path[l] = topic_path + '/' + l
 vim.command("let s:layers_sum = %d" % layers_sum)
 vim.command("let s:topics = %s" % topics)
 vim.command("let s:topic2layers = %s" % topic2layers)
 vim.command("let s:private_layers = %s" % private_layers)
+vim.command("let g:layer_path = %s" % layer_path)
 EOF
 
 endfunction
@@ -247,15 +249,8 @@ function! s:syntax()
     syn match LayerStar /^*/
     syn match LayerMessage /\(^- \)\@<=.*/
     syn match LayerName /\(^- \)\@<=[^ ]*:/
-    syn match LayerSha /\%(: \)\@<=[0-9a-f]\{4,}$/
-    syn match LayerTag /(tag: [^)]\+)/
     syn match LayerInstall /\(^+ \)\@<=[^:]*/
     syn match LayerUpdate /\(^* \)\@<=[^:]*/
-    syn match LayerCommit /^  \X*[0-9a-f]\{7} .*/ contains=LayerRelDate,LayerEdge,LayerTag
-    syn match LayerEdge /^  \X\+$/
-    syn match LayerEdge /^  \X*/ contained nextgroup=LayerSha
-    syn match LayerSha /[0-9a-f]\{7}/ contained
-    syn match LayerRelDate /([^)]*)$/ contained
     syn match LayerNotLoaded /(not loaded)$/
     syn match LayerError /^x.*/
     syn region LayerDeleted start=/^\~ .*/ end=/^\ze\S/
@@ -279,10 +274,6 @@ function! s:syntax()
 
     hi def link LayerError   Error
     hi def link LayerDeleted Ignore
-    hi def link LayerRelDate Comment
-    hi def link LayerEdge    PreProc
-    hi def link LayerSha     Identifier
-    hi def link LayerTag     Constant
 
     hi def link LayerNotLoaded Comment
 endfunction
@@ -348,15 +339,8 @@ function! s:filter_and_invoke_plug()
     endfor
 endfunction
 
-" Return the layer's base dir
+" Return the private layer's base dir
 function! s:cur_layer_base_dir(layer)
-
-    let l:layers_base = g:spacevim_dir . s:spacevim_layers_dir
-    for [key, val] in items(s:topic2layers)
-        if index(val, a:layer) > -1
-            return l:layers_base . '/' . key . '/'
-        endif
-    endfor
 
     " Try the private layers
     let l:private_layers_base = g:spacevim_dir . s:spacevim_private_layers_dir
@@ -368,7 +352,7 @@ endfunction
 
 function! s:load_layer_packages()
     for l:layer in g:layers_loaded
-        let l:layer_packages = s:cur_layer_base_dir(l:layer) . l:layer . '/packages.vim'
+        let l:layer_packages = g:layer_path[l:layer] . '/packages.vim'
         call s:Source(l:layer_packages)
     endfor
 endfunction
@@ -382,7 +366,7 @@ endfunction
 
 function! s:load_layer_config()
     for l:layer in g:layers_loaded
-        let l:layer_config = s:cur_layer_base_dir(l:layer) . l:layer . '/config.vim'
+        let l:layer_config = g:layer_path[l:layer] . '/config.vim'
         call s:Source(l:layer_config)
     endfor
 endfunction
@@ -402,7 +386,7 @@ function! s:statusline_hi()
     hi User1 cterm=bold ctermfg=232 ctermbg=179 gui=Bold guifg=#333300 guibg=#FFBF48
     hi User2 cterm=None ctermfg=214 ctermbg=243 gui=None guifg=#FFBB7D guibg=#666666
     hi User3 cterm=None ctermfg=251 ctermbg=241 gui=None guifg=#c6c6c6 guibg=#585858
-    hi User4 cterm=Bold ctermfg=177 ctermbg=239 gui=Bold guifg=#FF7DFF guibg=#4e4e4e
+    hi User4 cterm=Bold ctermfg=177 ctermbg=239 gui=Bold guifg=#d75fd7 guibg=#4e4e4e
     hi User5 cterm=None ctermfg=208 ctermbg=238 gui=None guifg=#ff8700 guibg=#3a3a3a
     hi User6 cterm=Bold ctermfg=178 ctermbg=237 gui=Bold guifg=#FFE920 guibg=#444444
     hi User7 cterm=None ctermfg=250 ctermbg=238 gui=None guifg=#bcbcbc guibg=#444444
@@ -411,6 +395,9 @@ function! s:statusline_hi()
 endfunction
 
 function! s:post_user_config()
+
+    autocmd BufRead,BufNewFile *.spacevim setlocal filetype=vim
+
     " airline
     if !exists('g:airline_powerline_fonts')
 
