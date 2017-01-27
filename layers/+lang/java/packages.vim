@@ -6,7 +6,6 @@ MP 'airblade/vim-rooter', { 'for': 'java' }
 function! s:invoke_javacomplete()
     if &filetype ==# 'java'
         call plug#load('vim-javacomplete2')
-        inoremap <expr> <Tab> pumvisible() ? "\<C-N>" : "\<Tab>"
     endif
 endfunction
 

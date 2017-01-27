@@ -28,17 +28,10 @@ augroup SPACEVIM_NEWFILE
     autocmd BufNewFile * normal 2G
 augroup END
 
- if has_key(g:plugs, 'ultisnips')
-    " UltiSnips will be loaded only when tab is first pressed in insert mode
-    if !exists(':UltiSnipsEdit')
-        inoremap <silent> <Plug>(tab) <c-r>=plug#load('ultisnips')?UltiSnips#ExpandSnippet():''<cr>
-        imap <tab> <Plug>(tab)
-    endif
-endif
-
 " ultisnips {
     " Set ultisnips triggers
     let g:UltiSnipsSnippetDirectories=['UltiSnips']
+    exe 'set rtp+=' . expand(g:spacevim_dir . '/private/UltiSnips')
     let g:UltiSnipsSnippetsDir = [g:spacevim_dir.'/private/UltiSnips', g:my_plug_home.'vim-snippets/UltiSnips/']
     let g:UltiSnipsListSnippets = '<C-Tab>'
     let g:UltiSnipsJumpForwardTrigger = '<Tab>'

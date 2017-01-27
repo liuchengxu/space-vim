@@ -56,7 +56,7 @@ layer_path = {}
 for t in topics:
     topic_path = topic_base + '/' + t
     layers = [f for f in os.listdir(topic_path) if os.path.isdir(os.path.join(topic_path,f))]
-    layers_sum = layers_sum + len(layers)
+    layers_sum += len(layers)
     topic2layers[t] = layers
     for l in layers:
         layer_path[l] = topic_path + '/' + l

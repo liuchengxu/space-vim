@@ -57,7 +57,7 @@ augroup END
     hi pythonParam           ctermfg=175 guifg=#E37795
     hi pythonBrackets        ctermfg=183 guifg=#d7afff
     hi pythonClassParameters ctermfg=111 guifg=#FF5353
-    hi pythonSelf            ctermfg=174 guifg=#6094DB cterm=bold gui=bold
+    hi pythonSelf            ctermfg=68  guifg=#5f87d7 cterm=bold gui=bold
 
     hi pythonDottedName      ctermfg=74  guifg=#5fafd7
 
