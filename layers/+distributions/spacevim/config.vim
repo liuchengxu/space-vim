@@ -115,6 +115,7 @@ if !core_config#LayerLoaded('airline') && !core_config#LayerLoaded('lightline')
         endif
     endfunction
 
+
     function! S_full_path()
         if &filetype ==# 'startify'
             return ''

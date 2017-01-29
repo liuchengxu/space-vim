@@ -21,8 +21,8 @@ for s:i in range(1, 9)
     execute 'nnoremap <Leader>b' . s:i . ' :b' . s:i . '<CR>'
 endfor
 
-map y <Plug>(operator-flashy)
-nmap Y <Plug>(operator-flashy)$
+" map y <Plug>(operator-flashy)
+" nmap Y <Plug>(operator-flashy)$
 
 " Startify
 nnoremap <silent><Leader>bh :Startify<CR>

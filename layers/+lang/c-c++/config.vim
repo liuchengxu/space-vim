@@ -1,5 +1,11 @@
 augroup SPACEVIM_C
     autocmd!
+
+    autocmd FileType c,cpp setlocal
+                \   tabstop=2
+                \   shiftwidth=2
+                \   softtabstop=2
+
     autocmd FileType c,cpp setlocal cindent
     autocmd FileType c,cpp,objc nnoremap <LocalLeader>= :ClangFormat<CR>
     autocmd FileType c,cpp,objc vnoremap <LocalLeader>= :<C-u>ClangFormat<CR>

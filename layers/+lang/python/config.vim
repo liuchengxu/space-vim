@@ -52,7 +52,7 @@ augroup END
     " Enhanced python highlighting
     hi pythonLambdaExpr      ctermfg=105 guifg=#8787ff
     hi pythonInclude         ctermfg=68  guifg=#5f87d7 cterm=bold gui=bold
-    hi pythonClass           ctermfg=167 guifg=#FF62B0
+    hi pythonClass           ctermfg=167 guifg=#FF62B0 cterm=bold gui=bold
     hi pythonParameters      ctermfg=147 guifg=#AAAAFF
     hi pythonParam           ctermfg=175 guifg=#E37795
     hi pythonBrackets        ctermfg=183 guifg=#d7afff

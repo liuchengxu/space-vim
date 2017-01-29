@@ -33,8 +33,9 @@ MP 'haya14busa/incsearch-easymotion.vim', { 'on': [
             \   '<Plug>(easymotion-overwin-w)',
             \   ] }
 
-MP 'kana/vim-operator-user',         { 'on': '<Plug>(operator-flashy)' }
-MP 'haya14busa/vim-operator-flashy', { 'on': '<Plug>(operator-flashy)' }
+" Bug here.
+" MP 'kana/vim-operator-user',         { 'on': '<Plug>(operator-flashy)' }
+" MP 'haya14busa/vim-operator-flashy', { 'on': '<Plug>(operator-flashy)' }
 
 MP 'danro/rename.vim',               { 'on' : 'Rename' }
 
