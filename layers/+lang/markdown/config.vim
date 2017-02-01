@@ -6,6 +6,9 @@ augroup SPACEVIM_MARKDOWN
     autocmd FileType markdown nnoremap <LocalLeader>4 m`^i#### <esc>``5l
     autocmd FileType markdown nnoremap <LocalLeader>5 m`^i##### <esc>``6l
 
+    autocmd FileType markdown setlocal
+                \   wrap
+
     if core_config#LayerLoaded('text-align')
         " Makrdown table align
         autocmd FileType markdown nnoremap <LocalLeader>ta :Tabularize /<Bar><CR>

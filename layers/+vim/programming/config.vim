@@ -13,11 +13,11 @@ function!  s:add_title()
         call append(line('.'), '# encoding: utf-8')
         call append(line('.')+1, '')
     elseif &filetype == 'cpp'
-        call setline(1, '#include<iostream>')
+        call setline(1, '#include <iostream>')
         call append(line('.'), 'using namespace std;')
         call append(line('.')+1, '')
     elseif &filetype == 'c'
-        call setline(1, '#include<stdio.h>')
+        call setline(1, '#include <stdio.h>')
         call append(line('.'), '')
     endif
 endfunction

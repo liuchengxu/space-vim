@@ -28,6 +28,10 @@ augroup SPACEVIM_BASIC
     endfunction
 augroup END
 
+" Show trailing white space
+hi ExtraWhitespace guifg=#FF2626 gui=underline ctermfg=198 cterm=underline
+match ExtraWhitespace /\s\+$/
+
 " Refer to http://vim.wikia.com/wiki/Show_tab_number_in_your_tab_line
 if g:spacevim_gui_running
     set guioptions-=e
@@ -91,7 +95,7 @@ if !core_config#LayerLoaded('airline') && !core_config#LayerLoaded('lightline')
     function! S_buf_num()
         let l:circled_num_list = ['① ', '② ', '③ ', '④ ', '⑤ ', '⑥ ', '⑦ ', '⑧ ', '⑨ ', '⑩ ',
                     \             '⑪ ', '⑫ ', '⑬ ', '⑭ ', '⑮ ', '⑯ ', '⑰ ', '⑱ ', '⑲ ', '⑳ ']
-        
+
         return bufnr('%') > 20 ? bufnr('%') : l:circled_num_list[bufnr('%')-1]
     endfunction
 
@@ -179,6 +183,7 @@ if !core_config#LayerLoaded('airline') && !core_config#LayerLoaded('lightline')
         let l:tot = '%2*[TOT:%{S_buf_total_num()}]%*'
         let l:fs = '%3* %{S_file_size(@%)} %*'
         let l:fp = '%4* %{S_full_path()} %*'
+        let l:paste = "%#paste#%{&paste?'⎈ paste ':''}%*"
         let l:ale_e = '%#ale_error#%{S_ale_error()}%*'
         let l:ale_w = '%#ale_warning#%{S_ale_warning()}%*'
         let l:git = '%6*%{S_fugitive()}%*'
@@ -188,10 +193,10 @@ if !core_config#LayerLoaded('airline') && !core_config#LayerLoaded('lightline')
         let l:pos = '%l:%c%V %*'
         let l:pct = '%9* %P %*'
 
-        return l:buf_num.l:tot.'%<'.l:fs.l:fp.l:git.l:ale_e.l:ale_w.
+        return l:buf_num.l:tot.'%<'.l:fs.l:fp.l:git.l:paste.l:ale_e.l:ale_w.
                     \   '%='.l:m_r_f.l:ff.l:enc.l:pos.l:pct
     endfunction
-    " See the statusline highlightings in s:post_user_config() of core/core_config.vim
+    " See the statusline highlightings in s:post_user_config() of core/autoload/core_config.vim
 
     " Note that the "%!" expression is evaluated in the context of the
     " current window and buffer, while %{} items are evaluated in the
