@@ -40,7 +40,7 @@ scriptencoding utf-8
     augroup SPACEVIM_START
         autocmd!
         autocmd VimEnter *
-                    \   if !argc()
+                    \   if !argc() && exists(':Startify')
                     \|      Startify
                     \|  endif
     augroup END
