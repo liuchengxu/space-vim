@@ -86,7 +86,7 @@ endfunction
 function! s:check_vim_plug(plug_path)
     if empty(glob(a:plug_path))
         echo '==> Downloading vim-plug ......'
-        execute '!curl -fLo ' . a:plug_path . ' --create-dirs ' . 
+        execute '!curl -fLo ' . a:plug_path . ' --create-dirs ' .
                     \   'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
     endif
 endfunction
