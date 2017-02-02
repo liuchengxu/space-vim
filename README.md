@@ -73,7 +73,10 @@ If you have been a vimmer for quite a while, just pick out the part you are inte
 
 ## Install
 
-You have to satisfy some prerequisites at first: vim with `+python` or `+python3` feature, git. The most recent vim version is recommended.
+You have to satisfy some prerequisites at first:
+
+- vim with `+python` or `+python3` feature. If `:echo has('python')` or `:echo has('python3')` returns `1`, then you are done. What's more, the most recent vim version is recommended.
+- git.
 
 :exclamation: ~~When layers enabled at the first time, you need to run `:PlugInstall` to install relevant plugins~~.
 
@@ -120,8 +123,13 @@ Not tested now.
     # for neovim
     ln -s ~/.space-vim/init.vim ~/.config/nvim/init.vim
     ```
+4. (Optional) Install the [Source Code Pro](https://github.com/adobe-fonts/source-code-pro) or [Powerline](https://github.com/powerline/fonts) font.
 
-4. Open vim, then space-vim will automatically install the missing plugins in enabled layers.
+    If you are running in terminal you'll need to change font settings of your terminal as well.
+
+    ![iterm2_font_setting](docs/img/iterm2_powerline_setting.png)
+
+5. Open vim, then space-vim will automatically install the missing plugins in enabled layers.
 
 ## Customize
 

@@ -1,7 +1,7 @@
 MP 'luochen1990/rainbow'
 MP 'editorconfig/editorconfig-vim', { 'on': 'EditorConfigReload' }
 
-MP 'matze/vim-move', { 'on': [ 
+MP 'matze/vim-move', { 'on': [
             \   '<Plug>MoveBlockDown',
             \   '<Plug>MoveBlockUp',
             \   '<Plug>MoveLineDown',
@@ -37,4 +37,3 @@ MP 'nathanaelkane/vim-indent-guides', { 'on': 'IndentGuidesToggle' }
 MP 'skywind3000/asyncrun.vim',        { 'on': ['AsyncRun!', 'AsyncRun'] }
 
 MP 'scrooloose/nerdcommenter',        { 'on': '<Plug>NERDCommenterToggle' }
-

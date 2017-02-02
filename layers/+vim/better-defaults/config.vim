@@ -40,8 +40,10 @@ scriptencoding utf-8
     augroup SPACEVIM_START
         autocmd!
         autocmd VimEnter *
-                    \   if !argc()
+                    \   if !argc() && exists(':Startify') == 2
                     \|      Startify
+                    \|  else
+                    \|      echom '[space-vim] Please try to run :PlugInstall, some plugins seemingly need to be installed.'
                     \|  endif
     augroup END
     let g:startify_list_order = [

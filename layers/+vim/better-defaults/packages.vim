@@ -58,7 +58,7 @@ if !g:spacevim_nvim
 endif
 
 " Refer to https://github.com/junegunn/dotfiles  vimrc
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+MP 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 augroup nerd_loader
     autocmd!
     autocmd VimEnter * silent! autocmd! FileExplorer
