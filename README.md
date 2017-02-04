@@ -41,7 +41,7 @@
 
 space-vim is a vim distribution for vim plugins and resources, compatible with Vim and NeoVim.
 
-It is inspired by [spacemacs](https://github.com/syl20bnr/spacemacs) and mimics spacemacs in a high level, especially in the whole architecture, key bindings and GUI. if have ever tried spacemacs, you will find spacevim is very similar to it in user experience.
+It is inspired by [spacemacs](https://github.com/syl20bnr/spacemacs) and mimics spacemacs in a high level, especially in the whole architecture, key bindings and GUI. if have ever tried spacemacs, you will find space-vim is very similar to it in user experience.
 
 Elegance here means pleasing, graceful as well as simple. If you are unfamiliar with spacemacs, you can visit [spacemacs.org](http://spacemacs.org/doc/DOCUMENTATION.html) for more about the priciple behind that, which is also what space-vim seeks.
 
@@ -75,7 +75,10 @@ If you have been a vimmer for quite a while, just pick out the part you are inte
 
 You have to satisfy some prerequisites at first:
 
-- vim with `+python` or `+python3` feature. If `:echo has('python')` or `:echo has('python3')` returns `1`, then you are done. What's more, the most recent vim version is recommended.
+- vim with `+python` or `+python3` feature.
+
+    If `:echo has('python')` or `:echo has('python3')` returns `1`, then you are done. What's more, the most recent vim version is recommended.
+
 - git.
 
 :exclamation: ~~When layers enabled at the first time, you need to run `:PlugInstall` to install relevant plugins~~.
@@ -129,7 +132,7 @@ Not tested now.
 
     ![iterm2_font_setting](docs/img/iterm2_powerline_setting.png)
 
-5. Open vim, then space-vim will automatically install the missing plugins in enabled layers.
+5. Open vim, then space-vim will automatically install the missing plugins in enabled layers. If auto-installation fails unexpectly, please try running `:PlugInstall` manually.
 
 ## Customize
 
