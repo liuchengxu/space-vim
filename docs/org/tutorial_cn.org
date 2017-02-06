@@ -199,7 +199,7 @@
     endfunction
     #+END_SRC
 
-    *注意，如果是首次启用一个 layer，需要执行 ~SPC f R~, 或者 ~:so $MYVIMRC~, 或者退出在打开 vim, 重新加载 .vimrc 并执行 ~:PlugInstall~ 安装所需的相关插件* 。
+    *注意，如果是首次启用一个 layer，需要执行 ~SPC f R~, 或者 ~:so $MYVIMRC~, 重新加载 .vimrc 并执行 ~:PlugInstall~ 安装所需的相关插件* 。或者退出重新打开 vim, vim-plug 将会检测并自动安装缺失的插件。
 
 ** 添加个性化插件
 

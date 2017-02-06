@@ -383,23 +383,23 @@ endfunction
 
 ```
 
-LayerStatus 可以查看启用了哪些 Layer.
+`LayerStatus` 可以查看启用了哪些 Layer.
 
 ![layerstatus](docs/img/layerstatus.png)
 
 ### 如何使用
 
-对于老司机而言，可以选择参考感兴趣的 layer 下的一些配置，也非常欢迎分享老司机的开车经验。
+对于老司机而言，可以选择参考感兴趣的 Layer 下的一些配置，也非常欢迎分享老司机的开车经验。
 
 如果是新手上路，更多使用信息请点击 [这里](liuchengxu.github.io/space-vim/org/tutorial_cn.html#orgheadline4), 也可查看 [wiki](https://github.com/liuchengxu/space-vim/wiki) 也许会有收获。
 
-[better-defaults](https://github.com/liuchengxu/space-vim/blob/master/layers/%2Bvim/better-defaults/README.md) layer 为必看内容，这里包含了所有包括 buffer, window, motion等等的基本操作。了解它们是能够愉快使用 space-vim 的前提。
+[better-defaults](https://github.com/liuchengxu/space-vim/blob/master/layers/%2Bvim/better-defaults/README.md) Layer 为必看内容，这里包含了所有包括 buffer, window, motion等等的基本操作。了解它们是能够愉快使用 space-vim 的前提。
 
 下面为简短介绍。
 
 #### 键位设定
 
-space-vim 虽然启发自 spacemacs, 但 emacs 与 vim 始终有所区别。比如 vim  没有 helm, 无法给出快速有效的快捷键提示。因此 space-vim 的快捷键设定在模仿 spacemacs 的基础上，尽量将其调整控制在两个及以内，因为再多恐怕就不太能够接受了。
+space-vim 虽然启发自 spacemacs, 但 emacs 与 vim 始终有所区别。比如 vim  目前似乎还没有对应 which-key 的完美插件, 无法给出实时的快捷键提示。因此 space-vim 的快捷键设定在模仿 spacemacs 的基础上，尽量将其调整控制在两个及以内，再多恐怕就不太能够接受了。
 
 #### `.spacevim`
 
