@@ -56,6 +56,9 @@ scriptencoding utf-8
                 \ ['   Commands:'],
                 \ 'commands',
                 \ ]
+
+    let g:startify_change_to_vcs_root = 1
+
 " }
 
 " nerdtree {
