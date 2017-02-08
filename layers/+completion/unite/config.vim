@@ -6,6 +6,7 @@ scriptencoding utf-8
     let g:ctrlp_by_filename = 1
     let g:ctrlp_max_height = 10				" maxiumum height of match window
     let g:ctrlp_switch_buffer = 'et'		" jump to a file if it's open already
+    let g:ctrlp_regexp = 1
     let g:ctrlp_use_caching = 1				" enable caching
     let g:ctrlp_clear_cache_on_exit=0  		" speed up by not removing clearing cache evertime
     let g:ctrlp_mruf_max = 250 				" number of recently opened files
@@ -19,11 +20,7 @@ scriptencoding utf-8
                 \   'file': '\v\.(exe|so|dll|zip|tar|tar.gz)$',
                 \   'link': 'SOME_BAD_SYMBOLIC_LINKS',
                 \ }
-    let g:ctrlp_match_window_bottom = 0		" show the match window at the top of the screen
-    let g:ctrlp_by_filename = 1
-    let g:ctrlp_max_height = 10				" maxiumum height of match window
-    let g:ctrlp_switch_buffer = 'et'		" jump to a file if it's open already
-    let g:ctrlp_regexp = 1
+
     " If ag available, use it to replace grep
     if executable('ag')
         " Use Ag over Grep
