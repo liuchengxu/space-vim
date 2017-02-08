@@ -5,6 +5,10 @@ scriptencoding utf-8
 silent! color space-vim-dark
 
 augroup SPACEVIM_BASIC
+    autocmd!
+    " http://vim.wikia.com/wiki/Speed_up_Syntax_Highlighting
+    autocmd BufEnter * :syntax sync maxlines=200
+
     " Restore cursor position when opening file
     autocmd BufReadPost *
                 \ if line("'\"") > 1 && line("'\"") <= line("$") |

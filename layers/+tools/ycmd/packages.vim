@@ -1,3 +1,6 @@
+
+MP 'rdnetto/YCM-Generator',  { 'on': ['YcmGenerateConfig', 'CCGenerateConfig'], 'branch': 'stable' }
+
 function! BuildYCM(info)
     " info is a dictionary with 3 fields
     " - name:   name of the plugin

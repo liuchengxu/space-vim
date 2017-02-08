@@ -6,4 +6,6 @@
 
 #### Problem Description
 
-<!-- screenshots if neccessary -->
+<!-- Error messages and describe your problem or suggestion -->
+
+<!-- Screenshots if neccessary -->
