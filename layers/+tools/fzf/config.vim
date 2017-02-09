@@ -1,5 +1,6 @@
 if !g:spacevim_gui_running
     " fzf.vim {
+    let $LANG = 'en_US'
     " Customize fzf colors to match your color scheme
     let g:fzf_colors = {
                 \ 'fg':      ['fg', 'Normal'],
