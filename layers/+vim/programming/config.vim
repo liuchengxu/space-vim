@@ -122,6 +122,8 @@ augroup END
             exec "AsyncRun! time bash %"
         elseif &filetype == 'python'
             exec "AsyncRun! time python %"
+        elseif &filetype == 'ruby'
+            exec "AsyncRun! time ruby %"
         endif
     endfunction
 " }

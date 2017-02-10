@@ -191,6 +191,8 @@ If have a heavy customized configuration, you can organize them in **private** d
 
 ## How to use
 
+If you want to know more about the bootstrap of space-vim, please see [wiki](https://github.com/liuchengxu/space-vim/wiki/Bootstrap).
+
 I recommend you to look through the existing key bindings via <kbd>SPC ?</kbd>. What's more, you definitely can not miss reading the README of [better-defaults layer](https://github.com/liuchengxu/space-vim/blob/master/layers/%2Bvim/better-defaults/README.md), which is of great importance for you to get started quickly.
 
 For more information, please refer to the README under the certain layer enabled, or you can see config.vim and packages.vim directly.
