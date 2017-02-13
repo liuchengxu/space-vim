@@ -72,4 +72,6 @@ scriptencoding utf-8
     " https://github.com/c9s/perlomni.vim
     let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
+    " https://github.com/Shougo/neocomplete.vim/issues/42
+    let g:neocomplete#sources#omni#input_patterns.erlang = '[^. *\t]:\w*'
 " }
