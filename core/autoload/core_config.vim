@@ -129,10 +129,7 @@ function! s:define_command()
 
     command! -nargs=+ -bar Exclude call s:exclude_elements(<f-args>)
 
-    command! -nargs=0 -bar LayerClean call s:layer_clean()
     command! -nargs=0 -bar LayerStatus call s:layer_status()
-    command! -nargs=0 -bar LayerUpdate call s:layer_update()
-    command! -nargs=0 -bar LayerInstall call s:layer_install()
 endfunction
 
 function! s:add_layer(...)
@@ -179,18 +176,6 @@ function! s:exclude_elements(...)
         let l:str = s:to_string(a:000)
         call add(g:spacevim_exclude, l:str)
     endif
-endfunction
-
-function! s:layer_install()
-    execute 'PlugInstall'
-endfunction
-
-function! s:layer_update()
-    execute 'PlugUpdate'
-endfunction
-
-function! s:layer_clean()
-    execute 'PlugClean'
 endfunction
 
 function! s:new_window()

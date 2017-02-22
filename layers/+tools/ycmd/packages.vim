@@ -24,5 +24,5 @@ endfunction
 
 augroup LOAD_YCM
     autocmd!
-    autocmd InsertEnter * call s:invoke_ycm()
+    autocmd InsertEnter * call s:invoke_ycm() | autocmd! LOAD_YCM
 augroup END
