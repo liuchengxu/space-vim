@@ -1,6 +1,10 @@
-<p align="center"><img src="docs/img/space-vim.png" alt="space-vim"/></p>
+<p align="left">
+<a href="https://github.com/liuchengxu/space-vim"><img src="https://rawgit.com/liuchengxu/space-vim/master/assets/space-vim-badge.svg" alt="badge"></a>
+<a href="https://github.com/liuchengxu/space-vim/blob/master/LICENSE"><img src="https://rawgit.com/liuchengxu/space-vim/master/assets/license.svg" alt="license"></a>
+<a href="https://travis-ci.org/liuchengxu/space-vim"><img src="https://travis-ci.org/liuchengxu/space-vim.svg" alt="Build Status"></a>
+</p>
 
-***
+<p align="center"><img src="docs/img/space-vim.png" alt="space-vim"/></p>
 
 <p align="center">
 <b><a href="https://liuchengxu.github.io/space-vim/org/tutorial_cn.html#orgheadline4">前言</a></b> |
@@ -13,13 +17,6 @@
 <b><a href="https://liuchengxu.github.io/space-vim/org/tutorial_cn.html#orgheadline25">基础键位</a></b> |
 <b><a href="https://liuchengxu.github.io/space-vim/org/tutorial_cn.html#orgheadline28">使用建议</a></b>
 </p>
-***
-<p align="center">
-<a href="https://github.com/liuchengxu/space-vim"><img src="https://rawgit.com/liuchengxu/space-vim/master/assets/space-vim-badge.svg" alt="badge"></a>
-<a href="https://github.com/liuchengxu/space-vim/blob/master/LICENSE"><img src="https://rawgit.com/liuchengxu/space-vim/master/assets/license.svg" alt="license"></a>
-<a href="https://travis-ci.org/liuchengxu/space-vim"><img src="https://travis-ci.org/liuchengxu/space-vim.svg" alt="Build Status"></a>
-</p>
-***
 
 ### Table of Contents
 
@@ -67,7 +64,7 @@ The distribution is completely customizable using `.spacevim`, which is equivale
 
 - the novice vim users
 - the vimmers who pursuit a beautiful appearance
-- the users using both vim and spacemacs
+- the users **using both vim and spacemacs**
 
 If you have been a vimmer for quite a while, just pick out the part you are interested in. space-vim is well-organized due to the layers concept, you can easily find what you want.
 
@@ -103,21 +100,60 @@ You have to satisfy some prerequisites at first:
     ln -s ~/.space-vim/init.vim ~/.config/nvim/init.vim
     ```
 
-### Windows
+### Windows(experimental)
 
-Not tested now.
+1. [Download git](https://git-scm.com/download/win)
 
-### Manual
+2. [Download Vim and Python](https://github.com/vim/vim-win32-installer/releases)
 
-1. clone [space-vim](https://github.com/liuchengxu/space-vim)
+3. Download [vim-plug](https://github.com/junegunn/vim-plug#installation):
+
+    **windows (PowerShell)**
+
+    ```sh
+    md ~\.vim\autoload
+    $uri = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    (New-Object Net.WebClient).DownloadFile($uri, $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath("~\.vim\autoload\plug.vim"))
+    ```
+
+4. Enter your home directory, Open *Git Bash* by right-clicking and choosing the option `Git Bash Here`. Run the following commands to download space-vim and make a symlink.
+
+    ```sh
+    git clone https://github.com/liuchengxu/space-vim.git ~/.space-vim
+    ln -s ~/.space-vim/init.vim ~/.vimrc
+    ```
+
+5. Create `.spacevim` in home directory.
+
+    ```vim
+    function! Layers()
+        Layer 'fzf'
+        Layer 'unite'
+        Layer 'better-defaults'
+        " For chinese users
+        Layer 'chinese'
+    endfunction
+
+    function! UserInit()
+    endfunction
+
+    function! UserConfig()
+    endfunction
+    ```
+
+6. Open vim, run `:PlugInstall`.
+
+### Manual (Linux and macOS)
+
+1. Clone [space-vim](https://github.com/liuchengxu/space-vim)
 
     ```sh
     git clone https://github.com/liuchengxu/space-vim.git ~/.space-vim
     ```
 
-2. install [vim-plug](https://github.com/junegunn/vim-plug#installation), refer to vim-plug installation section for more information.
+2. Install [vim-plug](https://github.com/junegunn/vim-plug#installation), refer to vim-plug installation section for more information.
 
-3. create a symlink
+3. Create a symlink.
 
     ```sh
     # for vim
@@ -235,233 +271,15 @@ Space-vim is still in beta. If you are interested, contributions are highly welc
 
 ## Acknowledgements
 
-I would like to thank the many people who have helped and contributed to this project. Furthermore, space-vim will never born without the following outstanding open soucre projects.
+I would like to thank the many people who have helped and contributed to this project. Furthermore, space-vim will never born without the following outstanding open source projects.
 
 - [spacemacs](https://github.com/syl20bnr/spacemacs)
 - [vim-plug](https://github.com/junegunn/vim-plug)
 - [spf13-vim](https://github.com/spf13/spf13-vim)
-- ......
 
-----------------------------------------
+## Articles
 
-:warning: 目前支持 Linux and macOS, windows 尚未测试。
-
-如果使用 neovim, 只需要在安装脚本后建立一个软连接:
-
-```sh
-ln -s ~/.space-vim/init.vim ~/.config/nvim/init.vim
-```
-
-### 快速安装
-
-- curl
-
-    ```sh
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/liuchengxu/space-vim/master/install.sh)"
-    ```
-
-- wget
-
-    ```sh
-    sh -c "$(wget -qO- https://raw.githubusercontent.com/liuchengxu/space-vim/master/install.sh)"
-    ```
-
-### Table of Contents
-
-* [初衷](#初衷)
-* [愿景](#愿景)
-* [概览](#概览)
-    * [名词解释](#名词解释)
-        * [Layer](#layer)
-        * [Exclude](#exclude)
-        * [`.spacevim`](#spacevim)
-    * [如何使用](#如何使用)
-        * [键位设定](#键位设定)
-        * [`.spacevim`](#spacevim-1)
-        * [`private`](#private)
-    * [如何更新](#如何更新)
-    * [如何贡献](#如何贡献)
-* [致谢](#致谢)
-
-## 初衷
-
-就我自身的使用而言，GUI 环境下我会选择 spacemacs, 但是终端环境下 vim 依然是我的首选, 我希望尽量保持这两个环境下操作的一致性。
-
-所谓优雅 (elegant), 这里的主观成分比较大. 优雅可能包括很多方面, 这里所指的优雅首先必然不是简陋，抑或简单，而是指简约而美观。
-
-space-vim 得益于 layer 的概念，非常易于扩展，也为下面的愿景提供了土壤。
-
-![screenshot](docs/img/screenshot.png)
-(Terminal vim, space-vim-dark theme)
-
-![screenshot](https://github.com/liuchengxu/space-vim-dark/blob/screenshots/screenshot3.png?raw=true)
-(Terminal vim 使用 24 bit true color, `set termguicolors`)
-
-终端环境我基本都会使用 tmux, [这里](https://github.com/liuchengxu/dotfiles/blob/master/tmux.conf) 是我的 tmux 配置.
-
-## 愿景
-
-集百家之长，惠千家万家。
-
-## 概览
-
-### 名词解释
-
-space-vim 既然是从 spacemacs 启发而来，自然借鉴了非常多的东西，其中最重要的一个概念便是 “Layer”.
-
-#### Layer
-
-[space-vim](https://github.com/liuchengxu/space-vim) 目前实现了 Layer 的概念, 就像这样：
-
-```vim
-call LayersBegin()
-
-    Layer 'emoji'
-    Layer 'colors'
-    Layer 'python'
-    Layer 'markdown'
-    Layer 'syntax-checking'
-
-call LayersEnd()
-```
-
-在 space-vim 中，所谓的一个 Layer ，其实很简单，就是集成了一些相关的 vim 插件及其配置，涉及到两个文件: config.vim 与 packages.vim. 不难理解，config.vim 为该 Layer 的相关配置信息，packages.vim 则为该 Layer 所需的一些 vim 插件。
-
-比如 Layer better-defaults, packages.vim 中的插件有(以当前实际配置为准)：
-
-```vim
-Plug 'liuchengxu/vim-better-default'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'Raimondi/delimitMate'
-Plug 'tpope/vim-surround'
-Plug 'easymotion/vim-easymotion'
-Plug 'mhinz/vim-startify'
-Plug 'scrooloose/nerdtree',                     { 'on': 'NERDTreeToggle' }
-Plug 'Xuyuanp/nerdtree-git-plugin',             { 'on': 'NERDTreeToggle' }
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
-Plug 'bronson/vim-trailing-whitespace',         { 'on': 'FixWhitespace'  }
-```
-
-调整，增加 Layer 都非常方便, 这也为 “集百家之长” 提供了土壤。
-
-#### Exclude
-
-如果想要删除 layer 中的某个插件，可执行 `Exclude` 命令，比如:
-
-```vim
-Exclude `Shougo/denite.vim`
-```
-
-:warning: 不过需要注意，执行 `Exclude` 虽然可以禁用插件，但是 space-vim 默认对于该插件的一些配置信息仍然会被加载，也许会出现异常，需要留心。
-
-#### `.spacevim`
-
-这个对应的是 `.spacemacs`, 用户可以自己决定启用哪些 Layer, 可以加载 space-vim 中没有的插件. 首次一键安装 space-vim 时，.spacevim 会在当前用户目录默认生成，其中主要有两个函数:
-
-```vim
-" Put layers you want to enable as well as extra private plugins
-function! UserInit()
-
-    " Space has been set as the default leader key,
-    " if you want to change it, uncomment and set it here.
-    " let g:spacevim_leader = "<\Space>"
-    " let g:spacevim_localleader = ','
-
-    " Put the layers you want to enable
-    Layer 'python'
-
-    " Put private plugins
-    Plug 'extr0py/oni'
-
-endfunction
-
-" Customize configuration
-function! UserConfig()
-
-    color space-vim-dark
-
-endfunction
-
-```
-
-`LayerStatus` 可以查看启用了哪些 Layer.
-
-![layerstatus](docs/img/layerstatus.png)
-
-### 如何使用
-
-对于老司机而言，可以选择参考感兴趣的 Layer 下的一些配置，也非常欢迎分享老司机的开车经验。
-
-如果是新手上路，更多使用信息请点击 [这里](liuchengxu.github.io/space-vim/org/tutorial_cn.html#orgheadline4), 也可查看 [wiki](https://github.com/liuchengxu/space-vim/wiki) 也许会有收获。
-
-[better-defaults](https://github.com/liuchengxu/space-vim/blob/master/layers/%2Bvim/better-defaults/README.md) Layer 为必看内容，这里包含了所有包括 buffer, window, motion等等的基本操作。了解它们是能够愉快使用 space-vim 的前提。
-
-下面为简短介绍。
-
-#### 键位设定
-
-space-vim 虽然启发自 spacemacs, 但 emacs 与 vim 始终有所区别。比如 vim  目前似乎还没有对应 which-key 的完美插件, 无法给出实时的快捷键提示。因此 space-vim 的快捷键设定在模仿 spacemacs 的基础上，尽量将其调整控制在两个及以内，再多恐怕就不太能够接受了。
-
-#### `.spacevim`
-
-个性化配置文件为 `.spacevim`, 位于当前用户目录. 如果没有 `.spacevim`, space-vim 将不会加载 **任何配置**。
-
-```vim
-" Layers() 可以启用 space-vim 已有的 layer, 并可使用 Exclude 禁用 layer 中的部分插件。
-function! Layers()
-
-    " Default layers, recommended!
-    Layer 'fzf'
-    Layer 'unite'
-    Layer 'better-defaults'
-
-endfunction
-
-" UserInit() 可以放置私人个性化的一些插件, 也可更改 Leader 与 LocalLeader key (不推荐)。
-function! UserInit()
-
-    " Space has been set as the default leader key,
-    " Comma has been set at the default localleader key.
-    " If you want to change it, uncomment and set it here.
-    " let g:spacevim_leader = "your leader key"
-    " let g:spacevim_localleader = 'your localleader key'
-
-    " Install private plugins
-    Plug 'morhetz/gruvbox'
-
-endfunction
-
-" 在这里放置配置信息进行覆盖已有设置, 比如，改变主题。
-function! UserConfig()
-
-    " color gruvbox
-
-endfunction
-```
-
-更多使用信息可以查看 Layer 目录下对应的 README, 当然了目前还比较粗糙，如果 README 不够详尽，还是得要查看 config.vim 和 packages.vim.
-
-#### `private`
-
-private 可以看做是一个 Layer ，如果个人配置比较多，可以放在这里, private 目录可以有 Layer 的两个 "标准" 文件, space-vim 在启动时也会进行加载：
-
-- packages.vim
-- config.vim
-
-private 也可看做是多个 Layer 的集合。
-
-### 如何更新
-
-进入 `~/.space-vim`, 执行 `git pull origin master` 即可.
-
-### 如何贡献
-
-如有任何的建议或意见，欢迎 [open an issue](https://github.com/liuchengxu/space-vim/issues/new) 与[send a PR](https://github.com/liuchengxu/space-vim/pulls).
-
-## 致谢
-
-- [spacemacs](https://github.com/syl20bnr/spacemacs)
-- [vim-plug](https://github.com/junegunn/vim-plug)
-- [spf13-vim](https://github.com/spf13/spf13-vim)
-- ......
+- [Use Vim as a Python IDE](http://www.liuchengxu.org/posts/use-vim-as-a-python-ide/)
+- [A Vim Configuration for Spacemacs User](http://www.liuchengxu.org/posts/space-vim/)
+- [用 Vim 写 Python 的最佳实践](https://www.v2ex.com/t/337102#reply61)
+- [手工制作一个漂亮的 vim statusline ](https://segmentfault.com/a/1190000007939244)

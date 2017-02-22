@@ -305,7 +305,7 @@ function! core_config#end()
         endif
 
         " Make vim-better-default settings can be overrided
-        runtime! plugin/default.vim
+        silent! runtime! plugin/default.vim
 
         call s:load_layer_config()
         call s:load_private_config()
