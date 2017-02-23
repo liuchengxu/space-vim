@@ -33,8 +33,8 @@ augroup SPACEVIM_BASIC
     " http://stackoverflow.com/questions/5933568/disable-blinking-at-the-first-last-line-of-the-file
     autocmd GUIEnter * set t_vb=
     if !core_config#LayerLoaded('chinese')
-        set $LANG = 'en_US'
-        let langmenu=en_US
+        silent! set $LANG = 'en_US'
+        silent! let langmenu=en_US
         source $VIMRUNTIME/delmenu.vim
         source $VIMRUNTIME/menu.vim
 
