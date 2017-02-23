@@ -64,7 +64,7 @@ scriptencoding utf-8
 " nerdtree {
     let g:NERDTreeShowHidden=1
     let g:NERDTreeAutoDeleteBuffer=1
-    let g:NERDTreeDirArrowExpandable = '➤'
+    let g:NERDTreeDirArrowExpandable = '►'
     let g:NERDTreeDirArrowCollapsible = '▼'
     let g:NERDTreeIgnore=[
                 \ '\.py[cd]$', '\~$', '\.swo$', '\.swp$',
@@ -74,7 +74,7 @@ scriptencoding utf-8
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " }
 
-"nerdtree-git-plugin {
+" nerdtree-git-plugin {
     let g:NERDTreeIndicatorMapCustom = {
                 \ 'Modified'  : '✹',
                 \ 'Staged'    : '✚',
@@ -83,7 +83,7 @@ scriptencoding utf-8
                 \ 'Unmerged'  : '═',
                 \ 'Deleted'   : '✖',
                 \ 'Dirty'     : '✗',
-                \ 'Clean'     : '✔︎',
+                \ 'Clean'     : '✓',
                 \ 'Unknown'   : '?'
                 \ }
 " }

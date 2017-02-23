@@ -70,17 +70,17 @@ scriptencoding utf-8
                 \ 'description' : '    text             ⌘ [menu]x',
                 \}
     let g:unite_source_menu_menus.x.command_candidates = [
-                \['▷   show-hidden-chars',
+                \['►   show-hidden-chars',
                 \'set list!'],
-                \['▷   x d ➞  delete-trailing-whitespaces                         ⌘  SPC x d',
+                \['►   x d ➞  delete-trailing-whitespaces                         ⌘  SPC x d',
                 \'StripWhitespace'],
-                \['▷   a | ➞  align-repeat-bar                                    ⌘  SPC a |',
+                \['►   a | ➞  align-repeat-bar                                    ⌘  SPC a |',
                 \'Tabularize /|'],
-                \['▷   a = ➞  align-repeat-equal                                  ⌘  SPC a =',
+                \['►   a = ➞  align-repeat-equal                                  ⌘  SPC a =',
                 \'Tabularize /^[^=]*\zs='],
-                \['▷   s c ➞  cancel-highlight-of-searched-result                 ⌘  SPC s c',
+                \['►   s c ➞  cancel-highlight-of-searched-result                 ⌘  SPC s c',
                 \'nohl'],
-                \['▷   t p ➞  toggle-paste-mode                                   ⌘  SPC t p',
+                \['►   t p ➞  toggle-paste-mode                                   ⌘  SPC t p',
                 \'setlocal paste!'],
                 \]
     nnoremap <silent>[menu]x :Unite -silent -winheight=20
@@ -93,23 +93,23 @@ scriptencoding utf-8
                 \}
     " supported by fzf layer
     let g:unite_source_menu_menus.f.command_candidates = [
-                \['▷   Buffers                                          (fzf)',
+                \['►   Buffers                                          (fzf)',
                 \'Buffers'],
-                \['▷   Files                                            (fzf)',
+                \['►   Files                                            (fzf)',
                 \'Files'],
-                \['▷   GFiles                                           (fzf)',
+                \['►   GFiles                                           (fzf)',
                 \'GFiles?'],
-                \['▷   Windows                                          (fzf)',
+                \['►   Windows                                          (fzf)',
                 \'Windows'],
-                \['▷   Marks                                            (fzf)',
+                \['►   Marks                                            (fzf)',
                 \'Marks'],
-                \['▷   Maps                                             (fzf)',
+                \['►   Maps                                             (fzf)',
                 \'Maps'],
-                \['▷   History                                          (fzf)',
+                \['►   History                                          (fzf)',
                 \'History'],
-                \['▷   History:                                         (fzf)',
+                \['►   History:                                         (fzf)',
                 \'History:'],
-                \['▷   History/                                         (fzf)',
+                \['►   History/                                         (fzf)',
                 \'History/'],
                 \]
     nnoremap <silent>[menu]f :Unite -silent -winheight=20
@@ -121,17 +121,17 @@ scriptencoding utf-8
                 \ 'description' : '    plugins          ⌘ [menu]s',
                 \}
     let g:unite_source_menu_menus.p.command_candidates = [
-                \['▷  install-plugin                                    (vim-plug)',
+                \['►   install-plugin                                    (vim-plug)',
                 \'PlugInstall'],
-                \['▷  clean-plugin                                      (vim-plug)',
+                \['►   clean-plugin                                      (vim-plug)',
                 \'PlugClean'],
-                \['▷  update-plugin                                     (vim-plug)',
+                \['►   update-plugin                                     (vim-plug)',
                 \'PlugUpdate'],
-                \['▷  show-plugin-status                                (vim-plug)',
+                \['►   show-plugin-status                                (vim-plug)',
                 \'PlugStatus'],
-                \['▷  ycm-restart-server                                (ycmd)',
+                \['►   ycm-restart-server                                (ycmd)',
                 \'YcmRestartServer'],
-                \['▷  generate-markdown-toc                             (markdown-toc)',
+                \['►   generate-markdown-toc                             (markdown-toc)',
                 \'GenTocGFM'],
                 \]
     nnoremap <silent>[menu]p :Unite -silent
@@ -143,13 +143,13 @@ scriptencoding utf-8
                 \ 'description' : '    toggle           ⌘ [menu]t',
                 \}
     let g:unite_source_menu_menus.t.command_candidates = [
-                \['▷  nerdtree                                          (toggle)       ⌘ <F4>',
+                \['►   nerdtree                                          (toggle)       ⌘ <F4>',
                 \'NERDTreeToggle'],
-                \['▷  tagbar                                            (toggle)       ⌘ <F6>',
+                \['►   tagbar                                            (toggle)       ⌘ <F6>',
                 \'TagbarToggle'],
-                \['▷  indent-line                                       (toggle)       ⌘',
+                \['►   indent-line                                       (toggle)       ⌘',
                 \'IndentGuidesToggle'],
-                \['▷  syntastic                                         (toggle)       ⌘',
+                \['►   syntastic                                         (toggle)       ⌘',
                 \'SyntasticToggleMode'],
                 \]
     nnoremap <silent>[menu]t :Unite -silent
@@ -161,7 +161,7 @@ scriptencoding utf-8
                 \ 'description' : '    unite.vim        ⌘ [menu]u',
                 \}
     let g:unite_source_menu_menus.u.command_candidates = [
-                \['▷  ➞  unite sources',
+                \['►    ➞  unite sources',
                 \'Unite source'],
                 \]
     nnoremap <silent>[menu]u :Unite -silent
@@ -173,21 +173,21 @@ scriptencoding utf-8
                 \ 'description' : '    vim              ⌘ [menu]v',
                 \}
     let g:unite_source_menu_menus.v.command_candidates = [
-                \['▷  init.vim',
+                \['►   init.vim',
                 \'e ~/.vimrc'],
-                \['▷  .spacevim',
+                \['►   .spacevim',
                 \'e ~/.spacevim'],
-                \['▷  vim-help',
+                \['►   vim-help',
                 \'Unite help -start-insert'],
-                \['▷  vim-commands',
+                \['►   vim-commands',
                 \'Unite command -start-insert'],
-                \['▷  vim-mappings',
+                \['►   vim-mappings',
                 \'Unite mapping -start-insert'],
-                \['▷  vim-functions',
+                \['►   vim-functions',
                 \'Unite function -start-insert'],
-                \['▷  vim-runtimepath',
+                \['►   vim-runtimepath',
                 \'Unite runtimepath -start-insert '],
-                \['▷  vim-command-output',
+                \['►   vim-command-output',
                 \'Unite output'],
                 \]
     nnoremap <silent>[menu]v :Unite -silent

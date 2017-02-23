@@ -9,6 +9,7 @@ scriptencoding utf-8
                 \   'markdown' : ['mdl'],
                 \   'javascript' : ['eslint'],
                 \}
+    let g:ale_set_highlights = 0
     " If emoji not loaded, use default sign
     try
         let g:ale_sign_error = emoji#for('boom')

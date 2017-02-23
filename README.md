@@ -4,6 +4,8 @@
 <a href="https://travis-ci.org/liuchengxu/space-vim"><img src="https://travis-ci.org/liuchengxu/space-vim.svg" alt="Build Status"></a>
 </p>
 
+--------------------
+
 <p align="center"><img src="docs/img/space-vim.png" alt="space-vim"/></p>
 
 <p align="center">
@@ -20,19 +22,23 @@
 
 ### Table of Contents
 
+<!-- vim-markdown-toc GFM -->
 * [Introduction](#introduction)
 * [Features](#features)
 * [For whom?](#for-whom)
 * [Install](#install)
     * [Linux and macOS](#linux-and-macos)
-    * [Windows](#windows)
-    * [Manual](#manual)
+    * [Windows(experimental)](#windowsexperimental)
+    * [Manual (Linux and macOS)](#manual-linux-and-macos)
 * [Customize](#customize)
 * [How to use](#how-to-use)
 * [Update](#update)
 * [FAQ](#faq)
 * [Contributions](#contributions)
 * [Acknowledgements](#acknowledgements)
+* [Articles](#articles)
+
+<!-- vim-markdown-toc -->
 
 ## Introduction
 
