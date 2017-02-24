@@ -11,6 +11,12 @@
 
 ## Description
 
+This layer adds support for the Popular MVVM framework Vue.
+
 ## Install
+
+### Layer
+
+To use this configuration layer, add it to your `~/.spacevim`.
 
 ## Key Bindings
