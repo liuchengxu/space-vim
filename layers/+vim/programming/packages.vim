@@ -23,7 +23,7 @@ augroup load_snips
 augroup END
 
 " Do not lazy loading tagbar, see vim-airline issue 1313.
-if core_config#LayerLoaded('airline')
+if funcs#LayerLoaded('airline')
     MP 'majutsushi/tagbar'
 else
     MP 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
@@ -38,4 +38,4 @@ MP 'skywind3000/asyncrun.vim',        { 'on': ['AsyncRun!', 'AsyncRun'] }
 
 MP 'scrooloose/nerdcommenter',        { 'on': '<Plug>NERDCommenterToggle' }
 
-MP 'sheerun/vim-polyglot'
+MP 'sheerun/vim-polyglot', { 'on': [] }

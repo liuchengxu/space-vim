@@ -9,7 +9,7 @@ augroup SPACEVIM_MARKDOWN
     autocmd FileType markdown setlocal
                 \   wrap
 
-    if core_config#LayerLoaded('text-align')
+    if funcs#LayerLoaded('text-align')
         " Makrdown table align
         autocmd FileType markdown nnoremap <LocalLeader>ta :Tabularize /<Bar><CR>
     endif

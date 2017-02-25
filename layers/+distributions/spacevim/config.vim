@@ -32,7 +32,7 @@ augroup SPACEVIM_BASIC
     endfunction
     " http://stackoverflow.com/questions/5933568/disable-blinking-at-the-first-last-line-of-the-file
     autocmd GUIEnter * set t_vb=
-    if !core_config#LayerLoaded('chinese')
+    if !funcs#LayerLoaded('chinese')
         silent! set $LANG = 'en_US'
         silent! let langmenu=en_US
         source $VIMRUNTIME/delmenu.vim
@@ -106,7 +106,7 @@ silent! set tabline=%!MyTabLine()
 " %V Virtual column
 " %P Percentage
 " %#HighlightGroup#
-if !core_config#LayerLoaded('airline') && !core_config#LayerLoaded('lightline')
+if !funcs#LayerLoaded('airline') && !funcs#LayerLoaded('lightline')
 
     function! S_buf_num()
         let l:circled_num_list = ['① ', '② ', '③ ', '④ ', '⑤ ', '⑥ ', '⑦ ', '⑧ ', '⑨ ', '⑩ ',
