@@ -8,6 +8,8 @@ let g:layers_loaded = []
 let s:dot_spacevim = $HOME.'/.spacevim'
 let s:spacevim_layers_dir = '/layers'
 let s:spacevim_private_layers_dir = '/private'
+let s:py_exe = has('python') ? 'python' : 'python3'
+
 
 function! s:err(msg)
     echohl ErrorMsg
@@ -128,9 +130,7 @@ endfunction
 " get the pair topic to layers s:topic2layers, dict
 function! spacevim#info() abort
 
-let py_exe = has('python') ? 'python' : 'python3'
-
-execute py_exe "<< EOF"
+execute s:py_exe "<< EOF"
 import os
 import vim
 
@@ -225,9 +225,7 @@ endfunction
 
 function! s:filter_plugins()
 
-let py_exe = has('python') ? 'python' : 'python3'
-
-execute py_exe "<< EOF"
+execute s:py_exe "<< EOF"
 import vim
 exclude = vim.eval('g:spacevim_exclude')
 my_plugins = vim.eval('g:spacevim_plugins')
