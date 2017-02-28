@@ -9,15 +9,15 @@
 <p align="center"><img src="docs/img/space-vim.png" alt="space-vim"/></p>
 
 <p align="center">
-<b><a href="https://liuchengxu.github.io/space-vim/org/tutorial_cn.html#orgheadline4">前言</a></b> |
-<b><a href="https://liuchengxu.github.io/space-vim/org/tutorial_cn.html#orgheadline5">运行截图</a></b> |
-<b><a href="https://liuchengxu.github.io/space-vim/org/tutorial_cn.html#orgheadline6">适用人群</a></b> |
-<b><a href="https://liuchengxu.github.io/space-vim/org/tutorial_cn.html#orgheadline14">开始使用</a></b> |
-<b><a href="https://liuchengxu.github.io/space-vim/org/tutorial_cn.html#orgheadline15">个性化</a></b> |
-<b><a href="https://liuchengxu.github.io/space-vim/org/tutorial_cn.html#orgheadline16">更新</a></b> |
-<b><a href="https://liuchengxu.github.io/space-vim/org/tutorial_cn.html#orgheadline19">默认安装</a></b> |
-<b><a href="https://liuchengxu.github.io/space-vim/org/tutorial_cn.html#orgheadline25">基础键位</a></b> |
-<b><a href="https://liuchengxu.github.io/space-vim/org/tutorial_cn.html#orgheadline28">使用建议</a></b>
+<b><a href="https://liuchengxu.github.io/space-vim/docs/org/tutorial_cn.html#orgheadline4">前言</a></b> |
+<b><a href="https://liuchengxu.github.io/space-vim/docs/org/tutorial_cn.html#orgheadline5">运行截图</a></b> |
+<b><a href="https://liuchengxu.github.io/space-vim/docs/org/tutorial_cn.html#orgheadline6">适用人群</a></b> |
+<b><a href="https://liuchengxu.github.io/space-vim/docs/org/tutorial_cn.html#orgheadline14">开始使用</a></b> |
+<b><a href="https://liuchengxu.github.io/space-vim/docs/org/tutorial_cn.html#orgheadline15">个性化</a></b> |
+<b><a href="https://liuchengxu.github.io/space-vim/docs/org/tutorial_cn.html#orgheadline16">更新</a></b> |
+<b><a href="https://liuchengxu.github.io/space-vim/docs/org/tutorial_cn.html#orgheadline19">默认安装</a></b> |
+<b><a href="https://liuchengxu.github.io/space-vim/docs/org/tutorial_cn.html#orgheadline25">基础键位</a></b> |
+<b><a href="https://liuchengxu.github.io/space-vim/docs/org/tutorial_cn.html#orgheadline28">使用建议</a></b>
 </p>
 
 ### Table of Contents
