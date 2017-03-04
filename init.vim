@@ -36,8 +36,8 @@ let g:spacevim_version = '0.5.0'
 
 set runtimepath+=$HOME/.space-vim/core
 
-call core_config#begin()
+call spacevim#begin()
 
 Layer 'spacevim'
 
-call core_config#end()
+call spacevim#end()
