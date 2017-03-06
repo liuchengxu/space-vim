@@ -45,15 +45,6 @@ function! spacevim#begin()
         endif
     endif
 
-    let l:vim_home = $HOME.'/.vim/'
-
-    if g:spacevim_nvim
-        " https://github.com/junegunn/vim-plug/issues/559
-        let g:my_plug_home = '~/.local/shared/nvim/plugged'
-    else
-        let g:my_plug_home = l:vim_home.'plugged/'
-    endif
-
     call s:define_command()
 
 endfunction
@@ -115,16 +106,6 @@ silent function! s:Source(file) abort
     endif
 endfunction
 
-function! s:check_dot_spacevim()
-    if filereadable(expand(s:dot_spacevim))
-        call s:Source(s:dot_spacevim)
-        return 1
-    else
-        echom '.spacevim does not exist!!!'
-        return 0
-    endif
-endfunction
-
 " get the whole available layers number s:layers_sum, number
 " get the topics s:topics, list
 " get the pair topic to layers s:topic2layers, dict
@@ -180,11 +161,30 @@ function! s:layers_info()
     endif
 endfunction
 
+function! s:check_dot_spacevim()
+    if filereadable(expand(s:dot_spacevim))
+        call s:Source(s:dot_spacevim)
+        return 1
+    else
+        echom '.spacevim does not exist!!!'
+        return 0
+    endif
+endfunction
+
 function! spacevim#end()
 
     if s:check_dot_spacevim()
 
-        call plug#begin(g:my_plug_home)
+        if !exists('g:spacevim_plug_home')
+            if g:spacevim_nvim
+                " https://github.com/junegunn/vim-plug/issues/559
+                let g:spacevim_plug_home = '~/.local/shared/nvim/plugged'
+            else
+                let g:spacevim_plug_home = '~/.vim/plugged/'
+            endif
+        endif
+
+        call plug#begin(g:spacevim_plug_home)
 
         call Layers()
 

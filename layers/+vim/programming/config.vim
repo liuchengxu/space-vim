@@ -32,7 +32,7 @@ augroup END
     " Set ultisnips triggers
     let g:UltiSnipsSnippetDirectories=['UltiSnips']
     exe 'set rtp+=' . expand(g:spacevim_dir . '/private/UltiSnips')
-    let g:UltiSnipsSnippetsDir = [g:spacevim_dir.'/private/UltiSnips', g:my_plug_home.'vim-snippets/UltiSnips/']
+    let g:UltiSnipsSnippetsDir = [g:spacevim_dir.'/private/UltiSnips', g:spacevim_plug_home.'vim-snippets/UltiSnips/']
     let g:UltiSnipsListSnippets = '<C-Tab>'
     let g:UltiSnipsJumpForwardTrigger = '<Tab>'
     let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'

@@ -6,7 +6,7 @@
 
 --------------------
 
-<p align="center"><img src="docs/img/space-vim.png" alt="space-vim"/></p>
+<p align="center"><img src="https://github.com/liuchengxu/space-vim/blob/gh-pages/docs/img/space-vim.png?raw=true" alt="space-vim"/></p>
 
 <p align="center">
 <b><a href="https://liuchengxu.github.io/space-vim/docs/org/tutorial_cn.html#orgheadline4">前言</a></b> |
@@ -50,7 +50,7 @@ Elegance here means pleasing, graceful as well as simple. If you are unfamiliar 
 
 The distribution is completely customizable using `.spacevim`, which is equivalent to `.spacemacs` in spacemacs.
 
-![screenshot](docs/img/screenshot.png)
+![screenshot](https://github.com/liuchengxu/space-vim/blob/gh-pages/docs/img/screenshot.png?raw=true)
 (Terminal vim with space-vim-dark theme)
 
 ## Features
@@ -172,7 +172,7 @@ You have to satisfy some prerequisites at first:
 
     If you are running in terminal you'll need to change font settings of your terminal as well.
 
-    ![iterm2_font_setting](docs/img/iterm2_powerline_setting.png)
+    ![iterm2_font_setting](https://github.com/liuchengxu/space-vim/blob/gh-pages/docs/img/iterm2_powerline_setting.png?raw=true)
 
 5. Open vim, then space-vim will automatically install the missing plugins in enabled layers. If auto-installation fails unexpectly, please try running `:PlugInstall` manually.
 
