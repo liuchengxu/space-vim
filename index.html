@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+    <title>space-vim</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="assets/plugins/prism/prism.css">
+    <!-- Theme CSS -->
+    <link id="theme-style" rel="stylesheet" href="assets/css/styles-3.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body data-spy="scroll">
+
+    <!---//Facebook button code-->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+    <!-- ******HEADER****** -->
+    <header id="header" class="header">
+        <div class="container">
+            <h1 class="logo pull-left">
+                <a class="scrollto" href="#promo">
+                  <span class="logo-title"><a href="https://github.com/liuchengxu/space-vim">space-vim</a></span>
+                </a>
+            </h1><!--//logo-->
+            <nav id="main-nav" class="main-nav navbar-right" role="navigation">
+                <div class="navbar-header">
+                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button><!--//nav-toggle-->
+                </div><!--//navbar-header-->
+                <div class="navbar-collapse collapse" id="navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active nav-item sr-only"><a class="scrollto" href="#promo">Home</a></li>
+                        <li class="nav-item"><a class="scrollto" href="https://github.com/liuchengxu/space-vim"><span class="fa fa-github"></span> GitHub</a></li>
+                        <li class="nav-item"><a class="scrollto" href="#features">Features</a></li>
+                        <li class="nav-item"><a class="scrollto" href="#docs">Docs</a></li>
+                        <li class="nav-item"><a class="scrollto" href="#license">License</a></li>
+                        <li class="nav-item last"><a class="scrollto" href="#contact">Contact</a></li>
+                    </ul><!--//nav-->
+                </div><!--//navabr-collapse-->
+            </nav><!--//main-nav-->
+        </div>
+    </header><!--//header-->
+
+    <!-- ******PROMO****** -->
+    <section id="promo" class="promo section offset-header">
+        <div class="container text-center">
+            <h2 class="title">space-<span class="highlight">vim</span></h2>
+            <p class="intro">An elegant vim distribution inspired by spacemacs</p>
+            <div class="btns">
+              <a class="btn btn-cta-secondary" href="#docs"><span class="fa fa-arrow-circle-right"></span> Install</a>
+            <a class="btn btn-cta-primary" href="https://github.com/liuchengxu/space-vim/archive/master.zip" target="_blank"><span class="fa fa-download"></span>Download</a>
+            </div>
+            <ul class="meta list-inline">
+                <li><a href="https://github.com/liuchengxu/space-vim" target="_blank">View on GitHub</a></li>
+                <li>Created by: <a href="https://github.com/liuchengxu" target="_blank">Liu-Cheng Xu</a> & contributors.</li>
+            </ul><!--//meta-->
+        </div><!--//container-->
+        <div class="social-media">
+            <div class="social-media-inner container text-center">
+                <ul class="list-inline">
+                    <!--// Generate github buttons: https://github.com/mdo/github-buttons -->
+                    <li class="github-star"><iframe src="http://ghbtns.com/github-btn.html?user=liuchengxu&repo=space-vim&type=star&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe></li>
+                    <li class="github-fork"><iframe src="http://ghbtns.com/github-btn.html?user=liuchengxu&repo=space-vim&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe></li>
+                    <!--//
+                    <li class="github-follow"><iframe src="http://ghbtns.com/github-btn.html?user=mdo&type=follow&count=true"
+  allowtransparency="true" frameborder="0" scrolling="0" width="165" height="20"></iframe></li>
+                    -->
+                </ul>
+            </div>
+        </div>
+    </section><!--//promo-->
+
+    <!-- ******ABOUT****** -->
+    <section id="features" class="about section">
+        <div class="container">
+            <h2 class="title text-center">What is space-vim?</h2>
+            <div class="intro">
+              <p class="text-center"><a href="https://github.com/liuchengxu/space-vim">space-vim</a> is a vim distribution for vim plugins and resources, compatible with Vim and NeoVim. </p>
+              <p class="text-center">It is inspired by <a href="http://spacemacs.org">spacemacs</a> and mimics spacemacs in a high level, especially in the whole architecture, key bindings and GUI.</p>
+              <p class="text-center">If you are unfamiliar with spacemacs, you can visit <a href="http://spacemacs.org">spacemacs.org</a> for more about the priciple behind that, which is also what space-vim seeks.</p>
+              <p><img class="center-block" width="90%" height="60%" src="https://github.com/liuchengxu/space-vim-dark/blob/screenshots/screenshot3.png?raw=true"></p>
+            </div>
+            <div class="row">
+                <div class="item col-md-6 col-sm-8 col-xs-14">
+                    <div class="icon-holder">
+                        <i class="fa fa-heart"></i>
+                    </div>
+                    <div class="content">
+                        <h3 class="sub-title">For whom?</h3>
+                        <ul class="feature-list list-unstyled">
+                            <li><i class="fa fa-check"></i> the <strong>novice</strong> vim users</li>
+                            <li><i class="fa fa-check"></i> the vimmers who pursuit a beautiful appearance</li>
+                            <li><i class="fa fa-check"></i> the users using both <strong>vim and spacemacs</strong></li>
+                        </ul>
+                        <p >If you have been a vimmer for a while, just pick out the part you like.</p>
+                        <img width="100%" src="https://github.com/liuchengxu/space-vim-dark/blob/screenshots/screenshot1.png?raw=true">
+                    </div><!--//content-->
+                </div><!--//item-->
+                <div class="item col-md-6 col-sm-8 col-xs-14">
+                    <div class="icon-holder">
+                        <i class="fa fa-clock-o"></i>
+                    </div>
+                    <div class="content">
+                        <h3 class="sub-title">Beautiful interface</h3>
+                        <p><a href="https://github.com/liuchengxu/space-vim-dark" target="_blank">space-vim-dark</a> ports spacemacs-dark-theme from spacemacs to vim.</p>
+                        <img width="100%" src="https://github.com/liuchengxu/space-vim/blob/gh-pages/docs/img/screenshot.png?raw=true">
+                        <img width="100%" src="https://github.com/liuchengxu/space-vim-dark/blob/screenshots/screenshot2.png?raw=true">
+                    </div><!--//content-->
+                </div><!--//item-->
+              </div>
+              <div class="row">
+                <div class="item col-md-6 col-sm-8 col-xs-14">
+                    <div class="icon-holder">
+                        <i class="fa fa-tablet"></i>
+                    </div>
+                    <div class="content">
+                        <h3 class="sub-title">Mnemonic keybindings</h3>
+                        <p>Key bindings are organized using mnemonic prefixes like <kbd>b</kbd> for buffer, <kbd>w</kbd> for window etc…</p>
+                        <p>Meanwhile, the whole key bindings have been well adapted for vim for the lack of great plugins similar to which-key in emacs. Most key bindings are limited to no more than two keystrokes without counting <Leader> or <LocalLeader> in, e.g. <kbd>SPC x d</kbd> to delete trailing whitespaces.</p>
+                    </div><!--//content-->
+                </div><!--//item-->
+                <div class="clearfix visible-md"></div>
+                <div class="item col-md-6 col-sm-8 col-xs-14">
+                    <div class="icon-holder">
+                        <i class="fa fa-code"></i>
+                    </div>
+                    <div class="content">
+                        <h3 class="sub-title">Easy to customise</h3>
+                        <p>The distribution is completely customizable using <code>.spacevim</code>, which is equivalent to <code>.spacemacs</code> in spacemacs.</p>
+                        <img width="100%" src="https://github.com/liuchengxu/space-vim-dark/blob/screenshots/screenshot4.png?raw=true">
+                    </div><!--//content-->
+                </div><!--//item-->
+            </div><!--//row-->
+        </div><!--//container-->
+    </section><!--//about-->
+
+    <!-- ******FEATURES****** -->
+    <!-- <section id="features" class="features section"> -->
+        <!-- <div class="container text-center"> -->
+            <!-- <h2 class="title">Features</h2> -->
+            <!-- <ul class="feature-list list-unstyled"> -->
+                <!-- <li><i class="fa fa-check"></i> Fully responsive</li> -->
+                <!-- <li><i class="fa fa-check"></i> HTML5 + CSS3</li> -->
+                <!-- <li><i class="fa fa-check"></i> Built on <a href="http://getbootstrap.com/" target="_blank">Bootstrap 3.3</a></li> -->
+                <!-- <li><i class="fa fa-check"></i> 400+ FontAwesome icons</li> -->
+                <!-- <li><i class="fa fa-check"></i> 4 colour schemes</li> -->
+                <!-- <li><i class="fa fa-check"></i> LESS files included</li> -->
+                <!-- <li><i class="fa fa-check"></i> Compatible with all modern browsers</li> -->
+            <!-- </ul> -->
+        <!-- </div>[>//container<] -->
+    <!-- </section>[>//features<] -->
+
+    <!-- ******DOCS****** -->
+    <section id="docs" class="docs section">
+        <div class="container">
+            <div class="docs-inner">
+            <h2 class="title text-center">Get Started</h2>
+            <h4 class="sub-title">Prerequisites</h4>
+              <ul>
+                  <li>Vim with <code>python</code> or <code>+python3</code> feature</li>
+                  <li>git</li>
+              </ul>
+            <div id="install" class="block">
+                <h3 class="sub-title text-center">Install</h3>
+                <h4 class="sub-title">Linux and macOS</h4>
+                  <ul class="feature-list ">
+                    <li>
+                      <p><strong>curl</strong></p>
+                      <pre class="installer">
+                          <code>
+                          sh -c "$(curl -fsSL https://raw.githubusercontent.com/liuchengxu/space-vim/master/install.sh)"
+                          </code>
+                      </pre>
+                    </li>
+                    <li>
+                      <p><strong>wget</strong></p>
+                      <pre class="installer">
+                          <code>
+                          sh -c "$(curl -fsSL https://raw.githubusercontent.com/liuchengxu/space-vim/master/install.sh)"
+                          </code>
+                      </pre>
+                      </li>
+                    <p ><i class="fa fa-warning"></i> For neovim, after the quick installer is done, you still need to create a symlink:</p>
+                      <pre class="installer">
+                          <code>
+                          ln -s ~/.space-vim/init.vim ~/.config/nvim/init.vim
+                          </code>
+                      </pre>
+
+                  </ul>
+
+                <h4 class="sub-title">Windows</h4>
+                <p>There is no auto-installer for windows users currently, please install space-vim manually accroding to the <a href="https://github.com/liuchengxu/space-vim/blob/master/README.md">windows installation section</a>.</p>
+              <div class="block">
+                  <h3 class="sub-title text-center">Full Documentation</h3>
+                  <p class="text-center">Please visit GitHub for more information about space-vim!</p>
+                  <p class="text-center">
+                      <a class="btn btn-cta-primary" href="https://github.com/liuchengxu/space-vim" target="_blank">More on GitHub</a>
+                  </p>
+              </div><!--//block-->
+
+            </div><!--//docs-inner-->
+
+        </div><!--//container-->
+    </section><!--//features-->
+    <!-- ******LICENSE****** -->
+    <!-- <section id="license" class="license section"> -->
+        <!-- <div class="container"> -->
+            <!-- <div class="license-inner"> -->
+            <!-- <h2 class="title text-center">License</h2> -->
+                <!-- <div class="info"> -->
+                    <!-- <p>This Bootstrap theme is made by UX designer <a href="https://www.linkedin.com/in/xiaoying" target="_blank">Xiaoying Riley</a> at 3rd Wave Media for developers and is <strong>100% FREE</strong> under the <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank">Creative Commons Attribution 3.0 License (CC BY 3.0)</a></p> -->
+                    <!-- <p><strong>[Tip for developers]:</strong> If your project is open source, you might want to put a <a href="https://www.paypal.com/us/cgi-bin/?cmd=_donate-intro-outside" target="_blank">PayPal "Donate" button</a> below so your users can express their gratitude. If your project is commercial, you can put a <a href="https://www.paypal.com/us/cgi-bin/webscr?cmd=_singleitem-intro-outside" target="_blank">PayPal "Buy Now" button</a> instead.</p> -->
+                <!-- </div>[>//info<] -->
+                <!-- <div class="cta-container"> -->
+                    <!-- <div class="speech-bubble"> -->
+                        <!-- <p class="intro">If you are feeling generous and want to show your support to Xiaoying, you can buy her a beer or coffee via the PayPal donate button below. :)</p> -->
+                        <!-- <div class="icon-holder  text-center"><i class="fa fa-smile-o"></i></div> -->
+                    <!-- </div>[>//speech-bubble<] -->
+                    <!-- <div class="btn-container  text-center"> -->
+                        <!--//You need to generate your own PayPal button - https://www.paypal.com/us/cgi-bin/?cmd=_donate-intro-outside -->
+                        <!--PayPal generated code starts-->
+                        <!-- <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top"> -->
+                        <!-- <input type="hidden" name="cmd" value="_s-xclick"> -->
+                        <!-- <input type="hidden" name="hosted_button_id" value="Y46LJNXGAVVWW"> -->
+                        <!-- <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"> -->
+                        <!-- <img alt="" border="0" src="https://www.paypalobjects.com/en_GB/i/scr/pixel.gif" width="1" height="1"> -->
+                        <!-- </form> -->
+                        <!--//PayPal generated code ends-->
+
+                    <!-- </div>[>//btn-container<] -->
+                <!-- </div>[>//cta-container<] -->
+            <!-- </div>[>//license-inner<] -->
+        <!-- </div>[>//container<] -->
+    <!-- </section>[>//how<] -->
+
+    <!-- ******CONTACT****** -->
+    <section id="contact" class="contact section has-pattern">
+        <div class="container">
+            <div class="contact-inner">
+                <h2 class="title  text-center">Contact</h2>
+                <p class="intro  text-center">If you encounter any problem, please <a href="https://github.com/liuchengxu/space-vim/issues/new">create an issue</a> on GitHub.</p>
+                <!-- <div class="author-message"> -->
+                    <!-- <div class="profile"> -->
+                        <!-- <img class="img-responsive" src="assets/images/profile.png" alt="" /> -->
+                    <!-- </div>[>//profile<] -->
+                    <!-- <div class="speech-bubble"> -->
+                        <!-- <h3 class="sub-title">Want to get more freebies in the future?</h3> -->
+                        <!-- <p>I tweet about #UX and #webdev related resources/content at <a href="https://twitter.com/3rdwave_themes" target="_blank">@3rdwave_themes</a> -->
+                        <!-- <p>If you like what I do, you can follow me on twitter and I will keep you informed about my next free template there :)</p> -->
+                        <!-- <p><strong>[Tip for developers]:</strong> If you take on freelance work you can put a tailored message here about your availability to attract potential clients. Be creative and good luck!</p> -->
+                        <!-- <div class="source"> -->
+                            <!-- <span class="name"><a href="https://twitter.com/3rdwave_themes" target="_blank">Xiaoying Riley</a></span> -->
+                            <!-- <br /> -->
+                            <!-- <span class="title">UX/UI Designer</span> -->
+                        <!-- </div>[>//source<] -->
+                    <!-- </div>[>//speech-bubble<] -->
+                <!-- </div>[>//author-message<] -->
+                <!-- <div class="clearfix"></div> -->
+                <!-- <div class="info text-center"> -->
+                    <!-- <h4 class="sub-title">Get Connected</h4> -->
+                    <!-- <ul class="social-icons list-inline"> -->
+                        <!-- <li><a href="https://twitter.com/3rdwave_themes" target="_blank"><i class="fa fa-twitter"></i></a></li> -->
+                        <!-- <li><a href="https://www.facebook.com/3rdwavethemes" target="_blank"><i class="fa fa-facebook"></i></a></li> -->
+                        <!-- <li><a href="https://www.linkedin.com/in/xiaoying"><i class="fa fa-linkedin"></i></a></li> -->
+                        <!-- <li><a href="http://instagram.com/xyriley"><i class="fa fa-instagram"></i></a></li> -->
+                        <!-- <li><a href="https://dribbble.com/Xiaoying"><i class="fa fa-dribbble"></i></a></li> -->
+                        <!-- <li class="last"><a href="mailto:hello@3rdwavemedia.com"><i class="fa fa-envelope"></i></a></li> -->
+                    <!-- </ul> -->
+                <!-- </div>[>//info<] -->
+            </div><!--//contact-inner-->
+        </div><!--//container-->
+    </section><!--//contact-->
+
+    <!-- ******FOOTER****** -->
+    <footer class="footer">
+        <div class="container text-muted text-center">
+            <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can check out other license options via our website: themes.3rdwavemedia.com */-->
+            <small class="copyright">Theme designed with <i class="fa fa-heart"></i> by <a href="http://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a></small>
+        </div><!--//container-->
+    </footer><!--//footer-->
+
+    <!-- Javascript -->
+    <script type="text/javascript" src="assets/plugins/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/prism/prism.js"></script>
+    <script type="text/javascript" src="assets/js/main.js"></script>
+</body>
+</html>
+
