@@ -1,3 +1,5 @@
+scriptencoding utf-8
+
 let g:spacevim_layers_dir = '/layers'
 let g:spacevim_private_layers_dir = '/private'
 let g:spacevim_nvim = has('nvim') && exists('*jobwait') && !g:WINDOWS
@@ -81,12 +83,14 @@ function! s:to_a(v)
 endfunction
 
 function! s:parse_options(arg)
-    let type = type(a:arg)
-    if type == s:TYPE.dict
+    let l:type = type(a:arg)
+    if l:type == s:TYPE.dict
         if has_key(a:arg, 'exclude')
-            for excl in s:to_a(a:arg['exclude'])
-                call add(g:spacevim_excluded, excl)
+            for l:excl in s:to_a(a:arg['exclude'])
+                call add(g:spacevim_excluded, l:excl)
             endfor
+        else
+            throw 'Invalid option (expected: exclude)'
         endif
     else
         throw 'Invalid argument type (expected: dictionary)'
@@ -138,17 +142,15 @@ function! spacevim#end()
     if s:check_dot_spacevim()
 
         if !exists('g:spacevim_plug_home')
-            if g:spacevim_nvim
-                " https://github.com/junegunn/vim-plug/issues/559
-                let g:spacevim_plug_home = '~/.local/shared/nvim/plugged'
-            else
-                let g:spacevim_plug_home = '~/.vim/plugged/'
-            endif
+            " https://github.com/junegunn/vim-plug/issues/559
+            let g:spacevim_plug_home = g:spacevim_nvim ? '~/.local/shared/nvim/plugged' : '~/.vim/plugged/'
         endif
 
         call plug#begin(g:spacevim_plug_home)
 
-        call Layers()
+        if exists('*Layers')
+            call Layers()
+        endif
 
         call s:layers_info()
 
@@ -157,28 +159,23 @@ function! spacevim#end()
         call s:filter_plugins()
         call s:invoke_plug()
 
-        call UserInit()
+        if exists('*UserInit')
+            call UserInit()
+        endif
 
         call plug#end()
 
-        if exists('g:spacevim_leader')
-            let g:mapleader=g:spacevim_leader
-        else
-            let g:mapleader = "\<Space>"
-        endif
-
-        if exists('g:spacevim_localleader')
-            let g:maplocalleader=g:spacevim_localleader
-        else
-            let g:maplocalleader = ','
-        endif
+        let g:mapleader = get(g:, 'spacevim_leader', "\<Space>")
+        let g:maplocalleader = get(g:, 'spacevim_localleader', ',')
 
         " Make vim-better-default settings can be overrided
         silent! runtime! plugin/default.vim
 
         call s:load_config()
 
-        call UserConfig()
+        if exists('*UserConfig')
+            call UserConfig()
+        endif
 
         call s:post_user_config()
     endif
@@ -186,19 +183,17 @@ function! spacevim#end()
 endfunction
 
 function! s:filter_plugins()
-
-execute s:py_exe "<< EOF"
-import vim
-exclude = vim.eval('g:spacevim_excluded')
-my_plugins = vim.eval('g:spacevim_plugins')
-plugins = list(set(my_plugins)^set(exclude))
-vim.command('let g:spacevim_plugs = %s' % plugins)
-EOF
+    for l:excl in g:spacevim_excluded
+        let l:idx = index(g:spacevim_plugins, l:excl)
+        if l:idx > -1
+            call remove(g:spacevim_plugins, l:idx)
+        endif
+    endfor
 endfunction
 
 function! s:invoke_plug()
-    for plug in g:spacevim_plugs
-        call plug#(plug, get(g:plug_options, plug, ''))
+    for l:plugin in g:spacevim_plugins
+        call plug#(l:plugin, get(g:plug_options, l:plugin, ''))
     endfor
 endfunction
 
@@ -287,10 +282,12 @@ function! s:post_user_config()
     call s:statusline_hi()
 
     " https://github.com/junegunn/vim-plug/wiki/extra#automatically-install-missing-plugins-on-startup
+    augroup PLUG_CHECK
     autocmd VimEnter *
       \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
       \|   echom '[space-vim] Some layers need to install the missing plugins first!'
       \|   PlugInstall --sync | q
       \| endif
+    augroup END
 
 endfunction

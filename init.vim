@@ -5,7 +5,7 @@
 "      |___/ .__/ \__._|\___\___|      \_/ |_|_| |_| |_|
 "          |_|
 "
-"   Copyright (c) 2016 Liu-Cheng Xu & Contributors
+"   Copyright (c) 2017 Liu-Cheng Xu & Contributors
 "
 "   You can customize space-vim with .spacevim
 "   and don't have to take care of this file.
