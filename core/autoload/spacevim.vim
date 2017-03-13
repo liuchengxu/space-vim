@@ -118,10 +118,15 @@ silent function! s:Source(file) abort
     endif
 endfunction
 
+function! s:path(path)
+    return substitute(a:path, '/', '\', 'g')
+endfunction
+
 function! s:layers_info() abort
     let g:spacevim_info_path = g:spacevim_dir. '/core/autoload/info.vim'
+    let g:spacevim_info_path = g:WINDOWS ? s:path(g:spacevim_info_path) : g:spacevim_info_path
     if filereadable(g:spacevim_info_path)
-        execute 'source' . g:spacevim_info_path
+        execute 'source ' . g:spacevim_info_path
     else
         call layer#update(s:py_exe)
     endif
