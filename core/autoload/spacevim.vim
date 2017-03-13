@@ -1,15 +1,25 @@
+scriptencoding utf-8
+
+let g:spacevim_layers_dir = '/layers'
+let g:spacevim_private_layers_dir = '/private'
 let g:spacevim_nvim = has('nvim') && exists('*jobwait') && !g:WINDOWS
 let g:spacevim_vim8 = has('patch-8.0.0039') && exists('*job_start')
 let g:spacevim_gui_running = has('gui_running')
 let g:spacevim_tmux = !empty($TMUX)
 
 let g:layers_loaded = []
+let g:spacevim_excluded = []
+let g:spacevim_plugins = []
+let g:plug_options = {}
 
 let s:dot_spacevim = $HOME.'/.spacevim'
-let s:spacevim_layers_dir = '/layers'
-let s:spacevim_private_layers_dir = '/private'
 let s:py_exe = has('python') ? 'python' : 'python3'
-
+let s:TYPE = {
+\   'string':  type(''),
+\   'list':    type([]),
+\   'dict':    type({}),
+\   'funcref': type(function('call'))
+\ }
 
 function! s:err(msg)
     echohl ErrorMsg
@@ -53,25 +63,39 @@ function! s:define_command()
     " MP means MyPlugin
     command! -nargs=+ -bar MP call s:my_plugins(<args>)
 
-    command! -nargs=+ -bar Layer call s:layers(<args>)
-    command! -nargs=+ -bar Exclude call s:exclude(<args>)
+    command! -nargs=+ -bar Layer call s:layer(<args>)
 
     command! -nargs=0 -bar LayerStatus call layer#status()
-    command! -nargs=0 -bar LayerUpdate call spacevim#info()
+    command! -nargs=0 -bar LayerUpdate call layer#update(s:py_exe)
 endfunction
 
-function! s:layers(...)
-    if a:0 == 0
-        return s:err('Argument missing: Layer name required.')
+function! s:layer(name, ...)
+    call add(g:layers_loaded, a:name)
+    if a:0 > 1
+        return s:err('Invalid number of arguments (1..2)')
     elseif a:0 == 1
-        call add(g:layers_loaded, a:1)
-    else
-        call s:err('Options not supported now. Sorry for that.')
+        call s:parse_options(a:1)
     endif
 endfunction
 
-let g:spacevim_plugins = []
-let g:plug_options = {}
+function! s:to_a(v)
+  return type(a:v) == s:TYPE.list ? a:v : [a:v]
+endfunction
+
+function! s:parse_options(arg)
+    let l:type = type(a:arg)
+    if l:type == s:TYPE.dict
+        if has_key(a:arg, 'exclude')
+            for l:excl in s:to_a(a:arg['exclude'])
+                call add(g:spacevim_excluded, l:excl)
+            endfor
+        else
+            throw 'Invalid option (expected: exclude)'
+        endif
+    else
+        throw 'Invalid argument type (expected: dictionary)'
+    endif
+endfunction
 
 function! s:my_plugins(...)
     if a:0 == 0
@@ -86,18 +110,6 @@ function! s:my_plugins(...)
     endif
 endfunction
 
-let g:spacevim_exclude = []
-
-function! s:exclude(...)
-    if a:0 == 0
-        return s:err('Argument missing: element name(s) required.')
-    elseif a:0 == 1
-        call add(g:spacevim_exclude, a:1)
-    else
-        return s:err('Too many arguments for Exlcude command!')
-    endif
-endfunction
-
 silent function! s:Source(file) abort
     if filereadable(expand(a:file))
         execute 'source ' . fnameescape(a:file)
@@ -106,58 +118,12 @@ silent function! s:Source(file) abort
     endif
 endfunction
 
-" get the whole available layers number s:layers_sum, number
-" get the topics s:topics, list
-" get the pair topic to layers s:topic2layers, dict
-function! spacevim#info() abort
-
-execute s:py_exe "<< EOF"
-import os
-import vim
-
-spacevim_dir = vim.eval('g:spacevim_dir')
-topic_base = spacevim_dir + vim.eval('s:spacevim_layers_dir')
-private_base = spacevim_dir + vim.eval('s:spacevim_private_layers_dir')
-
-topics = [f for f in os.listdir(topic_base) if os.path.isdir(os.path.join(topic_base,f))]
-private_layers = [f for f in os.listdir(private_base) if os.path.isdir(os.path.join(private_base,f))]
-
-layer_path = {}
-topic2layers = {}
-layers_sum = len(private_layers)
-
-for t in topics:
-    topic_path = topic_base + '/' + t
-    layers = [f for f in os.listdir(topic_path) if os.path.isdir(os.path.join(topic_path,f))]
-    layers_sum += len(layers)
-    topic2layers[t] = layers
-    for l in layers:
-        layer_path[l] = topic_path + '/' + l
-
-vim.command("let g:layers_sum = %d" % layers_sum)
-vim.command("let g:topics = %s" % topics)
-vim.command("let g:topic2layers = %s" % topic2layers)
-vim.command("let g:private_layers = %s" % private_layers)
-vim.command("let g:layer_path = %s" % layer_path)
-
-f = open(vim.eval('g:spacevim_info_path'), 'w')
-f.write("let g:layers_sum = %d\n" % layers_sum)
-f.write("let g:topics = %s\n" % topics)
-f.write("let g:topic2layers = %s\n" % topic2layers)
-f.write("let g:private_layers = %s\n" % private_layers)
-f.write("let g:layer_path = %s\n" % layer_path)
-f.close()
-
-EOF
-
-endfunction
-
-function! s:layers_info()
+function! s:layers_info() abort
     let g:spacevim_info_path = g:spacevim_dir. '/core/autoload/info.vim'
     if filereadable(g:spacevim_info_path)
         execute 'source' . g:spacevim_info_path
     else
-        call spacevim#info()
+        call layer#update(s:py_exe)
     endif
 endfunction
 
@@ -176,17 +142,15 @@ function! spacevim#end()
     if s:check_dot_spacevim()
 
         if !exists('g:spacevim_plug_home')
-            if g:spacevim_nvim
-                " https://github.com/junegunn/vim-plug/issues/559
-                let g:spacevim_plug_home = '~/.local/shared/nvim/plugged'
-            else
-                let g:spacevim_plug_home = '~/.vim/plugged/'
-            endif
+            " https://github.com/junegunn/vim-plug/issues/559
+            let g:spacevim_plug_home = g:spacevim_nvim ? '~/.local/shared/nvim/plugged' : '~/.vim/plugged/'
         endif
 
         call plug#begin(g:spacevim_plug_home)
 
-        call Layers()
+        if exists('*Layers')
+            call Layers()
+        endif
 
         call s:layers_info()
 
@@ -195,28 +159,23 @@ function! spacevim#end()
         call s:filter_plugins()
         call s:invoke_plug()
 
-        call UserInit()
+        if exists('*UserInit')
+            call UserInit()
+        endif
 
         call plug#end()
 
-        if exists('g:spacevim_leader')
-            let g:mapleader=g:spacevim_leader
-        else
-            let g:mapleader = "\<Space>"
-        endif
-
-        if exists('g:spacevim_localleader')
-            let g:maplocalleader=g:spacevim_localleader
-        else
-            let g:maplocalleader = ','
-        endif
+        let g:mapleader = get(g:, 'spacevim_leader', "\<Space>")
+        let g:maplocalleader = get(g:, 'spacevim_localleader', ',')
 
         " Make vim-better-default settings can be overrided
         silent! runtime! plugin/default.vim
 
         call s:load_config()
 
-        call UserConfig()
+        if exists('*UserConfig')
+            call UserConfig()
+        endif
 
         call s:post_user_config()
     endif
@@ -224,19 +183,17 @@ function! spacevim#end()
 endfunction
 
 function! s:filter_plugins()
-
-execute s:py_exe "<< EOF"
-import vim
-exclude = vim.eval('g:spacevim_exclude')
-my_plugins = vim.eval('g:spacevim_plugins')
-plugins = list(set(my_plugins)^set(exclude))
-vim.command('let g:spacevim_plugs = %s' % plugins)
-EOF
+    for l:excl in g:spacevim_excluded
+        let l:idx = index(g:spacevim_plugins, l:excl)
+        if l:idx > -1
+            call remove(g:spacevim_plugins, l:idx)
+        endif
+    endfor
 endfunction
 
 function! s:invoke_plug()
-    for plug in g:spacevim_plugs
-        call plug#(plug, get(g:plug_options, plug, ''))
+    for l:plugin in g:spacevim_plugins
+        call plug#(l:plugin, get(g:plug_options, l:plugin, ''))
     endfor
 endfunction
 
@@ -325,10 +282,12 @@ function! s:post_user_config()
     call s:statusline_hi()
 
     " https://github.com/junegunn/vim-plug/wiki/extra#automatically-install-missing-plugins-on-startup
+    augroup PLUG_CHECK
     autocmd VimEnter *
       \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
       \|   echom '[space-vim] Some layers need to install the missing plugins first!'
       \|   PlugInstall --sync | q
       \| endif
+    augroup END
 
 endfunction
