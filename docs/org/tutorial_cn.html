@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-02-06 Mon 14:15 -->
+<!-- 2017-03-14 Tue 20:41 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Space-vim documentation</title>
@@ -528,7 +528,7 @@ GUI 环境下, 可直接在 vim 的配置文件进行设置.
 </p>
 
 <p>
-使用 <code>Layer</code> 命令可以加载 layer, 但是如果不想加载 layer 中的所有插件, 可以使用 <code>Exclude</code> 命令进行部分禁用, 比如不想要 'Shougo/denite.nvim':
+使用 <code>Layer</code> 命令可以加载 layer, 但是如果不想加载 layer 中的所有插件, 可以使用 <code>exclude</code> 选项进行部分禁用, 比如不想要 'itchyny/vim-cursorword' (这是给当前单词相匹配的所有单词加上下划线的插件):
 </p>
 <div class="org-src-container">
 
@@ -536,10 +536,7 @@ GUI 环境下, 可直接在 vim 的配置文件进行设置.
 
     Layer <span style="color: #2d9574;">'fzf'</span>
     Layer <span style="color: #2d9574;">'unite'</span>
-    Layer <span style="color: #2d9574;">'better-defaults'</span>
-
-    Layer <span style="color: #2d9574;">'python'</span>
-    Exclude <span style="color: #2d9574;">'Shougo/denite.nvim'</span>
+    Layer <span style="color: #2d9574;">'better-defaults', { 'exclude': 'itchyny/vim-cursorword'</span> }
 
 <span style="color: #4f97d7; font-weight: bold;">endfunction</span>
 </pre>
@@ -1400,7 +1397,7 @@ vim 只不过是工具, 你用记事本写程序都可以, 我们最终要做的
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Liu-Cheng Xu</p>
-<p class="date">Created: 2017-02-06 Mon 14:15</p>
+<p class="date">Created: 2017-03-14 Tue 20:41</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

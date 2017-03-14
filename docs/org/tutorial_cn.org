@@ -185,16 +185,13 @@
 
     *每个 layer 下，通常附有一个 README 以简要说明，请在启用该 layer 时进行查阅* 。
 
-    使用 ~Layer~ 命令可以加载 layer, 但是如果不想加载 layer 中的所有插件, 可以使用 ~Exclude~ 命令进行部分禁用, 比如不想要 'Shougo/denite.nvim':
+    使用 ~Layer~ 命令可以加载 layer, 但是如果不想加载 layer 中的所有插件, 可以使用 ~exclude~ 选项进行部分禁用, 比如不想要 'itchyny/vim-cursorword' (这是给当前单词相匹配的所有单词加上下划线的插件):
     #+BEGIN_SRC vimrc
     function! Layers()
 
         Layer 'fzf'
         Layer 'unite'
-        Layer 'better-defaults'
-
-        Layer 'python'
-        Exclude 'Shougo/denite.nvim'
+        Layer 'better-defaults', { 'exclude': 'itchyny/vim-cursorword' }
 
     endfunction
     #+END_SRC
@@ -418,6 +415,7 @@
     #+END_SRC
 
 ** space-vim statusline
+
    file:../img/statusline.png
    Terminal vim 默认的 statuline 显示的信息依次为: 
 
