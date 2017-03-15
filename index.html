@@ -3,7 +3,7 @@
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
 <head>
-    <title>space-vim</title>
+    <title>space-vim - An Elegant Vim Distribution Inspired by Spacemacs</title>
     <!-- Meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -209,11 +209,29 @@
                       <pre class="installer">
                           <code><br>  ln -s ~/.space-vim/init.vim ~/.config/nvim/init.vim </code>
                       </pre>
-
+                    <br/>
                   </ul>
-
                 <h4 class="sub-title">Windows</h4>
-                <p>There is no auto-installer for windows users currently, please install space-vim manually accroding to the <a href="https://github.com/liuchengxu/space-vim/blob/master/README.md">windows installation section</a>.</p>
+                <p>There is no auto-installer for windows users currently, please install space-vim manually accroding to the following instructions:</p>
+                <ol>
+                  <li>Install <a href="https://git-scm.com/download/win">git</a>.</li>
+                  <li>Download <a href="https://github.com/vim/vim-win32-installer/releases">Vim and Python</a>.</li>
+                  <li>Install <a href="https://github.com/junegunn/vim-plug">vim-plug</a>:
+                    <p>Windows (Powershell)</p>
+                    <pre class="installer">
+                      <code><br>  md ~\.vim\autoload<br>  $uri = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'<br>  (New-Object Net.WebClient).DownloadFile($uri, $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath("~\.vim\autoload\plug.vim"))</code>
+                    </pre>
+                  </li>
+                  <li><p>Enter your home directory, Open <strong>Git Bash</strong> by right-clicking and choosing the option <i>Git Bash Here</i>. Run the following commands to download space-vim and make a symlink.</p>
+                  <pre class="installer">
+                    <code><br>  git clone https://github.com/liuchengxu/space-vim.git ~/.space-vim<br>  ln -s ~/.space-vim/init.vim ~/.vimrc</code>
+                  </pre>
+                  </li>
+                  <li><p>Create <code>.spacevim</code> in home directory.</p>
+                    <pre class="installer"><code><br>  function! Layers()<br>      Layer 'fzf'<br>      Layer 'unite'<br>      Layer 'better-defaults'<br>  endfunction<br><br>  function! UserInit()<br>  endfunction<br><br>  function! UserConfig()<br>  endfunction<br> </code></pre>
+                  </li>
+                  <li>Open vim, run <code>:PlugInstall</code>.</li>
+                </ol>
               <div class="block">
                   <h3 class="sub-title text-center">Full Documentation</h3>
                   <p class="text-center">Please visit GitHub for more information about space-vim!</p>
@@ -262,7 +280,7 @@
         <div class="container">
             <div class="contact-inner">
                 <h2 class="title  text-center">Contact</h2>
-                <p class="intro  text-center">If you encounter any problem, please <a href="https://github.com/liuchengxu/space-vim/issues/new">create an issue</a> on GitHub.</p>
+                <p class="intro  text-center">If you encounter any problem or have any suggestions, please <a href="https://github.com/liuchengxu/space-vim/issues/new">create an issue</a> on GitHub.</p>
                 <!-- <div class="author-message"> -->
                     <!-- <div class="profile"> -->
                         <!-- <img class="img-responsive" src="assets/images/profile.png" alt="" /> -->
