@@ -148,7 +148,7 @@ function! spacevim#end()
 
         if !exists('g:spacevim_plug_home')
             " https://github.com/junegunn/vim-plug/issues/559
-            let g:spacevim_plug_home = g:spacevim_nvim ? '~/.local/shared/nvim/plugged' : '~/.vim/plugged/'
+            let g:spacevim_plug_home = g:spacevim_nvim ? '~/.local/share/nvim/plugged' : '~/.vim/plugged/'
         endif
 
         call plug#begin(g:spacevim_plug_home)
