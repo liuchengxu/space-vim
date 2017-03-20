@@ -246,23 +246,6 @@ function! s:load_config()
     endif
 endfunction
 
-function! s:statusline_hi()
-    " default bg for statusline is 236 in space-vim-dark
-    hi paste       cterm=bold ctermfg=149 ctermbg=239 gui=bold guifg=#99CC66 guibg=#3a3a3a
-    hi ale_error   cterm=None ctermfg=197 ctermbg=237 gui=None guifg=#CC0033 guibg=#3a3a3a
-    hi ale_warning cterm=None ctermfg=214 ctermbg=237 gui=None guifg=#FFFF66 guibg=#3a3a3a
-
-    hi User1 cterm=bold ctermfg=232 ctermbg=179 gui=Bold guifg=#333300 guibg=#FFBF48
-    hi User2 cterm=None ctermfg=214 ctermbg=243 gui=None guifg=#FFBB7D guibg=#666666
-    hi User3 cterm=None ctermfg=251 ctermbg=241 gui=None guifg=#c6c6c6 guibg=#585858
-    hi User4 cterm=Bold ctermfg=177 ctermbg=239 gui=Bold guifg=#d75fd7 guibg=#4e4e4e
-    hi User5 cterm=None ctermfg=208 ctermbg=238 gui=None guifg=#ff8700 guibg=#3a3a3a
-    hi User6 cterm=Bold ctermfg=178 ctermbg=237 gui=Bold guifg=#FFE920 guibg=#444444
-    hi User7 cterm=None ctermfg=250 ctermbg=238 gui=None guifg=#bcbcbc guibg=#444444
-    hi User8 cterm=None ctermfg=249 ctermbg=239 gui=None guifg=#b2b2b2 guibg=#4e4e4e
-    hi User9 cterm=None ctermfg=249 ctermbg=241 gui=None guifg=#b2b2b2 guibg=#606060
-endfunction
-
 function! s:post_user_config()
 
     autocmd BufRead,BufNewFile *.spacevim setlocal filetype=vim
@@ -283,16 +266,14 @@ function! s:post_user_config()
         endif
     endif
 
-    " User-defined highlightings shoule be put after colorscheme command.
-    call s:statusline_hi()
-
     " https://github.com/junegunn/vim-plug/wiki/extra#automatically-install-missing-plugins-on-startup
     augroup PLUG_CHECK
-    autocmd VimEnter *
-      \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-      \|   echom '[space-vim] Some layers need to install the missing plugins first!'
-      \|   PlugInstall --sync | q
-      \| endif
+        autocmd!
+        autocmd VimEnter *
+          \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+          \|   echom '[space-vim] Some layers need to install the missing plugins first!'
+          \|   PlugInstall --sync | q
+          \| endif
     augroup END
 
 endfunction
