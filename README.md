@@ -28,7 +28,7 @@
 * [For whom?](#for-whom)
 * [Install](#install)
     * [Linux and macOS](#linux-and-macos)
-    * [Windows(experimental)](#windowsexperimental)
+    * [Windows](#windows)
     * [Manual (Linux and macOS)](#manual-linux-and-macos)
 * [Customize](#customize)
 * [How to use](#how-to-use)
@@ -55,7 +55,7 @@ The distribution is completely customizable using `.spacevim`, which is equivale
 
 ## Features
 
-- **Beautiful interface:** I have also written a vim colorscheme [space-vim-dark](https://github.com/liuchengxu/space-vim-dark) based on spacemacs-dark theme. You could also try [spacemacs-theme.vim](https://github.com/colepeters/spacemacs-theme.vim), which looks nice in GUI vim.
+- **Beautiful interface:** I have written a vim colorscheme [space-vim-dark](https://github.com/liuchengxu/space-vim-dark) based on spacemacs-dark theme. You could also try [spacemacs-theme.vim](https://github.com/colepeters/spacemacs-theme.vim).
 
     ![screenshot](https://github.com/liuchengxu/space-vim-dark/blob/screenshots/screenshot3.png?raw=true)
     (Terminal vim with `set termguicolors`)
@@ -68,11 +68,11 @@ The distribution is completely customizable using `.spacevim`, which is equivale
 
 ## For whom?
 
-- the novice vim users
+- the **novice** vim users
 - the vimmers who pursuit a beautiful appearance
 - the users **using both vim and spacemacs**
 
-If you have been a vimmer for quite a while, just pick out the part you are interested in. space-vim is well-organized due to the layers concept, you can easily find what you want.
+If you have been a vimmer for quite a while, just pick out the part you are interested in. space-vim is well-organized due to the layers concept, you can easily find what you want. Since some guys are interested in the statusline part of space-vim, this section has been extracted as [eleline.vim](https://github.com/liuchengxu/eleline.vim).
 
 ## Install
 
@@ -106,7 +106,7 @@ You have to satisfy some prerequisites at first:
     ln -s ~/.space-vim/init.vim ~/.config/nvim/init.vim
     ```
 
-### Windows(experimental)
+### Windows
 
 1. [Download git](https://git-scm.com/download/win)
 

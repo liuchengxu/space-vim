@@ -153,10 +153,6 @@ augroup END
     nnoremap <Leader>ti :IndentGuidesToggle<CR>
 " }
 
-" delimitMate {
-    let g:delimitMate_expand_cr=1
-" }
-
 " vim-polyglot {
     " Reset errorformat to its default value for cooperating with asyncrun.vim
     autocmd BufEnter * set errorformat&
