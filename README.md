@@ -32,8 +32,11 @@
     * [Manual (Linux and macOS)](#manual-linux-and-macos)
 * [Customize](#customize)
 * [How to use](#how-to-use)
+    * [Bootstrap](#bootstrap)
+    * [Tips](#tips)
+        * [Enable GUI color in terminal vim](#enable-gui-color-in-terminal-vim)
+        * [Font](#font)
 * [Update](#update)
-* [FAQ](#faq)
 * [Contributions](#contributions)
 * [Acknowledgements](#acknowledgements)
 * [Articles](#articles)
@@ -168,19 +171,13 @@ You have to satisfy some prerequisites at first:
     # for neovim
     ln -s ~/.space-vim/init.vim ~/.config/nvim/init.vim
     ```
-4. (Optional) Install the [Source Code Pro](https://github.com/adobe-fonts/source-code-pro) or [Powerline](https://github.com/powerline/fonts) font.
-
-    If you are running in terminal you'll need to change font settings of your terminal as well.
-
-    ![iterm2_font_setting](https://github.com/liuchengxu/space-vim/blob/gh-pages/docs/img/iterm2_powerline_setting.png?raw=true)
-
 5. Open vim, then space-vim will automatically install the missing plugins in enabled layers. If auto-installation fails unexpectly, please try running `:PlugInstall` manually.
 
 ## Customize
 
 You can use `.spacevim` in your home directory to customize space-vim, where you can enable the existing layers, add your extra plugins and private configurations.
 
-If `.spacevim` does not exist, none of the vim configurations will be loaded!
+If `.spacevim` does not exist, vanilla vim will be loaded!
 
 ```vim
 " You can enable the existing layers in space-vim and
@@ -217,10 +214,30 @@ function! UserConfig()
 endfunction
 ```
 
-If you want to use GUI color in terminal vim, add this to `UserConfig()`:
+If have a heavy customized configuration, you can organize them in **private** directory with `packages.vim` and `config.vim` too, which will be loaded on startup. The **private** directory can be considered as either a single layer, i.e., in which you can put packages.vim and config.vim, or a set of multiple layers.
+
+## How to use
+
+First of all, I recommend you to look through the existing key bindings via <kbd>SPC ?</kbd>. What's more, you definitely can not miss reading the README of [better-defaults layer](https://github.com/liuchengxu/space-vim/blob/master/layers/%2Bvim/better-defaults/README.md), which is of great importance for you to get started quickly.
+
+For detailed instruction, please refer to the README under the certain layer enabled, or you can see config.vim and packages.vim directly.
+
+If the README is not elaborate, sorry for that, space-vim now is in the early stages and a ton of stuff are waiting to be done.
+
+### Bootstrap
+The modular design is originally from [spacemacs](https://github.com/syl20bnr/spacemacs). The implementation of logic in space-vim is similar to [vim-plug](https://github.com/junegunn/vim-plug).
+
+If you want to know more about the bootstrap of space-vim, please see [bootstrap](https://github.com/liuchengxu/space-vim/wiki/Bootstrap) in wiki.
+
+### Tips
+For the sake of a better user experience, some extra settings should be done.
+
+#### Enable GUI color in terminal vim
+`echo has('termguicolors')`, if `1`, then you can enable GUI color in terminal vim, add this to `UserConfig()`:
 
 ```vim
 set termguicolors
+
 " If you use vim inside tmux, see https://github.com/vim/vim/issues/993
 " set Vim-specific sequences for RGB colors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -229,17 +246,12 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 For more details about true colour, please see the gist [TrueColour.md](https://gist.github.com/XVilka/8346728).
 
-If have a heavy customized configuration, you can organize them in **private** directory with `packages.vim` and `config.vim` too, which will be loaded on startup. The **private** directory can be considered as either a single layer, i.e., in which you can put packages.vim and config.vim, or a set of multiple layers.
+#### Font
+Install the [Source Code Pro](https://github.com/adobe-fonts/source-code-pro) or [Powerline](https://github.com/powerline/fonts) font, especially for [airline](https://github.com/liuchengxu/space-vim/blob/master/layers/%2Bthemes/airline/README.md) Layer.
 
-## How to use
+If you are running in terminal you'll need to change font settings of your terminal as well.
 
-If you want to know more about the bootstrap of space-vim, please see [wiki](https://github.com/liuchengxu/space-vim/wiki/Bootstrap).
-
-I recommend you to look through the existing key bindings via <kbd>SPC ?</kbd>. What's more, you definitely can not miss reading the README of [better-defaults layer](https://github.com/liuchengxu/space-vim/blob/master/layers/%2Bvim/better-defaults/README.md), which is of great importance for you to get started quickly.
-
-For more information, please refer to the README under the certain layer enabled, or you can see config.vim and packages.vim directly.
-
-If the README is not elaborate, sorry for that, space-vim now is in the early stages and a ton of stuff are waiting to be done.
+![iterm2_font_setting](https://github.com/liuchengxu/space-vim/blob/gh-pages/docs/img/iterm2_powerline_setting.png?raw=true)
 
 ## Update
 
@@ -251,24 +263,6 @@ Alternatively, you can manually perform the following steps. If anything has cha
 cd path/to/space-vim/
 git pull origin master
 ```
-
-## FAQ
-
->Q: Why develop this?
-
-A: I was amazed by spacemacs' beautiful GUI and mnemonic key bindings when using it at the first time. Now I often use spacemacs when in GUI environment. But in the terminal, vim is definitely my first choice. Then I hope to maintain consistency in operation as much as possible in either scenario.
-Hence I try to reconfigure the vim based on spacemacs' architecture, especially in key bindings and GUI. This is space-vim at present.
-
->Q: How do you think of spacemacs, space-vim as well as some other vim configurations/distributions derived from spacemacs?
-
-A: Spacemacs' popularity indeed benefits a great number of people, making remarkable contributions to the community. I truly appreciate @syl20bnr and the whole contributors' outstanding works and have learnt many lessons from spacemacs.
-
-For space-vim, it was merely a personal vim configuration for the purpose of convenience of users using vim and spacemacs at the same time. I am glad that some people like it and give many suggestions to improve it.
-
-If you like space-vim and are willing to polish it, feel free to give any pieces of advice. However, it doesn't mean that I am positive on spending extra time joining some organization focusing on making a spacemacs-like vim distribution. I don't have enough time to maintain or contribute to another similar vim distribution.
-
-It is encouraged to fork space-vim to build up your own personalized vim configuration. It's an open source project, you can turn it into any shape you like.
-
 ## Contributions
 
 If you encounter any problem or have any suggestions, please [open an issue](https://github.com/liuchengxu/space-vim/issues/new) or [send a PR](https://github.com/liuchengxu/space-vim/pulls).
