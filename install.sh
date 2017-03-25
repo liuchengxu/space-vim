@@ -153,7 +153,9 @@ generate_dot_spacevim(){
         cat <<DOTSPACEVIM
 " You can enable the existing layers in space-vim and
 " exclude the partial plugins in a certain layer.
-" The command Layer and Exlcude are vaild in the function Layers().
+" The command Layer is vaild in the function Layers().
+" Use exclude option if you don't want the full Layer,
+" e.g., Layer 'better-defaults', { 'exclude': 'itchyny/vim-cursorword' }
 function! Layers()
 
     " Default layers, recommended!
