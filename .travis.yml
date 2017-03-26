@@ -2,9 +2,12 @@ sudo: required
 dist: trusty
 
 before_install:
-- sudo apt-get install shellcheck
+- sudo apt-get install shellcheck python vim
 - pip install --user vim-vint
 
 script:
 # - vint init.vim layers/*.vim core/*.vim
 - shellcheck *.sh
+- chmod +x install.sh
+- ./install.sh
+
