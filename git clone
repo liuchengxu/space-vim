@@ -95,7 +95,7 @@ sync_repo() {
     then
         msg "\033[1;34m==>\033[0m Trying to clone $repo_name"
         mkdir -p "$repo_path"
-        git clone -b "$repo_branch" "$repo_uri" "$repo_path"
+        git clone -b "$repo_branch" "$repo_uri" "$repo_path" --depth=1
         ret="$?"
         success "Successfully cloned $repo_name."
     else
