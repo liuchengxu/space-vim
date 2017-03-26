@@ -88,10 +88,10 @@ Key Binding        | Mode   | Description
 
 Key Binding          | Mode   | Description
 :---:                | :---:  | :---:
-<kbd>SPC j w         | Nomral | 单词跳转 (jump to word)
-<kbd>SPC j l         | Nomral | 行间跳转 (jump to line)
-<kbd>SPC j j         | Nomral | goto-char, 单个字符搜索, 等同于<kbd>SPC SPC s</kbd>
-<kbd>SPC j J         | Nomral | goto-char-2, 两个字符搜索
+<kbd>SPC j w         | Normal | 单词跳转 (jump to word)
+<kbd>SPC j l         | Normal | 行间跳转 (jump to line)
+<kbd>SPC j j         | Normal | goto-char, 单个字符搜索, 等同于<kbd>SPC SPC s</kbd>
+<kbd>SPC j J         | Normal | goto-char-2, 两个字符搜索
 <kbd>SPC SPC w</kbd> | Normal | 快速词间移动(向前)
 <kbd>SPC SPC b</kbd> | Normal | 快速词间移动 (向后)
 <kbd>SPC SPC s</kbd> | Normal | 快速字符搜索 (双向)
