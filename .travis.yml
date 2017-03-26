@@ -8,4 +8,6 @@ before_install:
 script:
 # - vint init.vim layers/*.vim core/*.vim
 - shellcheck *.sh
+- chmod +x install.sh
 - ./install.sh
+
