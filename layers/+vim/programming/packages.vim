@@ -39,3 +39,5 @@ MP 'skywind3000/asyncrun.vim',        { 'on': ['AsyncRun!', 'AsyncRun'] }
 MP 'scrooloose/nerdcommenter',        { 'on': '<Plug>NERDCommenterToggle' }
 
 MP 'sheerun/vim-polyglot'
+
+MP 'pelodelfuego/vim-swoop'

@@ -157,3 +157,14 @@ augroup END
     " Reset errorformat to its default value for cooperating with asyncrun.vim
     autocmd BufEnter * set errorformat&
 " }
+
+" vim-swoop {
+    " Do not let vim-swoop create keybindings
+    let g:swoopUseDefaultKeyMap = 0
+    " Visual selection mode mapping: swoop current selection.
+    vmap <Leader>s :call SwoopMultiSelection()<CR>
+    " Normal mode mapping: <Leader>s to start swoop buffer.
+    nnoremap <Leader>s :call SwoopMulti()<CR>
+    " normal mode mapping: select current word, then swoop.
+    nnoremap <Leader>ss viw:call SwoopMultiSelection()<CR>
+" }
