@@ -163,8 +163,9 @@ augroup END
     let g:swoopUseDefaultKeyMap = 0
     " Visual selection mode mapping: swoop current selection.
     vmap <Leader>s :call SwoopMultiSelection()<CR>
-    " Normal mode mapping: <Leader>s to start swoop buffer.
-    nnoremap <Leader>s :call SwoopMulti()<CR>
-    " normal mode mapping: select current word, then swoop.
-    nnoremap <Leader>ss viw:call SwoopMultiSelection()<CR>
+    " Normal mode mapping:
+    "   <Leader>ss to start swoop buffer.
+    "   <Leader>sS to swoop in multiple buffers.
+    nnoremap <Leader>ss :call Swoop()<CR>
+    nnoremap <Leader>sS :call SwoopMulti()<CR>
 " }
