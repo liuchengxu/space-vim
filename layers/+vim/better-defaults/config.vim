@@ -1,9 +1,5 @@
 scriptencoding utf-8
 
-" vim-better-whitespace {
-    highlight ExtraWhitespace ctermbg=197
-" }
-
 " incsearch.vim {
     if !g:spacevim_nvim
         " incsearch.vim has bug with GUI vim
