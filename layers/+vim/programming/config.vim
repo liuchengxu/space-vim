@@ -167,5 +167,5 @@ augroup END
     "   <Leader>ss to start swoop buffer.
     "   <Leader>sS to swoop in multiple buffers.
     nnoremap <Leader>ss :call Swoop()<CR>
-    nnoremap <Leader>sS :call SwoopMulti()<CR>
+    nnoremap <Leader>sm :call SwoopMulti()<CR>
 " }
