@@ -165,7 +165,7 @@ augroup END
     vmap <Leader>s :call SwoopMultiSelection()<CR>
     " Normal mode mapping:
     "   <Leader>ss to start swoop buffer.
-    "   <Leader>sS to swoop in multiple buffers.
+    "   <Leader>sm to swoop in multiple buffers.
     nnoremap <Leader>ss :call Swoop()<CR>
     nnoremap <Leader>sm :call SwoopMulti()<CR>
 " }
