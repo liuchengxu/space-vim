@@ -62,8 +62,10 @@ function! MyTabLine()
         let l:s .= '%' . l:i . 'T'
         let l:s .= (l:i == l:t ? '%1*' : '%2*')
         let l:s .= ' '
-        let l:s .= 'T-' . l:i . ':'
-        let l:s .= l:winnr . '/' . tabpagewinnr(l:i,'$') .'W'
+        " Remove the complicated information
+        " let l:s .= 'T-' . l:i . ':'
+        " let l:s .= l:winnr . '/' . tabpagewinnr(l:i,'$') .'W'
+        let l:s .= l:i
         let l:s .= ' %*'
         let l:s .= (l:i == l:t ? '%#TabLineSel#' : '%#TabLine#')
         let l:bufnr = l:buflist[l:winnr - 1]
@@ -79,7 +81,7 @@ function! MyTabLine()
         if l:file ==# ''
             let l:file = '[No Name]'
         endif
-        let l:s .= l:file
+        let l:s .= ' '.l:file.' '
         let l:i = l:i + 1
     endwhile
     let l:s .= '%T%#TabLineFill#%='
