@@ -11,6 +11,10 @@ scriptencoding utf-8
                 \ ]
     " close vim if the only window left open is a NERDTree
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+    nnoremap <F4> :NERDTreeToggle<CR>
+    inoremap <F4> <ESC>:NERDTreeToggle<CR>
+    nnoremap <Leader>ft :NERDTreeToggle<CR>
 " }
 
 " nerdtree-git-plugin {
