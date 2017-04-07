@@ -12,30 +12,6 @@ MP 'itchyny/vim-cursorword'
 
 MP 'terryma/vim-multiple-cursors'
 
-" MP 'easymotion/vim-easymotion',           { 'on': [
-            " \   '<Plug>(easymotion-prefix)',
-            " \   '<Plug>(easymotion-bd-f)',
-            " \   '<Plug>(easymotion-overwin-f)',
-            " \   '<Plug>(easymotion-overwin-f2)',
-            " \   '<Plug>(easymotion-bd-jk)',
-            " \   '<Plug>(easymotion-overwin-line)',
-            " \   '<Plug>(easymotion-bd-w)',
-            " \   '<Plug>(easymotion-overwin-w)',
-            " \   ] }
-
-MP 'easymotion/vim-easymotion'
-
-MP 'haya14busa/incsearch-easymotion.vim', { 'on': [
-            \   '<Plug>(easymotion-prefix)',
-            \   '<Plug>(easymotion-bd-f)',
-            \   '<Plug>(easymotion-overwin-f)',
-            \   '<Plug>(easymotion-overwin-f2)',
-            \   '<Plug>(easymotion-bd-jk)',
-            \   '<Plug>(easymotion-overwin-line)',
-            \   '<Plug>(easymotion-bd-w)',
-            \   '<Plug>(easymotion-overwin-w)',
-            \   ] }
-
 " Bug here.
 " MP 'kana/vim-operator-user',         { 'on': '<Plug>(operator-flashy)' }
 " MP 'haya14busa/vim-operator-flashy', { 'on': '<Plug>(operator-flashy)' }
