@@ -53,7 +53,7 @@ Elegance here means pleasing, graceful as well as simple. If you are unfamiliar 
 
 The distribution is completely customizable using `.spacevim`, which is equivalent to `.spacemacs` in spacemacs.
 
-![screenshot](https://github.com/liuchengxu/space-vim/blob/gh-pages/docs/img/screenshot.png?raw=true)
+![screenshot](https://raw.githubusercontent.com/liuchengxu/img/master/space-vim/space-vim-cterm.png)
 (Terminal vim with space-vim-dark theme)
 
 ## Features
