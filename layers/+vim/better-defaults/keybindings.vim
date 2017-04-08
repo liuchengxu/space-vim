@@ -30,11 +30,6 @@ nnoremap <silent><Leader>bh :Startify<CR>
 " vim-better-whitespace
 nnoremap <Leader>xd :StripWhitespace<CR>
 
-" nerdtree
-nnoremap <F4> :NERDTreeToggle<CR>
-inoremap <F4> <ESC>:NERDTreeToggle<CR>
-nnoremap <Leader>ft :NERDTreeToggle<CR>
-
 let s:lines=&lines
 let s:columns=&columns
 function! s:enter_full_screen()
