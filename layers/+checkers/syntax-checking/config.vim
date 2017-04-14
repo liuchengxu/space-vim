@@ -1,6 +1,7 @@
 scriptencoding utf-8
 
-" ale {
+if g:spacevim_vim8 || g:spacevim_nvim
+    " ale {
     let g:ale_linters = {
                 \   'sh' : ['shellcheck'],
                 \   'vim' : ['vint'],
@@ -59,9 +60,10 @@ scriptencoding utf-8
 
     nmap <Leader>en <Plug>(ale_next)
     nmap <Leader>ep <Plug>(ale_previous)
-" }
-
-" syntastic {
+    nnoremap <Leader>ts :ALEToggle<CR>
+    " }
+else
+    " syntastic {
     let g:syntastic_python_checkers=['pyflakes']
     let g:syntastic_javascript_checkers=['jsl', 'jshint']
     let g:syntastic_html_checkers=['tidy', 'jshint']
@@ -70,4 +72,5 @@ scriptencoding utf-8
     let g:syntastic_aggregate_errors=1
 
     nnoremap <Leader>ts :SyntasticToggleMode<CR>
-" }
+    " }
+endif
