@@ -33,6 +33,7 @@
 * [Customize](#customize)
 * [How to use](#how-to-use)
     * [Bootstrap](#bootstrap)
+    * [Commands](#commands)
     * [Tips](#tips)
         * [Enable GUI color in terminal vim](#enable-gui-color-in-terminal-vim)
         * [Font](#font)
@@ -230,6 +231,14 @@ If the README is not elaborate, sorry for that, space-vim now is in the early st
 The modular design is originally from [spacemacs](https://github.com/syl20bnr/spacemacs). The implementation of logic in space-vim is similar to [vim-plug](https://github.com/junegunn/vim-plug).
 
 If you want to know more about the bootstrap of space-vim, please see [bootstrap](https://github.com/liuchengxu/space-vim/wiki/Bootstrap) in wiki.
+
+### Commands
+ Command      | Description
+ :---         | :---
+`LayerStatus` | Check the status of layers
+`LayerUpdate` | Update the structure of *layers* directory
+
+When the structure of *layers* directory is changed, you have to run `:LayerUpdate` to update `info.vim`, where caches the essential information of *layers*.
 
 ### Tips
 For the sake of a better user experience, some extra settings should be done.
