@@ -30,6 +30,9 @@ nnoremap <silent><Leader>bh :Startify<CR>
 " vim-better-whitespace
 nnoremap <Leader>xd :StripWhitespace<CR>
 
+" vim-choosewin
+nmap <Leader>ww <Plug>(choosewin)
+
 let s:lines=&lines
 let s:columns=&columns
 function! s:enter_full_screen()

@@ -106,14 +106,6 @@ augroup END
     endfunction
 " }
 
-" nerdcommenter {
-    let g:NERDSpaceDelims=1
-
-    nmap <Leader>;; <Plug>NERDCommenterToggle
-    omap <Leader>;; <Plug>NERDCommenterToggle
-    vmap <Leader>;; <Plug>NERDCommenterToggle
-" }
-
 " indentLine {
     let g:indentLine_char='¦'
     let g:indentLine_enabled=1
@@ -134,16 +126,4 @@ augroup END
 " vim-polyglot {
     " Reset errorformat to its default value for cooperating with asyncrun.vim
     autocmd BufEnter * set errorformat&
-" }
-
-" vim-swoop {
-    " Do not let vim-swoop create keybindings
-    let g:swoopUseDefaultKeyMap = 0
-    " Visual selection mode mapping: swoop current selection.
-    vmap <Leader>s :call SwoopMultiSelection()<CR>
-    " Normal mode mapping:
-    "   <Leader>ss to start swoop buffer.
-    "   <Leader>sm to swoop in multiple buffers.
-    nnoremap <Leader>ss :call Swoop()<CR>
-    nnoremap <Leader>sm :call SwoopMulti()<CR>
 " }

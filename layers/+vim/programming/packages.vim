@@ -10,8 +10,6 @@ MP 'matze/vim-move', { 'on': [
 
 MP 'junegunn/rainbow_parentheses.vim', { 'for': ['lisp', 'clojure', 'scheme'] }
 
-MP 'jiangmiao/auto-pairs'
-
 " Do not lazy loading tagbar, see vim-airline issue 1313.
 if funcs#LayerLoaded('airline')
     MP 'majutsushi/tagbar'
@@ -26,8 +24,4 @@ MP 'nathanaelkane/vim-indent-guides', { 'on': 'IndentGuidesToggle' }
 
 MP 'skywind3000/asyncrun.vim',        { 'on': ['AsyncRun!', 'AsyncRun'] }
 
-MP 'scrooloose/nerdcommenter',        { 'on': '<Plug>NERDCommenterToggle' }
-
 MP 'sheerun/vim-polyglot'
-
-MP 'pelodelfuego/vim-swoop'
