@@ -114,7 +114,7 @@ silent function! s:Source(file) abort
     if filereadable(expand(a:file))
         execute 'source ' . fnameescape(a:file)
     else
-        echom '[space-vim] ' . a:file . ' does not exist, which may cause unexpected errors.'
+        echom '[space-vim] ' . a:file . ' does not exist, which may cause unexpected errors. Try running `:LayerUpdate` to get rid of this error.'
     endif
 endfunction
 

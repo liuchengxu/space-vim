@@ -4,13 +4,11 @@
 
 MP 'tpope/vim-rsi'
 
+MP 't9md/vim-choosewin'
+
 MP 'mhinz/vim-startify'
 
-MP 'tpope/vim-surround'
-
 MP 'itchyny/vim-cursorword'
-
-MP 'terryma/vim-multiple-cursors'
 
 " Bug here.
 " MP 'kana/vim-operator-user',         { 'on': '<Plug>(operator-flashy)' }
