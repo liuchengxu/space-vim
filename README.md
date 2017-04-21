@@ -176,11 +176,14 @@ You have to satisfy some prerequisites at first:
 
 ## Customize
 
-You can use `.spacevim` in your home directory to customize space-vim, where you can enable the existing layers, add your extra plugins and private configurations.
+You can use `.spacevim` in your home directory to customize space-vim, where you can enable the existing layers, add your extra plugins and private configurations. Please refer to [plugins](https://github.com/liuchengxu/space-vim/wiki/plugins) to take a look at the whole layers as well as the plugins contained.
 
 If `.spacevim` does not exist, vanilla vim will be loaded!
 
 ```vim
+" Let vim and neovim share the same plugin directory
+" let g:spacevim_plug_home = '~/.vim/plugged'
+
 " You can enable the existing layers in space-vim and
 " exclude the partial plugins in a certain layer.
 " The command Layer is vaild in the function Layers().
@@ -217,7 +220,7 @@ function! UserConfig()
 endfunction
 ```
 
-If have a heavy customized configuration, you can organize them in **private** directory with `packages.vim` and `config.vim` too, which will be loaded on startup. The **private** directory can be considered as either a single layer, i.e., in which you can put packages.vim and config.vim, or a set of multiple layers.
+If have a heavy customized configuration, you can organize them in *private* directory with `packages.vim` and `config.vim` too, which will be loaded on startup. The *private* directory can be considered as either a single layer, i.e., in which you can put packages.vim and config.vim, or a set of multiple layers.
 
 ## How to use
 
