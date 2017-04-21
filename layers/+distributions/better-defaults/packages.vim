@@ -5,10 +5,17 @@
 MP 'tpope/vim-rsi'
 
 MP 't9md/vim-choosewin'
+MP 'dominikduda/vim_current_word'
 
-MP 'mhinz/vim-startify'
-
-MP 'itchyny/vim-cursorword'
+MP 'mhinz/vim-startify', { 'on': 'Startify' }
+augroup SPACEVIM_START
+    autocmd!
+    autocmd VimEnter *
+                \   if !argc()
+                \|      call plug#load('vim-startify')
+                \|      Startify
+                \|  endif
+augroup END
 
 " Bug here.
 " MP 'kana/vim-operator-user',         { 'on': '<Plug>(operator-flashy)' }

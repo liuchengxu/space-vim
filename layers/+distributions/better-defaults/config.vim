@@ -26,13 +26,6 @@ scriptencoding utf-8
                 \'                  [ space-vim ' . g:spacevim_version . ' ＠' . v:version . ' ]',
                 \]
 
-    augroup SPACEVIM_START
-        autocmd!
-        autocmd VimEnter *
-                    \   if !argc() && exists(':Startify')
-                    \|      Startify
-                    \|  endif
-    augroup END
     let g:startify_list_order = [
                 \ ['   Recent Files:'],
                 \ 'files',
@@ -48,6 +41,11 @@ scriptencoding utf-8
 
     let g:startify_change_to_vcs_root = 1
 
+" }
+
+" vim_current_word {
+    hi CurrentWord      gui=underline cterm=underline
+    hi CurrentWordTwins gui=underline cterm=underline
 " }
 
 execute 'source' fnamemodify(expand('<sfile>'), ':h') . '/keybindings.vim'
