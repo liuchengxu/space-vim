@@ -70,7 +70,9 @@ function! s:define_command()
 endfunction
 
 function! s:layer(name, ...)
-    call add(g:layers_loaded, a:name)
+    if index(g:layers_loaded, a:name) == -1
+        call add(g:layers_loaded, a:name)
+    endif
     if a:0 > 1
         return s:err('Invalid number of arguments (1..2)')
     elseif a:0 == 1
