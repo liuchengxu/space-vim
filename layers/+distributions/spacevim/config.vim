@@ -45,7 +45,7 @@ augroup SPACEVIM_BASIC
 augroup END
 
 " Show trailing white space
-hi ExtraWhitespace guifg=#FF2626 gui=underline ctermfg=198 cterm=underline
+hi ExtraWhitespace guifg=#FF2626 gui=underline ctermfg=124 cterm=underline
 match ExtraWhitespace /\s\+$/
 
 " Refer to http://vim.wikia.com/wiki/Show_tab_number_in_your_tab_line
