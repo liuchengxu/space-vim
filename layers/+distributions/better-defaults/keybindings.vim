@@ -16,6 +16,11 @@ for s:i in range(1, 9)
     execute 'nnoremap <Leader>' . s:i . ' :' . s:i . 'wincmd w<CR>'
 endfor
 
+" <Leader><leader>[1-9] move to tab [1-9]
+for s:i in range(1, 9)
+    execute 'nnoremap <Leader><Leader>' . s:i . ' ' . s:i . 'gt'
+endfor
+
 " <Leader>b[1-9] move to buffer [1-9]
 for s:i in range(1, 9)
     execute 'nnoremap <Leader>b' . s:i . ' :b' . s:i . '<CR>'
