@@ -19,12 +19,18 @@ function!  s:add_title()
     elseif &filetype == 'c'
         call setline(1, '#include <stdio.h>')
         call append(line('.'), '')
+    elseif &filetype == 'perl'
+        call setline(1, '#!/usr/bin/perl')
+        call append(line('.')+0, 'use strict;')
+        call append(line('.')+1, 'use warnings;')
+        call append(line('.')+2, 'use utf8;')
+        call append(line('.')+3, '')
     endif
 endfunction
 
 augroup SPACEVIM_NEWFILE
     autocmd!
-    autocmd BufNewFile *.py,*.rb,*.cpp,*.c,*.sh,*.java execute "call s:add_title()"
+    autocmd BufNewFile *.py,*.rb,*.cpp,*.c,*.sh,*.java,*.pl execute "call s:add_title()"
     autocmd BufNewFile * normal 2G
 augroup END
 
