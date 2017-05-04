@@ -1,62 +1,41 @@
-Configuration layers
-======================
+Layer Manifest
+==============
 
-## Table of Contents
-
-<!-- vim-markdown-toc GFM -->
-* [Checkerers](#checkerers)
-* [Completion](#completion)
-* [Fun](#fun)
-* [Lang](#lang)
-* [Themes](#themes)
-* [Tools](#tools)
-* [Version-Control](#version-control)
-* [Vim](#vim)
-
-<!-- vim-markdown-toc -->
-### Checkerers
-
-- syntax-checking
-
-### Completion
-
-- auto-completion
-- unite
-
-### Fun
-
-- emoji
-- goyo
-
-### Lang
-
-- c-c++
-- graphviz
-- html
-- markdown
-- python
-- typescript
-
-### Themes
-
-- colors
-- airline
-- lightline
-
-### Tools
-
-- fzf
-- ycmd
-
-### Version-Control
-
-- git
-- github
-
-
-### Vim
-
-- better-defaults
-- programming
-- text-align
-
+topic                | layer
+:---:                | :---:
++checkers            | syntax-checking
++completion          | auto-completion
++completion          | unite
++distributions       | better-defaults
++distributions       | spacevim
++fun                 | emoji
++fun                 | goyo
++lang                | c-c++
++lang                | elixir
++lang                | elm
++lang                | erlang
++lang                | go
++lang                | graphviz
++lang                | html
++lang                | java
++lang                | javascript
++lang                | latex
++lang                | markdown
++lang                | python
++lang                | scala
++lang                | typescript
++lang                | vue
++programming         | editing
++themes              | airline
++themes              | lightline
++tools               | file-manager
++tools               | fzf
++tools               | tmux
++tools               | ycmd
++version-control     | git
++version-control     | github
++vim                 | better-motion
++vim                 | chinese
++vim                 | code-snippets
++vim                 | programming
++vim                 | text-align
