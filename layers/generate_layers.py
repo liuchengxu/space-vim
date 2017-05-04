@@ -15,6 +15,8 @@ f.write('==============\n\n')
 f.write("%-20s | %s\n" % ('topic', 'layer'))
 f.write("%-20s | %s\n" % (':---:', ':---:'))
 
+url_prefix = 'https://github.com/liuchengxu/space-vim/tree/master/layers'
+
 for t in topics:
     topic_path = topic_base + '/' + t
     layers = [
@@ -22,7 +24,7 @@ for t in topics:
         if os.path.isdir(os.path.join(topic_path, f))
     ]
     for l in layers:
-        f.write("%-20s | %s\n" % (t, l))
+        f.write("%-20s | [%s](%s/%s/%s)\n" % (t, l, url_prefix, t, l))
 
 f.close()
 
