@@ -2,6 +2,7 @@ scriptencoding utf-8
 
 if g:spacevim_vim8 || g:spacevim_nvim
     " ale {
+    let g:ale_enabled = 0
     let g:ale_linters = {
                 \   'sh' : ['shellcheck'],
                 \   'vim' : ['vint'],
