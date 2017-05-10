@@ -8,7 +8,7 @@ augroup nerd_loader
     autocmd BufEnter,BufNew *
                 \  if isdirectory(expand('<amatch>'))
                 \|   call plug#load('nerdtree')
-                \|   execute 'autocmd! nerd_loader'
+                \|   call nerdtree#checkForBrowse(expand("<amatch>"))
                 \| endif
 augroup END
 
