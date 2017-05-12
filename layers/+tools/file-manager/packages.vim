@@ -1,7 +1,7 @@
 MP 'danro/rename.vim',               { 'on' : 'Rename' }
 
 " Refer to https://github.com/junegunn/dotfiles  vimrc
-MP 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+MP 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
 augroup nerd_loader
     autocmd!
     autocmd VimEnter * silent! autocmd! FileExplorer
@@ -12,5 +12,5 @@ augroup nerd_loader
                 \| endif
 augroup END
 
-MP 'Xuyuanp/nerdtree-git-plugin',             { 'on': 'NERDTreeToggle' }
-MP 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
+MP 'Xuyuanp/nerdtree-git-plugin', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
+MP 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
