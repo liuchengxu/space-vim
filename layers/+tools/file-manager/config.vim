@@ -6,7 +6,7 @@ scriptencoding utf-8
     let g:NERDTreeDirArrowExpandable = '►'
     let g:NERDTreeDirArrowCollapsible = '▼'
     let g:NERDTreeIgnore=[
-                \ '\.py[cd]$', '\~$', '\.swo$', '\.swp$',
+                \ '\.py[cd]$', '\~$', '\.swo$', '\.swp$', '\.DS_Store$',
                 \ '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$',
                 \ ]
     " close vim if the only window left open is a NERDTree

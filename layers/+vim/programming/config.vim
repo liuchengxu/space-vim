@@ -50,8 +50,8 @@ augroup END
 " rainbow {
     let g:rainbow_active = 1
     let g:rainbow_conf = {
-                \   'guifgs': [ '#8FBC8F', '#48D1CC', '#DEB887', '#FFA07A', 'seagreen3', '#66CDAA', '#FFB6C1'],
-                \   'ctermfgs': ['98', '133', '140', '169'],
+                \   'guifgs': ['#4F97D7', '#D75F87', '#D697E6', '#20AF81', '#2AA1AE', '#AF5F87'],
+                \   'ctermfgs': ['68', '168', '176', '30'],
                 \   'operators': '_,_',
                 \   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
                 \   'separately': {
