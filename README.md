@@ -31,6 +31,10 @@
     * [Windows](#windows)
     * [Manual (Linux and macOS)](#manual-linux-and-macos)
 * [Customize](#customize)
+    * [Presetting](#presetting)
+    * [`Layers()`](#layers)
+    * [`UserInit()`](#userinit)
+    * [`UserConfig()`](#userconfig)
 * [How to use](#how-to-use)
     * [Bootstrap](#bootstrap)
     * [Commands](#commands)
@@ -55,7 +59,7 @@ Elegance here means pleasing, graceful as well as simple. If you are unfamiliar 
 The distribution is completely customizable using `.spacevim`, which is equivalent to `.spacemacs` in spacemacs.
 
 ![screenshot](https://raw.githubusercontent.com/liuchengxu/img/master/space-vim/space-vim-cterm.png)
-(Terminal vim with space-vim-dark theme)
+(Terminal vim with [space-vim-dark](https://github.com/liuchengxu/space-vim-dark) theme)
 
 ## Features
 
@@ -176,14 +180,26 @@ You have to satisfy some prerequisites at first:
 
 ## Customize
 
-You can use `.spacevim` in your home directory to customize space-vim, where you can enable the existing layers, add your extra plugins and private configurations. Please refer to [plugins](https://github.com/liuchengxu/space-vim/wiki/plugins) to take a look at the whole layers as well as the plugins contained.
+You can use `.spacevim` in your home directory to customize space-vim, where you can enable the existing layers, add your extra plugins and private configurations.
 
 If `.spacevim` does not exist, vanilla vim will be loaded!
 
+
+### Presetting
+
 ```vim
 " Let vim and neovim share the same plugin directory
-" let g:spacevim_plug_home = '~/.vim/plugged'
+let g:spacevim_plug_home = '~/.vim/plugged'
 
+" Change the background color of theme space-vim-dark (default 235)
+let g:space_vim_dark_background = 234
+```
+
+### `Layers()`
+
+Please refer to [LAYERS](https://github.com/liuchengxu/space-vim/blob/master/layers/LAYERS.md) to take a look at the whole shipped layers.
+
+```vim
 " You can enable the existing layers in space-vim and
 " exclude the partial plugins in a certain layer.
 " The command Layer is vaild in the function Layers().
@@ -197,7 +213,11 @@ function! Layers()
     Layer 'better-defaults'
 
 endfunction
+```
 
+### `UserInit()`
+
+```vim
 " Put your private plugins here, e.g., change the colorscheme.
 function! UserInit()
 
@@ -211,7 +231,11 @@ function! UserInit()
     Plug 'morhetz/gruvbox'
 
 endfunction
+```
 
+### `UserConfig()`
+
+```vim
 " Override the existing configurations and add extras here.
 function! UserConfig()
 

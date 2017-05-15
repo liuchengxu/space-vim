@@ -23,7 +23,7 @@ function! s:assign_name()
 endfunction
 
 " Extracted from plug.vim
-function! layer#status()
+function! spacevim#layer#status()
     call s:new_window()
 
     let b:spacevim_preview = -1
@@ -92,7 +92,7 @@ endfunction
 " get the whole available layers number s:layers_sum, number
 " get the topics s:topics, list
 " get the pair topic to layers s:topic2layers, dict
-function! layer#update(py_exe) abort
+function! spacevim#layer#update(py_exe) abort
 
 execute a:py_exe "<< EOF"
 import os
@@ -134,5 +134,3 @@ f.close()
 EOF
 
 endfunction
-
-

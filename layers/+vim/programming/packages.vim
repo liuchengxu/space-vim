@@ -11,7 +11,7 @@ MP 'matze/vim-move', { 'on': [
 MP 'junegunn/rainbow_parentheses.vim', { 'for': ['lisp', 'clojure', 'scheme'] }
 
 " Do not lazy loading tagbar, see vim-airline issue 1313.
-if funcs#LayerLoaded('airline')
+if spacevim#funcs#LayerLoaded('airline')
     MP 'majutsushi/tagbar'
 else
     MP 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
