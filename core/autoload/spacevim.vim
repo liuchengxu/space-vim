@@ -65,8 +65,8 @@ function! s:define_command()
 
     command! -nargs=+ -bar Layer call s:layer(<args>)
 
-    command! -nargs=0 -bar LayerStatus call layer#status()
-    command! -nargs=0 -bar LayerUpdate call layer#update(s:py_exe)
+    command! -nargs=0 -bar LayerStatus call spacevim#layer#status()
+    command! -nargs=0 -bar LayerUpdate call spacevim#layer#update(s:py_exe)
 endfunction
 
 function! s:layer(name, ...)
@@ -125,12 +125,12 @@ function! s:path(path)
 endfunction
 
 function! s:layers_info() abort
-    let g:spacevim_info_path = g:spacevim_dir. '/core/autoload/info.vim'
+    let g:spacevim_info_path = g:spacevim_dir. '/core/autoload/spacevim/info.vim'
     let g:spacevim_info_path = g:WINDOWS ? s:path(g:spacevim_info_path) : g:spacevim_info_path
     if filereadable(g:spacevim_info_path)
         execute 'source ' . g:spacevim_info_path
     else
-        call layer#update(s:py_exe)
+        call spacevim#layer#update(s:py_exe)
     endif
 endfunction
 

@@ -3,7 +3,7 @@
 
 MP 'Shougo/unite.vim'
 
-if funcs#LayerLoaded('tmux')
+if spacevim#funcs#LayerLoaded('tmux')
    MP 'ctrlpvim/ctrlp.vim'
    MP 'FelikZ/ctrlp-py-matcher'
 else
