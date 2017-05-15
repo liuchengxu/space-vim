@@ -255,11 +255,13 @@ For detailed instruction, please refer to the README under the certain layer ena
 If the README is not elaborate, sorry for that, space-vim now is in the early stages and a ton of stuff are waiting to be done.
 
 ### Bootstrap
+
 The modular design is originally from [spacemacs](https://github.com/syl20bnr/spacemacs). The implementation of logic in space-vim is similar to [vim-plug](https://github.com/junegunn/vim-plug).
 
 If you want to know more about the bootstrap of space-vim, please see [bootstrap](https://github.com/liuchengxu/space-vim/wiki/Bootstrap) in wiki.
 
 ### Commands
+
  Command      | Description
  :---         | :---
 `LayerStatus` | Check the status of layers
@@ -268,9 +270,11 @@ If you want to know more about the bootstrap of space-vim, please see [bootstrap
 When the structure of *layers* directory is changed, you have to run `:LayerUpdate` to update `info.vim`, where caches the essential information of *layers*.
 
 ### Tips
+
 For the sake of a better user experience, some extra settings should be done.
 
 #### Enable GUI color in terminal vim
+
 `echo has('termguicolors')`, if `1`, then you can enable GUI color in terminal vim, add this to `UserConfig()`:
 
 ```vim
@@ -285,6 +289,7 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 For more details about true colour, please see the gist [TrueColour.md](https://gist.github.com/XVilka/8346728).
 
 #### Font
+
 Install the [Source Code Pro](https://github.com/adobe-fonts/source-code-pro) or [Powerline](https://github.com/powerline/fonts) font, especially for [airline](https://github.com/liuchengxu/space-vim/blob/master/layers/%2Bthemes/airline/README.md) Layer.
 
 If you are running in terminal you'll need to change font settings of your terminal as well.
