@@ -5,11 +5,13 @@ scriptencoding utf-8
     let g:UltiSnipsSnippetDirectories=['UltiSnips']
     exe 'set rtp+=' . expand(g:spacevim_dir . '/private/UltiSnips')
     let g:UltiSnipsSnippetsDir = [g:spacevim_dir.'/private/UltiSnips', g:spacevim_plug_home.'vim-snippets/UltiSnips/']
-    let g:UltiSnipsListSnippets = '<C-Tab>'
-    let g:UltiSnipsJumpForwardTrigger = '<Tab>'
-    let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'
+
+    let g:UltiSnipsListSnippets = '<C-l>'
+    let g:UltiSnipsJumpForwardTrigger = '<C-j>'
+    let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
+
     " Fix tab conflict with YCM
-    let g:UltiSnipsExpandTrigger = '<nop>'
+    let g:UltiSnipsExpandTrigger = '<C-e>'
     let g:ulti_expand_or_jump_res = 0
     function! ExpandSnippetOrCarriageReturn()
         let l:snippet = UltiSnips#ExpandSnippetOrJump()
@@ -19,5 +21,5 @@ scriptencoding utf-8
             return "\<CR>"
         endif
     endfunction
-    inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
+    inoremap <expr> <CR> pumvisible() ? "\<C-R>=ExpandSnippetOrCarriageReturn()\<CR>" : "\<CR>"
 " }
