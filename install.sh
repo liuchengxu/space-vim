@@ -158,32 +158,32 @@ generate_dot_spacevim(){
 " e.g., Layer 'better-defaults', { 'exclude': 'itchyny/vim-cursorword' }
 function! Layers()
 
-    " Default layers, recommended!
-    Layer 'fzf'
-    Layer 'unite'
-    Layer 'better-defaults'
+  " Default layers, recommended!
+  Layer 'fzf'
+  Layer 'unite'
+  Layer 'better-defaults'
 
 endfunction
 
 " Put your private plugins here.
 function! UserInit()
 
-    " Space has been set as the default leader key,
-    " if you want to change it, uncomment and set it here.
-    " let g:spacevim_leader = "<\Space>"
-    " let g:spacevim_localleader = ','
+  " Space has been set as the default leader key,
+  " if you want to change it, uncomment and set it here.
+  " let g:spacevim_leader = "<\Space>"
+  " let g:spacevim_localleader = ','
 
-    " Install private plugins
-    " Plug 'extr0py/oni'
+  " Install private plugins
+  " Plug 'extr0py/oni'
 
 endfunction
 
 " Put your costom configurations here, e.g., change the colorscheme.
 function! UserConfig()
 
-    " If you enable airline layer and have installed the powerline fonts, set it here.
-    " let g:airline_powerline_fonts=1
-    " color desert
+  " If you enable airline layer and have installed the powerline fonts, set it here.
+  " let g:airline_powerline_fonts=1
+  " color desert
 
 endfunction
 DOTSPACEVIM
