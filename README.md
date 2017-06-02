@@ -267,8 +267,6 @@ If you want to know more about the bootstrap of space-vim, please see [bootstrap
 `LayerStatus` | Check the status of layers
 `LayerUpdate` | Update the structure of *layers* directory
 
-When the structure of *layers* directory is changed, you have to run `:LayerUpdate` to update `info.vim`, where caches the essential information of *layers*.
-
 ### Tips
 
 For the sake of a better user experience, some extra settings should be done.
