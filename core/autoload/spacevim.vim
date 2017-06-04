@@ -232,7 +232,11 @@ endfunction
 function! s:config()
   " Load Layer config
   for l:layer in g:layers_loaded
-    let l:layer_config = g:layer_path[l:layer] . '/config.vim'
+    try
+      let l:layer_config = g:layer_path[l:layer] . '/config.vim'
+    catch
+      call spacevim#layer#update(s:py_exe)
+    endtry
     call s:Source(l:layer_config)
   endfor
 
