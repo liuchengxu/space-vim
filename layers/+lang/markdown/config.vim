@@ -1,4 +1,4 @@
-augroup SPACEVIM_MARKDOWN
+augroup spacevimMarkdown
   " Markdown headings
   autocmd FileType markdown nnoremap <LocalLeader>1 m`yypVr=``
   autocmd FileType markdown nnoremap <LocalLeader>2 m`yypVr-``
@@ -36,10 +36,10 @@ augroup END
   endif
 
   " Markdown preview in browser
-  autocmd SPACEVIM_MARKDOWN FileType markdown nnoremap <LocalLeader>cp :MarkdownPreview<cr>
+  autocmd spacevimMarkdown FileType markdown nnoremap <LocalLeader>cp :MarkdownPreview<cr>
   " Generate markdown TOC
-  autocmd SPACEVIM_MARKDOWN FileType markdown nnoremap <LocalLeader>ct :silent GenTocGFM<cr>
+  autocmd spacevimMarkdown FileType markdown nnoremap <LocalLeader>ct :silent GenTocGFM<cr>
   " Show toc sidebar
-  autocmd SPACEVIM_MARKDOWN FileType markdown nnoremap <LocalLeader>cs :Toc<cr>
+  autocmd spacevimMarkdown FileType markdown nnoremap <LocalLeader>cs :Toc<cr>
 
 " }

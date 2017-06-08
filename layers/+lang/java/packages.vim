@@ -9,7 +9,7 @@ function! s:invoke_javacomplete()
   endif
 endfunction
 
-augroup LOAD_JAVA
+augroup loadJava
   autocmd!
   autocmd InsertEnter * call s:invoke_javacomplete()
 augroup END

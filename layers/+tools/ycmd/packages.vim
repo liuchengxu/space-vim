@@ -22,7 +22,7 @@ function! s:invoke_ycm()
   endif
 endfunction
 
-augroup LOAD_YCM
+augroup loadYcm
   autocmd!
-  autocmd InsertEnter * call s:invoke_ycm() | autocmd! LOAD_YCM
+  autocmd InsertEnter * call s:invoke_ycm() | autocmd! loadYcm
 augroup END

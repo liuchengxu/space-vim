@@ -1,4 +1,4 @@
-augroup SPACEVIM_SCALA
+augroup spacevimScala
   autocmd!
 augroup END
 

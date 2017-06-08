@@ -1,4 +1,4 @@
-augroup SPACEVIM_GO
+augroup spacevimGo
   autocmd!
 augroup END
 

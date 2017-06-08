@@ -7,7 +7,7 @@ MP 'tpope/vim-rsi'
 MP 't9md/vim-choosewin'
 
 MP 'mhinz/vim-startify', { 'on': 'Startify' }
-augroup SPACEVIM_START
+augroup spacevimStart
   autocmd!
   autocmd VimEnter *
               \   if !argc()

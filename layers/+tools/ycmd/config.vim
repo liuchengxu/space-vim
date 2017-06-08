@@ -40,7 +40,7 @@ scriptencoding utf-8
   " let g:ycm_key_invoke_completion='<M-;>'
 
 
-  augroup SPACEVIM_YCM
+  augroup spacevimYcm
 
     autocmd!
 

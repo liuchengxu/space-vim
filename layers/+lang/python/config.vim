@@ -3,7 +3,7 @@ function! s:hi_over_length()
   match OverLength /\%81v.\+/
 endfunction
 
-augroup SPACEVIM_PYTHON
+augroup spacevimPython
   autocmd!
   " Force indentation styles for python
   autocmd FileType python setlocal

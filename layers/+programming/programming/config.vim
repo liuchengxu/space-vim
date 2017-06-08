@@ -28,7 +28,7 @@ function!  s:add_title()
   endif
 endfunction
 
-augroup SPACEVIM_NEWFILE
+augroup spacevimNewFile
   autocmd!
   autocmd BufNewFile *.py,*.rb,*.cpp,*.c,*.sh,*.java,*.pl execute "call s:add_title()"
   autocmd BufNewFile * normal 2G
@@ -74,7 +74,7 @@ augroup END
 " }
 
 " rainbow_parentheses.vim {
-  augroup rainbow_lisp
+  augroup rainbowLisp
     autocmd!
     autocmd FileType lisp,clojure,scheme RainbowParentheses
   augroup END
@@ -90,7 +90,7 @@ augroup END
 
 " asyncrun.vim {
   nnoremap <F5> :call <SID>compile_and_run()<CR>
-  augroup SPACEVIM_ASYNCRUN
+  augroup spacevimAsyncRun
     autocmd!
     autocmd User AsyncRunStart call asyncrun#quickfix_toggle(15, 1)
   augroup END

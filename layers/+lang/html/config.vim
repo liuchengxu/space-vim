@@ -1,4 +1,4 @@
-augroup SPACEVIM_HTML
+augroup spacevimHtml
   autocmd FileType html,js,css setlocal
               \ tabstop=2
               \ softtabstop=2

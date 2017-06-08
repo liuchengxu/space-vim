@@ -1,4 +1,4 @@
-augroup SPACEVIM_VUE
+augroup spacevimVue
   autocmd BufRead,BufNewFile *.vue setlocal
               \ tabstop=2
               \ softtabstop=2

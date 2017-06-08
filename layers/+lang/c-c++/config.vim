@@ -1,4 +1,4 @@
-augroup SPACEVIM_C
+augroup spacevimC
   autocmd!
 
   autocmd FileType c,cpp setlocal

@@ -1,4 +1,4 @@
-augroup SPACEVIM_JAVA
+augroup spacevimJava
   autocmd FileType java setlocal omnifunc=javacomplete#Complete
 augroup END
 

@@ -4,7 +4,7 @@ scriptencoding utf-8
 " or the colorscheme can overwrite your highlighting.
 silent! color space-vim-dark
 
-augroup SPACEVIM_BASIC
+augroup spacevimBasic
   autocmd!
   " http://vim.wikia.com/wiki/Speed_up_Syntax_Highlighting
   autocmd BufEnter * :syntax sync maxlines=200
