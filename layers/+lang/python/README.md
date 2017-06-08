@@ -17,8 +17,6 @@
 
 This layer adds support for the Python language.
 
-![screenshot](img/screenshot.png)
-
 ## Install
 
 ### Layer

@@ -14,8 +14,6 @@
 
 This layer adds support for a code completion engine.
 
-![screenshot](img/screenshot.png)
-
 ## Install
 
 To use this configuration layer, add it to your `~/.spacevim`.

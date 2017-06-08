@@ -13,8 +13,6 @@
 
 This layer adds supports fuzzy file finder as well as much more other functionalities.
 
-![screenshot](img/screenshot.png)
-
 ## Install
 
 To use this configuration layer, add it to your `~/.spacevim`. *It has been enabled as one of the default layers*.

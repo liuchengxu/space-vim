@@ -5,6 +5,7 @@
 <!-- vim-markdown-toc GFM -->
 * [Description](#description)
 * [Install](#install)
+* [Usage](#usage)
 
 <!-- vim-markdown-toc -->
 
@@ -20,4 +21,3 @@ To use this configuration layer, add it to your `~/.spacevim`.
 
 Type `:`, then press <kbd>Ctrl x</kbd> and <kbd>Ctrl U</kbd> to invoke emoji completion :tada:.
 
-![screenshot](img/screenshot.png)

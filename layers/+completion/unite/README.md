@@ -13,7 +13,6 @@
 
 This layer adds support for user interface.
 
-![screenshot](img/screenshot.png)
 
 ## Install
 
