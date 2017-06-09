@@ -74,6 +74,8 @@ The distribution is completely customizable using `.spacevim`, which is equivale
 
     For different language layers, `<LocalLeader>`, <kbd>,</kbd> as default in space-vim, can be seen as the major-mode prefix in spacemacs.
 
+- **Lean and mean:** no nonsense wrappers, free from being bloated.
+
 ## For whom?
 
 - the **novice** vim users
