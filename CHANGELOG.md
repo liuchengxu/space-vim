@@ -2,6 +2,8 @@
 
 ## [unreleased]
 
+## [0.6.0] - 2017.06.09
+
 ### changed
 - change the functions for indentifying the platform to global variables
 - more beautiful statusline for Terminal vim due to the circled numbers
