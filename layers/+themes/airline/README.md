@@ -12,7 +12,7 @@
 
 This layer adds support for a fancy statusline.
 
-![screenshot](img/screenshot.png)
+![screenshot](https://raw.githubusercontent.com/liuchengxu/img/master/space-vim/layers/airline.png)
 
 ## Install
 
