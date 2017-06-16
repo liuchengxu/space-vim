@@ -1,4 +1,12 @@
-if !g:spacevim_gui_running
+if g:spacevim_gui_running
+  " LeaderF {
+  nnoremap <Leader>ff :LeaderfFile ~<CR>
+  nnoremap <Leader>f? :LeaderfFile<CR>
+  nnoremap <Leader>fr :LeaderfMru<CR>
+  nnoremap <Leader>fl :LeaderfLine<CR>
+  nnoremap <Leader>fL :LeaderfLineAll<CR>
+  " }
+else
   " fzf.vim {
   let $LANG = 'en_US'
   " Customize fzf colors to match your color scheme
@@ -33,6 +41,4 @@ if !g:spacevim_gui_running
   " fzf-filemru {
   nnoremap <Leader>pr :ProjectMru --tiebreak=end<cr>
   " }
-else
-  nnoremap <Leader>? :nmap<CR>
 endif
