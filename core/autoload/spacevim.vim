@@ -285,7 +285,7 @@ function! s:post_user_config()
   " }
 
   " https://github.com/junegunn/vim-plug/wiki/extra#automatically-install-missing-plugins-on-startup
-  augroup PLUG_CHECK
+  augroup checkPlug
     autocmd!
     autocmd VimEnter *
       \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
