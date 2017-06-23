@@ -38,4 +38,5 @@ topic                | layer
 +version-control     | [git](https://github.com/liuchengxu/space-vim/tree/master/layers/+version-control/git)
 +version-control     | [github](https://github.com/liuchengxu/space-vim/tree/master/layers/+version-control/github)
 +vim                 | [better-motion](https://github.com/liuchengxu/space-vim/tree/master/layers/+vim/better-motion)
++vim                 | [ctrlp](https://github.com/liuchengxu/space-vim/tree/master/layers/+vim/ctrlp)
 +vim                 | [text-align](https://github.com/liuchengxu/space-vim/tree/master/layers/+vim/text-align)

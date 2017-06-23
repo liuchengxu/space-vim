@@ -184,8 +184,7 @@ You have to satisfy some prerequisites at first:
 
 You can use `.spacevim` in your home directory to customize space-vim, where you can enable the existing layers, add your extra plugins and private configurations.
 
-If `.spacevim` does not exist, vanilla vim will be loaded!
-
+If `.spacevim` does not exist, vanilla vim will be loaded! Refer to [.spacevim.template](https://github.com/liuchengxu/space-vim/wiki/.spacevim.template) as an example.
 
 ### Presetting
 
