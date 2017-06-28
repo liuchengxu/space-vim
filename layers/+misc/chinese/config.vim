@@ -1,6 +1,6 @@
 scriptencoding utf-8
 
-if g:spacevim_gui_running
+if g:spacevim_gui
 
   " 解决菜单栏乱码
   let $LANG = 'zh_CN.UTF-8'

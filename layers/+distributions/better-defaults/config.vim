@@ -3,7 +3,7 @@ scriptencoding utf-8
 " incsearch.vim {
   if !g:spacevim_nvim
     " incsearch.vim has bug with GUI vim
-    if !g:spacevim_gui_running
+    if !g:spacevim_gui
       map /  <Plug>(incsearch-forward)
       map ?  <Plug>(incsearch-backward)
       map g/ <Plug>(incsearch-stay)
