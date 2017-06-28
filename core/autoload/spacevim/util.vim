@@ -1,22 +1,31 @@
 function! spacevim#util#ToggleCursorColumn()
   if &cursorcolumn
-    set nocursorcolumn
+    setlocal nocursorcolumn
   else
-    set cursorcolumn
+    setlocal cursorcolumn
+  endif
+endfunction
+
+function! spacevim#util#ToggleColorColumn()
+  if &colorcolumn
+    setlocal colorcolumn=
+  else
+    setlocal colorcolumn=80
   endif
 endfunction
 
 let s:lines=&lines
 let s:columns=&columns
+
 function! s:enter_full_screen()
-  set lines=999 columns=999
-  set fullscreen
+  setlocal lines=999 columns=999
+  setlocal fullscreen
 endfunction
 
 function! s:leave_full_screen()
   let &lines=s:lines
   let &columns=s:columns
-  set nofullscreen
+  setlocal nofullscreen
 endfunction
 
 function! spacevim#util#ToggleFullScreen()

@@ -40,6 +40,7 @@ nmap <Leader>ww <Plug>(choosewin)
 
 " util
 nnoremap <Leader>tc :call spacevim#util#ToggleCursorColumn()<CR>
+nnoremap <Leader>tC :call spacevim#util#ToggleColorColumn()<CR>
 
 augroup spacevimGUI
   autocmd!
