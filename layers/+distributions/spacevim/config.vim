@@ -20,6 +20,11 @@ augroup spacevimBasic
               \   syntax off |
               \ endif
 
+  autocmd BufReadPost *
+        \ if line('$') > 1000 |
+        \   silent! set norelativenumber |
+        \ endif
+
   autocmd BufEnter * call MyLastWindow()
   function! MyLastWindow()
     " if the window is quickfix/locationlist go on

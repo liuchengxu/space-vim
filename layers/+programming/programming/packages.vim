@@ -10,12 +10,8 @@ MP 'matze/vim-move', { 'on': [
 
 MP 'junegunn/rainbow_parentheses.vim', { 'for': ['lisp', 'clojure', 'scheme'] }
 
-" Do not lazy loading tagbar, see vim-airline issue 1313.
-if spacevim#funcs#LayerLoaded('airline')
-  MP 'majutsushi/tagbar'
-else
-  MP 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
-endif
+" Need to disable airline extension for tagbar, see vim-airline issue 1313.
+MP 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 
 MP 'Chiel92/vim-autoformat',          { 'on': 'Autoformat' }
 
