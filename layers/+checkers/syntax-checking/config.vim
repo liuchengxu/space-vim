@@ -51,7 +51,7 @@ if g:spacevim_vim8 || g:spacevim_nvim
     endif
   endfunction
 
-  if g:spacevim_gui_running
+  if g:spacevim_gui
     let g:ale_echo_msg_error_str = 'Error'
     let g:ale_echo_msg_warning_str = 'Warning'
   else

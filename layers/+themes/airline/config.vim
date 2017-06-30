@@ -23,7 +23,7 @@ scriptencoding=utf-8
               \ [ 'a', 'error', 'warning', 'b', 'c' ],
               \ [ 'x', 'y', 'z' ]
               \ ]
-
+  let g:airline#extensions#tagbar#enabled = 0
   " Distinct background color is enough to discriminate the warning and
   " error information.
   let g:airline#extensions#ale#error_symbol = '•'

@@ -1,4 +1,4 @@
-if g:spacevim_gui_running
+if g:spacevim_gui
   " LeaderF {
   nnoremap <Leader>ff :LeaderfFile ~<CR>
   nnoremap <Leader>f? :LeaderfFile<CR>

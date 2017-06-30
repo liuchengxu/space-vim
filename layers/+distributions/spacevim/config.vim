@@ -20,6 +20,11 @@ augroup spacevimBasic
               \   syntax off |
               \ endif
 
+  autocmd BufReadPost *
+        \ if line('$') > 1000 |
+        \   silent! set norelativenumber |
+        \ endif
+
   autocmd BufEnter * call MyLastWindow()
   function! MyLastWindow()
     " if the window is quickfix/locationlist go on
@@ -49,7 +54,7 @@ hi ExtraWhitespace guifg=#FF2626 gui=underline ctermfg=124 cterm=underline
 match ExtraWhitespace /\s\+$/
 
 " Refer to http://vim.wikia.com/wiki/Show_tab_number_in_your_tab_line
-if g:spacevim_gui_running
+if g:spacevim_gui
   set guioptions-=e
 endif
 function! MyTabLine()
