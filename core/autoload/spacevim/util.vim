@@ -35,3 +35,23 @@ function! spacevim#util#ToggleFullScreen()
     call s:enter_full_screen()
   endif
 endfunction
+
+function! spacevim#util#CompileAndRun()
+  exec 'w'
+  if &filetype == 'c'
+    exec "AsyncRun! gcc % -o %<; time ./%<"
+  elseif &filetype == 'rust'
+    exec "AsyncRun! rustc % -o %<; time ./%<"
+  elseif &filetype == 'cpp'
+    exec "AsyncRun! g++ -std=c++11 % -o %<; time ./%<"
+  elseif &filetype == 'java'
+    exec "AsyncRun! javac %; time java %<"
+  elseif &filetype == 'sh'
+    exec "AsyncRun! time bash %"
+  elseif &filetype == 'python'
+    exec "AsyncRun! time python %"
+  elseif &filetype == 'ruby'
+    exec "AsyncRun! time ruby %"
+  endif
+endfunction
+
