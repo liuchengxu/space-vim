@@ -7,13 +7,13 @@ MP 'tpope/vim-rsi'
 MP 't9md/vim-choosewin'
 
 MP 'mhinz/vim-startify', { 'on': 'Startify' }
-augroup SPACEVIM_START
-    autocmd!
-    autocmd VimEnter *
-                \   if !argc()
-                \|      call plug#load('vim-startify')
-                \|      Startify
-                \|  endif
+augroup spacevimStart
+  autocmd!
+  autocmd VimEnter *
+              \   if !argc()
+              \|    call plug#load('vim-startify')
+              \|    Startify
+              \|  endif
 augroup END
 
 MP 'dominikduda/vim_current_word'
@@ -25,14 +25,14 @@ MP 'dominikduda/vim_current_word'
 MP 'ntpeters/vim-better-whitespace', { 'on': 'StripWhitespace' }
 
 if !g:spacevim_nvim
-    MP 'haya14busa/incsearch.vim',       { 'on': [
-                \   '<Plug>(incsearch-forward)',
-                \   '<Plug>(incsearch-backward)',
-                \   '<Plug>(incsearch-stay)' ]
-                \   }
-    MP 'haya14busa/incsearch-fuzzy.vim',  { 'on': [
-                \   '<Plug>(incsearch-fuzzy-/)',
-                \   '<Plug>(incsearch-fuzzy-?)',
-                \   '<Plug>(incsearch-fuzzy-stay)' ]
-                \   }
+  MP 'haya14busa/incsearch.vim',       { 'on': [
+              \ '<Plug>(incsearch-forward)',
+              \ '<Plug>(incsearch-backward)',
+              \ '<Plug>(incsearch-stay)' ]
+              \ }
+  MP 'haya14busa/incsearch-fuzzy.vim',  { 'on': [
+              \ '<Plug>(incsearch-fuzzy-/)',
+              \ '<Plug>(incsearch-fuzzy-?)',
+              \ '<Plug>(incsearch-fuzzy-stay)' ]
+              \ }
 endif

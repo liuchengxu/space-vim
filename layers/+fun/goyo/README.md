@@ -13,8 +13,6 @@
 
 This layer adds support for distraction-free writing in Vim.
 
-![screenshot](img/screenshot.png)
-
 ## Install
 
 To use this configuration layer, add it to your `~/.spacevim`.

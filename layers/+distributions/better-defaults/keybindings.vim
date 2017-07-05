@@ -13,17 +13,17 @@ imap   <M-Tab>  <C-O>:tabprev<CR>
 
 " <Leader>[1-9] move to window [1-9]
 for s:i in range(1, 9)
-    execute 'nnoremap <Leader>' . s:i . ' :' . s:i . 'wincmd w<CR>'
+  execute 'nnoremap <Leader>' . s:i . ' :' . s:i . 'wincmd w<CR>'
 endfor
 
 " <Leader><leader>[1-9] move to tab [1-9]
 for s:i in range(1, 9)
-    execute 'nnoremap <Leader><Leader>' . s:i . ' ' . s:i . 'gt'
+  execute 'nnoremap <Leader><Leader>' . s:i . ' ' . s:i . 'gt'
 endfor
 
 " <Leader>b[1-9] move to buffer [1-9]
 for s:i in range(1, 9)
-    execute 'nnoremap <Leader>b' . s:i . ' :b' . s:i . '<CR>'
+  execute 'nnoremap <Leader>b' . s:i . ' :b' . s:i . '<CR>'
 endfor
 
 " map y <Plug>(operator-flashy)
@@ -38,28 +38,11 @@ nnoremap <Leader>xd :StripWhitespace<CR>
 " vim-choosewin
 nmap <Leader>ww <Plug>(choosewin)
 
-let s:lines=&lines
-let s:columns=&columns
-function! s:enter_full_screen()
-    set lines=999 columns=999
-    set fullscreen
-endfunction
+" util
+nnoremap <Leader>tc :call spacevim#util#ToggleCursorColumn()<CR>
+nnoremap <Leader>tC :call spacevim#util#ToggleColorColumn()<CR>
 
-function! s:leave_full_screen()
-    let &lines=s:lines
-    let &columns=s:columns
-    set nofullscreen
-endfunction
-
-function! s:full_screen_toggle()
-    if &fullscreen
-        call s:leave_full_screen()
-    else
-        call s:enter_full_screen()
-    endif
-endfunction
-
-augroup SPACEVIM_GUI
-    autocmd!
-    autocmd GUIEnter * nnoremap <Leader>wm :call <SID>full_screen_toggle()<CR>
+augroup spacevimGUI
+  autocmd!
+  autocmd GUIEnter * nnoremap <Leader>wm :call spacevim#util#ToggleFullScreen()<CR>
 augroup END

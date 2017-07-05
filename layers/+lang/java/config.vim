@@ -1,5 +1,5 @@
-augroup SPACEVIM_JAVA
-    autocmd FileType java setlocal omnifunc=javacomplete#Complete
+augroup spacevimJava
+  autocmd FileType java setlocal omnifunc=javacomplete#Complete
 augroup END
 
 " The commented key mappings are the defaults by vim-javacomplete2.

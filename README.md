@@ -31,6 +31,10 @@
     * [Windows](#windows)
     * [Manual (Linux and macOS)](#manual-linux-and-macos)
 * [Customize](#customize)
+    * [Presetting](#presetting)
+    * [`Layers()`](#layers)
+    * [`UserInit()`](#userinit)
+    * [`UserConfig()`](#userconfig)
 * [How to use](#how-to-use)
     * [Bootstrap](#bootstrap)
     * [Commands](#commands)
@@ -55,7 +59,7 @@ Elegance here means pleasing, graceful as well as simple. If you are unfamiliar 
 The distribution is completely customizable using `.spacevim`, which is equivalent to `.spacemacs` in spacemacs.
 
 ![screenshot](https://raw.githubusercontent.com/liuchengxu/img/master/space-vim/space-vim-cterm.png)
-(Terminal vim with space-vim-dark theme)
+(Terminal vim with [space-vim-dark](https://github.com/liuchengxu/space-vim-dark) theme)
 
 ## Features
 
@@ -69,6 +73,8 @@ The distribution is completely customizable using `.spacevim`, which is equivale
     Meanwhile, the whole key bindings have been well adapted for vim for the lack of great plugins similar to which-key in emacs. Most key bindings are limited to no more than two keystrokes without counting `<Leader>` or `<LocalLeader>` in, e.g. <kbd>SPC x d</kbd> to delete trailing whitespaces.
 
     For different language layers, `<LocalLeader>`, <kbd>,</kbd> as default in space-vim, can be seen as the major-mode prefix in spacemacs.
+
+- **Lean and mean:** no nonsense wrappers, free from being bloated.
 
 ## For whom?
 
@@ -176,14 +182,25 @@ You have to satisfy some prerequisites at first:
 
 ## Customize
 
-You can use `.spacevim` in your home directory to customize space-vim, where you can enable the existing layers, add your extra plugins and private configurations. Please refer to [plugins](https://github.com/liuchengxu/space-vim/wiki/plugins) to take a look at the whole layers as well as the plugins contained.
+You can use `.spacevim` in your home directory to customize space-vim, where you can enable the existing layers, add your extra plugins and private configurations.
 
-If `.spacevim` does not exist, vanilla vim will be loaded!
+If `.spacevim` does not exist, vanilla vim will be loaded! Refer to [.spacevim.template](https://github.com/liuchengxu/space-vim/wiki/.spacevim.template) as an example.
+
+### Presetting
 
 ```vim
 " Let vim and neovim share the same plugin directory
-" let g:spacevim_plug_home = '~/.vim/plugged'
+let g:spacevim_plug_home = '~/.vim/plugged'
 
+" Change the background color of theme space-vim-dark (default 235)
+let g:space_vim_dark_background = 234
+```
+
+### `Layers()`
+
+Please refer to [LAYERS](https://github.com/liuchengxu/space-vim/blob/master/layers/LAYERS.md) to take a look at the whole shipped layers.
+
+```vim
 " You can enable the existing layers in space-vim and
 " exclude the partial plugins in a certain layer.
 " The command Layer is vaild in the function Layers().
@@ -197,7 +214,11 @@ function! Layers()
     Layer 'better-defaults'
 
 endfunction
+```
 
+### `UserInit()`
+
+```vim
 " Put your private plugins here, e.g., change the colorscheme.
 function! UserInit()
 
@@ -211,7 +232,11 @@ function! UserInit()
     Plug 'morhetz/gruvbox'
 
 endfunction
+```
 
+### `UserConfig()`
+
+```vim
 " Override the existing configurations and add extras here.
 function! UserConfig()
 
@@ -231,22 +256,24 @@ For detailed instruction, please refer to the README under the certain layer ena
 If the README is not elaborate, sorry for that, space-vim now is in the early stages and a ton of stuff are waiting to be done.
 
 ### Bootstrap
+
 The modular design is originally from [spacemacs](https://github.com/syl20bnr/spacemacs). The implementation of logic in space-vim is similar to [vim-plug](https://github.com/junegunn/vim-plug).
 
 If you want to know more about the bootstrap of space-vim, please see [bootstrap](https://github.com/liuchengxu/space-vim/wiki/Bootstrap) in wiki.
 
 ### Commands
+
  Command      | Description
  :---         | :---
 `LayerStatus` | Check the status of layers
 `LayerUpdate` | Update the structure of *layers* directory
 
-When the structure of *layers* directory is changed, you have to run `:LayerUpdate` to update `info.vim`, where caches the essential information of *layers*.
-
 ### Tips
+
 For the sake of a better user experience, some extra settings should be done.
 
 #### Enable GUI color in terminal vim
+
 `echo has('termguicolors')`, if `1`, then you can enable GUI color in terminal vim, add this to `UserConfig()`:
 
 ```vim
@@ -261,6 +288,7 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 For more details about true colour, please see the gist [TrueColour.md](https://gist.github.com/XVilka/8346728).
 
 #### Font
+
 Install the [Source Code Pro](https://github.com/adobe-fonts/source-code-pro) or [Powerline](https://github.com/powerline/fonts) font, especially for [airline](https://github.com/liuchengxu/space-vim/blob/master/layers/%2Bthemes/airline/README.md) Layer.
 
 If you are running in terminal you'll need to change font settings of your terminal as well.

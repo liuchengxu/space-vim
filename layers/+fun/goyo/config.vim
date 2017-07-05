@@ -1,3 +1,3 @@
 " goyo.vim {
-    nnoremap <Leader>gy :Goyo<CR>
+  nnoremap <Leader>gy :Goyo<CR>
 " }

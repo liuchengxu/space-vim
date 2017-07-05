@@ -1,4 +1,4 @@
-# Unite layer
+# Ctrlp layer
 
 ## Table of Contents
 
@@ -11,17 +11,15 @@
 
 ## Description
 
-This layer adds support for user interface.
+This layer adds support for fuzzy file, buffer, mru, tag, ... finder.
 
 ## Install
 
 To use this configuration layer, add it to your `~/.spacevim`.
 
-Some commands used in this layer may need the support of other layers.
-
 ## Key Bindings
 
 Key Binding        | Mode   | Description
 :---:              | :---:  | :---:
-<kbd>, m</kbd>     | Normal | unite.vim menu
-
+<kbd>Ctrl p</kbd>  | Normal | fuzzy finder toggle
+<kbd>SPC f r</kbd> | Normal | files most recently used

@@ -1,62 +1,42 @@
-Configuration layers
-======================
+Layer Manifest
+==============
 
-## Table of Contents
-
-<!-- vim-markdown-toc GFM -->
-* [Checkerers](#checkerers)
-* [Completion](#completion)
-* [Fun](#fun)
-* [Lang](#lang)
-* [Themes](#themes)
-* [Tools](#tools)
-* [Version-Control](#version-control)
-* [Vim](#vim)
-
-<!-- vim-markdown-toc -->
-### Checkerers
-
-- syntax-checking
-
-### Completion
-
-- auto-completion
-- unite
-
-### Fun
-
-- emoji
-- goyo
-
-### Lang
-
-- c-c++
-- graphviz
-- html
-- markdown
-- python
-- typescript
-
-### Themes
-
-- colors
-- airline
-- lightline
-
-### Tools
-
-- fzf
-- ycmd
-
-### Version-Control
-
-- git
-- github
-
-
-### Vim
-
-- better-defaults
-- programming
-- text-align
-
+topic                | layer
+:---:                | :---:
++checkers            | [syntax-checking](https://github.com/liuchengxu/space-vim/tree/master/layers/+checkers/syntax-checking)
++completion          | [auto-completion](https://github.com/liuchengxu/space-vim/tree/master/layers/+completion/auto-completion)
++completion          | [unite](https://github.com/liuchengxu/space-vim/tree/master/layers/+completion/unite)
++distributions       | [better-defaults](https://github.com/liuchengxu/space-vim/tree/master/layers/+distributions/better-defaults)
++distributions       | [spacevim](https://github.com/liuchengxu/space-vim/tree/master/layers/+distributions/spacevim)
++fun                 | [emoji](https://github.com/liuchengxu/space-vim/tree/master/layers/+fun/emoji)
++fun                 | [goyo](https://github.com/liuchengxu/space-vim/tree/master/layers/+fun/goyo)
++lang                | [c-c++](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/c-c++)
++lang                | [elixir](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/elixir)
++lang                | [elm](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/elm)
++lang                | [erlang](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/erlang)
++lang                | [go](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/go)
++lang                | [graphviz](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/graphviz)
++lang                | [html](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/html)
++lang                | [java](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/java)
++lang                | [javascript](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/javascript)
++lang                | [latex](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/latex)
++lang                | [markdown](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/markdown)
++lang                | [python](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/python)
++lang                | [scala](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/scala)
++lang                | [typescript](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/typescript)
++lang                | [vue](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/vue)
++misc                | [chinese](https://github.com/liuchengxu/space-vim/tree/master/layers/+misc/chinese)
++programming         | [code-snippets](https://github.com/liuchengxu/space-vim/tree/master/layers/+programming/code-snippets)
++programming         | [editing](https://github.com/liuchengxu/space-vim/tree/master/layers/+programming/editing)
++programming         | [programming](https://github.com/liuchengxu/space-vim/tree/master/layers/+programming/programming)
++themes              | [airline](https://github.com/liuchengxu/space-vim/tree/master/layers/+themes/airline)
++themes              | [lightline](https://github.com/liuchengxu/space-vim/tree/master/layers/+themes/lightline)
++tools               | [file-manager](https://github.com/liuchengxu/space-vim/tree/master/layers/+tools/file-manager)
++tools               | [fzf](https://github.com/liuchengxu/space-vim/tree/master/layers/+tools/fzf)
++tools               | [tmux](https://github.com/liuchengxu/space-vim/tree/master/layers/+tools/tmux)
++tools               | [ycmd](https://github.com/liuchengxu/space-vim/tree/master/layers/+tools/ycmd)
++version-control     | [git](https://github.com/liuchengxu/space-vim/tree/master/layers/+version-control/git)
++version-control     | [github](https://github.com/liuchengxu/space-vim/tree/master/layers/+version-control/github)
++vim                 | [better-motion](https://github.com/liuchengxu/space-vim/tree/master/layers/+vim/better-motion)
++vim                 | [ctrlp](https://github.com/liuchengxu/space-vim/tree/master/layers/+vim/ctrlp)
++vim                 | [text-align](https://github.com/liuchengxu/space-vim/tree/master/layers/+vim/text-align)
