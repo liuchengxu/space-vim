@@ -92,7 +92,8 @@ augroup END
   nnoremap <F5> :call <SID>compile_and_run()<CR>
   augroup spacevimAsyncRun
     autocmd!
-    autocmd User AsyncRunStart call asyncrun#quickfix_toggle(15, 1)
+    let s:qf_height = float2nr(round(winheight('%') * 0.3))
+    autocmd User AsyncRunStart call asyncrun#quickfix_toggle(s:qf_height, 1)
   augroup END
   function! s:compile_and_run()
     exec 'w'
