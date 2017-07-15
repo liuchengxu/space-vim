@@ -89,28 +89,12 @@ augroup END
 " }
 
 " asyncrun.vim {
-  nnoremap <F5> :call <SID>compile_and_run()<CR>
+  nnoremap <F5> :call spacevim#util#CompileAndRun()<CR>
   augroup spacevimAsyncRun
     autocmd!
     let s:qf_height = float2nr(round(winheight('%') * 0.3))
     autocmd User AsyncRunStart call asyncrun#quickfix_toggle(s:qf_height, 1)
   augroup END
-  function! s:compile_and_run()
-    exec 'w'
-    if &filetype == 'c'
-      exec "AsyncRun! gcc % -o %<; time ./%<"
-    elseif &filetype == 'cpp'
-      exec "AsyncRun! g++ -std=c++11 % -o %<; time ./%<"
-    elseif &filetype == 'java'
-      exec "AsyncRun! javac %; time java %<"
-    elseif &filetype == 'sh'
-      exec "AsyncRun! time bash %"
-    elseif &filetype == 'python'
-      exec "AsyncRun! time python %"
-    elseif &filetype == 'ruby'
-      exec "AsyncRun! time ruby %"
-    endif
-  endfunction
 " }
 
 " indentLine {
