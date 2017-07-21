@@ -55,3 +55,8 @@ function! spacevim#util#CompileAndRun()
   endif
 endfunction
 
+function! spacevim#util#Runtimepath()
+  for path in split(&runtimepath, ',')
+    echo path
+  endfor
+endfunction

@@ -42,6 +42,8 @@ nmap <Leader>ww <Plug>(choosewin)
 nnoremap <Leader>tc :call spacevim#util#ToggleCursorColumn()<CR>
 nnoremap <Leader>tC :call spacevim#util#ToggleColorColumn()<CR>
 
+command! -bar -nargs=0 Rtp :call spacevim#util#Runtimepath()
+
 augroup spacevimGUI
   autocmd!
   autocmd GUIEnter * nnoremap <Leader>wm :call spacevim#util#ToggleFullScreen()<CR>
