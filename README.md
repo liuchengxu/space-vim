@@ -313,7 +313,7 @@ Space-vim is still in beta. If you are interested, contributions are highly welc
 
 ## Acknowledgements
 
-Space-vim would never have become what it is now, without the help of these projects!
+I would like to thank the many people who have helped and contributed to this project. What's more, space-vim would never have become what it is now, without the help of these projects!
 
 - [spacemacs](https://github.com/syl20bnr/spacemacs)
 - [vim-plug](https://github.com/junegunn/vim-plug)
