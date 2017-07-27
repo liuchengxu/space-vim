@@ -31,7 +31,7 @@ augroup spacevimPython
     " Code formatter
     autocmd FileType python nnoremap <LocalLeader>= :0,$!yapf<CR>
   else
-    autocmd FileType python nnoremap <LocalLeader>= :echom '[space-vim] yapf is unavailable, please install it first.'<CR>
+    autocmd FileType python nnoremap <LocalLeader>= :call spacevim#util#err('yapf is unavailable, please install it first.')<CR>
   endif
 augroup END
 
