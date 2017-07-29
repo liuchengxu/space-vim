@@ -1,3 +1,15 @@
+function! spacevim#util#err(msg)
+  echohl ErrorMsg
+  echom '[space-vim] '.a:msg
+  echohl None
+endfunction
+
+function! spacevim#util#warn(cmd, msg)
+  echohl WarningMsg
+  echom '[space-vim] '.a:msg
+  echohl None
+endfunction
+
 function! spacevim#util#ToggleCursorColumn()
   if &cursorcolumn
     setlocal nocursorcolumn

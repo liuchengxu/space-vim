@@ -21,18 +21,6 @@ let s:TYPE = {
 \ 'funcref': type(function('call'))
 \ }
 
-function! s:err(msg)
-  echohl ErrorMsg
-  echom '[space-vim] '.a:msg
-  echohl None
-endfunction
-
-function! s:warn(cmd, msg)
-  echohl WarningMsg
-  echom '[space-vim] '.a:msg
-  echohl None
-endfunction
-
 function! spacevim#begin() abort
 
   let l:vim_plug_path = '~/.vim/autoload/plug.vim'
@@ -55,7 +43,7 @@ function! spacevim#begin() abort
     try
       call Layers()
     catch
-      call s:err('Layers() does not exist in .spacevim!')
+      call spacevim#util#err('Layers() does not exist in .spacevim!')
     endtry
   endif
 
@@ -82,7 +70,7 @@ function! s:check_dot_spacevim()
     call s:Source(s:dot_spacevim)
     return 1
   else
-    call s:err('.spacevim does not exist!!!')
+    call spacevim#util#err('.spacevim does not exist!!!')
     return 0
   endif
 endfunction
@@ -102,7 +90,7 @@ function! s:layer(name, ...)
     call add(g:layers_loaded, a:name)
   endif
   if a:0 > 1
-    return s:err('Invalid number of arguments (1..2)')
+    return spacevim#util#err('Invalid number of arguments (1..2)')
   elseif a:0 == 1
     call s:parse_options(a:1)
   endif
@@ -159,7 +147,7 @@ function! spacevim#end()
   try
     call UserConfig()
   catch
-    call s:err('Error occurs in UserConfig()!')
+    call spacevim#util#err('Error occurs in UserConfig()!')
   endtry
   call s:post_user_config()
 endfunction
@@ -180,7 +168,7 @@ function! s:register_plugin()
   try
     call UserInit()
   catch
-      call s:err('Error occurs in UserInit()!')
+      call spacevim#util#err('Error occurs in UserInit()!')
   endtry
 
   call plug#end()

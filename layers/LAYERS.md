@@ -22,6 +22,7 @@ topic                | layer
 +lang                | [latex](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/latex)
 +lang                | [markdown](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/markdown)
 +lang                | [python](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/python)
++lang                | [ruby](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/ruby)
 +lang                | [scala](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/scala)
 +lang                | [typescript](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/typescript)
 +lang                | [vue](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/vue)
