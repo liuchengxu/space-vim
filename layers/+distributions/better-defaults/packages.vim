@@ -12,7 +12,7 @@ augroup spacevimStart
   autocmd VimEnter *
               \   if !argc()
               \|    call plug#load('vim-startify')
-              \|    Startify
+              \|    silent! Startify
               \|  endif
 augroup END
 
