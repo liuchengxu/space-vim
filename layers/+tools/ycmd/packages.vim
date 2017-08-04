@@ -15,7 +15,7 @@ MP 'Valloric/YouCompleteMe', { 'do': function('BuildYCM'), 'on': [] }
 
 " Load YCM for specific filetypes
 function! s:invoke_ycm()
-  let l:supported = ['c', 'cpp', 'python', 'vim', 'javascript', 'go', 'sh', 'rust']
+  let l:supported = ['c', 'cpp', 'python', 'vim', 'javascript', 'go', 'sh', 'rust', 'ruby']
   let l:cur_ft = &filetype
   if index(l:supported, l:cur_ft) > -1
     call plug#load('YouCompleteMe')
