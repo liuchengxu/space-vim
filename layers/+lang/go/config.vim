@@ -1,6 +1,6 @@
 augroup spacevimGo
   autocmd!
-  autocmd FileType go nmap <LocalLeader>b  :<C-u>call spacevim#auto#BuildGoFiles()<CR>
+  autocmd FileType go nmap <LocalLeader>b  :<C-u>call spacevim#lang#go#BuildGoFiles()<CR>
   autocmd FileType go nmap <LocalLeader>r  <Plug>(go-run)
   autocmd FileType go nmap <LocalLeader>t  <Plug>(go-test)
 augroup END
