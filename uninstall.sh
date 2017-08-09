@@ -1,4 +1,25 @@
 #!/usr/bin/env bash
 
-rm -f "${HOME}/.vimrc"
-rm -rf "${HOME}/.space-vim"
+confirm() {
+  while true; do
+    read -p "$1" -n 1 -r
+    echo
+    if [[ "$REPLY" =~ ^[Yy] ]]; then
+      return 0
+    elif [[ "$REPLY" =~ ^[Nn] ]]; then
+      return 1
+    fi
+  done
+}
+
+uninstall() {
+  rm -f "${HOME}/.vimrc"
+  rm -rf "${HOME}/.space-vim"
+}
+
+if confirm "    - Uninstall (y/n) ? "; then
+  uninstall
+  echo  "      - Uninstalled"
+else
+  echo  "      - Skipped"
+fi
