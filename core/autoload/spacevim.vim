@@ -146,8 +146,9 @@ function! spacevim#end()
   call s:config()
   try
     call UserConfig()
-  catch
+  catch /.*/
     call spacevim#util#err('Error occurs in UserConfig()!')
+    echoerr v:exception
   endtry
   call s:post_user_config()
 endfunction
