@@ -28,7 +28,6 @@ topic                | layer
 +lang                | [ruby](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/ruby)
 +lang                | [rust](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/rust)
 +lang                | [scala](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/scala)
-+lang                | [solidity](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/solidity)
 +lang                | [typescript](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/typescript)
 +lang                | [vue](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/vue)
 +misc                | [chinese](https://github.com/liuchengxu/space-vim/tree/master/layers/+misc/chinese)
@@ -46,4 +45,3 @@ topic                | layer
 +vim                 | [better-motion](https://github.com/liuchengxu/space-vim/tree/master/layers/+vim/better-motion)
 +vim                 | [ctrlp](https://github.com/liuchengxu/space-vim/tree/master/layers/+vim/ctrlp)
 +vim                 | [text-align](https://github.com/liuchengxu/space-vim/tree/master/layers/+vim/text-align)
-+vim                 | [which-key](https://github.com/liuchengxu/space-vim/tree/master/layers/+vim/which-key)
