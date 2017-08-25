@@ -6,6 +6,7 @@
 * [Description](#description)
 * [Install](#install)
 * [Key Bindings](#key-bindings)
+* [Related Projects](#related-projects)
 
 <!-- vim-markdown-toc -->
 
@@ -22,3 +23,11 @@ To use this configuration layer, add it to your `~/.spacevim`.
 Key Binding                        | Mode   | Description
 :---:                              | :---:  | :---:
 <kbd>SPC f t</kbd> / <kbd>F4</kbd> | Normal | NERDTree toggle
+
+## Related Projects
+
+- [nerdtree](https://github.com/scrooloose/nerdtree)
+- [vimfiler.vim](https://github.com/Shougo/vimfiler.vim)
+- [vim-dirvish](https://github.com/justinmk/vim-dirvish)
+- [vim-vinegar](https://github.com/tpope/vim-vinegar)
+- [vim-filebeagle](https://github.com/jeetsukumaran/vim-filebeagle)
