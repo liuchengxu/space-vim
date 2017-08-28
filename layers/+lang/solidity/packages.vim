@@ -1,0 +1,1 @@
+MP 'tomlion/vim-solidity'
