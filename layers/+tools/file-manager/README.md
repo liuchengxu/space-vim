@@ -27,7 +27,8 @@ Key Binding                        | Mode   | Description
 ## Related Projects
 
 - [nerdtree](https://github.com/scrooloose/nerdtree)
-- [vimfiler.vim](https://github.com/Shougo/vimfiler.vim)
 - [vim-dirvish](https://github.com/justinmk/vim-dirvish)
 - [vim-vinegar](https://github.com/tpope/vim-vinegar)
+- [vimfiler.vim](https://github.com/Shougo/vimfiler.vim)
+- [easytree.vim](https://github.com/troydm/easytree.vim)
 - [vim-filebeagle](https://github.com/jeetsukumaran/vim-filebeagle)
