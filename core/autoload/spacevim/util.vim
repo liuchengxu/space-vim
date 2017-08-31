@@ -29,22 +29,23 @@ endfunction
 function! spacevim#util#CompileAndRun()
   exec 'w'
   if &filetype == 'c'
-    exec "AsyncRun! gcc % -o %<; time ./%<"
+    let l:cmd = "gcc % -o %<; time ./%<"
   elseif &filetype == 'cpp'
-    exec "AsyncRun! g++ -std=c++11 % -o %<; time ./%<"
+    let l:cmd = "g++ -std=c++11 % -o %<; time ./%<"
   elseif &filetype == 'go'
-    exec "! go run %"
+    let l:cmd = "go run %"
   elseif &filetype == 'java'
-    exec "AsyncRun! javac %; time java %<"
+    let l:cmd = "javac %; time java %<"
   elseif &filetype == 'python'
-    exec "AsyncRun! time python %"
+    let l:cmd = "time python %"
   elseif &filetype == 'ruby'
-    exec "AsyncRun! time ruby %"
+    let l:cmd = "time ruby %"
   elseif &filetype == 'rust'
-    exec "AsyncRun! rustc % -o %<; time ./%<"
+    let l:cmd = "rustc % -o %<; time ./%<"
   elseif &filetype == 'sh'
-    exec "AsyncRun! time bash %"
+    let l:cmd = "time bash %"
   endif
+  exec "AsyncRun! ".l:cmd
 endfunction
 
 function! spacevim#util#Runtimepath()
