@@ -3,6 +3,7 @@
 ## Table of Contents
 
 <!-- vim-markdown-toc GFM -->
+
 * [Description](#description)
 * [Install](#install)
 * [Related Projects](#related-projects)
@@ -21,5 +22,6 @@ To use this configuration layer, add it to your `~/.spacevim`.
 
 ## Related Projects
 
+- [completor.vim](https://github.com/maralla/completor.vim)
 - [nvim-completion-manager](https://github.com/roxma/nvim-completion-manager)
 - [asyncomplete.vim](https://github.com/prabirshrestha/asyncomplete.vim)

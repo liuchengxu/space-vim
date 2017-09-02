@@ -9,16 +9,16 @@ augroup spacevimBasic
   " http://vim.wikia.com/wiki/Speed_up_Syntax_Highlighting
   autocmd BufEnter * :syntax sync maxlines=200
 
+  autocmd BufReadPre *
+        \ if getfsize(expand("%")) > 10000000 |
+        \   syntax off                        |
+        \ endif
+
   " Restore cursor position when opening file
   autocmd BufReadPost *
-              \ if line("'\"") > 1 && line("'\"") <= line("$") |
-              \   execute "normal! g`\"" |
-              \ endif
-
-  autocmd BufReadPre *
-              \ if getfsize(expand("%")) > 10000000 |
-              \   syntax off |
-              \ endif
+        \ if line("'\"") > 1 && line("'\"") <= line("$") |
+        \   execute "normal! g`\""                       |
+        \ endif
 
   autocmd BufReadPost *
         \ if line('$') > 1000 |
