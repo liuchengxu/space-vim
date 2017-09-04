@@ -23,6 +23,7 @@
 ### Table of Contents
 
 <!-- vim-markdown-toc GFM -->
+
 * [Introduction](#introduction)
 * [Features](#features)
 * [For whom?](#for-whom)
@@ -86,13 +87,7 @@ If you have been a vimmer for quite a while, just pick out the part you are inte
 
 ## Install
 
-You have to satisfy some prerequisites at first:
-
-- vim with `+python` or `+python3` feature.
-
-    If `:echo has('python')` or `:echo has('python3')` returns `1`, then you are done. What's more, the most recent vim version is recommended.
-
-- git.
+Make sure you have installed `git` and `vim` in your system. The most recent Vim version is recommended.
 
 :exclamation: ~~When layers enabled at the first time, you need to run `:PlugInstall` to install relevant plugins~~.
 
