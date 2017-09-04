@@ -36,14 +36,15 @@ function! s:init()
   let l:private_base = g:spacevim_dir."/private"
   let l:private_dir = split(globpath(l:private_base, '*'), '\n')
   let l:private_path = filter(l:private_dir, 'isdirectory(v:val)')
-  if len(l:private_path)
-    let g:private_layers = map(l:private_path, 'fnamemodify(v:val, ":t")')
-  endif
 
   let s:cache = g:spacevim_info_path
   call writefile([printf("let g:topics = %s", g:topics)], s:cache)
   call writefile([printf("let g:topic2layers = %s", g:topic2layers)], s:cache, "a")
   call writefile([printf("let g:layer_path = %s", g:layer_path)], s:cache, "a")
+  if len(l:private_path)
+    let g:private_layers = map(l:private_path, 'fnamemodify(v:val, ":t")')
+    call writefile([printf("let g:private_layers = %s", g:private_layers)], s:cache, "a")
+  endif
 endfunction
 
 function! s:py_init()
