@@ -6,9 +6,6 @@ silent! color space-vim-dark
 
 augroup spacevimBasic
   autocmd!
-  " http://vim.wikia.com/wiki/Speed_up_Syntax_Highlighting
-  autocmd BufEnter * :syntax sync maxlines=200
-
   autocmd BufReadPre *
         \ if getfsize(expand("%")) > 10000000 |
         \   syntax off                        |
@@ -21,11 +18,14 @@ augroup spacevimBasic
         \ endif
 
   autocmd BufReadPost *
-        \ if line('$') > 1000 |
+        \ if line('$') > 1000            |
         \   silent! set norelativenumber |
         \ endif
 
-  autocmd BufEnter * call MyLastWindow()
+  " http://vim.wikia.com/wiki/Speed_up_Syntax_Highlighting
+  autocmd BufEnter * :syntax sync maxlines=200
+
+  autocmd BufLeave * call MyLastWindow()
   function! MyLastWindow()
     " if the window is quickfix/locationlist go on
     if &buftype ==# 'quickfix' || &buftype ==# 'locationlist'
@@ -37,7 +37,7 @@ augroup spacevimBasic
   endfunction
   " http://stackoverflow.com/questions/5933568/disable-blinking-at-the-first-last-line-of-the-file
   autocmd GUIEnter * set t_vb=
-  if !spacevim#funcs#LayerLoaded('chinese')
+  if !spacevim#LayerLoaded('chinese')
     silent! set $LANG = 'en_US'
     silent! let langmenu=en_US
     source $VIMRUNTIME/delmenu.vim

@@ -280,3 +280,8 @@ function! s:post_user_config()
   augroup END
 
 endfunction
+
+" Util for config.vim and packages.vim
+function! spacevim#LayerLoaded(layer) abort
+    return index(g:layers_loaded, a:layer) > -1 ? 1 : 0
+endfunction

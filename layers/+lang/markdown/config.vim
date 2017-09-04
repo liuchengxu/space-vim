@@ -9,7 +9,7 @@ augroup spacevimMarkdown
   autocmd FileType markdown setlocal
               \   wrap
 
-  if spacevim#funcs#LayerLoaded('text-align')
+  if spacevim#LayerLoaded('text-align')
     " Makrdown table align
     autocmd FileType markdown nnoremap <LocalLeader>ta :Tabularize /<Bar><CR>
   endif
