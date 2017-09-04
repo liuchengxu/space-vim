@@ -248,9 +248,6 @@ endfunction
 
 function! s:post_user_config()
 
-  autocmd BufRead,BufNewFile *.spacevim setlocal filetype=vim
-  autocmd FileType vim setlocal tabstop=2 shiftwidth=2 softtabstop=2
-
   " airline {
   if !exists('g:airline_powerline_fonts')
     let g:airline_left_sep=''
