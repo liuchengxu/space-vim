@@ -1,5 +1,5 @@
 if g:spacevim_tmux
-  if spacevim#funcs#LayerLoaded('unite')
+  if spacevim#LayerLoaded('unite')
       "CtrlP tmux window
       nnoremap <Leader>mw :CtrlPTmux w<cr>
       "CtrlP tmux buffer

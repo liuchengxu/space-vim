@@ -10,7 +10,7 @@ augroup spacevimC
   autocmd FileType c,cpp,objc nnoremap <LocalLeader>= :ClangFormat<CR>
   autocmd FileType c,cpp,objc vnoremap <LocalLeader>= :<C-u>ClangFormat<CR>
 
-  if spacevim#funcs#LayerLoaded('programming')
+  if spacevim#LayerLoaded('programming')
     autocmd FileType c,cpp nnoremap <buffer> <LocalLeader>m :update<Bar>execute 'AsyncRun! make '.shellescape(@%, 1)<CR>
   else
     autocmd FileType c,cpp nnoremap <buffer> <LocalLeader>m :update<Bar>execute '! make '.shellescape(@%, 1)<CR>

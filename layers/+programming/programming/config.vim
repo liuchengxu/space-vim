@@ -23,7 +23,7 @@ augroup END
 " rainbow {
   let g:rainbow_active = 1
   let g:rainbow_conf = {
-              \   'guifgs': ['#4F97D7', '#D75F87', '#D697E6', '#20AF81', '#2AA1AE', '#AF5F87'],
+              \   'guifgs': ['#4F97D7', '#D75F87', '#D697E6', '#40AF81', '#DA61AE', '#70AF67'],
               \   'ctermfgs': ['68', '168', '176', '104', '73', '212'],
               \   'operators': '_,_',
               \   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
