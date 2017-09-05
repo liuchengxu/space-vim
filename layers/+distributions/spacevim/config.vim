@@ -7,20 +7,20 @@ silent! color space-vim-dark
 augroup spacevimBasic
   autocmd!
   autocmd BufReadPre *
-        \ if getfsize(expand("%")) > 10000000 |
-        \   syntax off                        |
-        \ endif
+        \ if getfsize(expand("%")) > 10000000
+        \|  syntax off
+        \|endif
 
   " Restore cursor position when opening file
   autocmd BufReadPost *
-        \ if line("'\"") > 1 && line("'\"") <= line("$") |
-        \   execute "normal! g`\""                       |
-        \ endif
+        \ if line("'\"") > 1 && line("'\"") <= line("$")
+        \|  execute "normal! g`\""
+        \|endif
 
   autocmd BufReadPost *
-        \ if line('$') > 1000            |
-        \   silent! set norelativenumber |
-        \ endif
+        \ if line('$') > 1000
+        \|  silent! set norelativenumber
+        \|endif
 
   " http://vim.wikia.com/wiki/Speed_up_Syntax_Highlighting
   autocmd BufEnter * :syntax sync maxlines=200
