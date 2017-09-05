@@ -42,25 +42,23 @@ function! spacevim#util#ToggleColorColumn()
 endfunction
 
 function! spacevim#util#CompileAndRun()
-  exec 'w'
-  if &filetype == 'c'
-    let l:cmd = "gcc % -o %<; time ./%<"
-  elseif &filetype == 'cpp'
-    let l:cmd = "g++ -std=c++11 % -o %<; time ./%<"
-  elseif &filetype == 'go'
-    let l:cmd = "go run %"
-  elseif &filetype == 'java'
-    let l:cmd = "javac %; time java %<"
-  elseif &filetype == 'python'
-    let l:cmd = "time python %"
-  elseif &filetype == 'ruby'
-    let l:cmd = "time ruby %"
-  elseif &filetype == 'rust'
-    let l:cmd = "rustc % -o %<; time ./%<"
-  elseif &filetype == 'sh'
-    let l:cmd = "time bash %"
+  let l:cmd = {
+        \ 'c': "gcc % -o %<; time ./%<",
+        \ 'sh': "time bash %",
+        \ 'go': "go run %",
+        \ 'cpp': "g++ -std=c++11 % -o %<; time ./%<",
+        \ 'ruby': "time ruby %",
+        \ 'java': "javac %; time java %<",
+        \ 'rust': "rustc % -o %<; time ./%<",
+        \ 'python': "time python %",
+        \}
+  let l:ft = &filetype
+  if has_key(l:cmd, l:ft)
+    exec 'w'
+    exec "AsyncRun! ".l:cmd[l:ft]
+  else
+    call spacevim#util#err("spacevim#util#CompileAndRun not supported in current filetype!")
   endif
-  exec "AsyncRun! ".l:cmd
 endfunction
 
 function! spacevim#util#Runtimepath()

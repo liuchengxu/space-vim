@@ -25,7 +25,7 @@ augroup spacevimBasic
   " http://vim.wikia.com/wiki/Speed_up_Syntax_Highlighting
   autocmd BufEnter * :syntax sync maxlines=200
 
-  autocmd BufLeave * call MyLastWindow()
+  autocmd BufEnter * call MyLastWindow()
   function! MyLastWindow()
     " if the window is quickfix/locationlist go on
     if &buftype ==# 'quickfix' || &buftype ==# 'locationlist'
