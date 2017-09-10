@@ -29,6 +29,8 @@
 * [For whom?](#for-whom)
 * [Install](#install)
     * [Linux and macOS](#linux-and-macos)
+        * [`Makefile`](#makefile)
+        * [`install.sh`](#installsh)
     * [Windows](#windows)
     * [Manual (Linux and macOS)](#manual-linux-and-macos)
 * [Customize](#customize)
@@ -92,6 +94,17 @@ Make sure you have installed `git` and `vim` in your system. The most recent Vim
 :exclamation: ~~When layers enabled at the first time, you need to run `:PlugInstall` to install relevant plugins~~.
 
 ### Linux and macOS
+
+#### `Makefile`
+
+```bash
+git clone https://github.com/liuchengxu/space-vim.git ~/.space-vim
+cd ~/.space-vim
+make vim  # install space-vim for Vim
+make neovim  # install space-vim for NeoVim
+```
+
+#### `install.sh`
 
 - curl
 
