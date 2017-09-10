@@ -36,3 +36,8 @@ function!  spacevim#auto#AddTitle()
     call spacevim#util#err('spacevim#auto#AddTitle not supported in current filetype!')
   endif
 endfunction
+
+function! spacevim#auto#AsyncRunStart()
+    let s:qf_height = float2nr(round(winheight('%') * 0.3))
+    call asyncrun#quickfix_toggle(s:qf_height, 1)
+endfunction
