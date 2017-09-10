@@ -18,15 +18,18 @@ help:
 
 vim:
 	@echo "\033[1;34m==>\033[0m Trying to install space-vim for Vim"; \
-	[ ! -f $(VIMRC) ] && ln -sf $(INIT_VIM) $(VIMRC) && echo "    - Created $(VIMRC) "; \
+	[ ! -f $(VIMRC) ]        && ln -sf $(INIT_VIM) $(VIMRC)             && echo "    - Created $(VIMRC) "; \
 	[ ! -f $(DOT_SPACEVIM) ] && ln -sf $(INIT_SPACEVIM) $(DOT_SPACEVIM) && echo "    - Created $(DOT_SPACEVIM) "; \
-	vim  +'PlugInstall' +qall; echo "\033[32m[✔]\033[0m Successfully installed $(APP) for Vim!"
+	vim  +'PlugInstall' +qall; \
+	echo "\033[32m[✔]\033[0m Successfully installed $(APP) for Vim!"
 
 neovim:
 	@echo "\033[1;34m==>\033[0m Trying to install space-vim for NeoVim"; \
-	mkdir -p ~/.config/nvim; [ ! -f $(NVIMRC) ] && ln -sf $(INIT_VIM) $(NVIMRC) && echo "    - Created $(NVIMRC)"; \
+	mkdir -p ~/.config/nvim; \
+	[ ! -f $(NVIMRC) ]       && ln -sf $(INIT_VIM) $(NVIMRC)            && echo "    - Created $(NVIMRC)"; \
 	[ ! -f $(DOT_SPACEVIM) ] && ln -sf $(INIT_SPACEVIM) $(DOT_SPACEVIM) && echo "    - Created $(DOT_SPACEVIM) "; \
-	nvim +'PlugInstall' +qall; echo "\033[32m[✔]\033[0m Successfully installed $(APP) for NeoVim!"
+	nvim +'PlugInstall' +qall; \
+	echo "\033[32m[✔]\033[0m Successfully installed $(APP) for NeoVim!"
 
 update:
 	@echo "\033[1;34m==>\033[0m Trying to update space-vim"; \
