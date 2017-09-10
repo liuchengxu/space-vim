@@ -27,8 +27,9 @@ augroup spacevimBasic
 
   autocmd BufEnter * call MyLastWindow()
   function! MyLastWindow()
-    " if the window is quickfix/locationlist go on
-    if &buftype ==# 'quickfix' || &buftype ==# 'locationlist'
+    " if the window is quickfix/locationlist
+    let l:blacklist = ['quickfix', 'locationlist']
+    if index(l:blacklist, &buftype) >= 0
       " if this window is last on screen quit without warning
       if winbufnr(2) == -1
         quit!
