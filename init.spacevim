@@ -10,9 +10,6 @@ function! Layers()
   Layer 'unite'
   Layer 'better-defaults'
 
-  Layer 'markdown'
-  Layer 'auto-completion'
-
 endfunction
 
 " Add your own plugins
