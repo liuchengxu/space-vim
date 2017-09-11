@@ -4,7 +4,6 @@ augroup spacevimNewFile
   autocmd!
   " Add title automatically when new files and move cursor to the end of file
   autocmd BufNewFile *.py,*.rb,*.cpp,*.c,*.sh,*.java,*.pl call spacevim#auto#AddTitle()
-  autocmd BufNewFile * normal GA
 augroup END
 
 " vim-move {
@@ -65,8 +64,7 @@ augroup END
   nnoremap <F5> :call spacevim#util#CompileAndRun()<CR>
   augroup spacevimAsyncRun
     autocmd!
-    let s:qf_height = float2nr(round(winheight('%') * 0.3))
-    autocmd User AsyncRunStart call asyncrun#quickfix_toggle(s:qf_height, 1)
+    autocmd User AsyncRunStart call spacevim#auto#AsyncRunStart()
   augroup END
 " }
 

@@ -5,10 +5,13 @@
 
 app_name='space-vim'
 dot_spacevim="$HOME/.spacevim"
+
 [ -z "$APP_PATH" ] && APP_PATH="$HOME/.space-vim"
 [ -z "$REPO_URI" ] && REPO_URI='https://github.com/liuchengxu/space-vim.git'
 [ -z "$REPO_BRANCH" ] && REPO_BRANCH='master'
+
 debug_mode='0'
+
 [ -z "$VIM_PLUG_PATH" ] && VIM_PLUG_PATH="$HOME/.vim/autoload"
 [ -z "$VIM_PLUG_URL" ] && VIM_PLUG_URL='https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
@@ -56,15 +59,13 @@ program_exists() {
 program_must_exist() {
 
     # throw error on non-zero return value
-    if ! program_exists "$1";
-    then
+    if ! program_exists "$1"; then
         error "You must have '$1' installed to continue."
     fi
 }
 
 lnif() {
-    if [ -e "$1" ];
-    then
+    if [ -e "$1" ]; then
         ln -sf "$1" "$2"
     fi
     ret="$?"
@@ -73,8 +74,7 @@ lnif() {
 
 ########## Setup function
 backup() {
-    if [ -e "$1" ];
-    then
+    if [ -e "$1" ]; then
         msg "Attempting to back up your original vim configuration."
         today=$(date +%Y%m%d_%s)
         mv -v "$1" "$1.$today"
@@ -91,8 +91,7 @@ sync_repo() {
     local repo_branch="$3"
     local repo_name="$4"
 
-    if [ ! -e "$repo_path" ];
-    then
+    if [ ! -e "$repo_path" ]; then
         msg "\033[1;34m==>\033[0m Trying to clone $repo_name"
         mkdir -p "$repo_path"
         git clone -b "$repo_branch" "$repo_uri" "$repo_path" --depth=1
@@ -112,7 +111,7 @@ create_symlinks() {
     local source_path="$1"
     local target_path="$2"
 
-    lnif "$source_path/init.vim"            "$target_path/.vimrc"
+    lnif "$source_path/init.vim" "$target_path/.vimrc"
 
     ret="$?"
     success "Setting up vim symlinks."
@@ -121,15 +120,14 @@ create_symlinks() {
 }
 
 sync_vim_plug() {
-    if [ ! -f "$VIM_PLUG_PATH/plug.vim" ];
-    then
+    if [ ! -f "$VIM_PLUG_PATH/plug.vim" ]; then
         curl -fLo "$1/plug.vim" --create-dirs "$2"
     fi
 
     debug
 }
 
-setup_vim_plug(){
+setup_vim_plug() {
     local system_shell="$SHELL"
     export SHELL='/bin/sh'
 
@@ -145,51 +143,12 @@ setup_vim_plug(){
     debug
 }
 
-generate_dot_spacevim(){
-    if [ ! -f "$dot_spacevim" ];
-    then
-        touch "$dot_spacevim"
-        (
-        cat <<DOTSPACEVIM
-" You can enable the existing layers in space-vim and
-" exclude the partial plugins in a certain layer.
-" The command Layer is vaild in the function Layers().
-" Use exclude option if you don't want the full Layer,
-" e.g., Layer 'better-defaults', { 'exclude': 'itchyny/vim-cursorword' }
-function! Layers()
-
-  " Default layers, recommended!
-  Layer 'fzf'
-  Layer 'unite'
-  Layer 'better-defaults'
-
-endfunction
-
-" Put your private plugins here.
-function! UserInit()
-
-  " Space has been set as the default leader key,
-  " if you want to change it, uncomment and set it here.
-  " let g:spacevim_leader = "<\Space>"
-  " let g:spacevim_localleader = ','
-
-  " Install private plugins
-  " Plug 'extr0py/oni'
-
-endfunction
-
-" Put your costom configurations here, e.g., change the colorscheme.
-function! UserConfig()
-
-  " If you enable airline layer and have installed the powerline fonts, set it here.
-  " let g:airline_powerline_fonts=1
-  " color desert
-
-endfunction
-DOTSPACEVIM
-) >"$dot_spacevim"
-
+generate_dot_spacevim() {
+    if [ ! -f "$dot_spacevim" ]; then
+        cp "$APP_PATH/init.spacevim" "$dot_spacevim"
     fi
+
+    debug
 }
 
 ########## Main()
