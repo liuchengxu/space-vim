@@ -100,7 +100,7 @@ Make sure you have installed `git` and `vim` in your system. The most recent Vim
 ```bash
 git clone https://github.com/liuchengxu/space-vim.git ~/.space-vim
 cd ~/.space-vim
-make vim  # install space-vim for Vim
+make vim     # install space-vim for Vim
 make neovim  # install space-vim for NeoVim
 ```
 
@@ -170,10 +170,10 @@ make neovim  # install space-vim for NeoVim
 3. Create a symlink.
 
     ```bash
-    # for vim
+    # for Vim
     ln -s ~/.space-vim/init.vim ~/.vimrc
 
-    # for neovim
+    # for NeoVim
     ln -s ~/.space-vim/init.vim ~/.config/nvim/init.vim
 
     # Both for Vim and NeoVim
@@ -190,7 +190,7 @@ If `.spacevim` does not exist, vanilla vim will be loaded! Refer to [init.spacev
 ### Presetting
 
 ```vim
-" Let vim and neovim shares the same plugin directory
+" Let Vim and NeoVim shares the same plugin directory
 let g:spacevim_plug_home = '~/.vim/plugged'
 
 " Change the background color of theme space-vim-dark (default 235)
