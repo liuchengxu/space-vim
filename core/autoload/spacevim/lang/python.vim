@@ -8,9 +8,10 @@ function! spacevim#lang#python#run()
 endfunction
 
 function! spacevim#lang#python#stop()
-  execute 'AsyncStop!'<CR>
+  execute 'AsyncStop!'
 endfunction
 
+" Refer to https://github.com/mindriot101/vim-yapf
 function! spacevim#lang#python#fmt()
   if executable('yapf')
     let cmd = "yapf"
