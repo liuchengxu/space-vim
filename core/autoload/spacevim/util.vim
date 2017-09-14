@@ -43,14 +43,14 @@ endfunction
 
 function! spacevim#util#CompileAndRun()
   let l:cmd = {
-        \ 'c': "gcc % -o %<; time ./%<",
-        \ 'sh': "time bash %",
-        \ 'go': "go run %",
-        \ 'cpp': "g++ -std=c++11 % -o %<; time ./%<",
-        \ 'ruby': "time ruby %",
-        \ 'java': "javac %; time java %<",
-        \ 'rust': "rustc % -o %<; time ./%<",
-        \ 'python': "time python %",
+        \ 'c'      : "gcc % -o %<; time ./%<",
+        \ 'sh'     : "time bash %",
+        \ 'go'     : "go run %",
+        \ 'cpp'    : "g++ -std=c++11 % -o %<; time ./%<",
+        \ 'ruby'   : "time ruby %",
+        \ 'java'   : "javac %; time java %<",
+        \ 'rust'   : "rustc % -o %<; time ./%<",
+        \ 'python' : "time python %",
         \}
   let l:ft = &filetype
   if has_key(l:cmd, l:ft)
@@ -72,4 +72,24 @@ function! spacevim#util#SyntaxHiGroup()
   echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
   \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
   \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"
+endfunction
+
+function! spacevim#util#HiOverLength(width)
+  highlight OverLength ctermbg=133 ctermfg=254 cterm=bold guibg=#592929
+  exec 'match OverLength /\%' . string(a:width+1) . 'v.*/'
+endfunction
+
+" http://vim.wikia.com/wiki/Jumping_to_previously_visited_locations
+function! spacevim#util#GotoJump()
+  jumps
+  let l:j = input("Please select your jump: ")
+  if l:j != ''
+    let l:pattern = '\v\c^\+'
+    if l:j =~ l:pattern
+      let l:j = substitute(l:j, l:pattern, '', 'g')
+      execute "normal " . l:j . "\<C-I>"
+    else
+      execute "normal " . l:j . "\<C-O>"
+    endif
+  endif
 endfunction
