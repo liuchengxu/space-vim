@@ -89,7 +89,12 @@ If you have been a vimmer for quite a while, just pick out the part you are inte
 
 ## Install
 
-Make sure you have installed `git` and `vim` in your system. The most recent Vim version is recommended.
+Make sure you have installed:
+
+- **git**
+- **Vim** or **NeoVim**
+
+The most recent Vim(NeoVim) version is recommended.
 
 :exclamation: ~~When layers enabled at the first time, you need to run `:PlugInstall` to install relevant plugins~~.
 
@@ -134,7 +139,7 @@ make neovim  # install space-vim for NeoVim
 
     **windows (PowerShell)**
 
-    ```bash
+    ```powershell
     md ~\.vim\autoload
     $uri = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
     (New-Object Net.WebClient).DownloadFile(

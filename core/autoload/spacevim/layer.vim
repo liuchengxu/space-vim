@@ -33,7 +33,7 @@ function! spacevim#layer#status()
 
   let [l:cnt, l:total] = [0, len(g:layers_loaded)]
 
-  let g:layers_sum = len(g:layer_path)
+  let g:layers_sum = len(g:spacevim)
 
   call append(0, ['Enabled layers: ' . '(' . len(g:layers_loaded) . '/' . g:layers_sum . ')'])
   call setline(2, '[' . repeat('=', len(g:layers_loaded)) . ']')

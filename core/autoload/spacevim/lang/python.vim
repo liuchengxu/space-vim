@@ -20,14 +20,14 @@ function! spacevim#lang#python#fmt()
     let cur_cursor = getpos(".")
     silent execute "0,$!" . cmd
     " restore cursor
-    call setpos('.', current_cursor)
+    call setpos('.', cur_cursor)
     if v:shell_error != 0
         " Shell command failed, so open a new buffer with error text
         execute 'normal! gg"ayG'
         silent undo
         execute 'normal! ' . cur_line . 'G'
         " restore cursor position
-        call setpos('.', current_cursor)
+        call setpos('.', cur_cursor)
         silent new
         silent put a
     end

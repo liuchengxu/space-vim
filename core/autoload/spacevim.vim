@@ -7,6 +7,7 @@ let g:spacevim_vim8 = exists('*job_start')
 let g:spacevim_gui = has('gui_running')
 let g:spacevim_tmux = !empty($TMUX)
 
+let g:spacevim = {}
 let g:layers_loaded = []
 let g:spacevim_excluded = []
 let g:spacevim_plugins = []
@@ -178,7 +179,7 @@ function! s:packages()
   " Load Layer packages
   for l:layer in g:layers_loaded
     try
-      let l:layer_packages = g:layer_path[l:layer] . '/packages.vim'
+      let l:layer_packages = g:spacevim[l:layer].dir . '/packages.vim'
     catch
       call spacevim#cache#init()
     endtry
@@ -186,8 +187,8 @@ function! s:packages()
   endfor
 
   " Try private Layer packages
-  if exists('g:private_layers')
-    for l:private_layer in g:private_layers
+  if exists('g:private')
+    for l:private_layer in g:private
       let l:private_layer_packages = g:spacevim_dir . '/private/' . l:private_layer . '/packages.vim'
       if filereadable(expand(l:private_layer_packages))
         execute 'source ' . fnameescape(l:private_layer_packages)
@@ -220,17 +221,13 @@ endfunction
 function! s:config()
   " Load Layer config
   for l:layer in g:layers_loaded
-    try
-      let l:layer_config = g:layer_path[l:layer] . '/config.vim'
-    catch
-      call spacevim#cache#init()
-    endtry
+    let l:layer_config = g:spacevim[l:layer].dir . '/config.vim'
     call s:Source(l:layer_config)
   endfor
 
   " Try private Layer config
-  if exists('g:private_layers')
-    for l:private_layer in g:private_layers
+  if exists('g:private')
+    for l:private_layer in g:private
       let l:private_layer_config = g:spacevim_dir . '/private/' . l:private_layer . '/config.vim'
       if filereadable(expand(l:private_layer_config))
         execute 'source ' . fnameescape(l:private_layer_config)
