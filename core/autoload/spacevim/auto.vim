@@ -31,6 +31,7 @@ function!  spacevim#auto#AddTitle()
     execute "normal! G"
     call append(line("."), "")
     call append(line("."), "")
+    execute "normal! G"
     startinsert
   else
     call spacevim#util#err('spacevim#auto#AddTitle not supported in current filetype!')
