@@ -28,22 +28,22 @@
 * [Features](#features)
 * [For whom?](#for-whom)
 * [Install](#install)
-    * [Linux and macOS](#linux-and-macos)
-        * [`Makefile`](#makefile)
-        * [`install.sh`](#installsh)
-    * [Windows](#windows)
-    * [Manual (Linux and macOS)](#manual-linux-and-macos)
+  * [Linux and macOS](#linux-and-macos)
+    * [`Makefile`](#makefile)
+    * [`install.sh`](#installsh)
+  * [Windows](#windows)
+  * [Manual (Linux and macOS)](#manual-linux-and-macos)
 * [Customize](#customize)
-    * [Presetting](#presetting)
-    * [`Layers()`](#layers)
-    * [`UserInit()`](#userinit)
-    * [`UserConfig()`](#userconfig)
+  * [Presetting](#presetting)
+  * [`Layers()`](#layers)
+  * [`UserInit()`](#userinit)
+  * [`UserConfig()`](#userconfig)
 * [How to use](#how-to-use)
-    * [Bootstrap](#bootstrap)
-    * [Commands](#commands)
-    * [Tips](#tips)
-        * [Enable GUI color in terminal vim](#enable-gui-color-in-terminal-vim)
-        * [Font](#font)
+  * [Bootstrap](#bootstrap)
+  * [Commands](#commands)
+  * [Tips](#tips)
+    * [Enable GUI color in terminal vim](#enable-gui-color-in-terminal-vim)
+    * [Font](#font)
 * [Update](#update)
 * [Contributions](#contributions)
 * [Acknowledgements](#acknowledgements)
@@ -280,7 +280,7 @@ If you want to know more about the bootstrap of space-vim, please see [bootstrap
  Command      | Description
  :---         | :---
 `LayerStatus` | Check the status of layers
-`LayerUpdate` | Update the structure of *layers* directory
+`LayerCache`  | Cache the information of *layers* in `info.vim`
 
 ### Tips
 
