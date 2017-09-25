@@ -63,12 +63,12 @@ function! s:syntax()
   syn match LayerMessage /\(^- \)\@<=.*/
   syn match LayerName /\(^- \)\@<=[^ ]*:/
   syn match LayerInstall /\(^+ \)\@<=[^:]*/
-  syn match LayerUpdate /\(^* \)\@<=[^:]*/
+  syn match LayerCache /\(^* \)\@<=[^:]*/
   syn match LayerNotLoaded /(not loaded)$/
   syn match LayerError /^x.*/
   syn region LayerDeleted start=/^\~ .*/ end=/^\ze\S/
   syn match LayerH2 /^.*:\n-\+$/
-  syn keyword Function LayerInstall LayerStatus LayerUpdate LayerClean
+  syn keyword Function LayerInstall LayerStatus LayerCache LayerClean
   hi def link Layer1       Title
   hi def link Layer2       Repeat
   hi def link LayerH2      Type
@@ -83,7 +83,7 @@ function! s:syntax()
   hi def link LayerMessage Function
   hi def link LayerName    Label
   hi def link LayerInstall Function
-  hi def link LayerUpdate  Type
+  hi def link LayerCache   Type
 
   hi def link LayerError   Error
   hi def link LayerDeleted Ignore

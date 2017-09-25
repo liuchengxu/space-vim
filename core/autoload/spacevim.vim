@@ -61,8 +61,8 @@ function! s:define_command()
   " MP means MyPlugin
   command! -nargs=+ -bar MP          call s:my_plugin(<args>)
   command! -nargs=+ -bar Layer       call s:layer(<args>)
+  command! -nargs=0 -bar LayerCache  call spacevim#cache#init()
   command! -nargs=0 -bar LayerStatus call spacevim#layer#status()
-  command! -nargs=0 -bar LayerUpdate call spacevim#cache#init()
 endfunction
 
 function! s:check_dot_spacevim()
