@@ -10,10 +10,6 @@ function!  spacevim#auto#AddTitle()
           \ '#include <iostream>',
           \ 'using namespace std;'
           \ ],
-        \ 'ruby': [
-          \ '#!/usr/bin/env ruby',
-          \ '# encoding: utf-8'
-          \ ],
         \ 'perl': [
           \ '#!/usr/bin/perl',
           \ 'use strict;',
