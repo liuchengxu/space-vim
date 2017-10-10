@@ -103,10 +103,10 @@ The most recent Vim(NeoVim) version is recommended.
 #### `Makefile`
 
 ```bash
-git clone https://github.com/liuchengxu/space-vim.git ~/.space-vim
-cd ~/.space-vim
-make vim     # install space-vim for Vim
-make neovim  # install space-vim for NeoVim
+$ git clone https://github.com/liuchengxu/space-vim.git ~/.space-vim
+$ cd ~/.space-vim
+$ make vim     # install space-vim for Vim
+$ make neovim  # install space-vim for NeoVim
 ```
 
 #### `install.sh`
@@ -114,19 +114,19 @@ make neovim  # install space-vim for NeoVim
 - curl
 
     ```bash
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/liuchengxu/space-vim/master/install.sh)"
+    $ sh -c "$(curl -fsSL https://raw.githubusercontent.com/liuchengxu/space-vim/master/install.sh)"
     ```
 
 - wget
 
     ```bash
-    sh -c "$(wget -qO- https://raw.githubusercontent.com/liuchengxu/space-vim/master/install.sh)"
+    $ sh -c "$(wget -qO- https://raw.githubusercontent.com/liuchengxu/space-vim/master/install.sh)"
     ```
 
     :warning: For neovim, after the quick installer is done, you still need to create a symlink:
 
     ```bash
-    ln -s ~/.space-vim/init.vim ~/.config/nvim/init.vim
+    $ ln -s ~/.space-vim/init.vim ~/.config/nvim/init.vim
     ```
 
 ### Windows
@@ -155,9 +155,9 @@ make neovim  # install space-vim for NeoVim
     Run the following commands to download space-vim and make a symlink.
 
     ```bash
-    git clone https://github.com/liuchengxu/space-vim.git ~/.space-vim
-    ln -s ~/.space-vim/init.vim ~/.vimrc
-    cp ~/.space-vim/init.spacevim ~/.spacevim
+    $ git clone https://github.com/liuchengxu/space-vim.git ~/.space-vim
+    $ ln -s ~/.space-vim/init.vim ~/.vimrc
+    $ cp ~/.space-vim/init.spacevim ~/.spacevim
     ```
 
 5. Open vim, run `:PlugInstall`.
@@ -167,7 +167,7 @@ make neovim  # install space-vim for NeoVim
 1. Clone [space-vim](https://github.com/liuchengxu/space-vim)
 
     ```bash
-    git clone https://github.com/liuchengxu/space-vim.git ~/.space-vim
+    $ git clone https://github.com/liuchengxu/space-vim.git ~/.space-vim
     ```
 
 2. Install [vim-plug](https://github.com/junegunn/vim-plug#installation), refer to vim-plug installation section for more information.
@@ -175,14 +175,14 @@ make neovim  # install space-vim for NeoVim
 3. Create a symlink.
 
     ```bash
-    # for Vim
-    ln -s ~/.space-vim/init.vim ~/.vimrc
+    # For Vim
+    $ ln -s ~/.space-vim/init.vim ~/.vimrc
 
-    # for NeoVim
-    ln -s ~/.space-vim/init.vim ~/.config/nvim/init.vim
+    # For NeoVim
+    $ ln -s ~/.space-vim/init.vim ~/.config/nvim/init.vim
 
     # Both for Vim and NeoVim
-    cp ~/.space-vim/init.spacevim ~/.spacevim
+    $ cp ~/.space-vim/init.spacevim ~/.spacevim
     ```
 5. Open vim, then space-vim will automatically install the missing plugins in enabled layers. If auto-installation fails unexpectly, please try running `:PlugInstall` manually.
 
@@ -314,15 +314,15 @@ If you are running in terminal you'll need to change font settings of your termi
 Run `make update`:
 
 ```bash
-cd path/to/space-vim
-make update
+$ cd path/to/space-vim
+$ make update
 ```
 
 Alternatively, you can manually perform the following steps. If anything has changed with the structure of the configuration, you will have to create the appropriate symlinks.
 
 ```bash
-cd path/to/space-vim
-git pull origin master
+$ cd path/to/space-vim
+$ git pull origin master
 ```
 ## Contributions
 
