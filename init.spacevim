@@ -16,9 +16,11 @@ endfunction
 function! UserInit()
 
   " The default leader key is space key.
+  " Uncomment the line below and modify "<\Space>" if you prefer another
   " let g:spacevim_leader = "<\Space>"
 
   " The default local leader key is comma.
+  " Uncomment the line below and modify ',' if you prefer another
   " let g:spacevim_localleader = ','
 
   " Install personal plugins
