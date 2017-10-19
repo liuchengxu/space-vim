@@ -28,9 +28,10 @@
 * [Features](#features)
 * [For whom?](#for-whom)
 * [Install](#install)
+  * [Prerequisites](#prerequisites)
   * [Linux and macOS](#linux-and-macos)
+    * [one-line installer](#one-line-installer)
     * [`Makefile`](#makefile)
-    * [`install.sh`](#installsh)
   * [Windows](#windows)
   * [Manual (Linux and macOS)](#manual-linux-and-macos)
 * [Customize](#customize)
@@ -89,6 +90,8 @@ If you have been a vimmer for quite a while, just pick out the part you are inte
 
 ## Install
 
+### Prerequisites
+
 Make sure you have installed:
 
 - **git**
@@ -100,6 +103,11 @@ The most recent Vim(NeoVim) version is recommended.
 
 ### Linux and macOS
 
+#### one-line installer
+
+```bash
+$ bash <(curl -fsSL https://raw.githubusercontent.com/liuchengxu/space-vim/master/install.sh)
+```
 #### `Makefile`
 
 ```bash
@@ -108,26 +116,6 @@ $ cd ~/.space-vim
 $ make vim     # install space-vim for Vim
 $ make neovim  # install space-vim for NeoVim
 ```
-
-#### `install.sh`
-
-- curl
-
-    ```bash
-    $ sh -c "$(curl -fsSL https://raw.githubusercontent.com/liuchengxu/space-vim/master/install.sh)"
-    ```
-
-- wget
-
-    ```bash
-    $ sh -c "$(wget -qO- https://raw.githubusercontent.com/liuchengxu/space-vim/master/install.sh)"
-    ```
-
-    :warning: For neovim, after the quick installer is done, you still need to create a symlink:
-
-    ```bash
-    $ ln -s ~/.space-vim/init.vim ~/.config/nvim/init.vim
-    ```
 
 ### Windows
 

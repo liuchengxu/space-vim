@@ -1,28 +1,20 @@
 #!/usr/bin/env bash
 
-#   This setup file is based on spf13-vim's bootstrap.sh.
-#   Thanks for spf13-vim.
+app_name="space-vim"
+repo_uri="https://github.com/liuchengxu/space-vim.git"
+repo_name="space-vim"
+repo_path="$HOME/.space-vim"
+repo_branch="master"
 
-app_name='space-vim'
-dot_spacevim="$HOME/.spacevim"
-
-[ -z "$APP_PATH" ] && APP_PATH="$HOME/.space-vim"
-[ -z "$REPO_URI" ] && REPO_URI='https://github.com/liuchengxu/space-vim.git'
-[ -z "$REPO_BRANCH" ] && REPO_BRANCH='master'
-
-debug_mode='0'
-
-[ -z "$VIM_PLUG_PATH" ] && VIM_PLUG_PATH="$HOME/.vim/autoload"
-[ -z "$VIM_PLUG_URL" ] && VIM_PLUG_URL='https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-
-########## Basic setup tools
+###############################
+## Basic tools
+###############################
 msg() {
     printf '%b\n' "$1" >&2
 }
 
 success() {
-    if [ "$ret" -eq '0' ];
-    then
+    if [ "$ret" -eq '0' ]; then
         msg "\33[32m[✔]\33[0m ${1}${2}"
     fi
 }
@@ -32,65 +24,11 @@ error() {
     exit 1
 }
 
-debug() {
-    if [ "$debug_mode" -eq '1' ] && [ "$ret" -gt '1' ];
-    then
-        msg "An error occurred in function \"${FUNCNAME[$i+1]}\" on line ${BASH_LINENO[$i+1]}, we're sorry for that."
-    fi
-}
-
 exists() {
     command -v "$1" >/dev/null 2>&1
 }
 
-program_exists() {
-    local ret='0'
-    exists "$1" || { local ret='1'; }
-
-    # fail on non-zero return value
-    if [ "$ret" -ne 0 ];
-    then
-        return 1
-    fi
-
-    return 0
-}
-
-program_must_exist() {
-
-    # throw error on non-zero return value
-    if ! program_exists "$1"; then
-        error "You must have '$1' installed to continue."
-    fi
-}
-
-lnif() {
-    if [ -e "$1" ]; then
-        ln -sf "$1" "$2"
-    fi
-    ret="$?"
-    debug
-}
-
-########## Setup function
-backup() {
-    if [ -e "$1" ]; then
-        msg "Attempting to back up your original vim configuration."
-        today=$(date +%Y%m%d_%s)
-        mv -v "$1" "$1.$today"
-
-        ret="$?"
-        success "Your original vim configuration has been backed up."
-        debug
-    fi
-}
-
 sync_repo() {
-    local repo_path="$1"
-    local repo_uri="$2"
-    local repo_branch="$3"
-    local repo_name="$4"
-
     if [ ! -e "$repo_path" ]; then
         msg "\033[1;34m==>\033[0m Trying to clone $repo_name"
         mkdir -p "$repo_path"
@@ -103,73 +41,110 @@ sync_repo() {
         ret="$?"
         success "Successfully updated $repo_name"
     fi
-
-    debug
 }
 
-create_symlinks() {
-    local source_path="$1"
-    local target_path="$2"
-
-    lnif "$source_path/init.vim" "$target_path/.vimrc"
-
+install_plugins() {
+    for exe in "$@"; do
+        eval "$exe +PlugInstall +qall"
+    done
     ret="$?"
-    success "Setting up vim symlinks."
-
-    debug
-}
-
-sync_vim_plug() {
-    if [ ! -f "$VIM_PLUG_PATH/plug.vim" ]; then
-        curl -fLo "$1/plug.vim" --create-dirs "$2"
-    fi
-
-    debug
-}
-
-setup_vim_plug() {
-    local system_shell="$SHELL"
-    export SHELL='/bin/sh'
-
-    vim \
-        "+PlugInstall!" \
-        "+PlugClean" \
-        "+qall"
-
-    export SHELL="$system_shell"
-
-    success "Now updating/installing plugins using vim-plug"
-
-    debug
+    success "Successfully installed plugins via vim-plug"
 }
 
 generate_dot_spacevim() {
-    if [ ! -f "$dot_spacevim" ]; then
-        cp "$APP_PATH/init.spacevim" "$dot_spacevim"
-    fi
+    if [ ! -f "$HOME/.spacevim" ]; then
+        cp "$HOME/.space-vim/init.spacevim" "$HOME/.spacevim"
 
-    debug
+        ret="$?"
+        success "Successfully generated .spacevim in your home directory"
+    fi
 }
 
-########## Main()
-program_must_exist "vim"
-program_must_exist "git"
+backup() {
+    if [ -e "$1" ]; then
+        echo
+        msg "\033[1;34m==>\033[0m Attempting to back up your original vim configuration"
+        today=$(date +%Y%m%d_%s)
+        mv -v "$1" "$1.$today"
 
-backup          "$HOME/.vimrc"
+        ret="$?"
+        success "Your original vim configuration has been backed up"
+    fi
+}
 
-sync_repo       "$APP_PATH" \
-                "$REPO_URI" \
-                "$REPO_BRANCH" \
-                "$app_name"
+install_for_vim() {
+    backup "$HOME/.vimrc"
+    msg "\033[1;34m==>\033[0m Trying to download vim-plug"
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    ret="$?"
+    success "Successfully downloaded vim-plug"
 
-create_symlinks "$APP_PATH" \
-                "$HOME"
+    ln -sf "$HOME/.space-vim/init.vim" "$HOME/.vimrc"
+    generate_dot_spacevim
 
-sync_vim_plug   "$VIM_PLUG_PATH" \
-                "$VIM_PLUG_URL"
+    install_plugins "vim"
+}
 
-generate_dot_spacevim
+install_for_neovim() {
+    backup "$HOME/.config/nvim/init.vim"
+    msg "\033[1;34m==>\033[0m Trying to download vim-plug"
+    curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    ret="$?"
+    success "Successfully downloaded vim-plug"
 
-setup_vim_plug
+    mkdir -p "$HOME/.config/nvim"
+    ln -sf "$HOME/.space-vim/init.vim" "$HOME/.config/nvim/init.vim"
+    generate_dot_spacevim
 
-msg             "\nThanks for installing \033[1;31m$app_name\033[0m. Enjoy!"
+    install_plugins "nvim"
+}
+
+###############################
+##  main
+###############################
+if ! exists "git"; then
+    error "You must have 'git' installed to continue."
+fi
+
+sync_repo
+
+if exists "vim" && exists "nvim"; then
+    echo "\033[1;34m==>\033[0m Find both 'vim' and 'nvim' in your system"
+    echo
+    while true; do
+        read -r -p "    Install space-vim for: [0]vim [1]nvim [2]vim and nvim :" opt
+        case $opt in
+            0)
+                install_for_vim
+                break
+                ;;
+            1)
+                install_for_neovim
+                break
+                ;;
+            2)
+                install_for_vim
+                install_for_neovim
+                break
+                ;;
+            *)
+                echo "Please answer 0, 1 or 2"
+                ;;
+        esac
+    done
+elif exists "vim"; then
+    msg "\033[1;34m==>\033[0m Only find 'vim' in your system"
+    msg "    Starting to install space-vim for 'vim'"
+    install_for_vim
+elif exists "nvim"; then
+    msg "\033[1;34m==>\033[0m Only find 'nvim' in your system"
+    msg "    Starting to install space-vim for 'nvim'"
+    echo
+    install_for_neovim
+else
+    error "You must have 'vim' or 'nvim' installed to continue"
+fi
+
+msg "\nThanks for installing \033[1;31m$app_name\033[0m. Enjoy!"

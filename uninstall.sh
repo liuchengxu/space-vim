@@ -13,8 +13,10 @@ confirm() {
 }
 
 uninstall() {
-  rm -f "${HOME}/.vimrc"
-  rm -rf "${HOME}/.space-vim"
+  rm -f "$HOME/.vimrc"
+  rm -f "$HOME/.config/nvim/init.vim"
+  rm -f "$HOME/.spacevim"
+  rm -rf "$HOME/.space-vim"
 }
 
 if confirm "    - Uninstall (y/n) ? "; then
