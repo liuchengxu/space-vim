@@ -73,7 +73,7 @@ backup() {
 }
 
 install_for_vim() {
-    backup          "$HOME/.vimrc"
+    backup "$HOME/.vimrc"
     msg "\033[1;34m==>\033[0m Trying to download vim-plug"
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -87,7 +87,7 @@ install_for_vim() {
 }
 
 install_for_neovim() {
-    backup          "$HOME/.config/nvim/init.vim"
+    backup "$HOME/.config/nvim/init.vim"
     msg "\033[1;34m==>\033[0m Trying to download vim-plug"
     curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
