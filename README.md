@@ -28,6 +28,7 @@
 * [Features](#features)
 * [For whom?](#for-whom)
 * [Install](#install)
+  * [Prerequisites](#prerequisites)
   * [Linux and macOS](#linux-and-macos)
     * [one-line installer](#one-line-installer)
     * [`Makefile`](#makefile)
@@ -88,6 +89,8 @@ The distribution is completely customizable using `.spacevim`, which is equivale
 If you have been a vimmer for quite a while, just pick out the part you are interested in. space-vim is well-organized due to the layers concept, you can easily find what you want. Since some guys are interested in the statusline part of space-vim, this section has been extracted as [eleline.vim](https://github.com/liuchengxu/eleline.vim).
 
 ## Install
+
+### Prerequisites
 
 Make sure you have installed:
 
