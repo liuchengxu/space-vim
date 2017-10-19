@@ -14,6 +14,7 @@ confirm() {
 
 uninstall() {
   rm -f "${HOME}/.vimrc"
+  rm -f "${HOME}/.spacevim"
   rm -rf "${HOME}/.space-vim"
 }
 
