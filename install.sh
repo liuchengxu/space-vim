@@ -53,7 +53,7 @@ install_plugins() {
 
 generate_dot_spacevim() {
     if [ ! -f "$HOME/.spacevim" ]; then
-        cp $HOME/.space-vim/init.spacevim $HOME/.spacevim
+        cp "$HOME/.space-vim/init.spacevim" "$HOME/.spacevim"
 
         ret="$?"
         success "Successfully generated .spacevim in your home directory"
@@ -80,7 +80,7 @@ install_for_vim() {
     ret="$?"
     success "Successfully downloaded vim-plug"
 
-    ln -sf $HOME/.space-vim/init.vim $HOME/.vimrc
+    ln -sf "$HOME/.space-vim/init.vim" "$HOME/.vimrc"
     generate_dot_spacevim
 
     install_plugins "vim"
@@ -92,8 +92,8 @@ install_for_neovim() {
     curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-    mkdir -p $HOME/.config/nvim
-    ln -sf $HOME/.space-vim/init.vim $HOME/.config/nvim/init.vim
+    mkdir -p "$HOME/.config/nvim"
+    ln -sf "$HOME/.space-vim/init.vim" "$HOME/.config/nvim/init.vim"
     generate_dot_spacevim
 
     install_plugins "nvim"
