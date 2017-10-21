@@ -1,8 +1,19 @@
 #### Environment
 
-- OS: ???
-- vim: ???
-- neovim: ???
+<!-- Select the applied check boxes, fill it with x, i.e [x] -->
+- OS:
+    - [ ] Linux
+    - [ ] macOS
+    - [ ] Windows
+- Vim:
+    - [ ] Terminal Vim
+    - [ ] GVim
+    - [ ] NeoVim
+
+<!-- Put the contents of `:version` below -->
+```
+
+```
 
 #### Problem Description
 
