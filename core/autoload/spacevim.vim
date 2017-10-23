@@ -261,11 +261,6 @@ function! s:post_user_config()
   endif
   " }
 
-  " vim_current_word {
-    hi CurrentWord      gui=underline cterm=underline
-    hi CurrentWordTwins gui=underline cterm=underline
-  " }
-
   " https://github.com/junegunn/vim-plug/wiki/extra#automatically-install-missing-plugins-on-startup
   augroup checkPlug
     autocmd!
