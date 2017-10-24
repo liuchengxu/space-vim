@@ -101,50 +101,58 @@ install_for_neovim() {
     install_plugins "nvim"
 }
 
+check_git() {
+    if ! exists "git"; then
+        error "You must have 'git' installed to continue"
+    fi
+}
+
+install() {
+    if exists "vim" && exists "nvim"; then
+        echo "\033[1;34m==>\033[0m Find both 'vim' and 'nvim' in your system"
+        echo
+        while true; do
+            read -r -p "    Install space-vim for: [0]vim [1]nvim [2]vim and nvim :" opt
+            case $opt in
+                0)
+                    install_for_vim
+                    break
+                    ;;
+                1)
+                    install_for_neovim
+                    break
+                    ;;
+                2)
+                    install_for_vim
+                    install_for_neovim
+                    break
+                    ;;
+                *)
+                    echo "Please answer 0, 1 or 2"
+                    ;;
+            esac
+        done
+    elif exists "vim"; then
+        msg "\033[1;34m==>\033[0m Only find 'vim' in your system"
+        msg "    Starting to install space-vim for 'vim'"
+        install_for_vim
+    elif exists "nvim"; then
+        msg "\033[1;34m==>\033[0m Only find 'nvim' in your system"
+        msg "    Starting to install space-vim for 'nvim'"
+        echo
+        install_for_neovim
+    else
+        error "You must have 'vim' or 'nvim' installed to continue"
+    fi
+}
+
 ###############################
 ##  main
 ###############################
-if ! exists "git"; then
-    error "You must have 'git' installed to continue."
-fi
+check_git
 
 sync_repo
 
-if exists "vim" && exists "nvim"; then
-    echo "\033[1;34m==>\033[0m Find both 'vim' and 'nvim' in your system"
-    echo
-    while true; do
-        read -r -p "    Install space-vim for: [0]vim [1]nvim [2]vim and nvim :" opt
-        case $opt in
-            0)
-                install_for_vim
-                break
-                ;;
-            1)
-                install_for_neovim
-                break
-                ;;
-            2)
-                install_for_vim
-                install_for_neovim
-                break
-                ;;
-            *)
-                echo "Please answer 0, 1 or 2"
-                ;;
-        esac
-    done
-elif exists "vim"; then
-    msg "\033[1;34m==>\033[0m Only find 'vim' in your system"
-    msg "    Starting to install space-vim for 'vim'"
-    install_for_vim
-elif exists "nvim"; then
-    msg "\033[1;34m==>\033[0m Only find 'nvim' in your system"
-    msg "    Starting to install space-vim for 'nvim'"
-    echo
-    install_for_neovim
-else
-    error "You must have 'vim' or 'nvim' installed to continue"
-fi
+install
 
 msg "\nThanks for installing \033[1;31m$app_name\033[0m. Enjoy!"
