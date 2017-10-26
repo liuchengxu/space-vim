@@ -38,6 +38,14 @@ augroup spacevimBasic
   endfunction
   " http://stackoverflow.com/questions/5933568/disable-blinking-at-the-first-last-line-of-the-file
   autocmd GUIEnter * set t_vb=
+
+  if g:spacevim_gui
+    let g:screen_size_restore_pos = get(g:, 'screen_size_restore_pos', 1)
+    let g:screen_size_by_vim_instance = get(g:, 'screen_size_by_vim_instance', 1)
+    autocmd VimEnter * if g:screen_size_restore_pos == 1 | call spacevim#gui#ScreenRestore() | endif
+    autocmd VimLeavePre * if g:screen_size_restore_pos == 1 | call spacevim#gui#ScreenSave() | endif
+  endif
+
   if !spacevim#LayerLoaded('chinese')
     silent! set $LANG = 'en_US'
     silent! let langmenu=en_US
