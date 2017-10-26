@@ -192,7 +192,7 @@ let g:space_vim_dark_background = 234
 
 ### `Layers()`
 
-Please refer to [LAYERS](layers/LAYERS.md) to take a look at the whole shipped layers.
+Please refer to [LAYERS.md](layers/LAYERS.md) to take a look at the whole shipped layers.
 
 ```vim
 " Enable the existing layers in space-vim
