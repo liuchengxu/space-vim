@@ -4,7 +4,7 @@ scriptencoding utf-8
   " Set ultisnips triggers
   let g:UltiSnipsSnippetDirectories=['UltiSnips']
   exe 'set rtp+=' . expand(g:spacevim_dir . '/private/UltiSnips')
-  let g:UltiSnipsSnippetsDir = g:spacevim_dir.'/private/UltiSnips'
+  let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
 
   let g:UltiSnipsListSnippets = '<C-l>'
   let g:UltiSnipsJumpForwardTrigger = '<C-j>'
