@@ -5,6 +5,7 @@
     - [ ] Linux
     - [ ] macOS
     - [ ] Windows
+    - [ ] FreeBSD
 - Vim:
     - [ ] Terminal Vim
     - [ ] GVim
