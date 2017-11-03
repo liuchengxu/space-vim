@@ -121,6 +121,8 @@ $ make neovim  # install space-vim for NeoVim
 
 The easist way is to download [`install.cmd`](https://raw.githubusercontent.com/liuchengxu/space-vim/master/install.cmd) and run it as administrator, or [install space-vim manually](https://github.com/liuchengxu/space-vim/wiki/install#windows).
 
+![windows](https://raw.githubusercontent.com/liuchengxu/img/master/space-vim/win-gvim.png)
+
 ### Manual
 
 Given git and Vim/NeoVim have been installed already:
