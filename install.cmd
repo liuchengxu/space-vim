@@ -1,6 +1,5 @@
 @PowerShell -ExecutionPolicy Bypass -Command Invoke-Expression $('$args=@(^&{$args} %*);'+[String]::Join(';',(Get-Content '%~f0') -notmatch '^^@PowerShell.*EOF$')) & goto :EOF
 
-echo "                                                       "
 echo "                                           _           "
 echo "       ___ _ __   __ _  ___ ___     __   _(_)_ __ ___  "
 echo "      / __| -_ \ / _- |/ __/ _ \____\ \ / / | -_ - _ \ "
