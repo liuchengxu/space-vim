@@ -31,7 +31,7 @@
   * [Prerequisites](#prerequisites)
   * [Linux and macOS](#linux-and-macos)
     * [one-line installer](#one-line-installer)
-    * [`Makefile`](#makefile)
+    * [Makefile](#makefile)
   * [Windows](#windows)
   * [Manual](#manual)
 * [Customize](#customize)
@@ -108,7 +108,7 @@ The most recent Vim(NeoVim) version is recommended.
 ```bash
 $ bash <(curl -fsSL https://raw.githubusercontent.com/liuchengxu/space-vim/master/install.sh)
 ```
-#### `Makefile`
+#### Makefile
 
 ```bash
 $ git clone https://github.com/liuchengxu/space-vim.git ~/.space-vim
@@ -119,7 +119,7 @@ $ make neovim  # install space-vim for NeoVim
 
 ### Windows
 
-The easist way is to download [`install.cmd`](https://raw.githubusercontent.com/liuchengxu/space-vim/master/install.cmd) and run it as administrator, or [install space-vim manually](https://github.com/liuchengxu/space-vim/wiki/install#windows).
+The easist way is to download [`install.cmd`](https://raw.githubusercontent.com/liuchengxu/space-vim/master/install.cmd) and **run it as administrator**, or [install space-vim manually](https://github.com/liuchengxu/space-vim/wiki/install#windows).
 
 ![windows](https://raw.githubusercontent.com/liuchengxu/img/master/space-vim/win-gvim.png)
 
