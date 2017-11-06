@@ -1,1 +1,1 @@
-nnoremap <buffer> q :bd<CR>
+nnoremap <buffer> q :cclose<bar>:lclose<CR>

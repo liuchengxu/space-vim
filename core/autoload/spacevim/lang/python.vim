@@ -30,6 +30,8 @@ function! spacevim#lang#python#fmt()
         call setpos('.', cur_cursor)
         silent new
         silent put a
+    else
+      call spacevim#util#info('Formatted successfully')
     end
   else
     call spacevim#util#err('yapf is unavailable, please install it first.')<CR>

@@ -13,6 +13,10 @@ function! spacevim#util#warn(cmd, msg)
   echohl None
 endfunction
 
+function! spacevim#util#info(msg)
+  echom '[space-vim] '.a:msg
+endfunction
+
 " argument plugin is the vim plugin's name
 function! spacevim#util#IsDir(plugin) abort
   return isdirectory(expand(g:my_plug_home.a:plugin)) ? 1 : 0
@@ -119,4 +123,22 @@ function! spacevim#util#ALEGetWarning()
       return ' •' . matchstr(l:e_w[0], '\d\+')
     endif
   endif
+endfunction
+
+" https://www.reddit.com/r/vim/comments/79q6aq/vim_tip_keybinding_for_opening_plugin_homepage/
+" visiting the GitHub page of the plugin defined on the current line
+function! spacevim#util#OpenPluginHomepage() abort
+  let line = getline(".")
+  let $BROWSER = 'open'
+
+  " Matches for instance Plug 'tpope/surround' -> tpope/surround
+  " Non-greedy match in order to not capture trailing comments
+  let plugin_name = '\w\+ \([''"]\)\(.\{-}\)\1'
+  let repository = matchlist(line, plugin_name)[2]
+
+  " Open the corresponding GitHub homepage with $BROWSER
+  " You need to set the BROWSER environment variable in order for this to work
+  " For MacOS, you can set the following for opening it in your default
+  " browser: 'export BROWSER=open'
+  silent exec "!$BROWSER https://github.com/".repository
 endfunction
