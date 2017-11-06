@@ -10,6 +10,7 @@ CHANGELOG
 ### Added
 
 - move language specific settings to `ftplugin`
+- quick installer for windows
 
 ## [0.6.0] - 2017.06.09
 
