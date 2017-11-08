@@ -36,7 +36,7 @@ for t in topics:
         plugins += "</ul>"
         f.write("%-20s | [%s](%s/%s/%s) | %s\n" % (t, l, url_prefix, t, l,
                                                    plugins))
-
+f.write("\n")
 f.write('Last updated: ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) )
 
 f.close()
