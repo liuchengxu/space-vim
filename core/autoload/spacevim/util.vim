@@ -142,3 +142,10 @@ function! spacevim#util#OpenPluginHomepage() abort
   " browser: 'export BROWSER=open'
   silent exec "!$BROWSER https://github.com/".repository
 endfunction
+
+function! spacevim#util#GetNvimVersion()
+    redir => s
+    silent! version
+    redir END
+    return matchstr(s, 'NVIM v\zs[^\n]*')
+endfunction

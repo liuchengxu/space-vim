@@ -24,15 +24,21 @@ MP 'dominikduda/vim_current_word'
 
 MP 'ntpeters/vim-better-whitespace', { 'on': 'StripWhitespace' }
 
-if !g:spacevim_nvim
-  MP 'haya14busa/incsearch.vim',       { 'on': [
-              \ '<Plug>(incsearch-forward)',
-              \ '<Plug>(incsearch-backward)',
-              \ '<Plug>(incsearch-stay)' ]
-              \ }
-  MP 'haya14busa/incsearch-fuzzy.vim',  { 'on': [
-              \ '<Plug>(incsearch-fuzzy-/)',
-              \ '<Plug>(incsearch-fuzzy-?)',
-              \ '<Plug>(incsearch-fuzzy-stay)' ]
-              \ }
+if has('patch-8.0.1238')
+  MP 'haya14busa/is.vim'
+  MP 'osyo-manga/vim-anzu'
+else
+  MP 'google/vim-searchindex'
+  if !g:spacevim_nvim
+    MP 'haya14busa/incsearch.vim',       { 'on': [
+                \ '<Plug>(incsearch-forward)',
+                \ '<Plug>(incsearch-backward)',
+                \ '<Plug>(incsearch-stay)' ]
+                \ }
+    MP 'haya14busa/incsearch-fuzzy.vim',  { 'on': [
+                \ '<Plug>(incsearch-fuzzy-/)',
+                \ '<Plug>(incsearch-fuzzy-?)',
+                \ '<Plug>(incsearch-fuzzy-stay)' ]
+                \ }
+  endif
 endif

@@ -3,6 +3,7 @@
 
 import os
 import re
+import time
 
 topic_base = os.path.expanduser('./')
 topics = [
@@ -36,6 +37,9 @@ for t in topics:
         f.write("%-20s | [%s](%s/%s/%s) | %s\n" % (t, l, url_prefix, t, l,
                                                    plugins))
 
+f.write('Last updated: ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) )
+
 f.close()
 
 print('LAYERS.md has been updated (created) successfully.')
+
