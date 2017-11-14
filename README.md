@@ -44,7 +44,7 @@
   * [Commands](#commands)
   * [Tips](#tips)
     * [Enable GUI color in terminal vim](#enable-gui-color-in-terminal-vim)
-    * [Font](#font)
+    * [Terminal font](#terminal-font)
 * [Update](#update)
 * [Contributions](#contributions)
 * [Acknowledgements](#acknowledgements)
@@ -269,13 +269,13 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 For more details about true colour, please see the gist [TrueColour.md](https://gist.github.com/XVilka/8346728).
 
-#### Font
+#### Terminal Font
+
+<img src="https://github.com/liuchengxu/space-vim/blob/gh-pages/docs/img/iterm2_powerline_setting.png?raw=true" align="right" width="550px" alt="iterm2-font-setting" />
 
 Install the [Source Code Pro](https://github.com/adobe-fonts/source-code-pro) or [Powerline](https://github.com/powerline/fonts) font, especially for [airline](https://github.com/liuchengxu/space-vim/blob/master/layers/%2Bthemes/airline/README.md) Layer.
 
-If you are running in terminal you'll need to change font settings of your terminal as well.
-
-![iterm2_font_setting](https://github.com/liuchengxu/space-vim/blob/gh-pages/docs/img/iterm2_powerline_setting.png?raw=true)
+If you are running in terminal you'll need to change the font setting of your terminal as well.
 
 ## Update
 
