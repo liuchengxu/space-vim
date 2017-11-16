@@ -273,9 +273,9 @@ For more details about true colour, please see the gist [TrueColour.md](https://
 
 <img src="https://github.com/liuchengxu/space-vim/blob/gh-pages/docs/img/iterm2_powerline_setting.png?raw=true" align="right" width="550px" alt="iterm2-font-setting" />
 
-Install the [Source Code Pro](https://github.com/adobe-fonts/source-code-pro) or [Powerline](https://github.com/powerline/fonts) font, especially for [airline](https://github.com/liuchengxu/space-vim/blob/master/layers/%2Bthemes/airline/README.md) Layer.
+First, install the [Source Code Pro](https://github.com/adobe-fonts/source-code-pro) or [Powerline](https://github.com/powerline/fonts) font, which is important for [airline](https://github.com/liuchengxu/space-vim/blob/master/layers/%2Bthemes/airline/README.md) layer.
 
-If you are running in terminal you'll need to change the font setting of your terminal as well.
+Second, since console Vim uses whatever font the console/terminal is using, you'll have to change the font setting of your terminal.
 
 ## Update
 
