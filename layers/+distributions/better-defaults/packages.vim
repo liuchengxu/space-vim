@@ -42,3 +42,10 @@ else
                 \ }
   endif
 endif
+
+if g:spacevim_vim8 || g:spacevim_nvim
+  MP 'kshenoy/vim-signature', { 'on': [] }
+  call timer_start(500, 'spacevim#defer#signature')
+else
+  MP 'kshenoy/vim-signature'
+endif
