@@ -20,6 +20,6 @@ if spacevim#LayerLoaded('text-align')
 endif
 
 if !has('g:spacevim_markdown')
-  call timer_start(200, 'spacevim#defer#markdown')
+  silent! call timer_start(200, 'spacevim#defer#markdown')
   let g:spacevim_markdown = 1
 endif
