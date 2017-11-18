@@ -20,3 +20,9 @@ endfunction
 function! spacevim#defer#unite(timer) abort
   call plug#load('unite.vim')
 endfunction
+
+function! spacevim#defer#markdown(timer) abort
+  call plug#load('vim-markdown')
+  call plug#load('vim-markdown-toc')
+  call plug#load('markdown-preview.vim')
+endfunction
