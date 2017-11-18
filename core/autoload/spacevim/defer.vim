@@ -15,6 +15,7 @@ endfunction
 function! spacevim#defer#motion(timer) abort
   call plug#load('vim-sneak')
   call plug#load('vim-easymotion')
+  call plug#load('incsearch-easymotion.vim')
 endfunction
 
 function! spacevim#defer#unite(timer) abort
