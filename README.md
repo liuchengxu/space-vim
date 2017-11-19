@@ -97,7 +97,7 @@ Make sure you have installed:
 - **git**
 - **Vim** or **NeoVim**
 
-The most recent Vim(NeoVim) version is recommended.
+The most recent Vim(NeoVim) version is recommended, for space-vim has been specifically optimized for Vim8 and NeoVim with respect to the startup time.
 
 :exclamation: ~~When layers enabled at the first time, you need to run `:PlugInstall` to install relevant plugins~~.
 

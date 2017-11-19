@@ -18,3 +18,8 @@ if spacevim#LayerLoaded('text-align')
   " Makrdown table align
   nnoremap <buffer> <LocalLeader>ta :Tabularize /<Bar><CR>
 endif
+
+if !has('g:spacevim_markdown')
+  silent! call timer_start(200, 'spacevim#defer#markdown')
+  let g:spacevim_markdown = 1
+endif

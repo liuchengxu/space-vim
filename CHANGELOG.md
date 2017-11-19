@@ -11,6 +11,8 @@ CHANGELOG
 
 - move language specific settings to `ftplugin`
 - quick installer for windows
+- optimize the startup time for Vim8 and NeoVim via `timer_start()`
+- clojure layer
 
 ## [0.6.0] - 2017.06.09
 
