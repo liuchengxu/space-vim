@@ -4,7 +4,8 @@ function! spacevim#lang#python#run()
   else
     let l:cmd = '!'
   endif
-  execute l:cmd.' python '.shellescape(@%, 1)
+  let l:py = get(g:, 'spacevim_python_run', 'python')
+  execute l:cmd.' '.l:py.' '.shellescape(@%, 1)
 endfunction
 
 function! spacevim#lang#python#stop()
@@ -34,6 +35,6 @@ function! spacevim#lang#python#fmt()
       call spacevim#util#info('Formatted successfully')
     end
   else
-    call spacevim#util#err('yapf is unavailable, please install it first.')<CR>
+    call spacevim#util#err('yapf is unavailable, please install it first.')
   endif
 endfunction
