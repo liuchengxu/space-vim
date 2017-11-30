@@ -18,6 +18,7 @@ f.write("%-20s | %s | %s\n" % ('Topic', 'Layer', 'Plugins'))
 f.write("%-20s | %s | %s\n" % (':----:', ':----:', ':----'))
 
 url_prefix = 'https://github.com/liuchengxu/space-vim/tree/master/layers'
+plugs = []
 
 for t in topics:
     topic_path = topic_base + '/' + t
@@ -31,15 +32,17 @@ for t in topics:
             for line in fp:
                 if line.lstrip(' \t\n\r').startswith('MP'):
                     res = re.split(r"'*/*'", line)
-                    plugins += "<li>[" + res[1] + "]"
-                    plugins += "(https://github.com/" + res[1] + ")</li>"
+                    if not plugs.count(res[1]):
+                        plugs.append(res[1])
+                        plugins += "<li>[" + res[1] + "]"
+                        plugins += "(https://github.com/" + res[1] + ")</li>"
         plugins += "</ul>"
         f.write("%-20s | [%s](%s/%s/%s) | %s\n" % (t, l, url_prefix, t, l,
                                                    plugins))
 f.write("\n")
-f.write('Last updated: ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) )
+f.write('Last updated: ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(
+)))
 
 f.close()
 
 print('LAYERS.md has been updated (created) successfully.')
-
