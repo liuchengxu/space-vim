@@ -9,6 +9,5 @@ elseif g:spacevim_vim8
   MP 'maralla/completor.vim'
   MP 'maralla/completor-neosnippet'
 else
-  MP 'Shougo/neocomplete.vim'
+  MP 'lifepillar/vim-mucomplete'
 endif
-
