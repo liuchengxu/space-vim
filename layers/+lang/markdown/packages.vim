@@ -1,4 +1,4 @@
-if g:spacevim_vim8 || g:spacevim_nvim
+if g:spacevim_timer
   MP 'plasticboy/vim-markdown',      { 'on': [] }
   MP 'mzlogin/vim-markdown-toc',     { 'on': [] }
   MP 'iamcco/markdown-preview.vim',  { 'on': [] }

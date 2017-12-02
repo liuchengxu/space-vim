@@ -1,4 +1,4 @@
-if g:spacevim_vim8 || g:spacevim_nvim
+if g:spacevim_timer
   MP 'justinmk/vim-sneak'                  , { 'on': [] }
   MP 'easymotion/vim-easymotion'           , { 'on': [] }
   MP 'haya14busa/incsearch-easymotion.vim' , { 'on': [] }

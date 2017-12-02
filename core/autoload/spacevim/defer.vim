@@ -27,3 +27,16 @@ function! spacevim#defer#markdown(timer) abort
   call plug#load('vim-markdown-toc')
   call plug#load('markdown-preview.vim')
 endfunction
+
+function! spacevim#defer#fzf(timer) abort
+  call plug#load('fzf')
+  call plug#load('fzf.vim')
+endfunction
+
+function! spacevim#defer#rust(timer) abort
+  call plug#load('rust.vim')
+endfunction
+
+function! spacevim#defer#go(defer) abort
+   call plug#load('vim-go')
+endfunction
