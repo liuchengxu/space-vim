@@ -37,6 +37,11 @@ function! spacevim#defer#rust(timer) abort
   call plug#load('rust.vim')
 endfunction
 
-function! spacevim#defer#go(defer) abort
+function! spacevim#defer#go(timer) abort
    call plug#load('vim-go')
+endfunction
+
+function! spacevim#defer#python(timer) abort
+  call plug#load('python-mode')
+  call plug#load('SimpylFold')
 endfunction

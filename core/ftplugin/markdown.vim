@@ -21,7 +21,7 @@ endif
 
 if !has('g:spacevim_markdown_loaded')
   if g:spacevim_timer
-    call timer_start(200, 'spacevim#defer#markdown')
+    call timer_start(300, 'spacevim#defer#markdown')
   endif
   let g:spacevim_markdown_loaded = 1
 endif
