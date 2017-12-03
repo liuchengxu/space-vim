@@ -15,6 +15,11 @@ function! spacevim#defer#defaults(timer) abort
   call plug#load('vim_current_word')
 endfunction
 
+function! spacevim#defer#programming(timer) abort
+  call plug#load('rainbow')
+  call plug#load('vim-polyglot')
+endfunction
+
 function! spacevim#defer#motion(timer) abort
   call plug#load('vim-sneak')
   call plug#load('vim-easymotion')
