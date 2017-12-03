@@ -19,9 +19,9 @@ if spacevim#LayerLoaded('text-align')
   nnoremap <buffer> <LocalLeader>ta :Tabularize /<Bar><CR>
 endif
 
-if !has('g:spacevim_markdown')
+if !has('g:spacevim_markdown_loaded')
   if g:spacevim_timer
     call timer_start(200, 'spacevim#defer#markdown')
   endif
-  let g:spacevim_markdown = 1
+  let g:spacevim_markdown_loaded = 1
 endif
