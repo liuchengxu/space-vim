@@ -36,8 +36,10 @@ update:
 
 uninstall:
 	@echo "\033[1;34m==>\033[0m Trying to uninstall space-vim"; \
-	rm -f  ~/.vimrc     && echo "    - Removed ~/.vimrc"; \
-	rm -rf ~/.space-vim && echo "    - Removed ~/.space-vim"; \
+	rm -f  $(VIMRC)            && echo "    - Removed $(VIMRC)"; \
+	rm -f  $(NVIMRC)           && echo "    - Removed $(NVIMRC)"; \
+	rm -f  $(DOT_SPACEVIM)     && echo "    - Removed $(DOT_SPACEVIM)"; \
+	rm -rf ~/.$(APP)           && echo "    - Removed ~/.$(APP)"; \
 	echo "\033[32m[✔]\033[0m Successfully uninstalled $(APP)"
 
 .PHONY: help vim neovim update uninstall
