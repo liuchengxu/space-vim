@@ -2,9 +2,18 @@
     " Plug 'ybian/smartim'
 " endif
 
-MP 'tpope/vim-rsi'
-
-MP 't9md/vim-choosewin'
+if g:spacevim_timer
+  MP 'kshenoy/vim-signature'        , { 'on': [] }
+  MP 'tpope/vim-rsi'                , { 'on': [] }
+  MP 't9md/vim-choosewin'           , { 'on': [] }
+  MP 'dominikduda/vim_current_word' , { 'on': [] }
+  call timer_start(500, 'spacevim#defer#defaults')
+else
+  MP 'tpope/vim-rsi'
+  MP 't9md/vim-choosewin'
+  MP 'kshenoy/vim-signature'
+  MP 'dominikduda/vim_current_word'
+endif
 
 MP 'mhinz/vim-startify', { 'on': 'Startify' }
 augroup spacevimStart
@@ -15,8 +24,6 @@ augroup spacevimStart
               \|    silent! Startify
               \|  endif
 augroup END
-
-MP 'dominikduda/vim_current_word'
 
 " Bug here.
 " MP 'kana/vim-operator-user',         { 'on': '<Plug>(operator-flashy)' }
@@ -41,11 +48,4 @@ else
                 \ '<Plug>(incsearch-fuzzy-stay)' ]
                 \ }
   endif
-endif
-
-if g:spacevim_vim8 || g:spacevim_nvim
-  MP 'kshenoy/vim-signature', { 'on': [] }
-  call timer_start(500, 'spacevim#defer#signature')
-else
-  MP 'kshenoy/vim-signature'
 endif

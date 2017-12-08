@@ -8,8 +8,16 @@ function! spacevim#defer#git(timer) abort
   GitGutterEnable
 endfunction
 
-function! spacevim#defer#signature(timer) abort
+function! spacevim#defer#defaults(timer) abort
   call plug#load('vim-signature')
+  call plug#load('vim-rsi')
+  call plug#load('vim-choosewin')
+  call plug#load('vim_current_word')
+endfunction
+
+function! spacevim#defer#programming(timer) abort
+  call plug#load('rainbow')
+  call plug#load('vim-polyglot')
 endfunction
 
 function! spacevim#defer#motion(timer) abort
@@ -24,6 +32,22 @@ endfunction
 
 function! spacevim#defer#markdown(timer) abort
   call plug#load('vim-markdown')
-  call plug#load('vim-markdown-toc')
-  call plug#load('markdown-preview.vim')
+endfunction
+
+function! spacevim#defer#fzf(timer) abort
+  call plug#load('fzf')
+  call plug#load('fzf.vim')
+endfunction
+
+function! spacevim#defer#rust(timer) abort
+  call plug#load('rust.vim')
+endfunction
+
+function! spacevim#defer#go(timer) abort
+   call plug#load('vim-go')
+endfunction
+
+function! spacevim#defer#python(timer) abort
+  call plug#load('python-mode')
+  call plug#load('SimpylFold')
 endfunction

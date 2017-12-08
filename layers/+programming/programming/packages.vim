@@ -1,4 +1,12 @@
-MP 'luochen1990/rainbow'
+if g:spacevim_timer
+  MP 'luochen1990/rainbow', { 'on': [] }
+  MP 'sheerun/vim-polyglot', { 'on': [] }
+  call timer_start(300, 'spacevim#defer#programming')
+else
+  MP 'luochen1990/rainbow'
+  MP 'sheerun/vim-polyglot'
+endif
+
 MP 'editorconfig/editorconfig-vim', { 'on': 'EditorConfigReload' }
 
 MP 'matze/vim-move', { 'on': [
@@ -19,5 +27,3 @@ MP 'Yggdroot/indentLine',             { 'on': 'IndentLinesToggle' }
 MP 'nathanaelkane/vim-indent-guides', { 'on': 'IndentGuidesToggle' }
 
 MP 'skywind3000/asyncrun.vim',        { 'on': ['AsyncRun!', 'AsyncRun'] }
-
-MP 'sheerun/vim-polyglot'
