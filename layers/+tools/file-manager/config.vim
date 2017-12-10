@@ -3,10 +3,10 @@ scriptencoding utf-8
 " nerdtree {
   let g:NERDTreeShowHidden=1
   let g:NERDTreeAutoDeleteBuffer=1
-  if !g:spacevim_gui
-    let g:NERDTreeDirArrowExpandable = '►'
-  endif
-  let g:NERDTreeDirArrowCollapsible = '▼'
+  " ❯
+  let g:NERDTreeDirArrowExpandable = "\u276f"
+  " ▽
+  let g:NERDTreeDirArrowCollapsible = "\u25bd"
   let g:NERDTreeIgnore=[
               \ '\.py[cd]$', '\~$', '\.swo$', '\.swp$', '\.DS_Store$',
               \ '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$',
