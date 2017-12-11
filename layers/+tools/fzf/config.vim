@@ -24,6 +24,9 @@ else
               \ 'spinner': ['fg', 'Statement'],
               \ 'header':  ['fg', 'Number'],
               \   }
+  autocmd! FileType fzf
+  autocmd  FileType fzf set laststatus=0 noshowmode noruler
+    \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
   nmap <Leader>? <plug>(fzf-maps-n)
   xmap <Leader>? <plug>(fzf-maps-x)
   omap <Leader>? <plug>(fzf-maps-o)

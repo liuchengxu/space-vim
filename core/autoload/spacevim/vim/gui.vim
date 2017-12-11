@@ -12,7 +12,7 @@ function! s:leave_full_screen()
   setlocal nofullscreen
 endfunction
 
-function! spacevim#gui#ToggleFullScreen()
+function! spacevim#vim#gui#ToggleFullScreen()
   if &fullscreen
     call s:leave_full_screen()
   else
@@ -31,7 +31,7 @@ function! s:screen_filename()
   endif
 endfunction
 
-function! spacevim#gui#ScreenRestore()
+function! spacevim#vim#gui#ScreenRestore()
   " Restore window size (columns and lines) and position
   " from values stored in vimsize file.
   " Must set font first so columns and lines are based on font size.
@@ -49,7 +49,7 @@ function! spacevim#gui#ScreenRestore()
   endif
 endfunction
 
-function! spacevim#gui#ScreenSave()
+function! spacevim#vim#gui#ScreenSave()
   " Save window size and position.
   if has("gui_running") && g:screen_size_restore_pos
     let vim_instance = (g:screen_size_by_vim_instance==1?(v:servername):'GVIM')

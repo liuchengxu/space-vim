@@ -38,10 +38,10 @@ if g:spacevim_vim8 || g:spacevim_nvim
   " [DEPRECATED] Use ale#statusline#Count(buffer) instead
   " For a more fancy ale statusline
   function! ALEGetError()
-    return spacevim#util#ALEGetError()
+    return spacevim#plug#ale#ALEGetError()
   endfunction
   function! ALEGetWarning()
-    return spacevim#util#ALEGetWarning()
+    return spacevim#plug#ale#ALEGetWarning()
   endfunction
   " }
 else

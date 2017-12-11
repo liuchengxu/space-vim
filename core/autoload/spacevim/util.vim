@@ -45,26 +45,6 @@ function! spacevim#util#ToggleColorColumn()
   endif
 endfunction
 
-function! spacevim#util#CompileAndRun()
-  let l:cmd = {
-        \ 'c'      : "gcc % -o %<; time ./%<",
-        \ 'sh'     : "time bash %",
-        \ 'go'     : "go run %",
-        \ 'cpp'    : "g++ -std=c++11 % -o %<; time ./%<",
-        \ 'ruby'   : "time ruby %",
-        \ 'java'   : "javac %; time java %<",
-        \ 'rust'   : "rustc % -o %<; time ./%<",
-        \ 'python' : "time python %",
-        \}
-  let l:ft = &filetype
-  if has_key(l:cmd, l:ft)
-    exec 'w'
-    exec "AsyncRun! ".l:cmd[l:ft]
-  else
-    call spacevim#util#err("spacevim#util#CompileAndRun not supported in current filetype!")
-  endif
-endfunction
-
 function! spacevim#util#Runtimepath()
   for path in split(&runtimepath, ',')
     echo path
@@ -98,33 +78,6 @@ function! spacevim#util#GotoJump()
   endif
 endfunction
 
-" [DEPRECATED] ALE statusline integration
-function! spacevim#util#ALEGetError()
-  let l:res = ale#statusline#Status()
-  if l:res ==# 'OK'
-    return ''
-  else
-    let l:e_w = split(l:res)
-    if len(l:e_w) == 2 || match(l:e_w, 'E') > -1
-      return ' •' . matchstr(l:e_w[0], '\d\+') .' '
-    endif
-  endif
-endfunction
-
-function! spacevim#util#ALEGetWarning()
-  let l:res = ale#statusline#Status()
-  if l:res ==# 'OK'
-    return ''
-  else
-    let l:e_w = split(l:res)
-    if len(l:e_w) == 2
-      return ' •' . matchstr(l:e_w[1], '\d\+')
-    elseif match(l:e_w, 'W') > -1
-      return ' •' . matchstr(l:e_w[0], '\d\+')
-    endif
-  endif
-endfunction
-
 " https://www.reddit.com/r/vim/comments/79q6aq/vim_tip_keybinding_for_opening_plugin_homepage/
 " visiting the GitHub page of the plugin defined on the current line
 function! spacevim#util#OpenPluginHomepage() abort
@@ -148,4 +101,15 @@ function! spacevim#util#GetNvimVersion()
     silent! version
     redir END
     return matchstr(s, 'NVIM v\zs[^\n]*')
+endfunction
+
+let s:hidden_all = 0
+function! spacevim#util#ToggleHiddleAll()
+  if s:hidden_all == 0
+    let s:hidden_all = 1
+    setlocal noshowmode noruler noshowcmd laststatus=0 cmdheight=1
+  else
+    let s:hidden_all = 0
+    setlocal showmode ruler showcmd laststatus=2 cmdheight=1
+  endif
 endfunction

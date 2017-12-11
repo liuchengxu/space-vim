@@ -1,4 +1,4 @@
-function!  spacevim#auto#AddTitle()
+function! spacevim#vim#auto#AddTitle()
   let l:template = {
         \ 'c': [
           \ '#include <stdio.h>'
@@ -34,7 +34,7 @@ function!  spacevim#auto#AddTitle()
   endif
 endfunction
 
-function! spacevim#auto#AsyncRunStart()
-    let s:qf_height = float2nr(round(winheight('%') * 0.3))
-    call asyncrun#quickfix_toggle(s:qf_height, 1)
+function! spacevim#vim#auto#AsyncRunStart()
+    let l:qf_height = float2nr(round(winheight('%') * 0.3))
+    call asyncrun#quickfix_toggle(l:qf_height, 1)
 endfunction
