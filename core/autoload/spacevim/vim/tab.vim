@@ -1,4 +1,4 @@
-function! spacevim#tab#TabLine()
+function! spacevim#vim#tab#TabLine()
   let l:s = ''
   let l:t = tabpagenr()
   let l:i = 1
@@ -34,4 +34,3 @@ function! spacevim#tab#TabLine()
   let l:s .= (tabpagenr('$') > 1 ? '%999XX' : 'X')
   return l:s
 endfunction
-

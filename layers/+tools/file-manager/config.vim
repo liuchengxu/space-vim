@@ -21,17 +21,7 @@ scriptencoding utf-8
 " }
 
 " nerdtree-git-plugin {
-  let g:NERDTreeIndicatorMapCustom = {
-              \ 'Modified'  : '✹',
-              \ 'Staged'    : '✚',
-              \ 'Untracked' : '✭',
-              \ 'Renamed'   : '➜',
-              \ 'Unmerged'  : '═',
-              \ 'Deleted'   : '✖',
-              \ 'Dirty'     : '✗',
-              \ 'Clean'     : '✓',
-              \ 'Unknown'   : '?'
-              \ }
+  let g:NERDTreeIndicatorMapCustom = g:spacevim#plug#nerdtree#IndicatorMapCustom
 " }
 
 " vim-nerdtree-syntax-highlight {

@@ -46,5 +46,5 @@ command! -bar -nargs=0 Rtp :call spacevim#util#Runtimepath()
 
 augroup spacevimGUI
   autocmd!
-  autocmd GUIEnter * nnoremap <Leader>wm :call spacevim#gui#ToggleFullScreen()<CR>
+  autocmd GUIEnter * nnoremap <Leader>wm :call spacevim#vim#gui#ToggleFullScreen()<CR>
 augroup END

@@ -3,7 +3,7 @@ scriptencoding utf-8
 augroup spacevimNewFile
   autocmd!
   " Add title automatically when new files and move cursor to the end of file
-  autocmd BufNewFile *.py,*.cpp,*.c,*.sh,*.java,*.pl call spacevim#auto#AddTitle()
+  autocmd BufNewFile *.py,*.cpp,*.c,*.sh,*.java,*.pl call spacevim#vim#auto#AddTitle()
 augroup END
 
 " vim-move {
@@ -61,10 +61,10 @@ augroup END
 " }
 
 " asyncrun.vim {
-  nnoremap <F5> :call spacevim#util#CompileAndRun()<CR>
+  nnoremap <F5> :call spacevim#plug#asyncrun#CompileAndRun()<CR>
   augroup spacevimAsyncRun
     autocmd!
-    autocmd User AsyncRunStart call spacevim#auto#AsyncRunStart()
+    autocmd User AsyncRunStart call spacevim#vim#auto#AsyncRunStart()
   augroup END
 " }
 

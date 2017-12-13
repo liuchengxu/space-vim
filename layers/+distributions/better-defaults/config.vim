@@ -38,30 +38,8 @@ endif
 " }
 
 " vim-startify {
-let s:version = g:spacevim_nvim ? 'nvim '.spacevim#util#GetNvimVersion() : 'vim '.v:version
-let g:startify_custom_header = [
-            \'                                             _',
-            \'         ___ _ __   __ _  ___ ___     __   _(_)_ __ ___',
-            \'        / __| -_ \ / _- |/ __/ _ \____\ \ / / | -_ - _ \',
-            \'        \__ \ |_) | (_| | (_|  __/_____\ V /| | | | | | |',
-            \'        |___/ .__/ \__._|\___\___|      \_/ |_|_| |_| |_|',
-            \'            |_|',
-            \'                  [ space-vim ' . g:spacevim_version . ' ＠' . s:version . ' ]',
-            \]
-
-let g:startify_list_order = [
-            \ ['   Recent Files:'],
-            \ 'files',
-            \ ['   Project:'],
-            \ 'dir',
-            \ ['   Sessions:'],
-            \ 'sessions',
-            \ ['   Bookmarks:'],
-            \ 'bookmarks',
-            \ ['   Commands:'],
-            \ 'commands',
-            \ ]
-
+let g:startify_custom_header = g:spacevim#plug#startify#header
+let g:startify_list_order = g:spacevim#plug#startify#list_order
 let g:startify_change_to_vcs_root = 1
 " }
 

@@ -10,20 +10,10 @@ else
   " fzf.vim {
   let $LANG = 'en_US'
   " Customize fzf colors to match your color scheme
-  let g:fzf_colors = {
-              \ 'fg':      ['fg', 'StatusLineNC'],
-              \ 'bg':      ['bg', 'Normal'],
-              \ 'hl':      ['fg', 'String'],
-              \ 'fg+':     ['fg', 'Number', 'Normal'],
-              \ 'bg+':     ['bg', 'StatusLine', 'Normal'],
-              \ 'hl+':     ['fg', 'Exception'],
-              \ 'info':    ['fg', 'Special'],
-              \ 'prompt':  ['fg', 'Function'],
-              \ 'pointer': ['fg', 'Error'],
-              \ 'marker':  ['fg', 'Error'],
-              \ 'spinner': ['fg', 'Statement'],
-              \ 'header':  ['fg', 'Number'],
-              \   }
+  let g:fzf_colors = g:spacevim#plug#fzf#colors
+  autocmd! FileType fzf
+  autocmd  FileType fzf set laststatus=0 noshowmode noruler
+    \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
   nmap <Leader>? <plug>(fzf-maps-n)
   xmap <Leader>? <plug>(fzf-maps-x)
   omap <Leader>? <plug>(fzf-maps-o)

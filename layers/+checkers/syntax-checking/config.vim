@@ -11,25 +11,13 @@ if g:spacevim_vim8 || g:spacevim_nvim
               \ 'javascript' : ['eslint'],
               \}
   let g:ale_set_highlights = 0
-  " If emoji not loaded, use default sign
-  try
-    let g:ale_sign_error = emoji#for('boom')
-    let g:ale_sign_warning = emoji#for('small_orange_diamond')
-  catch
-    " Use same sign and distinguish error and warning via different colors.
-    let g:ale_sign_error = '•'
-    let g:ale_sign_warning = '•'
-  endtry
   let g:ale_echo_msg_format = '[#%linter%#] %s [%severity%]'
   let g:ale_statusline_format = ['E•%d', 'W•%d', 'OK']
 
-  if g:spacevim_gui
-    let g:ale_echo_msg_error_str = 'Error'
-    let g:ale_echo_msg_warning_str = 'Warning'
-  else
-    let g:ale_echo_msg_error_str = '✹ Error'
-    let g:ale_echo_msg_warning_str = '⚠ Warning'
-  endif
+  let g:ale_sign_error = g:spacevim#plug#ale#sign_error
+  let g:ale_sign_warning = g:spacevim#plug#ale#sign_warning
+  let g:ale_echo_msg_error_str = g:spacevim#plug#ale#echo_msg_error_str
+  let g:ale_echo_msg_warning_str = g:spacevim#plug#ale#echo_msg_warning_str
 
   nmap <Leader>en <Plug>(ale_next)
   nmap <Leader>ep <Plug>(ale_previous)
@@ -38,10 +26,10 @@ if g:spacevim_vim8 || g:spacevim_nvim
   " [DEPRECATED] Use ale#statusline#Count(buffer) instead
   " For a more fancy ale statusline
   function! ALEGetError()
-    return spacevim#util#ALEGetError()
+    return spacevim#plug#ale#ALEGetError()
   endfunction
   function! ALEGetWarning()
-    return spacevim#util#ALEGetWarning()
+    return spacevim#plug#ale#ALEGetWarning()
   endfunction
   " }
 else

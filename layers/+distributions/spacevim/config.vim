@@ -43,8 +43,8 @@ augroup spacevimBasic
   if g:spacevim_gui
     let g:screen_size_restore_pos = get(g:, 'screen_size_restore_pos', 1)
     let g:screen_size_by_vim_instance = get(g:, 'screen_size_by_vim_instance', 1)
-    autocmd VimEnter * if g:screen_size_restore_pos == 1 | call spacevim#gui#ScreenRestore() | endif
-    autocmd VimLeavePre * if g:screen_size_restore_pos == 1 | call spacevim#gui#ScreenSave() | endif
+    autocmd VimEnter * if g:screen_size_restore_pos == 1 | call spacevim#vim#gui#ScreenRestore() | endif
+    autocmd VimLeavePre * if g:screen_size_restore_pos == 1 | call spacevim#vim#gui#ScreenSave() | endif
   endif
 
   if !spacevim#LayerLoaded('chinese')
@@ -68,4 +68,4 @@ if g:spacevim_gui
   set guioptions-=e
 endif
 silent! set showtabline=1
-silent! set tabline=%!spacevim#tab#TabLine()
+silent! set tabline=%!spacevim#vim#tab#TabLine()
