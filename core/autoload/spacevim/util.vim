@@ -96,13 +96,6 @@ function! spacevim#util#OpenPluginHomepage() abort
   silent exec "!$BROWSER https://github.com/".repository
 endfunction
 
-function! spacevim#util#GetNvimVersion()
-    redir => s
-    silent! version
-    redir END
-    return matchstr(s, 'NVIM v\zs[^\n]*')
-endfunction
-
 let s:hidden_all = 0
 function! spacevim#util#ToggleHiddleAll()
   if s:hidden_all == 0

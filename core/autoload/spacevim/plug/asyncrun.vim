@@ -8,6 +8,7 @@ function! spacevim#plug#asyncrun#CompileAndRun()
         \ 'java'   : "javac %; time java %<",
         \ 'rust'   : "rustc % -o %<; time ./%<",
         \ 'python' : "time python %",
+        \ 'haskell': "ghc % -o %< && ./%<",
         \}
   let l:ft = &filetype
   if has_key(l:cmd, l:ft)
