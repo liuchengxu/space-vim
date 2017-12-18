@@ -32,3 +32,24 @@ let g:spacevim#plug#nerdtree#colors.lightGreen = '31B53E'
 let g:spacevim#plug#nerdtree#colors.white = 'FFFFFF'
 let g:spacevim#plug#nerdtree#colors.rspec_red = 'FE405F'
 let g:spacevim#plug#nerdtree#colors.git_orange = 'F54D27'
+
+let g:spacevim#plug#nerdtree#ExtensionHighlightColor = {} " this line is needed to avoid error
+let g:spacevim#plug#nerdtree#ExtensionHighlightColor['css'] = g:spacevim#plug#nerdtree#colors.blue " sets the color of css files to blue
+let g:spacevim#plug#nerdtree#ExtensionHighlightColor = {} " this line is needed to avoid error
+let g:spacevim#plug#nerdtree#ExtensionHighlightColor['python'] = g:spacevim#plug#nerdtree#colors.green " sets the color of css files to blue
+let g:spacevim#plug#nerdtree#ExtensionHighlightColor = {} " this line is needed to avoid error
+let g:spacevim#plug#nerdtree#ExtensionHighlightColor['org'] = g:spacevim#plug#nerdtree#colors.pink " sets the color of css files to blue
+
+let g:spacevim#plug#nerdtree#ExactMatchHighlightColor = {} " this line is needed to avoid error
+let g:spacevim#plug#nerdtree#ExactMatchHighlightColor['tex'] = g:spacevim#plug#nerdtree#colors.rspec_red " sets the color of css files to blue
+let g:spacevim#plug#nerdtree#ExactMatchHighlightColor = {} " this line is needed to avoid error
+let g:spacevim#plug#nerdtree#ExactMatchHighlightColor['.gitignore'] = g:spacevim#plug#nerdtree#colors.git_orange " sets the color for .gitignore files
+let g:spacevim#plug#nerdtree#ExactMatchHighlightColor = {} " this line is needed to avoid error
+let g:spacevim#plug#nerdtree#ExactMatchHighlightColor['.ipynb'] = g:spacevim#plug#nerdtree#colors.lightPurple " sets the color for .ipynb files
+let g:spacevim#plug#nerdtree#ExactMatchHighlightColor = {} " this line is needed to avoid error
+let g:spacevim#plug#nerdtree#ExactMatchHighlightColor['.py'] = g:spacevim#plug#nerdtree#colors.red " sets the color for .ipynb files
+
+let g:spacevim#plug#nerdtree#PatternMatchHighlightColor = {} " this line is needed to avoid error
+let g:spacevim#plug#nerdtree#PatternMatchHighlightColor['.*_spec\.rb$'] = g:spacevim#plug#nerdtree#colors.rspec_red " sets the color for files ending with _spec.rb
+let g:spacevim#plug#nerdtree#PatternMatchHighlightColor = {} " this line is needed to avoid error
+let g:spacevim#plug#nerdtree#PatternMatchHighlightColor['*.py$'] = g:spacevim#plug#nerdtree#colors.red " sets the color for files ending with _spec.rb
