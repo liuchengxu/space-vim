@@ -318,3 +318,7 @@ function! spacevim#plug#fzf#Func()
         \ 'window': len(l:list)+2.'new'},
         \ a:000)
 endfunction
+
+function! spacevim#plug#fzf#Project()
+  exe ':FZF ' . FindRootDirectory()
+endfunction
