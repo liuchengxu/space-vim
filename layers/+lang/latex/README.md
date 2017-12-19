@@ -14,3 +14,7 @@
 ## Install
 
 ## Key Bindings
+
+## Related Projects
+
+- [neotex](https://github.com/donRaphaco/neotex)

@@ -1,5 +1,14 @@
 scriptencoding utf-8
 
+let g:spacevim#plug#ale#linters = {
+            \ 'sh' : ['shellcheck'],
+            \ 'vim' : ['vint'],
+            \ 'html' : ['tidy'],
+            \ 'python' : ['flake8'],
+            \ 'markdown' : ['mdl'],
+            \ 'javascript' : ['eslint'],
+            \}
+
 if exists('emoji#for')
   let g:spacevim#plug#ale#sign_error = emoji#for('boom')
   let g:spacevim#plug#ale#sign_warning = emoji#for('small_orange_diamond')
