@@ -25,3 +25,7 @@ if !has('g:spacevim_markdown_loaded')
   endif
   let g:spacevim_markdown_loaded = 1
 endif
+
+if exists('*emoji#complete')
+  setlocal completefunc=emoji#complete
+endif

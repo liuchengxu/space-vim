@@ -2,14 +2,7 @@ scriptencoding utf-8
 
 if g:spacevim_vim8 || g:spacevim_nvim
   " ale {
-  let g:ale_linters = {
-              \ 'sh' : ['shellcheck'],
-              \ 'vim' : ['vint'],
-              \ 'html' : ['tidy'],
-              \ 'python' : ['flake8'],
-              \ 'markdown' : ['mdl'],
-              \ 'javascript' : ['eslint'],
-              \}
+  let g:ale_linters = g:spacevim#plug#ale#linters
   let g:ale_set_highlights = 0
   let g:ale_echo_msg_format = '[#%linter%#] %s [%severity%]'
   let g:ale_statusline_format = ['E•%d', 'W•%d', 'OK']

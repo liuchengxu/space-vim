@@ -1,4 +1,11 @@
-let s:version = g:spacevim_nvim ? 'nvim '.spacevim#util#GetNvimVersion() : 'vim '.v:version
+function! s:get_nvim_version()
+    redir => s
+    silent! version
+    redir END
+    return matchstr(s, 'NVIM v\zs[^\n]*')
+endfunction
+
+let s:version = g:spacevim_nvim ? 'nvim '.s:get_nvim_version() : 'vim '.v:version
 let g:spacevim#plug#startify#header = [
             \'                                             _',
             \'         ___ _ __   __ _  ___ ___     __   _(_)_ __ ___',
