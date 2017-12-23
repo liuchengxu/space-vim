@@ -1,3 +1,8 @@
+if exists('b:did_spacevim_md_ftplugin')
+  finish
+endif
+let b:did_spacevim_md_ftplugin = 1
+
 setlocal wrap
 
 nnoremap <buffer> <LocalLeader>1 m`yypVr=``
