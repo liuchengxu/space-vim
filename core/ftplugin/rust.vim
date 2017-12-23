@@ -1,4 +1,4 @@
-if exists('g:did_spacevim_rs_ftplugin')
+if exists('b:did_spacevim_rs_ftplugin')
   finish
 endif
 let b:did_spacevim_rs_ftplugin = 1
