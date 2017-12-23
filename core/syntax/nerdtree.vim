@@ -1,8 +1,3 @@
-if exists('b:did_spacevim_nerdtree_syntax')
-  finish
-endif
-let b:did_spacevim_nerdtree_syntax = 1
-
 let s:colors = {
       \ 16: '#292b2e', 24: '#3C8380', 28: '#c269fe', 30: '#2aa1ae', 36: '#20af81', 40: '#00ff00',
       \ 59: '#FF73B9', 68: '#4f97d7', 75: '#FF62B0', 76: '#86dc2f', 81: '#f9bb00', 88: '#330033',
