@@ -2,6 +2,12 @@ function! spacevim#defer#ale(timer) abort
   call plug#load('ale')
 endfunction
 
+function! spacevim#defer#airline(timer) abort
+  call plug#load('vim-airline')
+  call plug#load('vim-airline-themes')
+  redraws!
+endfunction
+
 function! spacevim#defer#git(timer) abort
   call plug#load('vim-fugitive')
   call plug#load('vim-gitgutter')
@@ -18,6 +24,7 @@ endfunction
 function! spacevim#defer#programming(timer) abort
   call plug#load('rainbow')
   call plug#load('vim-polyglot')
+  call plug#load('vim-rooter')
 endfunction
 
 function! spacevim#defer#motion(timer) abort
