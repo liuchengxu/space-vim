@@ -6,6 +6,7 @@
 * [Description](#description)
 * [Install](#install)
 * [Key Bindings](#key-bindings)
+* [Related Projects](#ralted-projects)
 
 <!-- vim-markdown-toc -->
 
@@ -24,3 +25,7 @@ Key Binding    | Mode           | Description
 <kbd>F5</kbd>  | Normal         | Execute current file
 <kbd>, m</kbd> | Normal         | make
 <kbd>, =</kbd> | Normal, Visual | code format (require `clang-format`)
+
+## Related Projects
+
+- https://github.com/bbchung/clighter8
