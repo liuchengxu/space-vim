@@ -24,11 +24,8 @@ if spacevim#LayerLoaded('text-align')
   nnoremap <buffer> <LocalLeader>ta :Tabularize /<Bar><CR>
 endif
 
-if !has('g:spacevim_markdown_loaded')
-  if g:spacevim_timer
-    call timer_start(1300, 'spacevim#defer#markdown')
-  endif
-  let g:spacevim_markdown_loaded = 1
+if g:spacevim_timer
+  call timer_start(1300, 'spacevim#defer#markdown')
 endif
 
 if exists('*emoji#complete')
