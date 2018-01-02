@@ -1,6 +1,6 @@
 scriptencoding utf-8
 
-if g:spacevim_nvim
+if g:spacevim_nvim || g:spacevim_vim8
 " deoplete.vim {
   let g:acp_enableAtStartup = 0
   " Use deoplete.
