@@ -36,7 +36,6 @@
   * [Manual](#manual)
 * [Customize](#customize)
   * [Presetting](#presetting)
-  * [`Layers()`](#layers)
   * [`UserInit()`](#userinit)
   * [`UserConfig()`](#userconfig)
 * [How to use](#how-to-use)
@@ -44,7 +43,7 @@
   * [Commands](#commands)
   * [Tips](#tips)
     * [Enable GUI color in terminal vim](#enable-gui-color-in-terminal-vim)
-    * [Terminal font](#terminal-font)
+    * [Terminal Font](#terminal-font)
 * [Update](#update)
 * [Contributions](#contributions)
 * [Acknowledgements](#acknowledgements)
@@ -164,42 +163,38 @@ If `.spacevim` does not exist, vanilla vim will be loaded! Refer to [init.spacev
 " Let Vim and NeoVim shares the same plugin directory
 let g:spacevim_plug_home = '~/.vim/plugged'
 
-" Change the background color of theme space-vim-dark (default 235)
-let g:space_vim_dark_background = 234
-```
+" The default leader key is space key.
+" Uncomment the line below and modify "<\Space>" if you prefer another
+" let g:spacevim_leader = "<\Space>"
 
-### `Layers()`
+" The default local leader key is comma.
+" Uncomment the line below and modify ',' if you prefer another
+" let g:spacevim_localleader = ','
+
+" Enable the existing layers in space-vim
+let g:spacevim_layers = [
+      \ 'fzf', 'unite', 'better-defaults',
+      \ 'which-key',
+      \ ]
+
+" If you want to have more control over the layer, try using Layer command.
+" if g:spacevim_gui
+"   Layer 'airline'
+" endif
+```
 
 Please refer to [LAYERS.md](layers/LAYERS.md) to take a look at the whole shipped layers.
 
-```vim
-" Enable the existing layers in space-vim
-function! Layers()
-
-  " Default layers
-  Layer 'fzf'
-  Layer 'unite'
-  Layer 'better-defaults'
-
-endfunction
-```
+Basically, `g:spacevim_layers` almost takes the place of `Layer` command. As far as I known, most people never use the option of `Layer` command, e.g., `exclude`, so `g:spacevim_layers` could save a lengthy `Layer` list, requiring less ceremony. Nevertheless, `Layer` command is still avaiable for some advanced uses.
 
 ### `UserInit()`
 
 ```vim
-" Add your own plugins
+" Manage your own plugins, refer to vim-plug's instruction for more detials.
 function! UserInit()
 
-  " The default leader key is space key.
-  " Uncomment the line below and modify "<\Space>" if you prefer another
-  " let g:spacevim_leader = "<\Space>"
-
-  " The default local leader key is comma.
-  " Uncomment the line below and modify ',' if you prefer another
-  " let g:spacevim_localleader = ','
-
-  " Install personal plugins
-  " Plug 'hecal3/vim-leader-guide'
+  " Add plugin via Plug command.
+  Plug 'junegunn/seoul256.vim'
 
 endfunction
 ```
