@@ -2,29 +2,30 @@
 " Comment it out if you don't like
 let g:spacevim_plug_home = '~/.vim/plugged'
 
+" The default leader key is space key.
+" Uncomment the line below and modify "<\Space>" if you prefer another
+" let g:spacevim_leader = "<\Space>"
+
+" The default local leader key is comma.
+" Uncomment the line below and modify ',' if you prefer another
+" let g:spacevim_localleader = ','
+
 " Enable the existing layers in space-vim
-function! Layers()
+let g:spacevim_layers = [
+      \ 'fzf', 'unite', 'better-defaults',
+      \ 'which-key',
+      \ ]
 
-  " Default layers
-  Layer 'fzf'
-  Layer 'unite'
-  Layer 'better-defaults'
+" If you want to have more control over the layer, try using Layer command.
+" if g:spacevim_gui
+"   Layer 'airline'
+" endif
 
-endfunction
-
-" Add your own plugins
+" Manage your own plugins, refer to vim-plug's instruction for more detials.
 function! UserInit()
 
-  " The default leader key is space key.
-  " Uncomment the line below and modify "<\Space>" if you prefer another
-  " let g:spacevim_leader = "<\Space>"
-
-  " The default local leader key is comma.
-  " Uncomment the line below and modify ',' if you prefer another
-  " let g:spacevim_localleader = ','
-
-  " Install personal plugins
-  " Plug 'hecal3/vim-leader-guide'
+  " Add plugin via Plug command.
+  Plug 'junegunn/seoul256.vim'
 
 endfunction
 
