@@ -36,5 +36,8 @@ endfunction
 
 function! spacevim#vim#auto#AsyncRunStart()
     let l:qf_height = float2nr(round(winheight('%') * 0.3))
+    if !exists('*asyncrun#quickfix_toggle')
+      call plug#load('asyncrun.vim')
+    endif
     call asyncrun#quickfix_toggle(l:qf_height, 1)
 endfunction

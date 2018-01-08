@@ -50,7 +50,9 @@ endfunction
 function! s:check_dot_spacevim()
   if filereadable(expand(s:dot_spacevim))
     call s:Source(s:dot_spacevim)
-    let g:layers_loaded = g:layers_loaded + g:spacevim_layers
+    if exists('g:spacevim_layers')
+      let g:layers_loaded = g:layers_loaded + g:spacevim_layers
+    endif
     let g:mapleader = get(g:, 'spacevim_leader', "\<Space>")
     let g:maplocalleader = get(g:, 'spacevim_localleader', ',')
   else
