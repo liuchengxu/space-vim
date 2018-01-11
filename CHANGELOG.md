@@ -20,6 +20,12 @@ CHANGELOG
 - quick installer for windows
 - optimize the startup time for Vim8 and NeoVim via `timer_start()`
 - clojure layer
+- which-key layer
+- introduce `g:spacevim_layers` to take the place of `Layer` list.
+
+### Removed
+
+- `Layers()` function. As a matter of fact, `Layers()` and `UserInit()` function are not necessary. I just want to explicitly differentate `Layer` from `Plug` at the beginning. But now I have realized that there is no need to bring in another lengthy command list, we already have one :). Furthermore, most people never use the option of `Layer` command.
 
 ## [0.6.0] - 2017.06.09
 
