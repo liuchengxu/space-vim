@@ -67,6 +67,7 @@ let g:spacevim#plug#leaderGuide#lmap['j'] = {
 let g:spacevim#plug#leaderGuide#lmap['p'] = {
       \ 'name' : '+projects',
       \ 'h' : ['ProjectMru --tiebreak=end', 'helm-projectile'],
+      \ 's' : ['call spacevim#plug#fzf#Project()', 'search-under-project'],
       \ }
 let g:spacevim#plug#leaderGuide#lmap['q'] = [ 'q', 'quit' ]
 let g:spacevim#plug#leaderGuide#lmap['Q'] = [ 'qa!', 'quit-without-saving' ]
@@ -81,10 +82,45 @@ let g:spacevim#plug#leaderGuide#lmap['t'] = {
       \ 'p' : ['setlocal paste!', 'paste-mode'],
       \ 's' : ['SyntasticToggleMode', 'syntastic'],
       \ 't' : ['TagbarToggle', 'tagbar'],
+      \ 'c' : ['call spacevim#util#ToggleCursorColumn()', 'cursor-column'],
+      \ 'C' : ['call spacevim#util#ToggleColorColumn()', 'color-column'],
       \ }
 let g:spacevim#plug#leaderGuide#lmap['u'] = [ 'call feedkeys("\<C-u>")', 'scroll-up' ]
+
+nnoremap <Plug>(window_w) <C-W>w
+nnoremap <Plug>(window_r) <C-W>r
+nnoremap <Plug>(window_d) <C-W>c
+nnoremap <Plug>(window_q) <C-W>q
+nnoremap <Plug>(window_j) <C-W>j
+nnoremap <Plug>(window_k) <C-W>k
+nnoremap <Plug>(window_h) <C-W>h
+nnoremap <Plug>(window_l) <C-W>l
+nnoremap <Plug>(window_H) <C-W>5<
+nnoremap <Plug>(window_L) <C-W>5>
+nnoremap <Plug>(window_J) :resize +5<CR>
+nnoremap <Plug>(window_K) :resize -5<CR>
+nnoremap <Plug>(window_b) <C-W>=
+nnoremap <Plug>(window_s1) <C-W>s
+nnoremap <Plug>(window_s2) <C-W>s
+nnoremap <Plug>(window_v1) <C-W>v
+nnoremap <Plug>(window_v2) <C-W>v
+nnoremap <Plug>(window_2) <C-W>v
+
 let g:spacevim#plug#leaderGuide#lmap['w'] = {
       \ 'name' : '+windows',
+      \ 'w' : ['call feedkeys("\<Plug>(window_w)")', 'other-window'],
+      \ 'd' : ['call feedkeys("\<Plug>(window_d)")', 'delete-window'],
+      \ '-' : ['call feedkeys("\<Plug>(window_s1)")', 'split-window-below'],
+      \ '|' : ['call feedkeys("\<Plug>(window_v1)")', 'split-window-right'],
+      \ '2' : ['call feedkeys("\<Plug>(window_v1)")', 'layout-double-columns'],
+      \ 'h' : ['call feedkeys("\<Plug>(window_h)")', 'window-left'],
+      \ 'j' : ['call feedkeys("\<Plug>(window_j)")', 'window-below'],
+      \ 'l' : ['call feedkeys("\<Plug>(window_l)")', 'window-right'],
+      \ 'k' : ['call feedkeys("\<Plug>(window_k)")', 'window-up'],
+      \ '=' : ['call feedkeys("\<Plug>(window_b)")', 'balance-window'],
+      \ 's' : ['call feedkeys("\<Plug>(window_s1)")', 'split-window-below'],
+      \ 'v' : ['call feedkeys("\<Plug>(window_v1)")', 'split-window-below'],
+      \ '?' : ['Windows', 'fzf-window'],
       \ }
 let g:spacevim#plug#leaderGuide#lmap['x'] = {
       \ 'name' : '+text',
