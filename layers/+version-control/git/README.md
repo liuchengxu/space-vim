@@ -11,6 +11,14 @@
 
 ## Description
 
+This layer adds support for git.
+
 ## Install
 
+To use this configuration layer, add it to your `~/.spacevim`.
+
 ## Key Bindings
+
+## Related Projects
+
+- [gitv](https://github.com/gregsexton/gitv)

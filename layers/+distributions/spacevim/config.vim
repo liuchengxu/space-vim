@@ -25,18 +25,10 @@ augroup spacevimBasic
   " http://vim.wikia.com/wiki/Speed_up_Syntax_Highlighting
   autocmd BufEnter * :syntax sync maxlines=200
 
-  autocmd BufEnter * call MyLastWindow()
-  function! MyLastWindow()
-    " if the window is quickfix/locationlist
-    let l:bt_blacklist = ['quickfix', 'locationlist']
-    let l:ft_blocklist = ['quickmenu']
-    if index(l:bt_blacklist, &buftype) >= 0 || index(l:ft_blocklist, &ft) >= 0
-      " if this window is last on screen quit without warning
-      if winbufnr(2) == -1
-        quit!
-      endif
-    endif
-  endfunction
+  " Close vim if the last edit buffer is closed, i.e., close NERDTree,
+  " undotree, quickfix etc automatically.
+  autocmd BufEnter * if 0 == len(filter(range(1, winnr('$')), 'empty(getbufvar(winbufnr(v:val), "&bt"))')) | qa! | endif
+
   " http://stackoverflow.com/questions/5933568/disable-blinking-at-the-first-last-line-of-the-file
   autocmd GUIEnter * set t_vb=
 

@@ -28,4 +28,4 @@ Key Binding    | Mode           | Description
 
 ## Related Projects
 
-- https://github.com/bbchung/clighter8
+- [clighter8](https://github.com/bbchung/clighter8)

@@ -1,5 +1,9 @@
 scriptencoding utf-8
 
+let g:spacevim#plug#nerdtree#ignore = [
+              \ '\.py[cd]$', '\~$', '\.swo$', '\.swp$', '\.DS_Store$',
+              \ '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$',
+              \ ]
 let g:spacevim#plug#nerdtree#IndicatorMapCustom = {
             \ 'Modified'  : '✹',
             \ 'Staged'    : '✚',
