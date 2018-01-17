@@ -5,8 +5,7 @@ scriptencoding utf-8
   let g:NERDTreeAutoDeleteBuffer=1
   " ❯
   let g:NERDTreeDirArrowExpandable = "\u276f"
-  " ▽
-  let g:NERDTreeDirArrowCollapsible = "\u25bd"
+  let g:NERDTreeDirArrowCollapsible = "~"
   let g:NERDTreeIgnore = g:spacevim#plug#nerdtree#ignore
 
   nnoremap <F4> :NERDTreeToggle<CR>
