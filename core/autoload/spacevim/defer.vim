@@ -17,8 +17,11 @@ endfunction
 function! spacevim#defer#defaults(timer) abort
   call plug#load('vim-signature')
   call plug#load('vim-rsi')
-  call plug#load('vim-choosewin')
   call plug#load('vim_current_word')
+
+  if has('patch-8.0.1206') || has('nvim-0.2.3')
+    call plug#load('traces.vim')
+  endif
 endfunction
 
 function! spacevim#defer#programming(timer) abort

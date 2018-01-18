@@ -67,7 +67,8 @@ let g:spacevim#plug#leaderGuide#lmap['j'] = {
 let g:spacevim#plug#leaderGuide#lmap['p'] = {
       \ 'name' : '+projects',
       \ 'h' : ['ProjectMru --tiebreak=end', 'helm-projectile'],
-      \ 's' : ['call spacevim#plug#fzf#Project()', 'search-under-project'],
+      \ 'f' : ['call spacevim#plug#fzf#Project()', 'helm-projectile-find-file'],
+      \ 's' : ['Ag', 'helm-projectile-search-file'],
       \ }
 let g:spacevim#plug#leaderGuide#lmap['q'] = [ 'q', 'quit' ]
 let g:spacevim#plug#leaderGuide#lmap['Q'] = [ 'qa!', 'quit-without-saving' ]
@@ -117,6 +118,10 @@ let g:spacevim#plug#leaderGuide#lmap['w'] = {
       \ 'j' : ['call feedkeys("\<Plug>(window_j)")', 'window-below'],
       \ 'l' : ['call feedkeys("\<Plug>(window_l)")', 'window-right'],
       \ 'k' : ['call feedkeys("\<Plug>(window_k)")', 'window-up'],
+      \ 'H' : ['call feedkeys("\<Plug>(window_H)")', 'expand-window-left'],
+      \ 'J' : ['call feedkeys("\<Plug>(window_J)")', 'expand-window-below'],
+      \ 'L' : ['call feedkeys("\<Plug>(window_L)")', 'expand-window-right'],
+      \ 'K' : ['call feedkeys("\<Plug>(window_K)")', 'expand-window-up'],
       \ '=' : ['call feedkeys("\<Plug>(window_b)")', 'balance-window'],
       \ 's' : ['call feedkeys("\<Plug>(window_s1)")', 'split-window-below'],
       \ 'v' : ['call feedkeys("\<Plug>(window_v1)")', 'split-window-below'],

@@ -5,16 +5,16 @@
 if g:spacevim_timer
   MP 'kshenoy/vim-signature'        , { 'on': [] }
   MP 'tpope/vim-rsi'                , { 'on': [] }
-  MP 't9md/vim-choosewin'           , { 'on': [] }
+  MP 'xtal8/traces.vim'             , { 'on': [] }
   MP 'dominikduda/vim_current_word' , { 'on': [] }
   call timer_start(500, 'spacevim#defer#defaults')
 else
   MP 'tpope/vim-rsi'
-  MP 't9md/vim-choosewin'
   MP 'kshenoy/vim-signature'
   MP 'dominikduda/vim_current_word'
 endif
 
+MP 't9md/vim-choosewin', { 'on': '<Plug>(choosewin)' }
 MP 'mhinz/vim-startify', { 'on': 'Startify' }
 augroup spacevimStart
   autocmd!
