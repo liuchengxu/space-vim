@@ -11,9 +11,6 @@ else
   let $LANG = 'en_US'
   " Customize fzf colors to match your color scheme
   let g:fzf_colors = g:spacevim#plug#fzf#colors
-  autocmd! FileType fzf
-  autocmd  FileType fzf set laststatus=0 noshowmode noruler
-    \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
   nmap <Leader>? <plug>(fzf-maps-n)
   xmap <Leader>? <plug>(fzf-maps-x)
   omap <Leader>? <plug>(fzf-maps-o)
@@ -26,9 +23,5 @@ else
   nnoremap <Leader>f? :Files<CR>
 
   nnoremap <Leader>ff :Files ~<CR>
-  " }
-
-  " fzf-filemru {
-  nnoremap <Leader>pr :ProjectMru --tiebreak=end<cr>
   " }
 endif

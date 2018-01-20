@@ -66,9 +66,8 @@ let g:spacevim#plug#leaderGuide#lmap['j'] = {
       \ }
 let g:spacevim#plug#leaderGuide#lmap['p'] = {
       \ 'name' : '+projects',
-      \ 'h' : ['ProjectMru --tiebreak=end', 'helm-projectile'],
-      \ 'f' : ['call spacevim#plug#fzf#Project()', 'helm-projectile-find-file'],
-      \ 's' : ['Ag', 'helm-projectile-search-file'],
+      \ 'f' : ['call spacevim#plug#fzf#Project()', 'find-file-in-project'],
+      \ 's' : ['Ag', 'search-in-project'],
       \ }
 let g:spacevim#plug#leaderGuide#lmap['q'] = [ 'q', 'quit' ]
 let g:spacevim#plug#leaderGuide#lmap['Q'] = [ 'qa!', 'quit-without-saving' ]
