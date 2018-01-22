@@ -61,3 +61,7 @@ function! spacevim#defer#python(timer) abort
   call plug#load('python-mode')
   call plug#load('SimpylFold')
 endfunction
+
+function! spacevim#defer#ycm(timer) abort
+  call plug#load('YouCompleteMe')
+endfunction

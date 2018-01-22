@@ -13,37 +13,15 @@ scriptencoding utf-8
   let g:ycm_autoclose_preview_window_after_completion = 1
   let g:ycm_collect_identifiers_from_comments_and_strings=0
   let g:ycm_global_ycm_extra_conf = fnamemodify(expand('<sfile>'), ':h') . '/global_conf.py'
-  let g:ycm_semantic_triggers =  {
-              \ 'c' : ['->', '.'],
-              \ 'objc' : ['->', '.'],
-              \ 'ocaml' : ['.', '#'],
-              \ 'cpp,objcpp' : ['->', '.', '::'],
-              \ 'perl' : ['->'],
-              \ 'php' : ['->', '::', '(', 'use ', 'namespace ', '\'],
-              \ 'cs,java,typescript,d,python,perl6,scala,vb,elixir,go' : ['.', 're!(?=[a-zA-Z]{3,4})'],
-              \ 'html': ['<', '"', '</', ' '],
-              \ 'vim' : ['re![_a-za-z]+[_\w]*\.'],
-              \ 'ruby' : ['.', '::'],
-              \ 'lua' : ['.', ':'],
-              \ 'erlang' : [':'],
-              \ 'haskell' : ['.', 're!.'],
-              \ 'scss,css': [ 're!^\s{2,4}', 're!:\s+' ],
-              \ }
-  let g:ycm_filetype_blacklist={
-              \ 'tagbar' : 1,
-              \ 'nerdtree' : 1,
-              \ 'markdown' : 1,
-              \ 'unite' : 1,
-              \ 'text' : 1,
-              \ 'csv' : 1,
-              \}
+  set completeopt=menu,menuone
+  let g:ycm_add_preview_to_completeopt = 0
+  let g:ycm_semantic_triggers = g:spacevim#plug#youcompleteme#triggers
+  let g:ycm_filetype_blacklist = g:spacevim#plug#youcompleteme#blacklist
+  let g:ycm_show_diagnostics_ui = g:spacevim#plug#youcompleteme#disgnostics
   " let g:ycm_key_invoke_completion='<M-;>'
 
-
   augroup spacevimYcm
-
     autocmd!
-
     " Enable omni completion.
     autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
     autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
