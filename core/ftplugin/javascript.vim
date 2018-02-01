@@ -1,4 +1,4 @@
-if exists('b:did_spacevim_js_ftplugin')
+if exists('b:did_spacevim_js_ftplugin') || !spacevim#LayerLoaded('javascript')
   finish
 endif
 let b:did_spacevim_js_ftplugin = 1

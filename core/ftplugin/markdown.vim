@@ -1,4 +1,4 @@
-if exists('b:did_spacevim_md_ftplugin')
+if exists('b:did_spacevim_md_ftplugin') || !spacevim#LayerLoaded('markdown')
   finish
 endif
 let b:did_spacevim_md_ftplugin = 1

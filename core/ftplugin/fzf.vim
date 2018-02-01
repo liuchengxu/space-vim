@@ -1,3 +1,6 @@
+if !spacevim#LayerLoaded('fzf')
+  finish
+endif
 setl laststatus=0 noshowmode noruler
 augroup spacevimFZF
   autocmd!

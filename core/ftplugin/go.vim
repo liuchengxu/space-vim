@@ -1,4 +1,4 @@
-if exists('b:did_spacevim_go_ftplugin')
+if exists('b:did_spacevim_go_ftplugin') || !spacevim#LayerLoaded('go')
   finish
 endif
 let b:did_spacevim_go_ftplugin = 1

@@ -1,3 +1,6 @@
+if !spacevim#LayerLoaded('which-key')
+  finish
+endif
 setlocal laststatus=0 noshowmode noruler
 augroup spacevimLeaderGuide
   autocmd!
