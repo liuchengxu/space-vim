@@ -23,8 +23,6 @@ MP 'junegunn/rainbow_parentheses.vim', { 'for': ['lisp', 'clojure', 'scheme'] }
 " Need to disable airline extension for tagbar, see vim-airline issue 1313.
 MP 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 
-MP 'Chiel92/vim-autoformat',          { 'on': 'Autoformat' }
-
 MP 'Yggdroot/indentLine',             { 'on': 'IndentLinesToggle' }
 MP 'nathanaelkane/vim-indent-guides', { 'on': 'IndentGuidesToggle' }
 

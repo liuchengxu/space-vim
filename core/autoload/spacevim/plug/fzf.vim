@@ -339,10 +339,10 @@ function! spacevim#plug#fzf#FindFileInProject()
 endfunction
 
 " ------------------------------------------------------------------
-" FZF search
+" Rag utilizes ag in the root directory of project
 " ------------------------------------------------------------------
 command! -nargs=* Rag
-  \ call fzf#vim#ag(<q-args>, extend({'dir':FindRootDirectory()}, g:fzf_layout))
+  \ call fzf#vim#ag(<q-args>, extend({'dir':FindRootDirectory(), 'options': '--prompt="Search in Project:"'}, g:fzf_layout))
 function! spacevim#plug#fzf#SearchInProject()
   exe ':Rag'
 endfunction

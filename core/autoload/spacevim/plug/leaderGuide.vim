@@ -66,7 +66,7 @@ let g:spacevim#plug#leaderGuide#lmap['j'] = {
       \ }
 let g:spacevim#plug#leaderGuide#lmap['p'] = {
       \ 'name' : '+projects',
-      \ 'f' : ['call spacevim#plug#fzf#Project()', 'find-file-in-project'],
+      \ 'f' : ['call spacevim#plug#fzf#FindFileInProject()', 'find-file-in-project'],
       \ 's' : ['Rag', 'search-in-project'],
       \ }
 let g:spacevim#plug#leaderGuide#lmap['q'] = [ 'q', 'quit' ]
