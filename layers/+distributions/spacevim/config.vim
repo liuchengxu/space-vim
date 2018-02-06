@@ -27,7 +27,22 @@ augroup spacevimBasic
 
   " Close vim if the last edit buffer is closed, i.e., close NERDTree,
   " undotree, quickfix etc automatically.
-  autocmd BufEnter * if 0 == len(filter(range(1, winnr('$')), 'empty(getbufvar(winbufnr(v:val), "&bt"))')) | qa! | endif
+  " autocmd BufEnter * if 0 == len(filter(range(1, winnr('$')), 'empty(getbufvar(winbufnr(v:val), "&bt"))')) | qa! | endif
+  " Bug here. See #269.
+  " =====================================
+  autocmd BufEnter * call MyLastWindow()
+  function! MyLastWindow()
+    " if the window is quickfix/locationlist
+    let l:bt_blacklist = ['quickfix', 'locationlist']
+    let l:ft_blocklist = ['quickmenu']
+    if index(l:bt_blacklist, &buftype) >= 0 || index(l:ft_blocklist, &filetype) >= 0
+      " if this window is last on screen quit without warning
+      if winnr('$') == 1
+        quit!
+      endif
+    endif
+    if (winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree()) | q! | endif
+  endfunction
 
   " http://stackoverflow.com/questions/5933568/disable-blinking-at-the-first-last-line-of-the-file
   autocmd GUIEnter * set t_vb=
