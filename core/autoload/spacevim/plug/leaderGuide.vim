@@ -28,6 +28,8 @@ let g:spacevim#plug#leaderGuide#lmap['b'] = {
       \ 'l' : ['blast', 'last-buffer'],
       \ 'n' : ['bnext', 'next-buffer'],
       \ 'p' : ['bprevious', 'previous-buffer'],
+      \ 'b' : ['Buffers', 'fzf-buffer'],
+      \ '?' : ['Buffers', 'fzf-buffer'],
       \ }
 let g:spacevim#plug#leaderGuide#lmap['c'] = {
       \ 'name' : '+comment',
@@ -61,8 +63,10 @@ let g:spacevim#plug#leaderGuide#lmap['j'] = {
       \ 'name' : '+jump',
       \ 'j' : ['call feedkeys("\<Plug>(easymotion-overwin-f)")', 'easymotion-goto-char'],
       \ 'J' : ['call feedkeys("\<Plug>(easymotion-overwin-f2)")', 'easymotion-goto-char-2'],
-      \ 'l' : ['call feedkeys("\<Plug>(easymotion-overwin-line)")', 'easymotion-goto-line'],
-      \ 'w' : ['call feedkeys("\<Plug>(easymotion-overwin-w)")', 'easymotion-goto-word'],
+      \ 'l' : ['call feedkeys("\<Plug>(easymotion-overwin-line)")', 'jump-linewise'],
+      \ 'w' : ['call feedkeys("\<Plug>(easymotion-overwin-w)")', 'jump-to-word-bidirectional'],
+      \ 'f' : ['call feedkeys("\<Plug>(easymotion-prefix)w")', 'jump-forward-wordwise'],
+      \ 'b' : ['call feedkeys("\<Plug>(easymotion-prefix)b")', 'jump-backword-wordwise'],
       \ }
 let g:spacevim#plug#leaderGuide#lmap['p'] = {
       \ 'name' : '+projects',
@@ -128,4 +132,6 @@ let g:spacevim#plug#leaderGuide#lmap['w'] = {
       \ }
 let g:spacevim#plug#leaderGuide#lmap['x'] = {
       \ 'name' : '+text',
+      \ 'a' : ['call feedkeys("\<Plug>(EasyAlign)")', 'easy-align'],
+      \ 'd' : ['StripWhitespace', 'delete-trailing-whitespace'],
       \ }

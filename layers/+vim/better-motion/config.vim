@@ -21,6 +21,9 @@ nmap <Leader>jJ <Plug>(easymotion-overwin-f2)
 map <Leader>jl <Plug>(easymotion-bd-jk)
 nmap <Leader>jl <Plug>(easymotion-overwin-line)
 
-" Jump to word
+" Jump to word bidirectional
 map  <Leader>jw <Plug>(easymotion-bd-w)
 nmap <Leader>jw <Plug>(easymotion-overwin-w)
+
+map <Leader>jf  <Plug>(easymotion-prefix)w
+map <Leader>jb  <Plug>(easymotion-prefix)F

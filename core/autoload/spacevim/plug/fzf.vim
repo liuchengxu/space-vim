@@ -190,13 +190,6 @@ function! s:align_lists(lists)
   return a:lists
 endfunction
 
-function! s:warn(message)
-  echohl WarningMsg
-  echom a:message
-  echohl None
-  return 0
-endfunction
-
 " ------------------------------------------------------------------
 " Configuration Files
 " ------------------------------------------------------------------
@@ -311,11 +304,12 @@ function! spacevim#plug#fzf#FZFCmd()
   \ 'source':  extend(list[0:0], map(list[1:], 's:format_cmd(v:val)')),
   \ 'sink*':   s:function('s:command_sink'),
   \ 'options': '--ansi --expect '.get(g:, 'fzf_commands_expect', 'ctrl-x').
-  \            ' --tiebreak=index --header-lines 1 -x --prompt "FZF> " -n2,3,2..3 -d'.s:nbs}, a:000)
+  \            ' --tiebreak=index --header-lines 1 -x --prompt "FZF Cmd> " -n2,3,2..3 -d'.s:nbs},
+  \ a:000)
 endfunction
 
 " ------------------------------------------------------------------
-" Spacevim functions
+" spacevim related functions
 " ------------------------------------------------------------------
 function! spacevim#plug#fzf#Func()
   redir => fout
@@ -326,7 +320,7 @@ function! spacevim#plug#fzf#Func()
   return s:fzf('functions', {
         \ 'source': l:list,
         \ 'sink': 'call',
-        \ 'options': '+m --prompt="Spacevim Func> "',
+        \ 'options': '+m --prompt="Func> "',
         \ 'window': len(l:list)+2.'new'},
         \ a:000)
 endfunction
@@ -342,7 +336,7 @@ endfunction
 " Rag utilizes ag in the root directory of project
 " ------------------------------------------------------------------
 command! -nargs=* Rag
-  \ call fzf#vim#ag(<q-args>, extend({'dir':FindRootDirectory(), 'options': '--prompt="Search in Project:"'}, g:fzf_layout))
+  \ call fzf#vim#ag(<q-args>, extend({'dir':FindRootDirectory(), 'options': '--prompt="'.FindRootDirectory().'> "'}, g:fzf_layout))
 function! spacevim#plug#fzf#SearchInProject()
   exe ':Rag'
 endfunction
