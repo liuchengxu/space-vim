@@ -3,6 +3,15 @@ CHANGELOG
 
 ## [unreleased]
 
+### Added
+
+- `core/autoload/spacevim/plug/youcompleteme.vim`: keep the config.vim of `ycmd` layer as concise as possible.
+- defer loading `YouCompleteMe` via `timer` if possible.
+
+### Changed
+
+- If the related layers are not enabled, finish loading the files under `core/ftplugin`.
+
 ## [0.7.0] - 2018.01.11
 
 ### Changed
