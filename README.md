@@ -1,7 +1,7 @@
 <p align="left">
-<a href="https://github.com/liuchengxu/space-vim"><img src="https://rawgit.com/liuchengxu/space-vim/master/assets/space-vim-badge.svg" alt="badge"></a>
+<a href="https://github.com/liuchengxu/space-vim"> <img src="https://rawgit.com/liuchengxu/space-vim/master/assets/space-vim-badge.svg" alt="badge"></a>
 <a href="https://github.com/liuchengxu/space-vim/blob/master/LICENSE"><img src="https://rawgit.com/liuchengxu/space-vim/master/assets/license.svg" alt="license"></a>
-<a href="https://travis-ci.org/liuchengxu/space-vim"><img src="https://travis-ci.org/liuchengxu/space-vim.svg" alt="Build Status"></a>
+<a href="https://travis-ci.org/liuchengxu/space-vim"><img src="https://travis-ci.org/liuchengxu/space-vim.svg" alt="Build Status"></a> <a href="#backers" alt="sponsors on Open Collective"><img src="https://opencollective.com/space-vim/backers/badge.svg" /></a> <a href="#sponsors" alt="Sponsors on Open Collective"><img src="https://opencollective.com/space-vim/sponsors/badge.svg" /></a>
 </p>
 
 --------------------
@@ -307,3 +307,33 @@ I would like to thank the many people who have helped and contributed to this pr
 - [A Vim Configuration for Spacemacs User](http://www.liuchengxu.org/posts/space-vim/)
 - [用 Vim 写 Python 的最佳实践](https://www.v2ex.com/t/337102#reply61)
 - [手工制作一个漂亮的 vim statusline ](https://segmentfault.com/a/1190000007939244)
+
+## Contributors
+
+This project exists thanks to all the people who contribute. [[Contribute](CONTRIBUTING.md)].
+<a href="graphs/contributors"><img src="https://opencollective.com/space-vim/contributors.svg?width=890&button=false" /></a>
+
+
+## Backers
+
+Thank you to all our backers! 🙏 [[Become a backer](https://opencollective.com/space-vim#backer)]
+
+<a href="https://opencollective.com/space-vim#backers" target="_blank"><img src="https://opencollective.com/space-vim/backers.svg?width=890"></a>
+
+
+## Sponsors
+
+Support this project by becoming a sponsor. Your logo will show up here with a link to your website. [[Become a sponsor](https://opencollective.com/space-vim#sponsor)]
+
+<a href="https://opencollective.com/space-vim/sponsor/0/website" target="_blank"><img src="https://opencollective.com/space-vim/sponsor/0/avatar.svg"></a>
+<a href="https://opencollective.com/space-vim/sponsor/1/website" target="_blank"><img src="https://opencollective.com/space-vim/sponsor/1/avatar.svg"></a>
+<a href="https://opencollective.com/space-vim/sponsor/2/website" target="_blank"><img src="https://opencollective.com/space-vim/sponsor/2/avatar.svg"></a>
+<a href="https://opencollective.com/space-vim/sponsor/3/website" target="_blank"><img src="https://opencollective.com/space-vim/sponsor/3/avatar.svg"></a>
+<a href="https://opencollective.com/space-vim/sponsor/4/website" target="_blank"><img src="https://opencollective.com/space-vim/sponsor/4/avatar.svg"></a>
+<a href="https://opencollective.com/space-vim/sponsor/5/website" target="_blank"><img src="https://opencollective.com/space-vim/sponsor/5/avatar.svg"></a>
+<a href="https://opencollective.com/space-vim/sponsor/6/website" target="_blank"><img src="https://opencollective.com/space-vim/sponsor/6/avatar.svg"></a>
+<a href="https://opencollective.com/space-vim/sponsor/7/website" target="_blank"><img src="https://opencollective.com/space-vim/sponsor/7/avatar.svg"></a>
+<a href="https://opencollective.com/space-vim/sponsor/8/website" target="_blank"><img src="https://opencollective.com/space-vim/sponsor/8/avatar.svg"></a>
+<a href="https://opencollective.com/space-vim/sponsor/9/website" target="_blank"><img src="https://opencollective.com/space-vim/sponsor/9/avatar.svg"></a>
+
+
