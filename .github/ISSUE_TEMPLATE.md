@@ -27,3 +27,6 @@
 <!-- Describe your problem or suggestion. -->
 
 <!-- Screenshots if neccessary. -->
+
+<!-- Love space-vim? Please consider supporting our collective:
+👉  https://opencollective.com/space-vim/donate -->
