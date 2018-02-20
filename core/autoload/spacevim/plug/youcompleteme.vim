@@ -1,4 +1,5 @@
 let g:spacevim#plug#youcompleteme#disgnostics = spacevim#LayerLoaded('syntax-checking') ? 0 : 1
+
 " https://github.com/Valloric/YouCompleteMe/issues/2875#issuecomment-358193287
 " automatically trigger semantic completion after typing 2 character in files
 let g:spacevim#plug#youcompleteme#triggers = {
@@ -25,8 +26,16 @@ function! spacevim#plug#youcompleteme#build(info)
 endfunction
 
 " Load YCM for specific filetypes
+" https://github.com/Valloric/YouCompleteMe#intro
 function! spacevim#plug#youcompleteme#invoke(timer) abort
-  let l:supported = ['c', 'cpp', 'python', 'vim', 'javascript', 'go', 'sh', 'rust', 'ruby']
+  let l:supported = [
+        \ 'c', 'cpp',
+        \ 'python',
+        \ 'javascript', 'javascript.jsx',
+        \ 'go',
+        \ 'rust',
+        \ 'ruby', 'vim', 'sh',
+        \ ]
   let l:cur_ft = &filetype
   if index(l:supported, l:cur_ft) > -1
     call plug#load('YouCompleteMe')
