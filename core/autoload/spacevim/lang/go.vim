@@ -1,4 +1,38 @@
-" go
+function s:ctagsbin()
+  if !exists('#go#pathCheckBinPath')
+    call plug#load('vim-go')
+  endif
+  return go#path#CheckBinPath(get(g:, 'go_gotags_bin', 'gotags'))
+endfunction
+
+let g:spacevim#lang#go#tagbar_type = {
+      \ 'ctagstype' : 'go',
+      \ 'kinds'     : [
+      \ 'p:package',
+      \ 'i:imports',
+      \ 'c:constants',
+      \ 'v:variables',
+      \ 't:types',
+      \ 'n:interfaces',
+      \ 'w:fields',
+      \ 'e:embedded',
+      \ 'm:methods',
+      \ 'r:constructor',
+      \ 'f:functions'
+      \ ],
+      \ 'sro' : '.',
+      \ 'kind2scope' : {
+      \ 't' : 'ctype',
+      \ 'n' : 'ntype'
+      \ },
+      \ 'scope2kind' : {
+      \ 'ctype' : 't',
+      \ 'ntype' : 'n'
+      \ },
+      \ 'ctagsbin'  : s:ctagsbin(),
+      \ 'ctagsargs' : '-sort -silent'
+      \ }
+
 " run :GoBuild or :GoTestCompile based on the go file, refer to
 " vim-go-tutorial
 function! spacevim#lang#go#BuildGoFiles()

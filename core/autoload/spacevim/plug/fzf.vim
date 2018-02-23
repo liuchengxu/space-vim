@@ -340,3 +340,17 @@ command! -nargs=* Rag
 function! spacevim#plug#fzf#SearchInProject()
   exe ':Rag'
 endfunction
+
+" ------------------------------------------------------------------
+" Search word under cursor with ag
+" ------------------------------------------------------------------
+function! spacevim#plug#fzf#SearchCword()
+  call fzf#vim#ag(
+        \ expand('<cword>'),
+        \ {
+        \ 'sink': 'edit',
+        \ 'options': '--ansi --delimiter : --nth 4..,.. --prompt "Ag?> " '.
+        \            '--color hl:68,hl+:110 --multi '.
+        \            '--bind=ctrl-d:page-down,ctrl-u:page-up ',
+        \ })
+endfunction
