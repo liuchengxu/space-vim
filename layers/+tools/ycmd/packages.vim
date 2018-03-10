@@ -5,9 +5,8 @@ MP 'Valloric/YouCompleteMe', { 'do': function('spacevim#plug#youcompleteme#build
 
 if g:spacevim_timer
   call timer_start(1000, 'spacevim#plug#youcompleteme#invoke')
-else
-  augroup loadYcm
-    autocmd!
-    autocmd InsertEnter * call spacevim#plug#youcompleteme#invoke() | autocmd! loadYcm
-  augroup END
 endif
+augroup loadYcm
+  autocmd!
+  autocmd InsertEnter * call spacevim#plug#youcompleteme#invoke('') | autocmd! loadYcm
+augroup END

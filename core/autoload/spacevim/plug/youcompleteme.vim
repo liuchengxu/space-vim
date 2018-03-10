@@ -27,7 +27,7 @@ endfunction
 
 " Load YCM for specific filetypes
 " https://github.com/Valloric/YouCompleteMe#intro
-function! spacevim#plug#youcompleteme#invoke(timer) abort
+function! s:load_ycm()
   let l:supported = [
         \ 'c', 'cpp',
         \ 'python',
@@ -39,5 +39,11 @@ function! spacevim#plug#youcompleteme#invoke(timer) abort
   let l:cur_ft = &filetype
   if index(l:supported, l:cur_ft) > -1
     call plug#load('YouCompleteMe')
+  endif
+endfunction
+
+function! spacevim#plug#youcompleteme#invoke(timer) abort
+  if !exists('g:loaded_youcompleteme')
+    call s:load_ycm()
   endif
 endfunction
