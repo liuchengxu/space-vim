@@ -90,3 +90,7 @@ Key Binding          | Mode   | Description
 <kbd>SPC x d</kbd>   | Normal | delete trailing whitespace, 去掉行尾多余空格 (te**x**t **d**elete)
 <kbd>SPC f R</kbd>   | Normal | reload .vimrc, 重新加载 .vimrc (**f**ile **R**esource)
 <kbd>SPC b h</kbd>   | Normal | **b**uffer **h**ome, 主 buffer
+
+## Related Projects
+
+- [vim-easyclip](https://github.com/svermeulen/vim-easyclip)

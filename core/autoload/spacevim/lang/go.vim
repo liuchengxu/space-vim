@@ -1,5 +1,5 @@
 function s:ctagsbin()
-  if !exists('#go#pathCheckBinPath')
+  if !exists('*go#path#CheckBinPath')
     call plug#load('vim-go')
   endif
   return go#path#CheckBinPath(get(g:, 'go_gotags_bin', 'gotags'))
