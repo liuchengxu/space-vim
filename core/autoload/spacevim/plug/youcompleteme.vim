@@ -44,6 +44,12 @@ endfunction
 
 function! spacevim#plug#youcompleteme#invoke(timer) abort
   if !exists('g:loaded_youcompleteme')
+    call plug#load('YouCompleteMe')
+  endif
+endfunction
+
+function! spacevim#plug#youcompleteme#load() abort
+  if !exists('g:loaded_youcompleteme')
     call s:load_ycm()
   endif
 endfunction
