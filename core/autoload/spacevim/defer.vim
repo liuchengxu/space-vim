@@ -13,7 +13,7 @@ endfunction
 " 300
 function! spacevim#defer#gitgutter(timer) abort
   call plug#load('vim-gitgutter')
-  GitGutterEnable
+  silent! GitGutterEnable
 endfunction
 
 " 400

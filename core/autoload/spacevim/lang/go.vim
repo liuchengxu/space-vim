@@ -1,8 +1,10 @@
 function s:ctagsbin()
-  if !exists('*go#path#CheckBinPath')
-    call plug#load('vim-go')
+  if spacevim#LayerLoaded('go')
+    if !exists('*go#path#CheckBinPath')
+      call plug#load('vim-go')
+    endif
+    return go#path#CheckBinPath(get(g:, 'go_gotags_bin', 'gotags'))
   endif
-  return go#path#CheckBinPath(get(g:, 'go_gotags_bin', 'gotags'))
 endfunction
 
 let g:spacevim#lang#go#tagbar_type = {
