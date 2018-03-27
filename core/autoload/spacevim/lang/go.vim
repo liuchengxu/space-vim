@@ -3,7 +3,11 @@ function s:ctagsbin()
     if !exists('*go#path#CheckBinPath')
       call plug#load('vim-go')
     endif
-    return go#path#CheckBinPath(get(g:, 'go_gotags_bin', 'gotags'))
+    if exists('*go#path#CheckBinPath')
+      return go#path#CheckBinPath(get(g:, 'go_gotags_bin', 'gotags'))
+    else
+      return 'gotags'
+    endif
   endif
 endfunction
 
