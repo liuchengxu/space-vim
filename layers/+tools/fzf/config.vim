@@ -15,7 +15,7 @@ else
   xmap <Leader>? <plug>(fzf-maps-x)
   omap <Leader>? <plug>(fzf-maps-o)
 
-  nnoremap <Leader>ag :Ag<CR>
+  nnoremap <Leader>ag :Ag!<CR>
   nnoremap <Leader>bb :Buffers<CR>
 
   nnoremap <Leader>b? :Buffers<CR>
@@ -23,5 +23,7 @@ else
   nnoremap <Leader>f? :Files<CR>
 
   nnoremap <Leader>ff :Files ~<CR>
+  nnoremap <silent> <Leader>sf :call spacevim#plug#fzf#Session()<CR>
+  nnoremap <leader>rg :Rg!<cr>
   " }
 endif
