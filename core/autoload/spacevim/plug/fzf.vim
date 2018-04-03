@@ -208,7 +208,7 @@ command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 " }
 
-function! s:spacevim#plug#fzf#Session()
+function! spacevim#plug#fzf#Session()
   call fzf#run({
   \ 'source':  'ls -1 ~/.vim/session',
   \ 'sink':    'SLoad',
