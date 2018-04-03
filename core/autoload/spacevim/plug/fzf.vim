@@ -190,6 +190,34 @@ function! s:align_lists(lists)
   return a:lists
 endfunction
 
+autocmd VimEnter * command! -bang -nargs=* Ag
+            \ call fzf#vim#ag(<q-args>,
+            \                 <bang>0 ? fzf#vim#with_preview('up:80%')
+            \                         : fzf#vim#with_preview('right:80%:hidden', '?'),
+            \                 <bang>0)
+
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:70%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
+
+" Likewise, Files command with preview window
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+" }
+
+function! s:spacevim#plug#fzf#Session()
+  call fzf#run({
+  \ 'source':  'ls -1 ~/.vim/session',
+  \ 'sink':    'SLoad',
+  \ 'options': '+m --prompt="Sessions> "',
+  \ 'down':    '40%'
+  \})
+endfunction
+
+
 " ------------------------------------------------------------------
 " Configuration Files
 " ------------------------------------------------------------------
