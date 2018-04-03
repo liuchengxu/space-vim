@@ -190,7 +190,7 @@ function! s:align_lists(lists)
   return a:lists
 endfunction
 
-autocmd VimEnter * command! -bang -nargs=* Ag
+command! -bang -nargs=* Ag
             \ call fzf#vim#ag(<q-args>,
             \                 <bang>0 ? fzf#vim#with_preview('up:80%')
             \                         : fzf#vim#with_preview('right:80%:hidden', '?'),
