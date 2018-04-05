@@ -14,7 +14,7 @@ if g:spacevim_tmux
   "let g:tmuxify_map_prefix = '<leader>u'
 endif
 
-" fix Ctrl arrow  tmux and vim
+" fix Ctrl arrow  in tmux 
 " https://stackoverflow.com/questions/15445481/mapping-arrow-keys-when-running-tmux?lq=1
 if &term =~ '^screen'
     " tmux will send xterm-style keys when its xterm-keys option is on
