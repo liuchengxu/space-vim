@@ -13,3 +13,17 @@ if g:spacevim_tmux
   endif
   "let g:tmuxify_map_prefix = '<leader>u'
 endif
+
+" fix Ctrl arrow  in tmux 
+" https://stackoverflow.com/questions/15445481/mapping-arrow-keys-when-running-tmux?lq=1
+if &term =~ '^screen'
+    " tmux will send xterm-style keys when its xterm-keys option is on
+    execute "set <xUp>=\e[1;*A"
+    execute "set <xDown>=\e[1;*B"
+    execute "set <xRight>=\e[1;*C"
+    execute "set <xLeft>=\e[1;*D"
+    execute "set <xHome>=\e[1;*H"
+    execute "set <xEnd>=\e[1;*F"
+endif
+
+
