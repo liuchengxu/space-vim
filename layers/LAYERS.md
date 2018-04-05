@@ -1,6 +1,10 @@
 Layer Manifest
 ==============
 
+Last updated: 2018-04-05 15:47:24
+
+Default layers: `fzf`, `unite`, `better-defaults` and `which-key`.
+
 Topic                | Layer | Plugins
 :----:               | :----: | :----
 +vim                 | [text-align](https://github.com/liuchengxu/space-vim/tree/master/layers/+vim/text-align) | <ul><li>[godlygeek/tabular](https://github.com/godlygeek/tabular)</li><li>[junegunn/vim-easy-align](https://github.com/junegunn/vim-easy-align)</li></ul>
@@ -49,5 +53,3 @@ Topic                | Layer | Plugins
 +lang                | [graphviz](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/graphviz) | <ul><li>[wannesm/wmgraphviz.vim](https://github.com/wannesm/wmgraphviz.vim)</li></ul>
 +lang                | [javascript](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/javascript) | <ul><li>[pangloss/vim-javascript](https://github.com/pangloss/vim-javascript)</li><li>[mxw/vim-jsx](https://github.com/mxw/vim-jsx)</li><li>[neoclide/vim-jsx-improve](https://github.com/neoclide/vim-jsx-improve)</li></ul>
 +lang                | [ruby](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/ruby) | <ul><li>[vim-ruby/vim-ruby](https://github.com/vim-ruby/vim-ruby)</li></ul>
-
-Last updated: 2018-04-01 19:26:11
