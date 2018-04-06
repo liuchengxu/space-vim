@@ -27,11 +27,11 @@ set csto=0
 set cscopetag
 set cscopequickfix=s-,c-,d-,i-,t-,e-,a-
 
-nmap <leader>cs :call spacevim#vim#cscope#Find('symbol')<CR>
-nmap <leader>cg :call spacevim#vim#cscope#Find('global')<CR>
-nmap <leader>cc :call spacevim#vim#cscope#Find('calls')<CR>
-nmap <leader>ct :call spacevim#vim#cscope#Find('text')<CR>
-nmap <leader>ce :call spacevim#vim#cscope#Find('egrep')<CR>
-nmap <leader>cf :call spacevim#vim#cscope#Find('file')<CR>
-nmap <leader>ci :call spacevim#vim#cscope#Find('includes')<CR>
-nmap <leader>cd :call spacevim#vim#cscope#Find('called')<CR>
+nnoremap <leader>cs :call spacevim#vim#cscope#Find('symbol')<CR>
+nnoremap <leader>cg :call spacevim#vim#cscope#Find('global')<CR>
+nnoremap <leader>cc :call spacevim#vim#cscope#Find('calls')<CR>
+nnoremap <leader>ct :call spacevim#vim#cscope#Find('text')<CR>
+nnoremap <leader>ce :call spacevim#vim#cscope#Find('egrep')<CR>
+nnoremap <leader>cf :call spacevim#vim#cscope#Find('file')<CR>
+nnoremap <leader>ci :call spacevim#vim#cscope#Find('includes')<CR>
+nnoremap <leader>cd :call spacevim#vim#cscope#Find('called')<CR>
