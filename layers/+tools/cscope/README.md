@@ -35,3 +35,10 @@ Key Binding        | Mode   | Description
 ## Tips
 
 Use `:cc 2` (or any other number) to jump to, in this case, the second error in the quickfix window.
+
+Put these settings in `UserConfig()` to configure cscope automatically when editing related files.
+
+```vim
+autocmd BufNewFile,BufRead *.c,*.h,*.hpp,*.cpp call spacevim#vim#cscope#Setup()
+autocmd BufNewFile,BufWritePost *.c,*.h,*.hpp,*.cpp call spacevim#vim#cscope#UpdateDB()
+```
