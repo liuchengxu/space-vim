@@ -28,9 +28,17 @@ function! s:build(...)
   call s:add_db('')
 endfunction
 
+function! s:on_exit_cb(job_id, data, event) dict
+  call s:add_db('')
+endfunction
+
 function! s:build_async(cmd)
   let g:spacevim_cscope_cmd = a:cmd
-  let job = job_start(['bash', '-c', a:cmd], { 'close_cb': function('s:add_db') })
+  if g:spacevim_nvim
+    let job = jobstart(['bash', '-c', a:cmd], { 'on_exit': function('s:on_exit_cb') })
+  else
+    let job = job_start(['bash', '-c', a:cmd], { 'close_cb': function('s:add_db') })
+  endif
 endfunction
 
 function! spacevim#vim#cscope#Build(...)
@@ -43,7 +51,7 @@ function! spacevim#vim#cscope#Build(...)
   let cmd1 = cmd.' | grep -v /test/ > '.tmp
   let cmd2 = 'cscope -b -q -i'.tmp
   try
-    if exists('*job_start')
+    if exists('*job_start') || exists('*jobstart')
       call s:build_async(cmd1 . ' && ' . cmd2)
     else
       call s:build(cmd1, cmd2)
