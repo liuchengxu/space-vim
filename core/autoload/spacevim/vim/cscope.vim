@@ -1,11 +1,18 @@
-function! s:add_db()
+" Use s:add_db for both async callback and sync mode
+function! s:add_db(channel)
   " add any database in current directory
   let db = findfile('cscope.out', '.;')
   " :h cscope-suggestions
   set nocsverb
   if !empty(db)
-    silent cs reset
-    silent! execute 'cs add' db
+    " FIXME: when building cscope using job api at the first time, cscope.in.out won't be generated.
+    " Thus it raises errors when running `cs add`, use try-catch to rebuild cscope.
+    try
+      silent cs reset
+      silent! execute 'cs add' db
+    catch
+      call s:build_async(g:spacevim_cscope_cmd)
+    endtry
   " else add database pointed to by environment
   elseif !empty($CSCOPE_DB)
     silent cs reset
@@ -14,33 +21,36 @@ function! s:add_db()
   set csverb
 endfunction
 
-function! spacevim#vim#cscope#Build(timer, ...)
-  let git_dir = system('git rev-parse --git-dir')
-  let chdired = 0
-  if !v:shell_error
-    let chdired = 1
-    execute 'cd' substitute(fnamemodify(git_dir, ':p:h'), ' ', '\\ ', 'g')
-  endif
+function! s:build(...)
+  for cmd in a:000
+    call system(cmd)
+  endfor
+  call s:add_db('')
+endfunction
 
+function! s:build_async(cmd)
+  let g:spacevim_cscope_cmd = a:cmd
+  let job = job_start(['bash', '-c', a:cmd], { 'close_cb': function('s:add_db') })
+endfunction
+
+function! spacevim#vim#cscope#Build(...)
+  let root_dir = spacevim#util#RootDirectory()
   let exts = empty(a:000) ?
     \ ['java', 'c', 'h', 'cc', 'hh', 'cpp', 'hpp'] : a:000
 
-  let cmd = "find . " . join(map(exts, "\"-name '*.\" . v:val . \"'\""), ' -o ')
   let tmp = tempname()
+  let cmd = "find ".root_dir." " . join(map(exts, "\"-name '*.\" . v:val . \"'\""), ' -o ')
+  let cmd1 = cmd.' | grep -v /test/ > '.tmp
+  let cmd2 = 'cscope -b -q -i'.tmp
   try
-    call system(cmd.' | grep -v /test/ > '.tmp)
-    call system('cscope -b -q -i'.tmp)
-    call s:add_db()
+    if exists('*job_start')
+      call s:build_async(cmd1 . ' && ' . cmd2)
+    else
+      call s:build(cmd1, cmd2)
+    endif
   finally
     silent! call delete(tmp)
-    if chdired
-      cd -
-    endif
   endtry
-endfunction
-
-function! spacevim#vim#cscope#Setup()
-  call timer_start(100, 'spacevim#vim#cscope#Build')
 endfunction
 
 function! spacevim#vim#cscope#UpdateDB()

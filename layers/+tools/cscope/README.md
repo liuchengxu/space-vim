@@ -39,6 +39,6 @@ Use `:cc 2` (or any other number) to jump to, in this case, the second error in 
 Put these settings in `UserConfig()` to configure cscope automatically when editing related files.
 
 ```vim
-autocmd BufNewFile,BufRead *.c,*.h,*.hpp,*.cpp call spacevim#vim#cscope#Setup()
+autocmd BufNewFile,BufRead *.c,*.h,*.hpp,*.cpp call spacevim#vim#cscope#Build()
 autocmd BufNewFile,BufWritePost *.c,*.h,*.hpp,*.cpp call spacevim#vim#cscope#UpdateDB()
 ```
