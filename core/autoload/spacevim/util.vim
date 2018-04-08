@@ -106,3 +106,17 @@ function! spacevim#util#ToggleHiddleAll()
     setlocal showmode ruler showcmd laststatus=2 cmdheight=1
   endif
 endfunction
+
+function! spacevim#util#RootDirectory()
+  if exists('*FindRootDirectory')
+    let root_dir = FindRootDirectory()
+  else
+    let git_dir = system('git rev-parse --git-dir')
+    if !v:shell_error
+      let root_dir = substitute(fnamemodify(git_dir, ':p:h'), ' ', '\\ ', 'g')
+    else
+      let root_dir = ''
+    endif
+  endif
+  return root_dir == '' ? getcwd() : root_dir
+endfunction

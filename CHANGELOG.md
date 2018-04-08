@@ -7,6 +7,7 @@ CHANGELOG
 
 - `core/autoload/spacevim/plug/youcompleteme.vim`: keep the config.vim of `ycmd` layer as concise as possible.
 - defer loading `YouCompleteMe` via `timer` if possible.
+- cscope layer. Fix #130.
 
 ### Changed
 
