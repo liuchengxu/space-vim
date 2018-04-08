@@ -1,3 +1,5 @@
+let s:is_building = 0
+
 " Use s:add_db for both async callback and sync mode
 function! s:add_db(channel)
   " add any database in current directory
@@ -17,8 +19,12 @@ function! s:add_db(channel)
   elseif !empty($CSCOPE_DB)
     silent cs reset
     silent! execute 'cs add' $CSCOPE_DB
+  else
+    call s:build_async(g:spacevim_cscope_cmd)
   endif
   set csverb
+  let s:is_building = 0
+  echo "\r\r"
 endfunction
 
 function! s:build(...)
@@ -42,6 +48,7 @@ function! s:build_async(cmd)
 endfunction
 
 function! spacevim#vim#cscope#Build(...)
+  let s:is_building = 1
   let root_dir = spacevim#util#RootDirectory()
   let exts = empty(a:000) ?
     \ ['java', 'c', 'h', 'cc', 'hh', 'cpp', 'hpp'] : a:000
@@ -68,6 +75,10 @@ function! spacevim#vim#cscope#UpdateDB()
 endfunction
 
 function! spacevim#vim#cscope#Find(type)
+  if s:is_building
+    call spacevim#util#info('still building the cscope database, please wait for seconds...')
+    return
+  endif
   if a:type == 'symbol'
     :cs find s <cword>
   elseif a:type == 'global'
