@@ -27,7 +27,7 @@ function! s:add_db(channel)
   echo "\r\r"
 endfunction
 
-function! s:build(...)
+function! s:build_sync(...)
   for cmd in a:000
     call system(cmd)
   endfor
@@ -47,7 +47,7 @@ function! s:build_async(cmd)
   endif
 endfunction
 
-function! spacevim#vim#cscope#Build(...)
+function! s:build()
   let s:is_building = 1
   let root_dir = spacevim#util#RootDirectory()
   let exts = empty(a:000) ?
@@ -61,24 +61,24 @@ function! spacevim#vim#cscope#Build(...)
     if exists('*job_start') || exists('*jobstart')
       call s:build_async(cmd1 . ' && ' . cmd2)
     else
-      call s:build(cmd1, cmd2)
+      call s:build_sync(cmd1, cmd2)
     endif
   finally
     silent! call delete(tmp)
   endtry
 endfunction
 
+function! spacevim#vim#cscope#Build(...)
+  call s:build()
+endfunction
+
 function! spacevim#vim#cscope#UpdateDB()
   if filereadable('cscope.out')
-    call spacevim#vim#cscope#Build()
+    call s:build()
   endif
 endfunction
 
-function! spacevim#vim#cscope#Find(type)
-  if s:is_building
-    call spacevim#util#info('still building the cscope database, please wait for seconds...')
-    return
-  endif
+function! s:find(type)
   if a:type == 'symbol'
     :cs find s <cword>
   elseif a:type == 'global'
@@ -96,4 +96,12 @@ function! spacevim#vim#cscope#Find(type)
   elseif a:type == 'called'
     :cs find d <cword>
   endif
+endfunction
+
+function! spacevim#vim#cscope#Find(type)
+  if s:is_building
+    call spacevim#util#info('still building the cscope database, please wait for seconds...')
+    return
+  endif
+  call s:find(a:type)
 endfunction
