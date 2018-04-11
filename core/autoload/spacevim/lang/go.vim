@@ -1,5 +1,5 @@
 function s:ctagsbin()
-  if spacevim#LayerLoaded('go')
+  if spacevim#load('go')
     if !exists('*go#path#CheckBinPath')
       call plug#load('vim-go')
     endif

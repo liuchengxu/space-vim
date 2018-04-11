@@ -1,4 +1,4 @@
-if spacevim#LayerLoaded('tmux')
+if spacevim#load('tmux')
   MP 'ctrlpvim/ctrlp.vim'
   MP 'FelikZ/ctrlp-py-matcher'
 else

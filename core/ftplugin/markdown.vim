@@ -1,4 +1,4 @@
-if exists('b:did_spacevim_md_ftplugin') || !spacevim#LayerLoaded('markdown')
+if exists('b:did_spacevim_md_ftplugin') || !spacevim#load('markdown')
   finish
 endif
 let b:did_spacevim_md_ftplugin = 1
@@ -19,7 +19,7 @@ nnoremap <buffer> <LocalLeader>ct :silent GenTocGFM<cr>
 nnoremap <buffer> <LocalLeader>cs :Toc<cr>
 
 " Markdown headings
-if spacevim#LayerLoaded('text-align')
+if spacevim#load('text-align')
   " Makrdown table align
   nnoremap <buffer> <LocalLeader>ta :Tabularize /<Bar><CR>
 endif

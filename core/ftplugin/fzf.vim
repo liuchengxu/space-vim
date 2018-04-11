@@ -1,4 +1,4 @@
-if !spacevim#LayerLoaded('fzf')
+if !spacevim#load('fzf')
   finish
 endif
 setl laststatus=0 noshowmode noruler

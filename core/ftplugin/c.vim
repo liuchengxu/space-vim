@@ -1,4 +1,4 @@
-if exists('b:did_spacevim_c_ftplugin') || !spacevim#LayerLoaded('c-c++')
+if exists('b:did_spacevim_c_ftplugin') || !spacevim#load('c-c++')
   finish
 endif
 let b:did_spacevim_c_ftplugin = 1

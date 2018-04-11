@@ -247,6 +247,6 @@ function! s:post_user_config()
 endfunction
 
 " Util for config.vim and packages.vim
-function! spacevim#LayerLoaded(layer) abort
+function! spacevim#load(layer) abort
     return index(g:layers_loaded, a:layer) > -1 ? 1 : 0
 endfunction

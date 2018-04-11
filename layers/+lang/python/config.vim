@@ -9,7 +9,7 @@
   let g:pymode_options_colorcolumn = 1
   let g:pymode_breakpoint_bind = '<leader>br'
 
-  if spacevim#LayerLoaded('syntax-checking')
+  if spacevim#load('syntax-checking')
     let g:pymode_lint = 0
   endif
 " }
