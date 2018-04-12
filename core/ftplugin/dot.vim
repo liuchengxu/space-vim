@@ -1,4 +1,4 @@
-if exists('b:did_spacevim_dot_ftplugin') || !spacevim#LayerLoaded('graphviz')
+if exists('b:did_spacevim_dot_ftplugin') || !spacevim#load('graphviz')
   finish
 endif
 let b:did_spacevim_dot_ftplugin = 1

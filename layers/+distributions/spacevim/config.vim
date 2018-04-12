@@ -54,7 +54,7 @@ augroup spacevimBasic
     autocmd VimLeavePre * if g:screen_size_restore_pos == 1 | call spacevim#vim#gui#ScreenSave() | endif
   endif
 
-  if !spacevim#LayerLoaded('chinese')
+  if !spacevim#load('chinese')
     silent! set $LANG = 'en_US'
     silent! let langmenu=en_US
     source $VIMRUNTIME/delmenu.vim

@@ -1,4 +1,4 @@
-if !spacevim#LayerLoaded('which-key')
+if !spacevim#load('which-key')
   finish
 endif
 setlocal laststatus=0 noshowmode noruler

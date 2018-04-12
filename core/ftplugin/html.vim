@@ -1,4 +1,4 @@
-if exists('b:did_spacevim_html_ftplugin') || !spacevim#LayerLoaded('html')
+if exists('b:did_spacevim_html_ftplugin') || !spacevim#load('html')
   finish
 endif
 let b:did_spacevim_html_ftplugin = 1

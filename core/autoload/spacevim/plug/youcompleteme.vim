@@ -1,4 +1,4 @@
-let g:spacevim#plug#youcompleteme#disgnostics = spacevim#LayerLoaded('syntax-checking') ? 0 : 1
+let g:spacevim#plug#youcompleteme#disgnostics = spacevim#load('syntax-checking') ? 0 : 1
 
 " https://github.com/Valloric/YouCompleteMe/issues/2875#issuecomment-358193287
 " automatically trigger semantic completion after typing 2 character in files
