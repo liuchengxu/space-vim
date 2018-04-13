@@ -103,5 +103,10 @@ function! spacevim#vim#cscope#Find(type)
     call spacevim#util#info('still building the cscope database, please wait for seconds...')
     return
   endif
-  call s:find(a:type)
+  try
+    call s:find(a:type)
+  catch /E567: no cscope connections/
+    call spacevim#util#info('no cscope connections, try building ....')
+    call s:build()
+  endtry
 endfunction
