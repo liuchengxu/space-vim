@@ -31,17 +31,19 @@ let g:spacevim#plug#leaderGuide#lmap['b'] = {
       \ 'b' : ['Buffers', 'fzf-buffer'],
       \ '?' : ['Buffers', 'fzf-buffer'],
       \ }
-let g:spacevim#plug#leaderGuide#lmap['c'] = {
-      \ 'name' : '+cscope',
-      \ 's' : ['call spacevim#vim#cscope#Find("symbol")', 'find-this-symbol'],
-      \ 'g' : ['call spacevim#vim#cscope#Find("global")', 'global-definition'],
-      \ 'c' : ['call spacevim#vim#cscope#Find("calls")', 'find-functions-calling-this-function'],
-      \ 't' : ['call spacevim#vim#cscope#Find("text")', 'text'],
-      \ 'e' : ['call spacevim#vim#cscope#Find("egrep")', 'egrep'],
-      \ 'f' : ['call spacevim#vim#cscope#Find("file")', 'find-this-file'],
-      \ 'i' : ['call spacevim#vim#cscope#Find("includes")', 'find-files-#include-this-file'],
-      \ 'd' : ['call spacevim#vim#cscope#Find("called")', 'find-functions-called-by-this-function'],
-      \ }
+if spacevim#load('cscope')
+  let g:spacevim#plug#leaderGuide#lmap['c'] = {
+        \ 'name' : '+cscope',
+        \ 's' : ['call spacevim#vim#cscope#Find("symbol")', 'find-this-symbol'],
+        \ 'g' : ['call spacevim#vim#cscope#Find("global")', 'global-definition'],
+        \ 'c' : ['call spacevim#vim#cscope#Find("calls")', 'find-functions-calling-this-function'],
+        \ 't' : ['call spacevim#vim#cscope#Find("text")', 'text'],
+        \ 'e' : ['call spacevim#vim#cscope#Find("egrep")', 'egrep'],
+        \ 'f' : ['call spacevim#vim#cscope#Find("file")', 'find-this-file'],
+        \ 'i' : ['call spacevim#vim#cscope#Find("includes")', 'find-files-#include-this-file'],
+        \ 'd' : ['call spacevim#vim#cscope#Find("called")', 'find-functions-called-by-this-function'],
+        \ }
+endif
 let g:spacevim#plug#leaderGuide#lmap['d'] = [ 'call feedkeys("\<C-d>")', 'scroll-down' ]
 let g:spacevim#plug#leaderGuide#lmap['e'] = {
       \ 'name' : '+errors',
