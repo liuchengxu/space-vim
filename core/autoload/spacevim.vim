@@ -188,12 +188,7 @@ function! s:packages()
 endfunction
 
 function! s:filter_plugins()
-  for l:excl in g:spacevim_excluded
-    let l:idx = index(g:spacevim_plugins, l:excl)
-    if l:idx > -1
-      call remove(g:spacevim_plugins, l:idx)
-    endif
-  endfor
+  call filter(g:spacevim_plugins, 'index(g:spacevim_excluded, v:val) < 0')
 endfunction
 
 function! s:invoke_plug()
