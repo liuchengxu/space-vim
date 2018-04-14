@@ -192,9 +192,11 @@ function! s:filter_plugins()
 endfunction
 
 function! s:invoke_plug()
-  for l:plugin in g:spacevim_plugins
-    call plug#(l:plugin, get(g:plug_options, l:plugin, ''))
-  endfor
+  call map(g:spacevim_plugins, 's:plug(v:val)')
+endfunction
+
+function! s:plug(plugin)
+  call plug#(a:plugin, get(g:plug_options, a:plugin, ''))
 endfunction
 
 function! s:config()
