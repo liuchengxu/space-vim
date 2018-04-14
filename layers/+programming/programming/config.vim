@@ -17,6 +17,12 @@ augroup END
   vmap <F21> <Plug>MoveBlockUp
   nmap <F20> <Plug>MoveLineDown
   nmap <F21> <Plug>MoveLineUp
+  if g:spacevim_nvim
+    vmap <M-j> <Plug>MoveBlockDown
+    vmap <M-k> <Plug>MoveBlockUp
+    nmap <M-j> <Plug>MoveLineDown
+    nmap <M-k> <Plug>MoveLineUp
+  endif
 " }
 
 " rainbow {
