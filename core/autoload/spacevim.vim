@@ -102,7 +102,9 @@ function! s:parse_options(arg)
 endfunction
 
 function! s:my_plugin(plugin, ...)
-  call add(g:spacevim_plugins, a:plugin)
+  if index(g:spacevim_plugins, a:plugin) < 0
+    call add(g:spacevim_plugins, a:plugin)
+  endif
   if a:0 == 1
     let g:plug_options[a:plugin] = a:1
   endif
@@ -192,11 +194,9 @@ function! s:filter_plugins()
 endfunction
 
 function! s:invoke_plug()
-  call map(g:spacevim_plugins, 's:plug(v:val)')
-endfunction
-
-function! s:plug(plugin)
-  call plug#(a:plugin, get(g:plug_options, a:plugin, ''))
+  for l:plugin in g:spacevim_plugins
+    call plug#(l:plugin, get(g:plug_options, l:plugin, ''))
+  endfor
 endfunction
 
 function! s:config()
