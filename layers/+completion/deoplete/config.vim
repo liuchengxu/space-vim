@@ -55,10 +55,10 @@ if g:spacevim_nvim || g:spacevim_vim8
     \ 'xml' : 'xmlcomplete#CompleteTags',
     \ })
 
-		call deoplete#custom#source('omni', 'input_patterns', {
+    call deoplete#custom#source('omni', 'input_patterns', {
        " https://github.com/c9s/perlomni.vim
         \ 'perl': '\h\w*->\h\w*\|\h\w*::',     
-		    \})
+        \})
 
     function g:Multiple_cursors_before()
 
