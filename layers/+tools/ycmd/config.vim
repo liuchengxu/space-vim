@@ -45,4 +45,18 @@ scriptencoding utf-8
     autocmd FileType c,cpp
                 \   nnoremap <LocalLeader>gp :YcmCompleter GetParent<CR>
   augroup END
+
+  " Fix tab conflict with YCM
+  let g:ulti_expand_res = 0
+  function ExpandSnippetOrCarriageReturn()
+      let snippet = UltiSnips#ExpandSnippet()
+      if g:ulti_expand_res > 0
+          return snippet
+      else
+        return "\<CR>"
+      endif
+  endfunction
+
+  inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
+
 " }
