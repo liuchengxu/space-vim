@@ -1,6 +1,6 @@
 scriptencoding utf-8
 
-if !empty(glob("$HOME/.local/share/nvim/plugged/vim-mucomplete")) ||  !empty(glob("$HOME/.vim/plugged/vim-mucomplete"))
+if has_key(g:plugs, 'vim-mucomplete')
   let g:mucomplete#enable_auto_at_startup = 1
   set completeopt+=noselect
   inoremap <expr> <c-e> mucomplete#popup_exit("\<c-e>")
