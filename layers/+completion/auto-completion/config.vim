@@ -13,7 +13,7 @@ if !empty(glob("$HOME/.local/share/nvim/plugged/vim-mucomplete")) ||  !empty(glo
 endif
 
 " enter key setting
-function ExpandSnippetOrCarriageReturn()
+function! ExpandSnippetOrCarriageReturn()
     let snippet = UltiSnips#ExpandSnippet()
     if g:ulti_expand_res > 0
         return snippet

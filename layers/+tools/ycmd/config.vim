@@ -48,7 +48,7 @@ scriptencoding utf-8
 
   " Fix tab conflict with YCM
   let g:ulti_expand_res = 0
-  function ExpandSnippetOrCarriageReturn()
+  function! ExpandSnippetOrCarriageReturn()
       let snippet = UltiSnips#ExpandSnippet()
       if g:ulti_expand_res > 0
           return snippet
