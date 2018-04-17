@@ -10,8 +10,8 @@ scriptencoding utf-8
   let g:UltiSnipsJumpForwardTrigger = '<C-j>'
   let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 
-"  tab map
-  function TabJumpNext()
+  " tab map
+  function! TabJumpNext()
    let snippet=UltiSnips#JumpForwards()
    if pumvisible()==0
      if g:ulti_jump_forwards_res==1
@@ -22,9 +22,10 @@ scriptencoding utf-8
    endif
   endfunction
   inoremap <expr> <tab> pumvisible() ? "<C-n>" : "<C-R>=TabJumpNext()<CR>"
+
   smap <TAB>   <Esc>:call UltiSnips#JumpForwards()<CR>
 
-  function STabJumpBack()
+  function! STabJumpBack()
    let snippet=UltiSnips#JumpBackwards()
    if pumvisible()==0
      if g:ulti_jump_backwards_res==1
@@ -35,7 +36,6 @@ scriptencoding utf-8
    endif
   endfunction
   inoremap <expr> <s-tab> pumvisible() ? "<C-p>" : "<C-R>=STabJumpBack()<CR>"
+
   smap <S-TAB> <Esc>:call UltiSnips#JumpBackwards()<CR>
 " }
-
-
