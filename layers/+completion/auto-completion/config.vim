@@ -13,6 +13,7 @@ if has_key(g:plugs, 'vim-mucomplete')
 endif
 
 " enter key setting
+let g:ulti_expand_res = 0
 function! ExpandSnippetOrCarriageReturn()
     let snippet = UltiSnips#ExpandSnippet()
     if g:ulti_expand_res > 0
