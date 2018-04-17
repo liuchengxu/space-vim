@@ -51,7 +51,7 @@ scriptencoding utf-8
   function! ExpandSnippetOrCarriageReturn()
       let snippet = UltiSnips#ExpandSnippet()
       if g:ulti_expand_res > 0
-          return snippet
+        return snippet
       else
         return "\<CR>"
       endif
