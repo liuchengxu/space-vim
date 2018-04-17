@@ -22,7 +22,6 @@ scriptencoding utf-8
    endif
   endfunction
   inoremap <expr> <tab> pumvisible() ? "<C-n>" : "<C-R>=TabJumpNext()<CR>"
-
   function STabJumpBack()
    let snippet=UltiSnips#JumpBackwards()
    if pumvisible()==0
@@ -33,9 +32,7 @@ scriptencoding utf-8
      endif
    endif
   endfunction
-
-  inoremap <expr> <s-tab> pumvisible() ? "<C-n>" : "<C-R>=TabJumpNext()<CR>"
-
+  inoremap <expr> <s-tab> pumvisible() ? "<C-p>" : "<C-R>=STabJumpBack()<CR>"
   smap <TAB>   <Esc>:call UltiSnips#JumpForwards()<CR>
   smap <S-TAB> <Esc>:call UltiSnips#JumpBackwards()<CR>
 " }

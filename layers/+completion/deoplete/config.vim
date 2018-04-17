@@ -45,20 +45,25 @@ if g:spacevim_nvim || g:spacevim_vim8
     inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
 
    
-    " change snippets rank
-    call deoplete#custom#source('ultisnips', 'rank', 1000)
-
     " register omni
     call deoplete#custom#source('omni', 'functions', {
-    \ 'css' : 'csscomplete#CompleteCSS',
     \ 'html': 'htmlcomplete#CompleteTags',
+    \ 'css' : 'csscomplete#CompleteCSS',
+    \ 'scss' : 'csscomplete#CompleteCSS',
+    \ 'sass' : 'csscomplete#CompleteCSS',
     \ 'xml' : 'xmlcomplete#CompleteTags',
+    \ 'markdown' : 'htmlcomplete#CompleteTags',
     \ })
 
     call deoplete#custom#source('omni', 'input_patterns', {
-       " https://github.com/c9s/perlomni.vim
-        \ 'perl': '\h\w*->\h\w*\|\h\w*::',     
-        \})
+    \ 'html' : '<[^>]',
+    \ 'css'  : '^\s\+\w\+\|\w\+[):;]\?\s\+\w*\|[@!]',
+    \ 'scss' : '^\s\+\w\+\|\w\+[):;]\?\s\+\w*\|[@!]',
+    \ 'sass' : '^\s\+\w\+\|\w\+[):;]\?\s\+\w*\|[@!]',
+    \ 'xml'  : '<[^>]*',
+    \ 'md'   : '<[^>]*',
+      \})
+
 
     function g:Multiple_cursors_before()
 
