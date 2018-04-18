@@ -16,6 +16,8 @@ endif
 
 " fix Ctrl arrow  tmux and vim --> https://stackoverflow.com/questions/15445481/mapping-arrow-keys-when-running-tmux
 if &term =~ '^screen'
+    " make mouse can click to place cursor
+    set mouse=a
     " tmux will send xterm-style keys when its xterm-keys option is on
     execute "set <xUp>=\e[1;*A"
     execute "set <xDown>=\e[1;*B"
