@@ -79,26 +79,24 @@ function! spacevim#vim#cscope#UpdateDB()
 endfunction
 
 function! s:find(type)
-  if a:type == 'symbol'
-    :cs find s <cword>
-  elseif a:type == 'global'
-    try
-      :cs find g <cword>
-    catch /^Vim\%((\a\+)\)\=:E259/
-      call spacevim#util#err('no matches for '.expand('<cword>'))
-    endtry
-  elseif a:type == 'calls'
-    :cs find c <cword>
-  elseif a:type == 'text'
-    :cs find t <cword>
-  elseif a:type == 'egrep'
-    :cs find e <cword>
-  elseif a:type == 'file'
+  let l:opt = {
+        \ 'symbol':'s', 'global': 'g', 'calls': 'c', 'text': 't', 'egrep': 'e', 'called':'d',
+        \ }
+  let l:cword = expand("<cword>")
+  for [l:key, l:value] in items(l:opt)
+    if l:key == a:type
+      try
+        exe ":cs find ".l:value." ".l:cword
+        return
+      catch /^Vim\%((\a\+)\)\=:E259/
+        call spacevim#util#err('cscope trys finding <'.l:key.'>, but no matches for '.l:cword)
+      endtry
+    endif
+  endfor
+  if a:type == 'file'
     :cs find f <cfile>
   elseif a:type == 'includes'
     :cs find i <cfile>
-  elseif a:type == 'called'
-    :cs find d <cword>
   endif
 endfunction
 
