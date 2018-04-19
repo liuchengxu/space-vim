@@ -82,7 +82,11 @@ function! s:find(type)
   if a:type == 'symbol'
     :cs find s <cword>
   elseif a:type == 'global'
-    :cs find g <cword>
+    try
+      :cs find g <cword>
+    catch /^Vim\%((\a\+)\)\=:E259/
+      call spacevim#util#err('no matches for '.expand('<cword>'))
+    endtry
   elseif a:type == 'calls'
     :cs find c <cword>
   elseif a:type == 'text'
