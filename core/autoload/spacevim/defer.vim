@@ -1,6 +1,8 @@
 function! s:lod(...)
   " Ignore unknown plugins from vim-plug due to the excluded plugins
-  silent! call plug#load(a:000)
+  for l:plug in a:000
+    silent! call plug#load(l:plug)
+  endfor
 endfunction
 
 " 200
