@@ -3,7 +3,7 @@
 
 """
 
-$ python generate_layers.py
+$ ./layers.py
 
 update LAYERS.md
 

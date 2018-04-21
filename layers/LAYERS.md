@@ -1,7 +1,7 @@
 Layer Manifest
 ==============
 
-Last updated: 2018-04-05 15:47:24
+Last updated: 2018-04-20 12:59:44
 
 Default layers: `fzf`, `unite`, `better-defaults` and `which-key`.
 
@@ -23,6 +23,7 @@ Topic                | Layer | Plugins
 +fun                 | [games](https://github.com/liuchengxu/space-vim/tree/master/layers/+fun/games) | <ul><li>[johngrib/vim-game-code-break](https://github.com/johngrib/vim-game-code-break)</li></ul>
 +tools               | [docker](https://github.com/liuchengxu/space-vim/tree/master/layers/+tools/docker) | <ul><li>[ekalinin/Dockerfile.vim](https://github.com/ekalinin/Dockerfile.vim)</li></ul>
 +tools               | [ycmd](https://github.com/liuchengxu/space-vim/tree/master/layers/+tools/ycmd) | <ul><li>[rdnetto/YCM-Generator](https://github.com/rdnetto/YCM-Generator)</li><li>[Valloric/YouCompleteMe](https://github.com/Valloric/YouCompleteMe)</li></ul>
++tools               | [cscope](https://github.com/liuchengxu/space-vim/tree/master/layers/+tools/cscope) | <ul><li>[romainl/vim-qf](https://github.com/romainl/vim-qf)</li></ul>
 +tools               | [tmux](https://github.com/liuchengxu/space-vim/tree/master/layers/+tools/tmux) | <ul><li>[christoomey/vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)</li><li>[lucidstack/ctrlp-tmux.vim](https://github.com/lucidstack/ctrlp-tmux.vim)</li><li>[jebaum/vim-tmuxify](https://github.com/jebaum/vim-tmuxify)</li></ul>
 +tools               | [file-manager](https://github.com/liuchengxu/space-vim/tree/master/layers/+tools/file-manager) | <ul><li>[danro/rename.vim](https://github.com/danro/rename.vim)</li><li>[scrooloose/nerdtree](https://github.com/scrooloose/nerdtree)</li><li>[Xuyuanp/nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-plugin)</li></ul>
 +tools               | [fzf](https://github.com/liuchengxu/space-vim/tree/master/layers/+tools/fzf) | <ul><li>[Yggdroot/LeaderF](https://github.com/Yggdroot/LeaderF)</li><li>[junegunn/fzf](https://github.com/junegunn/fzf)</li><li>[junegunn/fzf.vim](https://github.com/junegunn/fzf.vim)</li></ul>
