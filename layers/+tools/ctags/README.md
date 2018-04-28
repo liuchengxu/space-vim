@@ -21,4 +21,4 @@ To use this configuration layer, add it to your `~/.spacevim`.
 
 ## Tips
 
-Use <code>C-W ]</code> to see tht tag in a preview window.
+Use <kbd>C-W ]</kbd> to see tht tag in a preview window.
