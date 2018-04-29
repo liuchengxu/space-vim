@@ -11,7 +11,7 @@ let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
 
 let s:vim_tags = expand('~/.cache/tags')
 
-" create if ~/.cache/tags does not exists
+" create if ~/.cache/tags does not exist
 if !isdirectory(s:vim_tags)
    silent! call mkdir(s:vim_tags, 'p')
 endif
