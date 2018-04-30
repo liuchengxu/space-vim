@@ -1,7 +1,7 @@
 Layer Manifest
 ==============
 
-Last updated: 2018-04-20 12:59:44
+Last updated: 2018-04-28 21:36:14
 
 Default layers: `fzf`, `unite`, `better-defaults` and `which-key`.
 
@@ -21,6 +21,7 @@ Topic                | Layer | Plugins
 +fun                 | [goyo](https://github.com/liuchengxu/space-vim/tree/master/layers/+fun/goyo) | <ul><li>[junegunn/goyo.vim](https://github.com/junegunn/goyo.vim)</li><li>[junegunn/limelight.vim](https://github.com/junegunn/limelight.vim)</li></ul>
 +fun                 | [emoji](https://github.com/liuchengxu/space-vim/tree/master/layers/+fun/emoji) | <ul><li>[junegunn/vim-emoji](https://github.com/junegunn/vim-emoji)</li></ul>
 +fun                 | [games](https://github.com/liuchengxu/space-vim/tree/master/layers/+fun/games) | <ul><li>[johngrib/vim-game-code-break](https://github.com/johngrib/vim-game-code-break)</li></ul>
++tools               | [ctags](https://github.com/liuchengxu/space-vim/tree/master/layers/+tools/ctags) | <ul><li>[ludovicchabant/vim-gutentags](https://github.com/ludovicchabant/vim-gutentags)</li></ul>
 +tools               | [docker](https://github.com/liuchengxu/space-vim/tree/master/layers/+tools/docker) | <ul><li>[ekalinin/Dockerfile.vim](https://github.com/ekalinin/Dockerfile.vim)</li></ul>
 +tools               | [ycmd](https://github.com/liuchengxu/space-vim/tree/master/layers/+tools/ycmd) | <ul><li>[rdnetto/YCM-Generator](https://github.com/rdnetto/YCM-Generator)</li><li>[Valloric/YouCompleteMe](https://github.com/Valloric/YouCompleteMe)</li></ul>
 +tools               | [cscope](https://github.com/liuchengxu/space-vim/tree/master/layers/+tools/cscope) | <ul><li>[romainl/vim-qf](https://github.com/romainl/vim-qf)</li></ul>
@@ -52,5 +53,5 @@ Topic                | Layer | Plugins
 +lang                | [solidity](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/solidity) | <ul><li>[tomlion/vim-solidity](https://github.com/tomlion/vim-solidity)</li></ul>
 +lang                | [scala](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/scala) | <ul><li>[derekwyatt/vim-scala](https://github.com/derekwyatt/vim-scala)</li></ul>
 +lang                | [graphviz](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/graphviz) | <ul><li>[wannesm/wmgraphviz.vim](https://github.com/wannesm/wmgraphviz.vim)</li></ul>
-+lang                | [javascript](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/javascript) | <ul><li>[pangloss/vim-javascript](https://github.com/pangloss/vim-javascript)</li><li>[mxw/vim-jsx](https://github.com/mxw/vim-jsx)</li><li>[neoclide/vim-jsx-improve](https://github.com/neoclide/vim-jsx-improve)</li></ul>
++lang                | [javascript](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/javascript) | <ul><li>[pangloss/vim-javascript](https://github.com/pangloss/vim-javascript)</li><li>[neoclide/vim-jsx-improve](https://github.com/neoclide/vim-jsx-improve)</li></ul>
 +lang                | [ruby](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/ruby) | <ul><li>[vim-ruby/vim-ruby](https://github.com/vim-ruby/vim-ruby)</li></ul>
