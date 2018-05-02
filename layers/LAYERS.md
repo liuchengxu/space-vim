@@ -1,7 +1,7 @@
 Layer Manifest
 ==============
 
-Last updated: 2018-04-28 21:36:14
+Last updated: 2018-05-02 22:43:44
 
 Default layers: `fzf`, `unite`, `better-defaults` and `which-key`.
 
@@ -46,6 +46,7 @@ Topic                | Layer | Plugins
 +lang                | [typescript](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/typescript) | <ul><li>[Quramy/tsuquyomi](https://github.com/Quramy/tsuquyomi)</li><li>[Shougo/vimproc.vim](https://github.com/Shougo/vimproc.vim)</li><li>[leafgarland/typescript-vim](https://github.com/leafgarland/typescript-vim)</li><li>[ianks/vim-tsx](https://github.com/ianks/vim-tsx)</li></ul>
 +lang                | [vue](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/vue) | <ul><li>[posva/vim-vue](https://github.com/posva/vim-vue)</li></ul>
 +lang                | [rust](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/rust) | <ul><li>[rust-lang/rust.vim](https://github.com/rust-lang/rust.vim)</li></ul>
++lang                | [wasm](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/wasm) | <ul><li>[rhysd/vim-wasm](https://github.com/rhysd/vim-wasm)</li></ul>
 +lang                | [erlang](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/erlang) | <ul><li>[vim-erlang/vim-erlang-omnicomplete](https://github.com/vim-erlang/vim-erlang-omnicomplete)</li><li>[vim-erlang/vim-erlang-tags](https://github.com/vim-erlang/vim-erlang-tags)</li><li>[vim-erlang/vim-erlang-compiler](https://github.com/vim-erlang/vim-erlang-compiler)</li><li>[vim-erlang/vim-erlang-skeletons](https://github.com/vim-erlang/vim-erlang-skeletons)</li><li>[vim-erlang/erlang-motions.vim](https://github.com/vim-erlang/erlang-motions.vim)</li></ul>
 +lang                | [java](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/java) | <ul><li>[artur-shaik/vim-javacomplete2](https://github.com/artur-shaik/vim-javacomplete2)</li></ul>
 +lang                | [elm](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/elm) | <ul><li>[ElmCast/elm-vim](https://github.com/ElmCast/elm-vim)</li></ul>
