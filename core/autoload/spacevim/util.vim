@@ -120,3 +120,12 @@ function! spacevim#util#RootDirectory()
   endif
   return root_dir == '' ? getcwd() : root_dir
 endfunction
+
+function! spacevim#util#ExpandSnippetOrCarriageReturn()
+  if exists("UltiSnips#ExpandSnippet")
+    if get(g:, 'ulti_expand_res', 0) > 0
+      return UltiSnips#ExpandSnippet()
+    endif
+  endif
+  return "\<c-y>\<cr>"
+endfunction
