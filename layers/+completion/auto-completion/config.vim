@@ -12,14 +12,6 @@ if has_key(g:plugs, 'vim-mucomplete')
   iunmap <c-h>
 endif
 
-" enter key setting
-let g:ulti_expand_res = 0
-function! ExpandSnippetOrCarriageReturn()
-    let snippet = UltiSnips#ExpandSnippet()
-    if g:ulti_expand_res > 0
-        return snippet
-    else
-      return "\<C-y>"
-    endif
-endfunction
-inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <CR> pumvisible() ? "<C-R>=spacevim#util#ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"

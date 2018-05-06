@@ -1,18 +1,8 @@
 scriptencoding utf-8
 
 if g:spacevim_nvim || g:spacevim_vim8
-  "    enter key map
-  let g:ulti_expand_res = 0
-  function! ExpandSnippetOrCarriageReturn()
-    let snippet = UltiSnips#ExpandSnippet()
-    if g:ulti_expand_res > 0
-      return snippet
-    else
-      return deoplete#close_popup()
-    endif
-  endfunction
 
-  inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
+  inoremap <expr> <CR> pumvisible() ? "<C-R>=spacevim#util#ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
 
   set completeopt-=preview  "close show_docstring
 
