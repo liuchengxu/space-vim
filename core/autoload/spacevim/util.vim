@@ -122,7 +122,7 @@ function! spacevim#util#RootDirectory()
 endfunction
 
 function! spacevim#util#ExpandSnippetOrCarriageReturn()
-  if exists("UltiSnips#ExpandSnippet")
+  if exists("*UltiSnips#ExpandSnippet")
     if get(g:, 'ulti_expand_res', 0) > 0
       return UltiSnips#ExpandSnippet()
     endif
