@@ -1,1 +1,1 @@
-MP 'ludovicchabant/vim-gutentags'
+MP 'ludovicchabant/vim-gutentags',  { 'for': ['c', 'cpp'] }
