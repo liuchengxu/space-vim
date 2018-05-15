@@ -376,7 +376,6 @@ function! spacevim#plug#fzf#SearchCword()
   call fzf#vim#ag(
         \ expand('<cword>'),
         \ {
-        \ 'sink': 'edit',
         \ 'dir':FindRootDirectory(),
         \ 'options': '--ansi --delimiter : --nth 4..,.. --prompt "?'.expand('<cword>').'> " '.
         \            '--color hl:68,hl+:110 --multi '.
