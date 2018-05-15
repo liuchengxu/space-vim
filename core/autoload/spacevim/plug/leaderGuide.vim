@@ -82,6 +82,7 @@ let g:spacevim#plug#leaderGuide#lmap['p'] = {
       \ 'name' : '+projects',
       \ 'f' : ['call spacevim#plug#fzf#FindFileInProject()', 'find-file-in-project'],
       \ 's' : ['Rag', 'search-in-project'],
+      \ 'w' : ['call spacevim#plug#fzf#SearchCword()', 'find-cword-in-project']
       \ }
 let g:spacevim#plug#leaderGuide#lmap['q'] = [ 'q', 'quit' ]
 let g:spacevim#plug#leaderGuide#lmap['Q'] = [ 'qa!', 'quit-without-saving' ]
