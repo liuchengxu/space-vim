@@ -51,7 +51,24 @@ let g:spacevim#plug#leaderGuide#lmap['e'] = {
       \ 'p' : ['call feedkeys("\<Plug>(ale_previous)")', 'previous-error'],
       \ }
 let g:spacevim#plug#leaderGuide#lmap['f'] = {
-      \ 'name' : '+fold/files',
+      \ 'name' : '+find/files/fold',
+      \ '0' : ['set foldlevel=0', '0-fold-level'],
+      \ '1' : ['set foldlevel=1', '1-fold-level'],
+      \ '2' : ['set foldlevel=2', '2-fold-level'],
+      \ '3' : ['set foldlevel=3', '3-fold-level'],
+      \ '4' : ['set foldlevel=4', '4-fold-level'],
+      \ '5' : ['set foldlevel=5', '5-fold-level'],
+      \ '6' : ['set foldlevel=6', '6-fold-level'],
+      \ '7' : ['set foldlevel=7', '7-fold-level'],
+      \ '8' : ['set foldlevel=8', '8-fold-level'],
+      \ '9' : ['set foldlevel=9', '9-fold-level'],
+      \ 'b' : ['BLines', 'fzf-find-current-buffer'],
+      \ 'd' : ['NERDTreeFind', 'find-current-buffer-in-NERDTree'],
+      \ 'f' : ['Files ~', 'files-in-home-direcotry'],
+      \ 's' : ['save', 'save-file'],
+      \ 't' : ['NERDTreeToggle', 'toggle-NERDTree'],
+      \ '?' : ['Files', 'files-in-current-direcotry'],
+      \ 'R' : ['source $MYVIMRC', 'reload-vimrc'],
       \ }
 let g:spacevim#plug#leaderGuide#lmap['g'] = {
       \ 'name' : '+git/version-control',
