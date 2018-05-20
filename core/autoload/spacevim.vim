@@ -1,5 +1,6 @@
 scriptencoding utf-8
 
+let g:spacevim.info = g:spacevim.base. '/core/autoload/spacevim/info.vim'
 let g:spacevim.layers_base = '/layers'
 let g:spacevim.private_base = '/private'
 let g:spacevim.nvim = has('nvim') && exists('*jobwait') && !g:spacevim.os.windows
@@ -61,10 +62,9 @@ function! s:check_dot_spacevim()
 endfunction
 
 function! s:cache() abort
-  let g:spacevim_info_path = g:spacevim.base. '/core/autoload/spacevim/info.vim'
-  let g:spacevim_info_path = g:spacevim.os.windows ? s:path(g:spacevim_info_path) : g:spacevim_info_path
-  if filereadable(g:spacevim_info_path)
-    execute 'source ' . g:spacevim_info_path
+  let l:info = g:spacevim.info
+  if filereadable(l:info)
+    execute 'source ' . (g:spacevim.os.windows ? s:path(l:info) : l:info)
   else
     call spacevim#cache#init()
   endif

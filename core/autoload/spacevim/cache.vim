@@ -38,7 +38,7 @@ function! s:init()
   let l:private_dir = split(globpath(l:private_base, '*'), '\n')
   let l:private_path = filter(l:private_dir, 'isdirectory(v:val)')
 
-  let s:cache = g:spacevim_info_path
+  let s:cache = g:spacevim.info
   call writefile([printf("let g:topics = %s", g:topics)], s:cache, "a")
   call writefile([printf("let g:spacevim.manifest = %s", g:spacevim.manifest)], s:cache, "a")
   if len(l:private_path)
@@ -81,7 +81,7 @@ vim.command("let g:spacevim.manifest = %s" % spacevim_manifest)
 if len(private):
     vim.command("let g:private = %s" % private)
 
-f = open(vim.eval('g:spacevim_info_path'), 'w')
+f = open(vim.eval('g:spacevim.info'), 'w')
 f.write("let g:topics = %s\n" % topics)
 f.write("let g:spacevim.manifest = %s\n" % spacevim_manifest)
 if len(private):
