@@ -1,6 +1,6 @@
 " Let Vim and NeoVim shares the same plugin directory.
 " Comment it out if you don't like
-let g:spacevim.plug_home = '~/.vim/plugged'
+let g:spacevim_plug_home = '~/.vim/plugged'
 
 " The default leader key is space key.
 " Uncomment the line below and modify "<\Space>" if you prefer another
