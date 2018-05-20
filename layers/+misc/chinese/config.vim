@@ -9,7 +9,7 @@ if g:spacevim_gui
   source $VIMRUNTIME/menu.vim
 
   " windows GUI界面乱码设置
-  if g:WINDOWS
+  if g:spacevim.os.windows
       "处理consle输出乱码
       language messages zh_CN.utf-8
       " Set extra options when running in GUI mode
@@ -17,7 +17,7 @@ if g:spacevim_gui
       set guitablabel=%M\ %t
       set linespace=2
       set noimdisable
-  elseif g:MAC
+  elseif g:spacevim.os.mac
       set guifont=Source\ Code\ Pro\ for\ Powerline:h12
   endif
 

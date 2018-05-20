@@ -1,6 +1,6 @@
 MP 'junegunn/gv.vim', { 'on': ['GV', 'GV!'] }
 
-if g:spacevim_timer
+if g:spacevim.timer
   MP 'tpope/vim-fugitive'     , { 'on': [] }
   MP 'airblade/vim-gitgutter' , { 'on': [] }
   call timer_start(300, 'spacevim#defer#gitgutter')

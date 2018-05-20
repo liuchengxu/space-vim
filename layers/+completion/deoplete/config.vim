@@ -1,6 +1,6 @@
 scriptencoding utf-8
 
-if g:spacevim_nvim || g:spacevim_vim8
+if g:spacevim.nvim || g:spacevim.vim8
 
   inoremap <expr> <CR> pumvisible() ? "<C-R>=spacevim#util#ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
 

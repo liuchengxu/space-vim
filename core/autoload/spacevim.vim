@@ -2,13 +2,12 @@ scriptencoding utf-8
 
 let g:spacevim_layers_dir = '/layers'
 let g:spacevim_private_layers_dir = '/private'
-let g:spacevim_nvim = has('nvim') && exists('*jobwait') && !g:WINDOWS
-let g:spacevim_vim8 = exists('*job_start')
-let g:spacevim_timer = exists('*timer_start')
+let g:spacevim.nvim = has('nvim') && exists('*jobwait') && !g:spacevim.os.windows
+let g:spacevim.vim8 = exists('*job_start')
+let g:spacevim.timer = exists('*timer_start')
 let g:spacevim_gui = has('gui_running')
 let g:spacevim_tmux = !empty($TMUX)
 
-let g:spacevim = {}
 let g:layers_loaded = []
 let g:spacevim_excluded = []
 let g:spacevim_plugins = []
@@ -24,7 +23,7 @@ let s:TYPE = {
 
 function! spacevim#begin() abort
   " Download vim-plug if unavailable
-  if !g:WINDOWS
+  if !g:spacevim.os.windows
     call s:check_vim_plug()
   endif
   call s:define_command()
@@ -33,7 +32,7 @@ function! spacevim#begin() abort
 endfunction
 
 function! s:check_vim_plug()
-  let l:plug_path = g:spacevim_nvim ? '~/.local/share/nvim/site/autoload/plug.vim' : '~/.vim/autoload/plug.vim'
+  let l:plug_path = g:spacevim.nvim ? '~/.local/share/nvim/site/autoload/plug.vim' : '~/.vim/autoload/plug.vim'
   if empty(glob(l:plug_path))
     call spacevim#vim#plug#download(l:plug_path)
   endif
@@ -63,7 +62,7 @@ endfunction
 
 function! s:cache() abort
   let g:spacevim_info_path = g:spacevim_dir. '/core/autoload/spacevim/info.vim'
-  let g:spacevim_info_path = g:WINDOWS ? s:path(g:spacevim_info_path) : g:spacevim_info_path
+  let g:spacevim_info_path = g:spacevim.os.windows ? s:path(g:spacevim_info_path) : g:spacevim_info_path
   if filereadable(g:spacevim_info_path)
     execute 'source ' . g:spacevim_info_path
   else
@@ -144,7 +143,7 @@ endfunction
 function! s:register_plugin()
   if !exists('g:spacevim_plug_home')
     " https://github.com/junegunn/vim-plug/issues/559
-    let g:spacevim_plug_home = g:spacevim_nvim ? '~/.local/share/nvim/plugged' : '~/.vim/plugged/'
+    let g:spacevim_plug_home = g:spacevim.nvim ? '~/.local/share/nvim/plugged' : '~/.vim/plugged/'
   endif
 
   call plug#begin(g:spacevim_plug_home)
@@ -165,7 +164,7 @@ function! s:packages()
   " Load Layer packages
   for l:layer in g:layers_loaded
     try
-      let l:layer_packages = g:spacevim[l:layer].dir . '/packages.vim'
+      let l:layer_packages = g:spacevim.manifest[l:layer].dir . '/packages.vim'
     catch
       call spacevim#cache#init()
     endtry
@@ -202,7 +201,7 @@ endfunction
 function! s:config()
   " Load Layer config
   for l:layer in g:layers_loaded
-    call s:Source(g:spacevim[l:layer].dir . '/config.vim')
+    call s:Source(g:spacevim.manifest[l:layer].dir . '/config.vim')
   endfor
 
   " Try private Layer config
@@ -227,7 +226,7 @@ function! s:post_user_config()
   if !exists('g:airline_powerline_fonts')
     let g:airline_left_sep=''
     let g:airline_right_sep=''
-    if !g:WINDOWS
+    if !g:spacevim.os.windows
       let g:airline_synbols = g:spacevim#plug#airline#symbols
     endif
   endif

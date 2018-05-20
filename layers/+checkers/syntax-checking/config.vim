@@ -1,6 +1,6 @@
 scriptencoding utf-8
 
-if g:spacevim_vim8 || g:spacevim_nvim
+if g:spacevim.vim8 || g:spacevim.nvim
   " ale {
   let g:ale_linters = g:spacevim#plug#ale#linters
   let g:ale_set_highlights = 0

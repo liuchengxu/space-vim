@@ -1,4 +1,4 @@
-if g:spacevim_nvim
+if g:spacevim.nvim
   MP 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins'  }
 else
   MP 'Shougo/deoplete.nvim'
