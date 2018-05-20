@@ -1,4 +1,4 @@
-if g:spacevim_gui && !has('terminal')
+if g:spacevim.gui && !has('terminal')
   " LeaderF {
   nnoremap <Leader>ff :LeaderfFile ~<CR>
   nnoremap <Leader>f? :LeaderfFile<CR>

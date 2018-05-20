@@ -5,7 +5,7 @@ let g:spacevim_private_layers_dir = '/private'
 let g:spacevim.nvim = has('nvim') && exists('*jobwait') && !g:spacevim.os.windows
 let g:spacevim.vim8 = exists('*job_start')
 let g:spacevim.timer = exists('*timer_start')
-let g:spacevim_gui = has('gui_running')
+let g:spacevim.gui = has('gui_running')
 let g:spacevim_tmux = !empty($TMUX)
 
 let g:layers_loaded = []
@@ -61,7 +61,7 @@ function! s:check_dot_spacevim()
 endfunction
 
 function! s:cache() abort
-  let g:spacevim_info_path = g:spacevim_dir. '/core/autoload/spacevim/info.vim'
+  let g:spacevim_info_path = g:spacevim.base. '/core/autoload/spacevim/info.vim'
   let g:spacevim_info_path = g:spacevim.os.windows ? s:path(g:spacevim_info_path) : g:spacevim_info_path
   if filereadable(g:spacevim_info_path)
     execute 'source ' . g:spacevim_info_path
@@ -174,7 +174,7 @@ function! s:packages()
   " Try private Layer packages
   if exists('g:private')
     for l:private_layer in g:private
-      let l:private_layer_packages = g:spacevim_dir . '/private/' . l:private_layer . '/packages.vim'
+      let l:private_layer_packages = g:spacevim.base . '/private/' . l:private_layer . '/packages.vim'
       if filereadable(expand(l:private_layer_packages))
         execute 'source ' . fnameescape(l:private_layer_packages)
       endif
@@ -182,7 +182,7 @@ function! s:packages()
   endif
 
   " Load private packages
-  let l:private_packages = g:spacevim_dir . '/private/packages.vim'
+  let l:private_packages = g:spacevim.base . '/private/packages.vim'
   if filereadable(expand(l:private_packages))
     execute 'source ' . fnameescape(l:private_packages)
   endif
@@ -207,7 +207,7 @@ function! s:config()
   " Try private Layer config
   if exists('g:private')
     for l:private_layer in g:private
-      let l:private_layer_config = g:spacevim_dir . '/private/' . l:private_layer . '/config.vim'
+      let l:private_layer_config = g:spacevim.base . '/private/' . l:private_layer . '/config.vim'
       if filereadable(expand(l:private_layer_config))
         execute 'source ' . fnameescape(l:private_layer_config)
       endif
@@ -215,7 +215,7 @@ function! s:config()
   endif
 
   " Load private config
-  let l:private_config = g:spacevim_dir . '/private/config.vim'
+  let l:private_config = g:spacevim.base . '/private/config.vim'
   if filereadable(expand(l:private_config))
     execute 'source ' . fnameescape(l:private_config)
   endif

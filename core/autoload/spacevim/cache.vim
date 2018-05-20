@@ -12,7 +12,7 @@ function! spacevim#cache#init() abort
 endfunction
 
 function! s:init()
-  let l:topic_base = g:spacevim_dir."/layers"
+  let l:topic_base = g:spacevim.base."/layers"
   let l:topics_dir = split(globpath(l:topic_base, '*'), '\n')
   let l:topics_path = filter(l:topics_dir, 'isdirectory(v:val)')
   let l:tps = deepcopy(l:topics_path)
@@ -34,7 +34,7 @@ function! s:init()
 
   let g:topics = l:topic2layers
 
-  let l:private_base = g:spacevim_dir."/private"
+  let l:private_base = g:spacevim.base."/private"
   let l:private_dir = split(globpath(l:private_base, '*'), '\n')
   let l:private_path = filter(l:private_dir, 'isdirectory(v:val)')
 
@@ -52,9 +52,9 @@ execute s:py_exe "<< EOF"
 import os
 import vim
 
-spacevim_dir = vim.eval('g:spacevim_dir')
-topic_base = spacevim_dir + vim.eval('g:spacevim_layers_dir')
-private_base = spacevim_dir + vim.eval('g:spacevim_private_layers_dir')
+spacevim_base = vim.eval('g:spacevim.base')
+topic_base = spacevim_base + vim.eval('g:spacevim_layers_dir')
+private_base = spacevim_base + vim.eval('g:spacevim_private_layers_dir')
 
 topics_path = [
     os.path.join(topic_base, f) for f in os.listdir(topic_base)

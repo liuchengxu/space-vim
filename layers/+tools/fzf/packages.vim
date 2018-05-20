@@ -1,4 +1,4 @@
-if g:spacevim_gui && !has('terminal')
+if g:spacevim.gui && !has('terminal')
   MP 'Yggdroot/LeaderF'
 else
   if g:spacevim.timer

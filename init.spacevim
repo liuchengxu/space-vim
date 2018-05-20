@@ -17,7 +17,7 @@ let g:spacevim_layers = [
       \ ]
 
 " If you want to have more control over the layer, try using Layer command.
-" if g:spacevim_gui
+" if g:spacevim.gui
 "   Layer 'airline'
 " endif
 

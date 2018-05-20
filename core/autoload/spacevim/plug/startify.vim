@@ -15,7 +15,7 @@ let g:spacevim#plug#startify#header = [
             \'        \__ \ |_) | (_| | (_|  __/_____\ V /| | | | | | |',
             \'        |___/ .__/ \__._|\___\___|      \_/ |_|_| |_| |_|',
             \'            |_|',
-            \'                  [ space-vim ' . g:spacevim_version . ' ＠' . s:version . ' ]',
+            \'                  [ space-vim ' . g:spacevim.version . ' ＠' . s:version . ' ]',
             \]
 
 let g:spacevim#plug#startify#list_order = [
