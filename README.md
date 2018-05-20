@@ -161,7 +161,7 @@ If `.spacevim` does not exist, vanilla vim will be loaded! Refer to [init.spacev
 
 ```vim
 " Let Vim and NeoVim shares the same plugin directory
-let g:spacevim.plug_home = '~/.vim/plugged'
+let g:spacevim_plug_home = '~/.vim/plugged'
 
 " The default leader key is space key.
 " Uncomment the line below and modify "<\Space>" if you prefer another
