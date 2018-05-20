@@ -1,18 +1,18 @@
 scriptencoding utf-8
 
-let g:spacevim_layers_dir = '/layers'
-let g:spacevim_private_layers_dir = '/private'
+let g:spacevim.layers_base = '/layers'
+let g:spacevim.private_base = '/private'
 let g:spacevim.nvim = has('nvim') && exists('*jobwait') && !g:spacevim.os.windows
 let g:spacevim.vim8 = exists('*job_start')
 let g:spacevim.timer = exists('*timer_start')
 let g:spacevim.gui = has('gui_running')
-let g:spacevim_tmux = !empty($TMUX)
+let g:spacevim.tmux = !empty($TMUX)
 
-let g:layers_loaded = []
-let g:spacevim_excluded = []
-let g:spacevim_plugins = []
-let g:plug_options = {}
+let g:spacevim.loaded = []
+let g:spacevim.excluded = []
+let g:spacevim.plugins = []
 
+let s:plug_options = {}
 let s:dot_spacevim = $HOME.'/.spacevim'
 let s:TYPE = {
 \ 'string':  type(''),
@@ -50,7 +50,7 @@ function! s:check_dot_spacevim()
   if filereadable(expand(s:dot_spacevim))
     call s:Source(s:dot_spacevim)
     if exists('g:spacevim_layers')
-      let g:layers_loaded = g:layers_loaded + g:spacevim_layers
+      let g:spacevim.loaded = g:spacevim.loaded + g:spacevim_layers
     endif
     let g:mapleader = get(g:, 'spacevim_leader', "\<Space>")
     let g:maplocalleader = get(g:, 'spacevim_localleader', ',')
@@ -71,8 +71,8 @@ function! s:cache() abort
 endfunction
 
 function! s:layer(name, ...)
-  if index(g:layers_loaded, a:name) == -1
-    call add(g:layers_loaded, a:name)
+  if index(g:spacevim.loaded, a:name) == -1
+    call add(g:spacevim.loaded, a:name)
   endif
   if a:0 > 1
     return spacevim#util#err('Invalid number of arguments (1..2)')
@@ -90,7 +90,7 @@ function! s:parse_options(arg)
   if l:type == s:TYPE.dict
     if has_key(a:arg, 'exclude')
       for l:excl in s:to_a(a:arg['exclude'])
-        call add(g:spacevim_excluded, l:excl)
+        call add(g:spacevim.excluded, l:excl)
       endfor
     else
       throw 'Invalid option (expected: exclude)'
@@ -101,11 +101,11 @@ function! s:parse_options(arg)
 endfunction
 
 function! s:my_plugin(plugin, ...)
-  if index(g:spacevim_plugins, a:plugin) < 0
-    call add(g:spacevim_plugins, a:plugin)
+  if index(g:spacevim.plugins, a:plugin) < 0
+    call add(g:spacevim.plugins, a:plugin)
   endif
   if a:0 == 1
-    let g:plug_options[a:plugin] = a:1
+    let s:plug_options[a:plugin] = a:1
   endif
 endfunction
 
@@ -162,7 +162,7 @@ endfunction
 
 function! s:packages()
   " Load Layer packages
-  for l:layer in g:layers_loaded
+  for l:layer in g:spacevim.loaded
     try
       let l:layer_packages = g:spacevim.manifest[l:layer].dir . '/packages.vim'
     catch
@@ -189,18 +189,18 @@ function! s:packages()
 endfunction
 
 function! s:filter_plugins()
-  call filter(g:spacevim_plugins, 'index(g:spacevim_excluded, v:val) < 0')
+  call filter(g:spacevim.plugins, 'index(g:spacevim.excluded, v:val) < 0')
 endfunction
 
 function! s:invoke_plug()
-  for l:plugin in g:spacevim_plugins
-    call plug#(l:plugin, get(g:plug_options, l:plugin, ''))
+  for l:plugin in g:spacevim.plugins
+    call plug#(l:plugin, get(s:plug_options, l:plugin, ''))
   endfor
 endfunction
 
 function! s:config()
   " Load Layer config
-  for l:layer in g:layers_loaded
+  for l:layer in g:spacevim.loaded
     call s:Source(g:spacevim.manifest[l:layer].dir . '/config.vim')
   endfor
 
@@ -244,5 +244,5 @@ endfunction
 
 " Util for config.vim and packages.vim
 function! spacevim#load(layer) abort
-    return index(g:layers_loaded, a:layer) > -1 ? 1 : 0
+    return index(g:spacevim.loaded, a:layer) > -1 ? 1 : 0
 endfunction

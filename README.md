@@ -161,7 +161,7 @@ If `.spacevim` does not exist, vanilla vim will be loaded! Refer to [init.spacev
 
 ```vim
 " Let Vim and NeoVim shares the same plugin directory
-let g:spacevim_plug_home = '~/.vim/plugged'
+let g:spacevim.plug_home = '~/.vim/plugged'
 
 " The default leader key is space key.
 " Uncomment the line below and modify "<\Space>" if you prefer another
@@ -211,7 +211,7 @@ function! UserConfig()
   " Use gui colors in terminal if available
   if has('termguicolors')
     set termguicolors
-    if g:spacevim_tmux
+    if g:spacevim.tmux
       " If use vim inside tmux, see https://github.com/vim/vim/issues/993
       " set Vim-specific sequences for RGB colors
       let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"

@@ -22,10 +22,6 @@ function! spacevim#util#IsDir(plugin) abort
   return isdirectory(expand(g:my_plug_home.a:plugin)) ? 1 : 0
 endfunction
 
-function! spacevim#util#load(layer) abort
-    return index(g:layers_loaded, a:layer) > -1 ? 1 : 0
-endfunction
-
 """""""""""""""""""""""""""""""""""""""""""""""""""
 "    Utilities
 """""""""""""""""""""""""""""""""""""""""""""""""""

@@ -53,8 +53,8 @@ import os
 import vim
 
 spacevim_base = vim.eval('g:spacevim.base')
-topic_base = spacevim_base + vim.eval('g:spacevim_layers_dir')
-private_base = spacevim_base + vim.eval('g:spacevim_private_layers_dir')
+topic_base = spacevim_base + vim.eval('g:spacevim.layers_base')
+private_base = spacevim_base + vim.eval('g:spacevim.private_base')
 
 topics_path = [
     os.path.join(topic_base, f) for f in os.listdir(topic_base)

@@ -18,7 +18,6 @@ scriptencoding utf-8
 
 let g:spacevim = {}
 let g:spacevim.base = $HOME.'/.space-vim'
-let g:spacevim_core_dir = '/core'
 let g:spacevim.version = '0.7.0'
 
 " Identify platform {
