@@ -357,14 +357,18 @@ endfunction
 " FZF find file
 " ------------------------------------------------------------------
 function! spacevim#plug#fzf#FindFileInProject()
-  exe ':FZF ' . FindRootDirectory()
+  exe ':FZF '.spacevim#util#RootDirectory()
 endfunction
 
 " ------------------------------------------------------------------
 " Rag utilizes ag in the root directory of project
 " ------------------------------------------------------------------
 command! -nargs=* Rag
-  \ call fzf#vim#ag(<q-args>, extend({'dir':FindRootDirectory(), 'options': '--prompt="'.FindRootDirectory().'> "'}, g:fzf_layout))
+  \ call fzf#vim#ag(<q-args>, extend({
+    \ 'dir': spacevim#util#RootDirectory(),
+    \ 'options': '--prompt="'.spacevim#util#RootDirectory().'> "'},
+    \ g:fzf_layout
+    \))
 function! spacevim#plug#fzf#SearchInProject()
   exe ':Rag'
 endfunction
@@ -374,9 +378,8 @@ endfunction
 " ------------------------------------------------------------------
 function! spacevim#plug#fzf#SearchCword()
   call fzf#vim#ag(
-        \ expand('<cword>'),
-        \ {
-        \ 'dir':FindRootDirectory(),
+        \ expand('<cword>'),{
+        \ 'dir': spacevim#util#RootDirectory(),
         \ 'options': '--ansi --delimiter : --nth 4..,.. --prompt "?'.expand('<cword>').'> " '.
         \            '--color hl:68,hl+:110 --multi '.
         \            '--bind=ctrl-d:page-down,ctrl-u:page-up ',
