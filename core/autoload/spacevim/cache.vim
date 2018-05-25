@@ -18,7 +18,7 @@ function! s:init()
   let l:tps = deepcopy(l:topics_path)
 
   let l:topic2layers = {}
-
+  let g:spacevim.manifest = {}
   for l:topic in l:topics_path
     let l:t_k = fnamemodify(l:topic, ":t")
     let l:layers = split(globpath(l:topic, '*'), '\n')
@@ -39,7 +39,7 @@ function! s:init()
   let l:private_path = filter(l:private_dir, 'isdirectory(v:val)')
 
   let s:cache = g:spacevim.info
-  call writefile([printf("let g:spacevim.topics = %s", g:topics)], s:cache, "a")
+  call writefile([printf("let g:spacevim.topics = %s", g:spacevim.topics)], s:cache, "a")
   call writefile([printf("let g:spacevim.manifest = %s", g:spacevim.manifest)], s:cache, "a")
   if len(l:private_path)
     let g:private = map(l:private_path, 'fnamemodify(v:val, ":t")')
