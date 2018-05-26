@@ -42,8 +42,8 @@ function! s:init()
   call writefile([printf("let g:spacevim.topics = %s", g:spacevim.topics)], s:cache, "a")
   call writefile([printf("let g:spacevim.manifest = %s", g:spacevim.manifest)], s:cache, "a")
   if len(l:private_path)
-    let g:private = map(l:private_path, 'fnamemodify(v:val, ":t")')
-    call writefile([printf("let g:private = %s", g:private)], s:cache, "a")
+    let g:spacevim.private = map(l:private_path, 'fnamemodify(v:val, ":t")')
+    call writefile([printf("let g:spacevim.private = %s", g:spacevim.private)], s:cache, "a")
   endif
 endfunction
 
@@ -65,27 +65,27 @@ private = [
     if os.path.isdir(os.path.join(private_base, f))
 ]
 
-topics = {}
+spacevim_topics = {}
 spacevim_manifest = {}
 
 for topic in topics_path:
     layers = [
         f for f in os.listdir(topic) if os.path.isdir(os.path.join(topic, f))
     ]
-    topics[os.path.split(topic)[-1]] = layers
+    spacevim_topics[os.path.split(topic)[-1]] = layers
     for layer in layers:
         spacevim_manifest[layer] = {'dir': topic + '/' + layer}
 
-vim.command("let g:spacevim.topics = %s" % topics)
+vim.command("let g:spacevim.topics = %s" % spacevim_topics)
 vim.command("let g:spacevim.manifest = %s" % spacevim_manifest)
 if len(private):
-    vim.command("let g:private = %s" % private)
+    vim.command("let g:spacevim.private = %s" % private)
 
 f = open(vim.eval('g:spacevim.info'), 'w')
-f.write("let g:spacevim.topics = %s\n" % topics)
+f.write("let g:spacevim.topics = %s\n" % spacevim_topics)
 f.write("let g:spacevim.manifest = %s\n" % spacevim_manifest)
 if len(private):
-    f.write("let g:private = %s\n" % private)
+    f.write("let g:spacevim.private = %s\n" % private)
 f.close()
 
 EOF

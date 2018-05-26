@@ -172,8 +172,8 @@ function! s:packages()
   endfor
 
   " Try private Layer packages
-  if exists('g:private')
-    for l:private_layer in g:private
+  if exists('g:spacevim.private')
+    for l:private_layer in g:spacevim.private
       let l:private_layer_packages = g:spacevim.base . '/private/' . l:private_layer . '/packages.vim'
       if filereadable(expand(l:private_layer_packages))
         execute 'source ' . fnameescape(l:private_layer_packages)
@@ -205,8 +205,8 @@ function! s:config()
   endfor
 
   " Try private Layer config
-  if exists('g:private')
-    for l:private_layer in g:private
+  if exists('g:spacevim.private')
+    for l:private_layer in g:spacevim.private
       let l:private_layer_config = g:spacevim.base . '/private/' . l:private_layer . '/config.vim'
       if filereadable(expand(l:private_layer_config))
         execute 'source ' . fnameescape(l:private_layer_config)
