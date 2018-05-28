@@ -1,4 +1,4 @@
-if g:spacevim_timer
+if g:spacevim.timer
   MP 'plasticboy/vim-markdown',      { 'on': [] }
 else
   MP 'plasticboy/vim-markdown',      { 'for': 'markdown' }

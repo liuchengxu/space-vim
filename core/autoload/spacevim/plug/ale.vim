@@ -17,8 +17,8 @@ else
   let g:spacevim#plug#ale#sign_warning = '•'
 endif
 
-let g:spacevim#plug#ale#echo_msg_error_str = g:spacevim_gui ? 'Error' : '✹ Error'
-let g:spacevim#plug#ale#echo_msg_warning_str = g:spacevim_gui ? 'Warning' : '⚠ Warning'
+let g:spacevim#plug#ale#echo_msg_error_str = g:spacevim.gui ? 'Error' : '✹ Error'
+let g:spacevim#plug#ale#echo_msg_warning_str = g:spacevim.gui ? 'Warning' : '⚠ Warning'
 
 " [DEPRECATED] ALE statusline integration
 function! spacevim#plug#ale#ALEGetError()

@@ -1,4 +1,4 @@
-if g:spacevim_timer
+if g:spacevim.timer
   MP 'tmhedberg/SimpylFold',    { 'on': [] }
   MP 'python-mode/python-mode', { 'on': [] }
 else

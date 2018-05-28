@@ -1,4 +1,4 @@
-if g:spacevim_vim8 || g:spacevim_nvim
+if g:spacevim.vim8 || g:spacevim.nvim
   MP 'w0rp/ale',  { 'on': [] }
   call timer_start(200, 'spacevim#defer#ale')
 else

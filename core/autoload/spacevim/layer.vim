@@ -31,14 +31,14 @@ function! spacevim#layer#status()
   let s:spacevim_buf = winbufnr(0)
   call s:assign_name()
 
-  let [l:cnt, l:total] = [0, len(g:layers_loaded)]
+  let [l:cnt, l:total] = [0, len(g:spacevim.loaded)]
 
   let g:layers_sum = len(g:spacevim)
 
-  call append(0, ['Enabled layers: ' . '(' . len(g:layers_loaded) . '/' . g:layers_sum . ')'])
-  call setline(2, '[' . repeat('=', len(g:layers_loaded)) . ']')
+  call append(0, ['Enabled layers: ' . '(' . len(g:spacevim.loaded) . '/' . g:layers_sum . ')'])
+  call setline(2, '[' . repeat('=', len(g:spacevim.loaded)) . ']')
   let l:inx = 3
-  for l:layer in g:layers_loaded
+  for l:layer in g:spacevim.loaded
     call setline(l:inx, '+ ' . l:layer)
     let l:inx = l:inx + 1
   endfor

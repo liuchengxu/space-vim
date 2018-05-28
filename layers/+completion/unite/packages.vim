@@ -1,6 +1,6 @@
 " temporarily disabled
 " MP 'Shougo/denite.nvim'
-if g:spacevim_vim8 || g:spacevim_nvim
+if g:spacevim.vim8 || g:spacevim.nvim
   MP 'Shougo/unite.vim', { 'on': [] }
   call timer_start(500, 'spacevim#defer#unite')
 else

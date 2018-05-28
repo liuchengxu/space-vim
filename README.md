@@ -178,7 +178,7 @@ let g:spacevim_layers = [
       \ ]
 
 " If you want to have more control over the layer, try using Layer command.
-" if g:spacevim_gui
+" if g:spacevim.gui
 "   Layer 'airline'
 " endif
 ```
@@ -211,7 +211,7 @@ function! UserConfig()
   " Use gui colors in terminal if available
   if has('termguicolors')
     set termguicolors
-    if g:spacevim_tmux
+    if g:spacevim.tmux
       " If use vim inside tmux, see https://github.com/vim/vim/issues/993
       " set Vim-specific sequences for RGB colors
       let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"

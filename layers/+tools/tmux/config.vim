@@ -1,4 +1,4 @@
-if g:spacevim_tmux
+if g:spacevim.tmux
   if spacevim#load('unite')
       "CtrlP tmux window
       nnoremap <Leader>mw :CtrlPTmux w<cr>
