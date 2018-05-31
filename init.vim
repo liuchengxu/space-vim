@@ -16,7 +16,7 @@
 
 scriptencoding utf-8
 
-let g:spacevim = {}
+let g:spacevim = get(g:, 'spacevim', {})
 let g:spacevim.base = $HOME.'/.space-vim'
 let g:spacevim.version = '0.7.0'
 
