@@ -27,3 +27,6 @@ nmap <Leader>jw <Plug>(easymotion-overwin-w)
 
 map <Leader>jf  <Plug>(easymotion-prefix)w
 map <Leader>jb  <Plug>(easymotion-prefix)F
+
+" Trigger a highlight in the appropriate direction when pressing these keys:
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']

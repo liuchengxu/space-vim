@@ -1,3 +1,5 @@
+Plug 'unblevable/quick-scope'
+
 if g:spacevim.timer
   MP 'justinmk/vim-sneak'                  , { 'on': [] }
   MP 'easymotion/vim-easymotion'           , { 'on': [] }
