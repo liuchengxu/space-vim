@@ -1,4 +1,4 @@
-Plug 'unblevable/quick-scope'
+MP 'unblevable/quick-scope'
 
 if g:spacevim.timer
   MP 'justinmk/vim-sneak'                  , { 'on': [] }

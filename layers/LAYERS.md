@@ -1,7 +1,7 @@
 Layer Manifest
 ==============
 
-Last updated: 2018-05-02 22:43:44
+Last updated: 2018-06-02 15:36:57
 
 Default layers: `fzf`, `unite`, `better-defaults` and `which-key`.
 
@@ -10,7 +10,7 @@ Topic                | Layer | Plugins
 +vim                 | [text-align](https://github.com/liuchengxu/space-vim/tree/master/layers/+vim/text-align) | <ul><li>[godlygeek/tabular](https://github.com/godlygeek/tabular)</li><li>[junegunn/vim-easy-align](https://github.com/junegunn/vim-easy-align)</li></ul>
 +vim                 | [which-key](https://github.com/liuchengxu/space-vim/tree/master/layers/+vim/which-key) | <ul><li>[hecal3/vim-leader-guide](https://github.com/hecal3/vim-leader-guide)</li></ul>
 +vim                 | [ctrlp](https://github.com/liuchengxu/space-vim/tree/master/layers/+vim/ctrlp) | <ul><li>[ctrlpvim/ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim)</li><li>[FelikZ/ctrlp-py-matcher](https://github.com/FelikZ/ctrlp-py-matcher)</li></ul>
-+vim                 | [better-motion](https://github.com/liuchengxu/space-vim/tree/master/layers/+vim/better-motion) | <ul><li>[justinmk/vim-sneak](https://github.com/justinmk/vim-sneak)</li><li>[easymotion/vim-easymotion](https://github.com/easymotion/vim-easymotion)</li><li>[haya14busa/incsearch-easymotion.vim](https://github.com/haya14busa/incsearch-easymotion.vim)</li></ul>
++vim                 | [better-motion](https://github.com/liuchengxu/space-vim/tree/master/layers/+vim/better-motion) | <ul><li>[unblevable/quick-scope](https://github.com/unblevable/quick-scope)</li><li>[justinmk/vim-sneak](https://github.com/justinmk/vim-sneak)</li><li>[easymotion/vim-easymotion](https://github.com/easymotion/vim-easymotion)</li><li>[haya14busa/incsearch-easymotion.vim](https://github.com/haya14busa/incsearch-easymotion.vim)</li></ul>
 +version-control     | [github](https://github.com/liuchengxu/space-vim/tree/master/layers/+version-control/github) | <ul><li>[junegunn/vim-github-dashboard](https://github.com/junegunn/vim-github-dashboard)</li><li>[mattn/gist-vim](https://github.com/mattn/gist-vim)</li></ul>
 +version-control     | [git](https://github.com/liuchengxu/space-vim/tree/master/layers/+version-control/git) | <ul><li>[junegunn/gv.vim](https://github.com/junegunn/gv.vim)</li><li>[tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)</li><li>[airblade/vim-gitgutter](https://github.com/airblade/vim-gitgutter)</li></ul>
 +checkers            | [syntax-checking](https://github.com/liuchengxu/space-vim/tree/master/layers/+checkers/syntax-checking) | <ul><li>[w0rp/ale](https://github.com/w0rp/ale)</li><li>[scrooloose/syntastic](https://github.com/scrooloose/syntastic)</li></ul>
@@ -37,7 +37,7 @@ Topic                | Layer | Plugins
 +themes              | [lightline](https://github.com/liuchengxu/space-vim/tree/master/layers/+themes/lightline) | <ul><li>[itchyny/lightline.vim](https://github.com/itchyny/lightline.vim)</li></ul>
 +themes              | [airline](https://github.com/liuchengxu/space-vim/tree/master/layers/+themes/airline) | <ul><li>[vim-airline/vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)</li><li>[vim-airline/vim-airline](https://github.com/vim-airline/vim-airline)</li></ul>
 +lang                | [go](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/go) | <ul><li>[fatih/vim-go](https://github.com/fatih/vim-go)</li></ul>
-+lang                | [python](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/python) | <ul><li>[tmhedberg/SimpylFold](https://github.com/tmhedberg/SimpylFold)</li><li>[python-mode/python-mode](https://github.com/python-mode/python-mode)</li></ul>
++lang                | [python](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/python) | <ul><li>[jeetsukumaran/vim-pythonsense](https://github.com/jeetsukumaran/vim-pythonsense)</li><li>[python-mode/python-mode](https://github.com/python-mode/python-mode)</li></ul>
 +lang                | [clojure](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/clojure) | <ul><li>[kovisoft/paredit](https://github.com/kovisoft/paredit)</li><li>[tpope/vim-fireplace](https://github.com/tpope/vim-fireplace)</li><li>[guns/vim-clojure-static](https://github.com/guns/vim-clojure-static)</li><li>[guns/vim-clojure-highlight](https://github.com/guns/vim-clojure-highlight)</li><li>[guns/vim-slamhound](https://github.com/guns/vim-slamhound)</li><li>[venantius/vim-cljfmt](https://github.com/venantius/vim-cljfmt)</li></ul>
 +lang                | [elixir](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/elixir) | <ul><li>[elixir-lang/vim-elixir](https://github.com/elixir-lang/vim-elixir)</li><li>[slashmili/alchemist.vim](https://github.com/slashmili/alchemist.vim)</li></ul>
 +lang                | [c-c++](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/c-c++) | <ul><li>[rhysd/vim-clang-format](https://github.com/rhysd/vim-clang-format)</li><li>[octol/vim-cpp-enhanced-highlight](https://github.com/octol/vim-cpp-enhanced-highlight)</li></ul>
