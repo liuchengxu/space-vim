@@ -14,27 +14,31 @@ function! spacevim#lang#python#stop()
 endfunction
 
 " Refer to https://github.com/mindriot101/vim-yapf
+function! s:yapf()
+  let cmd = "yapf"
+  let cur_line = line('.')
+  " save current cursor position
+  let cur_cursor = getpos(".")
+  silent execute "0,$!" . cmd
+  " restore cursor
+  call setpos('.', cur_cursor)
+  if v:shell_error != 0
+      " Shell command failed, so open a new buffer with error text
+      execute 'normal! gg"ayG'
+      silent undo
+      execute 'normal! ' . cur_line . 'G'
+      " restore cursor position
+      call setpos('.', cur_cursor)
+      silent new
+      silent put a
+  else
+    call spacevim#util#info('Formatted successfully')
+  end
+endfunction
+
 function! spacevim#lang#python#fmt()
   if executable('yapf')
-    let cmd = "yapf"
-    let cur_line = line('.')
-    " save current cursor position
-    let cur_cursor = getpos(".")
-    silent execute "0,$!" . cmd
-    " restore cursor
-    call setpos('.', cur_cursor)
-    if v:shell_error != 0
-        " Shell command failed, so open a new buffer with error text
-        execute 'normal! gg"ayG'
-        silent undo
-        execute 'normal! ' . cur_line . 'G'
-        " restore cursor position
-        call setpos('.', cur_cursor)
-        silent new
-        silent put a
-    else
-      call spacevim#util#info('Formatted successfully')
-    end
+    call s:yapf()
   else
     call spacevim#util#err('yapf is unavailable, please install it first.')
   endif
