@@ -22,6 +22,11 @@ CHANGELOG
 ### Removed
 
 - a bunch of global variables, like `g:spacevim_nvim`, `g:spacevim_vim8`, `g:spacevim_tmux`, have been moved to `g:spacevim`, which is dictionary containing the information used rarely by users.
+
+    > If you run into `Undefined variable g:spacevim_**` issue after update,
+    > please use `g:spacevim.**` instead and also delete
+    > `~/.space-vim/core/autoload/spacevim/info.vim` to regenerate `info.vim`.
+
 - `SimpylFold`, `fzf-filemru`.
 
 ## [0.7.0] - 2018.01.11
