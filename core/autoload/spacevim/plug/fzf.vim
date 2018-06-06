@@ -386,6 +386,11 @@ function! spacevim#plug#fzf#SearchCword()
         \ })
 endfunction
 
+" Search word under cursor in current buffer
+function! spacevim#plug#fzf#SearchBcword()
+  call fzf#vim#buffer_lines(expand('<cword>'),{'options': '--prompt "?'.expand('<cword>').'> "'})
+endfunction
+
 " ------------------------------------------------------------------
 " Jumps incompleted, sink is wrong
 " ------------------------------------------------------------------
