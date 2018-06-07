@@ -1,19 +1,3 @@
-" Only suitable for space-vim-dark theme, other themes are not guaranteed.
-let g:spacevim#plug#fzf#colors = {
-            \ 'fg':      ['fg', 'StatusLineNC'],
-            \ 'bg':      ['bg', 'Normal'],
-            \ 'hl':      ['fg', 'String'],
-            \ 'fg+':     ['fg', 'Number', 'Normal'],
-            \ 'bg+':     ['bg', 'StatusLine', 'Normal'],
-            \ 'hl+':     ['fg', 'Exception'],
-            \ 'info':    ['fg', 'Special'],
-            \ 'prompt':  ['fg', 'Function'],
-            \ 'pointer': ['fg', 'Error'],
-            \ 'marker':  ['fg', 'Error'],
-            \ 'spinner': ['fg', 'Statement'],
-            \ 'header':  ['fg', 'Number'],
-            \   }
-
 let g:fzf_layout = { 'down': '~40%'  }
 
 " Steal from fzf.vim
