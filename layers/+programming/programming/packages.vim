@@ -2,6 +2,7 @@ if g:spacevim.timer
   MP 'luochen1990/rainbow'  , { 'on': [] }
   MP 'sheerun/vim-polyglot' , { 'on': [] }
   MP 'airblade/vim-rooter'  , { 'on': []}
+  autocmd! User rainbow call spacevim#autocmd#rainbow#Init()
   call timer_start(400, 'spacevim#defer#programming')
 else
   MP 'luochen1990/rainbow'

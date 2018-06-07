@@ -27,7 +27,6 @@ augroup END
 
 " rainbow {
   let g:rainbow_active = 1
-  let g:rainbow_conf = g:spacevim#plug#rainbow#conf
 " }
 
 " rainbow_parentheses.vim {
