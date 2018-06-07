@@ -1,5 +1,6 @@
-" Only suitable for space-vim-dark theme, other themes are not guaranteed.
-let g:spacevim#plug#fzf#colors = {
+if !exists(g:spacevim#plug#fzf#colors)
+  " Only suitable for space-vim-dark theme, other themes are not guaranteed.
+  let g:spacevim#plug#fzf#colors = {
             \ 'fg':      ['fg', 'StatusLineNC'],
             \ 'bg':      ['bg', 'Normal'],
             \ 'hl':      ['fg', 'String'],
@@ -13,6 +14,7 @@ let g:spacevim#plug#fzf#colors = {
             \ 'spinner': ['fg', 'Statement'],
             \ 'header':  ['fg', 'Number'],
             \   }
+endif
 
 let g:fzf_layout = { 'down': '~40%'  }
 
