@@ -12,6 +12,12 @@ function s:ctagsbin()
 endfunction
 
 function! spacevim#autocmd#go#Init()
+  let g:go_highlight_types = 1
+  let g:go_highlight_fields = 1
+  let g:go_highlight_methods = 1
+  let g:go_highlight_operators = 1
+  let g:go_highlight_functions = 1
+  let g:go_highlight_build_constraints = 1
   let g:tagbar_type_go = {
         \ 'ctagstype' : 'go',
         \ 'kinds'     : [

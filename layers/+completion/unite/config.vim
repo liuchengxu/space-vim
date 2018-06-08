@@ -21,4 +21,7 @@
               \ menu:u<CR>
   nnoremap <silent>[menu]v :Unite -silent
               \ menu:v<CR>
+  if !g:spacevim.timer
+    call spacevim#autocmd#unite#Init()
+  endif
 " }
