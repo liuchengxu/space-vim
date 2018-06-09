@@ -3,3 +3,4 @@ if g:spacevim.timer
 else
   MP 'fatih/vim-go', { 'for': 'go', 'do': ':GoInstallBinaries' }
 endif
+autocmd! User vim-go call spacevim#autocmd#go#Init()

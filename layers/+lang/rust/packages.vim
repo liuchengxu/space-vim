@@ -3,3 +3,4 @@ if g:spacevim.timer
 else
   MP 'rust-lang/rust.vim', { 'for': 'rust' }
 endif
+autocmd! User rust.vim call spacevim#autocmd#rust#Init()

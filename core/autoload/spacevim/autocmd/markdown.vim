@@ -6,4 +6,8 @@ else
   let s:path_to_chrome = 'google-chrome'
 endif
 
-let g:spacevim#plug#markdown#PathToChrome = s:path_to_chrome
+function! spacevim#autocmd#markdown#Init()
+" markdown-preview.vim {
+  let g:mkdp_path_to_chrome = s:path_to_chrome
+" }
+endfunction

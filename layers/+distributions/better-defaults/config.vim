@@ -37,12 +37,6 @@ else
 endif
 " }
 
-" vim-startify {
-let g:startify_custom_header = g:spacevim#plug#startify#header
-let g:startify_list_order = g:spacevim#plug#startify#list_order
-let g:startify_change_to_vcs_root = 1
-" }
-
 " vim-choosewin {
 let g:choosewin_overlay_enable = 1
 " }

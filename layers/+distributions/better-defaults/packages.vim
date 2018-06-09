@@ -16,6 +16,7 @@ endif
 
 MP 't9md/vim-choosewin', { 'on': '<Plug>(choosewin)' }
 MP 'mhinz/vim-startify', { 'on': 'Startify' }
+autocmd! User vim-startify call spacevim#autocmd#startify#Init()
 augroup spacevimStart
   autocmd!
   autocmd VimEnter *

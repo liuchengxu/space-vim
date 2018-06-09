@@ -1,12 +1,12 @@
 scriptencoding utf-8
 
-let g:spacevim#plug#unite#menus = {}
+let s:menus = {}
 
 " [menu]x : menu.edition {
-let g:spacevim#plug#unite#menus.x = {
+let s:menus.x = {
             \ 'description' : '    text             ⌘ [menu]x',
             \}
-let g:spacevim#plug#unite#menus.x.command_candidates = [
+let s:menus.x.command_candidates = [
             \['►   show-hidden-chars',
             \'set list!'],
             \['►   x d ➞  delete-trailing-whitespaces                         ⌘  SPC x d',
@@ -23,11 +23,11 @@ let g:spacevim#plug#unite#menus.x.command_candidates = [
 " }
 
 " [menu]f : menu.files {
-let g:spacevim#plug#unite#menus.f = {
+let s:menus.f = {
             \ 'description' : '    fzf.vim          ⌘ [menu]f',
             \}
 " supported by fzf layer
-let g:spacevim#plug#unite#menus.f.command_candidates = [
+let s:menus.f.command_candidates = [
             \['►   Buffers                                          (fzf)',
             \'Buffers'],
             \['►   Files                                            (fzf)',
@@ -50,10 +50,10 @@ let g:spacevim#plug#unite#menus.f.command_candidates = [
 " }
 
 " [menu]p : menu.plugins {
-let g:spacevim#plug#unite#menus.p = {
+let s:menus.p = {
             \ 'description' : '    plugins          ⌘ [menu]s',
             \}
-let g:spacevim#plug#unite#menus.p.command_candidates = [
+let s:menus.p.command_candidates = [
             \['►   install-plugin                                    (vim-plug)',
             \'PlugInstall'],
             \['►   clean-plugin                                      (vim-plug)',
@@ -70,10 +70,10 @@ let g:spacevim#plug#unite#menus.p.command_candidates = [
 " }
 
 " [menu]t : menu.toggle {
-let g:spacevim#plug#unite#menus.t = {
+let s:menus.t = {
             \ 'description' : '    toggle           ⌘ [menu]t',
             \}
-let g:spacevim#plug#unite#menus.t.command_candidates = [
+let s:menus.t.command_candidates = [
             \['►   nerdtree                                          (toggle)       ⌘ <F4>',
             \'NERDTreeToggle'],
             \['►   tagbar                                            (toggle)       ⌘ <F6>',
@@ -86,20 +86,20 @@ let g:spacevim#plug#unite#menus.t.command_candidates = [
 " }
 
 " [menu]u : menu.unite.vim {
-let g:spacevim#plug#unite#menus.u = {
+let s:menus.u = {
             \ 'description' : '    unite.vim        ⌘ [menu]u',
             \}
-let g:spacevim#plug#unite#menus.u.command_candidates = [
+let s:menus.u.command_candidates = [
             \['►    ➞  unite sources',
             \'Unite source'],
             \]
 " }
 
 " [menu]v : menu.vim {
-let g:spacevim#plug#unite#menus.v = {
+let s:menus.v = {
             \ 'description' : '    vim              ⌘ [menu]v',
             \}
-let g:spacevim#plug#unite#menus.v.command_candidates = [
+let s:menus.v.command_candidates = [
             \['►   init.vim',
             \'e ~/.vimrc'],
             \['►   .spacevim',
@@ -118,3 +118,21 @@ let g:spacevim#plug#unite#menus.v.command_candidates = [
             \'Unite output'],
             \]
 " }
+
+function! spacevim#autocmd#unite#Init()
+  let g:unite_source_history_yank_enable = 1
+  let g:unite_enable_start_insert = 0
+  let g:unite_enable_short_source_mes = 0
+  let g:unite_force_overwrite_statusline = 0
+  let g:unite_prompt = '>>> '
+  let g:unite_marked_icon = '✓'
+  let g:unite_candidate_icon = '∘'
+  let g:unite_winheight = 15
+  let g:unite_update_time = 200
+  let g:unite_split_rule = 'botright'
+  let g:unite_source_buffer_time_format = '(%d-%m-%Y %H:%M:%S) '
+  let g:unite_source_file_mru_time_format = '(%d-%m-%Y %H:%M:%S) '
+  let g:unite_source_directory_mru_time_format = '(%d-%m-%Y %H:%M:%S) '
+
+  let g:unite_source_menu_menus = s:menus
+endfunction

@@ -1,20 +1,3 @@
-let g:spacevim#plug#youcompleteme#disgnostics = spacevim#load('syntax-checking') ? 0 : 1
-
-" https://github.com/Valloric/YouCompleteMe/issues/2875#issuecomment-358193287
-" automatically trigger semantic completion after typing 2 character in files
-let g:spacevim#plug#youcompleteme#triggers = {
-      \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
-      \ 'cs,lua,javascript,rust': ['re!\w{2}'],
-      \ }
-let g:spacevim#plug#youcompleteme#blacklist = {
-              \ 'tagbar' : 1,
-              \ 'nerdtree' : 1,
-              \ 'markdown' : 1,
-              \ 'unite' : 1,
-              \ 'text' : 1,
-              \ 'csv' : 1,
-              \}
-
 function! spacevim#plug#youcompleteme#build(info)
   " info is a dictionary with 3 fields
   " - name:   name of the plugin

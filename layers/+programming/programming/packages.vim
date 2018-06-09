@@ -25,5 +25,6 @@ MP 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 
 MP 'Yggdroot/indentLine',             { 'on': 'IndentLinesToggle' }
 MP 'nathanaelkane/vim-indent-guides', { 'on': 'IndentGuidesToggle' }
+autocmd! User indentLine,vim-indent-guides call spacevim#autocmd#indent#Init()
 
 MP 'skywind3000/asyncrun.vim',        { 'on': ['AsyncRun!', 'AsyncRun'] }

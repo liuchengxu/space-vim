@@ -8,7 +8,7 @@ function! s:get_nvim_version()
 endfunction
 
 let s:version = g:spacevim.nvim ? 'nvim '.s:get_nvim_version() : 'vim '.v:version
-let g:spacevim#plug#startify#header = [
+let s:custom_header = [
             \'                                             _',
             \'         ___ _ __   __ _  ___ ___     __   _(_)_ __ ___',
             \'        / __| -_ \ / _- |/ __/ _ \____\ \ / / | -_ - _ \',
@@ -18,7 +18,7 @@ let g:spacevim#plug#startify#header = [
             \'                  [ space-vim ' . g:spacevim.version . ' ＠' . s:version . ' ]',
             \]
 
-let g:spacevim#plug#startify#list_order = [
+let s:list_order = [
             \ ['   Recent Files:'],
             \ 'files',
             \ ['   Project:'],
@@ -30,3 +30,8 @@ let g:spacevim#plug#startify#list_order = [
             \ ['   Commands:'],
             \ 'commands',
             \ ]
+function! spacevim#autocmd#startify#Init()
+  let g:startify_list_order = s:list_order
+  let g:startify_custom_header = s:custom_header
+  let g:startify_change_to_vcs_root = 1
+endfunction
