@@ -1,11 +1,9 @@
 function! spacevim#lang#python#run()
-  if has_key(g:plugs, 'asyncrun.vim')
-    let l:cmd = 'AsyncRun!'
-  else
-    let l:cmd = '!'
-  endif
-  let l:py = get(g:, 'spacevim_python_run', 'python')
-  execute l:cmd.' '.l:py.' '.shellescape(@%, 1)
+  let l:cmd = has_key(g:plugs, 'asyncrun.vim') ? 'AsyncRun!' : '!'
+  let l:exe = spacevim#lang#util#InferExecutable()
+  let l:py = l:exe != '' ? l:exe : get(g:, 'spacevim_python_run', 'python')
+  let l:fname = shellescape(@%, 1)
+  execute join([l:cmd, l:py, l:fname], ' ')
 endfunction
 
 function! spacevim#lang#python#stop()
