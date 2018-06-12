@@ -67,11 +67,8 @@ augroup END
 " }
 
 " asyncrun.vim {
+  let g:asyncrun_open = float2nr(round(winheight('%') * 0.3))
   nnoremap <F5> :call spacevim#plug#asyncrun#CompileAndRun()<CR>
-  augroup spacevimAsyncRun
-    autocmd!
-    autocmd User AsyncRunStart call spacevim#vim#auto#AsyncRunStart()
-  augroup END
 " }
 
 " vim-indent-guides {

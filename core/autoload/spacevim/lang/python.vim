@@ -1,7 +1,6 @@
 function! spacevim#lang#python#run()
   if has_key(g:plugs, 'asyncrun.vim')
     let l:cmd = 'AsyncRun!'
-    call spacevim#vim#auto#AsyncRunStart()
   else
     let l:cmd = '!'
   endif
