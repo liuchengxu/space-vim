@@ -9,5 +9,5 @@ if g:spacevim.timer
 endif
 augroup loadYcm
   autocmd!
-  autocmd InsertEnter * call spacevim#plug#youcompleteme#load() | autocmd! loadYcm
+  autocmd CursorHold,CursorHoldI,InsertEnter * call spacevim#plug#youcompleteme#load() | autocmd! loadYcm
 augroup END
