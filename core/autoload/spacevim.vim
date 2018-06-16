@@ -1,19 +1,19 @@
 scriptencoding utf-8
 
-let g:spacevim_layers_dir = '/layers'
-let g:spacevim_private_layers_dir = '/private'
-let g:spacevim_nvim = has('nvim') && exists('*jobwait') && !g:WINDOWS
-let g:spacevim_vim8 = exists('*job_start')
-let g:spacevim_timer = exists('*timer_start')
-let g:spacevim_gui = has('gui_running')
-let g:spacevim_tmux = !empty($TMUX)
+let g:spacevim.info = g:spacevim.base. '/core/autoload/spacevim/info.vim'
+let g:spacevim.layers_base = '/layers'
+let g:spacevim.private_base = '/private'
+let g:spacevim.nvim = has('nvim') && exists('*jobwait') && !g:spacevim.os.windows
+let g:spacevim.vim8 = exists('*job_start')
+let g:spacevim.timer = exists('*timer_start')
+let g:spacevim.gui = has('gui_running')
+let g:spacevim.tmux = !empty($TMUX)
 
-let g:spacevim = {}
-let g:layers_loaded = []
-let g:spacevim_excluded = []
-let g:spacevim_plugins = []
-let g:plug_options = {}
+let g:spacevim.loaded = []
+let g:spacevim.excluded = []
+let g:spacevim.plugins = []
 
+let s:plug_options = {}
 let s:dot_spacevim = $HOME.'/.spacevim'
 let s:TYPE = {
 \ 'string':  type(''),
@@ -24,7 +24,7 @@ let s:TYPE = {
 
 function! spacevim#begin() abort
   " Download vim-plug if unavailable
-  if !g:WINDOWS
+  if !g:spacevim.os.windows
     call s:check_vim_plug()
   endif
   call s:define_command()
@@ -33,7 +33,7 @@ function! spacevim#begin() abort
 endfunction
 
 function! s:check_vim_plug()
-  let l:plug_path = g:spacevim_nvim ? '~/.local/share/nvim/site/autoload/plug.vim' : '~/.vim/autoload/plug.vim'
+  let l:plug_path = g:spacevim.nvim ? '~/.local/share/nvim/site/autoload/plug.vim' : '~/.vim/autoload/plug.vim'
   if empty(glob(l:plug_path))
     call spacevim#vim#plug#download(l:plug_path)
   endif
@@ -51,7 +51,7 @@ function! s:check_dot_spacevim()
   if filereadable(expand(s:dot_spacevim))
     call s:Source(s:dot_spacevim)
     if exists('g:spacevim_layers')
-      let g:layers_loaded = g:layers_loaded + g:spacevim_layers
+      let g:spacevim.loaded = g:spacevim.loaded + g:spacevim_layers
     endif
     let g:mapleader = get(g:, 'spacevim_leader', "\<Space>")
     let g:maplocalleader = get(g:, 'spacevim_localleader', ',')
@@ -62,18 +62,17 @@ function! s:check_dot_spacevim()
 endfunction
 
 function! s:cache() abort
-  let g:spacevim_info_path = g:spacevim_dir. '/core/autoload/spacevim/info.vim'
-  let g:spacevim_info_path = g:WINDOWS ? s:path(g:spacevim_info_path) : g:spacevim_info_path
-  if filereadable(g:spacevim_info_path)
-    execute 'source ' . g:spacevim_info_path
+  let l:info = g:spacevim.info
+  if filereadable(l:info)
+    execute 'source ' . (g:spacevim.os.windows ? s:path(l:info) : l:info)
   else
     call spacevim#cache#init()
   endif
 endfunction
 
 function! s:layer(name, ...)
-  if index(g:layers_loaded, a:name) == -1
-    call add(g:layers_loaded, a:name)
+  if index(g:spacevim.loaded, a:name) == -1
+    call add(g:spacevim.loaded, a:name)
   endif
   if a:0 > 1
     return spacevim#util#err('Invalid number of arguments (1..2)')
@@ -91,7 +90,7 @@ function! s:parse_options(arg)
   if l:type == s:TYPE.dict
     if has_key(a:arg, 'exclude')
       for l:excl in s:to_a(a:arg['exclude'])
-        call add(g:spacevim_excluded, l:excl)
+        call add(g:spacevim.excluded, l:excl)
       endfor
     else
       throw 'Invalid option (expected: exclude)'
@@ -102,11 +101,11 @@ function! s:parse_options(arg)
 endfunction
 
 function! s:my_plugin(plugin, ...)
-  if index(g:spacevim_plugins, a:plugin) < 0
-    call add(g:spacevim_plugins, a:plugin)
+  if index(g:spacevim.plugins, a:plugin) < 0
+    call add(g:spacevim.plugins, a:plugin)
   endif
   if a:0 == 1
-    let g:plug_options[a:plugin] = a:1
+    let s:plug_options[a:plugin] = a:1
   endif
 endfunction
 
@@ -144,7 +143,7 @@ endfunction
 function! s:register_plugin()
   if !exists('g:spacevim_plug_home')
     " https://github.com/junegunn/vim-plug/issues/559
-    let g:spacevim_plug_home = g:spacevim_nvim ? '~/.local/share/nvim/plugged' : '~/.vim/plugged/'
+    let g:spacevim_plug_home = g:spacevim.nvim ? '~/.local/share/nvim/plugged' : '~/.vim/plugged/'
   endif
 
   call plug#begin(g:spacevim_plug_home)
@@ -163,9 +162,9 @@ endfunction
 
 function! s:packages()
   " Load Layer packages
-  for l:layer in g:layers_loaded
+  for l:layer in g:spacevim.loaded
     try
-      let l:layer_packages = g:spacevim[l:layer].dir . '/packages.vim'
+      let l:layer_packages = g:spacevim.manifest[l:layer].dir . '/packages.vim'
     catch
       call spacevim#cache#init()
     endtry
@@ -173,9 +172,9 @@ function! s:packages()
   endfor
 
   " Try private Layer packages
-  if exists('g:private')
-    for l:private_layer in g:private
-      let l:private_layer_packages = g:spacevim_dir . '/private/' . l:private_layer . '/packages.vim'
+  if exists('g:spacevim.private')
+    for l:private_layer in g:spacevim.private
+      let l:private_layer_packages = g:spacevim.base . '/private/' . l:private_layer . '/packages.vim'
       if filereadable(expand(l:private_layer_packages))
         execute 'source ' . fnameescape(l:private_layer_packages)
       endif
@@ -183,32 +182,32 @@ function! s:packages()
   endif
 
   " Load private packages
-  let l:private_packages = g:spacevim_dir . '/private/packages.vim'
+  let l:private_packages = g:spacevim.base . '/private/packages.vim'
   if filereadable(expand(l:private_packages))
     execute 'source ' . fnameescape(l:private_packages)
   endif
 endfunction
 
 function! s:filter_plugins()
-  call filter(g:spacevim_plugins, 'index(g:spacevim_excluded, v:val) < 0')
+  call filter(g:spacevim.plugins, 'index(g:spacevim.excluded, v:val) < 0')
 endfunction
 
 function! s:invoke_plug()
-  for l:plugin in g:spacevim_plugins
-    call plug#(l:plugin, get(g:plug_options, l:plugin, ''))
+  for l:plugin in g:spacevim.plugins
+    call plug#(l:plugin, get(s:plug_options, l:plugin, ''))
   endfor
 endfunction
 
 function! s:config()
   " Load Layer config
-  for l:layer in g:layers_loaded
-    call s:Source(g:spacevim[l:layer].dir . '/config.vim')
+  for l:layer in g:spacevim.loaded
+    call s:Source(g:spacevim.manifest[l:layer].dir . '/config.vim')
   endfor
 
   " Try private Layer config
-  if exists('g:private')
-    for l:private_layer in g:private
-      let l:private_layer_config = g:spacevim_dir . '/private/' . l:private_layer . '/config.vim'
+  if exists('g:spacevim.private')
+    for l:private_layer in g:spacevim.private
+      let l:private_layer_config = g:spacevim.base . '/private/' . l:private_layer . '/config.vim'
       if filereadable(expand(l:private_layer_config))
         execute 'source ' . fnameescape(l:private_layer_config)
       endif
@@ -216,7 +215,7 @@ function! s:config()
   endif
 
   " Load private config
-  let l:private_config = g:spacevim_dir . '/private/config.vim'
+  let l:private_config = g:spacevim.base . '/private/config.vim'
   if filereadable(expand(l:private_config))
     execute 'source ' . fnameescape(l:private_config)
   endif
@@ -227,7 +226,7 @@ function! s:post_user_config()
   if !exists('g:airline_powerline_fonts')
     let g:airline_left_sep=''
     let g:airline_right_sep=''
-    if !g:WINDOWS
+    if !g:spacevim.os.windows
       let g:airline_synbols = g:spacevim#plug#airline#symbols
     endif
   endif
@@ -245,5 +244,5 @@ endfunction
 
 " Util for config.vim and packages.vim
 function! spacevim#load(layer) abort
-    return index(g:layers_loaded, a:layer) > -1 ? 1 : 0
+    return index(g:spacevim.loaded, a:layer) > -1 ? 1 : 0
 endfunction

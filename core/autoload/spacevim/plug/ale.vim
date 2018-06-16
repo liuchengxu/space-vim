@@ -1,25 +1,5 @@
 scriptencoding utf-8
 
-let g:spacevim#plug#ale#linters = {
-            \ 'sh' : ['shellcheck'],
-            \ 'vim' : ['vint'],
-            \ 'html' : ['tidy'],
-            \ 'python' : ['flake8'],
-            \ 'markdown' : ['mdl'],
-            \ 'javascript' : ['eslint'],
-            \}
-
-if exists('emoji#for')
-  let g:spacevim#plug#ale#sign_error = emoji#for('boom')
-  let g:spacevim#plug#ale#sign_warning = emoji#for('small_orange_diamond')
-else
-  let g:spacevim#plug#ale#sign_error = '•'
-  let g:spacevim#plug#ale#sign_warning = '•'
-endif
-
-let g:spacevim#plug#ale#echo_msg_error_str = g:spacevim_gui ? 'Error' : '✹ Error'
-let g:spacevim#plug#ale#echo_msg_warning_str = g:spacevim_gui ? 'Warning' : '⚠ Warning'
-
 " [DEPRECATED] ALE statusline integration
 function! spacevim#plug#ale#ALEGetError()
   let l:res = ale#statusline#Status()

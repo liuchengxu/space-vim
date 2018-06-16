@@ -3,15 +3,31 @@ CHANGELOG
 
 ## [unreleased]
 
+## [0.8.0] - 2018.06.02
+
 ### Added
 
 - `core/autoload/spacevim/plug/youcompleteme.vim`: keep the config.vim of `ycmd` layer as concise as possible.
 - defer loading `YouCompleteMe` via `timer` if possible.
 - cscope layer. Fix #130.
+- `vim-pythonsense`, `traces.vim`, `quick-scope` and `vim-gutentags`.
+- add <kbd>SPC p s</kbd> for searching everything under your project, depending on `FindRootDirectory` provided by vim-rooter, if not, detecting whether in a git project.
+- add <kbd>SPC p f</kbd> for searching files under a project.
 
 ### Changed
 
 - If the related layers are not enabled, finish loading the files under `core/ftplugin`.
+- disable gui colors in the template `init.spacevim` by default.
+
+### Removed
+
+- a bunch of global variables, like `g:spacevim_nvim`, `g:spacevim_vim8`, `g:spacevim_tmux`, have been moved to `g:spacevim`, which is dictionary containing the information used rarely by users.
+
+    > If you run into `Undefined variable g:spacevim_**` issue after update,
+    > please use `g:spacevim.**` instead and also delete
+    > `~/.space-vim/core/autoload/spacevim/info.vim` to regenerate `info.vim`.
+
+- `SimpylFold`, `fzf-filemru`.
 
 ## [0.7.0] - 2018.01.11
 

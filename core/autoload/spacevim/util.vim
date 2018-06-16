@@ -7,7 +7,7 @@ function! spacevim#util#err(msg)
   echohl None
 endfunction
 
-function! spacevim#util#warn(cmd, msg)
+function! spacevim#util#warn(msg)
   echohl WarningMsg
   echom '[space-vim] '.a:msg
   echohl None
@@ -20,10 +20,6 @@ endfunction
 " argument plugin is the vim plugin's name
 function! spacevim#util#IsDir(plugin) abort
   return isdirectory(expand(g:my_plug_home.a:plugin)) ? 1 : 0
-endfunction
-
-function! spacevim#util#load(layer) abort
-    return index(g:layers_loaded, a:layer) > -1 ? 1 : 0
 endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
@@ -128,4 +124,17 @@ function! spacevim#util#ExpandSnippetOrCarriageReturn()
     endif
   endif
   return "\<c-y>\<cr>"
+endfunction
+
+function! spacevim#util#VisualSelection()
+    " Why is this not a built-in Vim script function?!
+    let [line_start, column_start] = getpos("'<")[1:2]
+    let [line_end, column_end] = getpos("'>")[1:2]
+    let lines = getline(line_start, line_end)
+    if len(lines) == 0
+        return ''
+    endif
+    let lines[-1] = lines[-1][: column_end - (&selection == 'inclusive' ? 1 : 2)]
+    let lines[0] = lines[0][column_start - 1:]
+    return join(lines, "\n")
 endfunction

@@ -1,19 +1,3 @@
-" Only suitable for space-vim-dark theme, other themes are not guaranteed.
-let g:spacevim#plug#fzf#colors = {
-            \ 'fg':      ['fg', 'StatusLineNC'],
-            \ 'bg':      ['bg', 'Normal'],
-            \ 'hl':      ['fg', 'String'],
-            \ 'fg+':     ['fg', 'Number', 'Normal'],
-            \ 'bg+':     ['bg', 'StatusLine', 'Normal'],
-            \ 'hl+':     ['fg', 'Exception'],
-            \ 'info':    ['fg', 'Special'],
-            \ 'prompt':  ['fg', 'Function'],
-            \ 'pointer': ['fg', 'Error'],
-            \ 'marker':  ['fg', 'Error'],
-            \ 'spinner': ['fg', 'Statement'],
-            \ 'header':  ['fg', 'Number'],
-            \   }
-
 let g:fzf_layout = { 'down': '~40%'  }
 
 " Steal from fzf.vim
@@ -384,6 +368,23 @@ function! spacevim#plug#fzf#SearchCword()
         \            '--color hl:68,hl+:110 --multi '.
         \            '--bind=ctrl-d:page-down,ctrl-u:page-up ',
         \ })
+endfunction
+
+" Search visually selected
+function! spacevim#plug#fzf#Vsearch()
+  let vselection = spacevim#util#VisualSelection()
+  call fzf#vim#ag(
+        \ vselection,{
+        \ 'dir': spacevim#util#RootDirectory(),
+        \ 'options': '--ansi --delimiter : --nth 4..,.. --prompt "?'.vselection.'> " '.
+        \            '--color hl:68,hl+:110 --multi '.
+        \            '--bind=ctrl-d:page-down,ctrl-u:page-up ',
+        \ })
+endfunction
+
+" Search word under cursor in current buffer
+function! spacevim#plug#fzf#SearchBcword()
+  call fzf#vim#buffer_lines(expand('<cword>'),{'options': '--prompt "?'.expand('<cword>').'> "'})
 endfunction
 
 " ------------------------------------------------------------------

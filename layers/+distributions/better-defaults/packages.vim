@@ -1,8 +1,8 @@
-" if g:MAC
+" if g:spacevim.os.mac
     " Plug 'ybian/smartim'
 " endif
 
-if g:spacevim_timer
+if g:spacevim.timer
   MP 'kshenoy/vim-signature'        , { 'on': [] }
   MP 'tpope/vim-rsi'                , { 'on': [] }
   MP 'xtal8/traces.vim'             , { 'on': [] }
@@ -16,6 +16,7 @@ endif
 
 MP 't9md/vim-choosewin', { 'on': '<Plug>(choosewin)' }
 MP 'mhinz/vim-startify', { 'on': 'Startify' }
+autocmd! User vim-startify call spacevim#autocmd#startify#Init()
 augroup spacevimStart
   autocmd!
   autocmd VimEnter *
@@ -36,7 +37,7 @@ if has('patch-8.0.1238')
   MP 'osyo-manga/vim-anzu', { 'on': ['<Plug>(anzu-n-with-echo)', '<Plug>(anzu-N-with-echo)'] }
 else
   MP 'google/vim-searchindex'
-  if !g:spacevim_nvim
+  if !g:spacevim.nvim
     MP 'haya14busa/incsearch.vim',       { 'on': [
                 \ '<Plug>(incsearch-forward)',
                 \ '<Plug>(incsearch-backward)',

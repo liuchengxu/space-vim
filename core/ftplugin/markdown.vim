@@ -24,6 +24,8 @@ if spacevim#load('text-align')
   nnoremap <buffer> <LocalLeader>ta :Tabularize /<Bar><CR>
 endif
 
+let b:ale_linters = ['mdl']
+
 let g:tagbar_type_markdown = {
       \ 'ctagstype' : 'markdown',
       \ 'kinds' : [
@@ -33,7 +35,7 @@ let g:tagbar_type_markdown = {
         \ ]
       \ }
 
-if g:spacevim_timer
+if g:spacevim.timer
   call timer_start(1300, 'spacevim#defer#markdown')
 endif
 

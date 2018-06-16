@@ -1,4 +1,4 @@
-if g:spacevim_timer
+if g:spacevim.timer
   MP 'luochen1990/rainbow'  , { 'on': [] }
   MP 'sheerun/vim-polyglot' , { 'on': [] }
   MP 'airblade/vim-rooter'  , { 'on': []}
@@ -25,5 +25,6 @@ MP 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 
 MP 'Yggdroot/indentLine',             { 'on': 'IndentLinesToggle' }
 MP 'nathanaelkane/vim-indent-guides', { 'on': 'IndentGuidesToggle' }
+autocmd! User indentLine,vim-indent-guides call spacevim#autocmd#indent#Init()
 
 MP 'skywind3000/asyncrun.vim',        { 'on': ['AsyncRun!', 'AsyncRun'] }

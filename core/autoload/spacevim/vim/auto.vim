@@ -34,6 +34,7 @@ function! spacevim#vim#auto#AddTitle()
   endif
 endfunction
 
+" Deprecated, use g:asyncrun_open
 function! spacevim#vim#auto#AsyncRunStart()
     let l:qf_height = float2nr(round(winheight('%') * 0.3))
     if !exists('*asyncrun#quickfix_toggle')

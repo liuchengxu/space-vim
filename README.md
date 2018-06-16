@@ -6,19 +6,7 @@
 
 --------------------
 
-<p align="center"><img src="https://github.com/liuchengxu/space-vim/blob/gh-pages/docs/img/space-vim.png?raw=true" alt="space-vim"/></p>
-
-<p align="center">
-<b><a href="https://liuchengxu.github.io/space-vim/docs/org/tutorial_cn.html#orgheadline4">前言</a></b> |
-<b><a href="https://liuchengxu.github.io/space-vim/docs/org/tutorial_cn.html#orgheadline5">运行截图</a></b> |
-<b><a href="https://liuchengxu.github.io/space-vim/docs/org/tutorial_cn.html#orgheadline6">适用人群</a></b> |
-<b><a href="https://liuchengxu.github.io/space-vim/docs/org/tutorial_cn.html#orgheadline14">开始使用</a></b> |
-<b><a href="https://liuchengxu.github.io/space-vim/docs/org/tutorial_cn.html#orgheadline15">个性化</a></b> |
-<b><a href="https://liuchengxu.github.io/space-vim/docs/org/tutorial_cn.html#orgheadline16">更新</a></b> |
-<b><a href="https://liuchengxu.github.io/space-vim/docs/org/tutorial_cn.html#orgheadline19">默认安装</a></b> |
-<b><a href="https://liuchengxu.github.io/space-vim/docs/org/tutorial_cn.html#orgheadline25">基础键位</a></b> |
-<b><a href="https://liuchengxu.github.io/space-vim/docs/org/tutorial_cn.html#orgheadline28">使用建议</a></b>
-</p>
+<p align="center"><img src="https://raw.githubusercontent.com/liuchengxu/space-vim/gh-pages/docs/img/space-vim.png" alt="space-vim"/></p>
 
 ### Table of Contents
 
@@ -178,7 +166,7 @@ let g:spacevim_layers = [
       \ ]
 
 " If you want to have more control over the layer, try using Layer command.
-" if g:spacevim_gui
+" if g:spacevim.gui
 "   Layer 'airline'
 " endif
 ```
@@ -211,7 +199,7 @@ function! UserConfig()
   " Use gui colors in terminal if available
   if has('termguicolors')
     set termguicolors
-    if g:spacevim_tmux
+    if g:spacevim.tmux
       " If use vim inside tmux, see https://github.com/vim/vim/issues/993
       " set Vim-specific sequences for RGB colors
       let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"

@@ -1,4 +1,4 @@
-if g:spacevim_gui && !has('terminal')
+if g:spacevim.gui && !has('terminal')
   " LeaderF {
   nnoremap <Leader>ff :LeaderfFile ~<CR>
   nnoremap <Leader>f? :LeaderfFile<CR>
@@ -10,12 +10,28 @@ else
   " fzf.vim {
   let $LANG = 'en_US'
   " Customize fzf colors to match your color scheme
-  let g:fzf_colors = g:spacevim#plug#fzf#colors
+  " Only suitable for space-vim-dark theme, other themes are not guaranteed.
+  let g:fzf_colors = {
+              \ 'fg':      ['fg', 'StatusLineNC'],
+              \ 'bg':      ['bg', 'Normal'],
+              \ 'hl':      ['fg', 'String'],
+              \ 'fg+':     ['fg', 'Number', 'Normal'],
+              \ 'bg+':     ['bg', 'StatusLine', 'Normal'],
+              \ 'hl+':     ['fg', 'Exception'],
+              \ 'info':    ['fg', 'Special'],
+              \ 'prompt':  ['fg', 'Function'],
+              \ 'pointer': ['fg', 'Error'],
+              \ 'marker':  ['fg', 'Error'],
+              \ 'spinner': ['fg', 'Statement'],
+              \ 'header':  ['fg', 'Number'],
+              \   }
+
   nmap <Leader>? <plug>(fzf-maps-n)
   xmap <Leader>? <plug>(fzf-maps-x)
   omap <Leader>? <plug>(fzf-maps-o)
 
   nnoremap <Leader>ag :Ag!<CR>
+  vnoremap <Leader>ag :<c-u>call spacevim#plug#fzf#Vsearch()<CR>
   nnoremap <Leader>bb :Buffers<CR>
 
   nnoremap <Leader>b? :Buffers<CR>

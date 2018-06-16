@@ -40,7 +40,7 @@ endfunction
 
 function! s:build_async(cmd)
   let g:spacevim_cscope_cmd = a:cmd
-  if g:spacevim_nvim
+  if g:spacevim.nvim
     let job = jobstart(['bash', '-c', a:cmd], { 'on_exit': function('s:on_exit_cb') })
   else
     let job = job_start(['bash', '-c', a:cmd], { 'close_cb': function('s:add_db') })

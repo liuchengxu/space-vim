@@ -9,7 +9,7 @@ augroup END
 " }
 
 " From tpope
-if g:spacevim_gui
+if g:spacevim.gui
   command! Bigger  :let &guifont = substitute(&guifont, '\d\+$', '\=submatch(0)+1', '')
   command! Smaller :let &guifont = substitute(&guifont, '\d\+$', '\=submatch(0)-1', '')
   noremap + :Bigger<CR>
@@ -22,9 +22,9 @@ if has('patch-8.0.1238')
   map n <Plug>(is-nohl)<Plug>(anzu-n-with-echo)
   map N <Plug>(is-nohl)<Plug>(anzu-N-with-echo)
 else
-  if !g:spacevim_nvim
+  if !g:spacevim.nvim
     " incsearch.vim has bug with GUI vim
-    if !g:spacevim_gui
+    if !g:spacevim.gui
       map /  <Plug>(incsearch-forward)
       map ?  <Plug>(incsearch-backward)
       map g/ <Plug>(incsearch-stay)
@@ -35,12 +35,6 @@ else
     endif
   endif
 endif
-" }
-
-" vim-startify {
-let g:startify_custom_header = g:spacevim#plug#startify#header
-let g:startify_list_order = g:spacevim#plug#startify#list_order
-let g:startify_change_to_vcs_root = 1
 " }
 
 " vim-choosewin {
