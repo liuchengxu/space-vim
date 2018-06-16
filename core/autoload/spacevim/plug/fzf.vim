@@ -370,6 +370,18 @@ function! spacevim#plug#fzf#SearchCword()
         \ })
 endfunction
 
+" Search visually selected
+function! spacevim#plug#fzf#Vsearch()
+  let vselection = spacevim#util#VisualSelection()
+  call fzf#vim#ag(
+        \ vselection,{
+        \ 'dir': spacevim#util#RootDirectory(),
+        \ 'options': '--ansi --delimiter : --nth 4..,.. --prompt "?'.vselection.'> " '.
+        \            '--color hl:68,hl+:110 --multi '.
+        \            '--bind=ctrl-d:page-down,ctrl-u:page-up ',
+        \ })
+endfunction
+
 " Search word under cursor in current buffer
 function! spacevim#plug#fzf#SearchBcword()
   call fzf#vim#buffer_lines(expand('<cword>'),{'options': '--prompt "?'.expand('<cword>').'> "'})

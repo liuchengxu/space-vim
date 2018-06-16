@@ -31,6 +31,7 @@ else
   omap <Leader>? <plug>(fzf-maps-o)
 
   nnoremap <Leader>ag :Ag!<CR>
+  vnoremap <Leader>ag :<c-u>call spacevim#plug#fzf#Vsearch()<CR>
   nnoremap <Leader>bb :Buffers<CR>
 
   nnoremap <Leader>b? :Buffers<CR>
