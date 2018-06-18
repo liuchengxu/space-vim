@@ -85,7 +85,7 @@ sync_repo() {
     ret="$?"
     success "Successfully updated $repo_name"
   fi
-  if [ $_update -eq 1 ]; then
+  if [ ! -z "$_update" ]; then
     exit 0;
   fi
 }
@@ -194,15 +194,15 @@ infer() {
 }
 
 install() {
-  if [ $_all -eq 1 ]; then
+  if [ ! -z "$_all" ]; then
     install_for_vim
     install_for_neovim
     return
   fi
-  if [ $_vim -eq 1 ]; then
+  if [ ! -z "$_vim" ]; then
     install_for_vim
   fi
-  if [ $_neovim -eq 1 ]; then
+  if [ ! -z "$_neovim" ]; then
     install_for_neovim
   fi
   infer
