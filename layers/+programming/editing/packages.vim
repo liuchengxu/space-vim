@@ -8,5 +8,5 @@ MP 'jiangmiao/auto-pairs', { 'on': [] }
 
 augroup spacevimAutoPairs
   autocmd!
-  autocmd CursorHold,CursorHoldI,InsertEnter * call plug#load('auto-pairs') | autocmd! spacevimAutoPairs
+  autocmd CursorHold,CursorHoldI,InsertEnter * call plug#load('auto-pairs') | call AutoPairsTryInit() | autocmd! spacevimAutoPairs
 augroup END
