@@ -24,7 +24,7 @@ let g:spacevim.version = '0.8.0'
 let g:spacevim.os = {}
 let g:spacevim.os.mac = has('macunix')
 let g:spacevim.os.linux = has('unix') && !has('macunix') && !has('win32unix')
-let g:spacevim.os.windows = has('win32') || has('win64')
+let g:spacevim.os.windows = has('win32')
 " }
 
 " Windows Compatible {

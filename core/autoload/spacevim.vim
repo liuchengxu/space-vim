@@ -50,9 +50,7 @@ endfunction
 function! s:check_dot_spacevim()
   if filereadable(expand(s:dot_spacevim))
     call s:Source(s:dot_spacevim)
-    if exists('g:spacevim_layers')
-      let g:spacevim.loaded = g:spacevim.loaded + g:spacevim_layers
-    endif
+    call extend(g:spacevim.loaded, get(g:, 'spacevim_layers', []))
     let g:mapleader = get(g:, 'spacevim_leader', "\<Space>")
     let g:maplocalleader = get(g:, 'spacevim_localleader', ',')
   else
@@ -141,10 +139,9 @@ function! spacevim#end() abort
 endfunction
 
 function! s:register_plugin()
-  if !exists('g:spacevim_plug_home')
-    " https://github.com/junegunn/vim-plug/issues/559
-    let g:spacevim_plug_home = g:spacevim.nvim ? '~/.local/share/nvim/plugged' : '~/.vim/plugged/'
-  endif
+  " https://github.com/junegunn/vim-plug/issues/559
+  let l:plug_home = g:spacevim.nvim ? '~/.local/share/nvim/plugged' : '~/.vim/plugged/'
+  let g:spacevim_plug_home = get(g:, 'spacevim_plug_home', l:plug_home)
 
   call plug#begin(g:spacevim_plug_home)
 
