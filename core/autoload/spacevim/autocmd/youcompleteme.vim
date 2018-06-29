@@ -10,7 +10,6 @@ function! spacevim#autocmd#youcompleteme#Init() abort
   let g:ycm_path_to_python_interpreter='python'
   let g:ycm_autoclose_preview_window_after_completion = 1
   let g:ycm_collect_identifiers_from_comments_and_strings=0
-  let g:ycm_global_ycm_extra_conf = fnamemodify(expand('<sfile>'), ':h') . '/global_conf.py'
   set completeopt=menu,menuone
   let g:ycm_add_preview_to_completeopt = 0
   let g:ycm_show_diagnostics_ui = spacevim#load('syntax-checking') ? 0 : 1
@@ -31,7 +30,7 @@ function! spacevim#autocmd#youcompleteme#Init() abort
                 \ 'csv' : 1,
                 \}
 
-  inoremap <expr> <CR> pumvisible() ? "<C-R>=spacevim#util#ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
+  inoremap <expr> <CR> spacevim#vim#complete#CR()
 
   augroup spacevimYcm
     autocmd!

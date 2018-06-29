@@ -12,6 +12,6 @@ if has_key(g:plugs, 'vim-mucomplete')
   iunmap <c-h>
 endif
 
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <CR> pumvisible() ? "<C-R>=spacevim#util#ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
+inoremap <expr> <Tab> spacevim#vim#complete#Tab()
+inoremap <expr> <S-Tab> spacevim#vim#complete#STab()
+inoremap <expr> <CR> spacevim#vim#complete#CR()
