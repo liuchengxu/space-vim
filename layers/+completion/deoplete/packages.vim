@@ -8,6 +8,6 @@ endif
 
 " Completion sources
 MP 'eagletmt/neco-ghc'
-Mp 'Shougo/neco-vim'
+MP 'Shougo/neco-vim'
 MP 'sebastianmarkow/deoplete-rust'
 MP 'zchee/deoplete-go', { 'do': 'make' }

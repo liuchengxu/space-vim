@@ -2,7 +2,9 @@ scriptencoding utf-8
 
 if g:spacevim.nvim || g:spacevim.vim8
 
-  inoremap <expr> <CR> pumvisible() ? "<C-R>=spacevim#util#ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
+  inoremap <expr> <Tab> spacevim#vim#complete#Tab()
+  inoremap <expr> <S-Tab> spacevim#vim#complete#STab()
+  inoremap <expr> <CR> spacevim#vim#complete#CR()
 
   set completeopt-=preview  "close show_docstring
 
@@ -17,7 +19,7 @@ if g:spacevim.nvim || g:spacevim.vim8
   let g:deoplete#auto_complete_delay = 0
   " auto_refresh
   let g:auto_refresh_delay = 0
-  let refresh_always = true
+  let refresh_always = v:true
 
   " Plugin key-mappings.
   inoremap <expr><C-g> deoplete#undo_completion()
