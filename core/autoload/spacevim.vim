@@ -228,15 +228,14 @@ function! s:post_user_config()
     endif
   endif
   " }
-  " https://github.com/junegunn/vim-plug/wiki/extra#automatically-install-missing-plugins-on-startup
-  augroup checkPlug
-    autocmd!
-    autocmd VimEnter *
-      \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-      \|   echom '[space-vim] Some layers need to install the missing plugins first!'
-      \|   PlugInstall --sync | q
-      \| endif
-  augroup END
+  if g:spacevim.timer
+      call timer_start(1500, 'spacevim#vim#plug#check')
+  else
+    augroup checkPlug
+      autocmd!
+      autocmd VimEnter * call spacevim#vim#plug#check()
+    augroup END
+  endif
 endfunction
 
 " Util for config.vim and packages.vim
