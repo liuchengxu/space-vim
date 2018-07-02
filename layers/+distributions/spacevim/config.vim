@@ -6,9 +6,12 @@ silent! color space-vim-dark
 
 augroup spacevimBasic
   autocmd!
-  autocmd BufReadPre *
+  " https://vi.stackexchange.com/questions/298/disable-syntax-highlighting-depending-on-file-size-and-type#comment291_299
+  " `syntax off` works in the `BufReadPre` context but not in the `Filetype` context;
+  " while `setlocal syntax=OFF` does not work in the `BufReadPre` context but works in the `Filetype` context.
+  autocmd FileType xml,json,text
         \ if getfsize(expand("%")) > 10000000
-        \|  syntax off
+        \|  setlocal syntax=off
         \|endif
 
   " Restore cursor position when opening file
@@ -24,6 +27,9 @@ augroup spacevimBasic
 
   " http://vim.wikia.com/wiki/Speed_up_Syntax_Highlighting
   autocmd BufEnter * :syntax sync maxlines=200
+
+  " Open quickfix window automatically when something is feeded
+  autocmd QuickFixCmdPost * botright copen 8
 
   " Close vim if the last edit buffer is closed, i.e., close NERDTree,
   " undotree, quickfix etc automatically.

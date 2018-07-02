@@ -30,7 +30,7 @@ else
   xmap <Leader>? <plug>(fzf-maps-x)
   omap <Leader>? <plug>(fzf-maps-o)
 
-  command! -nargs=* Rag call spacevim#plug#fzf#AgInProject()
+  command! -nargs=* Rag call spacevim#plug#fzf#AgInProject(<q-args>)
   nnoremap <Leader>ag :Ag!<CR>
   vnoremap <Leader>ag :<c-u>call spacevim#plug#fzf#Vsearch()<CR>
   nnoremap <Leader>bb :Buffers<CR>

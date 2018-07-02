@@ -372,7 +372,7 @@ function! spacevim#plug#fzf#Rg(query, bang)
     return spacevim#util#warn('rg is not found')
   endif
   call fzf#vim#grep(
-        \ 'rg --column --line-number --no-heading --color=always '.shellescape(a:query), 1,
+        \ 'rg --column --line-number --no-heading --color=always --smart-case'.shellescape(a:query), 1,
         \ a:bang ? fzf#vim#with_preview('up:60%')
         \        : fzf#vim#with_preview('right:50%:hidden', '?'),
         \ a:bang
