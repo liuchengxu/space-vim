@@ -29,7 +29,10 @@ augroup spacevimBasic
   autocmd BufEnter * :syntax sync maxlines=200
 
   " Open quickfix window automatically when something is feeded
-  autocmd QuickFixCmdPost * botright copen 8
+  autocmd QuickFixCmdPost *
+        \ if !len(filter(range(1, winnr('$')), 'getwinvar(v:val, "&ft") == "qf"'))
+        \| copen 8
+        \|endif
 
   " Close vim if the last edit buffer is closed, i.e., close NERDTree,
   " undotree, quickfix etc automatically.
