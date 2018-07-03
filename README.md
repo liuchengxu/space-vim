@@ -49,15 +49,14 @@ Elegance here means pleasing, graceful as well as simple. If you are unfamiliar 
 
 The distribution is completely customizable using `.spacevim`, which is equivalent to `.spacemacs` in spacemacs.
 
-![screenshot](https://raw.githubusercontent.com/liuchengxu/img/master/space-vim/space-vim-cterm.png)
-(Terminal vim with [space-vim-dark](https://github.com/liuchengxu/space-vim-dark) theme)
+![screenshot](https://raw.githubusercontent.com/liuchengxu/img/master/space-vim/space-vim-gui.png)
+(Terminal vim with [space-vim-dark](https://github.com/liuchengxu/space-vim-dark))
+
+[More screenshots](https://github.com/liuchengxu/space-vim/wiki/screenshots)
 
 ## Features
 
-- **Beautiful interface:** I have written a vim colorscheme [space-vim-dark](https://github.com/liuchengxu/space-vim-dark) based on spacemacs-dark theme. You could also try [spacemacs-theme.vim](https://github.com/colepeters/spacemacs-theme.vim). [More screenshots](https://github.com/liuchengxu/space-vim/wiki/screenshots)
-
-    ![screenshot](https://raw.githubusercontent.com/liuchengxu/img/master/space-vim/space-vim-gui.png)
-    (Terminal vim with `set termguicolors`)
+- **Beautiful interface:** I have written a vim colorscheme [space-vim-dark](https://github.com/liuchengxu/space-vim-dark) based on spacemacs-dark theme. You could also try [spacemacs-theme.vim](https://github.com/colepeters/spacemacs-theme.vim). 
 
 - **Mnemonic key bindings:** commands have mnemonic prefixes like <kbd>SPC b</kbd> for all the buffer commands. Lots of basic key bindings are provided by [vim-better-default](https://github.com/liuchengxu/vim-better-default).
 
@@ -72,6 +71,8 @@ The distribution is completely customizable using `.spacevim`, which is equivale
 - the **novice** vim users
 - the vimmers who pursuit a beautiful appearance
 - the users **using both vim and spacemacs**
+
+Have a look at the [Introduction](https://github.com/liuchengxu/space-vim/wiki/Introduction) in wiki as well.
 
 If you have been a vimmer for quite a while, just pick out the part you are interested in. space-vim is well-organized due to the layers concept, you can easily find what you want. Since some guys are interested in the statusline part of space-vim, this section has been extracted as [eleline.vim](https://github.com/liuchengxu/eleline.vim).
 
