@@ -37,8 +37,4 @@ endif
 
 set runtimepath+=$HOME/.space-vim/core
 
-call spacevim#begin()
-
-Layer 'spacevim'
-
-call spacevim#end()
+call spacevim#bootstrap()

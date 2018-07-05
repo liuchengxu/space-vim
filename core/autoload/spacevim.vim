@@ -9,7 +9,7 @@ let g:spacevim.timer = exists('*timer_start')
 let g:spacevim.gui = has('gui_running')
 let g:spacevim.tmux = !empty($TMUX)
 
-let g:spacevim.loaded = []
+let g:spacevim.loaded = ['spacevim'] " Enable spacevim layer by default
 let g:spacevim.excluded = []
 let g:spacevim.plugins = []
 
@@ -21,6 +21,11 @@ let s:TYPE = {
 \ 'dict':    type({}),
 \ 'funcref': type(function('call'))
 \ }
+
+function! spacevim#bootstrap() abort
+  call spacevim#begin()
+  call spacevim#end()
+endfunction
 
 function! spacevim#begin() abort
   " Download vim-plug if unavailable
