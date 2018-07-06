@@ -53,6 +53,9 @@ augroup spacevimBasic
     if (winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree()) | q! | endif
   endfunction
 
+  " http://vim.wikia.com/wiki/Always_start_on_first_line_of_git_commit_message
+  autocmd BufEnter * if &filetype == "gitcommit" | call setpos('.', [0, 1, 1, 0]) | endif
+
   " http://stackoverflow.com/questions/5933568/disable-blinking-at-the-first-last-line-of-the-file
   autocmd GUIEnter * set t_vb=
 
