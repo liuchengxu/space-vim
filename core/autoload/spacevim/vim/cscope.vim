@@ -25,6 +25,7 @@ function! s:add_db(channel)
   set csverb
   let s:is_building = 0
   echo "\r\r"
+  call s:find_after()
 endfunction
 
 function! s:build_sync(...)
@@ -32,6 +33,13 @@ function! s:build_sync(...)
     call system(cmd)
   endfor
   call s:add_db('')
+endfunction
+
+function! s:find_after()
+  if exists('s:find_after_build')
+    call spacevim#vim#cscope#Find(s:find_after_build)
+    unlet s:find_after_build
+  endif
 endfunction
 
 function! s:on_exit_cb(job_id, data, event) dict
@@ -110,5 +118,6 @@ function! spacevim#vim#cscope#Find(type)
   catch /E567: no cscope connections/
     call spacevim#util#info('no cscope connections, try building ....')
     call s:build()
+    let s:find_after_build = a:type
   endtry
 endfunction
