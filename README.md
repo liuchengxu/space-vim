@@ -213,6 +213,12 @@ function! UserConfig()
   " If your terminal(-emulator) supports true colors, uncomment the line below
   " call s:enable_termgui()
 
+  " If your want open mouse support, uncomment the line below
+  " set mouse-=a  
+
+  " If your don't want relative number, uncomment the line below
+  " set norelativenumber
+
 endfunction
 ```
 
