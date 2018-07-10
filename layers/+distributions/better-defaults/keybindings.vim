@@ -21,6 +21,23 @@ for s:i in range(1, 9)
 endfor
 unlet s:i
 
+" Picked from https://github.com/tpope/vim-unimpaired
+" Quickfix
+nnoremap ]q :cnext<cr>zz
+nnoremap [q :cprev<cr>zz
+
+" Location
+nnoremap ]l :lnext<cr>zz
+nnoremap [l :lprev<cr>zz
+
+" Buffers
+nnoremap ]b :bnext<cr>
+nnoremap [b :bprev<cr>
+
+" Tabs
+nnoremap ]t :tabn<cr>
+nnoremap [t :tabp<cr>
+
 " map y <Plug>(operator-flashy)
 " nmap Y <Plug>(operator-flashy)$
 
