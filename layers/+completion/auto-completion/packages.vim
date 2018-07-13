@@ -9,6 +9,7 @@ if exists('g:spacevim_use_ncm2') || has("nvim-0.2.2") && has('python3')
         \ 'ncm2/ncm2-github',
         \ 'ncm2/ncm2-abbrfuzzy',
         \ 'ncm2/ncm2-racer',
+        \ 'ncm2/ncm2-go',
         \ 'ncm2/ncm2-pyclang',
         \ ]
   if g:spacevim.vim8
