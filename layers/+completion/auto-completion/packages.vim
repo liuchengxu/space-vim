@@ -1,3 +1,6 @@
+" space-vim will use completor.vim for vim8 by default.
+" If you want to use ncm2 when using vim8, configure it explicitly.
+" let g:spacevim_use_ncm2 = 1
 if exists('g:spacevim_use_ncm2') || has("nvim-0.2.2") && has('python3')
   let s:plugins = [
         \ 'ncm2/ncm2',
@@ -15,7 +18,7 @@ if exists('g:spacevim_use_ncm2') || has("nvim-0.2.2") && has('python3')
   if g:spacevim.vim8
     call add(s:plugins, 'roxma/vim-hug-neovim-rpc')
   endif
-  " enable ncm2 for all buffer
+  " Enable ncm2 for all buffer
   autocmd BufEnter * call ncm2#enable_for_buffer()
 
 elseif g:spacevim.vim8
