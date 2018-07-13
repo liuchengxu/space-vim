@@ -12,11 +12,6 @@ if exists('g:spacevim_use_ncm2') || has("nvim-0.2.2") && has('python3')
         \ 'ncm2/ncm2-pyclang',
         \ ]
   if g:spacevim.vim8
-    try
-      py3 import neovim
-    catch
-      call system('pip3 install neovim')
-    endtry
     call add(s:plugins, 'roxma/vim-hug-neovim-rpc')
   endif
   " enable ncm2 for all buffer
