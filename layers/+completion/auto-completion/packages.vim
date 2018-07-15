@@ -10,7 +10,7 @@ if exists('g:spacevim_use_ncm2') || has("nvim-0.2.2") && has('python3')
         \ 'ncm2/ncm2-path',
         \ 'ncm2/ncm2-jedi',
         \ 'ncm2/ncm2-github',
-        \ 'ncm2/ncm2-abbrfuzzy',
+        \ 'ncm2/ncm2-match-highlight',
         \ 'ncm2/ncm2-racer',
         \ 'ncm2/ncm2-go',
         \ 'ncm2/ncm2-pyclang',
@@ -20,6 +20,7 @@ if exists('g:spacevim_use_ncm2') || has("nvim-0.2.2") && has('python3')
   endif
   " Enable ncm2 for all buffer
   autocmd BufEnter * call ncm2#enable_for_buffer()
+  let g:ncm2#matcher = 'abbrfuzzy'
 
 elseif g:spacevim.vim8
   let s:plugins = [

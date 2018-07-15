@@ -18,5 +18,6 @@ To use this configuration layer, add it to your `~/.spacevim`.
 
 ## Related projects
 
+- [SimpleSnippets](https://github.com/andreyorst/SimpleSnippets.vim)
 - [vim-minisnip](https://github.com/KeyboardFire/vim-minisnip)
 - [neosnippet.vim](Shougo/neosnippet.vim)
