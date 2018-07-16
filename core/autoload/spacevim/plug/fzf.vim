@@ -379,6 +379,13 @@ function! spacevim#plug#fzf#Rg(query, bang)
         \ )
 endfunction
 
+function! spacevim#plug#fzf#RgVisual()
+  let l:query = spacevim#util#VisualSelection()
+  call fzf#vim#grep(
+        \ 'rg --column --line-number --no-heading --color=always --smart-case '.l:query, 1,
+        \ )
+endfunction
+
 " Search word under cursor in current buffer
 function! spacevim#plug#fzf#SearchBcword()
   call fzf#vim#buffer_lines(expand('<cword>'),{'options': '--prompt "?'.expand('<cword>').'> "'})

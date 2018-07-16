@@ -44,5 +44,6 @@ else
 
   command! -bang -nargs=* Rg call spacevim#plug#fzf#Rg(<q-args>, <bang>0)
   nnoremap <leader>rg :Rg!<cr>
+  vnoremap <leader>rg :call spacevim#plug#fzf#RgVisual()<CR>
   " }
 endif
