@@ -50,7 +50,15 @@ augroup spacevimBasic
         quit!
       endif
     endif
-    if (winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree()) | q! | endif
+    " Sometimes when the last window is nerdtree with another buffer exists,
+    " vim will close automatically. See #283
+    " To reproduce:
+    " 1. vim foo.txt
+    " 2. NERDTreeFind
+    " 3. :bd
+    " that's due to winnr('$) = 1, so diable it for now until a better
+    " solution is found.
+    " if (winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree()) | q! | endif
   endfunction
 
   " http://vim.wikia.com/wiki/Always_start_on_first_line_of_git_commit_message
