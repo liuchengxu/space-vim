@@ -140,7 +140,7 @@ function! spacevim#end() abort
 
   call s:config()
   if exists('*UserConfig') | call UserConfig() | endif
-  call s:post_user_config()
+  call s:check_missing_plugins()
 endfunction
 
 " Initialize vim-plug system
@@ -182,8 +182,7 @@ function! s:packages() abort
   endif
 
   " Load private packages
-  let l:private_packages = g:spacevim.base . '/private/packages.vim'
-  call s:Source(l:private_packages, 1)
+  call s:Source(g:spacevim.base . '/private/packages.vim', 1)
 endfunction
 
 function! s:config() abort
@@ -200,18 +199,10 @@ function! s:config() abort
 
   " Load private config
   call s:Source(g:spacevim.base . '/private/config.vim')
+  silent doautocmd User SpacevimAfterUserConfig
 endfunction
 
-function! s:post_user_config() abort
-  " airline {
-  if !exists('g:airline_powerline_fonts')
-    let g:airline_left_sep=''
-    let g:airline_right_sep=''
-    if !g:spacevim.os.windows
-      let g:airline_synbols = g:spacevim#plug#airline#symbols
-    endif
-  endif
-  " }
+function! s:check_missing_plugins() abort
   if g:spacevim.timer
       call timer_start(1500, 'spacevim#vim#plug#check')
   else

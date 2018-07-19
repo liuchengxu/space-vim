@@ -28,4 +28,14 @@ scriptencoding=utf-8
   " error information.
   let g:airline#extensions#ale#error_symbol = '•'
   let g:airline#extensions#ale#warning_symbol = '•'
+  autocmd User SpacevimAfterUserConfig call s:after_user_config()
+  function! s:after_user_config() abort
+     if !exists('g:airline_powerline_fonts')
+       let g:airline_left_sep=''
+       let g:airline_right_sep=''
+       if !g:spacevim.os.windows
+         let g:airline_symbols = g:spacevim#plug#airline#symbols
+       endif
+     endif
+  endfunction
 " }
