@@ -141,6 +141,7 @@ function! spacevim#end() abort
   call s:config()
   if exists('*UserConfig') | call UserConfig() | endif
   call s:check_missing_plugins()
+  silent doautocmd User SpacevimAfterUserConfig
 endfunction
 
 " Initialize vim-plug system
@@ -199,7 +200,6 @@ function! s:config() abort
 
   " Load private config
   call s:Source(g:spacevim.base . '/private/config.vim')
-  silent doautocmd User SpacevimAfterUserConfig
 endfunction
 
 function! s:check_missing_plugins() abort
