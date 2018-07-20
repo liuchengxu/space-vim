@@ -140,6 +140,7 @@ function! spacevim#end() abort
 
   call s:config()
   if exists('*UserConfig') | call UserConfig() | endif
+
   call s:check_missing_plugins()
   silent doautocmd User SpacevimAfterUserConfig
 endfunction
@@ -176,10 +177,7 @@ function! s:packages() abort
 
   " Try private Layer packages
   if exists('g:spacevim.private')
-    for l:private_layer in g:spacevim.private
-      let l:private_layer_packages = g:spacevim.base . '/private/' . l:private_layer . '/packages.vim'
-      call s:Source(l:private_layer_packages, 1)
-    endfor
+    call map(g:spacevim.private, 's:Source(g:spacevim.base ."/private/".v:val."/packages.vim", 1)')
   endif
 
   " Load private packages
@@ -192,14 +190,11 @@ function! s:config() abort
 
   " Try private Layer config
   if exists('g:spacevim.private')
-    for l:private_layer in g:spacevim.private
-      let l:private_layer_config = g:spacevim.base . '/private/' . l:private_layer . '/config.vim'
-      call s:Source(l:private_layer_config, 1)
-    endfor
+    call map(g:spacevim.private, 's:Source(g:spacevim.base ."/private/".v:val."/config.vim", 1)')
   endif
 
   " Load private config
-  call s:Source(g:spacevim.base . '/private/config.vim')
+  call s:Source(g:spacevim.base . '/private/config.vim', 1)
 endfunction
 
 function! s:check_missing_plugins() abort
