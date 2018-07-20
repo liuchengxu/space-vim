@@ -90,9 +90,7 @@ function! s:parse_options(arg)
   let l:type = type(a:arg)
   if l:type == s:TYPE.dict
     if has_key(a:arg, 'exclude')
-      for l:excl in s:to_a(a:arg['exclude'])
-        call add(g:spacevim.excluded, l:excl)
-      endfor
+      call extend(g:spacevim.excluded, s:to_a(a:arg['exclude']))
     else
       throw 'Invalid option (expected: exclude)'
     endif
@@ -148,10 +146,8 @@ endfunction
 " Initialize vim-plug system
 function! s:register_plugin() abort
   " https://github.com/junegunn/vim-plug/issues/559
-  let l:plug_home = g:spacevim.nvim ? '~/.local/share/nvim/plugged' : '~/.vim/plugged/'
-  let g:spacevim_plug_home = get(g:, 'spacevim_plug_home', l:plug_home)
-
-  call plug#begin(g:spacevim_plug_home)
+  call plug#begin(get(g:, 'spacevim_plug_home',
+        \ g:spacevim.nvim ? '~/.local/share/nvim/plugged' : '~/.vim/plugged/'))
   call s:packages()
   " Register non-excluded plugins
   function! s:filter_and_register(val) abort
