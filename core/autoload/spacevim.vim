@@ -182,7 +182,7 @@ endfunction
 
 function! s:config() abort
   " Load Layer config
-  cal map(g:spacevim.loaded, 's:Source(g:spacevim.manifest[v:val].dir . "/config.vim")')
+  cal map(copy(g:spacevim.loaded), 's:Source(g:spacevim.manifest[v:val].dir . "/config.vim")')
 
   " Try private Layer config
   if exists('g:spacevim.private')
