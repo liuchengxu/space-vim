@@ -1,17 +1,23 @@
+
+<!-- Ensure you have read the README and wiki already. -->
+
 #### Environment
 
-<!-- Select the applied check boxes, fill it with x, i.e [x] -->
-- OS:
-    - [ ] Linux
-    - [ ] macOS
-    - [ ] Windows
-    - [ ] FreeBSD
-- Vim:
-    - [ ] Terminal Vim
-    - [ ] GVim
-    - [ ] NeoVim
+**Please complete these steps and check these boxes (by putting an `x` inside
+the brackets) _before_ filing your issue:**
 
-<!-- Put the contents of `:version` below -->
+- OS:
+    - [] Linux
+    - [] macOS
+    - [] Windows
+    - [] FreeBSD
+- Vim:
+    - [] Terminal Vim
+    - [] GVim
+    - [] NeoVim
+
+**Put the contents of `:version` below:**
+
 ```
 
 ```
@@ -20,13 +26,10 @@
 
 #### Problem Description
 
-<!-- English please. -->
+<!-- **English please** -->
 
 <!-- Error messages. -->
 
 <!-- Describe your problem or suggestion. -->
 
 <!-- Screenshots if neccessary. -->
-
-<!-- Love space-vim? Please consider supporting our collective:
-👉  https://opencollective.com/space-vim/donate -->
