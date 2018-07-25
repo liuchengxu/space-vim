@@ -12,18 +12,23 @@ scriptencoding utf-8
   nnoremap <silent> <Leader>ge :Gedit<CR>
   " Mnemonic _i_nteractive
   nnoremap <silent> <Leader>gi :Git add -p %<CR>
-  nnoremap <silent> <Leader>gg :SignifyToggle<CR>
-  "}
+  nnoremap <silent> <Leader>gg :call spacevim#plug#toggle#Git()<CR>
+"}
 
-  " vim-gitgutter {
+" vim-gitgutter {
   " consistent with airline
-  let g:gitgutter_sign_added = '+'
-  let g:gitgutter_sign_modified = '~'
-  let g:gitgutter_sign_removed = '-'
-
-  let g:gitgutter_sign_removed_first_line = '^^'
-  let g:gitgutter_sign_modified_removed = 'ww'
-  let g:gitgutter_override_sign_column_highlight = 0
-
-  nnoremap <silent> <Leader>tg :GitGutterToggle<CR>
+  " let g:gitgutter_sign_added = '+'
+  " let g:gitgutter_sign_modified = '~'
+  " let g:gitgutter_sign_removed = '-'
+  " let g:gitgutter_sign_removed_first_line = '^^'
+  " let g:gitgutter_sign_modified_removed = 'ww'
+  " let g:gitgutter_override_sign_column_highlight = 0
 " }
+
+" vim-signify {
+  let g:signify_sign_delete            = '-'
+  let g:signify_sign_delete_first_line = '^^'
+  let g:signify_sign_change            = '~'
+" }
+
+  nnoremap <silent> <Leader>tg :call spacevim#plug#toggle#Git()<CR>
