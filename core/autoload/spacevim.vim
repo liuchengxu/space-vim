@@ -155,7 +155,7 @@ function! s:register_plugin() abort
       call plug#(a:val, get(s:plug_options, a:val, ""))
     endif
   endfunction
-  call map(g:spacevim.plugins, 's:filter_and_register(v:val)')
+  call map(copy(g:spacevim.plugins), 's:filter_and_register(v:val)')
   if exists('*UserInit') | call UserInit() | endif
   call plug#end()
 endfunction
@@ -173,7 +173,7 @@ function! s:packages() abort
 
   " Try private Layer packages
   if exists('g:spacevim.private')
-    call map(g:spacevim.private, 's:Source(g:spacevim.base ."/private/".v:val."/packages.vim", 1)')
+    call map(copy(g:spacevim.private), 's:Source(g:spacevim.base ."/private/".v:val."/packages.vim", 1)')
   endif
 
   " Load private packages
@@ -186,7 +186,7 @@ function! s:config() abort
 
   " Try private Layer config
   if exists('g:spacevim.private')
-    call map(g:spacevim.private, 's:Source(g:spacevim.base ."/private/".v:val."/config.vim", 1)')
+    call map(copy(g:spacevim.private), 's:Source(g:spacevim.base ."/private/".v:val."/config.vim", 1)')
   endif
 
   " Load private config
