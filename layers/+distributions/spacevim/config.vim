@@ -30,7 +30,7 @@ augroup spacevimBasic
 
   " Open quickfix window automatically when something is feeded
   autocmd QuickFixCmdPost *
-        \ if !len(filter(range(1, winnr('$')), 'getwinvar(v:val, "&ft") == "qf"'))
+        \ if !len(filter(range(1, winnr('$')), 'getwinvar(v:val, "&ft") == "qf"')) && len(getqflist())
         \| copen 8
         \|endif
 
