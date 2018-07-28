@@ -96,6 +96,19 @@ let g:spacevim#plug#leaderGuide#lmap['j'] = {
       \ 'f' : ['call feedkeys("\<Plug>(easymotion-prefix)w")'      , 'jump-forward-wordwise']      ,
       \ 'b' : ['call feedkeys("\<Plug>(easymotion-prefix)b")'      , 'jump-backword-wordwise']     ,
       \ }
+let g:spacevim#plug#leaderGuide#lmap['l'] = {
+      \ 'name' : '+lsp'                                            ,
+      \ 'a' : ['call LanguageClient#textDocument_codeAction()'     , 'code-action']      ,
+      \ 'd' : ['call LanguageClient#textDocument_definition()'     , 'definition']       ,
+      \ 'f' : ['call LanguageClient#textDocument_formatting()'     , 'formatting']       ,
+      \ 'h' : ['call LanguageClient#textDocument_hover()'          , 'hover']            ,
+      \ 'i' : ['call LanguageClient#textDocument_implementation('  , 'implementation']   ,
+      \ 'r' : ['call LanguageClient#textDocument_references()'     , 'references']       ,
+      \ 'R' : ['call LanguageClient#textDocument_rename()'         , 'rename']           ,
+      \ 's' : ['call LanguageClient#textDocument_documentSymbol()' , 'document-symbol']  ,
+      \ 'S' : ['call LanguageClient#workspace_symbol()'            , 'workspace-symbol'] ,
+      \ 't' : ['call LanguageClient#textDocument_typeDefinition()' , 'type-definition']  ,
+      \ }
 let g:spacevim#plug#leaderGuide#lmap['p'] = {
       \ 'name' : '+projects'                                ,
       \ 'f' : ['call spacevim#plug#fzf#FindFileInProject()' , 'find-file-in-project']  ,
