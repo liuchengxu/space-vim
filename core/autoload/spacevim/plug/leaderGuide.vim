@@ -99,6 +99,7 @@ let g:spacevim#plug#leaderGuide#lmap['j'] = {
 let g:spacevim#plug#leaderGuide#lmap['l'] = {
       \ 'name' : '+lsp'                                            ,
       \ 'a' : ['call LanguageClient#textDocument_codeAction()'     , 'code-action']      ,
+      \ 'c' : ['call LanguageClient_contextMenu()'                 , 'context-menu']      ,
       \ 'd' : ['call LanguageClient#textDocument_definition()'     , 'definition']       ,
       \ 'f' : ['call LanguageClient#textDocument_formatting()'     , 'formatting']       ,
       \ 'h' : ['call LanguageClient#textDocument_hover()'          , 'hover']            ,
