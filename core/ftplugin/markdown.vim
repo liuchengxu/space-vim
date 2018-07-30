@@ -26,6 +26,8 @@ endif
 
 let b:ale_linters = ['mdl']
 
+autocmd CursorHold * silent! UpdateToc
+
 let g:tagbar_type_markdown = {
       \ 'ctagstype' : 'markdown',
       \ 'kinds' : [

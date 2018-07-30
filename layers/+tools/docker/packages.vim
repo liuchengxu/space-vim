@@ -1,1 +1,1 @@
-MP 'ekalinin/Dockerfile.vim'
+MP 'ekalinin/Dockerfile.vim', { 'for': ['Dockerfile', 'docker-compose'] }
