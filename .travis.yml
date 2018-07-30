@@ -9,5 +9,6 @@ script:
 # - vint init.vim layers/*.vim core/*.vim
 - shellcheck *.sh
 - chmod +x install.sh
+- git clone https://github.com/hecal3/vim-leader-guide ~/.vim/plugged/vim-leader-guide --depth=1
 - ./install.sh
 
