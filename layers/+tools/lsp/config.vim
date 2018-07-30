@@ -13,8 +13,8 @@ let g:LanguageClient_serverCommands = {
       \ 'python': ['pyls', '--log-file=/tmp/pyls.log'],
       \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
       \ 'sh': ['bash-language-server', 'start'],
-      \ 'typescript', ['javascript-typescript-stdio'],
-      \ 'javascript', ['javascript-typescript-stdio'],
+      \ 'typescript': ['javascript-typescript-stdio'],
+      \ 'javascript': ['javascript-typescript-stdio'],
       \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
       \ }
 

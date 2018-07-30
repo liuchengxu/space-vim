@@ -15,6 +15,8 @@ let g:spacevim.plugins = []
 
 let s:plug_options = {}
 let s:dot_spacevim = $HOME.'/.spacevim'
+let s:private_config = g:spacevim.base.'/private/config.vim'
+let s:private_packages = g:spacevim.base.'/private/packages.vim'
 let s:TYPE = {
 \ 'string':  type(''),
 \ 'list':    type([]),
@@ -109,19 +111,13 @@ function! s:my_plugin(plugin, ...) abort
   endif
 endfunction
 
-function! s:Source(file, ...) abort
-  " If the extra argument exists, try-catch is not neccessary
-  if a:0 == 1
-    if filereadable(expand(a:file))
-      execute 'source ' . fnameescape(a:file)
-    endif
-  else
-    try
-      execute 'source ' . fnameescape(a:file)
-    catch
-      call spacevim#cache#init()
-    endtry
-  endif
+function! s:Source(file) abort
+  try
+    execute 'source ' . fnameescape(a:file)
+  catch
+    echom v:exception
+    call spacevim#cache#init()
+  endtry
 endfunction
 
 function! s:path(path) abort
@@ -173,11 +169,11 @@ function! s:packages() abort
 
   " Try private Layer packages
   if exists('g:spacevim.private')
-    call map(copy(g:spacevim.private), 's:Source(g:spacevim.base ."/private/".v:val."/packages.vim", 1)')
+    call map(copy(g:spacevim.private), 's:Source(g:spacevim.base ."/private/".v:val."/packages.vim")')
   endif
 
   " Load private packages
-  call s:Source(g:spacevim.base . '/private/packages.vim', 1)
+  if filereadable(expand(s:private_packages)) | call s:Source(s:private_packages) | endif
 endfunction
 
 function! s:config() abort
@@ -186,11 +182,11 @@ function! s:config() abort
 
   " Try private Layer config
   if exists('g:spacevim.private')
-    call map(copy(g:spacevim.private), 's:Source(g:spacevim.base ."/private/".v:val."/config.vim", 1)')
+    call map(copy(g:spacevim.private), 's:Source(g:spacevim.base ."/private/".v:val."/config.vim")')
   endif
 
   " Load private config
-  call s:Source(g:spacevim.base . '/private/config.vim', 1)
+  if filereadable(expand(s:private_config)) | call s:Source(s:private_config) | endif
 endfunction
 
 function! s:check_missing_plugins() abort
