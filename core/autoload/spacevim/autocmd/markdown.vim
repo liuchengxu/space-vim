@@ -10,8 +10,8 @@ endif
 
 function! spacevim#autocmd#markdown#Init()
   if !s:loaded
-  " markdown-preview.vim {
-    let g:mkdp_path_to_chrome = s:path_to_chrome
+  " previm {
+    let g:previm_open_cmd = s:path_to_chrome
   " }
 
   " vim-markdown {
