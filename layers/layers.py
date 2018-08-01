@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
 """
 
 $ ./layers.py
@@ -12,49 +11,60 @@ update LAYERS.md
 import os
 import re
 import time
+import ast
 
-topic_base = os.path.expanduser('./')
-topics = [
-    f for f in os.listdir(topic_base)
-    if os.path.isdir(os.path.join(topic_base, f))
-]
+info_path = os.path.expanduser('~/.space-vim/core/autoload/spacevim/info.vim')
 
-f = open(os.path.expandvars('./LAYERS.md'), 'w')
-f.write('Layer Manifest\n')
-f.write('==============\n\n')
-f.write(
-    'Last updated: ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
-f.write("\n\n")
-f.write(
-    "Default layers: `fzf`, `unite`, `better-defaults` and `which-key`."
-)
-f.write("\n\n")
+topics = dict()
+layers = dict()
 
-f.write("%-20s | %s | %s\n" % ('Topic', 'Layer', 'Plugins'))
-f.write("%-20s | %s | %s\n" % (':----:', ':----:', ':----'))
+with open(info_path) as f:
+    lines = f.readlines()
+    info_topics = ast.literal_eval(lines[0].split('=')[1].strip())
+    info_layers = ast.literal_eval(lines[1].split('=')[1].strip())
+
+output = open(os.path.expandvars('./LAYERS.md'), 'w')
+output.write('Layer Manifest\n')
+output.write('==============\n\n')
+output.write('Last updated: ' +
+             time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+output.write("\n\n")
+output.write(
+    "Default layers: `fzf`, `unite`, `better-defaults` and `which-key`.")
+output.write("\n\n")
+
+output.write("%-20s | %s | %s\n" % ('Topic', 'Layer', 'Plugins'))
+output.write("%-20s | %s | %s\n" % (':----:', ':----:', ':----'))
 
 url_prefix = 'https://github.com/liuchengxu/space-vim/tree/master/layers'
-plugs = []
 
-for t in topics:
-    topic_path = topic_base + '/' + t
-    layers = [
-        l for l in os.listdir(topic_path)
-        if os.path.isdir(os.path.join(topic_path, l))
-    ]
-    for l in layers:
-        plugins = "<ul>"
-        with open(topic_path + '/' + l + '/packages.vim', 'rt') as fp:
-            for line in fp:
-                if line.lstrip(' \t\n\r').startswith('MP'):
-                    res = re.split(r"'*/*'", line)
-                    if not plugs.count(res[1]):
-                        plugs.append(res[1])
-                        plugins += "<li>[" + res[1] + "]"
-                        plugins += "(https://github.com/" + res[1] + ")</li>"
-        plugins += "</ul>"
-        f.write("%-20s | [%s](%s/%s/%s) | %s\n" % (t, l, url_prefix, t, l,
-                                                   plugins))
-f.close()
+plugins = []
+
+for topic, layers in info_topics.items():
+    pattern = re.compile('\'(.*)\'')
+    for layer in layers:
+        plugs = "<ul>"
+        with open(info_layers[layer]['dir'] + '/packages.vim') as f:
+            for line in f.read().splitlines():
+                if line.startswith('"'):
+                    continue
+                mat = pattern.search(line)
+                if mat is not None:
+                    if mat.group(0).find('/') != -1:
+                        plug = mat.group(0).split("'", 2)[1]
+                        if line.count('<Plug>'):
+                            continue
+                        if plugins.count(plug):
+                            continue
+                        else:
+                            plugins.append(plug)
+                            plugs += (
+                                "<li>[{}](https://github.com/{})</li>".format(
+                                    plug, plug))
+        plugs += "</ul>"
+        output.write("%-20s | [%s](%s/%s/%s) | %s\n" %
+                     (topic, layer, url_prefix, topic, layer, plugs))
+output.close()
 
 print('LAYERS.md has been updated (created) successfully.')
+print('All related plugins: {}'.format(len(plugins)))
