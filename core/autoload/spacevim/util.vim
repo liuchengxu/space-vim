@@ -117,15 +117,6 @@ function! spacevim#util#RootDirectory()
   return root_dir == '' ? getcwd() : root_dir
 endfunction
 
-function! spacevim#util#ExpandSnippetOrCarriageReturn()
-  if exists("*UltiSnips#ExpandSnippet")
-    if get(g:, 'ulti_expand_res', 0) > 0
-      return UltiSnips#ExpandSnippet()
-    endif
-  endif
-  return "\<c-y>\<cr>"
-endfunction
-
 function! spacevim#util#VisualSelection()
     " Why is this not a built-in Vim script function?!
     let [line_start, column_start] = getpos("'<")[1:2]

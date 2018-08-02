@@ -24,17 +24,21 @@ with open(info_path) as f:
     info_layers = ast.literal_eval(lines[1].split('=')[1].strip())
 
 output = open(os.path.expandvars('./LAYERS.md'), 'w')
-output.write('Layer Manifest\n')
-output.write('==============\n\n')
-output.write('Last updated: ' +
-             time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
-output.write("\n\n")
-output.write(
-    "Default layers: `fzf`, `unite`, `better-defaults` and `which-key`.")
-output.write("\n\n")
 
-output.write("%-20s | %s | %s\n" % ('Topic', 'Layer', 'Plugins'))
-output.write("%-20s | %s | %s\n" % (':----:', ':----:', ':----'))
+header = []
+header.append('Layer Manifest\n')
+header.append('==============\n\n')
+header.append('Last updated: ' +
+              time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+header.append("\n\n")
+header.append(
+    "Default layers: `fzf`, `unite`, `better-defaults` and `which-key`.")
+header.append("\n\n")
+
+header.append("%-20s | %s | %s\n" % ('Topic', 'Layer', 'Plugins'))
+header.append("%-20s | %s | %s\n" % (':----:', ':----:', ':----'))
+
+output.writelines(header)
 
 url_prefix = 'https://github.com/liuchengxu/space-vim/tree/master/layers'
 

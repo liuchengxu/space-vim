@@ -120,8 +120,9 @@ let g:spacevim#plug#leaderGuide#lmap['p'] = {
 let g:spacevim#plug#leaderGuide#lmap['q'] = [ 'q', 'quit' ]
 let g:spacevim#plug#leaderGuide#lmap['Q'] = [ 'qa!', 'quit-without-saving' ]
 let g:spacevim#plug#leaderGuide#lmap['s'] = {
-      \ 'name' : '+search'  ,
-      \ 'c' : ['nohlsearch' , 'search-clear-highlight']
+      \ 'name' : '+search/show'  ,
+      \ 'c' : ['nohlsearch' , 'search-clear-highlight'],
+      \ 'h' : ['call spacevim#util#SyntaxHiGroup()', 'show-highlight-group']
       \ }
 let g:spacevim#plug#leaderGuide#lmap['t'] = {
       \ 'name' : '+toggle'                               ,

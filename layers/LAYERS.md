@@ -1,7 +1,7 @@
 Layer Manifest
 ==============
 
-Last updated: 2018-08-01 15:16:53
+Last updated: 2018-08-02 12:50:45
 
 Default layers: `fzf`, `unite`, `better-defaults` and `which-key`.
 
