@@ -18,6 +18,34 @@ let g:LanguageClient_serverCommands = {
       \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
       \ }
 
+  let g:LanguageClient_diagnosticsDisplay =
+\    {
+\        1: {
+\            "name": "Error",
+\            "texthl": "Error",
+\            "signText": "✖",
+\            "signTexthl": "ErrorMsg",
+\        },
+\        2: {
+\            "name": "Warning",
+\            "texthl": "Warning",
+\            "signText": "⚠",
+\            "signTexthl": "WarningMsg",
+\        },
+\        3: {
+\            "name": "Information",
+\            "texthl": "Type",
+\            "signText": "ℹ",
+\            "signTexthl": "Type",
+\        },
+\        4: {
+\            "name": "Hint",
+\            "texthl": "String",
+\            "signText": "➤",
+\            "signTexthl": "String",
+\        },
+\    }
+
 " Or map each action separately
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
