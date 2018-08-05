@@ -18,6 +18,9 @@ if exists('g:spacevim_use_ncm2') || has("nvim-0.2.2") && has('python3')
   if g:spacevim.vim8
     call add(s:plugins, 'roxma/vim-hug-neovim-rpc')
   endif
+  if spacevim#load('code-snippets')
+    call add(s:plugins, 'ncm2/ncm2-ultisnips')
+  endif
   " Enable ncm2 for all buffer
   autocmd CursorHold,InsertEnter * call ncm2#enable_for_buffer()
   let g:ncm2#matcher = 'abbrfuzzy'

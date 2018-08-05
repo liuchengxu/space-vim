@@ -30,6 +30,8 @@ function! spacevim#autocmd#youcompleteme#Init() abort
                 \ 'csv' : 1,
                 \}
 
+  inoremap <expr> <Tab> spacevim#vim#complete#Tab()
+  inoremap <expr> <S-Tab> spacevim#vim#complete#STab()
   inoremap <expr> <CR> spacevim#vim#complete#CR()
 
   augroup spacevimYcm

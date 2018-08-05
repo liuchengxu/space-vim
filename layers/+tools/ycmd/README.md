@@ -3,6 +3,7 @@
 ## Table of Contents
 
 <!-- vim-markdown-toc GFM -->
+
 * [Description](#description)
 * [Install](#install)
 * [Install Notification](#install-notification)
@@ -48,3 +49,7 @@ After confirming that you have excuted(or satisfied with the requirement of) all
 ```
 
 ## Key Bindings
+
+- Use `tab` and `Shift-tab` to rotate through the candidates.
+
+- `<C-j>` and `<C-k>` also circles through the candidates, but you need to press `<CR>` to really insert the completion item.

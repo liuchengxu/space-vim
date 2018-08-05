@@ -6,36 +6,18 @@ scriptencoding utf-8
   exe 'set rtp+=' . expand(g:spacevim.base . '/private/UltiSnips')
   let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
 
-  let g:UltiSnipsExpandTrigger = '<C-e>'
-  let g:UltiSnipsJumpForwardTrigger = '<C-j>'
-  let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
+  " c-j c-k for moving in snippet
+  let g:UltiSnipsJumpForwardTrigger = "<c-j>"
+  let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 
-  " tab map
-  function! TabJumpNext()
-   let snippet=UltiSnips#JumpForwards()
-   if pumvisible()==0
-     if g:ulti_jump_forwards_res==1
-       return snippet
-     else
-       return "\<tab>"
-     endif
-   endif
-  endfunction
-  inoremap <expr> <tab> pumvisible() ? "<C-n>" : "<C-R>=TabJumpNext()<CR>"
-
-  smap <TAB>   <Esc>:call UltiSnips#JumpForwards()<CR>
-
-  function! STabJumpBack()
-   let snippet=UltiSnips#JumpBackwards()
-   if pumvisible()==0
-     if g:ulti_jump_backwards_res==1
-       return snippet
-     else
-       return "\<s-tab>"
-     endif
-   endif
-  endfunction
-  inoremap <expr> <s-tab> pumvisible() ? "<C-p>" : "<C-R>=STabJumpBack()<CR>"
-
-  smap <S-TAB> <Esc>:call UltiSnips#JumpBackwards()<CR>
+  if has_key(g:plugs, 'ncm2-ultisnips')
+    " <CR> is used to expand snippets
+    inoremap <silent> <expr> <CR> ((pumvisible() && empty(v:completed_item)) ?  "\<c-y>\<cr>" : (!empty(v:completed_item) ? ncm2_ultisnips#expand_or("", 'n') : "\<CR>" ))
+    imap <expr> <c-u> ncm2_ultisnips#expand_or("\<Plug>(ultisnips_expand)", 'm')
+    smap <c-u> <Plug>(ultisnips_expand)
+    let g:UltiSnipsExpandTrigger = "<Plug>(ultisnips_expand)"
+    let g:UltiSnipsRemoveSelectModeMappings = 0
+  else
+    let g:UltiSnipsExpandTrigger = '<C-e>'
+  endif
 " }
