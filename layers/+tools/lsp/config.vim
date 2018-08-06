@@ -6,9 +6,9 @@ let g:LanguageClient_loggingLevel = 'INFO'
 let g:LanguageClient_serverStderr = '/tmp/LanguageServer.log'
 
 let g:LanguageClient_serverCommands = {
-      \ 'c': ['ccls.debug'],
-      \ 'cpp': ['ccls.debug'],
-      \ 'objc': ['ccls.debug'],
+      \ 'c': ['ccls'],
+      \ 'cpp': ['ccls'],
+      \ 'objc': ['ccls'],
       \ 'go': ['go-langserver', '-gocodecompletion', '-func-snippet-enabled', '-logfile=/tmp/gols.log'],
       \ 'python': ['pyls', '--log-file=/tmp/pyls.log'],
       \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
@@ -48,4 +48,4 @@ let g:LanguageClient_serverCommands = {
 
 " Or map each action separately
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> gd :call spacevim#lang#util#GotoDefinition()<CR>
