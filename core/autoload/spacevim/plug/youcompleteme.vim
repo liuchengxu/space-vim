@@ -39,12 +39,14 @@ function! s:load_ycm()
   endif
 endfunction
 
+" Load for supported types when loading via timer
 function! spacevim#plug#youcompleteme#invoke(timer) abort
   if !exists('g:loaded_youcompleteme')
     call plug#load('YouCompleteMe')
   endif
 endfunction
 
+" Deprecated, use on_event option, load for all types when events are triggered
 function! spacevim#plug#youcompleteme#load() abort
   if !exists('g:loaded_youcompleteme')
     call s:load_ycm()

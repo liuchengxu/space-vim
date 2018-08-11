@@ -101,13 +101,23 @@ function! s:parse_options(arg)
   endif
 endfunction
 
-" This is an only one possible extra argument: plug option
+" This is an only one possible extra argument: plug option, dict
 function! s:my_plugin(plugin, ...) abort
   if index(g:spacevim.plugins, a:plugin) < 0
     call add(g:spacevim.plugins, a:plugin)
   endif
   if a:0 == 1
     let s:plug_options[a:plugin] = a:1
+    if has_key(a:1, 'on_event')
+      let l:group = 'load/'.a:plugin
+      let l:name = split(a:plugin, '/')[1]
+      let l:events = join(s:to_a(a:1.on_event), ',')
+      let l:load = printf("call plug#load('%s')", l:name)
+      execute "augroup" l:group
+      autocmd!
+      execute 'autocmd' l:events '*' l:load '|' 'autocmd!' l:group
+      execute 'augroup END'
+    endif
   endif
 endfunction
 
