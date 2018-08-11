@@ -115,7 +115,7 @@ function! s:my_plugin(plugin, ...) abort
       let l:load = printf("call plug#load('%s')", l:name)
       execute "augroup" l:group
       autocmd!
-      execute 'autocmd' l:events '*' l:load '| autocmd!' l:group
+      execute 'autocmd' l:events '*' l:load '|' 'autocmd!' l:group
       execute 'augroup END'
     endif
   endif
