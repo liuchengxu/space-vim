@@ -1,4 +1,4 @@
-function! spacevim#vim#auto#AddTitle()
+function! spacevim#vim#autocmd#AddTitle() abort
   let l:template = {
         \ 'c': [
           \ '#include <stdio.h>'
@@ -35,7 +35,7 @@ function! spacevim#vim#auto#AddTitle()
 endfunction
 
 " Deprecated, use g:asyncrun_open
-function! spacevim#vim#auto#AsyncRunStart()
+function! spacevim#vim#autocmd#AsyncRunStart()
     let l:qf_height = float2nr(round(winheight('%') * 0.3))
     if !exists('*asyncrun#quickfix_toggle')
       call plug#load('asyncrun.vim')
