@@ -1,0 +1,1 @@
+MP 'neovimhaskell/haskell-vim'
