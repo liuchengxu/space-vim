@@ -12,4 +12,5 @@ function! spacevim#autocmd#rust#Init()
         \'i:impls,trait implementations',
         \]
       \}
+  let g:rustfmt_autosave = 1
 endfunction

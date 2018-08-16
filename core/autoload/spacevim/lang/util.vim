@@ -10,10 +10,22 @@ function! spacevim#lang#util#InferExecutable() abort
   return executable(l:exe) ? l:exe : ''
 endfunction
 
-function! spacevim#lang#util#GotoDefinition() abort
-  if LanguageClient#serverStatus()
-    call spacevim#vim#cursor#TruncatedEcho('Language Server is busy now, please try again later.')
-    return
+function! s:GotoDefinitionHandler(output) abort
+  let output = a:output
+  if has_key(output, 'error')
+    echom "ERROR fall back to searchdecl()"
+    call searchdecl(expand('<cword>'))
+  elseif (has_key(output, 'result') && empty(output['result']))
+    echom "not found! fall back to searchdecl()"
+    call searchdecl(expand('<cword>'))
   endif
-  call LanguageClient#textDocument_definition()
+endfunction
+
+function! spacevim#lang#util#GotoDefinition() abort
+  if LanguageClient#serverStatus() == 1
+    call spacevim#vim#cursor#TruncatedEcho('Language Server is busy now, please try again l ater.')
+  else
+    " https://github.com/autozimu/LanguageClient-neovim/issues/560
+    call LanguageClient#textDocument_definition({'handle': v:true}, function('s:GotoDefinitionHandler'))
+  endif
 endfunction

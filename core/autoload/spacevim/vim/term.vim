@@ -16,5 +16,11 @@ function! spacevim#vim#term#Open(opts) abort
           \ 'curwin': 1,
           \})
   endif
+  wincmd p
   return bufnr
+endfunction
+
+" Run cmd in terminal buffer
+function! spacevim#vim#term#Run(...) abort
+  call spacevim#vim#term#Open({'cmd': a:000})
 endfunction

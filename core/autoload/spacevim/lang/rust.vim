@@ -2,14 +2,13 @@ function! spacevim#lang#rust#Run() abort
   if has_key(g:plugs, 'asyncrun.vim')
     AsyncRun cargo run
   else
-    exec ':!cargo run<CR>'
+    !cargo run
   endif
 endfunction
 
 function! spacevim#lang#rust#Build() abort
   if has('terminal')
-    call spacevim#vim#term#Open({'cmd': ['cargo', 'build']})
-    wincmd p
+    call spacevim#vim#term#Run(['cargo', 'build'])
   elseif has_key(g:plugs, 'asyncrun.vim')
     AsyncRun cargo build
   else
