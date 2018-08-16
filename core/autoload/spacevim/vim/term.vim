@@ -21,6 +21,8 @@ function! spacevim#vim#term#Open(opts) abort
 endfunction
 
 " Run cmd in terminal buffer
+" e.g., call spacevim#vim#term#Run('git', 'status')
 function! spacevim#vim#term#Run(...) abort
+  " a:000 ['git', 'status']
   call spacevim#vim#term#Open({'cmd': a:000})
 endfunction
