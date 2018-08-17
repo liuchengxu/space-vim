@@ -146,7 +146,7 @@ function! spacevim#end() abort
   if exists('*UserConfig') | call UserConfig() | endif
 
   call s:check_missing_plugins()
-  silent doautocmd User SpacevimAfterUserConfig
+  silent doautocmd <nomodeline> User SpacevimAfterUserConfig
 endfunction
 
 " Initialize vim-plug system

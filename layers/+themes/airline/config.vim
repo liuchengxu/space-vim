@@ -28,7 +28,7 @@ scriptencoding=utf-8
   " error information.
   let g:airline#extensions#ale#error_symbol = '•'
   let g:airline#extensions#ale#warning_symbol = '•'
-  autocmd <nomodeline> User SpacevimAfterUserConfig call s:after_user_config()
+  autocmd User SpacevimAfterUserConfig call s:after_user_config()
   function! s:after_user_config() abort
      if !exists('g:airline_powerline_fonts')
        let g:airline_left_sep=''
