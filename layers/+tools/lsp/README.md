@@ -11,6 +11,7 @@
   * [Go](#go)
   * [Bash](#bash)
   * [Typescript](#typescript)
+  * [Haskell](#haskell)
 * [Install](#install)
 * [Key Bindings](#key-bindings)
 * [Related Projects](#related-projects)
@@ -71,6 +72,16 @@ $ npm install -g typescript-language-server
 
 # yarn
 $ yarn global add typescript-language-server
+```
+
+### Haskell
+
+[Haskell Language Server: haskell-ide-engine](https://github.com/haskell/haskell-ide-engine)
+
+```bash
+$ git clone https://github.com/haskell/haskell-ide-engine --recursive
+$ cd haskell-ide-engine
+$ stack install
 ```
 
 ## Install

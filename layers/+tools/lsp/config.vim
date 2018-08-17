@@ -28,7 +28,7 @@ let g:LanguageClient_serverCommands = {
 \        },
 \        2: {
 \            "name": "Warning",
-\            "texthl": "Warning",
+\            "texthl": "Warnings",
 \            "signText": "⚠",
 \            "signTexthl": "WarningMsg",
 \        },

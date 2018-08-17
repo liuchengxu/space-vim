@@ -64,6 +64,9 @@ function! spacevim#autocmd#nerdtree#Init()
   " ❯
   let g:NERDTreeDirArrowExpandable = "\u276f"
   let g:NERDTreeDirArrowCollapsible = "~"
+  " ○ ●
+  let g:NERDTreeDirArrowExpandable = "\u25cb"
+  let g:NERDTreeDirArrowCollapsible = "\u25cf"
   let g:NERDTreeIgnore = s:ignore
 " }
 
