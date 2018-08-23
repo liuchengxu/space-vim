@@ -11,7 +11,7 @@ endif
 function! spacevim#autocmd#markdown#Init()
   if !s:loaded
   " previm {
-    let g:previm_open_cmd = s:path_to_chrome
+    let g:previm_open_cmd = get(g:, 'previm_open_cmd', s:path_to_chrome)
   " }
 
   " vim-markdown {
