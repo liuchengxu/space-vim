@@ -2,11 +2,11 @@
 nnoremap <Leader>fR :source $MYVIMRC<CR>
 
 " Use Tab to switch buffer
-nnoremap <Tab> :bn<CR>
+" nnoremap <Tab> :bn<CR>
 nnoremap <S-Tab> :bp<CR>
-if maparg('<C-I>', 'n') != ''
-  unmap <C-I>
-endif
+" if maparg('<C-I>', 'n') != ''
+  " nunmap <C-I>
+" endif
 
 " Use Ctrl-Tab and Alt-Tab to switch tab
 map    <C-Tab>  :tabnext<CR>
@@ -54,8 +54,8 @@ nnoremap <Leader>xd :StripWhitespace<CR>
 nmap <Leader>ww <Plug>(choosewin)
 
 " util
-nnoremap <Leader>tc :call spacevim#util#ToggleCursorColumn()<CR>
-nnoremap <Leader>tC :call spacevim#util#ToggleColorColumn()<CR>
+nnoremap <Leader>tc :call spacevim#vim#toggle#CursorColumn()<CR>
+nnoremap <Leader>tC :call spacevim#vim#toggle#ColorColumn()<CR>
 
 command! -bar -nargs=0 Rtp :call spacevim#util#Runtimepath()
 command! -nargs=? Grep :call spacevim#vim#grep#Grep(<q-args>)

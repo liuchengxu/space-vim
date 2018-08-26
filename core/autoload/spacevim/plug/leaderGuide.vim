@@ -131,8 +131,8 @@ let g:spacevim#plug#leaderGuide#lmap['t'] = {
       \ 'p' : ['setlocal paste!'                         , 'paste-mode']    ,
       \ 's' : ['SyntasticToggleMode'                     , 'syntastic']     ,
       \ 't' : ['TagbarToggle'                            , 'tagbar']        ,
-      \ 'c' : ['call spacevim#util#ToggleCursorColumn()' , 'cursor-column'] ,
-      \ 'C' : ['call spacevim#util#ToggleColorColumn()'  , 'color-column']  ,
+      \ 'c' : ['call spacevim#vim#toggle#CursorColumn()' , 'cursor-column'] ,
+      \ 'C' : ['call spacevim#vim#toggle#ColorColumn()'  , 'color-column']  ,
       \ }
 let g:spacevim#plug#leaderGuide#lmap['u'] = [ 'call feedkeys("\<C-u>")', 'scroll-up' ]
 
