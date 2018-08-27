@@ -3,8 +3,8 @@ scriptencoding utf-8
 " Smarter cursorline {
 augroup spacevimCursorline
   autocmd!
-  autocmd InsertLeave,WinEnter * set cursorline relativenumber
-  autocmd InsertEnter,WinLeave * set nocursorline norelativenumber
+  autocmd InsertLeave,WinEnter * set cursorline
+  autocmd InsertEnter,WinLeave * set nocursorline
 augroup END
 " }
 
