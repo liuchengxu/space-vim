@@ -1,3 +1,4 @@
 function! spacevim#autocmd#which_key#Init() abort
-  call which_key#register_by_prefix('<Space>', 'g:spacevim#plug#which_key#leader')
+  call which_key#register('<Space>', 'g:spacevim#map#leader#desc')
+  call which_key#register(',', 'g:spacevim#map#localleader#desc')
 endfunction

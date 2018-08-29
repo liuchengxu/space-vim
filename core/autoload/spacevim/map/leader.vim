@@ -1,6 +1,6 @@
 " Define prefix dictionary
 let g:spacevim#map#leader#desc =  get(g:, 'spacevim#map#leader#desc', {})
-let g:spacevim#map#leader#desc['description'] =  'Leader Space'
+let g:spacevim#map#leader#desc['name'] =  'space-vim root'
 
 for s:i in range(1, 9)
     let g:spacevim#map#leader#desc[s:i] = [ s:i.'wincmd w', 'windows '.s:i ]
@@ -8,7 +8,18 @@ endfor
 
 let g:spacevim#map#leader#desc['?'] = [ 'Maps', 'show-keybindings' ]
 let g:spacevim#map#leader#desc[';'] = [ '<Plug>NERDCommenterComment','Commenter' ]
-let g:spacevim#map#leader#desc[' '] = [ '<Plug>easymotion-prefix', 'easymotion-prefix' ]
+let g:spacevim#map#leader#desc[' '] = {
+      \ 'name': '+tab',
+      \ '1' : ['1tabnext'        , 'tab 1']        ,
+      \ '2' : ['2tabnext'        , 'tab 2']        ,
+      \ '3' : ['3tabnext'        , 'tab 3']        ,
+      \ '4' : ['4tabnext'        , 'tab 4']        ,
+      \ '5' : ['5tabnext'        , 'tab 5']        ,
+      \ '6' : ['6tabnext'        , 'tab 6']        ,
+      \ '7' : ['7tabnext'        , 'tab 7']        ,
+      \ '8' : ['8tabnext'        , 'tab 8']        ,
+      \ '9' : ['9tabnext'        , 'tab 9']        ,
+      \ }
 
 let g:spacevim#map#leader#desc['a'] = {
       \ 'name' : '+align',
@@ -110,15 +121,18 @@ let g:spacevim#map#leader#desc['l'] = {
       \ 'name' : '+lsp'                                            ,
       \ 'a' : ['LanguageClient#textDocument_codeAction()'     , 'code-action']      ,
       \ 'c' : ['LanguageClient_contextMenu()'                 , 'context-menu']      ,
-      \ 'd' : ['LanguageClient#textDocument_definition()'     , 'definition']       ,
       \ 'f' : ['LanguageClient#textDocument_formatting()'     , 'formatting']       ,
       \ 'h' : ['LanguageClient#textDocument_hover()'          , 'hover']            ,
-      \ 'i' : ['LanguageClient#textDocument_implementation('  , 'implementation']   ,
       \ 'r' : ['LanguageClient#textDocument_references()'     , 'references']       ,
       \ 'R' : ['LanguageClient#textDocument_rename()'         , 'rename']           ,
       \ 's' : ['LanguageClient#textDocument_documentSymbol()' , 'document-symbol']  ,
       \ 'S' : ['LanguageClient#workspace_symbol()'            , 'workspace-symbol'] ,
-      \ 't' : ['LanguageClient#textDocument_typeDefinition()' , 'type-definition']  ,
+      \ 'g' : {
+        \ 'name': '+goto',
+        \ 'd' : ['LanguageClient#textDocument_definition()'     , 'definition']       ,
+        \ 't' : ['LanguageClient#textDocument_typeDefinition()' , 'type-definition']  ,
+        \ 'i' : ['LanguageClient#textDocument_implementation()'  , 'implementation']   ,
+        \ },
       \ }
 
 let g:spacevim#map#leader#desc['p'] = {
@@ -140,42 +154,42 @@ let g:spacevim#map#leader#desc['s'] = {
       \ }
 
 let g:spacevim#map#leader#desc['t'] = {
-      \ 'name' : '+toggle'                               ,
-      \ 'g' : ['GitGutterToggle'                         , 'gitgutter']     ,
-      \ 'i' : ['IndentGuidesToggle'                      , 'indent-guide']  ,
-      \ 'p' : ['setlocal paste!'                         , 'paste-mode']    ,
-      \ 's' : ['SyntasticToggleMode'                     , 'syntastic']     ,
-      \ 't' : ['TagbarToggle'                            , 'tagbar']        ,
-      \ 'c' : ['spacevim#vim#toggle#CursorColumn()' , 'cursor-column'] ,
-      \ 'C' : ['spacevim#vim#toggle#ColorColumn()'  , 'color-column']  ,
+      \ 'name' : '+toggle'                          ,
+      \ 'g' : ['spacevim#plug#toggle#Git()'         , 'git-status-indicator'] ,
+      \ 'i' : ['IndentGuidesToggle'                 , 'indent-guide']         ,
+      \ 'p' : ['setlocal paste!'                    , 'paste-mode']           ,
+      \ 's' : ['SyntasticToggleMode'                , 'syntastic']            ,
+      \ 't' : ['TagbarToggle'                       , 'tagbar']               ,
+      \ 'c' : ['spacevim#vim#toggle#CursorColumn()' , 'cursor-column']        ,
+      \ 'C' : ['spacevim#vim#toggle#ColorColumn()'  , 'color-column']         ,
       \ }
 
 let g:spacevim#map#leader#desc['u'] = [ '<C-u>', 'scroll-up' ]
 
 let g:spacevim#map#leader#desc['w'] = {
-      \ 'name' : '+windows'                          ,
-      \ 'w' : ['<C-W>w'  , 'other-window']          ,
-      \ 'd' : ['<C-W>c'  , 'delete-window']         ,
-      \ '-' : ['<C-W>s' , 'split-window-below']    ,
-      \ '|' : ['<C-W>v' , 'split-window-right']    ,
-      \ '2' : ['<C-W>v' , 'layout-double-columns'] ,
-      \ 'h' : ['<C-W>h'  , 'window-left']           ,
-      \ 'j' : ['<C-W>j'  , 'window-below']          ,
-      \ 'l' : ['<C-W>l'  , 'window-right']          ,
-      \ 'k' : ['<C-W>k'  , 'window-up']             ,
-      \ 'H' : ['<C-W>5<'  , 'expand-window-left']    ,
+      \ 'name' : '+windows' ,
+      \ 'w' : ['<C-W>w'     , 'other-window']          ,
+      \ 'd' : ['<C-W>c'     , 'delete-window']         ,
+      \ '-' : ['<C-W>s'     , 'split-window-below']    ,
+      \ '|' : ['<C-W>v'     , 'split-window-right']    ,
+      \ '2' : ['<C-W>v'     , 'layout-double-columns'] ,
+      \ 'h' : ['<C-W>h'     , 'window-left']           ,
+      \ 'j' : ['<C-W>j'     , 'window-below']          ,
+      \ 'l' : ['<C-W>l'     , 'window-right']          ,
+      \ 'k' : ['<C-W>k'     , 'window-up']             ,
+      \ 'H' : ['<C-W>5<'    , 'expand-window-left']    ,
       \ 'J' : ['resize +5'  , 'expand-window-below']   ,
-      \ 'L' : ['<C-W>5>'  , 'expand-window-right']   ,
+      \ 'L' : ['<C-W>5>'    , 'expand-window-right']   ,
       \ 'K' : ['resize -5'  , 'expand-window-up']      ,
-      \ '=' : ['<C-W>='  , 'balance-window']        ,
-      \ 's' : ['<C-W>s' , 'split-window-below']    ,
-      \ 'v' : ['<C-W>v' , 'split-window-below']    ,
-      \ '?' : ['Windows'                             , 'fzf-window']            ,
+      \ '=' : ['<C-W>='     , 'balance-window']        ,
+      \ 's' : ['<C-W>s'     , 'split-window-below']    ,
+      \ 'v' : ['<C-W>v'     , 'split-window-below']    ,
+      \ '?' : ['Windows'    , 'fzf-window']            ,
       \ }
 
 
 let g:spacevim#map#leader#desc['x'] = {
-      \ 'name' : '+text'                             ,
+      \ 'name' : '+text'           ,
       \ 'a' : ['<Plug>(EasyAlign)' , 'easy-align']                 ,
-      \ 'd' : ['StripWhitespace'                     , 'delete-trailing-whitespace'] ,
+      \ 'd' : ['StripWhitespace'   , 'delete-trailing-whitespace'] ,
       \ }
