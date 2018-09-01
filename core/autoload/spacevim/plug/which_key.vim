@@ -1,9 +1,10 @@
 " Define prefix dictionary
-let g:spacevim#plug#which_key#leader =  get(g:, 'g:spacevim#plug#which_key#map', {})
+let g:spacevim#plug#which_key#leader =  get(g:, 'spacevim#plug#which_key#leader', {})
 
 for s:i in range(1, 9)
-    let g:spacevim#plug#which_key#leader[s:i] = [ s:i.'wincmd w', 'windows '.s:i ]
+  let g:spacevim#plug#which_key#leader[s:i] = [ s:i.'wincmd w', 'windows '.s:i ]
 endfor
+
 let g:spacevim#plug#which_key#leader['?'] = [ 'Maps', 'show keybindings' ]
 let g:spacevim#plug#which_key#leader[';'] = [ '<Plug>NERDCommenterComment','Commenter']
 let g:spacevim#plug#which_key#leader[' '] = [ '<Plug>easymotion-prefix', 'easymotion-prefix' ]
@@ -131,8 +132,8 @@ let g:spacevim#plug#which_key#leader['t'] = {
       \ 'p' : ['setlocal paste!'                         , 'paste-mode']    ,
       \ 's' : ['SyntasticToggleMode'                     , 'syntastic']     ,
       \ 't' : ['TagbarToggle'                            , 'tagbar']        ,
-      \ 'c' : ['spacevim#util#ToggleCursorColumn()' , 'cursor-column'] ,
-      \ 'C' : ['spacevim#util#ToggleColorColumn()'  , 'color-column']  ,
+      \ 'c' : ['spacevim#vim#toggle#CursorColumn()' , 'cursor-column'] ,
+      \ 'C' : ['spacevim#vim#toggle#ColorColumn()'  , 'color-column']  ,
       \ }
 let g:spacevim#plug#which_key#leader['u'] = [ '<C-u>', 'scroll-up' ]
 

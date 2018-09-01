@@ -1,5 +1,4 @@
-" Snippets from ALE
-" Credit: ALE
+" Credit: ALE, Snippets from ALE
 " Also see http://vim.wikia.com/wiki/Get_shortened_messages_from_using_echomsg
 function! spacevim#vim#cursor#TruncatedEcho(msg) abort
   let l:msg = a:msg

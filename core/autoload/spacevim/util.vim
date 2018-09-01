@@ -25,22 +25,6 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""
 "    Utilities
 """""""""""""""""""""""""""""""""""""""""""""""""""
-function! spacevim#util#ToggleCursorColumn()
-  if &cursorcolumn
-    setlocal nocursorcolumn
-  else
-    setlocal cursorcolumn
-  endif
-endfunction
-
-function! spacevim#util#ToggleColorColumn()
-  if &colorcolumn
-    setlocal colorcolumn=
-  else
-    setlocal colorcolumn=80
-  endif
-endfunction
-
 function! spacevim#util#Runtimepath()
   for path in split(&runtimepath, ',')
     echo path
@@ -90,17 +74,6 @@ function! spacevim#util#OpenPluginHomepage() abort
   " For MacOS, you can set the following for opening it in your default
   " browser: 'export BROWSER=open'
   silent exec "!$BROWSER https://github.com/".repository
-endfunction
-
-let s:hidden_all = 0
-function! spacevim#util#ToggleHiddleAll()
-  if s:hidden_all == 0
-    let s:hidden_all = 1
-    setlocal noshowmode noruler noshowcmd laststatus=0 cmdheight=1
-  else
-    let s:hidden_all = 0
-    setlocal showmode ruler showcmd laststatus=2 cmdheight=1
-  endif
 endfunction
 
 function! spacevim#util#RootDirectory()

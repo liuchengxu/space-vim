@@ -3,22 +3,22 @@ let g:spacevim#map#leader#desc =  get(g:, 'spacevim#map#leader#desc', {})
 let g:spacevim#map#leader#desc['name'] =  'space-vim root'
 
 for s:i in range(1, 9)
-    let g:spacevim#map#leader#desc[s:i] = [ s:i.'wincmd w', 'windows '.s:i ]
+    let g:spacevim#map#leader#desc[s:i] = [ s:i.'wincmd w', 'window-'.s:i ]
 endfor
 
 let g:spacevim#map#leader#desc['?'] = [ 'Maps', 'show-keybindings' ]
 let g:spacevim#map#leader#desc[';'] = [ '<Plug>NERDCommenterComment','Commenter' ]
 let g:spacevim#map#leader#desc[' '] = {
       \ 'name': '+tab',
-      \ '1' : ['1tabnext'        , 'tab 1']        ,
-      \ '2' : ['2tabnext'        , 'tab 2']        ,
-      \ '3' : ['3tabnext'        , 'tab 3']        ,
-      \ '4' : ['4tabnext'        , 'tab 4']        ,
-      \ '5' : ['5tabnext'        , 'tab 5']        ,
-      \ '6' : ['6tabnext'        , 'tab 6']        ,
-      \ '7' : ['7tabnext'        , 'tab 7']        ,
-      \ '8' : ['8tabnext'        , 'tab 8']        ,
-      \ '9' : ['9tabnext'        , 'tab 9']        ,
+      \ '1' : ['1tabnext'        , 'tab-1']        ,
+      \ '2' : ['2tabnext'        , 'tab-2']        ,
+      \ '3' : ['3tabnext'        , 'tab-3']        ,
+      \ '4' : ['4tabnext'        , 'tab-4']        ,
+      \ '5' : ['5tabnext'        , 'tab-5']        ,
+      \ '6' : ['6tabnext'        , 'tab-6']        ,
+      \ '7' : ['7tabnext'        , 'tab-7']        ,
+      \ '8' : ['8tabnext'        , 'tab-8']        ,
+      \ '9' : ['9tabnext'        , 'tab-9']        ,
       \ }
 
 let g:spacevim#map#leader#desc['a'] = {
@@ -27,15 +27,15 @@ let g:spacevim#map#leader#desc['a'] = {
 
 let g:spacevim#map#leader#desc['b'] = {
       \ 'name' : '+buffer' ,
-      \ '1' : ['b1'        , 'buffer 1']        ,
-      \ '2' : ['b2'        , 'buffer 2']        ,
-      \ '3' : ['b3'        , 'buffer 3']        ,
-      \ '4' : ['b4'        , 'buffer 4']        ,
-      \ '5' : ['b5'        , 'buffer 5']        ,
-      \ '6' : ['b6'        , 'buffer 6']        ,
-      \ '7' : ['b7'        , 'buffer 7']        ,
-      \ '8' : ['b8'        , 'buffer 8']        ,
-      \ '9' : ['b9'        , 'buffer 9']        ,
+      \ '1' : ['b1'        , 'buffer-1']        ,
+      \ '2' : ['b2'        , 'buffer-2']        ,
+      \ '3' : ['b3'        , 'buffer-3']        ,
+      \ '4' : ['b4'        , 'buffer-4']        ,
+      \ '5' : ['b5'        , 'buffer-5']        ,
+      \ '6' : ['b6'        , 'buffer-6']        ,
+      \ '7' : ['b7'        , 'buffer-7']        ,
+      \ '8' : ['b8'        , 'buffer-8']        ,
+      \ '9' : ['b9'        , 'buffer-9']        ,
       \ 'd' : ['bd'        , 'delete-buffer']   ,
       \ 'f' : ['bfirst'    , 'first-buffer']    ,
       \ 'h' : ['Startify'  , 'home-buffer']     ,
@@ -49,14 +49,14 @@ let g:spacevim#map#leader#desc['b'] = {
 
 let g:spacevim#map#leader#desc['c'] = {
       \ 'name' : '+cscope'                                 ,
-      \ 's' : ['spacevim#vim#cscope#Find("symbol'   , 'find-this-symbol']                       ,
-      \ 'g' : ['spacevim#vim#cscope#Find("global'   , 'global-definition']                      ,
-      \ 'c' : ['spacevim#vim#cscope#Find("calls'    , 'find-functions-calling-this-function']   ,
-      \ 't' : ['spacevim#vim#cscope#Find("text'     , 'text']                                   ,
-      \ 'e' : ['spacevim#vim#cscope#Find("egrep'    , 'egrep']                                  ,
-      \ 'f' : ['spacevim#vim#cscope#Find("file'     , 'find-this-file']                         ,
-      \ 'i' : ['spacevim#vim#cscope#Find("includes' , 'find-files-#include-this-file']          ,
-      \ 'd' : ['spacevim#vim#cscope#Find("called'   , 'find-functions-called-by-this-function'] ,
+      \ 's' : ['spacevim#vim#cscope#Find("symbol")'  , 'find-this-symbol']                       ,
+      \ 'g' : ['spacevim#vim#cscope#Find("global")'  , 'global-definition']                      ,
+      \ 'c' : ['spacevim#vim#cscope#Find("calls")'   , 'find-functions-calling-this-function']   ,
+      \ 't' : ['spacevim#vim#cscope#Find("text")'    , 'text']                                   ,
+      \ 'e' : ['spacevim#vim#cscope#Find("egrep")'   , 'egrep']                                  ,
+      \ 'f' : ['spacevim#vim#cscope#Find("file")'    , 'find-this-file']                         ,
+      \ 'i' : ['spacevim#vim#cscope#Find("includes")', 'find-files-#include-this-file']          ,
+      \ 'd' : ['spacevim#vim#cscope#Find("called")'  , 'find-functions-called-by-this-function'] ,
       \ }
 
 let g:spacevim#map#leader#desc['d'] = [ '<C-d>', 'scroll-down' ]
@@ -150,7 +150,7 @@ let g:spacevim#map#leader#desc['Q'] = [ 'qa!', 'quit-without-saving' ]
 let g:spacevim#map#leader#desc['s'] = {
       \ 'name' : '+search/show'  ,
       \ 'c' : ['nohlsearch' , 'search-clear-highlight'],
-      \ 'h' : ['spacevim#util#SyntaxHiGroup()', 'show-highlight-group']
+      \ 'h' : ['spacevim#util#SyntaxHiGroup()', 'show-highlight-group'],
       \ }
 
 let g:spacevim#map#leader#desc['t'] = {

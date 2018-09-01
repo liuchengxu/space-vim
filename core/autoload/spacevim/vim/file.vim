@@ -23,24 +23,5 @@ function! spacevim#vim#file#CtrlG() abort
   :silent f!
   redir END
   let l:msg = join([file[2:], 'Cursor '.line('.').':'.col('.'), s:file_size(@%), 'TOT:'.s:buf_total_num(), '['.&ft.']'], ' ')
-  " snippets from ALE
-  " credit: ALE
-  " We need to remember the setting for shortmess and reset it again.
-  let l:shortmess_options = &l:shortmess
-  try
-      let l:cursor_position = getcurpos()
-
-      " The message is truncated and saved to the history.
-      setlocal shortmess+=T
-      exec "norm! :echomsg l:msg\n"
-
-      " Reset the cursor position if we moved off the end of the line.
-      " Using :norm and :echomsg can move the cursor off the end of the
-      " line.
-      if l:cursor_position != getcurpos()
-          call setpos('.', l:cursor_position)
-      endif
-  finally
-      let &l:shortmess = l:shortmess_options
-  endtry
+  call spacevim#vim#cursor#TruncatedEcho(l:msg)
 endfunction
