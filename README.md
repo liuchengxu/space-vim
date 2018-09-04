@@ -36,6 +36,7 @@
 * [Contributions](#contributions)
 * [Acknowledgements](#acknowledgements)
 * [Articles](#articles)
+* [Contributors](#contributors)
 
 <!-- vim-markdown-toc -->
 
@@ -58,11 +59,9 @@ The distribution is completely customizable using `.spacevim`, which is equivale
 
 - **Beautiful interface:** I have written a vim colorscheme [space-vim-dark](https://github.com/liuchengxu/space-vim-dark) based on spacemacs-dark theme. You could also try [spacemacs-theme.vim](https://github.com/colepeters/spacemacs-theme.vim).
 
-- **Mnemonic key bindings:** commands have mnemonic prefixes like <kbd>SPC b</kbd> for all the buffer commands. Lots of basic key bindings are provided by [vim-better-default](https://github.com/liuchengxu/vim-better-default).
+- **Mnemonic key bindings:** commands have mnemonic prefixes like <kbd>SPC b</kbd> for all the buffer commands, this feature is mainly powered by [vim-which-key](https://github.com/liuchengxu/vim-which-key). Furthermore, lots of basic key bindings are provided by [vim-better-default](https://github.com/liuchengxu/vim-better-default). For different language layers, `<LocalLeader>`, <kbd>,</kbd> as default in space-vim, can be seen as the major-mode prefix in spacemacs.
 
-    Meanwhile, the whole key bindings have been well adapted for vim for the lack of great plugins similar to which-key in emacs. Most key bindings are limited to no more than two keystrokes without counting `<Leader>` or `<LocalLeader>` in, e.g. <kbd>SPC x d</kbd> to delete trailing whitespaces.
-
-    For different language layers, `<LocalLeader>`, <kbd>,</kbd> as default in space-vim, can be seen as the major-mode prefix in spacemacs.
+<p align="center"><img width="800px" src="https://user-images.githubusercontent.com/8850248/45039314-f6adc880-b095-11e8-8c5b-5a79092ef33d.png"></p>
 
 - **Lean and mean:** no nonsense wrappers, free from being bloated.
 
