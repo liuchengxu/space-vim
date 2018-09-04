@@ -7,7 +7,7 @@ for s:i in range(1, 9)
 endfor
 
 let g:spacevim#map#leader#desc['?'] = [ 'Maps', 'show-keybindings' ]
-let g:spacevim#map#leader#desc[';'] = [ '<Plug>NERDCommenterComment','Commenter' ]
+let g:spacevim#map#leader#desc[';'] = [ '<Plug>NERDCommenterToggle','commenter' ]
 let g:spacevim#map#leader#desc[' '] = {
       \ 'name': '+tab',
       \ '1' : ['1tabnext'        , 'tab-1']        ,

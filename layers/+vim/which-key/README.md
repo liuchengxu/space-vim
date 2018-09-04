@@ -13,7 +13,7 @@
 
 ## Description
 
-This layer displayes the avaliable key bindings automatically. Note that it's still experimental.
+This layer displayes the avaliable key bindings automatically.
 
 ## Install
 
@@ -21,6 +21,12 @@ To use this configuration layer, add it to your `~/.spacevim`.
 
 ## Key Bindings
 
+Key Binding    | Mode           | Description
+:---:          | :---:          | :---:
+<kbd>SPC</kbd> | Normal, Visual | <kbd>SPC</kbd> related key bindings
+<kbd>,</kbd>   | Normal, Visual | <kbd>,</kbd> related key bindings
+
 ## Related projects
 
 - [quickmenu.vim](https://github.com/skywind3000/quickmenu.vim)
+- [vim-which-key](https://github.com/liuchengxu/vim-which-key)
