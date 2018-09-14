@@ -11,8 +11,8 @@ function! spacevim#lang#python#stop()
 endfunction
 
 " Refer to https://github.com/mindriot101/vim-yapf
-function! s:yapf()
-  let cmd = "yapf"
+function! s:yapf(cmd)
+  let cmd = a:cmd
   let cur_line = line('.')
   " save current cursor position
   let cur_cursor = getpos(".")
@@ -34,8 +34,9 @@ function! s:yapf()
 endfunction
 
 function! spacevim#lang#python#fmt()
-  if executable('yapf')
-    call s:yapf()
+  let l:cmd = get(g:, 'spacevim_python_fmt', 'yapf')
+  if executable(l:cmd)
+    call s:yapf(l:cmd)
   else
     call spacevim#util#err('yapf is unavailable, please install it first.')
   endif
