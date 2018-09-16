@@ -35,9 +35,12 @@ endfunction
 
 function! spacevim#lang#python#fmt()
   let l:cmd = get(g:, 'spacevim_python_fmt', 'yapf')
-  if executable(l:cmd)
+  if l:cmd == 'yapf' && exists(':ALEFix')
+    ALEFix
+    return
+  elseif executable(l:cmd)
     call s:yapf(l:cmd)
   else
-    call spacevim#util#err('yapf is unavailable, please install it first.')
+    call spacevim#util#err(l:cmd.' is unavailable, please install it first.')
   endif
 endfunction

@@ -16,15 +16,7 @@ let b:ale_fixers = [
 \   get(g:, 'spacevim_python_fmt', 'yapf'),
 \]
 
-function! s:fmt()
-  if exists(':ALEFix')
-    ALEFix
-  else
-    call spacevim#lang#python#fmt()
-  endif
-endfunction
-
-nnoremap <buffer> <silent> <LocalLeader>=  :<C-U>call <SID>fmt()<CR>
+nnoremap <buffer> <silent> <LocalLeader>=  :<C-U>call spacevim#lang#python#fmt()<CR>
 
 nnoremap <buffer> <F5>            :<C-U>call spacevim#lang#python#run()<CR>
 nnoremap <buffer> <LocalLeader>cc :<C-U>call spacevim#lang#python#run()<CR>
