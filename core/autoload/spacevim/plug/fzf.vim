@@ -174,17 +174,6 @@ function! s:align_lists(lists)
   return a:lists
 endfunction
 
-command! -bang -nargs=* Ag
-            \ call fzf#vim#ag(<q-args>,
-            \                 <bang>0 ? fzf#vim#with_preview('up:80%')
-            \                         : fzf#vim#with_preview('right:80%:hidden', '?'),
-            \                 <bang>0)
-
-" Likewise, Files command with preview window
-command! -bang -nargs=? -complete=dir Files
-  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
-" }
-
 function! spacevim#plug#fzf#Session()
   call fzf#run({
   \ 'source':  'ls -1 ~/.vim/session',
@@ -193,7 +182,6 @@ function! spacevim#plug#fzf#Session()
   \ 'down':    '40%'
   \})
 endfunction
-
 
 " ------------------------------------------------------------------
 " Configuration Files
