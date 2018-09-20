@@ -12,6 +12,8 @@
   * [Bash](#bash)
   * [Typescript](#typescript)
   * [Haskell](#haskell)
+  * [Lua](#lua)
+  * [vue](#vue)
 * [Install](#install)
 * [Key Bindings](#key-bindings)
 * [Related Projects](#related-projects)
@@ -82,6 +84,20 @@ $ yarn global add typescript-language-server
 $ git clone https://github.com/haskell/haskell-ide-engine --recursive
 $ cd haskell-ide-engine
 $ stack install
+```
+
+### Lua
+
+[Lua Language Server: lua-lsp](https://github.com/Alloyed/lua-lsp)
+
+```bash
+$ luarocks install --server=http://luarocks.org/dev lua-lsp
+```
+
+### vue
+
+```bash
+$ npm install vue-language-server -g
 ```
 
 ## Install
