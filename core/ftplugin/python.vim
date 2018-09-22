@@ -21,3 +21,4 @@ nnoremap <buffer> <silent> <LocalLeader>=  :<C-U>call spacevim#lang#python#fmt()
 nnoremap <buffer> <F5>            :<C-U>call spacevim#lang#python#run()<CR>
 nnoremap <buffer> <LocalLeader>cc :<C-U>call spacevim#lang#python#run()<CR>
 nnoremap <buffer> <LocalLeader>cs :<C-U>call spacevim#lang#python#stop()<CR>
+nnoremap <buffer> <LocalLeader>a :<C-U>call spacevim#lang#python#autoflake()<CR>
