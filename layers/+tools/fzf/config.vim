@@ -8,7 +8,8 @@ if g:spacevim.gui && !has('terminal')
   " }
 else
   " fzf.vim {
-  let $LANG = 'en_US'
+  " Refer to https://github.com/liuchengxu/space-vim/issues/364
+  let $LANG = 'en_US.UTF-8'
   " Customize fzf colors to match your color scheme
   " Only suitable for space-vim-dark theme, other themes are not guaranteed.
   let g:fzf_colors = {
