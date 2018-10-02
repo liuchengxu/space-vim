@@ -137,7 +137,7 @@ Given git and Vim/NeoVim have been installed already:
     $ cp ~/.space-vim/init.spacevim ~/.spacevim
     ```
 
-5. Open vim, then space-vim will automatically install the missing plugins. If auto-installation fails unexpectly, please try running `:PlugInstall` manually.
+5. Open vim, then space-vim will automatically detect and install the missing plugins. If auto-installation fails unexpectly, please try running `:PlugInstall` manually.
 
 ## Customize
 
@@ -161,8 +161,7 @@ let g:spacevim_plug_home = '~/.vim/plugged'
 
 " Enable the existing layers in space-vim
 let g:spacevim_layers = [
-      \ 'fzf', 'unite', 'better-defaults',
-      \ 'which-key',
+      \ 'fzf', 'better-defaults', 'which-key',
       \ ]
 
 " If you want to have more control over the layer, try using Layer command.
@@ -194,7 +193,7 @@ endfunction
 function! UserConfig()
 
   " If you have installed the powerline fonts and want to enable airline layer
-  " let g:airline_powerline_fonts=1
+  " let g:airline_powerline_fonts = 1
 
   " Use gui colors in terminal if available
   function! s:enable_termgui()

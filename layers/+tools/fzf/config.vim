@@ -33,7 +33,6 @@ else
 
   command! -bang -nargs=? -complete=dir Files
     \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
-  " }
 
   command! -nargs=* Rag call spacevim#plug#fzf#AgInProject(<q-args>)
   command! -bang -nargs=* Rg call spacevim#plug#fzf#Rg(<q-args>, <bang>0)
@@ -55,5 +54,13 @@ else
 
   nnoremap <leader>rg :Rg!<cr>
   vnoremap <leader>rg :call spacevim#plug#fzf#RgVisual()<CR>
+
+  if !spacevim#load('unite')
+    nnoremap <LocalLeader>v :call spacevim#plug#fzf#Open()<CR>
+    nnoremap <LocalLeader>p :call spacevim#plug#fzf#Rtp()<CR>
+    nnoremap <LocalLeader>fc :call spacevim#plug#fzf#FZFCmd()<CR>
+    nnoremap <LocalLeader>ff :call spacevim#plug#fzf#Func()<CR>
+  endif
+
   " }
 endif

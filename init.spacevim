@@ -12,8 +12,7 @@ let g:spacevim_plug_home = '~/.vim/plugged'
 
 " Enable the existing layers in space-vim
 let g:spacevim_layers = [
-      \ 'fzf', 'unite', 'better-defaults',
-      \ 'which-key',
+      \ 'fzf', 'better-defaults', 'which-key',
       \ ]
 
 " If you want to have more control over the layer, try using Layer command.
