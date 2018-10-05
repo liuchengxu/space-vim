@@ -16,22 +16,24 @@
 * [Features](#features)
 * [For whom?](#for-whom)
 * [Install](#install)
-  * [Prerequisites](#prerequisites)
-  * [Linux and macOS](#linux-and-macos)
-    * [one-line installer](#one-line-installer)
-    * [Makefile](#makefile)
-  * [Windows](#windows)
-  * [Manual](#manual)
+    * [Prerequisites](#prerequisites)
+    * [Linux and macOS](#linux-and-macos)
+        * [one-line installer](#one-line-installer)
+        * [Makefile](#makefile)
+    * [Windows](#windows)
+    * [Manual](#manual)
 * [Customize](#customize)
-  * [Presetting](#presetting)
-  * [`UserInit()`](#userinit)
-  * [`UserConfig()`](#userconfig)
+    * [Presetting](#presetting)
+    * [`UserInit()`](#userinit)
+    * [`UserConfig()`](#userconfig)
 * [How to use](#how-to-use)
-  * [Bootstrap](#bootstrap)
-  * [Commands](#commands)
-  * [Tips](#tips)
-    * [Enable GUI color in terminal vim](#enable-gui-color-in-terminal-vim)
-    * [Terminal Font](#terminal-font)
+    * [Bootstrap](#bootstrap)
+    * [Commands](#commands)
+    * [Tips](#tips)
+        * [Enable GUI color in terminal vim](#enable-gui-color-in-terminal-vim)
+        * [Font](#font)
+            * [GUI](#gui)
+            * [Terminal](#terminal)
 * [Update](#update)
 * [Contributions](#contributions)
 * [Acknowledgements](#acknowledgements)
@@ -85,6 +87,8 @@ Make sure you have installed:
 - **Vim** or **NeoVim**
 
 The most recent Vim(NeoVim) version is recommended, for space-vim has been specifically optimized for Vim8 and NeoVim with respect to the startup time.
+
+[chocolatey](https://chocolatey.org/) is an easy way to install software on Windows, tools like `fzf`, `rg`, `ag` are necessary to get you a full-featured space-vim.
 
 :exclamation: ~~When layers enabled at the first time, you need to run `:PlugInstall` to install relevant plugins~~.
 
@@ -256,7 +260,19 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 For more details about true colour, please see the gist [TrueColour.md](https://gist.github.com/XVilka/8346728).
 
-#### Terminal Font
+#### Font
+
+Some fantastic fonts: [programming-fonts](https://github.com/liuchengxu/space-vim/wiki/tips#programming-fonts).
+
+##### GUI
+
+For instance, install [Iosevka](https://github.com/be5invis/Iosevka) first and use it:
+
+```vim
+let &guifont = 'Iosevka:h16'
+```
+
+##### Terminal
 
 <img src="https://github.com/liuchengxu/space-vim/blob/gh-pages/docs/img/iterm2_powerline_setting.png?raw=true" align="right" width="550px" alt="iterm2-font-setting" />
 

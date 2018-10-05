@@ -13,6 +13,17 @@
 
 This layer adds supports fuzzy file finder as well as much more other functionalities.
 
+## Prerequisite
+
+This layer depends on [fzf](https://github.com/junegunn/fzf). For macOS and Linux users, it will be installed automatically. If you are using Windows, I recommend you install fzf via [chocolatey](https://chocolatey.org/).
+
+```
+choco install fzf
+
+choco install ag
+choco install ripgrep
+```
+
 ## Install
 
 To use this configuration layer, add it to your `~/.spacevim`. *It has been enabled as one of the default layers*.
