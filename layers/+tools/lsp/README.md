@@ -76,6 +76,26 @@ $ npm install -g typescript-language-server
 $ yarn global add typescript-language-server
 ```
 
+If you run into this error on macOS, refer to [Fixing npm On Mac OS X for Homebrew Users](https://gist.github.com/DanHerbert/9520689).
+
+```
+[Error] [tsserver] /bin/sh: /usr/local/Cellar/node/10.11.0/bin/npm: No such file or directory
+```
+
+Afterwards, if you still have the following issue:
+
+```
+/bin/sh: /usr/local/Cellar/node/10.11.0/bin/npm: No such file or directory
+```
+
+try this solution:
+
+```bash
+$ which npm
+/Users/xlc/.npm-packages/bin/npm
+$ ln -s $(which npm) /usr/local/Cellar/node/10.11.0/bin/
+```
+
 ### Haskell
 
 [Haskell Language Server: haskell-ide-engine](https://github.com/haskell/haskell-ide-engine)

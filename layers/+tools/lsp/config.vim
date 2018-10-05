@@ -17,9 +17,14 @@ let g:LanguageClient_serverCommands = {
       \ 'typescript': ['javascript-typescript-stdio'],
       \ 'javascript': ['javascript-typescript-stdio'],
       \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
+      \ 'haskell': ['hie-wrapper', '--lsp', '-r', spacevim#util#RootDirectory()],
       \ }
 
-  let g:LanguageClient_diagnosticsDisplay =
+let g:LanguageClient_rootMarkers = {
+       \ 'haskell': ['*.cabal', 'stack.yaml']
+       \ }
+
+let g:LanguageClient_diagnosticsDisplay =
 \    {
 \        1: {
 \            "name": "Error",
@@ -48,5 +53,4 @@ let g:LanguageClient_serverCommands = {
 \    }
 
 " Or map each action separately
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call spacevim#lang#util#GotoDefinition()<CR>

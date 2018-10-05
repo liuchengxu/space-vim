@@ -1,5 +1,6 @@
 if g:spacevim.gui && !has('terminal')
   " LeaderF {
+  let g:Lf_ReverseOrder = 1
   nnoremap <Leader>ff :LeaderfFile ~<CR>
   nnoremap <Leader>f? :LeaderfFile<CR>
   nnoremap <Leader>fr :LeaderfMru<CR>

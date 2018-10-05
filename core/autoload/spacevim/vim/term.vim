@@ -1,6 +1,7 @@
+" terminal buffer is async inherently.
 " opts: dict, {'cmd':, 'cwd':}
 function! spacevim#vim#term#Open(opts) abort
-  execute 'belowright' '10new' '+setl\ buftype=nofile'
+  execute 'vertical belowright' 'new' '+setl' 'buftype=nofile'
   setlocal buftype=nofile winfixheight norelativenumber nonumber bufhidden=wipe
   let cmd = get(a:opts, 'cmd', '')
   if empty(cmd) | return | endif
@@ -17,6 +18,7 @@ function! spacevim#vim#term#Open(opts) abort
           \})
   endif
   wincmd p
+  redraw!
   return bufnr
 endfunction
 
@@ -25,4 +27,24 @@ endfunction
 function! spacevim#vim#term#Run(...) abort
   " a:000 ['git', 'status']
   call spacevim#vim#term#Open({'cmd': a:000})
+endfunction
+
+" https://gist.github.com/romainl/eae0a260ab9c135390c30cd370c20cd7
+function! spacevim#vim#term#system(cmd)
+  for win in range(1, winnr('$'))
+    if getwinvar(win, 'scratch')
+      execute win . 'windo close'
+    endif
+  endfor
+  if a:cmd =~ '^!'
+    execute "let output = system('" . substitute(a:cmd, '^!', '', '') . "')"
+  else
+    redir => output
+    execute a:cmd
+    redir END
+  endif
+  vnew
+  let w:scratch = 1
+  setlocal nobuflisted buftype=nofile bufhidden=wipe noswapfile
+  call setline(1, split(output, "\n"))
 endfunction
