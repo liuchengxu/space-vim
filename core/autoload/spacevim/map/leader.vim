@@ -3,8 +3,9 @@ let g:spacevim#map#leader#desc =  get(g:, 'spacevim#map#leader#desc', {})
 let g:spacevim#map#leader#desc['name'] =  'space-vim root'
 
 for s:i in range(1, 9)
-    let g:spacevim#map#leader#desc[s:i] = 'window-'.s:i
+  let g:spacevim#map#leader#desc[s:i] = 'window-'.s:i
 endfor
+unlet s:i
 
 let g:spacevim#map#leader#desc['?'] = [ 'Maps', 'show-keybindings' ]
 let g:spacevim#map#leader#desc[';'] = [ '<Plug>NERDCommenterToggle','commenter' ]
@@ -108,13 +109,14 @@ let g:spacevim#map#leader#desc['h'] = {
       \ }
 
 let g:spacevim#map#leader#desc['j'] = {
-      \ 'name' : '+jump'                   ,
+      \ 'name' : '+jump/json'                   ,
       \ 'j' : 'easymotion-goto-char'       ,
       \ 'J' : 'easymotion-goto-char-2'     ,
       \ 'l' : 'jump-linewise'              ,
       \ 'w' : 'jump-to-word-bidirectional' ,
       \ 'f' : 'jump-forward-wordwise'      ,
       \ 'b' : 'jump-backword-wordwise'     ,
+      \ 'F' : ['execute line(".")."!python -m json.tool"', 'format-current-raw-oneline-json'],
       \ }
 
 let g:spacevim#map#leader#desc['l'] = {

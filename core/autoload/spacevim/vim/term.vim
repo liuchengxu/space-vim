@@ -1,25 +1,37 @@
+let s:termbufs = get(s:, 'termbufs', [])
+
 " terminal buffer is async inherently.
 " opts: dict, {'cmd':, 'cwd':}
 function! spacevim#vim#term#Open(opts) abort
+  " close terminal buffer whose job has finished
+  let winrestcmd = winrestcmd()
+  for termbuf in s:termbufs
+    if job_status(term_getjob(termbuf)) ==# 'dead'
+      execute 'bd' termbuf
+    endif
+  endfor
+  execute winrestcmd
+
   execute 'vertical belowright' 'new' '+setl' 'buftype=nofile'
   setlocal buftype=nofile winfixheight norelativenumber nonumber bufhidden=wipe
   let cmd = get(a:opts, 'cmd', '')
   if empty(cmd) | return | endif
+
   let cwd = get(a:opts, 'cwd', getcwd())
-  let bufnr = bufnr('%')
+
   if has('nvim')
-    call termopen(cmd, {
+    let buf = termopen(cmd, {
           \ 'cwd': cwd,
           \})
   else
     execute 'lcd' cwd
-    call term_start(cmd, {
+    let buf = term_start(cmd, {
           \ 'curwin': 1,
           \})
   endif
+  call add(s:terms, buf)
   wincmd p
   redraw!
-  return bufnr
 endfunction
 
 " Run cmd in terminal buffer
@@ -36,7 +48,7 @@ function! spacevim#vim#term#system(cmd)
       execute win . 'windo close'
     endif
   endfor
-  if a:cmd =~ '^!'
+  if a:cmd =~# '^!'
     execute "let output = system('" . substitute(a:cmd, '^!', '', '') . "')"
   else
     redir => output
