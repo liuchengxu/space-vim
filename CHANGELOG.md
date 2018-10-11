@@ -9,7 +9,9 @@ CHANGELOG
 - infer the executable from the shebang, e.g., `#!/usr/bin/env python3`.
 - visual ag and rg search based on fzf.
 - `.editorconfig`
-- `Grep`
+- `Grep` command
+- introduce `on_event` to simplify lazy loading based on events.(#351)
+- `haskell` layer
 
 ### Changed
 
@@ -17,6 +19,11 @@ CHANGELOG
 - replace `spacevim#begin()` and `spacevim#end()` with `spacevim#bootstrap()`. The begin and end logic is not neccesary.
 - optimize `core/autoload/spacevim.vim`.(#336)
 - load `editorconfig-vim` via timer instead of on-demand loading.
+- replace `vim-leaderGuide` with `vim-which-key`.
+
+### Removed
+
+- remove `unite` from the default layers.
 
 ## [0.8.0] - 2018.06.02
 

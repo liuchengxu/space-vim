@@ -55,7 +55,7 @@ The distribution is completely customizable using `.spacevim`, which is equivale
 ![screenshot](https://raw.githubusercontent.com/liuchengxu/img/master/space-vim/space-vim-gui.png)
 (Terminal vim with [space-vim-dark](https://github.com/liuchengxu/space-vim-dark))
 
-[More screenshots](https://github.com/liuchengxu/space-vim/wiki/screenshots)
+[>> More screenshots](https://github.com/liuchengxu/space-vim/wiki/screenshots)
 
 ## Features
 
@@ -63,7 +63,7 @@ The distribution is completely customizable using `.spacevim`, which is equivale
 
 - **Mnemonic key bindings:** commands have mnemonic prefixes like <kbd>SPC b</kbd> for all the buffer commands, this feature is mainly powered by [vim-which-key](https://github.com/liuchengxu/vim-which-key). Furthermore, lots of basic key bindings are provided by [vim-better-default](https://github.com/liuchengxu/vim-better-default). For different language layers, `<LocalLeader>`, <kbd>,</kbd> as default in space-vim, can be seen as the major-mode prefix in spacemacs.
 
-<p align="center"><img width="800px" src="https://user-images.githubusercontent.com/8850248/45039314-f6adc880-b095-11e8-8c5b-5a79092ef33d.png"></p>
+<p align="center"><img width="800px" src="https://user-images.githubusercontent.com/8850248/46784654-8e6f9800-cd61-11e8-88df-673ff5826981.png"></p>
 
 - **Lean and mean:** no nonsense wrappers, free from being bloated.
 
@@ -315,6 +315,7 @@ I would like to thank the many people who have helped and contributed to this pr
 - [A Vim Configuration for Spacemacs User](http://www.liuchengxu.org/posts/space-vim/)
 - [用 Vim 写 Python 的最佳实践](https://www.v2ex.com/t/337102#reply61)
 - [手工制作一个漂亮的 vim statusline ](https://segmentfault.com/a/1190000007939244)
+- [Vim 专题](https://www.jianshu.com/c/eb88e454b66a)
 
 ## Contributors
 
