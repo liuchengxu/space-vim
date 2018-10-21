@@ -1,35 +1,64 @@
 let s:termbufs = get(s:, 'termbufs', [])
 
+let s:closed = []
+let s:jobs = {}
+
 " terminal buffer is async inherently.
 " opts: dict, {'cmd':, 'cwd':}
 function! spacevim#vim#term#Open(opts) abort
+
   " close terminal buffer whose job has finished
   let winrestcmd = winrestcmd()
-  for termbuf in s:termbufs
-    if job_status(term_getjob(termbuf)) ==# 'dead'
-      execute 'bd' termbuf
-    endif
-  endfor
+
+  if has('nvim')
+    let index = 0
+    while index < len(s:closed)
+      let item = s:closed[index]
+      let bufnr = s:jobs[item]
+      if bufloaded(bufnr)
+        silent execute bufnr . 'bwipeout!'
+        unlet s:jobs[item]
+        unlet s:closed[index]
+      endif
+    endwhile
+  else
+    for termbuf in s:termbufs
+      if index(term_list(), termbuf) isnot# -1
+            \ && bufloaded(termbuf)
+            \ && job_status(term_getjob(termbuf)) ==# 'dead'
+        silent execute termbuf . 'bwipeout!'
+      endif
+    endfor
+  endif
+
   execute winrestcmd
 
   execute 'vertical belowright' 'new' '+setl' 'buftype=nofile'
   setlocal buftype=nofile winfixheight norelativenumber nonumber bufhidden=wipe
+  setlocal listchars+=trail:\ 
+
   let cmd = get(a:opts, 'cmd', '')
-  if empty(cmd) | return | endif
+  if empty(cmd)
+    return
+  endif
 
   let cwd = get(a:opts, 'cwd', getcwd())
 
   if has('nvim')
-    let buf = termopen(cmd, {
+    let bufnr = bufnr('%')
+    let s:jobid = termopen(cmd, {
           \ 'cwd': cwd,
+          \ 'on_exit': { c,d,n -> add(s:closed, s:jobid) },
           \})
+    let s:jobs[s:jobid] = bufnr
   else
     execute 'lcd' cwd
-    let buf = term_start(cmd, {
+    let bufnr = term_start(cmd, {
           \ 'curwin': 1,
           \})
+    call add(s:termbufs, bufnr)
   endif
-  call add(s:terms, buf)
+
   wincmd p
   redraw!
 endfunction
@@ -41,8 +70,9 @@ function! spacevim#vim#term#Run(...) abort
   call spacevim#vim#term#Open({'cmd': a:000})
 endfunction
 
+" http://vim.wikia.com/wiki/List_loaded_scripts
 " https://gist.github.com/romainl/eae0a260ab9c135390c30cd370c20cd7
-function! spacevim#vim#term#system(cmd)
+function! spacevim#vim#term#System(cmd)
   for win in range(1, winnr('$'))
     if getwinvar(win, 'scratch')
       execute win . 'windo close'
