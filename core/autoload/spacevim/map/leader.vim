@@ -125,7 +125,7 @@ let g:spacevim#map#leader#desc['l'] = {
       \ 'c' : ['LanguageClient_contextMenu()'                 , 'context-menu']     ,
       \ 'f' : ['LanguageClient#textDocument_formatting()'     , 'formatting']       ,
       \ 'h' : ['LanguageClient#textDocument_hover()'          , 'hover']            ,
-      \ 'r' : ['LanguageClient#textDocument_references()'     , 'references']       ,
+      \ 'r' : ['spacevim#lang#util#FindReferences()'     , 'references']       ,
       \ 'R' : ['LanguageClient#textDocument_rename()'         , 'rename']           ,
       \ 's' : ['LanguageClient#textDocument_documentSymbol()' , 'document-symbol']  ,
       \ 'S' : ['LanguageClient#workspace_symbol()'            , 'workspace-symbol'] ,
@@ -152,16 +152,28 @@ let g:spacevim#map#leader#desc['Q'] = [ 'qa!', 'quit-without-saving' ]
 let g:spacevim#map#leader#desc['s'] = {
       \ 'name' : '+search/show'                ,
       \ 'c' : 'search-clear-highlight'         ,
-      \ 'h' : ['spacevim#util#SyntaxHiGroup()' , 'show-highlight-group'] ,
+      \ 'h' : ['spacevim#util#SyntaxHiGroup()' , 'show-highlight-group']  ,
+      \ 'b' : ['BLines'                        , 'search-current-buffer'] ,
       \ }
 
+function! s:buftag() abort
+  if exists(':BTags')
+    BTags
+  elseif exists('LeaderfBufTag')
+    LeaderfBufTag
+  else
+    echom "Not avaliable"
+  endif
+endfunction
+
 let g:spacevim#map#leader#desc['t'] = {
-      \ 'name' : '+toggle'                          ,
+      \ 'name' : '+toggle/tag'                          ,
       \ 'g' : ['spacevim#plug#toggle#Git()'         , 'git-status-indicator'] ,
       \ 'i' : ['IndentGuidesToggle'                 , 'indent-guide']         ,
       \ 'p' : ['setlocal paste!'                    , 'paste-mode']           ,
       \ 's' : ['SyntasticToggleMode'                , 'syntastic']            ,
-      \ 't' : ['TagbarToggle'                       , 'tagbar']               ,
+      \ 'b' : [function('s:buftag')                   , 'tags-in-current-buffer'],
+      \ 'T' : ['TagbarToggle'                       , 'tagbar']               ,
       \ 'c' : ['spacevim#vim#toggle#CursorColumn()' , 'cursor-column']        ,
       \ 'C' : ['spacevim#vim#toggle#ColorColumn()'  , 'color-column']         ,
       \ }
@@ -175,7 +187,7 @@ let g:spacevim#map#leader#desc['w'] = {
       \ '-' :  'split-window-below'               ,
       \ '|' :  'split-window-right'               ,
       \ '2' :  'layout-double-columns'            ,
-      \ 'o' :  'close-all-windows-except-current' ,
+      \ 'o' :  ['only', 'close-all-windows-except-current'] ,
       \ 'h' :  'window-left'                      ,
       \ 'j' :  'window-below'                     ,
       \ 'l' :  'window-right'                     ,
