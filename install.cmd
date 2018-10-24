@@ -15,6 +15,20 @@ $repo_url    = "https://github.com/liuchengxu/space-vim.git"
 $repo_name   = "space-vim"
 $repo_path   = "$HOME\.space-vim"
 
+if ((Get-Command "git.exe" -ErrorAction SilentlyContinue) -eq $null)
+{
+   Write-Host "Unable to find git.exe in your PATH"
+   pause
+   exit
+}
+
+if ((Get-Command "vim.exe" -ErrorAction SilentlyContinue) -eq $null)
+{
+   Write-Host "Unable to find vim.exe in your PATH"
+   pause
+   exit
+}
+
 if (!(Test-Path "$HOME\.space-vim")) {
     echo "==> Trying to clone $app_name"
     git clone $repo_url $repo_path
