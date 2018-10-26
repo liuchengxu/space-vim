@@ -3,18 +3,18 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""
 function! spacevim#util#err(msg)
   echohl ErrorMsg
-  echom '[space-vim] '.a:msg
+  call spacevim#vim#cursor#TruncatedEcho('[space-vim] '.a:msg)
   echohl None
 endfunction
 
 function! spacevim#util#warn(msg)
   echohl WarningMsg
-  echom '[space-vim] '.a:msg
+  call spacevim#vim#cursor#TruncatedEcho('[space-vim] '.a:msg)
   echohl None
 endfunction
 
 function! spacevim#util#info(msg)
-  echom '[space-vim] '.a:msg
+  call spacevim#vim#cursor#TruncatedEcho('[space-vim] '.a:msg)
 endfunction
 
 " argument plugin is the vim plugin's name
