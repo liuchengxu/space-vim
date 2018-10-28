@@ -126,14 +126,14 @@ let g:spacevim#map#leader#desc['l'] = {
       \ 'f' : ['LanguageClient#textDocument_formatting()'     , 'formatting']       ,
       \ 'h' : ['LanguageClient#textDocument_hover()'          , 'hover']            ,
       \ 'r' : ['spacevim#lang#util#FindReferences()'     , 'references']       ,
-      \ 'R' : ['LanguageClient#textDocument_rename()'         , 'rename']           ,
+      \ 'R' : ['spacevim#lang#util#Rename()'         , 'rename']           ,
       \ 's' : ['LanguageClient#textDocument_documentSymbol()' , 'document-symbol']  ,
       \ 'S' : ['LanguageClient#workspace_symbol()'            , 'workspace-symbol'] ,
       \ 'g' : {
         \ 'name': '+goto'                                       ,
-        \ 'd' : ['LanguageClient#textDocument_definition()'     , 'definition']      ,
-        \ 't' : ['LanguageClient#textDocument_typeDefinition()' , 'type-definition'] ,
-        \ 'i' : ['LanguageClient#textDocument_implementation()' , 'implementation']  ,
+        \ 'd' : ['spacevim#lang#util#Definition()'     , 'definition']      ,
+        \ 't' : ['spacevim#lang#util#TypeDefinition()' , 'type-definition'] ,
+        \ 'i' : ['spacevim#lang#util#Implementation()' , 'implementation']  ,
         \ }                                                     ,
       \ }
 
