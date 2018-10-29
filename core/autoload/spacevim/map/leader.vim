@@ -123,10 +123,10 @@ let g:spacevim#map#leader#desc['l'] = {
       \ 'name' : '+lsp'                                       ,
       \ 'a' : ['LanguageClient#textDocument_codeAction()'     , 'code-action']      ,
       \ 'c' : ['LanguageClient_contextMenu()'                 , 'context-menu']     ,
-      \ 'f' : ['LanguageClient#textDocument_formatting()'     , 'formatting']       ,
+      \ 'f' : ['spacevim#lang#util#Format()'                  , 'formatting']       ,
       \ 'h' : ['LanguageClient#textDocument_hover()'          , 'hover']            ,
-      \ 'r' : ['spacevim#lang#util#FindReferences()'     , 'references']       ,
-      \ 'R' : ['spacevim#lang#util#Rename()'         , 'rename']           ,
+      \ 'r' : ['spacevim#lang#util#FindReferences()'          , 'references']       ,
+      \ 'R' : ['spacevim#lang#util#Rename()'                  , 'rename']           ,
       \ 's' : ['LanguageClient#textDocument_documentSymbol()' , 'document-symbol']  ,
       \ 'S' : ['LanguageClient#workspace_symbol()'            , 'workspace-symbol'] ,
       \ 'g' : {
