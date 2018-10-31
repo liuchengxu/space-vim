@@ -12,6 +12,7 @@ CHANGELOG
 - `Grep` command
 - introduce `on_event` to simplify lazy loading based on events.(#351)
 - `haskell` layer
+- `g:spacevim_lsp_prefer_coc`, add [coc.nvim](https://github.com/neoclide/coc.nvim) support for lsp layer.
 
 ### Changed
 
