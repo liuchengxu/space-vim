@@ -55,19 +55,9 @@ if get(g:, 'spacevim_lsp_prefer_coc', 0)
   " Highlight symbol under cursor on CursorHold
   autocmd CursorHold * silent call CocAction('highlight')
 
-  " Remap for rename current word
-  nmap <leader>rn <Plug>(coc-rename)
-
   " Remap for format selected region
   vmap <localleader>=  <Plug>(coc-format-selected)
   nmap <localleader>=  <Plug>(coc-format-selected)
-
-  " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
-  vmap <leader>a  <Plug>(coc-codeaction-selected)
-  nmap <leader>a  <Plug>(coc-codeaction-selected)
-
-  " Remap for do codeAction of current line
-  nmap <leader>ac  <Plug>(coc-codeaction)
 
 else
 
