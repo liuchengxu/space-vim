@@ -124,6 +124,12 @@ $ npm install vue-language-server -g
 
 To use this configuration layer, add it to your `~/.spacevim`.
 
+Currently, [LanguageClient-neovim](https://github.com/autozimu/LanguageClient-neovim) is the default LS client. To use [coc.nvim](https://github.com/neoclide/coc.nvim) instead:
+
+```vim
+let g:spacevim_lsp_prefer_coc = 1
+```
+
 ## Key Bindings
 
 Key Binding        | Mode   | Description
@@ -134,3 +140,4 @@ Key Binding        | Mode   | Description
 
 - [LanguageClient-neovim](https://github.com/autozimu/LanguageClient-neovim)
 - [vim-lsp](https://github.com/prabirshrestha/vim-lsp)
+- [coc.nvim](https://github.com/neoclide/coc.nvim)
