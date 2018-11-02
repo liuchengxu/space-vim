@@ -61,7 +61,7 @@ endfunction
 
 function! spacevim#plug#util#CodeAction() abort
   if s:coc
-    CocAction('codeAction', '')
+    call CocAction('codeAction', '')
   endif
   call LanguageClient#textDocument_codeAction()
 endfunction
