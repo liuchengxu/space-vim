@@ -45,6 +45,27 @@ function! spacevim#lang#util#Format() abort
   endif
 endfunction
 
+function! spacevim#lang#util#DocumentSymbol() abort
+  if s:coc
+    call CocAction('documentSymbols')
+  endif
+  call LanguageClient#textDocument_documentSymbol()
+endfunction
+
+function! spacevim#lang#util#WorkspaceSymbol() abort
+  if s:coc
+    call CocAction('workspaceSymbols')
+  endif
+  call LanguageClient#workspace_symbol()
+endfunction
+
+function! spacevim#plug#util#CodeAction() abort
+  if s:coc
+    CocAction('codeAction', '')
+  endif
+  call LanguageClient#textDocument_codeAction()
+endfunction
+
 function! spacevim#lang#util#DiagnosticPrevious(type) abort
   if s:coc
     call CocAction('diagnosticPrevious')

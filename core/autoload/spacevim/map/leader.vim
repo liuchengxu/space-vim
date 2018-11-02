@@ -120,15 +120,15 @@ let g:spacevim#map#leader#desc['j'] = {
       \ }
 
 let g:spacevim#map#leader#desc['l'] = {
-      \ 'name' : '+lsp'                                       ,
-      \ 'a' : ['LanguageClient#textDocument_codeAction()'     , 'code-action']      ,
-      \ 'c' : ['LanguageClient_contextMenu()'                 , 'context-menu']     ,
-      \ 'f' : ['spacevim#lang#util#Format()'                  , 'formatting']       ,
-      \ 'h' : ['LanguageClient#textDocument_hover()'          , 'hover']            ,
-      \ 'r' : ['spacevim#lang#util#FindReferences()'          , 'references']       ,
-      \ 'R' : ['spacevim#lang#util#Rename()'                  , 'rename']           ,
-      \ 's' : ['LanguageClient#textDocument_documentSymbol()' , 'document-symbol']  ,
-      \ 'S' : ['LanguageClient#workspace_symbol()'            , 'workspace-symbol'] ,
+      \ 'name' : '+lsp'                               ,
+      \ 'a' : ['spacevim#lang#util#CodeAction()'      , 'code-action']      ,
+      \ 'c' : ['LanguageClient_contextMenu()'         , 'context-menu']     ,
+      \ 'f' : ['spacevim#lang#util#Format()'          , 'formatting']       ,
+      \ 'h' : ['LanguageClient#textDocument_hover()'  , 'hover']            ,
+      \ 'r' : ['spacevim#lang#util#FindReferences()'  , 'references']       ,
+      \ 'R' : ['spacevim#lang#util#Rename()'          , 'rename']           ,
+      \ 's' : ['spacevim#lang#util#DocumentSymbol()'  , 'document-symbol']  ,
+      \ 'S' : ['spacevim#lang#util#WorkspaceSymbol()' , 'workspace-symbol'] ,
       \ 'g' : {
         \ 'name': '+goto'                                       ,
         \ 'd' : ['spacevim#lang#util#Definition()'     , 'definition']      ,
@@ -159,7 +159,7 @@ let g:spacevim#map#leader#desc['s'] = {
 function! s:buftag() abort
   if exists(':BTags')
     BTags
-  elseif exists('LeaderfBufTag')
+  elseif exists(':LeaderfBufTag')
     LeaderfBufTag
   else
     echom "Not avaliable"
