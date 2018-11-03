@@ -59,7 +59,7 @@ function! spacevim#lang#util#WorkspaceSymbol() abort
   call LanguageClient#workspace_symbol()
 endfunction
 
-function! spacevim#plug#util#CodeAction() abort
+function! spacevim#lang#util#CodeAction() abort
   if s:coc
     call CocAction('codeAction', '')
   endif

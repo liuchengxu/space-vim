@@ -59,6 +59,8 @@ function! spacevim#vim#term#Open(opts) abort
     call add(s:termbufs, bufnr)
   endif
 
+  nnoremap <silent> q :q<CR>
+
   wincmd p
   redraw!
 endfunction

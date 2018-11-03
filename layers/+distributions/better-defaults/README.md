@@ -94,3 +94,4 @@ Key Binding          | Mode   | Description
 ## Related Projects
 
 - [vim-easyclip](https://github.com/svermeulen/vim-easyclip)
+- [vim-markbar](https://github.com/Yilin-Yang/vim-markbar)

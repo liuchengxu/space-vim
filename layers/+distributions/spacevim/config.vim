@@ -44,11 +44,9 @@ augroup spacevimBasic
     " if the window is quickfix/locationlist
     let l:bt_blacklist = ['quickfix', 'locationlist']
     let l:ft_blocklist = ['quickmenu']
-    if index(l:bt_blacklist, &buftype) >= 0 || index(l:ft_blocklist, &filetype) >= 0
-      " if this window is last on screen quit without warning
-      if winnr('$') == 1
-        quit!
-      endif
+    " if this window is last on screen quit without warning
+    if winnr('$') == 1 && (index(l:bt_blacklist, &buftype) >= 0 || index(l:ft_blocklist, &filetype) >= 0)
+      quit!
     endif
     " Sometimes when the last window is nerdtree with another buffer exists,
     " vim will close automatically. See #283
