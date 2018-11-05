@@ -142,7 +142,6 @@ let g:spacevim#map#leader#desc['p'] = {
       \ 'f' : ['spacevim#plug#fzf#FindFileInProject()' , 'find-file-in-project']  ,
       \ 's' : ['Rag'                                        , 'search-in-project']     ,
       \ 'w' : ['spacevim#plug#fzf#SearchCword()'       , 'find-cword-in-project'] ,
-      \ 'W' : ['spacevim#plug#fzf#SearchBcword()'      , 'find-cword-in-current-buffer']
       \ }
 
 let g:spacevim#map#leader#desc['q'] = [ 'q', 'quit' ]
@@ -150,10 +149,11 @@ let g:spacevim#map#leader#desc['q'] = [ 'q', 'quit' ]
 let g:spacevim#map#leader#desc['Q'] = [ 'qa!', 'quit-without-saving' ]
 
 let g:spacevim#map#leader#desc['s'] = {
-      \ 'name' : '+search/show'                ,
-      \ 'c' : 'search-clear-highlight'         ,
-      \ 'h' : ['spacevim#util#SyntaxHiGroup()' , 'show-highlight-group']  ,
-      \ 'b' : ['BLines'                        , 'search-current-buffer'] ,
+      \ 'name' : '+search/show'                   ,
+      \ 'c' : 'search-clear-highlight'            ,
+      \ 'h' : ['spacevim#util#SyntaxHiGroup()'    , 'show-highlight-group']   ,
+      \ 'b' : ['BLines'                           , 'search-in-buffer']       ,
+      \ 'B' : ['spacevim#plug#fzf#SearchBcword()' , 'search-cword-in-buffer'] ,
       \ }
 
 function! s:buftag() abort
