@@ -60,7 +60,6 @@ function! s:check_dot_spacevim() abort
     let g:maplocalleader = get(g:, 'spacevim_localleader', ',')
   else
     call spacevim#util#err('.spacevim does not exist! Exiting...')
-    finish
   endif
 endfunction
 
