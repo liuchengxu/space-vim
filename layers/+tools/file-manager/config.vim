@@ -1,6 +1,6 @@
 scriptencoding utf-8
 
-nnoremap <F4> :NERDTreeToggle<CR>
-inoremap <F4> <ESC>:NERDTreeToggle<CR>
-nnoremap <Leader>ft :NERDTreeToggle<CR>
-nnoremap <Leader>fd :NERDTreeFind<CR>
+nnoremap <silent><F4> :NERDTreeToggle<CR>
+inoremap <silent><F4> <ESC>:NERDTreeToggle<CR>
+nnoremap <silent><Leader>ft :NERDTreeToggle<CR>
+nnoremap <silent><Leader>fd :NERDTreeFind<CR>

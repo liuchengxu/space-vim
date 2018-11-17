@@ -49,3 +49,5 @@ press <kbd>\<esc></kbd>, <kbd>Ctrl c</kbd> or <kbd>Ctrl [</kbd> to exit.
 - [fzy-vim](https://github.com/Dkendal/fzy-vim)
 - [scout.vim](https://github.com/jhbabon/scout.vim)
 - [vim-picker](https://github.com/srstevenson/vim-picker)
+- [neovim-fuzzy](https://github.com/cloudhead/neovim-fuzzy)
+- [vim-fz](https://github.com/mattn/vim-fz)
