@@ -12,25 +12,33 @@ function! spacevim#lang#util#InferExecutable() abort
   return executable(l:exe) ? l:exe : ''
 endfunction
 
+" coc or LCN
+function! s:dispatch(...) abort
+  if a:0 == 2
+    let cmd = s:coc ?
+          \ printf('call CocAction("%s")', a:1) :
+          \ printf('call LanguageClient#%s()', a:2)
+    execute cmd
+  endif
+endfunction
+
 " ================================================
 " LSP
 " ================================================
 function! spacevim#lang#util#FindReferences() abort
-  if s:coc
-    call CocAction('jumpReferences')
-    return
-  endif
-
-  call LanguageClient#textDocument_references()
+  call s:dispatch('jumpReferences', 'textDocument_references')
 endfunction
 
 function! spacevim#lang#util#Rename() abort
-  if s:coc
-    call CocAction('rename')
-    return
-  endif
+  call s:dispatch('rename', 'textDocument_rename')
+endfunction
 
-  call LanguageClient#textDocument_rename()
+function! spacevim#lang#util#DocumentSymbol() abort
+  call s:dispatch('documentSymbols', 'textDocument_documentSymbol')
+endfunction
+
+function! spacevim#lang#util#WorkspaceSymbol() abort
+  call s:dispatch('workspaceSymbols', 'workspace_symbol')
 endfunction
 
 function! spacevim#lang#util#Format() abort
@@ -43,20 +51,6 @@ function! spacevim#lang#util#Format() abort
   elseif exists(':ALEFix')
     ALEFix
   endif
-endfunction
-
-function! spacevim#lang#util#DocumentSymbol() abort
-  if s:coc
-    call CocAction('documentSymbols')
-  endif
-  call LanguageClient#textDocument_documentSymbol()
-endfunction
-
-function! spacevim#lang#util#WorkspaceSymbol() abort
-  if s:coc
-    call CocAction('workspaceSymbols')
-  endif
-  call LanguageClient#workspace_symbol()
 endfunction
 
 function! spacevim#lang#util#CodeAction() abort
@@ -110,15 +104,9 @@ function! spacevim#lang#util#Definition() abort
 endfunction
 
 function! spacevim#lang#util#TypeDefinition() abort
-  if s:coc
-    call CocAction('jumpTypeDefinition')
-    return
-  endif
+  call s:dispatch('jumpTypeDefinition', 'textDocument_typeDefinition')
 endfunction
 
 function! spacevim#lang#util#Implementation() abort
-  if s:coc
-    call CocAction('jumpImplementation')
-    return
-  endif
+  call s:dispatch('jumpImplementation', 'textDocument_implementation')
 endfunction
