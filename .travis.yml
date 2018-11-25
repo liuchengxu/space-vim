@@ -2,7 +2,7 @@ sudo: required
 dist: trusty
 
 before_install:
-- sudo add-apt-repository ppa:deadsnakes/ppa
+- sudo add-apt-repository ppa:deadsnakes/ppa -y
 - sudo apt-get update
 - sudo apt-get install shellcheck python3.6 vim
 - pip3 install --user vim-vint
