@@ -6,9 +6,8 @@ before_install:
 - pip install --user vim-vint
 
 script:
-# - vint init.vim layers/*.vim core/*.vim
+- find . -name "*.vim" -type f | grep -v "cache.vim" | while read filename; do vint -e "$filename"; done
 - shellcheck *.sh
 - chmod +x install.sh
-- git clone https://github.com/hecal3/vim-leader-guide ~/.vim/plugged/vim-leader-guide --depth=1
 - ./install.sh
 
