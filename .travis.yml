@@ -2,6 +2,7 @@ sudo: required
 dist: trusty
 
 before_install:
+- sudo apt-get update
 - sudo apt-get install shellcheck python3.6 vim
 - pip3 install --user vim-vint
 
