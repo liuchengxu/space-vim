@@ -2,8 +2,8 @@ sudo: required
 dist: trusty
 
 before_install:
-- sudo apt-get install shellcheck python vim
-- pip install --user vim-vint
+- sudo apt-get install shellcheck python3 vim
+- pip3 install --user vim-vint
 
 script:
 - find . -name "*.vim" -type f | grep -v "cache.vim" | while read filename; do vint -e "$filename"; done
