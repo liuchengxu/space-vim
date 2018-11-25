@@ -1,14 +1,5 @@
 sudo: required
 dist: trusty
 
-before_install:
-- sudo apt-get install shellcheck python vim
-- pip install --user vim-vint
-
-script:
-# - vint init.vim layers/*.vim core/*.vim
-- shellcheck *.sh
-- chmod +x install.sh
-- git clone https://github.com/hecal3/vim-leader-guide ~/.vim/plugged/vim-leader-guide --depth=1
-- ./install.sh
-
+before_install: ci/before_install.sh
+script: ci/script.sh
