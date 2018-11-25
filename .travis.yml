@@ -1,15 +1,5 @@
 sudo: required
 dist: trusty
 
-before_install:
-- sudo add-apt-repository ppa:deadsnakes/ppa -y
-- sudo apt-get update
-- sudo apt-get install shellcheck python3.6 vim
-- pip install --user vim-vint
-
-script:
-- find . -name "*.vim" -type f | grep -v "cache.vim" | while read filename; do vint -e "$filename"; done
-- shellcheck *.sh
-- chmod +x install.sh
-- ./install.sh
-
+before_install: ci/before_install.sh
+script: ci/script.sh
