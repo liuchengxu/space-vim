@@ -38,7 +38,7 @@ else
     \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
   command! -nargs=* Rag call spacevim#plug#fzf#AgInProject(<q-args>)
-  " command! -bang -nargs=* Rg call spacevim#plug#fzf#Rg(<q-args>, <bang>0)
+  command! -bang -nargs=* Rg call spacevim#plug#fzf#Rg(<q-args>, <bang>0)
 
   nmap <Leader>? <plug>(fzf-maps-n)
   xmap <Leader>? <plug>(fzf-maps-x)
