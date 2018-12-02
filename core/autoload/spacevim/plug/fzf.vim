@@ -159,6 +159,7 @@ endfunction
 "  ag related
 " ------------------------------------------------------------------
 function! s:ag(query)
+  echo "\r"
   call fzf#vim#ag(a:query,{
         \ 'dir': spacevim#util#RootDirectory(),
         \ 'options': '--ansi --delimiter : --nth 4..,.. --prompt "?'.a:query.'> " '.
@@ -169,6 +170,8 @@ endfunction
 
 " Rag utilizes ag in the root directory of project
 function! spacevim#plug#fzf#AgInProject(query)
+  " Clear command
+  echo "\r"
   call fzf#vim#ag(a:query, extend({
       \ 'dir': spacevim#util#RootDirectory(),
       \ 'options': '--prompt="'.spacevim#util#RootDirectory().'> "'},
@@ -189,6 +192,7 @@ function! spacevim#plug#fzf#Rg(query, bang)
   if !executable('rg')
     return spacevim#util#warn('rg is not found')
   endif
+  echo "\r"
   call fzf#vim#grep(
         \ 'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(a:query), 1,
         \ a:bang ? fzf#vim#with_preview('up:60%')
