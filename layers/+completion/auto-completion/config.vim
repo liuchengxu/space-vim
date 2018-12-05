@@ -2,6 +2,7 @@ scriptencoding utf-8
 
 if has_key(g:plugs, 'vim-mucomplete')
   let g:mucomplete#enable_auto_at_startup = 1
+  let g:mucomplete#no_mappings = 1
   inoremap <expr> <c-e> mucomplete#popup_exit("\<c-e>")
   inoremap <expr> <c-y> mucomplete#popup_exit("\<c-y>")
   inoremap <expr>  <cr> mucomplete#popup_exit("\<cr>")
