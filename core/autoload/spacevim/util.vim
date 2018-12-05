@@ -76,16 +76,22 @@ function! spacevim#util#OpenPluginHomepage() abort
   silent exec "!$BROWSER https://github.com/".repository
 endfunction
 
+function! s:is_in_git_repo() abort
+  let git_dir = system('git rev-parse --git-dir')
+  return v:shell_error ? '' : substitute(fnamemodify(git_dir, ':p:h'), ' ', '\\ ', 'g')
+endfunction
+
 function! spacevim#util#RootDirectory()
+  " Dirty hack.
+  " Don't know why, this detection does not work for neovim.
+  lcd %:p:h
+
+  let root_dir = s:is_in_git_repo()
+  if root_dir != ''
+    return root_dir
+  endif
   if exists('*FindRootDirectory')
     let root_dir = FindRootDirectory()
-  else
-    let git_dir = system('git rev-parse --git-dir')
-    if !v:shell_error
-      let root_dir = substitute(fnamemodify(git_dir, ':p:h'), ' ', '\\ ', 'g')
-    else
-      let root_dir = ''
-    endif
   endif
   return root_dir == '' ? getcwd() : root_dir
 endfunction
