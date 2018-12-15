@@ -59,14 +59,17 @@ let s:PatternMatchHighlightColor = {} " this line is needed to avoid error
 let s:PatternMatchHighlightColor['*.py$'] = s:colors.red " sets the color for files ending with _spec.rb
 
 function! spacevim#autocmd#nerdtree#Init()
-  let g:NERDTreeShowHidden=1
-  let g:NERDTreeAutoDeleteBuffer=1
+  let g:NERDTreeMinimalUI = 1
+  let g:NERDTreeDirArrows = 1 " Disable that old “Press ? for help”
+  let g:NERDTreeShowHidden = 1
+  let g:NERDTreeAutoDeleteBuffer = 1
   " ❯
   let g:NERDTreeDirArrowExpandable = "\u276f"
   let g:NERDTreeDirArrowCollapsible = "~"
   " ○ ●
   let g:NERDTreeDirArrowExpandable = "\u25cb"
   let g:NERDTreeDirArrowCollapsible = "\u25cf"
+
   let g:NERDTreeIgnore = s:ignore
 " }
 

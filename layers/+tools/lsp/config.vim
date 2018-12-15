@@ -36,15 +36,7 @@ if get(g:, 'spacevim_lsp_prefer_coc', 0)
   inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
   " Use K for show documentation in preview window
-  nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-  function! s:show_documentation()
-    if &filetype == 'vim'
-      execute 'h '.expand('<cword>')
-    else
-      call CocAction('doHover')
-    endif
-  endfunction
+  nnoremap <silent> K :call spacevim#plug#coc#show_documentation()<CR>
 
   " Show signature help while editing
   autocmd CursorHoldI * silent! call CocAction('showSignatureHelp')
