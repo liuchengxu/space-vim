@@ -4,7 +4,7 @@ endif
 
 let g:loaded_spacevim = 1
 
-  " Use gui colors in terminal if available
+" Use gui colors in terminal if available
 if has('termguicolors') && get(g:, 'spacevim_enable_true_color', 0)
   set termguicolors
   if g:spacevim.tmux

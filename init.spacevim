@@ -32,6 +32,12 @@ endfunction
 
 " Override the default settings from space-vim as well as adding extras
 function! UserConfig()
+
+  " Override the default settings.
+  " Uncomment the following line to disable relative number.
+  " set norelativenumber
+
+  " Adding extras.
   " Uncomment the following line If you have installed the powerline fonts.
   " It is good for airline layer.
   " let g:airline_powerline_fonts = 1
