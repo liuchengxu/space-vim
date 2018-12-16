@@ -14,7 +14,7 @@ let g:spacevim_layers = [
       \ ]
 
 " Uncomment the following line if your terminal(-emulator) supports true colors.
-let g:spacevim_enable_true_color = 1
+" let g:spacevim_enable_true_color = 1
 
 " If you want to have more control over the layer, try using Layer command.
 " if g:spacevim.gui
