@@ -163,6 +163,7 @@ let g:spacevim_plug_home = '~/.vim/plugged'
 " let g:spacevim_localleader = ','
 
 " Enable the existing layers in space-vim
+" Refer to https://github.com/liuchengxu/space-vim/blob/master/layers/LAYERS.md for all available layers.
 let g:spacevim_layers = [
       \ 'fzf', 'better-defaults', 'which-key',
       \ ]
