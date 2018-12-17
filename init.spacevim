@@ -1,51 +1,46 @@
-" Let Vim and NeoVim shares the same plugin directory.
-" Comment it out if you don't like
+" Comment the following line if you don't want Vim and NeoVim to share the
+" same plugin download directory.
 let g:spacevim_plug_home = '~/.vim/plugged'
 
-" The default leader key is space key.
-" Uncomment the line below and modify "<\Space>" if you prefer another
+" Uncomment the following line to override the leader key. The default value is space key "<\Space>".
 " let g:spacevim_leader = "<\Space>"
 
-" The default local leader key is comma.
-" Uncomment the line below and modify ',' if you prefer another
+" Uncomment the following line to override the local leader key. The default value is comma ','.
 " let g:spacevim_localleader = ','
 
-" Enable the existing layers in space-vim
+" Enable the existing layers in space-vim.
+" Refer to https://github.com/liuchengxu/space-vim/blob/master/layers/LAYERS.md for all available layers.
 let g:spacevim_layers = [
       \ 'fzf', 'better-defaults', 'which-key',
       \ ]
+
+" Uncomment the following line if your terminal(-emulator) supports true colors.
+" let g:spacevim_enable_true_color = 1
 
 " If you want to have more control over the layer, try using Layer command.
 " if g:spacevim.gui
 "   Layer 'airline'
 " endif
 
-" Manage your own plugins, refer to vim-plug's instruction for more detials.
+" Manage your own plugins.
+" Refer to https://github.com/junegunn/vim-plug for more detials.
 function! UserInit()
 
-  " Add plugin via Plug command.
+  " Add your own plugin via Plug command.
   Plug 'junegunn/seoul256.vim'
 
 endfunction
 
-" Override the default settings as well as adding extras
+" Override the default settings from space-vim as well as adding extras
 function! UserConfig()
-  " If you have installed the powerline fonts and want to enable airline layer
-  " let g:airline_powerline_fonts=1
 
-  " Use gui colors in terminal if available
-  function! s:enable_termgui()
-    if has('termguicolors')
-      set termguicolors
-      if g:spacevim.tmux
-        " If use vim inside tmux, see https://github.com/vim/vim/issues/993
-        " set Vim-specific sequences for RGB colors
-        let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-        let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-      endif
-    endif
-  endfunction
+  " Override the default settings.
+  " Uncomment the following line to disable relative number.
+  " set norelativenumber
 
-  " If your terminal(-emulator) supports true colors, uncomment the line below
-  " call s:enable_termgui()
+  " Adding extras.
+  " Uncomment the following line If you have installed the powerline fonts.
+  " It is good for airline layer.
+  " let g:airline_powerline_fonts = 1
+
 endfunction
