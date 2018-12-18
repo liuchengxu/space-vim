@@ -25,13 +25,7 @@ endfor
 unlet s:i
 
 " Picked from https://github.com/tpope/vim-unimpaired
-" Quickfix
-nnoremap ]q :cnext<cr>zz
-nnoremap [q :cprev<cr>zz
-
-" Location
-nnoremap ]l :lnext<cr>zz
-nnoremap [l :lprev<cr>zz
+" Move to core/ftplugin/qf.vim
 
 " Buffers
 nnoremap ]b :bnext<cr>
