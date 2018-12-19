@@ -9,12 +9,12 @@ function! s:cycle(action, fallback) abort
   endtry
 endfunction
 
-nnoremap <silent> <buffer> ]q :<c-u>call <SID>cycle('cnext', 'cfirst')<CR>
-nnoremap <silent> <buffer> [q :<c-u>call <SID>cycle('cprev', 'clast')<CR>
+nnoremap <silent> ]q :<c-u>call <SID>cycle('cnext', 'cfirst')<CR>
+nnoremap <silent> [q :<c-u>call <SID>cycle('cprev', 'clast')<CR>
 
 " Location
-nnoremap <silent> <buffer> ]l :<c-u>call <SID>cycle('lnext', 'lfirst')<CR>
-nnoremap <silent> <buffer> [l :<c-u>call <SID>cycle('lprev', 'llast')<CR>
+nnoremap <silent> ]l :<c-u>call <SID>cycle('lnext', 'lfirst')<CR>
+nnoremap <silent> [l :<c-u>call <SID>cycle('lprev', 'llast')<CR>
 
 nnoremap <silent> <buffer> q :cclose<bar>:lclose<CR>
 nnoremap <buffer> <CR> <CR>

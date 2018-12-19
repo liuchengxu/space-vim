@@ -9,27 +9,6 @@ function! spacevim#plug#coc#Init(_timer) abort
   if exists('#User#CocNvimInit')
     doautocmd User CocNvimInit
   endif
-
-  call coc#config('coc.preferences', {
-        \ 'timeout': 1000,
-        \ 'hoverTarget': 'echo',
-        \ 'languageserver': {
-          \   'ccls': {
-          \     "command": "ccls",
-          \     "trace.server": "verbose",
-          \     "filetypes": ["c", "cpp", "objc", "objcpp"]
-          \ },
-          \   "golang": {
-          \     "command": "go-langserver",
-          \     "filetypes": ["go"],
-          \     "initializationOptions": {
-          \       "gocodeCompletionEnabled": v:true,
-          \       "diagnosticsEnabled": v:true,
-          \       "lintTool": "golint"
-          \       }
-          \     }
-          \   }
-          \})
 endfunction
 
 " wrap s:show_documentation from coc
