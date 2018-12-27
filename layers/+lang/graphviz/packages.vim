@@ -1,1 +1,1 @@
-MP 'wannesm/wmgraphviz.vim', { 'for': 'dot' }
+MP 'liuchengxu/graphviz.vim'
