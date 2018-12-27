@@ -1,7 +1,7 @@
 Layer Manifest
 ==============
 
-Last updated: 2018-12-17 14:14:25
+Last updated: 2018-12-27 21:31:29
 
 Default layers: `fzf`, `unite`, `better-defaults` and `which-key`.
 
@@ -47,7 +47,7 @@ Topic                | Layer | Plugins
 +lang                | [haskell](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/haskell) | <ul><li>[neovimhaskell/haskell-vim](https://github.com/neovimhaskell/haskell-vim)</li></ul>
 +lang                | [solidity](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/solidity) | <ul><li>[tomlion/vim-solidity](https://github.com/tomlion/vim-solidity)</li></ul>
 +lang                | [scala](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/scala) | <ul><li>[derekwyatt/vim-scala](https://github.com/derekwyatt/vim-scala)</li></ul>
-+lang                | [graphviz](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/graphviz) | <ul><li>[wannesm/wmgraphviz.vim](https://github.com/wannesm/wmgraphviz.vim)</li></ul>
++lang                | [graphviz](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/graphviz) | <ul><li>[liuchengxu/graphviz.vim](https://github.com/liuchengxu/graphviz.vim)</li></ul>
 +lang                | [javascript](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/javascript) | <ul><li>[pangloss/vim-javascript](https://github.com/pangloss/vim-javascript)</li><li>[neoclide/vim-jsx-improve](https://github.com/neoclide/vim-jsx-improve)</li></ul>
 +lang                | [ruby](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/ruby) | <ul><li>[vim-ruby/vim-ruby](https://github.com/vim-ruby/vim-ruby)</li></ul>
 +misc                | [chinese](https://github.com/liuchengxu/space-vim/tree/master/layers/+misc/chinese) | <ul><li>[yianwillis/vimcdoc](https://github.com/yianwillis/vimcdoc)</li></ul>
