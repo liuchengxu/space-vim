@@ -3,6 +3,8 @@ CHANGELOG
 
 ## [unreleased]
 
+## [0.9.0] - 2018.12.28
+
 ### Added
 
 - a smooth prompt for missing plugins.
