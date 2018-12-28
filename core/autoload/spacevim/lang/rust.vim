@@ -25,3 +25,13 @@ function! spacevim#lang#rust#Fmt() abort
     call spacevim#util#warn('No Rust formatting tools avaliable')
   endif
 endfunction
+
+function! spacevim#lang#rust#Test(bang, ...) abort
+  let funcs = join(a:000, ' ')
+  let cmd = 'cargo test '.funcs.' -- --nocapture'
+  let opts = {'cmd': cmd}
+  if a:bang
+    call extend(opts, {'cwd': expand('%:p:h')})
+  endif
+  call spacevim#vim#term#Open(opts)
+endfunction

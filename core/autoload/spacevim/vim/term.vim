@@ -37,8 +37,23 @@ function! spacevim#vim#term#Open(opts) abort
 
   execute winrestcmd
 
-  execute 'vertical belowright' 'new' '+setl' 'buftype=nofile'
-  setlocal buftype=nofile winfixheight norelativenumber nonumber bufhidden=wipe
+  execute 'vertical belowright new'
+  setlocal
+    \ nonumber
+    \ norelativenumber
+    \ nolist
+    \ nowrap
+    \ nopaste
+    \ nomodeline
+    \ noswapfile
+    \ nocursorline
+    \ nocursorcolumn
+    \ winfixwidth
+    \ winfixheight
+    \ colorcolumn=
+    \ nobuflisted
+    \ buftype=nofile
+    \ bufhidden=unload
   setlocal listchars+=trail:\ 
 
   let cmd = get(a:opts, 'cmd', '')

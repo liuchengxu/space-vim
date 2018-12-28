@@ -18,7 +18,7 @@ scriptencoding utf-8
 
 let g:spacevim = get(g:, 'spacevim', {})
 let g:spacevim.base = $HOME.'/.space-vim'
-let g:spacevim.version = '0.8.0'
+let g:spacevim.version = '0.9.0'
 
 " Identify platform {
 let g:spacevim.os = {}
