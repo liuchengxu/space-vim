@@ -3,6 +3,14 @@ CHANGELOG
 
 ## [unreleased]
 
+### Added
+
+- a command line mapping to mimic `<C-R>` in bash via `:History:`.
+
+### Changed
+
+- try to wrap fzf and unite.
+
 ## [0.9.0] - 2018.12.28
 
 ### Added

@@ -9,18 +9,14 @@
   " menus menu
   nnoremap <silent>[menu]m :Unite -silent -winheight=40 menu<CR>
 
-  nnoremap <silent>[menu]x :Unite -silent -winheight=20
-              \ menu:x<CR>
-  nnoremap <silent>[menu]f :Unite -silent -winheight=20
-              \ menu:f<CR>
-  nnoremap <silent>[menu]p :Unite -silent
-              \ menu:p<CR>
-  nnoremap <silent>[menu]t :Unite -silent
-              \ menu:t<CR>
-  nnoremap <silent>[menu]u :Unite -silent
-              \ menu:u<CR>
-  nnoremap <silent>[menu]v :Unite -silent
-              \ menu:v<CR>
+  nnoremap <silent>[menu]x :Unite -silent -winheight=20 menu:x<CR>
+  nnoremap <silent>[menu]f :Unite -silent -winheight=20 menu:f<CR>
+  nnoremap <silent>[menu]p :Unite -silent menu:p<CR>
+  nnoremap <silent>[menu]t :Unite -silent menu:t<CR>
+  nnoremap <silent>[menu]u :Unite -silent menu:u<CR>
+
+  nnoremap <silent>[menu]v :call spacevim#wrap#fzf#Open()<CR>
+
   if !g:spacevim.timer
     call spacevim#autocmd#unite#Init()
   endif

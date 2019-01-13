@@ -33,14 +33,15 @@ To use this configuration layer, add it to your `~/.spacevim`. *It has been enab
 
 ## Key Bindings
 
-Key Binding        | Mode   | Description
-:---:              | :---:  | :---:
-<kbd>SPC ?</kbd>   | Normal | show normal mode maps
-<kbd>SPC b b</kbd> | Normal | buffers list
-<kbd>SPC b ?</kbd> | Normal | buffers list
-<kbd>SPC w ?</kbd> | Normal | windows list
-<kbd>SPC f ?</kbd> | Normal | search files in current directory
-<kbd>SPC f f</kbd> | Normal | search files in home directory
+Key Binding        | Mode    | Description
+:---:              | :---:   | :---:
+<kbd>SPC ?</kbd>   | Normal  | show normal mode maps
+<kbd>SPC b b</kbd> | Normal  | buffers list
+<kbd>SPC b ?</kbd> | Normal  | buffers list
+<kbd>SPC w ?</kbd> | Normal  | windows list
+<kbd>SPC f ?</kbd> | Normal  | search files in current directory
+<kbd>SPC f f</kbd> | Normal  | search files in home directory
+<kbd><C-R></kbd>   | Cmdline | search command history
 
 press <kbd>\<esc></kbd>, <kbd>Ctrl c</kbd> or <kbd>Ctrl [</kbd> to exit.
 
@@ -51,3 +52,5 @@ press <kbd>\<esc></kbd>, <kbd>Ctrl c</kbd> or <kbd>Ctrl [</kbd> to exit.
 - [vim-picker](https://github.com/srstevenson/vim-picker)
 - [neovim-fuzzy](https://github.com/cloudhead/neovim-fuzzy)
 - [vim-fz](https://github.com/mattn/vim-fz)
+- [quickpick.vim](https://github.com/prabirshrestha/quickpick.vim)
+- [probe](https://github.com/torbiak/probe)

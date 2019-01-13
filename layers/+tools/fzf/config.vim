@@ -56,12 +56,13 @@ else
   nnoremap <leader>rg :Rg!<cr>
   vnoremap <leader>rg :call spacevim#plug#fzf#RgVisual()<CR>
 
-  if !spacevim#load('unite')
-    nnoremap <LocalLeader>v :call spacevim#plug#fzf#Open()<CR>
-    nnoremap <LocalLeader>p :call spacevim#plug#fzf#Rtp()<CR>
-    nnoremap <LocalLeader>fc :call spacevim#plug#fzf#FZFCmd()<CR>
-    nnoremap <LocalLeader>ff :call spacevim#plug#fzf#Func()<CR>
-  endif
+  " Mimic <C-R> in bash
+  cnoremap <C-R> :History:<CR>
+
+  nnoremap <LocalLeader>v :call spacevim#wrap#fzf#Open()<CR>
+  nnoremap <LocalLeader>p :call spacevim#wrap#fzf#Rtp()<CR>
+  nnoremap <LocalLeader>fc :call spacevim#plug#fzf#FZFCmd()<CR>
+  nnoremap <LocalLeader>ff :call spacevim#plug#fzf#Func()<CR>
 
   " }
 endif
