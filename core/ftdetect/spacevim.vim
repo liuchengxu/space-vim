@@ -1,1 +1,1 @@
-autocmd BufRead,BufNewFile *.spacevim set filetype=vim
+autocmd BufRead,BufNewFile *spacevim set filetype=vim

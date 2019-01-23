@@ -20,6 +20,7 @@ let g:spacevim#map#leader#desc[' '] = {
       \ '7' : 'tab-7'  ,
       \ '8' : 'tab-8'  ,
       \ '9' : 'tab-9'  ,
+      \ 'c' : ['tabclose', 'close-current-tab'],
       \ }
 
 let g:spacevim#map#leader#desc['a'] = {

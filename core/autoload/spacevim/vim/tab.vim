@@ -65,8 +65,8 @@ function! spacevim#vim#tab#TabLine()
   let s .= '%#TabLineFill#%T'
   let s .= tabpagenr('$') > 1 ? '%=%#TabLine#%999XX' : 'X'
 
-  hi default link SpacevimTabLineSel User1
-  hi default link SpacevimTabLine    User2
+  hi SpacevimTabLineSel ctermfg=232 ctermbg=178 guifg=#333300 guibg=#ffbb7d
+  hi SpacevimTabLine    ctermfg=178 ctermbg=243 guifg=#ffbb7d guibg=#767676
   hi default link SpacevimTabLineInactiveSep SpacevimTabLine
 
   function! s:use_gui() abort
