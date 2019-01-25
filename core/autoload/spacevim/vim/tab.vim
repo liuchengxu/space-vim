@@ -70,7 +70,7 @@ function! spacevim#vim#tab#TabLine()
   hi default link SpacevimTabLineInactiveSep SpacevimTabLine
 
   function! s:use_gui() abort
-    return has('termguicolors') && &termguicolors
+    return has('gui_running') || (has('termguicolors') && &termguicolors)
   endfunction
 
   let bg = s:get_color('SpacevimTabLineSel', 'bg')
