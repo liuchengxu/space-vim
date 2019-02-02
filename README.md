@@ -62,7 +62,7 @@ The distribution is completely customizable using `.spacevim`, which is equivale
 - **Beautiful interface:** I have written a vim colorscheme [space-vim-dark](https://github.com/liuchengxu/space-vim-dark) based on spacemacs-dark theme. [space-vim-theme](https://github.com/liuchengxu/space-vim-theme) is the successor of space-vim-dark, which supports both dark and light background!
 
   <p align="center">
-    <img width="400px" height="300px" src="https://raw.githubusercontent.com/liuchengxu/img/master/space-vim-theme/light.png">
+    <img width="500px" height="300px" src="https://raw.githubusercontent.com/liuchengxu/img/master/space-vim-theme/light.png">
   </p>
 
 - **Mnemonic key bindings:** commands have mnemonic prefixes like <kbd>SPC b</kbd> for all the buffer commands, this feature is mainly powered by [vim-which-key](https://github.com/liuchengxu/vim-which-key). Furthermore, lots of basic key bindings are provided by [vim-better-default](https://github.com/liuchengxu/vim-better-default). For different language layers, `<LocalLeader>`, <kbd>,</kbd> as default in space-vim, can be seen as the major-mode prefix in spacemacs.
