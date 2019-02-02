@@ -2,7 +2,7 @@ scriptencoding utf-8
 
 " Put the :hi command after any :colorscheme command,
 " or the colorscheme can overwrite your highlighting.
-silent! color space-vim-dark
+silent! color space_vim_theme
 
 augroup spacevimBasic
   autocmd!
