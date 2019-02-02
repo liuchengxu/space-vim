@@ -250,6 +250,7 @@ For the sake of a better user experience, some extra settings should be done.
 - See if your terminal-(emulator) supports true colors, refer to the gist [TrueColour.md](https://gist.github.com/XVilka/8346728).
 
 If these two requirements are satisfied, you could enable true color by uncommenting the line:
+
 ```vim
 " Uncomment the following line if your terminal(-emulator) supports true colors.
 let g:spacevim_enable_true_color = 1
@@ -257,7 +258,7 @@ let g:spacevim_enable_true_color = 1
 
 #### Font
 
-Some fantastic fonts: [programming-fonts](https://github.com/liuchengxu/space-vim/wiki/tips#programming-fonts).
+Some fantastic fonts: [see wiki tips: programming-fonts](https://github.com/liuchengxu/space-vim/wiki/tips#programming-fonts).
 
 ##### GUI
 
@@ -290,6 +291,7 @@ Alternatively, you can manually perform the following steps. If anything has cha
 $ cd path/to/space-vim
 $ git pull origin master
 ```
+
 ## Contributions
 
 If you encounter any problem or have any suggestions, please [open an issue](https://github.com/liuchengxu/space-vim/issues/new) or [send a PR](https://github.com/liuchengxu/space-vim/pulls).
