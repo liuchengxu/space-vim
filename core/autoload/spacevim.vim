@@ -213,3 +213,13 @@ endfunction
 function! spacevim#load(layer) abort
   return index(g:spacevim.loaded, a:layer) > -1 ? 1 : 0
 endfunction
+
+" Return true if any layer in layers is loaded.
+function! spacevim#load_any(...) abort
+  for layer in a:000
+    if index(g:spacevim.loaded, layer) >= 0
+      return v:true
+    endif
+  endfor
+  return v:false
+endfunction

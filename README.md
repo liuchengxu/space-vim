@@ -59,7 +59,11 @@ The distribution is completely customizable using `.spacevim`, which is equivale
 
 ## Features
 
-- **Beautiful interface:** I have written a vim colorscheme [space-vim-dark](https://github.com/liuchengxu/space-vim-dark) based on spacemacs-dark theme. You could also try [spacemacs-theme.vim](https://github.com/colepeters/spacemacs-theme.vim).
+- **Beautiful interface:** I wrote a dark only vim colorscheme [space-vim-dark](https://github.com/liuchengxu/space-vim-dark) based on the dark version of spacemacs-theme previously. Now we have a new option: [space-vim-theme](https://github.com/liuchengxu/space-vim-theme), which is the successor of space-vim-dark that supports both dark and light background!
+
+  <p align="center">
+    <img width="400px" height="300px" src="https://raw.githubusercontent.com/liuchengxu/img/master/space-vim-theme/light.png">
+  </p>
 
 - **Mnemonic key bindings:** commands have mnemonic prefixes like <kbd>SPC b</kbd> for all the buffer commands, this feature is mainly powered by [vim-which-key](https://github.com/liuchengxu/vim-which-key). Furthermore, lots of basic key bindings are provided by [vim-better-default](https://github.com/liuchengxu/vim-better-default). For different language layers, `<LocalLeader>`, <kbd>,</kbd> as default in space-vim, can be seen as the major-mode prefix in spacemacs.
 
@@ -99,6 +103,7 @@ The most recent Vim(NeoVim) version is recommended, for space-vim has been speci
 ```bash
 $ bash <(curl -fsSL https://raw.githubusercontent.com/liuchengxu/space-vim/master/install.sh)
 ```
+
 #### Makefile
 
 ```bash
@@ -245,6 +250,7 @@ For the sake of a better user experience, some extra settings should be done.
 - See if your terminal-(emulator) supports true colors, refer to the gist [TrueColour.md](https://gist.github.com/XVilka/8346728).
 
 If these two requirements are satisfied, you could enable true color by uncommenting the line:
+
 ```vim
 " Uncomment the following line if your terminal(-emulator) supports true colors.
 let g:spacevim_enable_true_color = 1
@@ -252,7 +258,7 @@ let g:spacevim_enable_true_color = 1
 
 #### Font
 
-Some fantastic fonts: [programming-fonts](https://github.com/liuchengxu/space-vim/wiki/tips#programming-fonts).
+Some fantastic fonts: [see wiki tips: programming-fonts](https://github.com/liuchengxu/space-vim/wiki/tips#programming-fonts).
 
 ##### GUI
 
@@ -285,6 +291,7 @@ Alternatively, you can manually perform the following steps. If anything has cha
 $ cd path/to/space-vim
 $ git pull origin master
 ```
+
 ## Contributions
 
 If you encounter any problem or have any suggestions, please [open an issue](https://github.com/liuchengxu/space-vim/issues/new) or [send a PR](https://github.com/liuchengxu/space-vim/pulls).
