@@ -59,7 +59,7 @@ The distribution is completely customizable using `.spacevim`, which is equivale
 
 ## Features
 
-- **Beautiful interface:** I have written a vim colorscheme [space-vim-dark](https://github.com/liuchengxu/space-vim-dark) based on spacemacs-dark theme. [space-vim-theme](https://github.com/liuchengxu/space-vim-theme) is the successor of space-vim-dark, which supports both dark and light background!
+- **Beautiful interface:** I wrote a dark only vim colorscheme [space-vim-dark](https://github.com/liuchengxu/space-vim-dark) based on the dark version of spacemacs-theme previously. Now we have a new option: [space-vim-theme](https://github.com/liuchengxu/space-vim-theme), which is the successor of space-vim-dark that supports both dark and light background!
 
   <p align="center">
     <img width="400px" height="300px" src="https://raw.githubusercontent.com/liuchengxu/img/master/space-vim-theme/light.png">
