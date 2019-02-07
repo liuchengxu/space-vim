@@ -218,8 +218,8 @@ endfunction
 function! spacevim#load_any(...) abort
   for layer in a:000
     if index(g:spacevim.loaded, layer) >= 0
-      return v:true
+      return 1
     endif
   endfor
-  return v:false
+  return 0
 endfunction
