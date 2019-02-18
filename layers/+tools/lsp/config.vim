@@ -5,8 +5,7 @@ nnoremap <silent> gd :call spacevim#lang#util#Definition()<CR>
 " Required for operations modifying multiple buffers like rename.
 set hidden
 
-if get(g:, 'spacevim_lsp_prefer_coc', 0)
-
+function! s:coc() abort
   " Better display for messages
   set cmdheight=2
 
@@ -47,9 +46,9 @@ if get(g:, 'spacevim_lsp_prefer_coc', 0)
   " Remap for format selected region
   vmap <localleader>=  <Plug>(coc-format-selected)
   nmap <localleader>=  <Plug>(coc-format-selected)
+endfunction
 
-else
-
+function! s:lcn() abort
   let g:LanguageClient_loggingFile = '/tmp/LanguageClient.log'
   let g:LanguageClient_loggingLevel = 'INFO'
   let g:LanguageClient_serverStderr = '/tmp/LanguageServer.log'
@@ -101,4 +100,12 @@ else
   \        },
   \    }
 
-endif
+endfunction
+
+function! s:vim_lsp() abort
+  if executable('rls')
+    autocmd User lsp_setup call spacevim#lang#lsp#register_rls()
+  endif
+endfunction
+
+call s:{g:spacevim_lsp_engine}()
