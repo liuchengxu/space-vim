@@ -63,12 +63,19 @@ function! spacevim#autocmd#nerdtree#Init()
   let g:NERDTreeDirArrows = 1 " Disable that old “Press ? for help”
   let g:NERDTreeShowHidden = 1
   let g:NERDTreeAutoDeleteBuffer = 1
-  " ❯
-  let g:NERDTreeDirArrowExpandable = "\u276f"
-  let g:NERDTreeDirArrowCollapsible = "~"
-  " ○ ●
-  let g:NERDTreeDirArrowExpandable = "\u25cb"
-  let g:NERDTreeDirArrowCollapsible = "\u25cf"
+
+  " Disable arrow icons at the left side of folders for NERDTree.
+  if has_key(g:plugs, 'vim-devicons')
+    let g:NERDTreeDirArrowExpandable = "\u00a0"
+    let g:NERDTreeDirArrowCollapsible = "\u00a0"
+  else
+    " ❯
+    let g:NERDTreeDirArrowExpandable = "\u276f"
+    let g:NERDTreeDirArrowCollapsible = "~"
+    " ○ ●
+    let g:NERDTreeDirArrowExpandable = "\u25cb"
+    let g:NERDTreeDirArrowCollapsible = "\u25cf"
+  endif
 
   let g:NERDTreeIgnore = s:ignore
 " }

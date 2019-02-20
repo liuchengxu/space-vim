@@ -127,7 +127,7 @@ To use this configuration layer, add it to your `~/.spacevim`.
 Currently, [LanguageClient-neovim](https://github.com/autozimu/LanguageClient-neovim) is the default LS client. To use [coc.nvim](https://github.com/neoclide/coc.nvim) instead:
 
 ```vim
-let g:spacevim_lsp_prefer_coc = 1
+let g:spacevim_lsp_engine = 'coc'
 ```
 
 ## Key Bindings

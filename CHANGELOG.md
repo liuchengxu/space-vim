@@ -6,10 +6,16 @@ CHANGELOG
 ### Added
 
 - a command line mapping to mimic `<C-R>` in bash via `:History:`.
+- more file extensions highlight for nerdtree.
+- use `g:spacevim_lsp_engine` to specify which LSP plugin to use: `coc`, `lcn` or `vim_lsp`.
 
 ### Changed
 
 - try to wrap fzf and unite.
+
+### Removed
+
+- `g:spacevim_lsp_prefer_coc`. Use `g:spacevim_lsp_engine` instead.
 
 ## [0.9.0] - 2018.12.28
 
