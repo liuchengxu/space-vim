@@ -8,39 +8,55 @@ function! s:get_color(group, attr) abort
 endfunction
 
 let s:use_gui = has('gui_running') || (has('termguicolors') && &termguicolors)
+let s:gui_or_cterm = s:use_gui ? 'gui' : 'cterm'
 let s:normal_bg = s:get_color('Normal', 'bg')
 
-" NERDTress File highlighting
-function! s:hl(extension, group)
-  exec 'syn match' a:extension '/^\s\+.*'. a:extension .'$/'
-
+function! s:get_attrs(group) abort
   let fg = s:get_color(a:group, 'fg')
-  let attrs = s:use_gui ? "guibg=".s:normal_bg." guifg=".fg : "ctermbg=".s:normal_bg." ctermfg=".fg
+  return printf('%sbg=%s %sfg=%s', s:gui_or_cterm, s:normal_bg, s:gui_or_cterm, fg)
+endfunction
 
-  execute 'hi!' a:extension attrs
+" NERDTress File highlighting
+function! s:hl(extension, group, ext_group)
+  let ext_group_name = 'ext_'.a:extension
+  execute 'syntax match' ext_group_name '/\f*'.a:extension.'$/'
+  execute 'syntax match' a:extension    '/^\s\+.*'.a:extension.'$/' 'contains='.ext_group_name
+
+  execute 'hi!' a:extension    s:get_attrs(a:group)
+  execute 'hi!' ext_group_name s:get_attrs(a:ext_group)
 endfunction
 
 let s:hi_group = {
-      \ 'Comment': ['md', 'org', 'txt'],
-      \ 'Constant': ['gitignore'],
-      \ 'String': ['toml', 'yml', 'ini', 'info', 'conf', 'yaml'],
-      \ 'Character': ['png', 'svg', 'jpg', 'bmp', 'gif'],
-      \ 'Number': ['sass', 'scss', 'css', 'less', 'coffee'],
-      \ 'Float': ['sh', 'bash', 'zsh', 'ksh', 'ps1', 'fish', 'bat'],
-      \ 'Identifier': ['vim', 'ts', 'vue', 'swift', 'dart'],
-      \ 'Function': ['html', 'js', 'jsx', 'ts'],
-      \ 'Statement': ['py', 'pyc', 'pyo', 'rb', 'php', 'lua'],
-      \ 'Label': ['hs', 'go', 'java'],
-      \ 'Operator': ['rc'],
-      \ 'PreCondit': ['profile'],
-      \ 'Boolean': ['cpp', 'cc', 'hpp', 'cxx', 'hxx', 'h'],
-      \ 'Include': ['history'],
+      \ 'Comment': ['Constant', ['md', 'org', 'txt']],
+      \ 'Constant': ['SpecialComment', ['gitignore', 'editorconfig', 'gitconfig']],
+      \ 'String': ['Character', ['toml', 'yml', 'ini', 'info', 'conf', 'yaml']],
+      \ 'Character': ['Number', ['png', 'svg', 'jpg', 'bmp', 'gif']],
+      \ 'Number': ['Float', ['sass', 'scss', 'css', 'less', 'coffee']],
+      \ 'Float': ['Identifier', ['sh', 'bash', 'zsh', 'ksh', 'ps1', 'fish', 'bat', 'cmd']],
+      \ 'Identifier': ['Function', ['vim', 'ts', 'vue', 'swift', 'dart']],
+      \ 'Function': ['Statement', ['html', 'js', 'jsx', 'ts']],
+      \ 'Statement': ['Label', ['py', 'pyc', 'pyo', 'rb', 'php', 'lua']],
+      \ 'Label': ['Operator', ['hs', 'go', 'java']],
+      \ 'Operator': ['SpecialComment', ['rc', 'lesshst']],
+      \ 'PreCondit': ['SpecialComment', ['profile', 'zshenv']],
+      \ 'Boolean': ['Include', ['cpp', 'cc', 'hpp', 'cxx', 'hxx', 'h', 'rs']],
+      \ 'Include': ['SpecialComment', ['history', 'vimsize']],
+      \ 'Conditional': ['SpecialKey', ['log', 'tags']],
+      \ 'SpecialKey': ['PreProc', ['lock']],
+      \ 'PreProc': ['TypeDef', ['LICENSE']],
+      \ 'TypeDef': ['Comment', ['Makefile']],
       \ }
 
-for [group, exts] in items(s:hi_group)
-  for ext in exts
-    call s:hl(ext, group)
+function! s:def_hi() abort
+  let groups = keys(s:hi_group)
+  for [group, exts] in items(s:hi_group)
+    let [ext_group, exts] = [exts[0], exts[1]]
+    for ext in exts
+      call s:hl(ext, group, ext_group)
+    endfor
   endfor
-endfor
+endfunction
 
-unlet s:hi_group s:use_gui s:normal_bg
+call s:def_hi()
+
+unlet s:hi_group s:use_gui s:gui_or_cterm s:normal_bg
