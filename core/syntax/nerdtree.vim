@@ -43,7 +43,7 @@ let s:hi_group = {
       \ 'Include':     [ 'SpecialComment', [ 'history', 'vimsize'                                    ]  ] ,
       \ 'Conditional': [ 'SpecialKey',     [ 'log', 'tags'                                           ]  ] ,
       \ 'SpecialKey':  [ 'PreProc',        [ 'lock'                                                  ]  ] ,
-      \ 'PreProc':     [ 'TypeDef',        [ 'LICENSE'                                               ]  ] ,
+      \ 'PreProc':     [ 'SpecialComment', [ 'LICENSE', 'AUTHOR',                                    ]  ] ,
       \ 'TypeDef':     [ 'Comment',        [ 'Makefile'                                              ]  ] ,
       \ 'Delimiter':   [ 'Macro',          [ 'docs', 'doc', 'cnx', 'pdf'                             ]  ] ,
       \ }

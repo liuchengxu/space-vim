@@ -69,6 +69,9 @@ function! spacevim#autocmd#nerdtree#Init()
   if get(g:, 'spacevim_disable_nerdtree_arrow_icons', 0)
     let g:NERDTreeDirArrowExpandable = "\u00a0"
     let g:NERDTreeDirArrowCollapsible = "\u00a0"
+  elseif get(g:, 'spacevim_nerd_fonts', 0)
+    let g:NERDTreeDirArrowExpandable = ''
+    let g:NERDTreeDirArrowCollapsible = ''
   else
     " ❯
     let g:NERDTreeDirArrowExpandable = "\u276f"
