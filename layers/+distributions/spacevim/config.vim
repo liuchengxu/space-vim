@@ -18,16 +18,19 @@ augroup spacevimBasic
         \|  setlocal syntax=off
         \|endif
 
-  " Restore cursor position when opening file
-  autocmd BufReadPost *
-        \ if line("'\"") > 1 && line("'\"") <= line("$")
-        \|  execute "normal! g`\""
-        \|endif
+  function! s:OnBufReadPost() abort
+    " Restore cursor position when opening file
+    if line("'\"") > 1 && line("'\"") <= line("$")
+      execute "normal! g`\""
+    endif
 
-  autocmd BufReadPost *
-        \ if line('$') > 1000
-        \|  silent! set norelativenumber
-        \|endif
+    " Disable relative number when having too many lines.
+    if line('$') > 1000
+      silent! set norelativenumber
+    endif
+  endfunction
+
+  autocmd BufReadPost * call s:OnBufReadPost()
 
   " http://vim.wikia.com/wiki/Speed_up_Syntax_Highlighting
   autocmd BufEnter * :syntax sync maxlines=200
@@ -66,15 +69,21 @@ augroup spacevimBasic
   " http://vim.wikia.com/wiki/Always_start_on_first_line_of_git_commit_message
   autocmd BufEnter * if &filetype == "gitcommit" | call setpos('.', [0, 1, 1, 0]) | endif
 
-  " http://stackoverflow.com/questions/5933568/disable-blinking-at-the-first-last-line-of-the-file
-  autocmd GUIEnter * set t_vb=
+  function! s:OnGUIEnter() abort
+    " http://stackoverflow.com/questions/5933568/disable-blinking-at-the-first-last-line-of-the-file
+    set t_vb=
 
-  if g:spacevim.gui
+    " Refer to http://vim.wikia.com/wiki/Show_tab_number_in_your_tab_line
+    set guioptions-=e
+
+    " Restore screen
     let g:screen_size_restore_pos = get(g:, 'screen_size_restore_pos', 1)
     let g:screen_size_by_vim_instance = get(g:, 'screen_size_by_vim_instance', 1)
     autocmd VimEnter * if g:screen_size_restore_pos == 1 | call spacevim#vim#gui#ScreenRestore() | endif
     autocmd VimLeavePre * if g:screen_size_restore_pos == 1 | call spacevim#vim#gui#ScreenSave() | endif
-  endif
+  endfunction
+
+  autocmd GUIEnter * call s:OnGUIEnter()
 
   if !spacevim#load('chinese')
     silent! set $LANG = 'en_US'
@@ -92,9 +101,5 @@ augroup END
 hi ExtraWhitespace guifg=#FF2626 gui=underline ctermfg=124 cterm=underline
 match ExtraWhitespace /\s\+$/
 
-" Refer to http://vim.wikia.com/wiki/Show_tab_number_in_your_tab_line
-if g:spacevim.gui
-  set guioptions-=e
-endif
 silent! set showtabline=1
 silent! set tabline=%!spacevim#vim#tab#TabLine()

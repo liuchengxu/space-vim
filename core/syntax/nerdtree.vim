@@ -27,28 +27,28 @@ function! s:hl(extension, group, ext_group)
 endfunction
 
 let s:hi_group = {
-      \ 'Comment': ['Constant', ['md', 'org', 'txt']],
-      \ 'Constant': ['SpecialComment', ['gitignore', 'editorconfig', 'gitconfig']],
-      \ 'String': ['Character', ['toml', 'yml', 'ini', 'info', 'conf', 'yaml']],
-      \ 'Character': ['Number', ['png', 'svg', 'jpg', 'bmp', 'gif']],
-      \ 'Number': ['Float', ['sass', 'scss', 'css', 'less', 'coffee']],
-      \ 'Float': ['Identifier', ['sh', 'bash', 'zsh', 'ksh', 'ps1', 'fish', 'bat', 'cmd']],
-      \ 'Identifier': ['Function', ['vim', 'ts', 'vue', 'swift', 'dart']],
-      \ 'Function': ['Statement', ['html', 'js', 'jsx', 'ts']],
-      \ 'Statement': ['Label', ['py', 'pyc', 'pyo', 'rb', 'php', 'lua']],
-      \ 'Label': ['Operator', ['hs', 'go', 'java']],
-      \ 'Operator': ['SpecialComment', ['rc', 'lesshst']],
-      \ 'PreCondit': ['SpecialComment', ['profile', 'zshenv']],
-      \ 'Boolean': ['Include', ['cpp', 'cc', 'hpp', 'cxx', 'hxx', 'h', 'rs']],
-      \ 'Include': ['SpecialComment', ['history', 'vimsize']],
-      \ 'Conditional': ['SpecialKey', ['log', 'tags']],
-      \ 'SpecialKey': ['PreProc', ['lock']],
-      \ 'PreProc': ['TypeDef', ['LICENSE']],
-      \ 'TypeDef': ['Comment', ['Makefile']],
+      \ 'Comment':     [ 'Constant',       [ 'md', 'org', 'txt'                                      ]  ] ,
+      \ 'Constant':    [ 'SpecialComment', [ 'ignore', 'editorconfig', 'gitconfig'                   ]  ] ,
+      \ 'String':      [ 'Character',      [ 'toml', 'yml', 'ini', 'info', 'conf', 'yaml', 'json'    ]  ] ,
+      \ 'Character':   [ 'Number',         [ 'png', 'svg', 'jpg', 'bmp', 'gif'                       ]  ] ,
+      \ 'Number':      [ 'Float',          [ 'sass', 'scss', 'css', 'less', 'coffee'                 ]  ] ,
+      \ 'Float':       [ 'Identifier',     [ 'sh', 'ps1', 'bat', 'cmd'                               ]  ] ,
+      \ 'Identifier':  [ 'Function',       [ 'vim', 'swift', 'dart'                                  ]  ] ,
+      \ 'Function':    [ 'Statement',      [ 'html', 'ts', 'vue', 'js', 'jsx', 'ts'                  ]  ] ,
+      \ 'Statement':   [ 'Label',          [ 'py', 'pyc', 'pyo', 'rb', 'php', 'lua'                  ]  ] ,
+      \ 'Label':       [ 'Operator',       [ 'hs', 'go', 'java', 'rs'                                ]  ] ,
+      \ 'Operator':    [ 'SpecialComment', [ 'rc', 'lesshst'                                         ]  ] ,
+      \ 'PreCondit':   [ 'SpecialComment', [ 'profile', 'zshenv'                                     ]  ] ,
+      \ 'Boolean':     [ 'Include',        [ 'cpp', 'cc', 'hpp', 'cxx', 'hxx', 'h'                   ]  ] ,
+      \ 'Include':     [ 'SpecialComment', [ 'history', 'vimsize'                                    ]  ] ,
+      \ 'Conditional': [ 'SpecialKey',     [ 'log', 'tags'                                           ]  ] ,
+      \ 'SpecialKey':  [ 'PreProc',        [ 'lock'                                                  ]  ] ,
+      \ 'PreProc':     [ 'TypeDef',        [ 'LICENSE'                                               ]  ] ,
+      \ 'TypeDef':     [ 'Comment',        [ 'Makefile'                                              ]  ] ,
+      \ 'Delimiter':   [ 'Macro',          [ 'docs', 'doc', 'cnx', 'pdf'                             ]  ] ,
       \ }
 
 function! s:def_hi() abort
-  let groups = keys(s:hi_group)
   for [group, exts] in items(s:hi_group)
     let [ext_group, exts] = [exts[0], exts[1]]
     for ext in exts
