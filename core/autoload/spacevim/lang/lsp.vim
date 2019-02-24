@@ -6,3 +6,11 @@ function! spacevim#lang#lsp#register_rls() abort
           \ 'whitelist': ['rust'],
           \ })
 endfunction
+
+function! spacevim#lang#lsp#register_go() abort
+  call lsp#register_server({
+          \ 'name': 'go-langserver',
+          \ 'cmd': {server_info->['go-langserver', '-gocodecompletion']},
+          \ 'whitelist': ['go'],
+          \ })
+endfunction

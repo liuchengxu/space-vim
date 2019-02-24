@@ -33,3 +33,4 @@ Key Binding                        | Mode   | Description
 - [vimfiler.vim](https://github.com/Shougo/vimfiler.vim)
 - [easytree.vim](https://github.com/troydm/easytree.vim)
 - [vim-filebeagle](https://github.com/jeetsukumaran/vim-filebeagle)
+- [vaffle.vim](https://github.com/cocopon/vaffle.vim)
