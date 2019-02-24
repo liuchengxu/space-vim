@@ -7,7 +7,9 @@ CHANGELOG
 
 - a command line mapping to mimic `<C-R>` in bash via `:History:`.
 - more file extensions highlight for nerdtree.
-- use `g:spacevim_lsp_engine` to specify which LSP plugin to use: `coc`, `lcn` or `vim_lsp`.
+- add `g:spacevim_lsp_engine` to specify which LSP plugin to use: `coc`, `lcn` or `vim_lsp`.
+- add `g:spacevim_disable_nerdtree_arrow_icons` to disable nerdtree arrow icons.
+- add `g:spacevim_nerd_fonts` to use more pretty icons in nerdtree when using nerd fonts.
 
 ### Changed
 
