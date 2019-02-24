@@ -35,12 +35,6 @@ augroup spacevimBasic
   " http://vim.wikia.com/wiki/Speed_up_Syntax_Highlighting
   autocmd BufEnter * :syntax sync maxlines=200
 
-  " Open quickfix window automatically when something is feeded
-  autocmd QuickFixCmdPost *
-        \ if !len(filter(range(1, winnr('$')), 'getwinvar(v:val, "&ft") == "qf"')) && len(getqflist())
-        \| copen 8
-        \|endif
-
   " Close vim if the last edit buffer is closed, i.e., close NERDTree,
   " undotree, quickfix etc automatically.
   " autocmd BufEnter * if 0 == len(filter(range(1, winnr('$')), 'empty(getbufvar(winbufnr(v:val), "&bt"))')) | qa! | endif
@@ -69,21 +63,13 @@ augroup spacevimBasic
   " http://vim.wikia.com/wiki/Always_start_on_first_line_of_git_commit_message
   autocmd BufEnter * if &filetype == "gitcommit" | call setpos('.', [0, 1, 1, 0]) | endif
 
-  function! s:OnGUIEnter() abort
-    " http://stackoverflow.com/questions/5933568/disable-blinking-at-the-first-last-line-of-the-file
-    set t_vb=
+  " Open quickfix window automatically when something is feeded
+  autocmd QuickFixCmdPost *
+        \ if !len(filter(range(1, winnr('$')), 'getwinvar(v:val, "&ft") == "qf"')) && len(getqflist())
+        \| copen 8
+        \|endif
 
-    " Refer to http://vim.wikia.com/wiki/Show_tab_number_in_your_tab_line
-    set guioptions-=e
-
-    " Restore screen
-    let g:screen_size_restore_pos = get(g:, 'screen_size_restore_pos', 1)
-    let g:screen_size_by_vim_instance = get(g:, 'screen_size_by_vim_instance', 1)
-    autocmd VimEnter * if g:screen_size_restore_pos == 1 | call spacevim#vim#gui#ScreenRestore() | endif
-    autocmd VimLeavePre * if g:screen_size_restore_pos == 1 | call spacevim#vim#gui#ScreenSave() | endif
-  endfunction
-
-  autocmd GUIEnter * call s:OnGUIEnter()
+  autocmd GUIEnter * call spacevim#autocmd#GUIEnter()
 
   if !spacevim#load('chinese')
     silent! set $LANG = 'en_US'
