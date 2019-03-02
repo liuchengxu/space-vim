@@ -37,7 +37,7 @@ let s:hi_group = {
       \ 'Label':       [ 'Operator',       [ 'hs', 'go', 'java', 'rs'                                ]  ] ,
       \ 'Boolean':     [ 'Include',        [ 'cpp', 'cc', 'hpp', 'cxx', 'hxx', 'h'                   ]  ] ,
       \ 'Delimiter':   [ 'Macro',          [ 'docs', 'doc', 'cnx', 'pdf'                             ]  ] ,
-      \ 'Constant':    [ 'SpecialComment', [ 'ignore', 'editorconfig', 'gitconfig'                   ]  ] ,
+      \ 'Constant':    [ 'SpecialComment', [ 'ignore', 'editorconfig', 'gitconfig', 'gitattributes'  ]  ] ,
       \ 'String':      [ 'SpecialComment', [ 'toml', 'yml', 'ini', 'info', 'conf', 'yaml', 'json'    ]  ] ,
       \ 'Operator':    [ 'SpecialComment', [ 'rc', 'lesshst'                                         ]  ] ,
       \ 'PreCondit':   [ 'SpecialComment', [ 'profile', 'zshenv'                                     ]  ] ,
@@ -45,7 +45,7 @@ let s:hi_group = {
       \ 'Conditional': [ 'SpecialComment', [ 'log', 'tags'                                           ]  ] ,
       \ 'SpecialKey':  [ 'SpecialComment', [ 'lock'                                                  ]  ] ,
       \ 'PreProc':     [ 'SpecialComment', [ 'LICENSE', 'AUTHOR',                                    ]  ] ,
-      \ 'TypeDef':     [ 'SpecialComment', [ 'Makefile'                                              ]  ] ,
+      \ 'TypeDef':     [ 'SpecialComment', [ 'Makefile', 'Dockerfile'                                ]  ] ,
       \ }
 
 function! s:def_hi() abort

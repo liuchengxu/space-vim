@@ -71,8 +71,15 @@ match ExtraWhitespace /\s\+$/
 
 silent! set showtabline=1 tabline=%!spacevim#vim#tab#TabLine()
 
+if !spacevim#load('chinese')
+  silent! set langmenu=en_US
+  let $LANG = 'en_US'
+  runtime $VIMRUNTIME/delmenu.vim $VIMRUNTIME/menu.vim
+endif
+
 augroup spacevimBasic
   autocmd!
+
   " https://vi.stackexchange.com/questions/298/disable-syntax-highlighting-depending-on-file-size-and-type#comment291_299
   " `syntax off` works in the `BufReadPre` context but not in the `Filetype` context;
   " while `setlocal syntax=OFF` does not work in the `BufReadPre` context but works in the `Filetype` context.
@@ -81,16 +88,6 @@ augroup spacevimBasic
   autocmd BufReadPost     * call s:OnBufReadPost()
   autocmd BufEnter        * call s:OnBufEnter()
   autocmd QuickFixCmdPost * call s:OnQuickFixCmdPost()
+
   autocmd GUIEnter        * call spacevim#autocmd#GUIEnter()
-
-  if !spacevim#load('chinese')
-    silent! set $LANG = 'en_US'
-    silent! let langmenu=en_US
-    source $VIMRUNTIME/delmenu.vim
-    source $VIMRUNTIME/menu.vim
-
-    if g:spacevim.os.windows
-      set guifont=Consolas:h13
-    endif
-  endif
 augroup END

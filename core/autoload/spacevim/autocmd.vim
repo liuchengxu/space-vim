@@ -16,4 +16,8 @@ function! spacevim#autocmd#GUIEnter() abort
   command! Smaller :let &guifont = substitute(&guifont, '\d\+$', '\=submatch(0)-1', '')
   noremap + :Bigger<CR>
   noremap - :Smaller<CR>
+
+  if empty(&guifont) && g:spacevim.os.windows
+    let &guifont = 'Consolas:h13'
+  endif
 endfunction
