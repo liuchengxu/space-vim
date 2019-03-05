@@ -1,12 +1,21 @@
+let s:use_fancy_style = get(g:, 'airline_powerline_fonts', 0)
+
+"    
+let s:sep = s:use_fancy_style ? ["\ue0b0", "\ue0b1"] : ['', '']
+
 function! s:get_color(group, attr) abort
   return synIDattr(synIDtrans(hlID(a:group)), a:attr)
+endfunction
+
+function! s:use_gui() abort
+  return has('gui_running') || (has('termguicolors') && &termguicolors)
 endfunction
 
 function! s:bufname(bufnr) abort
   let l:file = bufname(a:bufnr)
 
   if l:file ==# ''
-    return '[No Name] '
+    return s:use_fancy_style ?'❓' : '[No Name] '
   endif
 
   let l:buftype = getbufvar(a:bufnr, 'buftype')
@@ -28,62 +37,73 @@ function! s:bufnr(tabnr) abort
   return buflist[winnr - 1]
 endfunction
 
-function! s:sep() abort
-  return get(g:, 'airline_powerline_fonts', 0) ? ["\ue0b0", "\ue0b1"] : ['', '']
+function! s:append_common(str, tabnr, bufnr) abort
+  let str = a:str
+  let str .= ' '.a:tabnr.':'.s:bufname(a:bufnr)
+  if getbufvar(a:bufnr, "&mod")
+    let str .= '[+]'
+  endif
+  return str
+endfunction
+
+function! s:get_attrs(fg, bg) abort
+  let fg = call(function('s:get_color'), a:fg)
+  let bg = call(function('s:get_color'), a:bg)
+  let g_c = s:use_gui() ? 'gui' : 'cterm'
+  return printf('%sfg=%s %sbg=%s', g_c, fg, g_c, bg)
+endfunction
+
+function! s:hi() abort
+  hi SpacevimTabLineSel ctermfg=232 ctermbg=178 guifg=#333300 guibg=#ffbb7d
+  hi SpacevimTabLine    ctermfg=178 ctermbg=243 guifg=#ffbb7d guibg=#767676
+
+  hi! link TabLineFill StatusLine
+
+  execute 'hi SpacevimTabLineActiveSep'       s:get_attrs(['SpacevimTabLine'    , 'bg'] , ['SpacevimTabLineSel' , 'bg'])
+  execute 'hi SpacevimTabLineInactiveSep'     s:get_attrs(['SpacevimTabLineSel' , 'bg'] , ['SpacevimTabLine'    , 'bg'])
+  execute 'hi SpacevimTabLineLastActiveSep'   s:get_attrs(['SpacevimTabLine'    , 'bg'] , ['StatusLine'         , 'bg'])
+  execute 'hi SpacevimTabLineLastInactiveSep' s:get_attrs(['SpacevimTabLineSel' , 'bg'] , ['StatusLine'         , 'bg'])
 endfunction
 
 function! spacevim#vim#tab#TabLine()
-  let s = ''
+  let tabline = ''
 
-  function! s:append_common(str, tabnr, bufnr) abort
-    let str = a:str
-    let str .= ' '.a:tabnr.':'.s:bufname(a:bufnr)
-    if getbufvar(a:bufnr, "&mod")
-      let str .= '[+]'
-    endif
-    return str
-  endfunction
+  let last_tabnr = tabpagenr('$')
 
-  for tabnr in range(1, tabpagenr('$'))
+  for tabnr in range(1, last_tabnr)
 
-    let s .= '%'.tabnr.'T'
+    let tabline .= '%'.tabnr.'T'
 
     let bufnr = s:bufnr(tabnr)
 
     if tabnr == tabpagenr()
-      let s .= '%#SpacevimTabLineActiveSep#'.s:sep()[0].'%*'.'%#SpacevimTabLineSel#'
-      let s = s:append_common(s, tabnr, bufnr)
-      let s .= '%#SpacevimTabLineInactiveSep#'.s:sep()[0].'%*'
+      let tabline .= '%#SpacevimTabLineActiveSep#'.s:sep[0].'%*'.'%#SpacevimTabLineSel#'
+      let tabline = s:append_common(tabline, tabnr, bufnr)
+
+      if tabnr == last_tabnr
+        let tabline .= '%#SpacevimTabLineLastInactiveSep#'.s:sep[0].'%*'
+      else
+        let tabline .= '%#SpacevimTabLineInactiveSep#'.s:sep[0].'%*'
+      endif
+
     else
-      let s .= '%#SpacevimTabLine#'
-      let s = s:append_common(s, tabnr, bufnr)
-      let s .= '%#SpacevimTabLineInactiveSep#'.s:sep()[1].'%*'
+
+      let tabline .= '%#SpacevimTabLine#'
+      let tabline = s:append_common(tabline, tabnr, bufnr)
+
+      if tabnr == last_tabnr
+        let tabline .= '%#SpacevimTabLineLastActiveSep#'.s:sep[0].'%*'
+      else
+        let tabline .= '%#SpacevimTabLineInactiveSep#'.s:sep[1].'%*'
+      endif
     endif
 
   endfor
 
-  let s .= '%#TabLineFill#%T'
-  let s .= tabpagenr('$') > 1 ? '%=%#TabLine#%999XX' : 'X'
+  let tabline .= '%#TabLineFill#%T'
+  let tabline .= tabpagenr('$') > 1 ? '%=%#TabLine#%999XX' : 'X'
 
-  hi SpacevimTabLineSel ctermfg=232 ctermbg=178 guifg=#333300 guibg=#ffbb7d
-  hi SpacevimTabLine    ctermfg=178 ctermbg=243 guifg=#ffbb7d guibg=#767676
-  hi default link SpacevimTabLineInactiveSep SpacevimTabLine
+  call s:hi()
 
-  function! s:use_gui() abort
-    return has('gui_running') || (has('termguicolors') && &termguicolors)
-  endfunction
-
-  let bg = s:get_color('SpacevimTabLineSel', 'bg')
-  let fg = s:get_color('SpacevimTabLine', 'bg')
-  let attrs = s:use_gui() ? "guibg=".bg." guifg=".fg : "ctermbg=".bg." ctermfg=".fg
-
-  execute "hi SpacevimTabLineActiveSep" attrs
-
-  let fg = s:get_color('SpacevimTabLineSel', 'bg')
-  let bg = s:get_color('SpacevimTabLine', 'bg')
-  let attrs = s:use_gui() ? "guibg=".bg." guifg=".fg : "ctermbg=".bg." ctermfg=".fg
-
-  execute "hi SpacevimTabLineInactiveSep" attrs
-
-  return s
+  return tabline
 endfunction
