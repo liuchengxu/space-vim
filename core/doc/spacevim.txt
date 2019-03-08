@@ -1,0 +1,69 @@
+*spacevim.txt*
+*spacevim*
+
+Lean & mean spacemacs-ish Vim distribution
+
+===============================================================================
+CONTENTS                                                    *spacevim-contents*
+
+  1. Introduction.........................|spacevim-introduction|
+  2. Configuration file...................|spacevim-config-file|
+  2. Global Options.......................|spacevim-options|
+
+===============================================================================
+1. Introduction                                         *spacevim-introduction*
+
+If you make typing mistakes, this plugin will have them corrected
+automatically.
+
+There are currently only a few corrections.  Add your own if you like.
+
+===============================================================================
+2. Configuration file                                    *spacevim-config-file*
+
+**Don't edit `~/.vimrc` or `~/.config/nvim/init.vim`!**
+
+space-vim use `~/.spacevim` as configuration file, which should be composed of
+some global options and two functions:
+
+  |UserInit()|    - You can add your own plugins in this function. 
+  |UserConfig()|  - Used for overriding the default options in space-vim.
+
+`~/.space-vim/init.spacevim` is merely a template for `~/.spacevim`. You should
+not modify `~/.space-vim/init.spacevim` to configure space-vim, as it will never
+work.
+
+===============================================================================
+3. Global Options                                            *spacevim-options*
+
+g:spacevim_lsp_engine                                   *g:spacevim_lsp_engine*
+
+  Type: |String|
+  Default: `lcn`
+
+  Use one of vim-lsp, coc.nvim, LanguageClient-neovim as the language server
+  client plugin.
+
+  `vim_lsp` - vim-lsp
+  `coc`     - coc.nvim
+  `lcn`     - LanguageClient-neovim
+
+g:spacevim_nerd_fonts                                   *g:spacevim_nerd_fonts*
+
+  Type: |Number|
+  Default: `0`
+
+  If you have installed the nerd fonts, set it to `1` to use more pretty symbols
+  in file-manger layer.
+
+g:spacevim_enable_true_color                     *g:spacevim_enable_true_color*
+  Type: |Number|
+  Default: `0`
+
+  Set it to `1` if you ensure your terminal supports true colors. For example:
+  >
+  if $TERM_PROGRAM !~? 'Apple_Terminal'
+    let g:spacevim_enable_true_color = 1
+  endif
+<
+
