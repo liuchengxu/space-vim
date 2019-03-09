@@ -1,8 +1,12 @@
-*spacevim.txt*
-*spacevim*
-
-Lean & mean spacemacs-ish Vim distribution
-
+*spacevim.txt* Lean & mean spacemacs-ish Vim distribution
+*spacevim*     Copyright (c) 2017 Liu-Cheng Xu & Contributors
+                                                 _                            ~
+             ___ _ __   __ _  ___ ___     __   _(_)_ __ ___                   ~
+            / __| -_ \ / _- |/ __/ _ \____\ \ / / | -_ - _ \                  ~
+            \__ \ |_) | (_| | (_|  __/_____\ V /| | | | | | |                 ~
+            |___/ .__/ \__._|\___\___|      \_/ |_|_| |_| |_|                 ~
+                |_|                                                           ~
+                                                                              ~
 ===============================================================================
 CONTENTS                                                    *spacevim-contents*
 
@@ -13,10 +17,16 @@ CONTENTS                                                    *spacevim-contents*
 ===============================================================================
 1. Introduction                                         *spacevim-introduction*
 
-If you make typing mistakes, this plugin will have them corrected
-automatically.
+space-vim is a vim distribution for vim plugins and resources, compatible with
+Vim and NeoVim.
 
-There are currently only a few corrections.  Add your own if you like.
+It is inspired by [spacemacs](https://github.com/syl20bnr/spacemacs) and mimics
+spacemacs in a high level, especially in the whole architecture, key bindings
+and GUI. if have ever tried spacemacs, you will find space-vim is very similar
+to it in user experience.
+
+The distribution is completely customizable using `.spacevim`, which is
+equivalent to `.spacemacs` in spacemacs.
 
 ===============================================================================
 2. Configuration file                                    *spacevim-config-file*
@@ -29,9 +39,9 @@ some global options and two functions:
   |UserInit()|    - You can add your own plugins in this function. 
   |UserConfig()|  - Used for overriding the default options in space-vim.
 
-`~/.space-vim/init.spacevim` is merely a template for `~/.spacevim`. You should
-not modify `~/.space-vim/init.spacevim` to configure space-vim, as it will never
-work.
+**Don't edit `~/.space-vim/init.spacevim`**. It's merely a template for
+the real `~/.spacevim`. You should not modify `~/.space-vim/init.spacevim` to
+configure space-vim.
 
 ===============================================================================
 3. Global Options                                            *spacevim-options*
