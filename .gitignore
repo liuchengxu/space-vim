@@ -13,6 +13,7 @@ Thumbs.db
 .Spotlight-V100
 .Trashes
 
+tags
 
 core/autoload/info.vim
 core/autoload/spacevim/info.vim

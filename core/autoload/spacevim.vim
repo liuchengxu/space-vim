@@ -144,6 +144,12 @@ function! spacevim#end() abort
   call s:config()
   if exists('*UserConfig') | call UserConfig() | endif
 
+  try
+    helptags $HOME/.space-vim/core/doc
+  catch
+    echom v:exception
+  endtry
+
   call s:check_missing_plugins()
   silent doautocmd <nomodeline> User SpacevimAfterUserConfig
 endfunction

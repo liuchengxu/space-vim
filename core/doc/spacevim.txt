@@ -1,0 +1,87 @@
+*spacevim.txt* Lean & mean spacemacs-ish Vim distribution
+*spacevim*     Copyright (c) 2017 Liu-Cheng Xu & Contributors
+                                                 _                            ~
+             ___ _ __   __ _  ___ ___     __   _(_)_ __ ___                   ~
+            / __| -_ \ / _- |/ __/ _ \____\ \ / / | -_ - _ \                  ~
+            \__ \ |_) | (_| | (_|  __/_____\ V /| | | | | | |                 ~
+            |___/ .__/ \__._|\___\___|      \_/ |_|_| |_| |_|                 ~
+                |_|                                                           ~
+                                                                              ~
+===============================================================================
+CONTENTS                                                    *spacevim-contents*
+
+  1. Introduction.........................|spacevim-introduction|
+  2. Configuration file...................|spacevim-config-file|
+  3. Global Options.......................|spacevim-options|
+
+===============================================================================
+1. Introduction                                         *spacevim-introduction*
+
+space-vim is a vim distribution for vim plugins and resources, compatible with
+Vim and NeoVim.
+
+It is inspired by [spacemacs](https://github.com/syl20bnr/spacemacs) and mimics
+spacemacs in a high level, especially in the whole architecture, key bindings
+and GUI. if have ever tried spacemacs, you will find space-vim is very similar
+to it in user experience.
+
+The distribution is completely customizable using `.spacevim`, which is
+equivalent to `.spacemacs` in spacemacs.
+
+===============================================================================
+2. Configuration file                                    *spacevim-config-file*
+
+**Don't edit `~/.vimrc` or `~/.config/nvim/init.vim`!**
+
+space-vim use `~/.spacevim` as configuration file, which should be composed of
+some global options and two functions:
+
+  |UserInit()|    - You can add your own plugins in this function. 
+  |UserConfig()|  - Used for overriding the default options in space-vim.
+
+**Don't edit `~/.space-vim/init.spacevim`**. It's merely a template for
+the real `~/.spacevim`. You should not modify `~/.space-vim/init.spacevim` to
+configure space-vim.
+
+===============================================================================
+3. Global Options                                            *spacevim-options*
+
+g:spacevim_layers                                           *g:spacevim_layers*
+  
+  Type: |List|
+  Default: `['fzf', 'better-defaults', 'which-key']`
+
+  Enable the existing layer in space-vim. Check out all the avaliable layers at
+  https://github.com/liuchengxu/space-vim/blob/master/layers/LAYERS.md
+
+g:spacevim_lsp_engine                                   *g:spacevim_lsp_engine*
+
+  Type: |String|
+  Default: `lcn`
+
+  Use one of vim-lsp, coc.nvim, LanguageClient-neovim as the language server
+  client plugin.
+
+  `vim_lsp` - vim-lsp
+  `coc`     - coc.nvim
+  `lcn`     - LanguageClient-neovim
+
+g:spacevim_nerd_fonts                                   *g:spacevim_nerd_fonts*
+
+  Type: |Number|
+  Default: `0`
+
+  If you have installed the nerd fonts, set it to `1` to use more pretty symbols
+  in file-manger layer.
+
+g:spacevim_enable_true_color                     *g:spacevim_enable_true_color*
+  Type: |Number|
+  Default: `0`
+
+  Set it to `1` if you ensure your terminal supports true colors. For example:
+  >
+  if $TERM_PROGRAM !~? 'Apple_Terminal'
+    let g:spacevim_enable_true_color = 1
+  endif
+<
+
