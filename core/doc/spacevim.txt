@@ -12,7 +12,7 @@ CONTENTS                                                    *spacevim-contents*
 
   1. Introduction.........................|spacevim-introduction|
   2. Configuration file...................|spacevim-config-file|
-  2. Global Options.......................|spacevim-options|
+  3. Global Options.......................|spacevim-options|
 
 ===============================================================================
 1. Introduction                                         *spacevim-introduction*
@@ -45,6 +45,14 @@ configure space-vim.
 
 ===============================================================================
 3. Global Options                                            *spacevim-options*
+
+g:spacevim_layers                                           *g:spacevim_layers*
+  
+  Type: |List|
+  Default: `['fzf', 'better-defaults', 'which-key']`
+
+  Enable the existing layer in space-vim. Check out all the avaliable layers at
+  https://github.com/liuchengxu/space-vim/blob/master/layers/LAYERS.md
 
 g:spacevim_lsp_engine                                   *g:spacevim_lsp_engine*
 
