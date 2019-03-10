@@ -18,6 +18,9 @@ if exists('g:spacevim_use_ncm2') || has("nvim-0.2.2") && has('python3')
   if g:spacevim.vim8
     call add(s:plugins, 'roxma/vim-hug-neovim-rpc')
   endif
+  if exists('*nvim_open_win')
+    call add(s:plugins, 'ncm2/float-preview.nvim')
+  endif
   if spacevim#load('code-snippets')
     call add(s:plugins, 'ncm2/ncm2-ultisnips')
   endif

@@ -31,3 +31,7 @@ Key Binding      | Mode   | Description
 <kbd>, 5</kbd>   | Normal | heading level 5
 
 The preview functionality is supported by [vim-Xmark](https://github.com/junegunn/vim-xmark), which requires homebrew and google chrome.
+
+## Related Projects
+
+- [vim-markdown-composer](https://github.com/euclio/vim-markdown-composer)
