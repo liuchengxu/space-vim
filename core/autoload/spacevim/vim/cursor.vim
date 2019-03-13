@@ -28,6 +28,7 @@ function! spacevim#vim#cursor#TruncatedEcho(msg) abort
       " Reset the cursor position if we moved off the end of the line.
       " Using :norm and :echomsg can move the cursor off the end of the
       " line.
+      " Note: patch 8.1.0998 https://github.com/vim/vim/commit/19a66858a5e3fedadc371321834507c34e2dfb18
       if l:cursor_position != getpos()
           call setpos('.', l:cursor_position)
       endif

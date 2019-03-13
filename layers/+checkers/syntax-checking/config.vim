@@ -12,6 +12,12 @@ if g:spacevim.vim8 || g:spacevim.nvim
   let g:ale_echo_msg_error_str = g:spacevim.gui ? 'Error' : '✹ Error'
   let g:ale_echo_msg_warning_str = g:spacevim.gui ? 'Warning' : '⚠ Warning'
 
+  let g:ale_completion_delay = 500
+  let g:ale_echo_delay = 20
+  let g:ale_lint_delay = 500
+  let g:ale_lint_on_text_changed = 'normal'
+  let g:ale_lint_on_insert_leave = 1
+
   nmap <Leader>en <Plug>(ale_next)
   nmap <Leader>ep <Plug>(ale_previous)
   nnoremap <Leader>ts :ALEToggle<CR>
