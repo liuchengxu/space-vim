@@ -8,14 +8,6 @@ augroup spacevimCursorline
 augroup END
 " }
 
-" From tpope
-if g:spacevim.gui
-  command! Bigger  :let &guifont = substitute(&guifont, '\d\+$', '\=submatch(0)+1', '')
-  command! Smaller :let &guifont = substitute(&guifont, '\d\+$', '\=submatch(0)-1', '')
-  noremap + :Bigger<CR>
-  noremap - :Smaller<CR>
-endif
-
 " https://github.com/vim/vim/pull/2198
 " incsearch.vim {
 if has('patch-8.0.1238')

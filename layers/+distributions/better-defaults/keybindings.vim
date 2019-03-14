@@ -55,8 +55,3 @@ nnoremap <Leader>tC :call spacevim#vim#toggle#ColorColumn()<CR>
 
 command! -bar -nargs=0 Rtp :call spacevim#util#Runtimepath()
 command! -nargs=? Grep :call spacevim#vim#grep#Grep(<q-args>)
-
-augroup spacevimGUI
-  autocmd!
-  autocmd GUIEnter * nnoremap <Leader>wm :call spacevim#vim#gui#ToggleFullScreen()<CR>
-augroup END

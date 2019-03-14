@@ -20,4 +20,6 @@ function! spacevim#autocmd#GUIEnter() abort
   if empty(&guifont) && g:spacevim.os.windows
     let &guifont = 'Consolas:h13'
   endif
+
+  nnoremap <Leader>wm :call spacevim#vim#gui#ToggleFullScreen()<CR>
 endfunction
