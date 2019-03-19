@@ -9,7 +9,7 @@ function! spacevim#vim#cursor#TruncatedEcho(msg) abort
   " We need to remember the setting for shortmess and reset it again.
   let l:shortmess_options = &l:shortmess
   try
-      let l:cursor_position = getpos()
+      let l:cursor_position = getpos('.')
 
       " The message is truncated and saved to the history.
       setlocal shortmess+=T
@@ -29,7 +29,7 @@ function! spacevim#vim#cursor#TruncatedEcho(msg) abort
       " Using :norm and :echomsg can move the cursor off the end of the
       " line.
       " Note: patch 8.1.0998 https://github.com/vim/vim/commit/19a66858a5e3fedadc371321834507c34e2dfb18
-      if l:cursor_position != getpos()
+      if l:cursor_position != getpos('.')
           call setpos('.', l:cursor_position)
       endif
   finally
