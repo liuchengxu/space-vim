@@ -1,6 +1,9 @@
 " Reload .vimrc
 nnoremap <Leader>fR :source $MYVIMRC<CR>
 
+" Replace the word under cursor in current file
+nnoremap <leader>rc :%s/\<<C-r><C-w>\>/
+
 " Use Tab to switch buffer
 " nnoremap <Tab> :bn<CR>
 nnoremap <S-Tab> :bp<CR>

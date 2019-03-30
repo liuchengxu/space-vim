@@ -9,6 +9,9 @@ endfunction
 
 function! s:get_attrs(group) abort
   let fg = s:get_color(a:group, 'fg')
+  if empty(fg)
+    let fg = s:get_color('Normal', 'fg')
+  endif
   return printf('%sbg=%s %sfg=%s', s:gui_or_cterm, s:normal_bg, s:gui_or_cterm, fg)
 endfunction
 
