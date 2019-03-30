@@ -17,7 +17,7 @@ function! spacevim#autocmd#GUIEnter() abort
   noremap + :Bigger<CR>
   noremap - :Smaller<CR>
 
-  if empty(&guifont) && g:spacevim.os.windows
+  if g:spacevim.os.windows && empty(&guifont)
     let &guifont = 'Consolas:h13'
   endif
 
