@@ -145,6 +145,10 @@ let g:spacevim#map#leader#desc['p'] = {
       \ 'w' : ['spacevim#plug#fzf#SearchCword()'       , 'find-cword-in-project'] ,
       \ }
 
+let g:spacevim#map#leader#desc['r'] = {
+      \ 'c' : 'replace-current-word-in-current-file',
+      \ }
+
 let g:spacevim#map#leader#desc['q'] = [ 'q', 'quit' ]
 
 let g:spacevim#map#leader#desc['Q'] = [ 'qa!', 'quit-without-saving' ]

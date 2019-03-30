@@ -13,6 +13,10 @@ augroup loadNerdtree
               \| endif
 augroup END
 
+if get(g:, 'spacevim_nerd_fonts', 0)
+  MP 'ryanoasis/vim-devicons'
+endif
+
 MP 'Xuyuanp/nerdtree-git-plugin', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
 
 " Disable vim-nerdtree-syntax-highlight for the performance consideration, see #237
