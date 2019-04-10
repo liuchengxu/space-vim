@@ -1,4 +1,33 @@
+let s:has_floating_win = exists('*nvim_open_win')
 let g:fzf_layout = get(g:, 'fzf_layout', {'down': '~40%'})
+
+function! spacevim#plug#fzf#FloatingWin()
+  let height = &lines - 3
+  let width = float2nr(&columns - (&columns * 2 / 10))
+  let col = float2nr((&columns - width) / 2)
+
+  let opts = {
+        \ 'relative': 'editor',
+        \ 'row': height * 0.3,
+        \ 'col': col + 30,
+        \ 'width': width * 2 / 3,
+        \ 'height': height / 2
+        \ }
+
+  let buf = nvim_create_buf(v:false, v:true)
+
+  let win = nvim_open_win(buf, v:true, opts)
+
+  call setwinvar(win, '&winhl', 'Normal:Pmenu')
+
+  setlocal
+        \ buftype=nofile
+        \ nobuflisted
+        \ bufhidden=hide
+        \ nonumber
+        \ norelativenumber
+        \ signcolumn=no
+endfunction
 
 function! s:fzf(name, opts, extra)
   call spacevim#plug#fzf_base#Run(a:name, a:opts, a:extra)
@@ -24,12 +53,15 @@ function! spacevim#plug#fzf#Open(...)
         \ '~/.zshrc',
         \ '~/.tmux.conf'
         \ ]
-  return s:fzf('open', {
+  let opts = {
         \ 'source': l:open,
         \ 'sink': 'e',
         \ 'options': '+m --prompt="Open> "',
-        \ 'window': len(l:open)+2.'new'},
-        \ a:000)
+        \ }
+  if !s:has_floating_win
+    let opts.window = len(l:open)+2.'new'
+  endif
+  return s:fzf('open', opts, a:000)
 endfunction
 
 " ------------------------------------------------------------------
@@ -38,11 +70,14 @@ endfunction
 function! spacevim#plug#fzf#Rtp()
   let l:rtps = split(&runtimepath, ',')
   let l:size = len(l:rtps)>20 ? 20 : len(l:rtps)
-  return s:fzf('runtimepaths', {
+  let opts = {
         \ 'source': l:rtps,
         \ 'options': '+m --prompt="Rtp> "',
-        \ 'window': l:size.'new'},
-        \ a:000)
+        \ }
+  if !s:has_floating_win
+    opts.window = l:size.'new'
+  endif
+  return s:fzf('runtimepaths', opts, a:000)
 endfunction
 
 " ------------------------------------------------------------------
@@ -54,12 +89,15 @@ function! spacevim#plug#fzf#Oldfiles()
   redir END
   let l:olds = split(out, "\n")
   let l:size = len(l:olds)>20 ? 20 : len(l:olds)
-  return s:fzf('oldfiles', {
+  let opts = {
         \ 'source': l:olds,
         \ 'sink': 'e',
         \ 'options': '+m --prompt="Oldfiles> "',
-        \ 'window': l:size.'new'},
-        \ a:000)
+        \ }
+  if !s:has_floating_win
+    opts.window = l:size.'new'
+  endif
+  return s:fzf('oldfiles', opts, a:000)
 endfunction
 
 let s:nbs = nr2char(0x2007)
@@ -192,6 +230,10 @@ function! spacevim#plug#fzf#Rg(query, bang)
   if !executable('rg')
     return spacevim#util#warn('rg is not found')
   endif
+
+  let $FZF_DEFAULT_OPTS='--layout=reverse'
+  let g:fzf_layout = { 'window': 'call spacevim#plug#fzf#FloatingWin()' }
+
   echo "\r"
   call fzf#vim#grep(
         \ 'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(a:query), 1,
@@ -199,6 +241,9 @@ function! spacevim#plug#fzf#Rg(query, bang)
         \        : fzf#vim#with_preview('right:50%:hidden', '?'),
         \ a:bang
         \ )
+
+  call setwinvar(s:win, '&winhl', 'Normal:Pmenu')
+  redraw
 endfunction
 
 function! spacevim#plug#fzf#RgVisual()
