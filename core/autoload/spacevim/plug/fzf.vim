@@ -75,7 +75,7 @@ function! spacevim#plug#fzf#Rtp()
         \ 'options': '+m --prompt="Rtp> "',
         \ }
   if !s:has_floating_win
-    opts.window = l:size.'new'
+    let opts.window = l:size.'new'
   endif
   return s:fzf('runtimepaths', opts, a:000)
 endfunction
@@ -95,7 +95,7 @@ function! spacevim#plug#fzf#Oldfiles()
         \ 'options': '+m --prompt="Oldfiles> "',
         \ }
   if !s:has_floating_win
-    opts.window = l:size.'new'
+    let opts.window = l:size.'new'
   endif
   return s:fzf('oldfiles', opts, a:000)
 endfunction
@@ -230,10 +230,6 @@ function! spacevim#plug#fzf#Rg(query, bang)
   if !executable('rg')
     return spacevim#util#warn('rg is not found')
   endif
-
-  let $FZF_DEFAULT_OPTS='--layout=reverse'
-  let g:fzf_layout = { 'window': 'call spacevim#plug#fzf#FloatingWin()' }
-
   echo "\r"
   call fzf#vim#grep(
         \ 'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(a:query), 1,
@@ -241,9 +237,6 @@ function! spacevim#plug#fzf#Rg(query, bang)
         \        : fzf#vim#with_preview('right:50%:hidden', '?'),
         \ a:bang
         \ )
-
-  call setwinvar(s:win, '&winhl', 'Normal:Pmenu')
-  redraw
 endfunction
 
 function! spacevim#plug#fzf#RgVisual()
