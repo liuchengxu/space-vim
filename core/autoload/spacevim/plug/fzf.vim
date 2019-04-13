@@ -6,10 +6,12 @@ function! spacevim#plug#fzf#FloatingWin()
   let width = float2nr(&columns - (&columns * 2 / 10))
   let col = float2nr((&columns - width) / 2)
 
+  let col_offset = &columns / 6
+
   let opts = {
         \ 'relative': 'editor',
         \ 'row': height * 0.3,
-        \ 'col': col + 30,
+        \ 'col': col + col_offset,
         \ 'width': width * 2 / 3,
         \ 'height': height / 2
         \ }
