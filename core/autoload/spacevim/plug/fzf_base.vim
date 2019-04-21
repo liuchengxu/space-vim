@@ -172,6 +172,93 @@ function! s:align_lists(lists)
   return a:lists
 endfunction
 
+" ------------------------------------------------------------------
+" Buffers
+" ------------------------------------------------------------------
+function! s:find_open_window(b)
+  let [tcur, tcnt] = [tabpagenr() - 1, tabpagenr('$')]
+  for toff in range(0, tabpagenr('$') - 1)
+    let t = (tcur + toff) % tcnt + 1
+    let buffers = tabpagebuflist(t)
+    for w in range(1, len(buffers))
+      let b = buffers[w - 1]
+      if b == a:b
+        return [t, w]
+      endif
+    endfor
+  endfor
+  return [0, 0]
+endfunction
+
+function! s:jump(t, w)
+  execute a:t.'tabnext'
+  execute a:w.'wincmd w'
+endfunction
+
+function! s:bufopen(lines)
+  if len(a:lines) < 2
+    return
+  endif
+  let b = matchstr(a:lines[1], '\[\zs[0-9]*\ze\]')
+  if empty(a:lines[0]) && get(g:, 'fzf_buffers_jump')
+    let [t, w] = s:find_open_window(b)
+    if t
+      call s:jump(t, w)
+      return
+    endif
+  endif
+  let cmd = s:action_for(a:lines[0])
+  if !empty(cmd)
+    execute 'silent' cmd
+  endif
+  execute 'buffer' b
+endfunction
+
+function! s:format_buffer(b)
+  let name = bufname(a:b)
+  let name = empty(name) ? '[No Name]' : fnamemodify(name, ":p:~:.")
+  let flag = a:b == bufnr('')  ? s:blue('%', 'Conditional') :
+          \ (a:b == bufnr('#') ? s:magenta('#', 'Special') : ' ')
+  let modified = getbufvar(a:b, '&modified') ? s:red(' [+]', 'Exception') : ''
+  let readonly = getbufvar(a:b, '&modifiable') ? '' : s:green(' [RO]', 'Constant')
+
+  " SS
+  let filetype = getbufvar(a:b, '&filetype')
+  if empty(filetype)
+    let filetype = '?'
+  endif
+  " align 100 buffers
+  let filetype = repeat(' ', 4 - len(a:b)).filetype
+  " max filetype
+  let filetype .= repeat(' ', 14 - len(filetype))
+
+  let filesize = spacevim#util#Getfsize(name)
+  let filesize .= repeat(' ', 12 - len(filesize))
+
+  let extra = join(filter([modified, readonly], '!empty(v:val)'), '')
+  return s:strip(printf("[%s] %s %s\t%s\t%s\t%s", s:yellow(a:b, 'Number'), s:red(filetype, 'Type'), s:blue(filesize, 'Number'), flag, name, extra))
+endfunction
+
+function! s:sort_buffers(...)
+  let [b1, b2] = map(copy(a:000), 'get(g:fzf#vim#buffers, v:val, v:val)')
+  " Using minus between a float and a number in a sort function causes an error
+  return b1 < b2 ? 1 : -1
+endfunction
+
+function! s:buflisted_sorted()
+  return sort(s:buflisted(), 's:sort_buffers')
+endfunction
+
+function! spacevim#plug#fzf_base#buffers(...)
+  let [query, args] = (a:0 && type(a:1) == type('')) ?
+        \ [a:1, a:000[1:]] : ['', a:000]
+  return s:fzf('buffers', {
+  \ 'source':  map(s:buflisted_sorted(), 's:format_buffer(v:val)'),
+  \ 'sink*':   s:function('s:bufopen'),
+  \ 'options': ['+m', '-x', '--tiebreak=index', '--header-lines=1', '--ansi', '-d', '\t', '-n', '2,1..2', '--prompt', 'Buf> ', '--query', query]
+  \}, args)
+endfunction
+
 " Public api for space-vim
 function! spacevim#plug#fzf_base#Run(name, opts, extra)
   call s:fzf(a:name, a:opts, a:extra)

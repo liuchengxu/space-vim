@@ -81,7 +81,7 @@ function! s:is_in_git_repo() abort
   return v:shell_error ? '' : substitute(fnamemodify(git_dir, ':p:h'), ' ', '\\ ', 'g')
 endfunction
 
-function! spacevim#util#RootDirectory()
+function! spacevim#util#RootDirectory() abort
   " Dirty hack.
   " Don't know why, this detection does not work for neovim.
   lcd %:p:h
@@ -96,7 +96,7 @@ function! spacevim#util#RootDirectory()
   return root_dir == '' ? getcwd() : root_dir
 endfunction
 
-function! spacevim#util#VisualSelection()
+function! spacevim#util#VisualSelection() abort
     " Why is this not a built-in Vim script function?!
     let [line_start, column_start] = getpos("'<")[1:2]
     let [line_end, column_end] = getpos("'>")[1:2]
@@ -110,7 +110,7 @@ function! spacevim#util#VisualSelection()
 endfunction
 
 " Get all lines in the buffer as a a list. Snippet from vim-go
-function! spacevim#util#GetLines()
+function! spacevim#util#GetLines() abort
   let buf = getline(1, '$')
   if &encoding != 'utf-8'
     let buf = map(buf, 'iconv(v:val, &encoding, "utf-8")')
@@ -121,4 +121,21 @@ function! spacevim#util#GetLines()
     let buf = map(buf, 'v:val."\r"')
   endif
   return buf
+endfunction
+
+function! spacevim#util#Getfsize(fname) abort
+  let l:size = getfsize(a:fname)
+  if l:size == 0 || l:size == -1 || l:size == -2
+    return ''
+  endif
+  if l:size < 1024
+    let size = l:size.'bytes'
+  elseif l:size < 1024*1024
+    let size = printf('%.1f', l:size/1024.0).'k'
+  elseif l:size < 1024*1024*1024
+    let size = printf('%.1f', l:size/1024.0/1024.0) . 'm'
+  else
+    let size = printf('%.1f', l:size/1024.0/1024.0/1024.0) . 'g'
+  endif
+  return size
 endfunction

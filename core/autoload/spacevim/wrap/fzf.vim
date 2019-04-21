@@ -17,7 +17,8 @@ function! spacevim#wrap#fzf#File() abort
 endfunction
 
 function! spacevim#wrap#fzf#Buffers() abort
-  call s:dispatch('Buffers', 'LeaderfBuffer')
+  " Use custom Buffers
+  call s:dispatch('call spacevim#plug#fzf_base#buffers()', 'LeaderfBuffer')
 endfunction
 
 function! spacevim#wrap#fzf#BLines() abort
