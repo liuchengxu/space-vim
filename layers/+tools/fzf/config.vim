@@ -1,7 +1,7 @@
-nnoremap <Leader>ff :<c-u>call spacevim#wrap#fzf#Files()<CR>
-nnoremap <Leader>bb :<c-u>call spacevim#wrap#fzf#Buffers()<CR>
-nnoremap <Leader>fl :<c-u>call spacevim#wrap#fzf#BLines()<CR>
-nnoremap <Leader>fL :<c-u>call spacevim#wrap#fzf#BLinesAll()<CR>
+nnoremap <silent><Leader>ff :<c-u>call spacevim#wrap#fzf#Files()<CR>
+nnoremap <silent><Leader>bb :<c-u>call spacevim#wrap#fzf#Buffers()<CR>
+nnoremap <silent><Leader>fl :<c-u>call spacevim#wrap#fzf#BLines()<CR>
+nnoremap <silent><Leader>fL :<c-u>call spacevim#wrap#fzf#BLinesAll()<CR>
 
 if g:spacevim.gui && !has('terminal')
   " LeaderF {

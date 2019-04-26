@@ -214,6 +214,15 @@ function! s:bufopen(lines)
   execute 'buffer' b
 endfunction
 
+function! s:GetFileTypeWithIcon(b) abort
+  let filetype = getbufvar(a:b, '&filetype')
+  if get(g:, 'spacevim_nerd_fonts', 0)
+    return get(g:spacevim#icons#extensions, filetype, g:spacevim#icons#default) .'  '. filetype
+  else
+    return filetype
+  endif
+endfunction
+
 function! s:format_buffer(b)
   let name = bufname(a:b)
   let name = empty(name) ? '[No Name]' : fnamemodify(name, ":p:~:.")
@@ -223,17 +232,13 @@ function! s:format_buffer(b)
   let readonly = getbufvar(a:b, '&modifiable') ? '' : s:green(' [RO]', 'Constant')
 
   " SS
-  let filetype = getbufvar(a:b, '&filetype')
-  if empty(filetype)
-    let filetype = '?'
-  endif
-  " align 100 buffers
-  let filetype = repeat(' ', 4 - len(a:b)).filetype
+  let filetype = s:GetFileTypeWithIcon(a:b)
+
   " max filetype
-  let filetype .= repeat(' ', 14 - len(filetype))
+  let filetype = spacevim#util#Join(repeat(' ', 3 - strdisplaywidth(a:b)), filetype, repeat(' ', 14 - strdisplaywidth(filetype)))
 
   let filesize = spacevim#util#Getfsize(name)
-  let filesize .= repeat(' ', 12 - len(filesize))
+  let filesize = spacevim#util#Join(filesize, repeat(' ', 16 - strdisplaywidth(filesize)))
 
   let extra = join(filter([modified, readonly], '!empty(v:val)'), '')
   return s:strip(printf("[%s] %s %s\t%s\t%s\t%s", s:yellow(a:b, 'Number'), s:red(filetype, 'Type'), s:blue(filesize, 'Number'), flag, name, extra))

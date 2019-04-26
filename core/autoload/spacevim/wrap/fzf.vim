@@ -2,6 +2,9 @@
 " fzf or leaderf
 " ----------------------------------------------
 function! s:dispatch(...) abort
+  if !exists('g:loaded_fzf')
+    call plug#load('fzf', 'fzf.vim')
+  endif
   if a:0 == 2
     " FIXME better configurable
     let prefer_fzf = 1

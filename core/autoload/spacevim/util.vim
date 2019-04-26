@@ -25,6 +25,10 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""
 "    Utilities
 """""""""""""""""""""""""""""""""""""""""""""""""""
+function! spacevim#util#Join(...) abort
+  return join(a:000, '')
+endfunction
+
 function! spacevim#util#Runtimepath()
   for path in split(&runtimepath, ',')
     echo path
