@@ -87,6 +87,14 @@ endfunction
 " goto
 " ---------------------------------------------
 function! spacevim#lang#util#Definition() abort
+  if &filetype ==# 'vim'
+    let cword = expand('<cword>')
+    if cword =~# '\(.#\)\+'
+      call spacevim#lang#vim#GotoAudoloadDefinition(cword)
+    endif
+    return
+  endif
+
   if s:engine == 'coc'
     call CocAction('jumpDefinition')
     return
