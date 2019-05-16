@@ -1,4 +1,4 @@
-function! spacevim#lang#vim#GotoAudoloadDefinition(autoload) abort
+function! s:TryAutoload(autoload) abort
   if !exists('*'.a:autoload)
     let splited = split(a:autoload, '#')
     if len(splited) == 2
@@ -7,6 +7,11 @@ function! spacevim#lang#vim#GotoAudoloadDefinition(autoload) abort
       let path = join(split(a:autoload, '#')[:-2], '/').'.vim'
     endif
     execute 'silent runtime' 'autoload/'.path
+  endif
+
+  if !exists('*'.a:autoload)
+    call spacevim#util#warn(a:autoload." is undefined function")
+    return
   endif
 
   redir => output
@@ -27,4 +32,28 @@ function! spacevim#lang#vim#GotoAudoloadDefinition(autoload) abort
   let line = getline(idx)
   let [_, start, _] = matchstrpos(line, a:autoload)
   call cursor(idx, start+1)
+endfunction
+
+function! s:TrySID(SID) abort
+  let cword = a:SID
+  let line = getline('.')
+  let [_, start, end] = matchstrpos(line, cword)
+  let lines = getbufline(bufname(''), 1, '$')
+  let idx = 1
+  for line in lines
+    if line =~ '^function s:'.cword || line =~ '^function! s:'.cword
+      break
+    endif
+    let idx += 1
+  endfor
+  call cursor(idx, start+4)
+endfunction
+
+function! spacevim#lang#vim#Goto() abort
+  let cword = expand('<cword>')
+  if cword =~# '\(.#\)\+'
+    call s:TryAutoload(cword)
+  else
+    call s:TrySID(cword)
+  endif
 endfunction

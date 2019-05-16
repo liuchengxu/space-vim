@@ -88,10 +88,7 @@ endfunction
 " ---------------------------------------------
 function! spacevim#lang#util#Definition() abort
   if &filetype ==# 'vim'
-    let cword = expand('<cword>')
-    if cword =~# '\(.#\)\+'
-      call spacevim#lang#vim#GotoAudoloadDefinition(cword)
-    endif
+    call spacevim#lang#vim#Goto()
     return
   endif
 
