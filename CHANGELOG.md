@@ -11,6 +11,8 @@ CHANGELOG
 - add `g:spacevim_disable_nerdtree_arrow_icons` to disable nerdtree arrow icons.
 - add `g:spacevim_nerd_fonts` to use more pretty icons in nerdtree when using nerd fonts.
 - support neovim's floating window in fzf layer.
+- support crude GotoDefinition for vim <SID> and autoload function in space-vim itself.
+- add `gitbase` shortcuts.
 
 ### Changed
 
