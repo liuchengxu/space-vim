@@ -228,7 +228,7 @@ function! spacevim#plug#fzf#Vsearch()
   call s:ag(spacevim#util#VisualSelection())
 endfunction
 
-function! spacevim#plug#fzf#Rg(query, bang)
+function! spacevim#plug#fzf#Rg(query, bang) abort
   if !executable('rg')
     return spacevim#util#warn('rg is not found')
   endif
@@ -241,26 +241,34 @@ function! spacevim#plug#fzf#Rg(query, bang)
         \ )
 endfunction
 
-function! spacevim#plug#fzf#RgVisual()
-  let l:query = spacevim#util#VisualSelection()
+function! s:rg(query) abort
   call fzf#vim#grep(
-        \ 'rg --column --line-number --no-heading --color=always --smart-case '.l:query, 1,
+        \ 'rg --column --line-number --no-heading --color=always --smart-case '.a:query, 1,
         \ )
 endfunction
 
+function! spacevim#plug#fzf#RgVisual() abort
+  let l:query = spacevim#util#VisualSelection()
+  call s:rg(l:query)
+endfunction
+
+function! spacevim#plug#fzf#RgCursorWord() abort
+  call s:rg(expand('<cword>'))
+endfunction
+
 " Search word under cursor in current buffer
-function! spacevim#plug#fzf#SearchBcword()
+function! spacevim#plug#fzf#SearchBcword() abort
   call fzf#vim#buffer_lines(expand('<cword>'),{'options': '--prompt "?'.expand('<cword>').'> "'})
 endfunction
 
 " ------------------------------------------------------------------
 " Jumps incompleted, sink is wrong
 " ------------------------------------------------------------------
-function! s:format_jump(line)
+function! s:format_jump(line) abort
   return substitute(a:line, '\S', '\=s:yellow(submatch(0))', '')
 endfunction
 
-function! s:jump_sink(lines)
+function! s:jump_sink(lines) abort
   if len(a:lines) < 2
     return
   endif

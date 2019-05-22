@@ -143,6 +143,7 @@ let g:spacevim#map#leader#desc['p'] = {
       \ 'f' : ['spacevim#plug#fzf#FindFileInProject()' , 'find-file-in-project']  ,
       \ 's' : ['Rag'                                        , 'search-in-project']     ,
       \ 'w' : ['spacevim#plug#fzf#SearchCword()'       , 'find-cword-in-project'] ,
+      \ 'W' : ['spacevim#plug#fzf#RgCursorWord()', 'find-cword-in-project-via-rg'],
       \ }
 
 let g:spacevim#map#leader#desc['r'] = {
