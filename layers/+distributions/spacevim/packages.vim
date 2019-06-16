@@ -1,5 +1,5 @@
-MP 'liuchengxu/space-vim-dark'
-MP 'liuchengxu/space-vim-theme'
+MP 'liuchengxu/cSpaceVim-dark'
+MP 'liuchengxu/cSpaceVim-theme'
 
 MP 'VashDawn/cVimDefault'
 

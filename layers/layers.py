@@ -13,7 +13,7 @@ import re
 import time
 import ast
 
-info_path = os.path.expanduser('~/.space-vim/core/autoload/spacevim/info.vim')
+info_path = os.path.expanduser('~/.cSpaceVim/core/autoload/spacevim/info.vim')
 
 topics = dict()
 layers = dict()
@@ -40,7 +40,7 @@ header.append("%-20s | %s | %s\n" % (':----:', ':----:', ':----'))
 
 output.writelines(header)
 
-url_prefix = 'https://github.com/liuchengxu/space-vim/tree/master/layers'
+url_prefix = 'https://github.com/liuchengxu/cSpaceVim/tree/master/layers'
 
 plugins = []
 

@@ -11,7 +11,7 @@ CHANGELOG
 - add `g:spacevim_disable_nerdtree_arrow_icons` to disable nerdtree arrow icons.
 - add `g:spacevim_nerd_fonts` to use more pretty icons in nerdtree when using nerd fonts.
 - support neovim's floating window in fzf layer.
-- support crude GotoDefinition for vim <SID> and autoload function in space-vim itself.
+- support crude GotoDefinition for vim <SID> and autoload function in cSpaceVim itself.
 - add `gitbase` shortcuts.
 
 ### Changed
@@ -71,7 +71,7 @@ CHANGELOG
 
     > If you run into `Undefined variable g:spacevim_**` issue after update,
     > please use `g:spacevim.**` instead and also delete
-    > `~/.space-vim/core/autoload/spacevim/info.vim` to regenerate `info.vim`.
+    > `~/.cSpaceVim/core/autoload/spacevim/info.vim` to regenerate `info.vim`.
 
 - `SimpylFold`, `fzf-filemru`.
 
@@ -86,7 +86,7 @@ CHANGELOG
   let g:fzf_colors = g:spacevim#plug#fzf#colors
   ```
 
-  At the very beginning, I hope to keep space-vim as simple as possible. However, it's unevitable to make space-vim more like a vim plugin than an intuitive vim configuration over time with more and more functionalities added.
+  At the very beginning, I hope to keep cSpaceVim as simple as possible. However, it's unevitable to make cSpaceVim more like a vim plugin than an intuitive vim configuration over time with more and more functionalities added.
 
 ### Added
 

@@ -264,7 +264,7 @@ function! spacevim#plug#fzf_base#buffers(...)
   \}, args)
 endfunction
 
-" Public api for space-vim
+" Public api for cSpaceVim
 function! spacevim#plug#fzf_base#Run(name, opts, extra)
   call s:fzf(a:name, a:opts, a:extra)
 endfunction

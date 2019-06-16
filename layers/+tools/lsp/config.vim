@@ -52,7 +52,7 @@ function! s:lcn() abort
   let g:LanguageClient_loggingFile = '/tmp/LanguageClient.log'
   let g:LanguageClient_loggingLevel = 'INFO'
   let g:LanguageClient_serverStderr = '/tmp/LanguageServer.log'
-  let g:LanguageClient_settingsPath = expand('~/.space-vim/layers/+tools/lsp/settings.json')
+  let g:LanguageClient_settingsPath = expand('~/.cSpaceVim/layers/+tools/lsp/settings.json')
 
   let g:LanguageClient_serverCommands = {
         \ 'c': ['ccls', '--log-file=/tmp/cq.log'],

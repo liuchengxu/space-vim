@@ -8,8 +8,8 @@ let g:spacevim_plug_home = '~/.vim/plugged'
 " Uncomment the following line to override the local leader key. The default value is comma ','.
 " let g:spacevim_localleader = ','
 
-" Enable the existing layers in space-vim.
-" Refer to https://github.com/liuchengxu/space-vim/blob/master/layers/LAYERS.md for all available layers.
+" Enable the existing layers in cSpaceVim.
+" Refer to https://github.com/liuchengxu/cSpaceVim/blob/master/layers/LAYERS.md for all available layers.
 let g:spacevim_layers = [
       \ 'fzf', 'better-defaults', 'which-key',
       \ ]
@@ -34,7 +34,7 @@ function! UserInit()
 
 endfunction
 
-" Override the default settings from space-vim as well as adding extras
+" Override the default settings from cSpaceVim as well as adding extras
 function! UserConfig()
 
   " Override the default settings.

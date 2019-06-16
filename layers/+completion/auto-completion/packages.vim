@@ -1,4 +1,4 @@
-" space-vim will use completor.vim for vim8 by default.
+" cSpaceVim will use completor.vim for vim8 by default.
 " If you want to use ncm2 when using vim8, configure it explicitly.
 " let g:spacevim_use_ncm2 = 1
 if exists('g:spacevim_use_ncm2') || has("nvim-0.2.2") && has('python3')

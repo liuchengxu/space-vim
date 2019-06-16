@@ -10,10 +10,10 @@ echo "                                                       "
 
 Push-Location ~
 
-$app_name    = "space-vim"
-$repo_url    = "https://github.com/liuchengxu/space-vim.git"
-$repo_name   = "space-vim"
-$repo_path   = "$HOME\.space-vim"
+$app_name    = "cSpaceVim"
+$repo_url    = "https://github.com/liuchengxu/cSpaceVim.git"
+$repo_name   = "cSpaceVim"
+$repo_path   = "$HOME\.cSpaceVim"
 
 if ((Get-Command "git.exe" -ErrorAction SilentlyContinue) -eq $null)
 {
@@ -29,7 +29,7 @@ if ((Get-Command "vim.exe" -ErrorAction SilentlyContinue) -eq $null)
    exit
 }
 
-if (!(Test-Path "$HOME\.space-vim")) {
+if (!(Test-Path "$HOME\.cSpaceVim")) {
     echo "==> Trying to clone $app_name"
     git clone $repo_url $repo_path
 } else {

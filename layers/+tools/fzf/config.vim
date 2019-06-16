@@ -11,7 +11,7 @@ if g:spacevim.gui && !has('terminal')
   " }
 else
   " fzf.vim {
-  " Refer to https://github.com/liuchengxu/space-vim/issues/364
+  " Refer to https://github.com/liuchengxu/cSpaceVim/issues/364
   let $LANG = 'en_US.UTF-8'
 
   if exists('*nvim_open_win')
@@ -22,7 +22,7 @@ else
     " of floating window explicitly.
     "
     " Customize fzf colors to match your color scheme
-    " Only suitable for space-vim-dark theme, other themes are not guaranteed.
+    " Only suitable for cSpaceVim-dark theme, other themes are not guaranteed.
     let g:fzf_colors = {
                 \ 'fg':      ['fg', 'StatusLineNC'],
                 \ 'bg':      ['bg', 'Normal'],

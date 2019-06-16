@@ -50,7 +50,7 @@ endfunction
 function! spacevim#plug#fzf#Open(...)
   let l:open = [
         \ '~/.spacevim',
-        \ '~/.space-vim/init.vim',
+        \ '~/.cSpaceVim/init.vim',
         \ '~/.bashrc',
         \ '~/.zshrc',
         \ '~/.tmux.conf'

@@ -62,7 +62,7 @@ endfunction
 try
   color space_vim_theme
 catch
-  silent! color space-vim-dark
+  silent! color cSpaceVim-dark
 endtry
 
 " Show trailing white space

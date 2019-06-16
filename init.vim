@@ -7,17 +7,17 @@
 "
 "   Copyright (c) 2017 Liu-Cheng Xu & Contributors
 "
-"   You can customize space-vim with .spacevim
+"   You can customize cSpaceVim with .spacevim
 "   and don't have to take care of this file.
 "
 "   Author: Liu-Cheng Xu <xuliuchengxlc@gmail.com>
-"   URL: https://github.com/liuchengxu/space-vim
+"   URL: https://github.com/liuchengxu/cSpaceVim
 "   License: MIT
 
 scriptencoding utf-8
 
 let g:spacevim = get(g:, 'spacevim', {})
-let g:spacevim.base = $HOME.'/.space-vim'
+let g:spacevim.base = $HOME.'/.cSpaceVim'
 let g:spacevim.version = '0.9.0'
 
 " Identify platform {
@@ -35,6 +35,6 @@ if g:spacevim.os.windows
 endif
 " }
 
-set runtimepath+=$HOME/.space-vim/core
+set runtimepath+=$HOME/.cSpaceVim/core
 
 call spacevim#bootstrap()

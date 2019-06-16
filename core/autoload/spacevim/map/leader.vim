@@ -1,6 +1,6 @@
 " Define prefix dictionary
 let g:spacevim#map#leader#desc =  get(g:, 'spacevim#map#leader#desc', {})
-let g:spacevim#map#leader#desc['name'] =  'space-vim root'
+let g:spacevim#map#leader#desc['name'] =  'cSpaceVim root'
 
 for s:i in range(1, 9)
   let g:spacevim#map#leader#desc[s:i] = 'window-'.s:i

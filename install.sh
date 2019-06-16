@@ -10,10 +10,10 @@
 
 set -eo pipefail
 
-app_name="space-vim"
+app_name="cSpaceVim"
 repo_uri="https://github.com/VashDawn/cSpaceVim.git"
-repo_name="space-vim"
-repo_path="$HOME/.space-vim"
+repo_name="cSpaceVim"
+repo_path="$HOME/.cSpaceVim"
 repo_branch="master"
 _all=
 _vim=
@@ -25,10 +25,10 @@ help() {
 usage: $0 [OPTIONS]
 
     --help               Show this message
-    --all                Install space-vim for Vim and NeoVim
-    --vim                Install space-vim for Vim
-    --neovim             Install space-vim for NeoVim
-    --update             Update space-vim
+    --all                Install cSpaceVim for Vim and NeoVim
+    --vim                Install cSpaceVim for Vim
+    --neovim             Install cSpaceVim for NeoVim
+    --update             Update cSpaceVim
 EOF
 }
 
@@ -100,7 +100,7 @@ install_plugins() {
 
 generate_dot_spacevim() {
   if [ ! -f "$HOME/.spacevim" ]; then
-    cp "$HOME/.space-vim/init.spacevim" "$HOME/.spacevim"
+    cp "$HOME/.cSpaceVim/init.spacevim" "$HOME/.spacevim"
 
     ret="$?"
     success "Successfully generated .spacevim in your home directory"
@@ -127,7 +127,7 @@ install_for_vim() {
   ret="$?"
   success "Successfully downloaded vim-plug"
 
-  ln -sf "$HOME/.space-vim/init.vim" "$HOME/.vimrc"
+  ln -sf "$HOME/.cSpaceVim/init.vim" "$HOME/.vimrc"
   generate_dot_spacevim
 
   install_plugins "vim"
@@ -142,7 +142,7 @@ install_for_neovim() {
   success "Successfully downloaded vim-plug"
 
   mkdir -p "$HOME/.config/nvim"
-  ln -sf "$HOME/.space-vim/init.vim" "$HOME/.config/nvim/init.vim"
+  ln -sf "$HOME/.cSpaceVim/init.vim" "$HOME/.config/nvim/init.vim"
   generate_dot_spacevim
 
   install_plugins "nvim"
@@ -159,7 +159,7 @@ infer() {
     echo "\\033[1;34m==>\\033[0m Find both 'vim' and 'nvim' in your system"
     echo
     while true; do
-      read -r -p "    Install space-vim for: [0]vim [1]nvim [2]vim and nvim :" opt
+      read -r -p "    Install cSpaceVim for: [0]vim [1]nvim [2]vim and nvim :" opt
       case $opt in
         0)
           install_for_vim
@@ -181,11 +181,11 @@ infer() {
     done
   elif exists "vim"; then
     msg "\\033[1;34m==>\\033[0m Only find 'vim' in your system"
-    msg "    Starting to install space-vim for 'vim'"
+    msg "    Starting to install cSpaceVim for 'vim'"
     install_for_vim
   elif exists "nvim"; then
     msg "\\033[1;34m==>\\033[0m Only find 'nvim' in your system"
-    msg "    Starting to install space-vim for 'nvim'"
+    msg "    Starting to install cSpaceVim for 'nvim'"
     echo
     install_for_neovim
   else

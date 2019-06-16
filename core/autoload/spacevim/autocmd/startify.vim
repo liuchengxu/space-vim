@@ -15,7 +15,7 @@ let s:custom_header = [
             \'        \__ \ |_) | (_| | (_|  __/_____\ V /| | | | | | |',
             \'        |___/ .__/ \__._|\___\___|      \_/ |_|_| |_| |_|',
             \'            |_|',
-            \'                  [ space-vim ' . g:spacevim.version . ' ＠' . s:version . ' ]',
+            \'                  [ cSpaceVim ' . g:spacevim.version . ' ＠' . s:version . ' ]',
             \]
 
 let s:list_order = [
