@@ -57,7 +57,7 @@ else
   nnoremap <Leader>ag :Ag!<CR>
   vnoremap <Leader>ag :<c-u>call spacevim#plug#fzf#Vsearch()<CR>
 
-  nnoremap <Leader>w? :Windows<CR>
+  "" nnoremap <Leader>w? :Windows<CR>
   nnoremap <Leader>f? :Files<CR>
 
   nnoremap <silent> <Leader>sf :call spacevim#plug#fzf#Session()<CR>
