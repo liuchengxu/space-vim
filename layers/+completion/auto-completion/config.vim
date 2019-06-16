@@ -7,7 +7,7 @@ if has_key(g:plugs, 'vim-mucomplete')
   inoremap <expr> <c-y> mucomplete#popup_exit("\<c-y>")
   inoremap <expr>  <cr> mucomplete#popup_exit("\<cr>")
 
-  " Fix key mappings' clash from vim-better-default
+  " Fix key mappings' clash from cVimDefault
   iunmap <c-j>
   iunmap <c-h>
 endif

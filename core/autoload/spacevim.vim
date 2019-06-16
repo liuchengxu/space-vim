@@ -138,7 +138,7 @@ function! spacevim#end() abort
   if exists('*Layers') | call Layers() | endif
 
   call s:register_plugin()
-  " Make vim-better-default settings can be overrided
+  " Make cVimDefault settings can be overrided
   silent! runtime! plugin/default.vim
 
   call s:config()

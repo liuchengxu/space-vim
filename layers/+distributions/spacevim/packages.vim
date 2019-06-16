@@ -1,7 +1,7 @@
 MP 'liuchengxu/space-vim-dark'
 MP 'liuchengxu/space-vim-theme'
 
-MP 'liuchengxu/vim-better-default'
+MP 'VashDawn/cVimDefault'
 
 if !spacevim#load_any('airline', 'lightline')
   MP 'liuchengxu/eleline.vim'
