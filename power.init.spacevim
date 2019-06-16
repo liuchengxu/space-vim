@@ -6,7 +6,7 @@ let g:spacevim_plug_home = '~/.vim/plugged'
 " let g:spacevim_leader = "<\Space>"
 
 " Uncomment the following line to override the local leader key. The default value is comma ','.
-" let g:spacevim_localleader = ','
+  let g:spacevim_localleader = '_'
 
 " Enable the existing layers in cSpaceVim.
 " Refer to https://github.com/liuchengxu/cSpaceVim/blob/master/layers/LAYERS.md for all available layers.
