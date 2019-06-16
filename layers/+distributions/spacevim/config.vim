@@ -60,9 +60,9 @@ endfunction
 " Put the :hi command after any :colorscheme command,
 " or the colorscheme can overwrite your highlighting.
 try
-  color space_vim_theme
+  color gruvbox
 catch
-  silent! color cSpaceVim-dark
+  silent! color default
 endtry
 
 " Show trailing white space

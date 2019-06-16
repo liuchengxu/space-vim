@@ -1,5 +1,4 @@
-MP 'liuchengxu/cSpaceVim-dark'
-MP 'liuchengxu/cSpaceVim-theme'
+MP 'morhetz/gruvbox'
 
 MP 'VashDawn/cVimDefault'
 
