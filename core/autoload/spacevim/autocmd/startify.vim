@@ -31,7 +31,7 @@ let s:list_order = [
             \ 'commands',
             \ ]
 function! spacevim#autocmd#startify#Init()
-  let g:startify_list_order = s:list_order
-  let g:startify_custom_header = s:custom_header
-  let g:startify_change_to_vcs_root = 1
+  let g:startify_list_order = get(g:, 'startify_list_order', s:list_order)
+  let g:startify_custom_header = get(g:, 'startify_custom_header', s:custom_header)
+  let g:startify_change_to_vcs_root = get(g:, 'startify_change_to_vcs_root', 1)
 endfunction
