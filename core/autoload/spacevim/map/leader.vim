@@ -142,8 +142,8 @@ let g:spacevim#map#leader#desc['p'] = {
       \ 'name' : '+projects'                                ,
       \ 'f' : ['spacevim#plug#fzf#FindFileInProject()' , 'find-file-in-project']  ,
       \ 's' : ['Rag'                                        , 'search-in-project']     ,
-      \ 'w' : ['spacevim#plug#fzf#SearchCword()'       , 'find-cword-in-project'] ,
-      \ 'W' : ['spacevim#plug#fzf#RgCursorWord()', 'find-cword-in-project-via-rg'],
+      \ 'w' : ['spacevim#plug#fzf#RgCursorWord()', 'find-cword-in-project-via-rg'],
+      \ 'W' : ['spacevim#plug#fzf#SearchCword()'       , 'find-cword-in-project'] ,
       \ }
 
 let g:spacevim#map#leader#desc['r'] = {
