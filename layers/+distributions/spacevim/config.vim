@@ -1,9 +1,11 @@
 scriptencoding utf-8
 
 function! s:OnBufReadPost() abort
-  " Restore cursor position when opening file
-  if line("'\"") > 1 && line("'\"") <= line("$")
-    execute "normal! g`\""
+  if !get(g:, 'spacevim_disable_restore_cursor_position_on_open', 0)
+    " Restore cursor position when opening file
+    if line("'\"") > 1 && line("'\"") <= line("$")
+      execute "normal! g`\""
+    endif
   endif
 
   " Disable relative number when having too many lines.
