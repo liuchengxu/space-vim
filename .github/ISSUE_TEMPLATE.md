@@ -22,7 +22,11 @@ the brackets) _before_ filing your issue:**
 
 ```
 
-<!-- Post the output of `:echo g:layers_loaded` if you don't know which layer should be blamed -->
+**Put the contents of `:SpaceInfo` below:**
+
+```
+
+```
 
 ### Problem Description
 
