@@ -173,6 +173,7 @@ function! s:register_plugin() abort
 endfunction
 
 function! s:packages() abort
+  let g:spacevim.speed_up_via_timer = get(g:, 'spacevim_speed_up_via_timer', g:spacevim.timer)
   " Load Layer packages
   for l:layer in g:spacevim.loaded
     try

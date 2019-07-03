@@ -1,4 +1,4 @@
-if g:spacevim.timer
+if g:spacevim.speed_up_via_timer
   MP 'rust-lang/rust.vim', { 'on': [] }
 else
   MP 'rust-lang/rust.vim', { 'for': 'rust' }

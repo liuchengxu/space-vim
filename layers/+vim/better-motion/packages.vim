@@ -1,6 +1,6 @@
 MP 'unblevable/quick-scope'
 
-if g:spacevim.timer
+if g:spacevim.speed_up_via_timer
   MP 'justinmk/vim-sneak'                  , { 'on': [] }
   MP 'easymotion/vim-easymotion'           , { 'on': [] }
   MP 'haya14busa/incsearch-easymotion.vim' , { 'on': [] }

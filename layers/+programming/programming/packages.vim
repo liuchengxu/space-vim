@@ -1,4 +1,4 @@
-if g:spacevim.timer
+if g:spacevim.speed_up_via_timer
   MP 'luochen1990/rainbow'  , { 'on': [] }
   MP 'sheerun/vim-polyglot' , { 'on': [] }
   MP 'airblade/vim-rooter'  , { 'on': []}
