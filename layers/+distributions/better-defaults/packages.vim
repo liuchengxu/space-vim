@@ -17,13 +17,17 @@ endif
 MP 't9md/vim-choosewin', { 'on': '<Plug>(choosewin)' }
 MP 'mhinz/vim-startify', { 'on': 'Startify' }
 autocmd! User vim-startify call spacevim#autocmd#startify#Init()
+
+function! s:LoadStartifyIfNoArgs() abort
+  if !argc()
+    call plug#load('vim-startify')
+    silent! Startify
+  endif
+endfunction
+
 augroup spacevimStart
   autocmd!
-  autocmd VimEnter *
-              \   if !argc()
-              \|    call plug#load('vim-startify')
-              \|    silent! Startify
-              \|  endif
+  autocmd VimEnter * call s:LoadStartifyIfNoArgs()
 augroup END
 
 " Bug here.
