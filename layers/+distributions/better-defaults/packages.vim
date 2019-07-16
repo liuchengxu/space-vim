@@ -15,20 +15,22 @@ else
 endif
 
 MP 't9md/vim-choosewin', { 'on': '<Plug>(choosewin)' }
-MP 'mhinz/vim-startify', { 'on': 'Startify' }
-autocmd! User vim-startify call spacevim#autocmd#startify#Init()
+if get(g:, 'spacevim_startify', 1)
+  MP 'mhinz/vim-startify', { 'on': 'Startify' }
+  autocmd! User vim-startify call spacevim#autocmd#startify#Init()
 
-function! s:LoadStartifyIfNoArgs() abort
-  if !argc()
-    call plug#load('vim-startify')
-    silent! Startify
-  endif
-endfunction
+  function! s:LoadStartifyIfNoArgs() abort
+    if !argc()
+      call plug#load('vim-startify')
+      silent! Startify
+    endif
+  endfunction
 
-augroup spacevimStart
-  autocmd!
-  autocmd VimEnter * call s:LoadStartifyIfNoArgs()
-augroup END
+  augroup spacevimStart
+    autocmd!
+    autocmd VimEnter * call s:LoadStartifyIfNoArgs()
+  augroup END
+endif
 
 " Bug here.
 " MP 'kana/vim-operator-user',         { 'on': '<Plug>(operator-flashy)' }

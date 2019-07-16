@@ -85,6 +85,12 @@ g:spacevim_enable_true_color                     *g:spacevim_enable_true_color*
   endif
 <
 
+g:spacevim_startify                              *g:spacevim_startify*
+  Type: |Number|
+  Default: `1`
+
+  Set it to `0` if you want to disable startify completely.
+
 g:spacevim_speed_up_via_timer                     *g:spacevim_speed_up_via_timer*
   Type: |Number|
   Default: `exists('*timer_start')`
