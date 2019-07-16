@@ -15,7 +15,7 @@ else
 endif
 
 MP 't9md/vim-choosewin', { 'on': '<Plug>(choosewin)' }
-if get(g:, 'spacevim_startify', 1)
+if get(g:, 'spacevim_enable_startify', 1)
   MP 'mhinz/vim-startify', { 'on': 'Startify' }
   autocmd! User vim-startify call spacevim#autocmd#startify#Init()
 

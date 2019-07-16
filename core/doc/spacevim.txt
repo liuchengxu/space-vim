@@ -85,7 +85,7 @@ g:spacevim_enable_true_color                     *g:spacevim_enable_true_color*
   endif
 <
 
-g:spacevim_startify                              *g:spacevim_startify*
+g:spacevim_enable_startify                              *g:spacevim_enable_startify*
   Type: |Number|
   Default: `1`
 
