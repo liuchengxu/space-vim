@@ -1,7 +1,7 @@
 
 MP 'rdnetto/YCM-Generator',  { 'on': ['YcmGenerateConfig', 'CCGenerateConfig'], 'branch': 'stable' }
 
-MP 'Valloric/YouCompleteMe', { 'do': function('spacevim#plug#youcompleteme#build'), 'on': [],
+MP 'ycm-core/YouCompleteMe', { 'do': function('spacevim#plug#youcompleteme#build'), 'on': [],
       \ 'on_event': ['CursorHold', 'CursorHoldI', 'InsertEnter'] }
 autocmd! User YouCompleteMe call spacevim#autocmd#youcompleteme#Init()
 
