@@ -1,15 +1,15 @@
 " Define prefix dictionary
-let g:spacevim#map#leader#desc =  get(g:, 'spacevim#map#leader#desc', {})
-let g:spacevim#map#leader#desc['name'] =  'space-vim root'
+let s:leader_map =  {}
+let s:leader_map['name'] = 'space-vim root'
 
 for s:i in range(1, 9)
-  let g:spacevim#map#leader#desc[s:i] = 'window-'.s:i
+  let s:leader_map[s:i] = 'window-'.s:i
 endfor
 unlet s:i
 
-let g:spacevim#map#leader#desc['?'] = [ 'Maps', 'show-keybindings' ]
-let g:spacevim#map#leader#desc[';'] = [ '<Plug>NERDCommenterToggle','commenter' ]
-let g:spacevim#map#leader#desc[' '] = {
+let s:leader_map['?'] = [ 'Maps', 'show-keybindings' ]
+let s:leader_map[';'] = [ '<Plug>NERDCommenterToggle','commenter' ]
+let s:leader_map[' '] = {
       \ 'name': '+tab' ,
       \ '1' : 'tab-1'  ,
       \ '2' : 'tab-2'  ,
@@ -23,11 +23,11 @@ let g:spacevim#map#leader#desc[' '] = {
       \ 'c' : ['tabclose', 'close-current-tab'],
       \ }
 
-let g:spacevim#map#leader#desc['a'] = {
+let s:leader_map['a'] = {
       \ 'name' : '+align',
       \ }
 
-let g:spacevim#map#leader#desc['b'] = {
+let s:leader_map['b'] = {
       \ 'name' : '+buffer'       ,
       \ '1' :  'buffer-1'        ,
       \ '2' :  'buffer-2'        ,
@@ -49,7 +49,7 @@ let g:spacevim#map#leader#desc['b'] = {
       \ '?' :  'fzf-buffer'      ,
       \ }
 
-let g:spacevim#map#leader#desc['c'] = {
+let s:leader_map['c'] = {
       \ 'name' : '+cscope'                            ,
       \ 's' : ['spacevim#vim#cscope#Find("symbol")'   , 'find-this-symbol']                       ,
       \ 'g' : ['spacevim#vim#cscope#Find("global")'   , 'global-definition']                      ,
@@ -61,15 +61,15 @@ let g:spacevim#map#leader#desc['c'] = {
       \ 'd' : ['spacevim#vim#cscope#Find("called")'   , 'find-functions-called-by-this-function'] ,
       \ }
 
-let g:spacevim#map#leader#desc['d'] = 'scroll-down'
+let s:leader_map['d'] = 'scroll-down'
 
-let g:spacevim#map#leader#desc['e'] = {
+let s:leader_map['e'] = {
       \ 'name' : '+errors'     ,
       \ 'n' : 'next-error'     ,
       \ 'p' : 'previous-error' ,
       \ }
 
-let g:spacevim#map#leader#desc['f'] = {
+let s:leader_map['f'] = {
       \ 'name' : '+find/files/fold'             ,
       \ '0' : '0-fold-level'                    ,
       \ '1' : '1-fold-level'                    ,
@@ -90,7 +90,7 @@ let g:spacevim#map#leader#desc['f'] = {
       \ 'b' : ['BLines'                         , 'fzf-find-current-buffer'] ,
       \ }
 
-let g:spacevim#map#leader#desc['g'] = {
+let s:leader_map['g'] = {
       \ 'name' : '+git/version-control' ,
       \ 'b' : ['Gblame'                 , 'fugitive-blame']             ,
       \ 'c' : ['BCommits'               , 'commits-for-current-buffer'] ,
@@ -105,11 +105,11 @@ let g:spacevim#map#leader#desc['g'] = {
       \ 'y' : ['Goyo'                   , 'goyo-mode']                  ,
       \ }
 
-let g:spacevim#map#leader#desc['h'] = {
+let s:leader_map['h'] = {
       \ 'name' : '+help',
       \ }
 
-let g:spacevim#map#leader#desc['j'] = {
+let s:leader_map['j'] = {
       \ 'name' : '+jump/json'                   ,
       \ 'j' : 'easymotion-goto-char'       ,
       \ 'J' : 'easymotion-goto-char-2'     ,
@@ -120,7 +120,7 @@ let g:spacevim#map#leader#desc['j'] = {
       \ 'F' : ['execute line(".")."!python -m json.tool"', 'format-current-raw-oneline-json'],
       \ }
 
-let g:spacevim#map#leader#desc['l'] = {
+let s:leader_map['l'] = {
       \ 'name' : '+lsp'                               ,
       \ 'a' : ['spacevim#lang#util#CodeAction()'      , 'code-action']      ,
       \ 'c' : ['LanguageClient_contextMenu()'         , 'context-menu']     ,
@@ -138,7 +138,7 @@ let g:spacevim#map#leader#desc['l'] = {
         \ }                                                     ,
       \ }
 
-let g:spacevim#map#leader#desc['p'] = {
+let s:leader_map['p'] = {
       \ 'name' : '+projects'                                ,
       \ 'f' : ['spacevim#plug#fzf#FindFileInProject()' , 'find-file-in-project']  ,
       \ 's' : ['Rag'                                        , 'search-in-project']     ,
@@ -146,15 +146,15 @@ let g:spacevim#map#leader#desc['p'] = {
       \ 'W' : ['spacevim#plug#fzf#SearchCword()'       , 'find-cword-in-project'] ,
       \ }
 
-let g:spacevim#map#leader#desc['r'] = {
+let s:leader_map['r'] = {
       \ 'c' : 'replace-current-word-in-current-file',
       \ }
 
-let g:spacevim#map#leader#desc['q'] = [ 'q', 'quit' ]
+let s:leader_map['q'] = [ 'q', 'quit' ]
 
-let g:spacevim#map#leader#desc['Q'] = [ 'qa!', 'quit-without-saving' ]
+let s:leader_map['Q'] = [ 'qa!', 'quit-without-saving' ]
 
-let g:spacevim#map#leader#desc['s'] = {
+let s:leader_map['s'] = {
       \ 'name' : '+search/show'                   ,
       \ 'c' : 'search-clear-highlight'            ,
       \ 'h' : ['spacevim#util#SyntaxHiGroup()'    , 'show-highlight-group']   ,
@@ -172,7 +172,7 @@ function! s:buftag() abort
   endif
 endfunction
 
-let g:spacevim#map#leader#desc['t'] = {
+let s:leader_map['t'] = {
       \ 'name' : '+toggle/tag'                          ,
       \ 'g' : ['spacevim#plug#toggle#Git()'         , 'git-status-indicator'] ,
       \ 'i' : ['IndentGuidesToggle'                 , 'indent-guide']         ,
@@ -184,9 +184,9 @@ let g:spacevim#map#leader#desc['t'] = {
       \ 'C' : ['spacevim#vim#toggle#ColorColumn()'  , 'color-column']         ,
       \ }
 
-let g:spacevim#map#leader#desc['u'] = 'scroll-up'
+let s:leader_map['u'] = 'scroll-up'
 
-let g:spacevim#map#leader#desc['w'] = {
+let s:leader_map['w'] = {
       \ 'name' : '+windows'                       ,
       \ 'w' :  'other-window'                     ,
       \ 'd' :  'delete-window'                    ,
@@ -208,8 +208,10 @@ let g:spacevim#map#leader#desc['w'] = {
       \ '?' :  'fzf-window'                       ,
       \ }
 
-let g:spacevim#map#leader#desc['x'] = {
+let s:leader_map['x'] = {
       \ 'name' : '+text'           ,
       \ 'a' : ['<Plug>(EasyAlign)' , 'easy-align']                 ,
       \ 'd' : ['StripWhitespace'   , 'delete-trailing-whitespace'] ,
       \ }
+
+let g:spacevim#map#leader#desc =  get(g:, 'spacevim#map#leader#desc', s:leader_map)
