@@ -18,9 +18,13 @@ function! spacevim#vim#plug#check(...) abort
   let missing = filter(values(g:plugs), '!isdirectory(v:val.dir)')
   if len(missing)
     let plugs = map(missing, 'split(v:val.dir, "/")[-1]')
-    let l:msg .= string(plugs).(' (y/N): ')
+    let l:msg .= string(plugs).' (y/N): '
     let l:msg = s:truncate(l:msg)
     if a:0 == 1
+      if exists('*popup_dialog')
+        call s:popup_dialog(l:msg)
+        return
+      endif
       if s:ask(l:msg)
         silent PlugInstall --sync | q
       endif
@@ -29,6 +33,20 @@ function! spacevim#vim#plug#check(...) abort
       PlugInstall --sync | q
     endif
   endif
+endfunction
+
+function! s:dialog_handler(id, result) abort
+  if a:result
+    call popup_close(a:id)
+    silent PlugInstall --sync | q
+  endif
+endfunction
+
+function! s:popup_dialog(msg) abort
+  call popup_dialog(a:msg, #{
+        \ filter: 'popup_filter_yesno',
+        \ callback: function('s:dialog_handler'),
+        \ })
 endfunction
 
 function! s:ask(message) abort
