@@ -36,7 +36,7 @@ equivalent to `.spacemacs` in spacemacs.
 space-vim use `~/.spacevim` as configuration file, which should be composed of
 some global options and two functions:
 
-  |UserInit()|    - You can add your own plugins in this function. 
+  |UserInit()|    - You can add your own plugins in this function.
   |UserConfig()|  - Used for overriding the default options in space-vim.
 
 **Don't edit `~/.space-vim/init.spacevim`**. It's merely a template for
@@ -47,7 +47,7 @@ configure space-vim.
 3. Global Options                                            *spacevim-options*
 
 g:spacevim_layers                                           *g:spacevim_layers*
-  
+
   Type: |List|
   Default: `['fzf', 'better-defaults', 'which-key']`
 
@@ -90,6 +90,13 @@ g:spacevim_enable_startify                              *g:spacevim_enable_start
   Default: `1`
 
   Set it to `0` if you want to disable startify completely.
+
+g:spacevim_enable_whitespace
+  Type: |Number|
+  Default: `0`
+
+  By default, vim-better-whitespace is enabled only when you execute `StripWhitespace`(<Leader>xd).
+  Set it to `1` if you want to enable it automatically.
 
 g:spacevim_speed_up_via_timer                     *g:spacevim_speed_up_via_timer*
   Type: |Number|

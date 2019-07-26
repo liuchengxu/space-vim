@@ -36,7 +36,11 @@ endif
 " MP 'kana/vim-operator-user',         { 'on': '<Plug>(operator-flashy)' }
 " MP 'haya14busa/vim-operator-flashy', { 'on': '<Plug>(operator-flashy)' }
 
-MP 'ntpeters/vim-better-whitespace', { 'on': 'StripWhitespace' }
+if get(g:, "spacevim_enable_whitespace", 0)
+  MP 'ntpeters/vim-better-whitespace'
+else
+  MP 'ntpeters/vim-better-whitespace' , { 'on': 'StripWhitespace' }
+endif
 
 if has('patch-8.0.1238')
   MP 'haya14busa/is.vim'
