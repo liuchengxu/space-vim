@@ -167,6 +167,7 @@ function! s:register_plugin() abort
       call plug#(a:val, get(s:plug_options, a:val, ""))
     endif
   endfunction
+  call extend(g:spacevim.excluded, get(g:, 'spacevim_excluded', []))
   call map(copy(g:spacevim.plugins), 's:filter_and_register(v:val)')
   if exists('*UserInit') | call UserInit() | endif
   call plug#end()

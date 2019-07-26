@@ -98,6 +98,13 @@ g:spacevim_speed_up_via_timer                     *g:spacevim_speed_up_via_timer
   By default space-vim will speed up the startup of vim via timer, which could lead
   to some side effects you may dislike. Set it to `0` to disable this trick.
 
+g:spacevim_excluded                                          *g:spacevim_excluded*
+  Type: |List|
+  Default: `[]`
+
+  Exclude the plugins used in space-vim by default. One use case is to disable the
+  builtin plugins which may be lazy loaded and reregister them in `UserInit()`.
+
 g:spacevim_disable_restore_cursor_position_on_open *g:spacevim_disable_restore_cursor_position_on_open*
   Type: |Number|
   Default: `0`
