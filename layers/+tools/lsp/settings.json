@@ -3,6 +3,8 @@
         "clippy_preference": "on"
     },
     "initializationOptions": {
-      "cacheDirectory": "/tmp/ccls"
+        "cache": {
+            "directory": "/tmp/ccls"
+        }
     }
 }
