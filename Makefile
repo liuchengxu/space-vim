@@ -15,31 +15,31 @@ help:
 	@echo "    uninstall   Uninstall space-vim"
 
 vim:
-	@echo "\033[1;34m==>\033[0m Trying to install space-vim for Vim"; \
+	@echo -e "\033[1;34m==>\033[0m Trying to install space-vim for Vim"; \
 	[ ! -f $(VIMRC) ]        && ln -sf $(INIT_VIM) $(VIMRC)         && echo "    - Created $(VIMRC) "; \
 	[ ! -f $(DOT_SPACEVIM) ] && cp $(INIT_SPACEVIM) $(DOT_SPACEVIM) && echo "    - Created $(DOT_SPACEVIM) "; \
 	vim  +'PlugInstall' +qall; \
-	echo "\033[32m[✔]\033[0m Successfully installed $(APP) for Vim!"
+	echo -e "\033[32m[✔]\033[0m Successfully installed $(APP) for Vim!"
 
 neovim:
-	@echo "\033[1;34m==>\033[0m Trying to install space-vim for NeoVim"; \
+	@echo -e "\033[1;34m==>\033[0m Trying to install space-vim for NeoVim"; \
 	mkdir -p ~/.config/nvim; \
 	[ ! -f $(NVIMRC) ]       && ln -sf $(INIT_VIM) $(NVIMRC)        && echo "    - Created $(NVIMRC)"; \
 	[ ! -f $(DOT_SPACEVIM) ] && cp $(INIT_SPACEVIM) $(DOT_SPACEVIM) && echo "    - Created $(DOT_SPACEVIM) "; \
 	nvim +'PlugInstall' +qall; \
-	echo "\033[32m[✔]\033[0m Successfully installed $(APP) for NeoVim!"
+	echo -e "\033[32m[✔]\033[0m Successfully installed $(APP) for NeoVim!"
 
 update:
-	@echo "\033[1;34m==>\033[0m Trying to update space-vim"; \
+	@echo -e "\033[1;34m==>\033[0m Trying to update space-vim"; \
 	git pull origin master; \
-	echo "\033[32m[✔]\033[0m Successfully updated $(APP)"
+	echo -e "\033[32m[✔]\033[0m Successfully updated $(APP)"
 
 uninstall:
-	@echo "\033[1;34m==>\033[0m Trying to uninstall space-vim"; \
+	@echo -e "\033[1;34m==>\033[0m Trying to uninstall space-vim"; \
 	rm -f  $(VIMRC)            && echo "    - Removed $(VIMRC)"; \
 	rm -f  $(NVIMRC)           && echo "    - Removed $(NVIMRC)"; \
 	rm -f  $(DOT_SPACEVIM)     && echo "    - Removed $(DOT_SPACEVIM)"; \
 	rm -rf ~/.$(APP)           && echo "    - Removed ~/.$(APP)"; \
-	echo "\033[32m[✔]\033[0m Successfully uninstalled $(APP)"
+	echo -e "\033[32m[✔]\033[0m Successfully uninstalled $(APP)"
 
 .PHONY: help vim neovim update uninstall
