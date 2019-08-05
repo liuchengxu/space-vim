@@ -20,7 +20,7 @@ if get(g:, 'spacevim_enable_startify', 1)
   autocmd! User vim-startify call spacevim#autocmd#startify#Init()
 
   function! s:LoadStartifyIfNoArgs() abort
-    if !argc()
+    if !argc() && v:progname =~ "vim$"
       call plug#load('vim-startify')
       silent! Startify
     endif
