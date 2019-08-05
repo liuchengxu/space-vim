@@ -22,6 +22,10 @@
 "
 " Note that empty commits are commented out
 
+if !get(b:, 'spacevim_enable_map', 0)
+  finish
+endif
+
 function! s:rebase_action(cmd) abort
   let cur_line = split(getline('.'))
   let cur_line[0] = a:cmd
