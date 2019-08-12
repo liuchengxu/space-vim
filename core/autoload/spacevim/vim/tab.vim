@@ -2,6 +2,8 @@ let s:use_fancy_style = get(g:, 'airline_powerline_fonts', 0)
 
 "    
 let s:sep = s:use_fancy_style ? ["\ue0b0", "\ue0b1"] : ['', '']
+"    
+let s:right_sep = s:use_fancy_style ? ["\ue0b2", "\ue0b3"] : ['', '']
 
 function! s:get_color(group, attr) abort
   return synIDattr(synIDtrans(hlID(a:group)), a:attr)
@@ -63,6 +65,11 @@ function! s:hi() abort
   execute 'hi SpacevimTabLineInactiveSep'     s:get_attrs(['SpacevimTabLineSel' , 'bg'] , ['SpacevimTabLine'    , 'bg'])
   execute 'hi SpacevimTabLineLastActiveSep'   s:get_attrs(['SpacevimTabLine'    , 'bg'] , ['StatusLine'         , 'bg'])
   execute 'hi SpacevimTabLineLastInactiveSep' s:get_attrs(['SpacevimTabLineSel' , 'bg'] , ['StatusLine'         , 'bg'])
+
+  execute 'hi SpacevimTabLineRightXSep'       s:get_attrs(['SpacevimTabLineSel' , 'bg'] , ['StatusLine'    , 'bg'])
+  execute 'hi SpacevimTabLineRightX'          s:get_attrs(['SpacevimTabLineSel' , 'bg'] , ['StatusLine'    , 'bg'])
+  execute 'hi SpacevimTabLineRightSep'        s:get_attrs(['SpacevimTabLineSel' , 'bg'] , ['StatusLine'    , 'bg'])
+  execute 'hi SpacevimTabLineRightTabs'       s:get_attrs(['SpacevimTabLine'    , 'bg'] , ['SpacevimTabLineSel' , 'bg'])
 endfunction
 
 function! spacevim#vim#tab#TabLine()
@@ -101,7 +108,13 @@ function! spacevim#vim#tab#TabLine()
   endfor
 
   let tabline .= '%#TabLineFill#%T'
-  let tabline .= tabpagenr('$') > 1 ? '%=%#TabLine#%999XX' : 'X'
+  let tabline .= tabpagenr('$') > 1 ? '%=%#TabLine#%999X' : ''
+
+  let tabline .= '%#SpacevimTabLineRightXSep#'.s:right_sep[1].'%*'
+  let tabline .= '%#SpacevimTabLineRightX# X %*'
+
+  let tabline .= '%#SpacevimTabLineRightSep#'.s:right_sep[0].'%*'
+  let tabline .= '%#SpacevimTabLineRightTabs# tabs %*'
 
   call s:hi()
 

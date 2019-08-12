@@ -43,9 +43,9 @@ function! s:dialog_handler(id, result) abort
 endfunction
 
 function! s:popup_dialog(msg) abort
-  call popup_dialog(a:msg, #{
-        \ filter: 'popup_filter_yesno',
-        \ callback: function('s:dialog_handler'),
+  call popup_dialog(a:msg, {
+        \ 'filter': 'popup_filter_yesno',
+        \ 'callback': function('s:dialog_handler'),
         \ })
 endfunction
 
