@@ -39,21 +39,16 @@ else
                 \   }
   endif
 
-  if get(g:, 'spacevim_prefer_skim', 0)
-    command! -bang -nargs=* Ag call fzf#vim#ag_interactive(<q-args>, fzf#vim#with_preview('right:50%:hidden', 'alt-h'))
-    command! -bang -nargs=* Rg call fzf#vim#rg_interactive(<q-args>, fzf#vim#with_preview('right:50%:hidden', 'alt-h'))
-  else
-    " fzf.vim doesn't enable preview feature by default.
-    command! -bang -nargs=* Ag
-                \ echo "\r" | call fzf#vim#ag(<q-args>, fzf#vim#with_preview(), <bang>0)
+  " fzf.vim doesn't enable preview feature by default.
+  command! -bang -nargs=* Ag
+              \ echo "\r" | call fzf#vim#ag(<q-args>, fzf#vim#with_preview(), <bang>0)
 
-    command! -bang -nargs=? -complete=dir Files
-      \ echo "\r\r" | call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+  command! -bang -nargs=? -complete=dir Files
+    \ echo "\r\r" | call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
-    command! -nargs=* Rag call spacevim#plug#fzf#AgInProject(<q-args>)
+  command! -nargs=* Rag call spacevim#plug#fzf#AgInProject(<q-args>)
 
-    command! -bang -nargs=* Rg call spacevim#plug#fzf#Rg(<q-args>, <bang>0)
-  endif
+  command! -bang -nargs=* Rg call spacevim#plug#fzf#Rg(<q-args>, <bang>0)
 
   nmap <Leader>? <plug>(fzf-maps-n)
   xmap <Leader>? <plug>(fzf-maps-x)

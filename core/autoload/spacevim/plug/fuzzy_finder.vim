@@ -12,7 +12,6 @@ function! s:on_selected_rg(selected) abort
   let fname = items[1]
   let lnum = items[2]
   let column = items[3]
-  echom "fname: ".string(fname)
   execute 'edit' fname
   call cursor(lnum, column)
 endfunction
