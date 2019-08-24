@@ -63,10 +63,14 @@ function! spacevim#plug#fuzzy_finder#fzy.rg() abort
   let s:fuzzy_callback.filename = tempname()
   let s:fuzzy_callback.on_selected = function('s:on_selected_rg')
 
+  let root_dir = spacevim#util#RootDirectory()
+  let cd = empty(root_dir) ? '' : 'cd '.root_dir
+
   " --color=always somehow disables the C-J/C-K
   "  TODO: use --color=always should take care of the escape code.
-  let choice_cmd = 'rg --column --no-heading --smart-case --line-number ""'
-  let term_cmd = choice_cmd . ' | fzy --lines=100 --prompt='.s:prompt("fzy> ").' > ' .  s:fuzzy_callback.filename
+  let choice_cmd = cd.' && rg --column --no-heading --smart-case --line-number ""'
+  let prompt = s:prompt("fzy> ")
+  let term_cmd = choice_cmd . ' | fzy --lines=100 --prompt='.prompt.' > ' .  s:fuzzy_callback.filename
 
   call s:fuzzy_finder(term_cmd)
 
@@ -87,8 +91,12 @@ function! spacevim#plug#fuzzy_finder#fzy.rg_files() abort
   let s:fuzzy_callback.filename = tempname()
   let s:fuzzy_callback.on_selected = function('s:on_selected_rg_files')
 
-  let choice_cmd = 'rg --no-heading --smart-case --files '.spacevim#util#RootDirectory()
-  let term_cmd = choice_cmd . ' | fzy --lines=100 --prompt='.s:prompt("fzy> ").' > ' .  s:fuzzy_callback.filename
+  let root_dir = spacevim#util#RootDirectory()
+  let cd = empty(root_dir) ? '' : 'cd '.root_dir
+
+  let choice_cmd = cd.' && rg --no-heading --smart-case --files '
+  let prompt = s:prompt("fzy> ")
+  let term_cmd = choice_cmd . ' | fzy --lines=100 --prompt='.prompt.' > ' .  s:fuzzy_callback.filename
 
   call s:fuzzy_finder(term_cmd)
 endfunction
@@ -102,8 +110,11 @@ function! spacevim#plug#fuzzy_finder#skim.rg() abort
   let s:fuzzy_callback.filename = tempname()
   let s:fuzzy_callback.on_selected = function('s:on_selected_rg')
 
+  let root_dir = spacevim#util#RootDirectory()
+  let cd = empty(root_dir) ? '' : 'cd '.root_dir
+
   let prompt = s:prompt('sk> ')
-  let sk_base_cmd = "sk --layout=reverse --cmd-prompt ".s:prompt('sk> ')." --ansi --interactive"
+  let sk_base_cmd = cd." && sk --layout=reverse --cmd-prompt ".prompt." --ansi --interactive"
   let choice_cmd = sk_base_cmd." -c 'rg --smart-case --color=always --column --line-number \"{}\"'"
   let term_cmd = choice_cmd . ' > ' .  s:fuzzy_callback.filename
 
@@ -114,7 +125,11 @@ function! spacevim#plug#fuzzy_finder#skim.rg_files() abort
   let s:fuzzy_callback.filename = tempname()
   let s:fuzzy_callback.on_selected = function('s:on_selected_rg_files')
 
-  let sk_base_cmd = "sk --layout=reverse --cmd-prompt ".s:prompt('sk> ')." --ansi --interactive"
+  let root_dir = spacevim#util#RootDirectory()
+  let cd = empty(root_dir) ? '' : 'cd '.root_dir
+
+  let prompt = s:prompt('sk> ')
+  let sk_base_cmd = cd." && sk --layout=reverse --cmd-prompt ".prompt." --ansi --interactive"
   let choice_cmd = sk_base_cmd." -c 'rg --smart-case --color=always --files ".spacevim#util#RootDirectory()." \"{}\"'"
   let term_cmd = choice_cmd . ' > ' .  s:fuzzy_callback.filename
 
