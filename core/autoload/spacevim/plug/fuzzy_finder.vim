@@ -70,15 +70,17 @@ function! spacevim#plug#fuzzy_finder#fzy.rg() abort
 
   call s:fuzzy_finder(term_cmd)
 
-  syntax match SpaceLinNr /^.*:\zs\d\+\ze:\d\+:/hs=s+1,he=e-1
-  syntax match SpaceColumn /:\d\+:\zs\d\+\ze:/ contains=SpaceLinNr
-  syntax match SpaceLinNrColumn /\zs:\d\+:\d\+:\ze/ contains=SpaceLinNr,SpaceColumn
-  syntax match SpaceFpath /^.*:\d\+:\d\+:/ contains=SpaceLinNrColumn
+  if has('nvim')
+    syntax match SpaceLinNr /^.*:\zs\d\+\ze:\d\+:/hs=s+1,he=e-1
+    syntax match SpaceColumn /:\d\+:\zs\d\+\ze:/ contains=SpaceLinNr
+    syntax match SpaceLinNrColumn /\zs:\d\+:\d\+:\ze/ contains=SpaceLinNr,SpaceColumn
+    syntax match SpaceFpath /^.*:\d\+:\d\+:/ contains=SpaceLinNrColumn
 
-  highlight default link SpaceFpath       Keyword
-  highlight default link SpaceLinNr       LineNr
-  highlight default link SpaceColumn      Comment
-  highlight default link SpaceLinNrColumn Type
+    highlight default link SpaceFpath       Keyword
+    highlight default link SpaceLinNr       LineNr
+    highlight default link SpaceColumn      Comment
+    highlight default link SpaceLinNrColumn Type
+  endif
 endfunction
 
 function! spacevim#plug#fuzzy_finder#fzy.rg_files() abort
