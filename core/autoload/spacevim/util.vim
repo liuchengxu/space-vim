@@ -178,7 +178,7 @@ function! spacevim#util#TryFloatingOr()
   if exists('*nvim_open_win')
     call spacevim#util#FloatingWin()
   else
-    botright 30 new
+    botright 15 new
   endif
 endfunction
 

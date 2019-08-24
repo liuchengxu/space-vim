@@ -16,7 +16,7 @@ function! s:on_selected_rg(selected) abort
   call cursor(lnum, column)
 endfunction
 
-function! s:fuzzy_callback.on_exit(job_id, data, event) abort
+function! s:fuzzy_callback.on_exit_impl() abort
   bdelete!
   call win_gotoid(self.window_id)
   try
@@ -32,12 +32,29 @@ function! s:fuzzy_callback.on_exit(job_id, data, event) abort
   endtry
 endfunction
 
+function! s:fuzzy_callback.on_exit(_job_id, _data, _event) abort
+  call s:fuzzy_callback.on_exit_impl()
+endfunction
+
+function! s:fuzzy_callback.exit_cb(_job, _status) abort
+  call s:fuzzy_callback.on_exit_impl()
+endfunction
+
 function! s:fuzzy_finder(term_cmd) abort
   let s:fuzzy_callback.window_id = win_getid()
 
   call spacevim#util#TryFloatingOr()
 
-  silent call termopen(a:term_cmd, s:fuzzy_callback)
+  if exists('*term_start')
+    let opts = {
+          \ 'curwin': 1,
+          \ 'exit_cb': s:fuzzy_callback.exit_cb,
+          \ }
+    call term_start([&shell, &shellcmdflag, a:term_cmd], opts)
+  elseif exists('*termopen')
+    call termopen(a:term_cmd, s:fuzzy_callback)
+  endif
+
   setlocal nonumber norelativenumber
   startinsert
 endfunction
@@ -49,9 +66,9 @@ function! spacevim#plug#fuzzy_finder#fzy.rg() abort
   " --color=always somehow disables the C-J/C-K
   "  TODO: use --color=always should take care of the escape code.
   let choice_cmd = 'rg --column --no-heading --smart-case --line-number ""'
-  let l:term_cmd = choice_cmd . ' | fzy --lines=100 --prompt='.s:prompt("fzy> ").' > ' .  s:fuzzy_callback.filename
+  let term_cmd = choice_cmd . ' | fzy --lines=100 --prompt='.s:prompt("fzy> ").' > ' .  s:fuzzy_callback.filename
 
-  call s:fuzzy_finder(l:term_cmd)
+  call s:fuzzy_finder(term_cmd)
 
   syntax match SpaceLinNr /^.*:\zs\d\+\ze:\d\+:/hs=s+1,he=e-1
   syntax match SpaceColumn /:\d\+:\zs\d\+\ze:/ contains=SpaceLinNr
