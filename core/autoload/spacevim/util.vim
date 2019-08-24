@@ -181,3 +181,7 @@ function! spacevim#util#TryFloatingOr()
     botright 30 new
   endif
 endfunction
+
+function! spacevim#util#PathSep() abort
+  return g:spacevim.os.windows ? '\' : '/'
+endfunction
