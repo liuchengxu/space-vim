@@ -16,7 +16,7 @@ else
 
   if exists('*nvim_open_win')
     let $FZF_DEFAULT_OPTS = '--layout=reverse'
-    let g:fzf_layout = { 'window': 'call spacevim#plug#fzf#FloatingWin()' }
+    let g:fzf_layout = { 'window': 'call spacevim#util#FloatingWin()' }
   else
     " g:fzf_colors would reset the highlight even you have set the highlight
     " of floating window explicitly.

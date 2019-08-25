@@ -13,10 +13,12 @@ CHANGELOG
 - support neovim's floating window in fzf layer.
 - support crude GotoDefinition for vim <SID> and autoload function in space-vim itself.
 - add `gitbase` shortcuts.
+- add more fuzzy finders support(#428)
 
 ### Changed
 
 - try to wrap fzf and unite.
+- `<Leader>ps` now uses rg as the default search tool instead of ag.
 
 ### Removed
 
