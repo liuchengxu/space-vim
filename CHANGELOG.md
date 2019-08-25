@@ -18,6 +18,7 @@ CHANGELOG
 ### Changed
 
 - try to wrap fzf and unite.
+- `<Leader>ps` now uses rg as the default search tool instead of ag.
 
 ### Removed
 

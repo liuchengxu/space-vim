@@ -139,11 +139,13 @@ let s:leader_map['l'] = {
       \ }
 
 let s:leader_map['p'] = {
-      \ 'name' : '+projects'                                ,
-      \ 'f' : ['spacevim#plug#fzf#FindFileInProject()' , 'find-file-in-project']  ,
-      \ 's' : ['Rag'                                        , 'search-in-project']     ,
-      \ 'w' : ['spacevim#plug#fzf#RgCursorWord()', 'find-cword-in-project-via-rg'],
-      \ 'W' : ['spacevim#plug#fzf#SearchCword()'       , 'find-cword-in-project'] ,
+      \ 'name' : '+projects'                           ,
+      \ 'f' : ['spacevim#plug#fzf#FindFileInProject()' , 'find-file-in-project']         ,
+      \ 's' : ['Rg'                                    , 'search-in-project']            ,
+      \ 'a' : ['Rag'                                   , 'search-in-project-via-ag']     ,
+      \ 'r' : ['Rg'                                    , 'search-in-project-via-rg']     ,
+      \ 'w' : ['spacevim#plug#fzf#RgCursorWord()'      , 'find-cword-in-project-via-rg'] ,
+      \ 'W' : ['spacevim#plug#fzf#SearchCword()'       , 'find-cword-in-project']        ,
       \ }
 
 let s:leader_map['r'] = {
