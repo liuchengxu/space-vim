@@ -156,10 +156,10 @@ check_git() {
 
 infer() {
   if exists "vim" && exists "nvim"; then
-    echo "\\033[1;34m==>\\033[0m Find both 'vim' and 'nvim' in your system"
+    msg "\\033[1;34m==>\\033[0m Found both 'vim' and 'nvim' in your system"
     echo
     while true; do
-      read -r -p "    Install space-vim for: [0]vim [1]nvim [2]vim and nvim :" opt
+      read -r -p "    Install space-vim for: [0]vim [1]nvim [2]vim and nvim: " opt
       case $opt in
         0)
           install_for_vim
