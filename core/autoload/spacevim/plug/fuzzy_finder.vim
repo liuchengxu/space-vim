@@ -55,7 +55,7 @@ function! s:fuzzy_finder(term_cmd) abort
     call termopen(a:term_cmd, s:fuzzy_callback)
   endif
 
-  setlocal nonumber norelativenumber
+  setlocal nospell bufhidden=wipe nobuflisted nonumber norelativenumber
   startinsert
 endfunction
 

@@ -17,13 +17,16 @@ endfunction
 
 " NERDTress File highlighting
 function! s:highlight(extension, group, ext_group)
-  let ext_group_name = 'ext_'.a:extension
+  let ext_group_name = 'nerdtree_ext_'.a:extension
   execute 'syntax match' ext_group_name '/\f*'.a:extension.'$/'
   execute 'syntax match' a:extension    '/^\s\+.*'.a:extension.'$/' 'contains='.ext_group_name
 
   execute 'hi!' a:extension    s:get_attrs(a:group)
   execute 'hi!' ext_group_name s:get_attrs(a:ext_group)
 endfunction
+
+hi! link NERDTreeClosable Type
+hi! link NERDTreeOpenable Identifier
 
 let s:use_gui = has('gui_running') || (has('termguicolors') && &termguicolors)
 let s:gui_or_cterm = s:use_gui ? 'gui' : 'cterm'
