@@ -204,12 +204,25 @@ function! spacevim#plug#fzf#Rg(query, bang) abort
   endif
   echo "\r"
   let preview_opts = a:bang ? fzf#vim#with_preview('up:60%') : fzf#vim#with_preview('right:50%:hidden', '?')
-  call extend(preview_opts.options, ['--prompt', spacevim#util#RootDirectory().'> '])
-  call fzf#vim#grep(
-        \ 'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(a:query), 1,
-        \ preview_opts,
-        \ a:bang,
-        \ )
+  let root_dir = spacevim#util#RootDirectory()
+  call extend(preview_opts.options, ['--prompt', root_dir.'> '])
+  try
+    let restore_old_cwd = 0
+    let old_cwd = getcwd()
+    if old_cwd != root_dir
+      execute 'lcd' root_dir
+      let restore_old_cwd = 1
+    endif
+    call fzf#vim#grep(
+          \ 'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(a:query), 1,
+          \ preview_opts,
+          \ a:bang,
+          \ )
+  finally
+    if restore_old_cwd
+      execute 'lcd' old_cwd
+    endif
+  endtry
 endfunction
 
 function! s:rg(query) abort

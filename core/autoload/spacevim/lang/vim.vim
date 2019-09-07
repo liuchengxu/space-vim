@@ -17,9 +17,9 @@ function! s:TryAutoload(autoload) abort
   redir => output
   execute 'silent verbose function' a:autoload
   redir END
-
-  let defined = split(split(output, "\n")[1])[-1]
-
+  " vim: Last set from ~/.space-vim/core/autoload/spacevim/util.vim line 88
+  " neovim: Last set from ~/.space-vim/core/autoload/spacevim/util.vim
+  let defined = split(split(output, "\n")[1])[3]
   let abs_path = expand(defined)
   let idx = 1
   for line in readfile(abs_path)

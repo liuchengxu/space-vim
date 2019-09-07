@@ -86,10 +86,6 @@ function! s:is_in_git_repo() abort
 endfunction
 
 function! spacevim#util#RootDirectory() abort
-  " Dirty hack.
-  " Don't know why, this detection does not work for neovim.
-  lcd %:p:h
-
   let root_dir = s:is_in_git_repo()
   if root_dir != ''
     return root_dir
