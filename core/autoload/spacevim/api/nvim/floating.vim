@@ -1,6 +1,6 @@
-let g:spacevim#neovim#floating#open = {}
+let g:spacevim#api#nvim#floating#open = {}
 
-function! g:spacevim#neovim#floating#open.open(row, col, width, height) abort
+function! g:spacevim#api#nvim#floating#open.open(row, col, width, height) abort
   let opts = {
         \ 'relative': 'editor',
         \ 'row': a:row,
@@ -12,11 +12,13 @@ function! g:spacevim#neovim#floating#open.open(row, col, width, height) abort
   let buf = nvim_create_buf(v:false, v:true)
   let win = nvim_open_win(buf, v:true, opts)
 
-  call setwinvar(win, '&winhl', 'Normal:Pmenu')
+  hi InvisibleEndOfBuffer ctermfg=236 guifg=#34323e
+  call setwinvar(win, '&winhl', 'Normal:Pmenu,EndOfBuffer:InvisibleEndOfBuffer')
   setlocal
         \ buftype=nofile
         \ nobuflisted
         \ bufhidden=hide
+        \ nocursorline
         \ nonumber
         \ norelativenumber
         \ signcolumn=no
@@ -29,7 +31,7 @@ endfunction
 " |  HERE  |        |
 " |        |        |
 " +-----------------+
-function! spacevim#neovim#floating#open.left() abort
+function! spacevim#api#nvim#floating#open.left() abort
   let width = &columns / 2
   let height = &lines
   let row = 0
@@ -43,7 +45,7 @@ endfunction
 " |        |  HERE  |
 " |        |        |
 " +-----------------+
-function! spacevim#neovim#floating#open.right() abort
+function! spacevim#api#nvim#floating#open.right() abort
   let width = &columns / 2
   let gap = &cmdheight
   if &laststatus > 0
@@ -61,7 +63,7 @@ endfunction
 " +-----------------+
 " |                 |
 " +-----------------+
-function! spacevim#neovim#floating#open.up() abort
+function! spacevim#api#nvim#floating#open.up() abort
   let width = &columns
   let height = &lines / 2
   let row = 0
@@ -75,7 +77,7 @@ endfunction
 " +-----------------+
 " |       HERE      |
 " +-----------------+
-function! spacevim#neovim#floating#open.down() abort
+function! spacevim#api#nvim#floating#open.down() abort
   let width = &columns
   let height = &lines / 2
   let row = &lines / 2
@@ -90,7 +92,7 @@ endfunction
 " +--------+        |
 " |                 |
 " +-----------------+
-function! spacevim#neovim#floating#open.upLeft() abort
+function! spacevim#api#nvim#floating#open.upLeft() abort
   let width = &columns / 2
   let height = &lines / 2
   let row = 0
@@ -104,7 +106,7 @@ endfunction
 " +--------+        |
 " |  HERE  |        |
 " +-----------------+
-function! spacevim#neovim#floating#open.downLeft() abort
+function! spacevim#api#nvim#floating#open.downLeft() abort
   let width = &columns / 2
   let height = &lines / 2
   let row = height
@@ -119,7 +121,7 @@ endfunction
 " |        |  HERE  |
 " +-----------------+
 
-function! spacevim#neovim#floating#open.downRight() abort
+function! spacevim#api#nvim#floating#open.downRight() abort
   let width = &columns / 2
   let height = &lines / 2
   let row = height
@@ -133,7 +135,7 @@ endfunction
 " |        +--------|
 " |                 |
 " +-----------------+
-function! spacevim#neovim#floating#open.upRight() abort
+function! spacevim#api#nvim#floating#open.upRight() abort
   let width = &columns / 2
   let height = &lines / 2
   let row = 0
@@ -148,10 +150,19 @@ endfunction
 " |   | HERE |   |
 " |   +------+   |
 " +--------------+
-function! spacevim#neovim#floating#open.center() abort
+function! spacevim#api#nvim#floating#open.center() abort
   let width = &columns * 2 / 3
   let height = &lines  * 2 / 3
   let row = height / 4
+  let col = width / 4
+
+  return self.open(row, col, width, height)
+endfunction
+
+function! spacevim#api#nvim#floating#open.upCenter() abort
+  let width = &columns * 2 / 3
+  let height = &lines  * 2 / 3
+  let row = 0
   let col = width / 4
 
   return self.open(row, col, width, height)

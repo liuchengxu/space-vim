@@ -1,3 +1,7 @@
+if get(g:, 'which_key_use_floating_win', 1)
+  finish
+endif
+
 setlocal laststatus=0 noshowmode noruler nonumber norelativenumber
 
 augroup spacevimWhichKey
