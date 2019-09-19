@@ -1,3 +1,3 @@
 " goyo.vim {
-  nnoremap <Leader>Ww <Plug>:VimwikiIndex<CR>
+  nnoremap <Leader>wW <Plug>:VimwikiIndex<CR>
 " }
