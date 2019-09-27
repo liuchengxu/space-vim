@@ -65,8 +65,7 @@ endfunction
 
 call s:def_hi()
 
-unlet s:hi_group s:use_gui s:gui_or_cterm s:normal_bg
-delfunction s:get_color
-delfunction s:get_attrs
-delfunction s:highlight
-delfunction s:def_hi
+augroup spacevimHiExtraNerdtree
+  autocmd!
+  autocmd ColorScheme * call <SID>def_hi()
+augroup END
