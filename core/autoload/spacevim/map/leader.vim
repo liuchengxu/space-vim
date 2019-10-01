@@ -87,7 +87,7 @@ let s:leader_map['f'] = {
       \ 't' : 'toggle-NERDTree'                 ,
       \ '?' : 'files-in-current-direcotry'      ,
       \ 'R' : 'reload-vimrc'                    ,
-      \ 'b' : ['BLines'                         , 'fzf-find-current-buffer'] ,
+      \ 'b' : ['spacevim#map#manager#BLines()'  , 'fzf-find-current-buffer'] ,
       \ }
 
 let s:leader_map['g'] = {
@@ -141,10 +141,10 @@ let s:leader_map['l'] = {
 let s:leader_map['p'] = {
       \ 'name' : '+projects'                           ,
       \ 'f' : ['spacevim#plug#fzf#FindFileInProject()' , 'find-file-in-project']         ,
-      \ 's' : ['Rg'                                    , 'search-in-project']            ,
+      \ 's' : ['spacevim#map#manager#Rg()'             , 'search-in-project']            ,
       \ 'a' : ['Rag'                                   , 'search-in-project-via-ag']     ,
-      \ 'r' : ['Rg'                                    , 'search-in-project-via-rg']     ,
-      \ 'w' : ['spacevim#plug#fzf#RgCursorWord()'      , 'find-cword-in-project-via-rg'] ,
+      \ 'r' : ['spacevim#map#manager#Rg()'             , 'search-in-project-via-rg']     ,
+      \ 'w' : ['spacevim#map#manager#RgCword()'        , 'find-cword-in-project-via-rg'] ,
       \ 'W' : ['spacevim#plug#fzf#SearchCword()'       , 'find-cword-in-project']        ,
       \ }
 
@@ -160,30 +160,20 @@ let s:leader_map['s'] = {
       \ 'name' : '+search/show'                   ,
       \ 'c' : 'search-clear-highlight'            ,
       \ 'h' : ['spacevim#util#SyntaxHiGroup()'    , 'show-highlight-group']   ,
-      \ 'b' : ['BLines'                           , 'search-in-buffer']       ,
-      \ 'B' : ['spacevim#plug#fzf#SearchBcword()' , 'search-cword-in-buffer'] ,
+      \ 'b' : ['spacevim#map#manager#BLines()'    , 'search-in-buffer']       ,
+      \ 'B' : ['spacevim#map#manager#BufCword()' , 'search-cword-in-buffer'] ,
       \ }
 
-function! s:buftag() abort
-  if exists(':BTags')
-    BTags
-  elseif exists(':LeaderfBufTag')
-    LeaderfBufTag
-  else
-    echom "Not avaliable"
-  endif
-endfunction
-
 let s:leader_map['t'] = {
-      \ 'name' : '+toggle/tag'                          ,
-      \ 'g' : ['spacevim#plug#toggle#Git()'         , 'git-status-indicator'] ,
-      \ 'i' : ['IndentGuidesToggle'                 , 'indent-guide']         ,
-      \ 'p' : ['setlocal paste!'                    , 'paste-mode']           ,
-      \ 's' : ['SyntasticToggleMode'                , 'syntastic']            ,
-      \ 'b' : [function('s:buftag')                   , 'tags-in-current-buffer'],
-      \ 'T' : ['TagbarToggle'                       , 'tagbar']               ,
-      \ 'c' : ['spacevim#vim#toggle#CursorColumn()' , 'cursor-column']        ,
-      \ 'C' : ['spacevim#vim#toggle#ColorColumn()'  , 'color-column']         ,
+      \ 'name' : '+toggle/tag'                      ,
+      \ 'g' : ['spacevim#plug#toggle#Git()'         , 'git-status-indicator']   ,
+      \ 'i' : ['IndentGuidesToggle'                 , 'indent-guide']           ,
+      \ 'p' : ['setlocal paste!'                    , 'paste-mode']             ,
+      \ 's' : ['SyntasticToggleMode'                , 'syntastic']              ,
+      \ 'b' : ['spacevim#map#manager#BufTags()'     , 'tags-in-current-buffer'] ,
+      \ 'T' : ['TagbarToggle'                       , 'tagbar']                 ,
+      \ 'c' : ['spacevim#vim#toggle#CursorColumn()' , 'cursor-column']          ,
+      \ 'C' : ['spacevim#vim#toggle#ColorColumn()'  , 'color-column']           ,
       \ }
 
 let s:leader_map['u'] = 'scroll-up'

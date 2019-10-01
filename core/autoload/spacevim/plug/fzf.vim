@@ -18,13 +18,7 @@ endfunction
 " Configuration Files
 " ------------------------------------------------------------------
 function! spacevim#plug#fzf#Open(...)
-  let l:open = [
-        \ '~/.spacevim',
-        \ '~/.space-vim/init.vim',
-        \ '~/.bashrc',
-        \ '~/.zshrc',
-        \ '~/.tmux.conf'
-        \ ]
+  let l:open = g:spacevim#map#manager#quick_open
   let opts = {
         \ 'source': l:open,
         \ 'sink': 'e',

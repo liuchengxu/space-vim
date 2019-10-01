@@ -1,7 +1,13 @@
-nnoremap <silent><Leader>ff :<c-u>call spacevim#wrap#fzf#Files()<CR>
-nnoremap <silent><Leader>bb :<c-u>call spacevim#wrap#fzf#Buffers()<CR>
-nnoremap <silent><Leader>fl :<c-u>call spacevim#wrap#fzf#BLines()<CR>
-nnoremap <silent><Leader>fL :<c-u>call spacevim#wrap#fzf#BLinesAll()<CR>
+nnoremap <silent><Leader>ff :<c-u>call spacevim#map#manager#Files()<CR>
+nnoremap <silent><Leader>bb :<c-u>call spacevim#map#manager#Buffers()<CR>
+nnoremap <silent><Leader>fl :<c-u>call spacevim#map#manager#BLines()<CR>
+nnoremap <silent><Leader>fL :<c-u>call spacevim#map#manager#BLinesAll()<CR>
+
+nnoremap <LocalLeader>v :<c-u>call spacevim#map#manager#QuickOpen()<CR>
+
+if get(g:, 'spacevim_enable_clap', v:false)
+  finish
+endif
 
 if g:spacevim.gui && !has('terminal')
   " LeaderF {
@@ -66,10 +72,8 @@ else
   vnoremap <leader>rg :call spacevim#plug#fzf#RgVisual()<CR>
 
   " Mimic <C-R> in bash
-  cnoremap <C-R> :History:<CR>
+  cnoremap <C-R> :<c-u>call spacevim#map#manager#CommandHistory()<CR>
 
-  nnoremap <LocalLeader>v :call spacevim#wrap#fzf#Open()<CR>
-  nnoremap <LocalLeader>p :call spacevim#wrap#fzf#Rtp()<CR>
   nnoremap <LocalLeader>fc :call spacevim#plug#fzf#FZFCmd()<CR>
   nnoremap <LocalLeader>ff :call spacevim#plug#fzf#Func()<CR>
 

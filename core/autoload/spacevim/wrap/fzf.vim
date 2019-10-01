@@ -36,17 +36,6 @@ function! spacevim#wrap#fzf#Files() abort
   call s:dispatch('Files ~', 'LeaderfFile ~')
 endfunction
 
-" ----------------------------------------------
-" fzf or unite
-" ----------------------------------------------
-function! spacevim#wrap#fzf#Open() abort
-  if exists(':Unite')
-    Unite -silent menu:v
-  else
-    call spacevim#plug#fzf#Open()
-  endif
-endfunction
-
 " nnoremap <LocalLeader>fc :call spacevim#plug#fzf#FZFCmd()<CR>
 function! spacevim#wrap#fzf#Rtp() abort
   call spacevim#plug#fzf#Rtp()
