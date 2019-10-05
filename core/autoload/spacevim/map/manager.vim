@@ -64,6 +64,10 @@ function! spacevim#map#manager#BufCword() abort
 endfunction
 
 function! spacevim#map#manager#RgCword() abort
+  if get(g:, 'spacevim_enable_clap', v:false)
+    Clap grep <cword>
+    return
+  endif
   " fzf
   call spacevim#plug#fzf#RgCursorWord()
 endfunction
