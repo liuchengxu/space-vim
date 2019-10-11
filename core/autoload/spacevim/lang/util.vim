@@ -35,12 +35,35 @@ function! spacevim#lang#util#FindReferences() abort
   call s:dispatch('jumpReferences', 'textDocument_references')
 endfunction
 
+function! spacevim#lang#util#Hover() abort
+  call s:dispatch('doHover', 'LanguageClient#textDocument_hover')
+endfunction
+
 function! spacevim#lang#util#Rename() abort
   call s:dispatch('rename', 'textDocument_rename')
 endfunction
 
+function! s:DocumentSymbolsCb(error, response) abort
+  if getpos('.') != s:old_pos_on_request
+    return
+  endif
+  if empty(a:error)
+    if !a:response
+      call spacevim#lang#lsp_ui#NotFound()
+    endif
+  else
+    call spacevim#util#err('fail to get Document Symbols via coc')
+  endif
+endfunction
+
 function! spacevim#lang#util#DocumentSymbol() abort
-  call s:dispatch('documentSymbols', 'textDocument_documentSymbol')
+  if s:engine == 'coc'
+    call CocActionAsync('documentSymbols', function('s:DocumentSymbolsCb'))
+    let s:old_pos_on_request = getpos('.')
+  else
+    call LanguageClient#textDocument_documentSymbol()
+  endif
+  " call s:dispatch('documentSymbols', 'textDocument_documentSymbol')
 endfunction
 
 function! spacevim#lang#util#WorkspaceSymbol() abort

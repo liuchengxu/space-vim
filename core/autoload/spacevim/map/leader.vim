@@ -123,9 +123,8 @@ let s:leader_map['j'] = {
 let s:leader_map['l'] = {
       \ 'name' : '+lsp'                               ,
       \ 'a' : ['spacevim#lang#util#CodeAction()'      , 'code-action']      ,
-      \ 'c' : ['LanguageClient_contextMenu()'         , 'context-menu']     ,
       \ 'f' : ['spacevim#lang#util#Format()'          , 'formatting']       ,
-      \ 'h' : ['LanguageClient#textDocument_hover()'  , 'hover']            ,
+      \ 'h' : ['spacevim#lang#util#Hover()'           , 'hover']            ,
       \ 'r' : ['spacevim#lang#util#FindReferences()'  , 'references']       ,
       \ 'R' : ['spacevim#lang#util#Rename()'          , 'rename']           ,
       \ 's' : ['spacevim#lang#util#DocumentSymbol()'  , 'document-symbol']  ,
