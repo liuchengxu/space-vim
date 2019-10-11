@@ -1,4 +1,6 @@
-if g:spacevim.gui && !has('terminal')
+if get(g:, 'spacevim_enable_clap', v:false)
+  MP 'liuchengxu/vim-clap'
+elseif g:spacevim.gui && !has('terminal')
   MP 'Yggdroot/LeaderF'
 else
   if g:spacevim.speed_up_via_timer

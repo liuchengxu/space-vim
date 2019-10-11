@@ -15,7 +15,7 @@
   nnoremap <silent>[menu]t :Unite -silent menu:t<CR>
   nnoremap <silent>[menu]u :Unite -silent menu:u<CR>
 
-  nnoremap <silent>[menu]v :call spacevim#wrap#fzf#Open()<CR>
+  nnoremap <silent>[menu]v :call spacevim#map#manager#QuickOpen()<CR>
 
   if !g:spacevim.timer
     call spacevim#autocmd#unite#Init()

@@ -19,6 +19,8 @@ nnoremap <silent> [l :<c-u>call <SID>cycle('lprev', 'llast')<CR>
 nnoremap <silent> <buffer> q :cclose<bar>:lclose<CR>
 nnoremap <buffer> <CR> <CR>
 
+setlocal nowrap
+
 if exists('*SetMyStatusline')
   call SetMyStatusline('')
 endif
