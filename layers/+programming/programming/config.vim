@@ -33,25 +33,16 @@ augroup END
             \   'operators': '_,_',
             \   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
             \   'separately': {
-            \       '*': {},
-            \       'tex': {
-            \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
-            \       },
-            \       'lisp': {
-            \           'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', '#FF69B4', '#DDA0DD', '#F08080', '#FF8C00', '#20B2AA'],
-            \       },
-            \       'vim': {
-            \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
-            \       },
-            \       'html': {
-            \           'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
-            \       },
-            \       'css': 0,
-            \       'fzf': 0,
-            \       'clap_grep': 0,
-            \       'clap_command_history': 0,
+            \       '*': 0,
             \   }
-            \}
+            \ }
+  let g:rainbow_conf.separately.tex = {'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/']}
+  let g:rainbow_conf.separately.lisp = {'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', '#FF69B4', '#DDA0DD', '#F08080', '#FF8C00', '#20B2AA']}
+  let g:rainbow_conf.separately.vim = {'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody']}
+  let g:rainbow_conf.separately.html = {'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold']}
+  for s:ft in ['markdown', 'awk', 'bash', 'cpp', 'go', 'haskell', 'java', 'javascript','javascriptreact', 'lua', 'php', 'python', 'rust', 'scala', 'vim', 'xml', 'c', 'sh']
+    let g:rainbow_conf.separately[s:ft] = {}
+  endfor
 " }
 
 " rainbow_parentheses.vim {

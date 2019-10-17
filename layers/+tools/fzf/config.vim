@@ -5,7 +5,7 @@ nnoremap <silent><Leader>fL :<c-u>call spacevim#map#manager#BLinesAll()<CR>
 
 nnoremap <LocalLeader>v :<c-u>call spacevim#map#manager#QuickOpen()<CR>
 
-if get(g:, 'spacevim_enable_clap', v:false)
+if get(g:, 'spacevim_enable_clap', 0)
   cnoremap <C-R> :<c-u>call spacevim#map#manager#CommandHistory()<CR>
   finish
 endif

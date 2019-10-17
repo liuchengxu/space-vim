@@ -112,7 +112,7 @@ g:spacevim_disable_restore_cursor_position_on_open *g:spacevim_disable_restore_c
   Disable restoring the previous cursor position when opening a file.
 
 g:spacevim_enable_clap                                     *g:spacevim_enable_clap*
-  Type: |Bool|
-  Default: `v:false`
+  Type: |Number|
+  Default: `0`
 
   Use https://github.com/liuchengxu/vim-clap as the plugin of fzf layer.
