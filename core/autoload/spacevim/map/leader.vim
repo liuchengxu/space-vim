@@ -156,11 +156,12 @@ let s:leader_map['q'] = [ 'q', 'quit' ]
 let s:leader_map['Q'] = [ 'qa!', 'quit-without-saving' ]
 
 let s:leader_map['s'] = {
-      \ 'name' : '+search/show'                   ,
-      \ 'c' : 'search-clear-highlight'            ,
-      \ 'h' : ['spacevim#util#SyntaxHiGroup()'    , 'show-highlight-group']   ,
-      \ 'b' : ['spacevim#map#manager#BLines()'    , 'search-in-buffer']       ,
-      \ 'B' : ['spacevim#map#manager#BufCword()' , 'search-cword-in-buffer'] ,
+      \ 'name' : '+search/show'                        ,
+      \ 'c' : 'search-clear-highlight'                 ,
+      \ 'h' : ['spacevim#util#SyntaxHiGroup()'         , 'show-highlight-group']              ,
+      \ 'b' : ['spacevim#map#manager#BLines()'         , 'search-in-buffer']                  ,
+      \ 'B' : ['spacevim#map#manager#BufCword()'       , 'search-cword-in-buffer']            ,
+      \ 'r' : ['spacevim#map#manager#SearchRecently()' , 'search-recently-buffers-and-files'] ,
       \ }
 
 let s:leader_map['t'] = {

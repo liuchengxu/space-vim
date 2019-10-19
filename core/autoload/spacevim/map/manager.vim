@@ -1,3 +1,5 @@
+let s:clap_enabled = get(g:, 'spacevim_enable_clap', 0)
+
 let g:spacevim#map#manager#quick_open = [
         \ '~/.spacevim',
         \ '~/.space-vim/init.vim',
@@ -7,7 +9,7 @@ let g:spacevim#map#manager#quick_open = [
         \ ]
 
 function! spacevim#map#manager#Buffers() abort
-  if get(g:, 'spacevim_enable_clap', 0)
+  if s:clap_enabled
     Clap buffers
     return
   endif
@@ -16,7 +18,7 @@ function! spacevim#map#manager#Buffers() abort
 endfunction
 
 function! spacevim#map#manager#Files() abort
-  if get(g:, 'spacevim_enable_clap', 0)
+  if s:clap_enabled
     Clap buffers
     return
   endif
@@ -25,7 +27,7 @@ endfunction
 
 function! spacevim#map#manager#BufTags() abort
   " vim-clap
-  if get(g:, 'spacevim_enable_clap', 0)
+  if s:clap_enabled
     Clap tags
     return
   endif
@@ -47,7 +49,7 @@ function! spacevim#map#manager#BufTags() abort
 endfunction
 
 function! spacevim#map#manager#BLines() abort
-  if get(g:, 'spacevim_enable_clap', 0)
+  if s:clap_enabled
     Clap blines
     return
   endif
@@ -64,7 +66,7 @@ function! spacevim#map#manager#BufCword() abort
 endfunction
 
 function! spacevim#map#manager#RgCword() abort
-  if get(g:, 'spacevim_enable_clap', 0)
+  if s:clap_enabled
     Clap grep <cword>
     return
   endif
@@ -78,15 +80,23 @@ function! spacevim#map#manager#Rg() abort
 endfunction
 
 function! spacevim#map#manager#CommandHistory() abort
-  if get(g:, 'spacevim_enable_clap', 0)
+  if s:clap_enabled
     Clap hist:
     return
   endif
   History:
 endfunction
 
+function! spacevim#map#manager#SearchRecently() abort
+  if s:clap_enabled
+    Clap history
+    return
+  endif
+  History
+endfunction
+
 function! spacevim#map#manager#QuickOpen() abort
-  if get(g:, 'spacevim_enable_clap', 0)
+  if s:clap_enabled
     if !exists('g:clap_provider_quick_open')
       let g:clap_provider_quick_open = {
             \ 'source': g:spacevim#map#manager#quick_open,
