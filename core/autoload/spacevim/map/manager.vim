@@ -9,31 +9,28 @@ let g:spacevim#map#manager#quick_open = [
         \ ]
 
 function! spacevim#map#manager#Buffers() abort
-  if s:clap_enabled
+  if s:clap_enabled && exists(':Clap')
     Clap buffers
-    return
+  else
+    call spacevim#wrap#fzf#Buffers()
   endif
-
-  call spacevim#wrap#fzf#Buffers()
 endfunction
 
 function! spacevim#map#manager#Files() abort
-  if s:clap_enabled
+  if s:clap_enabled && exists(':Clap')
     Clap buffers
-    return
+  else
+    call spacevim#wrap#fzf#Files()
   endif
-  call spacevim#wrap#fzf#Files()
 endfunction
 
 function! spacevim#map#manager#BufTags() abort
   " vim-clap
-  if s:clap_enabled
+  if s:clap_enabled && exists(':Clap')
     Clap tags
-    return
-  endif
 
   " fzf
-  if exists(':BTags')
+  elseif exists(':BTags')
     if !exists('g:loaded_fzf')
       call plug#load('fzf', 'fzf.vim')
     endif
@@ -44,20 +41,24 @@ function! spacevim#map#manager#BufTags() abort
     LeaderfBufTag
 
   else
-    echom "Not avaliable"
+    call spacevim#util#err('No avaliable tool for opening buffer tags')
   endif
 endfunction
 
 function! spacevim#map#manager#BLines() abort
-  if s:clap_enabled
+  if s:clap_enabled && exists(':Clap')
     Clap blines
-    return
+  else
+    call spacevim#wrap#fzf#BLines()
   endif
-  call spacevim#wrap#fzf#BLines()
 endfunction
 
 function! spacevim#map#manager#BLinesAll() abort
-  call spacevim#wrap#fzf#BLinesAll()
+  if s:clap_enabled && exists(':Clap')
+    Clap lines
+  else
+    call spacevim#wrap#fzf#BLinesAll()
+  endif
 endfunction
 
 function! spacevim#map#manager#BufCword() abort
@@ -66,37 +67,41 @@ function! spacevim#map#manager#BufCword() abort
 endfunction
 
 function! spacevim#map#manager#RgCword() abort
-  if s:clap_enabled
-    Clap grep <cword>
-    return
+  if s:clap_enabled && exists(':Clap')
+    Clap grep ++query=<cword>
+  else
+    " fzf
+    call spacevim#plug#fzf#RgCursorWord()
   endif
-  " fzf
-  call spacevim#plug#fzf#RgCursorWord()
 endfunction
 
 function! spacevim#map#manager#Rg() abort
-  " fzf
-  Rg
+  if s:clap_enabled && exists(':Clap')
+    Clap grep
+  else
+    " fzf
+    Rg
+  endif
 endfunction
 
 function! spacevim#map#manager#CommandHistory() abort
-  if s:clap_enabled
+  if s:clap_enabled && exists(':Clap')
     Clap hist:
-    return
+  else
+    History:
   endif
-  History:
 endfunction
 
 function! spacevim#map#manager#SearchRecently() abort
-  if s:clap_enabled
+  if s:clap_enabled && exists(':Clap')
     Clap history
-    return
+  else
+    History
   endif
-  History
 endfunction
 
 function! spacevim#map#manager#QuickOpen() abort
-  if s:clap_enabled
+  if s:clap_enabled && exists(':Clap')
     if !exists('g:clap_provider_quick_open')
       let g:clap_provider_quick_open = {
             \ 'source': g:spacevim#map#manager#quick_open,
@@ -104,14 +109,19 @@ function! spacevim#map#manager#QuickOpen() abort
             \ }
     endif
     Clap quick_open
-    return
-  endif
-  " ----------------------------------------------
-  " fzf or unite
-  " ----------------------------------------------
-  if exists(':Unite')
+  elseif exists(':FZF')
+    call spacevim#plug#fzf#Open()
+  elseif exists(':Unite')
     Unite -silent menu:v
   else
-    call spacevim#plug#fzf#Open()
+    call spacevim#util#err('No avaliable tool for quick open')
+  endif
+endfunction
+
+function! spacevim#map#manager#FindFiles() abort
+  if s:clap_enabled && exists(':Clap')
+    Clap files
+  else
+    call spacevim#plug#fzf#FindFileInProject()
   endif
 endfunction
