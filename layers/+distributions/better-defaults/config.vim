@@ -3,7 +3,7 @@ scriptencoding utf-8
 " Smarter cursorline {
 augroup spacevimCursorline
   autocmd!
-  autocmd InsertLeave,WinEnter * set cursorline
+  autocmd InsertLeave,WinEnter * if &ft !=# 'clap_input' | set cursorline | endif
   autocmd InsertEnter,WinLeave * set nocursorline
 augroup END
 " }
