@@ -1,2 +1,3 @@
-MP 'vimwiki/vimwiki',      { 'branch' : 'dev' }
+MP 'lervag/wiki.vim'
+MP 'reedes/vim-pencil'
 
