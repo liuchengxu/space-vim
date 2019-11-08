@@ -4,6 +4,8 @@ MP 'terryma/vim-multiple-cursors'
 
 MP 'scrooloose/nerdcommenter',        { 'on': '<Plug>NERDCommenterToggle' }
 
+" auto-pairs may interfere with vim-clap. You can disable auto-pairs and use
+" the other alternatives, e.g., coc-pairs.
 MP 'jiangmiao/auto-pairs', { 'on': [] }
 
 function! s:TryInitAutoPairs() abort
