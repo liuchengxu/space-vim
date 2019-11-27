@@ -13,15 +13,27 @@ augroup END
   " for why the <F20> hack. Keeps Esc from waiting for other keys to exit visual
   set <F20>=j
   set <F21>=k
+  set <F22>=h
+  set <F23>=l
   vmap <F20> <Plug>MoveBlockDown
   vmap <F21> <Plug>MoveBlockUp
+  vmap <F22> <Plug>MoveCharLeft
+  vmap <F23> <Plug>MoveCharRight
+
   nmap <F20> <Plug>MoveLineDown
   nmap <F21> <Plug>MoveLineUp
+  nmap <F22> <Plug>MoveCharLeft
+  nmap <F23> <Plug>MoveCharRight
   if g:spacevim.nvim
     vmap <M-j> <Plug>MoveBlockDown
     vmap <M-k> <Plug>MoveBlockUp
+    vmap <M-h> <Plug>MoveCharLeft
+    vmap <M-l> <Plug>MoveCharRight
+
     nmap <M-j> <Plug>MoveLineDown
     nmap <M-k> <Plug>MoveLineUp
+    nmap <M-h> <Plug>MoveCharLeft
+    nmap <M-l> <Plug>MoveCharRight
   endif
 " }
 
