@@ -30,7 +30,7 @@ Key Binding                        | Mode           | Description
 
 ## Tips
 
-For <kbd>Alt j</kbd> and <kbd>Alt k</kbd> (move line/selection down/up)supported by [vim-move](https://github.com/matze/vim-move), you need to configure your terminal and iterm, see [here](https://github.com/matze/vim-move/issues/15).
+For <kbd>Alt j</kbd>, <kbd>Alt k</kbd>, <kbd>Alt h</kbd>, and <kbd>Alt l</kbd> (move line/selection down/up or move char left/right)supported by [vim-move](https://github.com/matze/vim-move), you need to configure your terminal and iterm, see [here](https://github.com/matze/vim-move/issues/15).
 
 - In iTerm: Profiles -> Keys -> Left option key acts as: `+Esc`
 - In Terminal: Profiles -> Keyboard -> `Use Option as Meta key`
