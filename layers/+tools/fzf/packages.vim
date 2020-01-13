@@ -1,5 +1,5 @@
 if get(g:, 'spacevim_enable_clap', 0)
-  MP 'liuchengxu/vim-clap'
+  MP 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
 elseif g:spacevim.gui && !has('terminal')
   MP 'Yggdroot/LeaderF'
 else
