@@ -181,3 +181,24 @@ endfunction
 function! spacevim#util#PathSep() abort
   return g:spacevim.os.windows ? '\' : '/'
 endfunction
+
+" command! ProfileStart call spacevim#util#ProfileStart()
+" command! ProfileStop  call spacevim#util#ProfileStop()
+"
+" Find why vim is slow?
+" 1. :ProfileStart
+" 2. do the slow operation.
+" 3. :ProfileStop
+" 4. open profile.log
+function! spacevim#util#ProfileStart() abort
+  profile start profile.log
+  profile func *
+  profile file *
+  set verbosefile=verbose.log
+  set verbose=9
+endfunction
+
+function! spacevim#util#ProfileStop() abort
+  profile pause
+  noautocmd wqa!
+endfunction
