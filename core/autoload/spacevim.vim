@@ -164,7 +164,11 @@ function! s:register_plugin() abort
   " Register non-excluded plugins
   function! s:filter_and_register(val) abort
     if index(g:spacevim.excluded, a:val) < 0
-      call plug#(a:val, get(s:plug_options, a:val, ""))
+      if has_key(s:plug_options, a:val)
+        call plug#(a:val, s:plug_options[a:val])
+      else
+        call plug#(a:val)
+      endif
     endif
   endfunction
   call extend(g:spacevim.excluded, get(g:, 'spacevim_excluded', []))
