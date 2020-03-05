@@ -1,5 +1,5 @@
 function! s:coc() abort
-  MP 'neoclide/coc.nvim', { 'do': { -> coc#util#install()} }
+  MP 'neoclide/coc.nvim', { 'branch': 'release' }
 
   call timer_start(200, function('spacevim#plug#coc#Init'))
 
