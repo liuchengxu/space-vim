@@ -109,6 +109,9 @@ function! s:vim_lsp() abort
   if executable('go-langserver')
     autocmd User lsp_setup call spacevim#lang#lsp#register_go()
   endif
+  if executable('pyls')
+    autocmd User lsp_setup call spacevim#lang#lsp#register_python()
+  endif
 endfunction
 
 call s:{g:spacevim_lsp_engine}()

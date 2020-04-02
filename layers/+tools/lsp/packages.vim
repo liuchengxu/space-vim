@@ -11,6 +11,7 @@ endfunction
 function! s:vim_lsp() abort
   MP 'prabirshrestha/async.vim'
   MP 'prabirshrestha/vim-lsp'
+  MP 'mattn/vim-lsp-settings'
 endfunction
 
 function! s:lcn() abort
