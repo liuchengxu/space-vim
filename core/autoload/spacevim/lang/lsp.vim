@@ -14,3 +14,11 @@ function! spacevim#lang#lsp#register_go() abort
           \ 'whitelist': ['go'],
           \ })
 endfunction
+
+function! spacevim#lang#lsp#register_python() abort
+  call lsp#register_server({
+          \ 'name': 'pyls',
+          \ 'cmd': {server_info->['pyls']},
+          \ 'whitelist': ['python'],
+          \ })
+endfunction
