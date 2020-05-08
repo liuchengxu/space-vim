@@ -16,7 +16,7 @@ if g:spacevim.nvim || g:spacevim.vim8
   let g:require_same_filetype = 'False'
 
   " delay
-  let g:deoplete#auto_complete_delay = 0
+  call deoplete#custom#option('auto_complete_delay', 0)
   " auto_refresh
   let g:auto_refresh_delay = 0
   let refresh_always = v:true
