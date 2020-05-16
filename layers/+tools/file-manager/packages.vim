@@ -2,7 +2,7 @@ MP 'danro/rename.vim',               { 'on' : 'Rename' }
 
 " Refer to https://github.com/junegunn/dotfiles  vimrc
 MP 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
-autocmd! User nerdtree call spacevim#autocmd#nerdtree#Init()
+autocmd! User nerdtree call spacevim#autocmd#nerdtree#Init() | if exists('*UserConfig') | call UserConfig() | endif
 augroup loadNerdtree
   autocmd!
   autocmd VimEnter * silent! autocmd! FileExplorer
