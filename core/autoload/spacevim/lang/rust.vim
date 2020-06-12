@@ -35,3 +35,13 @@ function! spacevim#lang#rust#Test(bang, ...) abort
   endif
   call spacevim#vim#term#Open(opts)
 endfunction
+
+ " Convert UnixfsChunkSize/unixfsChunkSize under cursor to UNIXFS_CHUNK_SIZE
+function! spacevim#lang#rust#GoVariable2RustConst() abort
+  let cword = expand('<cword>')
+  let words = split(cword, '\U\ze\u\zs')
+  let adjusted = map(words[:-2], 'v:val[:-2]')
+  call add(adjusted, words[-1])
+  let uppers = map(adjusted, 'toupper(v:val)')
+  execute 'normal! ciw'.join(uppers, '_')
+endfunction
