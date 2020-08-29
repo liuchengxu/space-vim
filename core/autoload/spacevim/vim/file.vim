@@ -22,6 +22,6 @@ function! spacevim#vim#file#CtrlG() abort
   redir => file
   :silent f!
   redir END
-  let l:msg = join([file[2:], 'Cursor '.line('.').':'.col('.'), s:file_size(@%), 'TOT:'.s:buf_total_num(), '['.&ft.']'], ' ')
+  let l:msg = join([file[2:], 'Cursor line:'.line('.').',col:'.col('.'), s:file_size(@%), 'TOT:'.s:buf_total_num(), '['.&filetype.']'], ' ')
   call spacevim#vim#cursor#TruncatedEcho(l:msg)
 endfunction
