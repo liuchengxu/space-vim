@@ -199,6 +199,9 @@ function! spacevim#plug#fzf#Rg(query, bang) abort
   echo "\r"
   let preview_opts = a:bang ? fzf#vim#with_preview('up:60%') : fzf#vim#with_preview('right:50%:hidden', '?')
   let root_dir = spacevim#util#RootDirectory()
+  if !has_key(preview_opts, 'options')
+    let preview_opts.options = []
+  endif
   call extend(preview_opts.options, ['--prompt', root_dir.'> '])
   try
     let restore_old_cwd = 0
