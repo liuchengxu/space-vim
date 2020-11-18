@@ -15,15 +15,17 @@ endif
 function! spacevim#vim#grep#Grep(query)
   let grepprg = &l:grepprg
   let grepformat = &l:grepformat
-  " https://github.com/mileszs/ack.vim/issues/18
   let shellpipe = &l:shellpipe
   let &l:shellpipe = '>'
   let &l:grepprg = s:grep.prg
   let &l:grepformat = s:grep.format
-  " https://github.com/mileszs/ack.vim/issues/5
-  execute 'silent! grep! '.shellescape(fnameescape(a:query))
+  if a:query ==# ''
+    echomsg 'no query passed to grep, exiting'
+  else
+    execute 'silent! grep! '.shellescape(fnameescape(a:query))
+    redraw!
+  endif
   let &l:grepprg = grepprg
   let &l:grepformat = grepformat
   let &l:shellpipe = shellpipe
-  redraw!
 endfunction
