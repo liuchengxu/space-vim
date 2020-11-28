@@ -51,17 +51,21 @@ function! s:py_init()
 execute s:py_exe "<< EOF"
 import os
 import vim
+from glob import glob
+
+def glob_basename(path):
+    return map(os.path.basename, glob(path + '/*'))
 
 spacevim_base = vim.eval('g:spacevim.base')
 topic_base = spacevim_base + vim.eval('g:spacevim.layers_base')
 private_base = spacevim_base + vim.eval('g:spacevim.private_base')
 
 topics_path = [
-    os.path.join(topic_base, f) for f in os.listdir(topic_base)
+    os.path.join(topic_base, f) for f in glob_basename(topic_base)
     if os.path.isdir(os.path.join(topic_base, f))
 ]
 private = [
-    f for f in os.listdir(private_base)
+    f for f in glob_basename(private_base)
     if os.path.isdir(os.path.join(private_base, f))
 ]
 
@@ -70,7 +74,7 @@ spacevim_manifest = {}
 
 for topic in topics_path:
     layers = [
-        f for f in os.listdir(topic) if os.path.isdir(os.path.join(topic, f))
+        f for f in glob_basename(topic) if os.path.isdir(os.path.join(topic, f))
     ]
     spacevim_topics[os.path.split(topic)[-1]] = layers
     for layer in layers:
