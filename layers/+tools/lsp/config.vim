@@ -79,24 +79,28 @@ function! s:lcn() abort
   \            "texthl": "Error",
   \            "signText": "✖",
   \            "signTexthl": "ErrorMsg",
+  \            "virtualTexthl": "ErrorMsg",
   \        },
   \        2: {
   \            "name": "Warning",
   \            "texthl": "Warning",
   \            "signText": "⚠",
   \            "signTexthl": "WarningMsg",
+  \            "virtualTexthl": "WarningMsg",
   \        },
   \        3: {
   \            "name": "Information",
   \            "texthl": "Type",
   \            "signText": "ℹ",
   \            "signTexthl": "Type",
+  \            "virtualTexthl": "Type",
   \        },
   \        4: {
   \            "name": "Hint",
   \            "texthl": "String",
   \            "signText": "➤",
   \            "signTexthl": "String",
+  \            "virtualTexthl": "String",
   \        },
   \    }
 
