@@ -68,7 +68,7 @@ endfunction
 
 function! spacevim#map#manager#RgCword() abort
   if s:clap_enabled && exists(':Clap')
-    Clap grep ++query=<cword>
+    Clap grep2 ++query=<cword>
   else
     " fzf
     call spacevim#plug#fzf#RgCursorWord()
@@ -77,7 +77,7 @@ endfunction
 
 function! spacevim#map#manager#Rg() abort
   if s:clap_enabled && exists(':Clap')
-    Clap grep
+    Clap grep2
   else
     " fzf
     Rg
