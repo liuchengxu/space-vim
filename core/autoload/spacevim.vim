@@ -146,7 +146,7 @@ function! spacevim#end() abort
   if exists('*UserConfig') | call UserConfig() | endif
 
   try
-    helptags $HOME/.space-vim/core/doc
+    execute 'helptags' g:spacevim.base . '/core/doc'
   catch
     echom v:exception
   endtry
