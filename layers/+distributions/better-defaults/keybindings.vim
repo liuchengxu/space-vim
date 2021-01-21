@@ -53,5 +53,5 @@ nmap <Leader>ww <Plug>(choosewin)
 nnoremap <Leader>tc :call spacevim#vim#toggle#CursorColumn()<CR>
 nnoremap <Leader>tC :call spacevim#vim#toggle#ColorColumn()<CR>
 
-command! -bar -nargs=0 Rtp :call spacevim#util#Runtimepath()
-command! -nargs=? Grep :call spacevim#vim#grep#Grep(<q-args>)
+command! -bar -nargs=0 Rtp  :call spacevim#util#Runtimepath()
+command!      -nargs=? Grep :call spacevim#vim#grep#Grep(<q-args>)
