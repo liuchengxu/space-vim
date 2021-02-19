@@ -5,6 +5,14 @@ nnoremap <silent> gd :call spacevim#lang#util#Definition()<CR>
 " Required for operations modifying multiple buffers like rename.
 set hidden
 
+function! s:try_show_signature_help() abort
+  let ignore_list = ['vista', 'clap_input', 'nerdtree', 'tagbar', 'fzf', 'gitcommit', 'coc']
+  if index(ignore_list, &filetype) > -1
+    return
+  endif
+  silent! call CocActionAsync('showSignatureHelp')
+endfunction
+
 function! s:coc() abort
   " Better display for messages
   set cmdheight=2
@@ -37,8 +45,8 @@ function! s:coc() abort
   " Use K for show documentation in preview window
   nnoremap <silent> K :call spacevim#plug#coc#show_documentation()<CR>
 
-  " Show signature help while editing
-  autocmd CursorHoldI * silent! call CocActionAsync('showSignatureHelp')
+  " Update signature help on jump placeholder.
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 
   " Highlight symbol under cursor on CursorHold
   autocmd CursorHold * silent call CocActionAsync('highlight')
