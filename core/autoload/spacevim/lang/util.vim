@@ -72,7 +72,9 @@ endfunction
 
 function! spacevim#lang#util#Format() abort
   if s:engine == 'coc'
-    call CocAction('format')
+    call CocActionAsync('format')
+  elseif exists(':RustFmt')
+    RustFmt
   elseif exists('*LanguageClient#textDocument_formatting')
     call LanguageClient#textDocument_formatting()
   elseif exists(':Autoformat')
