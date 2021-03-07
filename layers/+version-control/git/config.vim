@@ -27,7 +27,7 @@ scriptencoding utf-8
 
 " vim-signify {
   let g:signify_sign_delete            = '-'
-  let g:signify_sign_delete_first_line = '^^'
+  let g:signify_sign_delete_first_line = '^'
   let g:signify_sign_change            = '~'
 " }
 
