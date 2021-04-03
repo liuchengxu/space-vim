@@ -117,7 +117,7 @@ let s:leader_map['j'] = {
       \ 'w' : 'jump-to-word-bidirectional' ,
       \ 'f' : 'jump-forward-wordwise'      ,
       \ 'b' : 'jump-backword-wordwise'     ,
-      \ 'F' : ['execute line(".")."!python -m json.tool"', 'format-current-raw-oneline-json'],
+      \ 'F' : [':execute line(".")."!python -m json.tool"', 'format-current-raw-oneline-json'],
       \ }
 
 let s:leader_map['l'] = {
