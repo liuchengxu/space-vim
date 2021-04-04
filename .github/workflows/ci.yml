@@ -1,0 +1,35 @@
+name: ci
+
+on: [push, pull_request]
+
+jobs:
+  vint:
+    strategy:
+      fail-fast: false
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@master
+    - name: Run vint with reviewdog
+      uses: reviewdog/action-vint@v1.0.1
+      with:
+        github_token: ${{ secrets.github_token }}
+        reporter: github-pr-review
+
+
+  install-script:
+    strategy:
+      fail-fast: false
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@master
+    - name: Check cpoptions
+      run: |
+        sudo apt-get install shellcheck python3.6 -y
+        shellcheck *.sh
+        ./install.sh
