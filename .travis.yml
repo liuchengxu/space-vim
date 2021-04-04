@@ -1,5 +1,0 @@
-sudo: required
-dist: trusty
-
-before_install: ci/before_install.sh
-script: ci/script.sh
