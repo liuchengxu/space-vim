@@ -1,7 +1,7 @@
 <p align="left">
 <a href="https://github.com/liuchengxu/space-vim"> <img src="https://rawgit.com/liuchengxu/space-vim/master/assets/space-vim-badge.svg" alt="badge"></a>
 <a href="https://github.com/liuchengxu/space-vim/blob/master/LICENSE"><img src="https://rawgit.com/liuchengxu/space-vim/master/assets/license.svg" alt="license"></a>
-<a href="https://travis-ci.org/liuchengxu/space-vim"><img src="https://travis-ci.org/liuchengxu/space-vim.svg" alt="Build Status"></a>
+<a href="https://github.com/liuchengxu/space-vim/actions?workflow=ci"><img src="https://github.com/liuchengxu/space-vim/workflows/ci/badge.svg" alt="CI"></a>
 </p>
 
 --------------------
