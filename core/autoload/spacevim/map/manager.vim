@@ -100,12 +100,33 @@ function! spacevim#map#manager#SearchRecently() abort
   endif
 endfunction
 
+function! s:TryAddFile(base, items) abort
+  let base = a:base
+  let items = type(a:items) == v:t_list ? a:items : [a:items]
+  for item in items
+    if filereadable(expand(item))
+      return add(base, item)
+    endif
+  endfor
+  return base
+endfunction
+
+function! s:QuickOpenSource() abort
+  let quick_open = copy(g:spacevim#map#manager#quick_open)
+  if g:spacevim.os.linux
+    let quick_open = s:TryAddFile(quick_open, ['~/.alacritty.yml', '~/.config/alacritty/alacritty.yml'])
+    let quick_open = s:TryAddFile(quick_open, '~/.config/kitty/kitty.conf')
+  endif
+  return quick_open
+endfunction
+
 function! spacevim#map#manager#QuickOpen() abort
   if s:clap_enabled && exists(':Clap')
     if !exists('g:clap_provider_quick_open')
       let g:clap_provider_quick_open = {
-            \ 'source': g:spacevim#map#manager#quick_open,
+            \ 'source': function('s:QuickOpenSource'),
             \ 'sink': 'e',
+            \ 'on_move_async': { -> clap#client#call_preview_file(v:null) }
             \ }
     endif
     Clap quick_open
