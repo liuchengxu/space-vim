@@ -94,7 +94,7 @@ endfunction
 
 function! spacevim#map#manager#SearchRecently() abort
   if s:clap_enabled && exists(':Clap')
-    Clap history
+    Clap recent_files
   else
     History
   endif

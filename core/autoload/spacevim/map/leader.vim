@@ -84,7 +84,7 @@ let s:leader_map['f'] = {
       \ 'd' : 'find-current-buffer-in-NERDTree' ,
       \ 'f' : 'files-in-home-direcotry'         ,
       \ 's' : 'save-file'                       ,
-      \ 't' : 'toggle-NERDTree'                 ,
+      \ 't' : 'toggle-filetree'                 ,
       \ '?' : 'files-in-current-direcotry'      ,
       \ 'R' : 'reload-vimrc'                    ,
       \ 'b' : ['spacevim#map#manager#BLines()'  , 'fzf-find-current-buffer'] ,
@@ -171,7 +171,7 @@ let s:leader_map['t'] = {
       \ 'p' : ['setlocal paste!'                    , 'paste-mode']             ,
       \ 's' : ['SyntasticToggleMode'                , 'syntastic']              ,
       \ 'b' : ['spacevim#map#manager#BufTags()'     , 'tags-in-current-buffer'] ,
-      \ 'T' : ['TagbarToggle'                       , 'tagbar']                 ,
+      \ 'T' : ['spacevim#plug#toggle#SidebarTags()' , 'tags-sidebar']           ,
       \ 'c' : ['spacevim#vim#toggle#CursorColumn()' , 'cursor-column']          ,
       \ 'C' : ['spacevim#vim#toggle#ColorColumn()'  , 'color-column']           ,
       \ }
