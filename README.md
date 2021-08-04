@@ -46,7 +46,7 @@
 
 space-vim is a vim distribution for vim plugins and resources, compatible with Vim and NeoVim.
 
-It is inspired by [spacemacs](https://github.com/syl20bnr/spacemacs) and mimics spacemacs in a high level, especially in the whole architecture, key bindings and GUI. if have ever tried spacemacs, you will find space-vim is very similar to it in user experience.
+It is inspired by [spacemacs](https://github.com/syl20bnr/spacemacs) and mimics spacemacs in a high level, especially in the whole architecture, key bindings and GUI. if you have ever tried spacemacs, you will find space-vim is very similar to it in user experience.
 
 Elegance here means pleasing, graceful as well as simple. If you are unfamiliar with spacemacs, you can visit [spacemacs.org](http://spacemacs.org/doc/DOCUMENTATION.html) for more about the principle behind that, which is also what space-vim seeks.
 
