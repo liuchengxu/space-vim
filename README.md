@@ -107,8 +107,8 @@ $ bash <(curl -fsSL https://raw.githubusercontent.com/liuchengxu/space-vim/maste
 #### Makefile
 
 ```bash
-$ git clone https://github.com/liuchengxu/space-vim.git ~/.space-vim
-$ cd ~/.space-vim
+$ git clone https://github.com/liuchengxu/space-vim.git /path/to/space-vim
+$ cd /path/to/space-vim
 $ make vim     # install space-vim for Vim
 $ make neovim  # install space-vim for NeoVim
 ```
@@ -123,30 +123,39 @@ The easist way is to download [`install.cmd`](https://raw.githubusercontent.com/
 
 Given git and Vim/NeoVim have been installed already:
 
-1. Clone [space-vim](https://github.com/liuchengxu/space-vim)
+1. Clone [space-vim](https://github.com/liuchengxu/space-vim):
+
+    /path/to/space-vim may be ~/.vim or ~/.config/nvіm if you so desire.
 
     ```bash
-    $ git clone https://github.com/liuchengxu/space-vim.git ~/.space-vim
+    $ git clone https://github.com/liuchengxu/space-vim.git /path/to/space-vim
     ```
 
-2. Install [vim-plug](https://github.com/junegunn/vim-plug#installation), refer to vim-plug installation section for more information.
+2. Install [vim-plug](https://github.com/junegunn/vim-plug#installation), refer to vim-plug installation section for more information:
+    ```bash
+    # For Vim
+    $ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    # For NeoVim
+    sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+           https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    ```
 
-3. Create the symlinks.
+3. Create the symlinks and install plugins:
 
     **Linux and macOS**
 
     ```bash
     # For Vim
-    $ ln -s ~/.space-vim/init.vim ~/.vimrc
+    $ ln -s /path/to/space-vim/init.vim ~/.vimrc
+    $ cp /path/to/space-vim/init.spacevim ~/.spacevim
+    $ vim -es +'PlugInstall' +qall
 
     # For NeoVim
-    $ ln -s ~/.space-vim/init.vim ~/.config/nvim/init.vim
-
-    # Both for Vim and NeoVim
-    $ cp ~/.space-vim/init.spacevim ~/.spacevim
+    $ ln -s /path/to/space-vim/init.vim ~/.config/nvim/init.vim
+    $ cp /path/to/space-vim/init.spacevim ~/.spacevim
+    $ nvim +'PlugInstall' +qall
     ```
-
-5. Open vim, then space-vim will automatically detect and install the missing plugins. If auto-installation fails unexpectly, please try running `:PlugInstall` manually.
 
 ## Customize
 

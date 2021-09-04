@@ -1,9 +1,10 @@
+PWD           := $(shell pwd)
 APP           := space-vim
-INIT_VIM      := ~/.space-vim/init.vim
+INIT_VIM      := $(PWD)/init.vim
 VIMRC         := ~/.vimrc
 NVIMRC        := ~/.config/nvim/init.vim
 
-INIT_SPACEVIM := ~/.space-vim/init.spacevim
+INIT_SPACEVIM := $(PWD)/init.spacevim
 DOT_SPACEVIM  := ~/.spacevim
 
 help:
@@ -39,7 +40,6 @@ uninstall:
 	rm -f  $(VIMRC)            && echo "    - Removed $(VIMRC)"; \
 	rm -f  $(NVIMRC)           && echo "    - Removed $(NVIMRC)"; \
 	rm -f  $(DOT_SPACEVIM)     && echo "    - Removed $(DOT_SPACEVIM)"; \
-	rm -rf ~/.$(APP)           && echo "    - Removed ~/.$(APP)"; \
 	echo -e "\033[32m[✔]\033[0m Successfully uninstalled $(APP)"
 
 .PHONY: help vim neovim update uninstall

@@ -101,7 +101,7 @@ let s:menus.v = {
             \}
 let s:menus.v.command_candidates = [
             \['►   init.vim',
-            \'e ~/.vimrc'],
+            \'e '.g:spacevim.base.'/init.vim'],
             \['►   .spacevim',
             \'e ~/.spacevim'],
             \['►   vim-help',
