@@ -1,7 +1,7 @@
 Layer Manifest
 ==============
 
-Last updated: 2022-09-29 12:26:10
+Last updated: 2022-09-29 12:39:45
 
 Default layers: `fzf`, `better-defaults` and `which-key`.
 
@@ -19,6 +19,7 @@ Topic                | Layer | Plugins
 +fun                 | [goyo](https://github.com/liuchengxu/space-vim/tree/master/layers/+fun/goyo) | <ul><li>[junegunn/goyo.vim](https://github.com/junegunn/goyo.vim)</li><li>[junegunn/limelight.vim](https://github.com/junegunn/limelight.vim)</li></ul>
 +lang                | [c-c++](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/c-c++) | <ul><li>[octol/vim-cpp-enhanced-highlight](https://github.com/octol/vim-cpp-enhanced-highlight)</li><li>[rhysd/vim-clang-format](https://github.com/rhysd/vim-clang-format)</li></ul>
 +lang                | [clojure](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/clojure) | <ul><li>[guns/vim-clojure-highlight](https://github.com/guns/vim-clojure-highlight)</li><li>[guns/vim-clojure-static](https://github.com/guns/vim-clojure-static)</li><li>[guns/vim-slamhound](https://github.com/guns/vim-slamhound)</li><li>[kovisoft/paredit](https://github.com/kovisoft/paredit)</li><li>[tpope/vim-fireplace](https://github.com/tpope/vim-fireplace)</li><li>[venantius/vim-cljfmt](https://github.com/venantius/vim-cljfmt)</li></ul>
++lang                | [csharp](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/csharp) | <ul><li>[OmniSharp/omnisharp-vim](https://github.com/OmniSharp/omnisharp-vim)</li><li>[nickspoons/vim-cs](https://github.com/nickspoons/vim-cs)</li><li>[nickspoons/vim-sharpenup](https://github.com/nickspoons/vim-sharpenup)</li></ul>
 +lang                | [elixir](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/elixir) | <ul><li>[elixir-lang/vim-elixir](https://github.com/elixir-lang/vim-elixir)</li><li>[slashmili/alchemist.vim](https://github.com/slashmili/alchemist.vim)</li></ul>
 +lang                | [elm](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/elm) | <ul><li>[ElmCast/elm-vim](https://github.com/ElmCast/elm-vim)</li></ul>
 +lang                | [erlang](https://github.com/liuchengxu/space-vim/tree/master/layers/+lang/erlang) | <ul><li>[vim-erlang/erlang-motions.vim](https://github.com/vim-erlang/erlang-motions.vim)</li><li>[vim-erlang/vim-erlang-compiler](https://github.com/vim-erlang/vim-erlang-compiler)</li><li>[vim-erlang/vim-erlang-omnicomplete](https://github.com/vim-erlang/vim-erlang-omnicomplete)</li><li>[vim-erlang/vim-erlang-skeletons](https://github.com/vim-erlang/vim-erlang-skeletons)</li><li>[vim-erlang/vim-erlang-tags](https://github.com/vim-erlang/vim-erlang-tags)</li></ul>
