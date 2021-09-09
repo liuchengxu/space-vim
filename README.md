@@ -125,7 +125,7 @@ Given git and Vim/NeoVim have been installed already:
 
 1. Clone [space-vim](https://github.com/liuchengxu/space-vim):
 
-    /path/to/space-vim may be ~/.vim or ~/.config/nvіm if you so desire.
+    `/path/to/space-vim` may be `~/.vim` or `~/.config/nvіm` if you so desire.
 
     ```bash
     $ git clone https://github.com/liuchengxu/space-vim.git /path/to/space-vim
