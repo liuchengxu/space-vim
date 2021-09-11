@@ -15,8 +15,10 @@ Thumbs.db
 
 tags
 
+autoload/plug.vim
 core/autoload/info.vim
 core/autoload/spacevim/info.vim
+plugged/*
 *.un~
 private/*
 !private/README.md

@@ -17,7 +17,7 @@
 scriptencoding utf-8
 
 let g:spacevim = get(g:, 'spacevim', {})
-let g:spacevim.base = $HOME.'/.space-vim'
+let g:spacevim.base = fnamemodify(resolve(expand('<sfile>:p')),':h')
 let g:spacevim.version = '0.9.0'
 
 " Identify platform {
@@ -35,6 +35,6 @@ if g:spacevim.os.windows
 endif
 " }
 
-set runtimepath+=$HOME/.space-vim/core
+let &runtimepath = &runtimepath . ',' . g:spacevim.base . '/core'
 
 call spacevim#bootstrap()

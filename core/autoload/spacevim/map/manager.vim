@@ -2,7 +2,7 @@ let s:clap_enabled = get(g:, 'spacevim_enable_clap', 0)
 
 let g:spacevim#map#manager#quick_open = [
         \ '~/.spacevim',
-        \ '~/.space-vim/init.vim',
+        \ g:spacevim.base.'/init.vim',
         \ '~/.bashrc',
         \ '~/.zshrc',
         \ '~/.tmux.conf',
