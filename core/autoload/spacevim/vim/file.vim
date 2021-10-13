@@ -19,9 +19,12 @@ function! s:file_size(f)
 endfunction
 
 function! spacevim#vim#file#CtrlG() abort
+  let abs_path = expand('%:p')
   redir => file
   :silent f!
   redir END
-  let l:msg = join([file[2:], 'Cursor line:'.line('.').',col:'.col('.'), s:file_size(@%), 'TOT:'.s:buf_total_num(), '['.&filetype.']'], ' ')
+  let partial_default = join(split(file)[1:], ' ')
+  let custom = join(['Cursor line:'.line('.').',col:'.col('.'), s:file_size(@%), 'TOT:'.s:buf_total_num(), '['.&filetype.']'], ' ')
+  let l:msg = join([abs_path, partial_default, custom], ' ')
   call spacevim#vim#cursor#TruncatedEcho(l:msg)
 endfunction
