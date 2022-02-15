@@ -31,6 +31,11 @@ function! spacevim#github#CommitRef() abort
     let remote_url = substitute(remote_url, '.git$', '', '')
   endif
 
+  " https://ghp_TOKEN@github.com/subspace/subspace
+  if remote_url =~# 'https://gh._.*@github.com'
+    let remote_url = substitute(remote_url, 'https://\zsgh._.*@\zegithub.com', '', '')
+  endif
+
   let rev = systemlist('git rev-parse HEAD')[0]
 
   let commit_url = printf('%s/blob/%s%s#L%d', remote_url, rev, relative_path, line('.'))
