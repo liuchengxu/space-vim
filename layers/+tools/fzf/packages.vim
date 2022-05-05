@@ -5,11 +5,15 @@ elseif g:spacevim.gui && !has('terminal')
   MP 'Yggdroot/LeaderF'
 else
   if g:spacevim.speed_up_via_timer
-    MP 'junegunn/fzf',  { 'dir': '~/.fzf', 'do': function('spacevim#VimPlugPostUpdateHook', [v:false, './install --all']), 'on': [] }
+    if !executable('fzf')
+      MP 'junegunn/fzf',  { 'dir': '~/.fzf', 'do': function('spacevim#VimPlugPostUpdateHook', [v:false, './install --all --xdg']), 'on': [] }
+    endif
     MP 'junegunn/fzf.vim', { 'on': [] }
     call timer_start(700, 'spacevim#defer#fzf')
   else
-    MP 'junegunn/fzf',  { 'dir': '~/.fzf', 'do': function('spacevim#VimPlugPostUpdateHook', [v:false, './install --all']) }
+    if !executable('fzf')
+      MP 'junegunn/fzf',  { 'dir': '~/.fzf', 'do': function('spacevim#VimPlugPostUpdateHook', [v:false, './install --all --xdg']) }
+    endif
     MP 'junegunn/fzf.vim'
   endif
 endif
