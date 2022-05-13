@@ -145,11 +145,18 @@ function! spacevim#end() abort
   call s:config()
   if exists('*UserConfig') | call UserConfig() | endif
 
-  try
-    execute 'helptags' g:spacevim.base . '/core/doc'
-  catch
-    echom v:exception
-  endtry
+  let helptag_file = g:spacevim.base . '/core/doc/spacevim.txt'
+  let helptag_time = getftime(helptag_file)
+  let helptag_lastrun_file = g:spacevim.base . '/core/doc/.spacevim_last_helptags_run'
+  let helptag_lastrun_time = filereadable(helptag_lastrun_file) ? readfile(helptag_lastrun_file) : []
+  if (len(helptag_lastrun_time) != 1) || (helptag_lastrun_time[0] != helptag_time)
+    try
+      execute 'helptags' g:spacevim.base . '/core/doc'
+      call writefile([helptag_time], helptag_lastrun_file)
+    catch
+      echom v:exception
+    endtry
+  endif
 
   call s:check_missing_plugins()
   silent doautocmd <nomodeline> User SpacevimAfterUserConfig
