@@ -52,6 +52,11 @@ function! spacevim#defer#fugitive(timer) abort
   call s:lod('vim-fugitive')
 endfunction
 
+" 900
+function! spacevim#defer#vimspector(timer) abort
+  call s:lod('vimspector')
+endfunction
+
 " 1000
 function! spacevim#defer#ycm(timer) abort
   call s:lod('YouCompleteMe')
