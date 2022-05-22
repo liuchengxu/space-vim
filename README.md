@@ -85,11 +85,6 @@ If you have been a vimmer for quite a while, just pick out the part you are inte
 
 ### Prerequisites
 
-Make sure you have installed:
-
-- **git**
-- **Vim** or **NeoVim**
-
 The most recent Vim(NeoVim) version is recommended, for space-vim has been specifically optimized for Vim8 and NeoVim with respect to the startup time.
 
 [chocolatey](https://chocolatey.org/) is an easy way to install software on Windows, tools like `fzf`, `rg`, `ag` are necessary to get you a full-featured space-vim.
@@ -97,6 +92,8 @@ The most recent Vim(NeoVim) version is recommended, for space-vim has been speci
 :exclamation: ~~When layers enabled at the first time, you need to run `:PlugInstall` to install relevant plugins~~.
 
 ### Linux and macOS
+
+`/path/to/space-vim` may be `~/.vim` (Vim), `~/.config/nvіm` (Neovim), or elsewhere. Installing space-vim to the conventional Vim/Neovim install location mitigates the need for an extra symlink to where space-vim is installed.
 
 #### one-line installer
 
@@ -121,14 +118,11 @@ The easist way is to download [`install.cmd`](https://raw.githubusercontent.com/
 
 ### Manual
 
-Given git and Vim/NeoVim have been installed already:
-
 1. Clone [space-vim](https://github.com/liuchengxu/space-vim):
 
-    `/path/to/space-vim` may be `~/.vim` or `~/.config/nvіm` if you so desire.
 
     ```bash
-    $ git clone https://github.com/liuchengxu/space-vim.git /path/to/space-vim
+    $ git clone https://github.com/liuchengxu/space-vim.git --single-branch /path/to/space-vim
     ```
 
 2. Install [vim-plug](https://github.com/junegunn/vim-plug#installation), refer to vim-plug installation section for more information:
@@ -147,13 +141,17 @@ Given git and Vim/NeoVim have been installed already:
     **Linux and macOS**
 
     ```bash
-    # For Vim
+    # **For Vim**
+    # If space-vim not installed to ~/.vim/:
     $ ln -s /path/to/space-vim/init.vim ~/.vimrc
+    # Copy init.spacevim for local customization
     $ cp /path/to/space-vim/init.spacevim ~/.spacevim
     $ vim -es +'PlugInstall' +qall
 
-    # For NeoVim
+    # **For NeoVim**
+    # If space-vim not installed to ~/.config/nvim/:
     $ ln -s /path/to/space-vim/init.vim ~/.config/nvim/init.vim
+    # Copy init.spacevim for local customization
     $ cp /path/to/space-vim/init.spacevim ~/.spacevim
     $ nvim +'PlugInstall' +qall
     ```
