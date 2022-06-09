@@ -12,6 +12,9 @@ function! s:vim_lsp() abort
   MP 'prabirshrestha/async.vim'
   MP 'prabirshrestha/vim-lsp'
   MP 'mattn/vim-lsp-settings'
+  if spacevim#load('ale')
+    MP 'rhysd/vim-lsp-ale'
+  endif
 endfunction
 
 function! s:lcn() abort
