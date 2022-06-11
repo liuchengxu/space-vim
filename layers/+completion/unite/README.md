@@ -13,6 +13,8 @@
 
 This layer adds support for user interface.
 
+Shougo/unite.vim is officially obsolete and is not maintained.
+
 ## Install
 
 To use this configuration layer, add it to your `~/.spacevim`.
