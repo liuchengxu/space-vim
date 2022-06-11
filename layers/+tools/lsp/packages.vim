@@ -17,8 +17,16 @@ endfunction
 function! s:lcn() abort
   MP 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
+    \ 'do': function('Install_LanguageClient_neovim'),
     \ }
+endfunction
+
+function! Install_LanguageClient_neovim(info)
+  if spacevim#load('programming')
+    execute('AsyncRun -mode=term -pos=tab @ bash install.sh')
+  else
+    execute('bash install.sh')
+  endif
 endfunction
 
 let g:spacevim_lsp_engine = get(g:, 'spacevim_lsp_engine', 'lcn')
