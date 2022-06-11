@@ -243,3 +243,11 @@ function! spacevim#load_any(...) abort
   endfor
   return 0
 endfunction
+
+function! spacevim#VimPlugPostUpdateHook(make, cmd, info) abort
+  if spacevim#load('programming')
+    execute('AsyncRun -mode=term -pos=tab '.(a:make?'-program=make ':'').'@ '.a:cmd)
+  else
+    call system(a:cmd)
+  endif
+endfunction

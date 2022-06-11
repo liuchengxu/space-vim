@@ -10,4 +10,4 @@ endif
 MP 'eagletmt/neco-ghc'
 MP 'Shougo/neco-vim'
 MP 'sebastianmarkow/deoplete-rust'
-MP 'zchee/deoplete-go', { 'do': 'make' }
+MP 'zchee/deoplete-go', { 'do': function('spacevim#VimPlugPostUpdateHook', [v:true, '']) }

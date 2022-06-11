@@ -18,7 +18,7 @@ function! spacevim#plug#youcompleteme#build(info)
   if a:info.status ==# 'installed' || a:info.force
     " Prefer python3
     call insert(args, executable('python3') ? '!python3' : '!python')
-    execute join(args, ' ')
+    call spacevim#VimPlugPostUpdateHook(v:false, join(args, ' '), a:info)
   endif
 endfunction
 
