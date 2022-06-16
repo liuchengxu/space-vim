@@ -9,3 +9,7 @@ let s:localleader_map['f'] = {
       \ }
 
 let g:spacevim#map#localleader#desc = get(g:, 'g:spacevim#map#localleader#desc', s:localleader_map)
+
+let s:localleader_map_visual = {}
+
+let g:spacevim#map#localleader#desc_visual = get(g:, 'g:spacevim#map#localleader#desc_visual', s:localleader_map_visual)

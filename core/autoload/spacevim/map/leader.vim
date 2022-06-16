@@ -207,3 +207,8 @@ let s:leader_map['x'] = {
       \ }
 
 let g:spacevim#map#leader#desc =  get(g:, 'spacevim#map#leader#desc', s:leader_map)
+
+let s:leader_map_visual =  {}
+let s:leader_map_visual['name'] = 'space-vim root'
+
+let g:spacevim#map#leader#desc_visual =  get(g:, 'spacevim#map#leader#desc_visual', s:leader_map_visual)
