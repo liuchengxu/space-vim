@@ -114,6 +114,7 @@ function! s:lcn() abort
 
 endfunction
 
+" vim-lsp {
 function! s:vim_lsp() abort
   let g:lsp_diagnostics_enabled = 0
   if executable('rls')
@@ -125,6 +126,89 @@ function! s:vim_lsp() abort
   if executable('pyls')
     autocmd User lsp_setup call spacevim#lang#lsp#register_python()
   endif
+  if spacevim#load('which-key')
+    let s:keep_keymap_normal = get(s:, 'keep_keymap_normal', deepcopy(g:spacevim#map#leader#desc['l']))
+    let g:spacevim#map#leader#desc['l'] = function('s:whichkey_vim_lsp_integration')
+    let s:keep_keymap_visual = get(s:, 'keep_keymap_visual', has_key(g:spacevim#map#leader#desc_visual, 'l') ? deepcopy(g:spacevim#map#leader#desc_visual['l']): {})
+    let g:spacevim#map#leader#desc_visual['l'] = function('s:whichkey_vim_lsp_integration_visual')
+  endif
 endfunction
+
+function! s:whichkey_vim_lsp_integration()
+  if get(b:, 'spacevim_lsp_engine', g:spacevim_lsp_engine) ==# 'vim_lsp'
+    let s:new_keymap_normal = get(s:, 'new_keymap_normal', {
+    \ 'name': '+vim-lsp',
+    \ '.': ['<plug>(lsp-code-lens)'            , 'code-lens'],
+    \ 'a': ['<plug>(lsp-code-action)'          , 'code-action'],
+    \ 'f': ['<plug>(lsp-document-format)'      , 'formatting'],
+    \ 'F': ['<plug>(lsp-document-range-format)', 'range-formatting'],
+    \ 'h': ['<plug>(lsp-hover)'                , 'hover'],
+    \ 'H': ['<plug>(lsp-signature-help)'       , 'signature-help'],
+    \ 'r': ['<plug>(lsp-references)'           , 'references'],
+    \ 'R': ['<plug>(lsp-rename)'               , 'rename'],
+    \ 's': ['<plug>(lsp-document-symbol)'      , 'document-symbol'],
+    \ 'S': ['<plug>(lsp-workspace-symbol)'     , 'workspace-symbol'],
+    \ 'g': {
+      \ 'name': '+goto',
+      \ 'r': ['<plug>(lsp-next-reference)'         , 'next-reference'],
+      \ 'R': ['<plug>(lsp-previous-reference)'     , 'previous-reference'],
+      \ 'c': ['<plug>(lsp-declaration)'            , 'declaration'],
+      \ 'd': ['<plug>(lsp-definition)'             , 'definition'],
+      \ 't': ['<plug>(lsp-type-definition)'        , 'type-definition'],
+      \ 'i': ['<plug>(lsp-implementation)'         , 'implementation'],
+      \ 's': ['<plug>(lsp-document-symbol-search)' , 'document-symbol-search'],
+      \ 'S': ['<plug>(lsp-workspace-symbol-search)', 'workspace-symbol-search'],
+      \ },
+    \ 'p': {
+      \ 'name': '+preview',
+      \ 'c': ['<plug>(lsp-peek-declaration)'    , 'declaration'],
+      \ 'd': ['<plug>(lsp-peek-definition)'     , 'definition'],
+      \ 't': ['<plug>(lsp-peek-type-definition)', 'type-definition'],
+      \ 'i': ['<plug>(lsp-peek-implementation)' , 'implementation'],
+      \ 'h': ['<plug>(lsp-hover-float)'         , 'hover-float'],
+      \ 'p': ['<plug>(lsp-hover-preview)'       , 'hover-preview'],
+      \ 'f': ['<plug>(lsp-preview-focus)'       , 'preview-focus'],
+      \ 'x': ['<plug>(lsp-preview-close)'       , 'preview-close'],
+      \ },
+    \ 'O': {
+      \ 'name': '+hierarchy',
+      \ 't': ['<plug>(lsp-type-hierarchy)'         , 'type-hierarchy'],
+      \ 'i': ['<plug>(lsp-call-hierarchy-incoming)', 'call-hierarchy-in'],
+      \ 'o': ['<plug>(lsp-call-hierarchy-outgoing)', 'call-hierarchy-out'],
+      \ },
+    \ 'd': {
+      \ 'name': '+diagnostic',
+      \ 'r': ['<plug>(lsp-document-diagnostics)', 'document-diagnostics'],
+      \ 'd': ['<plug>(lsp-next-diagnostic)'     , 'next-diagnostic'],
+      \ 'D': ['<plug>(lsp-previous-diagnostic)' , 'previous-diagnostic'],
+      \ 'w': ['<plug>(lsp-next-warning)'        , 'next-warning'],
+      \ 'W': ['<plug>(lsp-previous-warning)'    , 'previous-warning'],
+      \ 'e': ['<plug>(lsp-next-error)'          , 'next-error'],
+      \ 'E': ['<plug>(lsp-previous-error)'      , 'previous-error'],
+      \ },
+    \ 'X': {
+      \ 'name': '+server',
+      \ 's': ['<plug>(lsp-status)', 'server-status'],
+      \ },
+    \ })
+    return s:new_keymap_normal
+  else
+    return s:keep_keymap_normal
+  endif
+endfunction
+
+function! s:whichkey_vim_lsp_integration_visual()
+  if get(b:, 'spacevim_lsp_engine', g:spacevim_lsp_engine) ==# 'vim_lsp'
+    let s:new_keymap_visual = get(s:, 'new_keymap_visual', {
+    \ 'name': '+vim-lsp',
+    \ 'f': ['<plug>(lsp-document-format)'      , 'formatting'],
+    \ 'F': ['<plug>(lsp-document-range-format)', 'range-formatting'],
+    \ })
+    return s:new_keymap_visual
+  else
+    return s:keep_keymap_visual
+  endif
+endfunction
+" }
 
 call s:{g:spacevim_lsp_engine}()
