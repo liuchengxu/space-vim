@@ -41,9 +41,11 @@ Key Binding        | Mode    | Description
 <kbd>SPC w ?</kbd> | Normal  | windows list
 <kbd>SPC f ?</kbd> | Normal  | search files in current directory
 <kbd>SPC f f</kbd> | Normal  | search files in home directory
-<kbd><C-R></kbd>   | Cmdline | search command history
+<kbd>\<C-R></kbd>  | Cmdline | search command history
 
 press <kbd>\<esc></kbd>, <kbd>Ctrl c</kbd> or <kbd>Ctrl [</kbd> to exit.
+
+<kbd>\<C-R></kbd> in command-line-mode mimics the same hotkey in bash. Unfortunately this keymap replaces the `c_CTRL-R` register paste, but can be worked around using `c_CTRL-\_e @<register>`. See `:help c_CTRL-\_e`.
 
 ## Related Projects
 
