@@ -27,6 +27,8 @@ choco install ag
 choco install ripgrep
 ```
 
+Alternatively ripgrep, fd, git-delta, bat will be built from source if using the 'rustc' layer. fzf and ag are not rust and can't be built with the 'rustc' layer.
+
 ## Install
 
 To use this configuration layer, add it to your `~/.spacevim`. *It has been enabled as one of the default layers*.
