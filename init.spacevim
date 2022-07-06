@@ -2,8 +2,13 @@
 " same plugin download directory.
 let g:spacevim_plug_home = '~/.vim/plugged'
 
-" Uncomment the following line to override the leader key. The default value is space key "<\Space>".
-" let g:spacevim_leader = "<\Space>"
+" Set any of the following to 0 to change dein behaviour, see help:
+let g:spacevim_enable_plug_merge = 1
+let g:spacevim_enable_plug_cache = 1
+let g:spacevim_enable_temp_build = 1
+
+" Uncomment the following line to override the leader key. The default value is space key "\<Space>".
+" let g:spacevim_leader = "\<Space>"
 
 " Uncomment the following line to override the local leader key. The default value is comma ','.
 " let g:spacevim_localleader = ','
@@ -12,7 +17,19 @@ let g:spacevim_plug_home = '~/.vim/plugged'
 " Refer to https://github.com/liuchengxu/space-vim/blob/master/layers/LAYERS.md for all available layers.
 let g:spacevim_layers = [
       \ 'fzf', 'better-defaults', 'which-key',
-      \ ]
+      \ 'programming', 'file-manager', 'lsp',]
+      "\ 'rustc',
+      "\ 'denops',
+      "\ 'tree-sitter',
+      "\ 'ddc',
+      "\ 'ddu',
+      "\ ]
+
+" Uncomment to use clap instead of fzf in the fzf layer:
+" let g:spacevim_enable_clap = 1
+
+" Uncomment to use vim-lsp instead of the default LSP engine in the lsp layer:
+" let g:spacevim_lsp_engine = 'vim_lsp'
 
 " Uncomment the following line if your terminal(-emulator) supports true colors.
 " let g:spacevim_enable_true_color = 1
@@ -30,7 +47,7 @@ let g:spacevim_layers = [
 function! UserInit()
 
   " Add your own plugin via Plug command.
-  Plug 'junegunn/seoul256.vim'
+  " Plug 'junegunn/seoul256.vim'
 
 endfunction
 

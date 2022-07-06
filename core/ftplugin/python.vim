@@ -5,7 +5,7 @@ let b:did_spacevim_py_ftplugin = 1
 
 setlocal foldmethod=indent tabstop=4 textwidth=79
 
-if g:spacevim.timer
+if g:spacevim.speed_up_via_timer
   call timer_start(300, 'spacevim#defer#python')
 endif
 

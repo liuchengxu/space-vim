@@ -1,5 +1,9 @@
 scriptencoding utf-8
 
+if g:spacevim.speed_up_via_timer
+  call timer_start(500, 'spacevim#defer#defaults')
+endif
+
 " Smarter cursorline {
 augroup spacevimCursorline
   autocmd!
@@ -31,6 +35,21 @@ endif
 
 " vim-choosewin {
 let g:choosewin_overlay_enable = 1
+" }
+
+" vim-startify {
+if get(g:, 'spacevim_enable_startify', 1)
+  function! s:LoadStartifyIfNoArgs() abort
+    if !argc() && v:progname =~# 'vim$' && !dein#is_sourced('vim-startify')
+      call dein#source('vim-startify')
+    endif
+  endfunction
+
+  augroup spacevimStart
+    autocmd!
+    autocmd VimEnter * call s:LoadStartifyIfNoArgs()
+  augroup END
+endif
 " }
 
 execute 'source' fnamemodify(expand('<sfile>'), ':h') . '/keybindings.vim'

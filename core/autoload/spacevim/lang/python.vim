@@ -1,5 +1,5 @@
 function! spacevim#lang#python#run()
-  let l:cmd = has_key(g:plugs, 'asyncrun.vim') ? 'AsyncRun!' : '!'
+  let l:cmd = dein#is_available('asyncrun.vim') ? 'AsyncRun!' : '!'
   let l:exe = spacevim#lang#util#InferExecutable()
   let l:py = l:exe != '' ? l:exe : get(g:, 'spacevim_python_run', 'python')
   let l:fname = shellescape(@%, 1)

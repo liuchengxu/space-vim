@@ -3,7 +3,7 @@
 " ----------------------------------------------
 function! s:dispatch(...) abort
   if !exists('g:loaded_fzf')
-    call plug#load('fzf', 'fzf.vim')
+    call dein#source('fzf', 'fzf.vim')
   endif
   if a:0 == 2
     " FIXME better configurable

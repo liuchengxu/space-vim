@@ -1,6 +1,12 @@
 scriptencoding=utf-8
 
 " vim-airline {
+  if g:spacevim.speed_up_via_timer
+    " The waiting time for airline should be longer than the one for
+    " fugitive and ale.
+    call timer_start(250, 'spacevim#defer#airline')
+  endif
+
   let g:airline_theme='violet'
   let g:Powerline_symbols='fancy'
   let g:airline#extensions#branch#enabled = 1

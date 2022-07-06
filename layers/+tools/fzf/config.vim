@@ -18,6 +18,10 @@ if g:spacevim.gui && !has('terminal')
   " }
 else
   " fzf.vim {
+  if g:spacevim.speed_up_via_timer
+    call timer_start(700, 'spacevim#defer#fzf')
+  endif
+
   " Refer to https://github.com/liuchengxu/space-vim/issues/364
   let $LANG = 'en_US.UTF-8'
 

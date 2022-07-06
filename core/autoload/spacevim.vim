@@ -3,6 +3,9 @@ scriptencoding utf-8
 let g:spacevim.info = g:spacevim.base. '/core/autoload/spacevim/info.vim'
 let g:spacevim.layers_base = '/layers'
 let g:spacevim.private_base = '/private'
+let g:spacevim.state_base = fnamemodify(exists('*stdpath') ? stdpath('state') :
+  \ (g:spacevim.os.windows ? '~/AppData/Local/vim-data' :
+  \   (exists('$XDG_STATE_HOME') ? $XDG_STATE_HOME : '~/.local/state').'/vim'), ':p')
 let g:spacevim.nvim = has('nvim') && exists('*jobwait') && !g:spacevim.os.windows
 let g:spacevim.vim8 = exists('*job_start')
 let g:spacevim.timer = exists('*timer_start')
@@ -12,6 +15,7 @@ let g:spacevim.tmux = !empty($TMUX)
 let g:spacevim.loaded = ['spacevim'] " Enable spacevim layer by default
 let g:spacevim.excluded = []
 let g:spacevim.plugins = []
+let g:spacevim.enable_dein_recache = v:false
 
 let s:plug_options = {}
 let s:dot_spacevim = $HOME.'/.spacevim'
@@ -30,18 +34,16 @@ function! spacevim#bootstrap() abort
 endfunction
 
 function! spacevim#begin() abort
-  " Download vim-plug if unavailable
-  if !g:spacevim.os.windows
-    call s:check_vim_plug()
-  endif
   call s:define_command()
   call s:cache()
   call s:check_dot_spacevim()
+  call s:check_dein_vim()
 endfunction
 
-function! s:check_vim_plug() abort
-  let l:plug_path = g:spacevim.nvim ? '~/.local/share/nvim/site/autoload/plug.vim' : '~/.vim/autoload/plug.vim'
-  if empty(glob(l:plug_path)) | call spacevim#vim#plug#download(l:plug_path) | endif
+function! s:check_dein_vim() abort
+  let s:dein_path = g:spacevim_plug_home.'/repos/github.com/Shougo/dein.vim'
+  if empty(glob(s:dein_path.'/.git')) | call spacevim#vim#plug#download(s:dein_path) | endif
+  let &runtimepath .= ','.fnamemodify(s:dein_path, ':p:h')
 endfunction
 
 function! s:define_command() abort
@@ -51,17 +53,43 @@ function! s:define_command() abort
   command! -nargs=0 -bar SpaceInfo   call spacevim#debugging#Info()
   command! -nargs=0 -bar LayerCache  call spacevim#cache#init()
   command! -nargs=0 -bar LayerStatus call spacevim#layer#status()
+  command! -nargs=+ -bar Plug        call spacevim#vim#plug#Plug(<args>)
 endfunction
 
 function! s:check_dot_spacevim() abort
   if filereadable(expand(s:dot_spacevim))
+    call s:check_dot_spacevim_preset_variables()
     call s:Source(s:dot_spacevim)
     call extend(g:spacevim.loaded, get(g:, 'spacevim_layers', []))
-    let g:mapleader = get(g:, 'spacevim_leader', "\<Space>")
-    let g:maplocalleader = get(g:, 'spacevim_localleader', ',')
+    call s:check_dot_spacevim_postset_variables()
+    if(getftype(g:spacevim.state_base) !~# '\(dir\|link\)')
+      call mkdir(g:spacevim.state_base, 'p')
+    endif
+    call spacevim#util#CheckFileTimestamp(
+      \ s:dot_spacevim,
+      \ g:spacevim.state_base.'/.dot_spacevim_last_changed',
+      \ {-> execute('let g:spacevim.enable_dein_recache = v:true')})
   else
     call spacevim#util#err('.spacevim does not exist! Exiting...')
   endif
+endfunction
+
+function! s:check_dot_spacevim_preset_variables() abort
+  let g:dein#types#git#clone_depth = 1
+  let g:dein#enable_hook_function_cache = v:true
+  let g:dein#install_process_timeout = 6000
+endfunction
+
+function! s:check_dot_spacevim_postset_variables() abort
+  let g:mapleader = get(g:, 'spacevim_leader', "\<Space>")
+  let g:maplocalleader = get(g:, 'spacevim_localleader', ',')
+  let g:spacevim_plug_home = get(g:, 'spacevim_plug_home',
+    \ g:spacevim.nvim ? '~/.local/share/nvim/plugged' : '~/.vim/plugged')
+  let g:spacevim_enable_plug_cache = get(g:, 'spacevim_enable_plug_cache', 1)
+  let g:spacevim_enable_plug_merge = get(g:, 'spacevim_enable_plug_merge', 1)
+  let g:spacevim_enable_temp_build = get(g:, 'spacevim_enable_temp_build', 0)
+  let g:spacevim_lsp_engine = get(g:, 'spacevim_lsp_engine', 'lcn')
+  let g:spacevim.speed_up_via_timer = get(g:, 'spacevim_speed_up_via_timer', g:spacevim.timer)
 endfunction
 
 function! s:cache() abort
@@ -108,16 +136,6 @@ function! s:my_plugin(plugin, ...) abort
   endif
   if a:0 == 1
     let s:plug_options[a:plugin] = a:1
-    if has_key(a:1, 'on_event')
-      let l:group = 'load/'.a:plugin
-      let l:name = split(a:plugin, '/')[1]
-      let l:events = join(s:to_a(a:1.on_event), ',')
-      let l:load = printf("call plug#load('%s')", l:name)
-      execute "augroup" l:group
-      autocmd!
-      execute 'autocmd' l:events '*' l:load '|' 'autocmd!' l:group
-      execute 'augroup END'
-    endif
   endif
 endfunction
 
@@ -125,7 +143,7 @@ function! s:Source(file) abort
   try
     execute 'source ' . fnameescape(a:file)
   catch
-    echom v:exception
+    call spacevim#util#err(v:exception)
     call spacevim#cache#init()
   endtry
 endfunction
@@ -138,6 +156,8 @@ function! spacevim#end() abort
   " Backward compatibility
   if exists('*Layers') | call Layers() | endif
 
+  call s:validate_manifest()
+
   call s:register_plugin()
   " Make vim-better-default settings can be overrided
   silent! runtime! plugin/default.vim
@@ -145,45 +165,70 @@ function! spacevim#end() abort
   call s:config()
   if exists('*UserConfig') | call UserConfig() | endif
 
-  call s:spacevim_helptags()
+  call spacevim#util#CheckFileTimestamp(
+    \ g:spacevim.base.'/core/doc/spacevim.txt',
+    \ g:spacevim.base.'/core/doc/.spacevim_last_helptags_run',
+    \ {-> execute('helptags '.g:spacevim.base.'/core/doc')})
 
   call s:check_missing_plugins()
   silent doautocmd <nomodeline> User SpacevimAfterUserConfig
 endfunction
 
-" Initialize vim-plug system
-function! s:register_plugin() abort
-  " https://github.com/junegunn/vim-plug/issues/559
-  call plug#begin(get(g:, 'spacevim_plug_home',
-        \ g:spacevim.nvim ? '~/.local/share/nvim/plugged' : '~/.vim/plugged/'))
-  call s:packages()
-  " Register non-excluded plugins
-  function! s:filter_and_register(val) abort
-    if index(g:spacevim.excluded, a:val) < 0
-      if has_key(s:plug_options, a:val)
-        call plug#(a:val, s:plug_options[a:val])
-      else
-        call plug#(a:val)
-      endif
+function! s:validate_manifest() abort
+  if !empty(filter(copy(g:spacevim.loaded), {_,v -> !has_key(g:spacevim.manifest, v)}))
+    call spacevim#util#info('.spacevim specifies layer(s) not in info.vim: trying to rebuild info.vim')
+    call spacevim#cache#init()
+    let bad_layers = filter(copy(g:spacevim.loaded), {_,v -> !has_key(g:spacevim.manifest, v)})
+    if !empty(bad_layers)
+      call spacevim#util#info('.spacevim specifies the following invalid layers: '.string(bad_layers))
+      call filter(g:spacevim.loaded, {_,v -> has_key(g:spacevim.manifest, v)})
     endif
-  endfunction
-  call extend(g:spacevim.excluded, get(g:, 'spacevim_excluded', []))
-  call map(copy(g:spacevim.plugins), 's:filter_and_register(v:val)')
-  if exists('*UserInit') | call UserInit() | endif
-  call plug#end()
+  endif
+endfunction
+
+" Initialize dein system
+function! s:register_plugin() abort
+  if g:spacevim_enable_plug_merge == 0
+    let g:dein#default_options = { 'merged': v:false }
+  endif
+
+  call spacevim#vim#plug#dein_cache_setup()
+
+  if !g:spacevim_enable_plug_cache || g:spacevim.enable_dein_recache || dein#load_state(g:spacevim_plug_home)
+    call dein#begin(g:spacevim_plug_home)
+    call dein#add(s:dein_path)
+    call s:packages()
+    function! s:register(val) abort
+      if has_key(s:plug_options, a:val)
+        call dein#add(a:val, s:plug_options[a:val])
+      else
+        call dein#add(a:val)
+      endif
+    endfunction
+    call extend(g:spacevim.excluded, get(g:, 'spacevim_excluded', []))
+    call dein#disable(g:spacevim.excluded)
+    call map(copy(g:spacevim.plugins), {_,v -> s:register(v)})
+    if exists('*UserInit') | call UserInit() | endif
+    if g:spacevim_enable_plug_cache
+      call spacevim#vim#plug#dein_cache_clear()
+    endif
+    if g:spacevim.enable_dein_recache && g:spacevim_enable_plug_merge
+      call dein#recache_runtimepath()
+    endif
+    call dein#end()
+    if g:spacevim_enable_plug_cache
+      call dein#save_state()
+    endif
+  endif
+  filetype plugin indent on
+  syntax enable
+  delcommand Plug
+  delcommand MP
 endfunction
 
 function! s:packages() abort
-  let g:spacevim.speed_up_via_timer = get(g:, 'spacevim_speed_up_via_timer', g:spacevim.timer)
   " Load Layer packages
-  for l:layer in g:spacevim.loaded
-    try
-      let l:layer_packages = g:spacevim.manifest[l:layer].dir . '/packages.vim'
-    catch
-      call spacevim#cache#init()
-    endtry
-    call s:Source(l:layer_packages)
-  endfor
+  call map(copy(g:spacevim.loaded), {_,v -> s:Source(g:spacevim.manifest[v].dir.'/packages.vim')})
 
   " Try private Layer packages
   if exists('g:spacevim.private')
@@ -205,21 +250,6 @@ function! s:config() abort
 
   " Load private config
   if filereadable(expand(s:private_config)) | call s:Source(s:private_config) | endif
-endfunction
-
-function! s:spacevim_helptags() abort
-  let helptag_file = g:spacevim.base . '/core/doc/spacevim.txt'
-  let helptag_time = getftime(helptag_file)
-  let helptag_lastrun_file = g:spacevim.base . '/core/doc/.spacevim_last_helptags_run'
-  let helptag_lastrun_time = filereadable(helptag_lastrun_file) ? readfile(helptag_lastrun_file) : []
-  if (len(helptag_lastrun_time) != 1) || (helptag_lastrun_time[0] != helptag_time)
-    try
-      execute 'helptags' g:spacevim.base . '/core/doc'
-      call writefile([helptag_time], helptag_lastrun_file)
-    catch
-      echom v:exception
-    endtry
-  endif
 endfunction
 
 function! s:check_missing_plugins() abort
@@ -246,12 +276,4 @@ function! spacevim#load_any(...) abort
     endif
   endfor
   return 0
-endfunction
-
-function! spacevim#VimPlugPostUpdateHook(make, cmd, info) abort
-  if spacevim#load('programming')
-    execute('AsyncRun -mode=term -pos=tab '.(a:make?'-program=make ':'').'@ '.a:cmd)
-  else
-    call system(a:cmd)
-  endif
 endfunction
