@@ -116,7 +116,7 @@ endfunction
 
 " vim-lsp {
 function! s:vim_lsp() abort
-  let g:lsp_diagnostics_enabled = 0
+  let g:lsp_diagnostics_enabled = 1
   if executable('rls')
     autocmd User lsp_setup call spacevim#lang#lsp#register_rls()
   endif
@@ -188,7 +188,24 @@ function! s:whichkey_vim_lsp_integration()
       \ },
     \ 'X': {
       \ 'name': '+server',
-      \ 's': ['<plug>(lsp-status)', 'server-status'],
+      \ 's': ['<plug>(lsp-status)', 'status'],
+      \ 'a': ['lsp#print_server_status()', 'status-all'],
+      \ 'S': [':echo "change text to invoke vim-lsp start"'  , 'start'],
+      \ 't': ['lsp#stop_server(lsp#get_whitelisted_servers(bufnr("%"))[0])', 'stop'],
+      \ 'T': ['map(copy(lsp#get_whitelisted_servers()), {s -> lsp#stop_server(s)})', 'stop-all'],
+      \ 'd': {
+        \ 'name': '+diagnostics',
+        \ 'n': ['execute("echo ".string(lsp#get_server_names()),"")', 'echo-names'],
+        \ 'N': ['setbufvar(bufnr("%"), "lsp_names", lsp#get_server_names())', 'get-names b:lsp_names'],
+        \ 'a': ['execute("echo ".string(lsp#get_allowed_servers(bufnr("%"))),"")', 'echo-allowed'],
+        \ 'A': ['setbufvar(bufnr("%"), "lsp_allowed", lsp#get_allowed_servers(bufnr("%")))', 'get-allowed b:lsp_allowed'],
+        \ 'w': ['execute("echo ".string(lsp#get_whitelisted_servers(bufnr("%"))),"")', 'echo-whitelisted'],
+        \ 'W': ['setbufvar(bufnr("%"), "lsp_whitelisted", lsp#get_whitelisted_servers(bufnr("%")))', 'get-whitelisted b:lsp_whitelisted'],
+        \ 'I': ['setbufvar(bufnr("%"), "lsp_info", lsp#get_server_info(lsp#get_whitelisted_servers(bufnr("%"))[0]))', 'get-info b:lsp_info'],
+        \ 'c': ['execute("echo ".string(lsp#get_server_capabilities(lsp#get_whitelisted_servers(bufnr("%"))[0])),"")', 'echo-capabilities'],
+        \ 'C': ['setbufvar(bufnr("%"), "lsp_caps", lsp#get_server_capabilities(lsp#get_whitelisted_servers(bufnr("%"))[0]))', 'get-capabilities b:lsp_caps'],
+        \ 's': ['execute("echo ".string(asyncomplete#get_source_names()),"")', 'echo-asyncomplete-sources'],
+        \ },
       \ },
     \ })
     return s:new_keymap_normal

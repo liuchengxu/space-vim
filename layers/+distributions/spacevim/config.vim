@@ -75,7 +75,6 @@ silent! set showtabline=1 tabline=%!spacevim#vim#tab#TabLine()
 
 if !spacevim#load('chinese')
   silent! set langmenu=en_US
-  let $LANG = 'en_US'
   runtime $VIMRUNTIME/delmenu.vim $VIMRUNTIME/menu.vim
 endif
 
