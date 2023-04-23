@@ -1,5 +1,9 @@
 scriptencoding utf-8
 
+if g:spacevim.speed_up_via_timer
+  call timer_start(400, 'spacevim#defer#programming')
+endif
+
 augroup spacevimNewFile
   autocmd!
   " Add title automatically when new files and move cursor to the end of file

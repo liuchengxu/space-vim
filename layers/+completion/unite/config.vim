@@ -1,4 +1,8 @@
 " unite.vim {
+  if g:spacevim.speed_up_via_timer
+    call timer_start(500, 'spacevim#defer#unite')
+  endif
+
   " menu prefix key (for all Unite menus)
   nnoremap [menu] <Nop>
   nmap <LocalLeader> [menu]
@@ -16,8 +20,4 @@
   nnoremap <silent>[menu]u :Unite -silent menu:u<CR>
 
   nnoremap <silent>[menu]v :call spacevim#map#manager#QuickOpen()<CR>
-
-  if !g:spacevim.timer
-    call spacevim#autocmd#unite#Init()
-  endif
 " }

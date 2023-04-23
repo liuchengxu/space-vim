@@ -10,7 +10,7 @@ scriptencoding utf-8
   let g:UltiSnipsJumpForwardTrigger = "<c-j>"
   let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 
-  if has_key(g:plugs, 'ncm2-ultisnips')
+  if dein#is_available('ncm2-ultisnips')
     " <CR> is used to expand snippets
     inoremap <silent> <expr> <CR> ((pumvisible() && empty(v:completed_item)) ?  "\<c-y>\<cr>" : (!empty(v:completed_item) ? ncm2_ultisnips#expand_or("", 'n') : "\<CR>" ))
     imap <expr> <c-u> ncm2_ultisnips#expand_or("\<Plug>(ultisnips_expand)", 'm')

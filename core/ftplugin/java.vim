@@ -3,6 +3,13 @@ if exists('b:did_spacevim_java_ftplugin') || !spacevim#load('java')
 endif
 let b:did_spacevim_java_ftplugin = 1
 
+if dein#is_available('vim-javacomplete2')
+  augroup spacevimONCE
+    autocmd!
+    autocmd InsertEnter * ++once call dein#source('vim-javacomplete2')
+  augroup END
+endif
+
 setlocal omnifunc=javacomplete#Complete
 
 " The commented key mappings are the defaults by vim-javacomplete2.

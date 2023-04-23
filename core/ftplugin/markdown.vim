@@ -37,7 +37,7 @@ let g:tagbar_type_markdown = {
         \ ]
       \ }
 
-if g:spacevim.timer
+if g:spacevim.speed_up_via_timer
   call timer_start(1300, 'spacevim#defer#markdown')
 endif
 

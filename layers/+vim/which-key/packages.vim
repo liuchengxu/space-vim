@@ -1,2 +1,2 @@
-MP 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!', 'WhichKeyVisual', 'WhichKeyVisual!'] }
-autocmd! User vim-which-key call spacevim#autocmd#which_key#Init()
+MP 'liuchengxu/vim-which-key', { 'on_cmd': ['WhichKey', 'WhichKeyVisual'],
+  \ 'hook_source': function('spacevim#autocmd#which_key#Init') }

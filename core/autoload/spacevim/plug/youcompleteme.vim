@@ -1,4 +1,4 @@
-function! spacevim#plug#youcompleteme#build(info)
+function! spacevim#plug#youcompleteme#build() abort
   let args = ['install.py', '--clang-completer']
 
   call system('go version')
@@ -11,15 +11,9 @@ function! spacevim#plug#youcompleteme#build(info)
     call add(args, '--rust-completer')
   endif
 
-  " info is a dictionary with 3 fields
-  " - name:   name of the plugin
-  " - status: 'installed', 'updated', or 'unchanged'
-  " - force:  set on PlugInstall! or PlugUpdate!
-  if a:info.status ==# 'installed' || a:info.force
-    " Prefer python3
-    call insert(args, executable('python3') ? '!python3' : '!python')
-    call spacevim#VimPlugPostUpdateHook(v:false, join(args, ' '), a:info)
-  endif
+  " Prefer python3
+  call insert(args, executable('python3') ? '!python3' : '!python')
+  call spacevim#vim#plug#post_update('YouCompleteMe', join(args, ' '))
 endfunction
 
 " Load YCM for specific filetypes
@@ -35,14 +29,14 @@ function! s:load_ycm()
         \ ]
   let l:cur_ft = &filetype
   if index(l:supported, l:cur_ft) > -1
-    call plug#load('YouCompleteMe')
+    call dein#source('YouCompleteMe')
   endif
 endfunction
 
 " Load for supported types when loading via timer
 function! spacevim#plug#youcompleteme#invoke(timer) abort
   if !exists('g:loaded_youcompleteme')
-    call plug#load('YouCompleteMe')
+    call dein#source('YouCompleteMe')
   endif
 endfunction
 

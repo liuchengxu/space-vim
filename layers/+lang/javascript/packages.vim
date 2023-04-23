@@ -1,2 +1,2 @@
-MP 'pangloss/vim-javascript',  { 'for': ['javascript'] }
-MP 'neoclide/vim-jsx-improve', { 'for': ['javascript', 'javascript.jsx'] }
+MP 'pangloss/vim-javascript',  { 'on_ft': ['javascript'] }
+MP 'neoclide/vim-jsx-improve', { 'on_ft': ['javascript', 'javascript.jsx'] }

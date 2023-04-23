@@ -1,7 +1,7 @@
 Layer Manifest
 ==============
 
-Last updated: 2022-09-29 12:39:45
+Last updated: 2022-09-29 16:50:50
 
 Default layers: `fzf`, `better-defaults` and `which-key`.
 
@@ -47,7 +47,7 @@ Topic                | Layer | Plugins
 +themes              | [airline](https://github.com/liuchengxu/space-vim/tree/master/layers/+themes/airline) | <ul><li>[vim-airline/vim-airline](https://github.com/vim-airline/vim-airline)</li><li>[vim-airline/vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)</li></ul>
 +themes              | [lightline](https://github.com/liuchengxu/space-vim/tree/master/layers/+themes/lightline) | <ul><li>[itchyny/lightline.vim](https://github.com/itchyny/lightline.vim)</li></ul>
 +tools               | [cscope](https://github.com/liuchengxu/space-vim/tree/master/layers/+tools/cscope) | <ul><li>[romainl/vim-qf](https://github.com/romainl/vim-qf)</li></ul>
-+tools               | [ctags](https://github.com/liuchengxu/space-vim/tree/master/layers/+tools/ctags) | <ul><li>[ludovicchabant/vim-gutentags](https://github.com/ludovicchabant/vim-gutentags)</li></ul>
++tools               | [ctags](https://github.com/liuchengxu/space-vim/tree/master/layers/+tools/ctags) | <ul><li>[ludovicchabant/vim-gutentags](https://github.com/ludovicchabant/vim-gutentags)</li><li>[universal-ctags/ctags](https://github.com/universal-ctags/ctags)</li><li>[yaml/libyaml](https://github.com/yaml/libyaml)</li></ul>
 +tools               | [docker](https://github.com/liuchengxu/space-vim/tree/master/layers/+tools/docker) | <ul><li>[ekalinin/Dockerfile.vim](https://github.com/ekalinin/Dockerfile.vim)</li></ul>
 +tools               | [file-manager](https://github.com/liuchengxu/space-vim/tree/master/layers/+tools/file-manager) | <ul><li>[Xuyuanp/nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-plugin)</li><li>[danro/rename.vim](https://github.com/danro/rename.vim)</li><li>[liuchengxu/nerdtree-dash](https://github.com/liuchengxu/nerdtree-dash)</li><li>[ryanoasis/vim-devicons](https://github.com/ryanoasis/vim-devicons)</li><li>[scrooloose/nerdtree](https://github.com/scrooloose/nerdtree)</li><li>[tiagofumo/vim-nerdtree-syntax-highlight](https://github.com/tiagofumo/vim-nerdtree-syntax-highlight)</li></ul>
 +tools               | [fzf](https://github.com/liuchengxu/space-vim/tree/master/layers/+tools/fzf) | <ul><li>[Yggdroot/LeaderF](https://github.com/Yggdroot/LeaderF)</li><li>[junegunn/fzf](https://github.com/junegunn/fzf)</li><li>[junegunn/fzf.vim](https://github.com/junegunn/fzf.vim)</li><li>[liuchengxu/vim-clap](https://github.com/liuchengxu/vim-clap)</li><li>[vn-ki/coc-clap](https://github.com/vn-ki/coc-clap)</li></ul>

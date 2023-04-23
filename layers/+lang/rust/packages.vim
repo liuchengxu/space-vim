@@ -2,8 +2,9 @@
 MP 'cespare/vim-toml'
 
 if g:spacevim.speed_up_via_timer
-  MP 'rust-lang/rust.vim', { 'on': [] }
+  MP 'rust-lang/rust.vim', { 'lazy': 1,
+    \ 'hook_source': function('spacevim#autocmd#rust#Init') }
 else
-  MP 'rust-lang/rust.vim', { 'for': 'rust' }
+  MP 'rust-lang/rust.vim', { 'on_ft': 'rust',
+    \ 'hook_source': function('spacevim#autocmd#rust#Init') }
 endif
-autocmd! User rust.vim call spacevim#autocmd#rust#Init()

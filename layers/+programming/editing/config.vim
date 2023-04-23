@@ -26,3 +26,23 @@ scriptencoding utf-8
   nnoremap <Leader>ss :call Swoop()<CR>
   nnoremap <Leader>sm :call SwoopMulti()<CR>
 " }
+
+" auto-pairs {
+  function! s:TryInitAutoPairs() abort
+    if !dein#is_available('auto-pairs')
+      return
+    endif
+    if !exists('g:AutoPairsLoaded')
+      call dein#source('auto-pairs')
+    endif
+    if exists('*AutoPairsTryInit')
+      call AutoPairsTryInit()
+    endif
+    autocmd! spacevimAutoPairs
+  endfunction
+
+  augroup spacevimAutoPairs
+    autocmd!
+    autocmd CursorHold,CursorHoldI,InsertEnter * call <SID>TryInitAutoPairs()
+  augroup END
+" }

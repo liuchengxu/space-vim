@@ -10,16 +10,10 @@ if !isdirectory(s:vim_tags)
    silent! call mkdir(s:vim_tags, 'p')
 endif
 
-let g:spacevim#vim#ctags#cache_dir = s:vim_tags
-
 function! spacevim#autocmd#gutentags#Init()
   let g:gutentags_ctags_tagfile = '.tags'
   " set default tags file name `tags` to `.tags`
   set tags=./.tags;,.tags
-
-  let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
-  let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
-  let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
 
   let g:gutentags_modules = s:modules
 

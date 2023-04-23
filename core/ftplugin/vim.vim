@@ -9,6 +9,9 @@ let b:ale_linters = ['vint']
 
 nnoremap <buffer> <LocalLeader>gh :<C-U>call spacevim#util#OpenPluginHomepage()<CR>
 
-if has_key(g:plugs, 'coc-neco') && !exists('g:did_coc_neco_loaded')
-  call plug#load('neco-vim', 'coc-neco')
+if dein#is_available('coc-neco')
+  call dein#source('coc-neco')
+endif
+if dein#is_available('neco-vim')
+  call dein#source('neco-vim')
 endif
