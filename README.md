@@ -85,38 +85,19 @@ If you have been a vimmer for quite a while, just pick out the part you are inte
 
 ### Prerequisites
 
-The most recent Vim(NeoVim) version is recommended, for space-vim has been specifically optimized for Vim8 and NeoVim with respect to the startup time.
+The most recent Vim(NeoVim) version is recommended.
 
-[chocolatey](https://chocolatey.org/) is an easy way to install software on Windows, tools like `fzf`, `rg`, `ag` are necessary to get you a full-featured space-vim.
+space-vim aspires to adhere to the zero-install philosophy, just clone and use. Optional dependencies not installed on the system are downloaded and built from source where possible, and are used embedded within the application.
 
-:exclamation: ~~When layers enabled at the first time, you need to run `:PlugInstall` to install relevant plugins~~.
+> In order to make a project zero-install, you must be able to use it as soon as you clone it.
 
-### Linux and macOS
+At present there is a lack of the above dependency build feature on Windows. [chocolatey](https://chocolatey.org/) is an easy way to install software on Windows, tools like `fzf`, `rg`, `ag`, `rustc`, `cargo`, `npm` are necessary to get you a full-featured space-vim.
 
-`/path/to/space-vim` may be `~/.vim` (Vim), `~/.config/nvіm` (Neovim), or elsewhere. Installing space-vim to the conventional Vim/Neovim install location mitigates the need for an extra symlink to where space-vim is installed.
+### Install location
 
-#### one-line installer
+Installing space-vim to the conventional Vim/Neovim install location mitigates the need for an extra symlink to where space-vim is installed. `/path/to/space-vim` may be `~/.vim` (Vim), `~/.config/nvіm` (Neovim), or elsewhere.
 
-```bash
-$ bash <(curl -fsSL https://raw.githubusercontent.com/liuchengxu/space-vim/master/install.sh)
-```
-
-#### Makefile
-
-```bash
-$ git clone https://github.com/liuchengxu/space-vim.git /path/to/space-vim
-$ cd /path/to/space-vim
-$ make vim     # install space-vim for Vim
-$ make neovim  # install space-vim for NeoVim
-```
-
-### Windows
-
-The easist way is to download [`install.cmd`](https://raw.githubusercontent.com/liuchengxu/space-vim/master/install.cmd) and **run it as administrator**, or [install space-vim manually](https://github.com/liuchengxu/space-vim/wiki/install#windows).
-
-![windows](https://raw.githubusercontent.com/liuchengxu/img/master/space-vim/win-gvim.png)
-
-### Manual
+### Clone
 
 1. Clone [space-vim](https://github.com/liuchengxu/space-vim):
 
@@ -125,18 +106,7 @@ The easist way is to download [`install.cmd`](https://raw.githubusercontent.com/
     $ git clone https://github.com/liuchengxu/space-vim.git --single-branch /path/to/space-vim
     ```
 
-2. Install [vim-plug](https://github.com/junegunn/vim-plug#installation), refer to vim-plug installation section for more information:
-    ```bash
-    # For Vim
-    $ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-        
-    # For NeoVim
-    sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-           https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-    ```
-
-3. Create the symlinks and install plugins:
+2. Create the symlink(s):
 
     **Linux and macOS**
 
@@ -144,54 +114,23 @@ The easist way is to download [`install.cmd`](https://raw.githubusercontent.com/
     # **For Vim**
     # If space-vim not installed to ~/.vim/:
     $ ln -s /path/to/space-vim/init.vim ~/.vimrc
-    # Copy init.spacevim for local customization
-    $ cp /path/to/space-vim/init.spacevim ~/.spacevim
-    $ vim -es +'PlugInstall' +qall
 
     # **For NeoVim**
     # If space-vim not installed to ~/.config/nvim/:
     $ ln -s /path/to/space-vim/init.vim ~/.config/nvim/init.vim
-    # Copy init.spacevim for local customization
-    $ cp /path/to/space-vim/init.spacevim ~/.spacevim
-    $ nvim +'PlugInstall' +qall
-    ```
+
+
 
 ## Customize
 
+    ```bash
+    # Copy init.spacevim for local customization, or symlink it
+    $ cp /path/to/space-vim/init.spacevim ~/.spacevim
+    ```
+
 You can use `.spacevim` in your home directory to customize space-vim, where you can enable the existing layers, add your extra plugins and private configurations.
 
-If `.spacevim` does not exist, vanilla vim will be loaded! Refer to [init.spacevim](init.spacevim) as an example.
-
-### Presetting
-
-```vim
-" Comment the following line if you don't want Vim and NeoVim to share the
-" same plugin download directory.
-let g:spacevim_plug_home = '~/.vim/plugged'
-
-" Uncomment the following line to override the leader key. The default value is space key "<\Space>".
-" let g:spacevim_leader = "<\Space>"
-
-" Uncomment the following line to override the local leader key. The default value is comma ','.
-" let g:spacevim_localleader = ','
-
-" Enable the existing layers in space-vim
-" Refer to https://github.com/liuchengxu/space-vim/blob/master/layers/LAYERS.md for all available layers.
-let g:spacevim_layers = [
-      \ 'fzf', 'better-defaults', 'which-key',
-      \ ]
-
-" Uncomment the following line if your terminal(-emulator) supports true colors.
-" let g:spacevim_enable_true_color = 1
-
-" Uncomment the following if you have some nerd font installed.
-" let g:spacevim_nerd_fonts = 1
-
-" If you want to have more control over the layer, try using Layer command.
-" if g:spacevim.gui
-"   Layer 'airline'
-" endif
-```
+### .spacevim details
 
 Please refer to [LAYERS.md](layers/LAYERS.md) to take a look at the whole shipped layers.
 
@@ -199,18 +138,22 @@ Basically, `g:spacevim_layers` almost takes the place of `Layer` command. As far
 
 ### `UserInit()`
 
+`UserInit()` may be used to add plugins that are not within a layer.
+
 ```vim
 " Manage your own plugins.
-" Refer to https://github.com/junegunn/vim-plug for more detials.
+" Refer to https://github.com/Shougo/dein.vim for more detials.
 function! UserInit()
 
-  " Add your own plugin via Plug command.
+  " Add your own plugin via Plug command (wrapper around dein#add)
   Plug 'junegunn/seoul256.vim'
 
 endfunction
 ```
 
 ### `UserConfig()`
+
+Configuration may be placed in `UserConfig()`, and/or in a `plugin/` folder on the runtime path. E.g. `~/.vim/plugin/<pluginname>.vim` for each local plugin configuration.
 
 ```vim
 " Override the default settings as well as adding extras
@@ -288,15 +231,6 @@ First, install the [Source Code Pro](https://github.com/adobe-fonts/source-code-
 Second, since console Vim uses whatever font the console/terminal is using, you'll have to change the font setting of your terminal.
 
 ## Update
-
-Run `make update`:
-
-```bash
-$ cd path/to/space-vim
-$ make update
-```
-
-Alternatively, you can manually perform the following steps. If anything has changed with the structure of the configuration, you will have to create the appropriate symlinks.
 
 ```bash
 $ cd path/to/space-vim

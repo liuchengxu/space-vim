@@ -1,29 +1,20 @@
-function! s:coc() abort
-  MP 'neoclide/coc.nvim', { 'branch': 'release' }
-
-  call timer_start(200, function('spacevim#plug#coc#Init'))
+if g:spacevim_lsp_engine ==# 'coc'
+  MP 'neoclide/coc.nvim', { 'rev': 'release' }
 
   " Load these two plugins in core/ftplugin/vim.vim
-  MP 'Shougo/neco-vim',   { 'on': [] }
-  MP 'neoclide/coc-neco', { 'on': [] }
-endfunction
-
-function! s:vim_lsp() abort
+  MP 'Shougo/neco-vim',   { 'lazy': 1 }
+  MP 'neoclide/coc-neco', { 'lazy': 1 }
+elseif g:spacevim_lsp_engine ==# 'vim_lsp'
   MP 'prabirshrestha/async.vim'
   MP 'prabirshrestha/vim-lsp'
   MP 'mattn/vim-lsp-settings'
   if spacevim#load('ale')
     MP 'rhysd/vim-lsp-ale'
   endif
-endfunction
-
-function! s:lcn() abort
+elseif g:spacevim_lsp_engine ==# 'lcn'
   MP 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': function('spacevim#VimPlugPostUpdateHook', [v:false, 'bash install.sh']),
+    \ 'rev': 'next',
+    \ 'hook_post_update': function('spacevim#vim#plug#post_update',
+    \   ['LanguageClient-neovim', 'bash install.sh']),
     \ }
-endfunction
-
-let g:spacevim_lsp_engine = get(g:, 'spacevim_lsp_engine', 'lcn')
-
-call s:{g:spacevim_lsp_engine}()
+endif

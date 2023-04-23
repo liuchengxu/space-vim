@@ -1,2 +1,2 @@
-MP 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
-autocmd! User vim-latex-live-preview call spacevim#autocmd#latex#Init()
+MP 'xuhdev/vim-latex-live-preview', { 'on_ft': 'tex',
+  \ 'hook_source': function('spacevim#autocmd#latex#Init') }

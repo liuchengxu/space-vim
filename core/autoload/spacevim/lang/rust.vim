@@ -1,5 +1,5 @@
 function! spacevim#lang#rust#Run() abort
-  if has_key(g:plugs, 'asyncrun.vim')
+  if dein#is_available('asyncrun.vim')
     AsyncRun cargo run
   else
     !cargo run
@@ -9,7 +9,7 @@ endfunction
 function! spacevim#lang#rust#Build() abort
   if has('terminal')
     call spacevim#vim#term#Run('cargo', 'build')
-  elseif has_key(g:plugs, 'asyncrun.vim')
+  elseif dein#is_available('asyncrun.vim')
     AsyncRun cargo build
   else
     !cargo build

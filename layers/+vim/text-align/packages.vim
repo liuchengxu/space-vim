@@ -1,2 +1,2 @@
-MP 'godlygeek/tabular',        { 'on': 'Tabularize' }
-MP 'junegunn/vim-easy-align',  { 'on': [ '<Plug>(EasyAlign)', 'EasyAlign' ] }
+MP 'godlygeek/tabular',        { 'on_cmd': 'Tabularize' }
+MP 'junegunn/vim-easy-align',  { 'on_map': '<Plug>(EasyAlign)', 'on_cmd': 'EasyAlign' }

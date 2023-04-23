@@ -1,2 +1,2 @@
-MP 'junegunn/vim-emoji', { 'for': 'markdown' }
+MP 'junegunn/vim-emoji', { 'on_ft': 'markdown' }
 

@@ -1,4 +1,8 @@
 " easy-motion
+if g:spacevim.speed_up_via_timer
+  call timer_start(600, 'spacevim#defer#motion')
+endif
+
 " Default key bindings:
 " <Leader><Leader>w : word
 " <Leader><Leader>b : back

@@ -1,1 +1,1 @@
-MP 'Chiel92/vim-autoformat',          { 'on': 'Autoformat' }
+MP 'Chiel92/vim-autoformat',          { 'on_cmd': 'Autoformat' }
