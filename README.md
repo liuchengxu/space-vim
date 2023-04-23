@@ -225,6 +225,12 @@ function! UserConfig()
   " It is good for airline layer.
   " let g:airline_powerline_fonts = 1
 
+  " If your want open mouse support, uncomment the line below
+  " set mouse-=a  
+
+  " If your don't want relative number, uncomment the line below
+  " set norelativenumber
+
 endfunction
 ```
 
