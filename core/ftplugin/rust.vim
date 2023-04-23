@@ -16,6 +16,6 @@ let b:ale_fixers = [
       \ 'rustfmt',
       \ ]
 
-if g:spacevim.timer
+if g:spacevim.speed_up_via_timer
   call timer_start(300, 'spacevim#defer#rust')
 endif

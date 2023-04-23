@@ -1,4 +1,4 @@
-MP 'Quramy/tsuquyomi',            { 'for': 'typescript' }
-MP 'Shougo/vimproc.vim',          { 'for': 'typescript', 'do' : 'make' }
-MP 'leafgarland/typescript-vim',  { 'for': 'typescript' }
-MP 'ianks/vim-tsx',               { 'for': 'typescript.tsx' }
+MP 'Quramy/tsuquyomi',            { 'on_ft': 'typescript' }
+MP 'Shougo/vimproc.vim',          { 'on_ft': 'typescript', 'build' : 'make' }
+MP 'leafgarland/typescript-vim',  { 'on_ft': 'typescript' }
+MP 'ianks/vim-tsx',               { 'on_ft': 'typescript.tsx' }

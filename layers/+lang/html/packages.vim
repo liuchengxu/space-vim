@@ -1,3 +1,3 @@
-MP 'othree/html5.vim',       { 'for': 'html' }
-MP 'hail2u/vim-css3-syntax', { 'for': 'css' }
-MP 'mattn/emmet-vim',        { 'for': [ 'html', 'vue', 'css' ] }
+MP 'othree/html5.vim',       { 'on_ft': 'html' }
+MP 'hail2u/vim-css3-syntax', { 'on_ft': 'css' }
+MP 'mattn/emmet-vim',        { 'on_ft': [ 'html', 'vue', 'css' ] }

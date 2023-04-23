@@ -1,1 +1,1 @@
-MP 'posva/vim-vue', { 'for': 'vue' }
+MP 'posva/vim-vue', { 'on_ft': 'vue' }

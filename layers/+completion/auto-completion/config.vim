@@ -1,6 +1,15 @@
 scriptencoding utf-8
 
-if has_key(g:plugs, 'vim-mucomplete')
+if exists('g:spacevim_use_ncm2') || has('nvim-0.2.2') && has('python3')
+  " Enable ncm2 for all buffer
+  augroup spacevimNcm2
+    autocmd!
+    autocmd CursorHold,InsertEnter * call ncm2#enable_for_buffer()
+  augroup END
+  let g:ncm2#matcher = 'abbrfuzzy'
+endif
+
+if dein#is_available('vim-mucomplete')
   let g:mucomplete#enable_auto_at_startup = 1
   let g:mucomplete#no_mappings = 1
   inoremap <expr> <c-e> mucomplete#popup_exit("\<c-e>")

@@ -1,1 +1,1 @@
-MP 'derekwyatt/vim-scala', { 'for': 'scala' }
+MP 'derekwyatt/vim-scala', { 'on_ft': 'scala' }

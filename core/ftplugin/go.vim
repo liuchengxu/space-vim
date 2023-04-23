@@ -11,6 +11,6 @@ nmap <buffer> <LocalLeader>t  <Plug>(go-test)
 nmap <buffer> <LocalLeader>i  :GoImports<CR>
 nmap <buffer> gi <Plug>(go-implements)
 
-if g:spacevim.timer
+if g:spacevim.speed_up_via_timer
  call timer_start(300, 'spacevim#defer#go')
 endif

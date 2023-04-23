@@ -1,5 +1,5 @@
 if g:spacevim.nvim
-  MP 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins'  }
+  MP 'Shougo/deoplete.nvim', { 'hook_post_update': ':UpdateRemotePlugins' }
 else
   MP 'Shougo/deoplete.nvim'
   MP 'roxma/nvim-yarp'
@@ -10,4 +10,5 @@ endif
 MP 'eagletmt/neco-ghc'
 MP 'Shougo/neco-vim'
 MP 'sebastianmarkow/deoplete-rust'
-MP 'zchee/deoplete-go', { 'do': function('spacevim#VimPlugPostUpdateHook', [v:true, '']) }
+MP 'zchee/deoplete-go', { 'hook_post_update':
+  \ function('spacevim#vim#plug#post_update', ['deoplete-go', 'make']) }

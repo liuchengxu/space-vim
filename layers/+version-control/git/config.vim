@@ -1,5 +1,10 @@
 scriptencoding utf-8
 
+if g:spacevim.speed_up_via_timer
+  call timer_start(300, 'spacevim#defer#git')
+  call timer_start(800, 'spacevim#defer#fugitive')
+endif
+
 " vim-fugitive {
   nnoremap <silent> <Leader>gs :Git<CR>
   nnoremap <silent> <Leader>gd :Gdiffsplit<CR>
