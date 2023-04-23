@@ -14,6 +14,8 @@ function! s:try_show_signature_help() abort
 endfunction
 
 function! s:coc() abort
+  call timer_start(200, function('spacevim#plug#coc#Init'))
+
   " Better display for messages
   set cmdheight=2
 

@@ -19,7 +19,7 @@ endfunction
 
 " argument plugin is the vim plugin's name
 function! spacevim#util#IsDir(plugin) abort
-  return isdirectory(expand(g:my_plug_home.a:plugin)) ? 1 : 0
+  return getftype(expand(g:spacevim_plug_home.'/'.a:plugin)) =~# '\(dir\|link\)'
 endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
@@ -140,6 +140,22 @@ function! spacevim#util#Getfsize(fname) abort
   return size
 endfunction
 
+" call OnChanged if checkf was changed, by compare checkf timestamp to ftimef
+function! spacevim#util#CheckFileTimestamp(checkf, ftimef, OnChanged) abort
+  let checkf_time = getftime(a:checkf)
+  let ftimef_time = filereadable(a:ftimef) ? readfile(a:ftimef) : []
+  if (len(ftimef_time) != 1) || (ftimef_time[0] != checkf_time)
+    try
+      call a:OnChanged()
+      call writefile([checkf_time], a:ftimef, 'S')
+    catch
+      echom v:exception
+    endtry
+  endif
+endfunction
+
+
+
 function! spacevim#util#FloatingWin() abort
   let height = &lines - 3
   let width = float2nr(&columns - (&columns * 2 / 10))
@@ -182,6 +198,33 @@ function! spacevim#util#PathSep() abort
   return g:spacevim.os.windows ? '\' : '/'
 endfunction
 
+function! spacevim#util#PathEnvSep() abort
+  return g:spacevim.os.windows ? ';' : ':'
+endfunction
+
+function! spacevim#util#PrefixPATH(p) abort
+  let pathsep = spacevim#util#PathEnvSep()
+  if index(split($PATH, pathsep), a:p) == -1
+    let $PATH = a:p.pathsep.$PATH
+  endif
+endfunction
+
+function! spacevim#util#PostfixPATH(p) abort
+  let pathsep = spacevim#util#PathEnvSep()
+  if index(split($PATH, pathsep), a:p) == -1
+    let $PATH = $PATH.pathsep.a:p
+  endif
+endfunction
+
+function! spacevim#util#SymbolicLink(target, linkname) abort
+  if g:spacevim.os.windows
+    call system('mklink '.(isdirectory(a:target) ? '/D ' : '').
+      \ a:linkname.' '.a:target)
+  else
+    call system('ln -s '.a:target.' '.a:linkname)
+  endif
+endfunction
+
 " command! ProfileStart call spacevim#util#ProfileStart()
 " command! ProfileStop  call spacevim#util#ProfileStop()
 "
@@ -212,4 +255,41 @@ function! spacevim#util#CycleQuickfix(action, fallback) abort
   finally
     normal! zz
   endtry
+endfunction
+
+" Params:
+"  [in] file: to call `--version` on
+"  [in] vregex: regex to extract v_req components
+"  [in] v_req: list containing required version components
+"  [in] f_req: a list either empty or containing argument to
+"   query features, and pattern to detect if feature is present, e.g.
+"   ['--list-features', '\V\nyaml']
+" Returns [v:true, [v_maj, v_min, ...]], [v:false, [v_maj, v_min, ...]], or [v:false]
+function! spacevim#util#IsVersionSufficient(file, vregex, v_req, f_req) abort
+  if executable(a:file) == 1
+    let fversion = system(a:file.' --version')
+    if !v:shell_error
+      let version_parts = matchlist(fversion, a:vregex)
+      if !empty(version_parts)
+        let isVersionSufficient = v:true
+        for i in range(1, len(version_parts))
+          if empty(version_parts[i])
+            let version_parts = version_parts[1:i-1]
+            break
+          elseif version_parts[i] < a:v_req[i-1]
+            let isVersionSufficient = v:false
+          endif
+          let version_parts[i] = str2nr(version_parts[i])
+        endfor
+        if !empty(a:f_req)
+          let fquery = system(a:file.' '.a:f_req[0])
+          if v:shell_error || -1 == match(fquery, a:f_req[1])
+            return [v:false, version_parts]
+          endif
+        endif
+        return [isVersionSufficient, version_parts]
+      endif
+    endif
+  endif
+  return [v:false]
 endfunction

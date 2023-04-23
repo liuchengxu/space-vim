@@ -1,6 +1,7 @@
 if g:spacevim.speed_up_via_timer
-  MP 'fatih/vim-go', { 'on': [], 'do': ':GoInstallBinaries' }
+  MP 'fatih/vim-go', { 'hook_post_update': ':GoInstallBinaries',
+    \ 'hook_source': function('spacevim#autocmd#go#Init'), 'lazy': 1 }
 else
-  MP 'fatih/vim-go', { 'for': 'go', 'do': ':GoInstallBinaries' }
+  MP 'fatih/vim-go', { 'hook_post_update': ':GoInstallBinaries',
+    \ 'hook_source': function('spacevim#autocmd#go#Init'), 'on_ft': 'go' }
 endif
-autocmd! User vim-go call spacevim#autocmd#go#Init()

@@ -31,8 +31,11 @@ function! spacevim#map#manager#BufTags() abort
 
   " fzf
   elseif exists(':BTags')
-    if !exists('g:loaded_fzf')
-      call plug#load('fzf', 'fzf.vim')
+    if !dein#is_sourced('fzf')
+      call dein#source('fzf')
+    endif
+    if !dein#is_sourced('fzf.vim')
+      call dein#source('fzf.vim')
     endif
     BTags
 

@@ -2,6 +2,10 @@ scriptencoding utf-8
 
 if g:spacevim.vim8 || g:spacevim.nvim
   " ale {
+  if g:spacevim.speed_up_via_timer
+    call timer_start(200, 'spacevim#defer#ale')
+  endif
+
   let g:ale_set_highlights = 0
   let g:ale_fix_on_save = 1
   let g:ale_echo_msg_format = '[#%linter%#] %s [%severity%]'

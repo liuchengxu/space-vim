@@ -116,3 +116,41 @@ g:spacevim_enable_clap                                     *g:spacevim_enable_cl
   Default: `0`
 
   Use https://github.com/liuchengxu/vim-clap as the plugin of fzf layer.
+
+g:spacevim_plug_home                                    *g:spacevim_plug_home*
+  Type: |Path|
+  Default: Vim: `~/.vim/plugged` NeoVim: `~/.local/share/nvim/plugged`
+
+  In .spacevim is set to `~/.vim/plugged` as stock configuration for Vim and
+  NeoVim to share the same plugin download directory.
+
+g:spacevim_enable_plug_cache                    *g:spacevim_enable_plug_cache*
+  Type: |Number|
+  Default: `1`
+
+  Dein caches the plugin list for better startup performance.
+  Set this to 0 disable that cache.
+  Note: To force the regeneration of this cache, delete
+  `g:spacevim_plug_home/state_{v:progname}` and restart Vim.
+  Note: This cache is inflexible, changes are not detected in layers and
+  should be disabled while changing layer packages.vim.
+
+g:spacevim_enable_plug_merge                    *g:spacevim_enable_plug_merge*
+  Type: |Number|
+  Default: `1`
+
+  Dein merges the layer plugins together into one folder for better startup and
+  runtime performance.
+  Set this to 0 disable that merging, with possible filename conflicts.
+  Note: Private plugins in .spacevim UserInit() are not merged.
+  Note: If set to 0 dein does not generate plugin helptags.
+
+g:spacevim_enable_temp_build                    *g:spacevim_enable_temp_build*
+  Type: |Number|
+  Default: `0`
+
+  Following the zero-install build-from-source philosophy, dependency builds
+  will occur within a `tempfile` directory, likely on RAM depending on system
+  configuration. The intermediate files take up space and only the output is
+  required. The tempfile directory is deleted when Vim exits. The largest
+  dependency, rustc, requires about 14GiB. Others are a 4GiB or less.

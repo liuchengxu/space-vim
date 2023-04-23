@@ -1,1 +1,1 @@
-MP 'vim-ruby/vim-ruby', { 'for': 'ruby' }
+MP 'vim-ruby/vim-ruby', { 'on_ft': 'ruby' }

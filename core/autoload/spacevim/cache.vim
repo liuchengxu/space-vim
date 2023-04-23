@@ -9,6 +9,7 @@ function! spacevim#cache#init() abort
   else
     call s:init()
   endif
+  let g:spacevim.enable_dein_recache = v:true
 endfunction
 
 function! s:init()
