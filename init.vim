@@ -35,6 +35,27 @@ if g:spacevim.os.windows
 endif
 " }
 
+
+""
+"" core runtimepath
+""
+
 let &runtimepath = &runtimepath . ',' . g:spacevim.base . '/core'
+
+
+""
+"" plug.vim runtimepath
+""
+
+let g:spacevim_plugvim_cachepath = '~/.cache/space-vim'
+let g:spacevim_plugvim_runtimepath = g:spacevim_plugvim_cachepath . '/site'
+let g:spacevim_plugvim_filepath = g:spacevim_plugvim_runtimepath . '/autoload/plug.vim'
+
+let &runtimepath = g:spacevim_plugvim_runtimepath . ',' . &runtimepath
+
+
+""
+"" bootstrap
+""
 
 call spacevim#bootstrap()

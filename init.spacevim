@@ -1,6 +1,8 @@
 " Comment the following line if you don't want Vim and NeoVim to share the
 " same plugin download directory.
-let g:spacevim_plug_home = '~/.vim/plugged'
+"let g:spacevim_plug_home = '~/.vim/plugged'
+"let g:spacevim_plug_home = '~/.cache/space-vim/plug'
+let g:spacevim_plug_home = g:spacevim_plugvim_cachepath . '/plug'
 
 " Uncomment the following line to override the leader key. The default value is space key "<\Space>".
 " let g:spacevim_leader = "<\Space>"
