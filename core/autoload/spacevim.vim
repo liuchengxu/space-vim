@@ -1,5 +1,6 @@
 scriptencoding utf-8
 
+
 let g:spacevim.info = g:spacevim.base. '/core/autoload/spacevim/info.vim'
 let g:spacevim.layers_base = '/layers'
 let g:spacevim.private_base = '/private'
@@ -40,7 +41,9 @@ function! spacevim#begin() abort
 endfunction
 
 function! s:check_vim_plug() abort
-  let l:plug_path = g:spacevim.nvim ? '~/.local/share/nvim/site/autoload/plug.vim' : '~/.vim/autoload/plug.vim'
+  "let l:plug_path = g:spacevim.nvim ? '~/.local/share/nvim/site/autoload/plug.vim' : '~/.vim/autoload/plug.vim'
+  "let l:plug_path = '~/.cache/space-vim/site/autoload/plug.vim'
+  let l:plug_path = g:spacevim_plugvim_filepath
   if empty(glob(l:plug_path)) | call spacevim#vim#plug#download(l:plug_path) | endif
 endfunction
 
